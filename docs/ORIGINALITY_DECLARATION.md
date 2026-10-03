@@ -1,0 +1,3 @@
+# Originality record — milestone draft
+This local implementation was newly created on 2026-10-03. The workspace initially contained the user-supplied references and no game source. The maps, character shapes, interface and crop rendering were authored for this project with disclosed AI assistance. No source or assets from another farming game were copied into this project.
+The team must verify eligibility, ownership, usage rights, development-period history, publication status and this record before signing the competition declaration. This document is a development record, not a signed declaration on the team's behalf. No publishing, repository push or submission has occurred in this task.

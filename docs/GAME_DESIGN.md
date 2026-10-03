@@ -1,0 +1,7 @@
+# Simple Life — Milestone 1
+An original tropical homestead in warm sage, clay and cream. A small hopeful farming game: buy tomato seeds, nurture them over three successful days, sell the harvest, repeat.
+Home → Farm → City are separate connected maps. Start at Home, 60 coins, health/energy 100, free watering can and harvest tool. Boy/girl choices share mechanics. Six pre-tilled plots keep the first loop focused.
+Tomato: seed 10 coins, yield 2, sell 18 each, three growth days. Water once before 16:00 and once after 16:00. Both waterings earn one growth day when sleeping/at midnight. Missing a watering delays growth; dry crops wilt after one fully dry day, die after two, and can be cleared. Mature crops remain harvestable. Actions cost energy; walking and clearing dead crops are free to prevent softlocks. Unlimited watering can.
+Clock: 06:00–24:00 over four real minutes. Morning, afternoon, evening, night tint. Bed offers rest until 16:00 (no growth/energy reward), or next-day sleep (restore energy). At midnight return home and start next day; no punitive/death mechanics in this slice. Menus and hidden tabs pause simulation.
+Controls: WASD/arrows, E/Space use, 1/2/3 seed/water/harvest, Escape pause. On-screen directional pad, contextual use and clickable tools support touch. Click a nearby plot to target it; proximity still required.
+Non-goals: forest, animals, combat, weapons, death, money recovery, additional crops, story ending, final audio. Health is visible and saved but remains 100 in normal slice play.
