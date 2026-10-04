@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "legacySave": "v1 money/day/inventory/crops/energy/health preserved",
+  "menus": [
+    "390x844",
+    "844x390"
+  ],
+  "animationFrames": {
+    "left": [
+      7,
+      6,
+      8
+    ],
+    "up": [
+      4,
+      3,
+      5
+    ],
+    "right": [
+      10,
+      9,
+      11
+    ],
+    "down": [
+      1,
+      0,
+      2
+    ]
+  },
+  "edge": {
+    "x": 0,
+    "y": 147,
+    "width": 640,
+    "height": 360,
+    "zoom": 2
+  },
+  "errors": []
+}

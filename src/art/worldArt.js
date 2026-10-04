@@ -1,63 +1,59 @@
-const C = { grass: 0x8fab72, light: 0xb1c486, dark: 0x52775b, path: 0xddc597, edge: 0xbfa77d, wood: 0x885c43, cream: 0xf4e7bd, roof: 0xbb7255, water: 0x79b6ad };
-export function drawWorld(scene, area) {
-  const g = scene.add.graphics();
-  const box = (x,y,w,h,c) => { g.fillStyle(c); g.fillRect(x,y,w,h); };
-  const tree = (x,y,k=1) => { box(x-5,y,10,35,C.wood); g.fillStyle(0x45694e); g.fillEllipse(x+4,y+10,70*k,28*k); g.fillStyle(C.dark); g.fillCircle(x,y-10,30*k); g.fillStyle(0x73966a); g.fillCircle(x-10,y-22,23*k); g.fillStyle(0x90ae75); g.fillCircle(x-14,y-30,12*k); };
-  const label = (x,y,t,size=15,color='#f9edcb') => scene.add.text(x,y,t,{fontFamily:'monospace',fontSize:size,color,fontStyle:'bold',backgroundColor:'#48664e',padding:{x:9,y:6}}).setOrigin(.5);
-  box(0,0,960,540,C.grass);
-  for(let i=0;i<240;i++) { const x=(i*137+17)%960,y=(i*73+37)%540; box(x,y,3,5,i%3?0x9bb780:0x7f9e68); }
-  box(0,495,960,45,0x749764); box(0,0,960,72,0x75956d);
-  for(let i=0;i<11;i++) { tree(i*98+5,63,.9); if(i<3||i>6)tree(i*103,505,.75); }
-  if(area==='home') {
-    box(165,107,630,398,0x395a4b);box(180,120,600,370,0xb88b5c);
-    for(let y=150;y<490;y+=32) { box(180,y,600,2,0xa67a50); for(let x=180+(y%64);x<780;x+=100)box(x,y,2,32,0xae8054); }
-    box(180,107,600,45,0xedd7a4);box(180,146,600,9,0x88684c);
-    box(406,128,110,55,0x896a49);box(414,130,94,43,0xa8c8a9);box(458,130,5,44,C.cream);
-    box(232,178,124,151,0x664f3e);box(240,180,108,140,C.cream);box(246,222,96,91,0x71988e);box(246,226,96,10,0x9fc0a6);box(257,189,73,26,0xfff4d2);
-    box(580,174,130,55,C.wood);box(588,178,114,35,0xc39061);box(603,187,28,17,0xf1d5a0);
-    box(610,340,90,65,C.wood);box(615,340,80,55,0xb9895d);g.fillStyle(C.cream);g.fillCircle(656,363,20);g.fillStyle(0x76945b);g.fillCircle(656,358,12);
-    box(399,337,158,86,0xc27350);box(409,347,138,66,0xd89c6d);box(420,356,116,48,0xc67f58);
-    box(445,469,70,25,0x554c3e);label(480,472,'FARM ↓',14);label(291,169,'BED',13);
-    tree(738,262,.65);
-  } else {
-    box(45,250,870,64,C.edge);box(45,256,870,52,C.path);
-    for(let i=0;i<40;i++)box(52+i*23,270+(i%3)*13,12,3,0xd0b589);
-    if(area==='farm') {
-      box(151,225,62,180,C.path);box(180,389,488,43,C.path);
-      box(95,127,180,105,C.cream);box(85,109,200,42,C.roof);box(97,96,176,22,0xcc8962);box(107,85,156,16,0xde9e71);
-      for(let i=0;i<8;i++)box(90+i*25,114,3,28,0xa96048);
-      box(155,169,48,63,0x6c6550);box(219,163,32,30,0x7da4a0);box(225,167,20,22,0xb4d0ba);
-      label(180,119,'HOME',13);label(858,233,'CITY →',14);
-      box(322,188,299,216,0x739260);
-      box(680,338,190,126,0xc5c99b);g.fillStyle(C.water);g.fillRoundedRect(693,350,164,101,25);g.fillStyle(0xa0d1bf);g.fillEllipse(770,384,106,8);g.fillEllipse(788,418,70,5);
-      for(let i=0;i<5;i++){box(703+i*27,444,4,23,C.dark);box(700+i*27,440,3,12,0xabc082);}
-      tree(750,160);tree(82,366,.8);label(476,170,'THE TOMATO PATCH',13);
-      for(let x=305;x<640;x+=28){box(x,430,7,40,C.cream);box(x-1,425,9,7,C.cream);}box(305,438,334,6,C.cream);
-    } else {
-      box(480,130,50,350,C.path);box(235,320,540,37,C.path);
-      for(const [x,title,color] of [[270,'SEEDS',0x729877],[560,'PRODUCE',0xc28159]]) {
-        box(x,134,180,96,0xf0ddb0);box(x-8,116,196,38,color);
-        for(let i=0;i<8;i++)box(x-8+i*25,149,13,14,0xf2d9a9);
-        box(x+7,190,166,42,C.wood);box(x+14,190,152,27,0xc09366);
-        for(let i=0;i<5;i++){g.fillStyle(title==='SEEDS'?0xd7b972:0xc96044);g.fillCircle(x+28+i*30,201,8);}
-        label(x+90,136,title,16);g.fillStyle(0xdeb58b);g.fillCircle(x+90,173,12);box(x+78,156,24,9,0x536a53);
-      }
-      label(100,235,'← FARM',14);tree(815,177);tree(174,148,.8);tree(130,410,.8);
-      box(695,365,140,25,C.wood);box(706,390,9,43,C.wood);box(814,390,9,43,C.wood);
-      g.fillStyle(0x95b4a0);g.fillCircle(495,401,33);g.fillStyle(C.cream);g.fillCircle(495,401,25);g.fillStyle(C.water);g.fillCircle(495,400,19);
+// All visible world art uses the same atlas at two world units per source pixel.
+const SCALE=2;
+export function image(scene,name,x,y,depth=0){return scene.add.image(Math.round(x),Math.round(y),'world',name).setOrigin(0).setScale(SCALE).setDepth(depth);}
+function tiled(scene,name,x,y,w,h,depth=0){return scene.add.tileSprite(x,y,w,h,'world',name).setOrigin(0).setTileScale(SCALE).setDepth(depth);}
+export function drawWorld(scene,area){
+  const indoor=area==='home';
+  tiled(scene,indoor?'stone':'grass0',0,0,960,640);
+  if(indoor){
+    tiled(scene,'floor0',160,128,640,384);tiled(scene,'wall',160,96,640,32,120);
+    tiled(scene,'wall',144,128,16,384,520);tiled(scene,'wall',800,128,16,384,520);
+    tiled(scene,'wall',160,496,286,16,520);tiled(scene,'wall',514,496,286,16,520);
+    image(scene,'window',420,94,128);image(scene,'window',660,94,128);
+    image(scene,'bed',240,180,320);image(scene,'dresser',580,174,229);
+    image(scene,'table',594,340,405);image(scene,'pot',640,329,406);
+    image(scene,'pot',732,156,196);image(scene,'pot',186,440,472);
+    tiled(scene,'path0',446,480,68,32,1);image(scene,'door',448,480,2);
+    // Woven rug, a pixel pattern composed of atlas floor/soil colors.
+    const rug=scene.add.graphics().setDepth(1);rug.fillStyle(0x925d49);rug.fillRect(400,348,152,96);rug.fillStyle(0xc29b68);rug.fillRect(408,356,136,80);rug.fillStyle(0x925d49);rug.fillRect(414,362,124,68);
+    for(let x=418;x<540;x+=12){rug.fillStyle(0xd7af55);rug.fillRect(x,366,4,4);rug.fillRect(x,422,4,4);}
+  }else{
+    // Deterministic tile variation avoids texture noise and visible large repeats.
+    for(let y=0;y<20;y++)for(let x=0;x<30;x++){const hash=(x*17+y*31)%11;if(hash<4)image(scene,'grass'+hash,x*32,y*32,0);}
+    tiled(scene,'path0',32,256,896,64,1);
+    if(area==='farm'){
+      tiled(scene,'path1',160,224,64,208,1);tiled(scene,'path1',192,400,448,32,1);
+      image(scene,'house',88,56,232);image(scene,'sign',816,214,262);
+      tiled(scene,'grass2',326,192,280,200,1);
+      for(let x=312;x<640;x+=32)image(scene,'fence',x,422,462);
+      for(let y=192;y<384;y+=32)image(scene,'fence',304,y,y+40);
+      tiled(scene,'stone',680,336,192,128,1);tiled(scene,'water0',696,352,160,96,2);
+      for(let x=696;x<860;x+=32)image(scene,'bush',x,436,472);
+      image(scene,'palm',706,82,200);image(scene,'rock',668,350,382);
+      image(scene,'flowers',266,324,356);image(scene,'pot',116,224,255);image(scene,'pot',235,224,255);
+    }else{
+      tiled(scene,'path1',320,224,64,208,1);tiled(scene,'path1',624,224,64,208,1);tiled(scene,'stone',264,320,496,64,1);
+      image(scene,'seed-shop',264,104,232);image(scene,'produce-shop',552,104,232);
+      image(scene,'sign',60,226,264).setFlipX(true);image(scene,'counter',692,360,408);
+      image(scene,'pot',274,240,268);image(scene,'pot',710,236,268);image(scene,'tree1',772,52,180);
+      image(scene,'palm',170,54,180);image(scene,'flowers',550,400,432);
+    }
+    // Borders and vegetation overlap by their feet, so the player passes behind foliage.
+    for(let x=-32;x<1000;x+=80){image(scene,'tree'+(Math.abs(x/16)%2),x,-56,72);image(scene,'tree0',x+24,498,626);}
+    for(let y=40;y<540;y+=110){image(scene,'tree1',-56,y,y+128);image(scene,'tree0',890,y,y+128);}
+    for(const [x,y]of [[70,370],[215,438],[840,410],[580,64],[390,74],[54,170],[650,462]])image(scene,'bush',x,y,y+40);
+    for(const [x,y]of [[82,332],[262,364],[554,462],[838,318],[610,90],[276,86]])image(scene,'flowers',x,y,y+32);
+    for(const [x,y]of [[56,428],[640,462],[832,128]])image(scene,'rock',x,y,y+32);
+  }
+}
+export function drawPlots(scene,plots,group){
+  group.clear(true,true);
+  for(const [i,pos]of scene.plotPositions.entries()){
+    const p=plots?.[i];const soil=p?.morning||p?.evening?'watered-soil':'soil';
+    const tile=scene.add.tileSprite(pos.x-32,pos.y-32,64,64,'world',soil).setOrigin(0).setTileScale(2).setDepth(2);group.add(tile);
+    if(p?.crop){const stage=p.dryDays>=2?5:p.dryDays===1?4:p.growth;
+      group.add(scene.add.image(pos.x,pos.y+20,'world','crop'+stage).setOrigin(.5,1).setScale(2).setDepth(pos.y+20));
+      if(p.growth===3)group.add(scene.add.image(pos.x+22,pos.y-32,'world','marker').setScale(1).setDepth(pos.y+21));
     }
   }
-  return g;
-}
-export function makeCharacter(scene, character) {
-  const g=scene.add.graphics();
-  g.fillStyle(0x263f36,.22);g.fillEllipse(0,6,30,12);
-  g.fillStyle(0x425447);g.fillRect(-9,-1,7,9);g.fillRect(3,-1,7,9);
-  g.fillStyle(character==='girl'?0xb96e4e:0xe2b35f);g.fillRect(-11,-21,22,23);
-  g.fillStyle(0xf0c493);g.fillRect(-14,-19,4,15);g.fillRect(10,-19,4,15);g.fillRect(-10,-39,20,20);
-  g.fillStyle(0x4e4636);g.fillRect(-12,-43,24,10);g.fillRect(-12,-35,5,10);
-  if(character==='girl'){g.fillRect(8,-34,6,19);g.fillRect(-14,-34,6,19);}
-  g.fillStyle(0x33493f);g.fillRect(-5,-30,3,3);g.fillRect(5,-30,3,3);
-  g.fillStyle(0xf0d49a);g.fillRect(-15,-43,30,6);g.fillRect(-10,-49,20,8);
-  return g;
 }

@@ -1,28 +1,36 @@
-# Milestone 1 verification — 2026-10-03
-## Deterministic systems
-`npm test`: 7/7 passing. Covers full three-successful-day crop/economy/save loop, missed watering/dry death/free clearing, energy/funds/duplicate-action safeguards, malformed save validation, denied storage/corrupt JSON, collision/spawn safety, capped delta and midnight rollover.
+# Verification — Milestone 1 visual correction, 2026-10-04
+## Production acceptance
+`tests/browser/canvas-acceptance.mjs` passed against the production preview at port 4173, after passing against the development build. Tests control keyboard, mouse and real CDP touch events on the rendered canvas. The diagnostic snapshot is read-only and used for assertions/control hit regions; no gameplay functions or progress fields are mutated during the complete loop.
 
-## Browser loop
-`tests/browser/full-loop.mjs` ran with Playwright controlling a dedicated agent-browser Chromium session on the dev server, then the production preview. It used real keyboard movement and UI buttons, never injected gameplay state. Save snapshots were read for assertions.
-Passed: New Game → girl → movement through Home/Farm/City → buy 1 seed → plant → morning and evening watering on each of 3 days, bed rest/sleep → mature crop on day 4 → harvest 2 tomatoes → sell for 36 → balance 86 → save → refresh → Continue. Character, area, inventory, crop plots, money, day, energy and health survived refresh. Pause froze time. No page errors.
-Found/fixed: sub-frame key taps could be missed by frame-polled JustDown. Actions now use non-repeating key-down events. Retested rapid taps in production. First Vite launch briefly failed during dependency replacement; restarted and verified cleanly. Updated Vite from 6.1.0 to patched 6.4.3; npm installation audit reports zero vulnerabilities.
+- Viewports: **1440×900, 1280×720, 1024×768, 390×844, 844×390**.
+- At each: canvas dimensions equal viewport, document does not scroll, no DOM header/footer/buttons/headings outside the canvas, dark page fallback, canvas buttons within bounds, player movement and camera world bounds valid.
+- Camera follows across the farm; no map-edge blank area. Integer zoom and nearest filtering; screenshots visually inspected by the agent.
+- Full loop: new girl → Home/Farm/City → buy seed → plant → morning/evening water and sleep for three growing days → harvest two on day 4 → sell → 86 coins → Save → refresh → Continue. Character, area, day, money, health, energy, crops, inventory and sales count preserved. Boy selection also passes.
+- Touch movement, selected tools, pause freezing time, direction changes/idle, local-only asset requests.
+- No page errors or console warnings recorded in the complete production run.
 
-## Mobile and visual checks
-`tests/browser/layout-touch.mjs`: passed on production. Chromium mobile emulation with real CDP touch start/end moved the player ~92 world pixels; touchscreen tool selection, 360×640, 640×360 and 1280×720 checks passed. No horizontal overflow or clipped essential panels; no page errors. Inspected screenshots manually as an agent. A narrow-landscape grid overflow and portrait HUD wrapping were found and corrected. Actual physical Android/iOS devices remain untested.
-Screenshots are in docs/verification/, separate from the runtime build. These are development evidence, not the final competition submission screenshot set.
+`tests/browser/canvas-legacy-menus.mjs` passed in a separate disposable context with a version-1 save fixture. Preserves money/day, planted crop state, inventories, health/energy, selection and character. Both actual walking frames per direction were observed, followed by idle. Boundary collision and camera limits checked. Title/help/confirmation/character menus checked at 390×844 and 844×390.
 
-## Repeating browser tests
-Install Playwright in a separate QA environment (not needed to run the game). Set PLAYWRIGHT_MODULE to its index.mjs path if not on Node's module resolution path. Start a dedicated `agent-browser --session simplelife open http://127.0.0.1:5173`, get its `get cdp-url`, then set CDP_URL to that URL.
+Reports: docs/verification/redesign/results.json and legacy-menus.json. Screenshots are development evidence, not final competition submission media. Old screenshots at docs/verification/ root show the superseded 0.1.0 presentation.
+
+## Rules and build
+`npm test`: **7/7 passed**, same pure rules/save/collision regressions as before the redesign. Gameplay/data/config modules remain unchanged in Git diff. `npm run build`: succeeds without important warnings; Phaser is split into a vendor chunk. No new runtime package dependency. Version 0.1.1.
+
+## Issues corrected during verification
+Title spacing, zoomed camera-coordinate interpretation for prompts, mobile menu sizing, distinct farm plot appearance, prompt placement/ripe-crop text, health/energy bar geometry resizing, and stale notifications overlapping pause headings. The old DOM browser tests were replaced because the visible interface now lives entirely inside Canvas.
+
+## Repeat browser tests
+Playwright is optional QA tooling, not a game dependency. Use an isolated browser session, never a user's live farm. The first script creates/replaces progress in its disposable context. The second uses only a test-context legacy fixture.
 
 ```sh
-node tests/browser/full-loop.mjs
-GAME_URL=http://127.0.0.1:4173 node tests/browser/full-loop.mjs
-node tests/browser/layout-touch.mjs
-node tests/browser/webkit-smoke.mjs
+# Start npm run dev or npm run preview separately.
+agent-browser --session redesign open 'http://127.0.0.1:4173/?qa'
+agent-browser --session redesign get cdp-url
+# Set CDP_URL to that returned browser WebSocket URL.
+# Set PLAYWRIGHT_MODULE to a Playwright index.mjs if not normally importable.
+GAME_URL=http://127.0.0.1:4173/ node tests/browser/canvas-acceptance.mjs
+GAME_URL=http://127.0.0.1:4173/ node tests/browser/canvas-legacy-menus.mjs
 ```
 
-The loop creates/replaces a save only in the dedicated test browser. Use GAME_URL to select dev or preview. WebKit smoke uses Playwright's installed WebKit by default; WEBKIT_EXECUTABLE can point to an existing compatible pw_run.sh. Browser tests capture screenshots into docs/verification/.
-
-## Coverage limits and performance
-Verified desktop engine: Headless Chromium 154. Mobile coverage is Chromium emulation, not a physical phone. Attempted a separate WebKit smoke run: the bundled Playwright expected a missing WebKit revision; the older installed WebKit failed at page creation with a Playwright protocol mismatch (`Page.overrideSetting: Unknown setting: PushAPIEnabled`). Safari/WebKit, Firefox, Edge and physical Android/iOS verification remain pending; no pass is claimed for them.
-The production build completed successfully with no chunk-size warnings after splitting Phaser. Local loading was responsive; a throttled stable-network/real-device loading benchmark is still pending. Do not equate localhost timing with competition hosting performance.
+## Limits
+Desktop engine tested: Chromium 154.0.8037.93. Mobile sizes/touch are emulation, not physical Android/iOS. Safari/WebKit, Firefox, Edge, real safe-area/browser-chrome behavior and throttled-network measurements remain pending. The earlier optional WebKit run failed because the installed WebKit and Playwright protocols do not match; no game compatibility failure or success is inferred from that environment error.

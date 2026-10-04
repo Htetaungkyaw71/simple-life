@@ -1,33 +1,51 @@
 import Phaser from 'phaser';
 import './ui/styles.css';
-import { WORLD } from './config.js';
-import { WorldScene } from './scenes/WorldScene.js';
-import { Interface } from './ui/interface.js';
-import { newState } from './systems/state.js';
-import { SaveService } from './systems/save.js';
-import { usePlot } from './systems/farming.js';
-import { buySeed, sellProduce } from './systems/economy.js';
-import { nextDay, tick } from './systems/time.js';
+import {WorldScene} from './scenes/WorldScene.js';
+import {Interface} from './ui/interface.js';
+import {newState} from './systems/state.js';
+import {SaveService} from './systems/save.js';
+import {usePlot} from './systems/farming.js';
+import {buySeed,sellProduce} from './systems/economy.js';
+import {nextDay,tick} from './systems/time.js';
 class Application {
-  constructor(){this.state=null;this.paused=true;this.input={};this.elapsed=0;let storage;try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}this.saves=new SaveService(storage);this.ui=new Interface(this);this.scene=new WorldScene(this);}
-  ready(){this.ui.title();}
-  start(state){this.state=state;this.scene.build();this.ui.play();this.save();}
-  newGame(character){this.start(newState(character));this.ui.toast('Welcome home. Follow the path through your farm to the city.');}
-  select(tool){this.state.selected=tool;this.save();document.activeElement?.blur();}
-  save(show=false){if(!this.state)return;const ok=this.saves.write(this.state);const el=document.querySelector('#save-status');if(el)el.textContent=ok?'Progress saved locally':'Saving unavailable';if(show||!ok)this.ui.toast(ok?'Your little life is saved.':this.saves.error);}
-  transact(fn){const message=fn(this.state);this.scene.renderCrops();this.save();if(message)this.ui.toast(message);}
-  advance(delta){if(tick(this.state,delta)){this.scene.build();this.save();this.ui.toast('A new dawn. You returned home and rested.');}this.elapsed+=delta;if(this.elapsed>2500){this.save();this.elapsed=0;}}
-  use(){if(this.paused||!this.state)return;const c=this.scene.context();if(!c)return;document.activeElement?.blur();
-    if(c.type==='plot'){this.transact(s=>usePlot(s,c.index));return;}
-    if(c.type==='travel'){this.state.area=c.to;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();this.save();return;}
-    if(c.type==='bed'){this.ui.modal('HOME SWEET HOME','Rest a while',`<p>Sleep restores all energy and begins the next day.<br>Tomatoes grow after both daily waterings.</p><p>Rest until evening skips to 16:00 without advancing growth.</p>`,[['Sleep → next day',()=>{this.transact(s=>{nextDay(s);return 'Good morning. A fresh day and full energy.';});this.scene.build();this.ui.close();}],...(this.state.minute<960?[['Rest until evening',()=>{this.state.minute=960;this.save();this.ui.close();this.ui.toast('16:00 · Time for evening watering.');},'secondary']]:[]),['Not yet',()=>this.ui.close(),'text-button']]);return;}
-    this.market(c.type);
+  constructor(){
+    this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
+    try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
+    this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
-  market(type){const s=this.state;const selling=type==='sell';this.ui.modal(selling?'CITY · PRODUCE MARKET':'CITY · SEED SHOP',selling?'Good things, grown by you.':'Every harvest starts here.',`<div class="shop-item"><span class="tomato-icon">✿</span><div><strong>${selling?'Fresh tomatoes':'Tomato seeds'}</strong><p>${selling?'18 coins each · Sell your whole harvest':'10 coins each · 3 growing days · 2 tomatoes'}</p></div></div><p>You have <b>${s.money} coins</b>, ${s.inventory.seed} seeds and ${s.inventory.tomato} tomatoes.</p><p>${selling?'Your first harvest is just the beginning.':'Water morning and evening. Sleep between growing days.'}</p>`,[[selling?`Sell ${s.inventory.tomato} tomatoes · ${s.inventory.tomato*18} coins`:'Buy 1 seed · 10 coins',()=>{this.transact(selling?sellProduce:buySeed);this.market(type);} ],['Back to the lane',()=>this.ui.close(),'secondary']]);}
-  pause(){if(!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('TAKE YOUR TIME','A moment of quiet','<p>Your farm is paused. Your progress is saved on this browser.</p>',[['Keep playing',()=>this.ui.close()],['Field notes',()=>this.ui.help(()=>this.ui.close()),'secondary'],['Save & title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();},'text-button']]);}
+  ready(){this.ui.title();}
+  start(state){if(!state)return;this.state=state;this.scene.build();this.ui.play();this.save();}
+  newGame(character){this.start(newState(character));this.ui.toast('First roots: visit the city seed shop. Follow the path outside.');}
+  select(tool){if(!this.state||this.paused)return;this.state.selected=tool;this.save();}
+  save(show=false){if(!this.state)return;const ok=this.saves.write(this.state);if(show||(!ok&&!this.storageWarned))this.ui.toast(ok?'Your farm is saved.':this.saves.error);this.storageWarned=!ok;}
+  transact(fn){const message=fn(this.state);this.scene.renderCrops();this.save();if(message)this.ui.toast(message);return message;}
+  advance(delta){if(tick(this.state,delta)){this.scene.build();this.save();this.ui.toast('A new dawn. You returned home and rested.');}this.elapsed+=delta;if(this.elapsed>2500){this.save();this.elapsed=0;}}
+  use(){
+    if(this.paused||!this.state)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);
+    if(c.type==='plot'){this.transact(s=>usePlot(s,c.index));return;}
+    if(c.type==='travel'){this.state.area=c.to;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();this.save();if(!this.visited.has(c.to))this.ui.toast(c.to==='city'?'City market: seeds to the left, produce to the right.':c.to==='farm'?'Farm: plant here. Water before and after 16:00.':'Home: rest or sleep at the bed.');this.visited.add(c.to);return;}
+    if(c.type==='bed'){
+      this.ui.modal('HOME','Rest a while','Sleep restores energy and grows watered crops. Rest skips to 16:00 for evening watering.',[
+        ['Sleep / next day',()=>{this.transact(s=>{nextDay(s);return 'Good morning. Full energy, a fresh day.';});this.scene.build();this.ui.close();}],
+        ...(this.state.minute<960?[['Rest until evening',()=>{this.state.minute=960;this.save();this.ui.close();this.ui.toast('16:00 / Evening watering time.');}]]:[]),['Not yet',()=>this.ui.close()],
+      ]);return;
+    }this.market(c.type);
+  }
+  market(type){
+    const s=this.state,selling=type==='sell';
+    this.ui.modal(selling?'CITY / PRODUCE MARKET':'CITY / SEED SHOP',selling?'Fresh from the farm':'Tomato seeds',selling?`Sell tomatoes for 18 coins each.\n\nYour harvest: ${s.inventory.tomato}\nYour coins: ${s.money}`:`10 coins / seed\n3 growing days / 2 tomatoes\nWater morning and evening.\n\nYour coins: ${s.money}   Seeds: ${s.inventory.seed}`,[
+      [selling?`Sell ${s.inventory.tomato} / ${s.inventory.tomato*18} coins`:'Buy 1 seed / 10 coins',()=>{const message=this.transact(selling?sellProduce:buySeed);this.market(type);this.ui.toast(message);}],['Back to the lane',()=>this.ui.close()],
+    ]);
+  }
+  pause(){if(!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','Take your time. Your farm can wait.',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
+  pauseMenu(){this.paused=false;this.pause();}
 }
 const app=new Application();
-new Phaser.Game({type:Phaser.CANVAS,parent:'game',width:WORLD.width,height:WORLD.height,backgroundColor:'#8fab72',pixelArt:true,antialias:false,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},scene:[app.scene],audio:{noAudio:true},input:{keyboard:{capture:[32,37,38,39,40]}}});
+new Phaser.Game({type:Phaser.CANVAS,parent:'game',width:innerWidth,height:innerHeight,backgroundColor:'#263e38',pixelArt:true,antialias:false,roundPixels:true,scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%',autoCenter:Phaser.Scale.NO_CENTER},scene:[app.scene,app.ui],audio:{noAudio:true},input:{activePointers:4,keyboard:{capture:[32,37,38,39,40]}}});
 window.addEventListener('pagehide',()=>app.save());
 window.addEventListener('blur',()=>{app.input={};if(app.scene.keys)Object.values(app.scene.keys).forEach(k=>k.reset());});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){app.input={};app.save();}});
+// Read-only observability for automated canvas tests; no gameplay mutation hooks.
+if(import.meta.env.DEV||new URLSearchParams(location.search).has('qa'))window.__simpleLife=Object.freeze({snapshot:()=>{
+  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,menu:app.ui.menu?.kind||null,controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name}:null,context:app.scene.context()};
+}});

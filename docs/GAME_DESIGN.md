@@ -5,3 +5,6 @@ Tomato: seed 10 coins, yield 2, sell 18 each, three growth days. Water once befo
 Clock: 06:00–24:00 over four real minutes. Morning, afternoon, evening, night tint. Bed offers rest until 16:00 (no growth/energy reward), or next-day sleep (restore energy). At midnight return home and start next day; no punitive/death mechanics in this slice. Menus and hidden tabs pause simulation.
 Controls: WASD/arrows, E/Space use, 1/2/3 seed/water/harvest, Escape pause. On-screen directional pad, contextual use and clickable tools support touch. Click a nearby plot to target it; proximity still required.
 Non-goals: forest, animals, combat, weapons, death, money recovery, additional crops, story ending, final audio. Health is visible and saved but remains 100 in normal slice play.
+
+## 0.1.1 visual correction
+Fullscreen original pixel-art presentation, bounded follow camera and canvas-only menus/HUD. Native 16px terrain, reusable PNG sprites, directional boy/girl animation, earthy tropical palette and compact pixel panels. No visible webpage shell or permanent tutorial paragraphs. Existing gameplay rules above are unchanged.

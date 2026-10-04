@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:4173/",
+  "browser": "154.0.8037.93",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "canvas": "fills viewport",
+      "scroll": false,
+      "movement": true,
+      "camera": {
+        "x": 145,
+        "y": 175,
+        "width": 720,
+        "height": 450,
+        "zoom": 2
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "canvas": "fills viewport",
+      "scroll": false,
+      "movement": true,
+      "camera": {
+        "x": 214,
+        "y": 220,
+        "width": 640,
+        "height": 360,
+        "zoom": 2
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "canvas": "fills viewport",
+      "scroll": false,
+      "movement": true,
+      "camera": {
+        "x": 303,
+        "y": 208,
+        "width": 512,
+        "height": 384,
+        "zoom": 2
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "canvas": "fills viewport",
+      "scroll": false,
+      "movement": true,
+      "camera": {
+        "x": 487,
+        "y": 189,
+        "width": 195,
+        "height": 422,
+        "zoom": 2
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "canvas": "fills viewport",
+      "scroll": false,
+      "movement": true,
+      "camera": {
+        "x": 386,
+        "y": 303,
+        "width": 422,
+        "height": 195,
+        "zoom": 2
+      }
+    }
+  ],
+  "fullLoop": "PASS: day 4, 86 coins, save/reload/Continue",
+  "touch": true,
+  "bothCharacters": true,
+  "animations": true,
+  "errors": [],
+  "warnings": []
+}

@@ -1,40 +1,70 @@
-import { clock, phase } from '../systems/time.js';
-import { LOCATIONS } from '../data/locations.js';
-export class Interface {
-  constructor(app) { this.app=app;this.overlay=document.querySelector('#overlay');this.hud=document.querySelector('#hud');this.bottom=document.querySelector('#bottom');this.location=document.querySelector('#location'); }
-  modal(kicker,title,body,buttons) {
-    this.app.paused=true;this.app.input={};this.overlay.hidden=false;
-    this.overlay.innerHTML=`<div class="card"><div class="eyebrow">${kicker}</div><h1>${title}</h1><div class="copy">${body}</div><div class="actions"></div></div>`;
-    for(const [label,fn,style]of buttons){const b=document.createElement('button');b.textContent=label;b.className=style||'';b.onclick=fn;this.overlay.querySelector('.actions').append(b);}
-    this.overlay.querySelector('button')?.focus({preventScroll:true});
+import Phaser from 'phaser';
+import {Hud} from './Hud.js';
+import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
+export class Interface extends Phaser.Scene {
+  constructor(app){super('UI');this.app=app;this.controls=[];this.menu=null;this.notice=null;}
+  create(){
+    this.app.ui=this;this.input.addPointer(3);this.scale.on('resize',()=>this.layout());
+    this.input.on('pointerup',()=>{this.app.input={};});this.input.on('gameout',()=>{this.app.input={};});
+    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.highlight();});
+    this.app.ready();
   }
-  close(){this.overlay.hidden=true;this.app.paused=false;document.activeElement?.blur();this.app.scene.keys&&Object.values(this.app.scene.keys).forEach(k=>k.reset());}
+  layout(){
+    this.root?.destroy(true);this.controls=[];this.root=this.add.container().setScale(2);this.w=Math.floor(this.scale.width/2);this.h=Math.floor(this.scale.height/2);
+    const css=getComputedStyle(document.querySelector('#app'));const inset=side=>Math.ceil((parseFloat(css.getPropertyValue('--safe-'+side))||0)/2);
+    this.safe={top:inset('top'),bottom:inset('bottom'),left:inset('left'),right:inset('right')};this.touch=this.scale.width<1000||matchMedia('(pointer:coarse)').matches;
+    if(this.menu){this.hud=null;this.drawMenu();}else if(this.app.state)this.hud=new Hud(this);
+    this.noticeLayer=this.add.container().setDepth(50);this.root.add(this.noticeLayer);this.drawNotice();
+  }
+  modal(kicker,title,body,buttons,kind='dialog'){
+    this.app.paused=true;this.app.input={};this.notice=null;this.menu={kicker,title,body,buttons,kind};this.focus=0;this.layout();
+  }
+  close(){this.menu=null;this.app.paused=false;this.app.input={};Object.values(this.app.scene.keys).forEach(k=>k.reset());this.layout();}
+  highlight(){const choices=this.controls.filter(c=>!c.disabled);choices.forEach((c,i)=>c.box.setStrokeStyle(i===this.focus?2:1,i===this.focus?UI_COLORS.gold:UI_COLORS.edge));}
+  drawMenu(){
+    const {kicker,title,body,buttons,kind}=this.menu,w=this.w,h=this.h;
+    const veil=this.add.rectangle(0,0,w,h,0x102b25,kind==='title'?.36:.78).setOrigin(0).setInteractive();this.root.add(veil);veil.on('pointerdown',(p,x,y,e)=>e.stopPropagation());
+    const pw=Math.min(kind==='title'?270:290,w-this.safe.left-this.safe.right-16),x=Math.floor((w-pw)/2);
+    const titleSize=kind==='title'?24:12;
+    const measure=text(this,this.root,0,0,body,8,UI_COLORS.muted,pw-24);const bh=body?measure.height:0;measure.destroy();
+    const portraitHeight=kind==='choose'?48:0;const titleMeasure=text(this,this.root,0,0,kind==='title'?'SIMPLE\nLIFE':title,titleSize,UI_COLORS.light,pw-20);const th=titleMeasure.height+10;titleMeasure.destroy();
+    const total=12+10+th+bh+(bh?10:0)+portraitHeight+buttons.length*25+10;
+    const y=Math.max(this.safe.top+5,Math.floor((h-total)/2));
+    panel(this,this.root,x,y,pw,total,kind==='title'?0x263e38:0x263e38);
+    text(this,this.root,w/2,y+10,kicker,7,UI_COLORS.gold).setOrigin(.5,0);
+    text(this,this.root,w/2,y+24,kind==='title'?'SIMPLE\nLIFE':title,titleSize,UI_COLORS.light,pw-20).setOrigin(.5,0).setCenterAlign();
+    let cy=y+24+th;
+    if(kind==='choose'){
+      for(const [i,char]of ['boy','girl'].entries()){const sx=w/2+(i?35:-35);const p=this.add.sprite(sx,cy+17,char,0).setScale(1);this.root.add(p);text(this,this.root,sx,cy+35,char,8).setOrigin(.5,0);}
+      cy+=portraitHeight;
+    }
+    if(body){text(this,this.root,x+12,cy,body,8,UI_COLORS.muted,pw-24);cy+=bh+10;}
+    buttons.forEach(([label,fn,disabled=false],i)=>button(this,this.root,label,x+12,cy+i*25,pw-24,21,fn,{disabled,id:label}));this.highlight();
+  }
   title(){
-    const save=this.app.saves.load();
-    this.hud.hidden=true;this.bottom.hidden=true;this.location.hidden=true;
-    this.modal('A LITTLE ROOM TO GROW','Simple Life',`<p class="subtitle">Slow mornings. Small seeds.<br>A life of your own.</p><p class="title-note">A tropical farming adventure</p>${this.app.saves.error?`<p>${this.app.saves.error}</p>`:''}`,[['New Game',()=>save?this.confirmNew():this.choose()],...(save?[['Continue · Day '+save.day,()=>this.app.start(save),'secondary']]:[]),['How to play',()=>this.help(()=>this.title()),'text-button']]);
+    const save=this.app.saves.load();this.notice=null;
+    this.modal('A TROPICAL FARMING ADVENTURE','Simple Life','',[
+      ['New Game',()=>save?this.confirmNew():this.choose()],
+      [save?'Continue / Day '+save.day:'Continue',()=>this.app.start(save),!save],
+      ['How to Play',()=>this.help(()=>this.title())],
+    ],'title');
+    if(this.app.saves.error)this.toast(this.app.saves.error);
   }
-  confirmNew(){this.modal('A FRESH START','Start a new life?','<p>This replaces your saved farm when you choose a character.</p>',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose(),'secondary']]);}
-  choose(){this.modal('YOUR FIRST CHAPTER','Who will you be?','<div class="portraits"><div><span class="portrait boy"><i></i></span>Boy</div><div><span class="portrait girl"><i></i></span>Girl</div></div><p>Same little farm. Your own story.</p>',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl'),'secondary'],['Back',()=>this.title(),'text-button']]);}
-  help(back){this.modal('FIELD NOTES','A little care, every day',`<ol><li>Walk to the city and buy tomato seeds.</li><li>Stand near a farm plot. Select Seed, then Use.</li><li>Water before and after 16:00, for three days.</li><li>Rest until evening at the bed, then water again.</li><li>Sleep, repeat, harvest on day 4, and sell in the city.</li></ol><p>WASD / arrows move · E / Space use<br>1–3 select tools · Escape pauses<br>Touch: direction pad, tool buttons and Use.</p><p>Dry days delay growth; two fully dry days kill a crop. Use it to clear. The game saves automatically.</p>`,[['Got it',back]]);}
-  play(){
-    this.hud.hidden=false;this.bottom.hidden=false;this.location.hidden=false;
-    this.hud.innerHTML='<div class="day"><small>YOUR LITTLE LIFE</small><b id="day"></b></div><div class="time"><b id="clock"></b><small id="phase"></small></div><div class="stat"><label>HEALTH <span id="health"></span></label><meter id="health-meter" min="0" max="100"></meter></div><div class="stat"><label>ENERGY <span id="energy"></span></label><meter id="energy-meter" min="0" max="100"></meter></div><div class="money"><small>COINS</small><b id="money"></b></div><button id="pause" class="icon-button" aria-label="Pause game">Ⅱ</button>';
-    this.bottom.innerHTML='<div class="journal"><small>FIRST ROOTS</small><div id="objective"></div></div><div class="tools"></div><div class="interaction"><span id="context"></span><button id="use">Use <kbd>E</kbd></button></div><div class="mobile-pad"><button data-dir="up" aria-label="Move up">↑</button><button data-dir="left" aria-label="Move left">←</button><button data-dir="down" aria-label="Move down">↓</button><button data-dir="right" aria-label="Move right">→</button></div><div class="save-line"><span id="save-status">Autosave on</span><button id="save" class="text-button">Save now</button><span class="desktop-help">WASD / arrows move · 1–3 tools · Esc pause</span></div>';
-    for(const [i,tool,icon,name]of [[1,'seed','✿','Seed'],[2,'water','◒','Water'],[3,'harvest','✂','Harvest']]) { const b=document.createElement('button');b.dataset.tool=tool;b.innerHTML=`<small>${i}</small><span class="tool-icon">${icon}</span><span>${name}</span><b id="count-${tool}"></b>`;b.onclick=()=>this.app.select(tool);this.bottom.querySelector('.tools').append(b); }
-    document.querySelector('#pause').onclick=()=>this.app.pause();document.querySelector('#use').onclick=()=>this.app.use();document.querySelector('#save').onclick=()=>this.app.save(true);
-    for(const b of this.bottom.querySelectorAll('[data-dir]')) { const release=()=>{this.app.input[b.dataset.dir]=false;};b.onpointerdown=e=>{e.preventDefault();b.setPointerCapture(e.pointerId);this.app.input[b.dataset.dir]=true;};b.onpointerup=release;b.onpointercancel=release;b.onlostpointercapture=release; }
-    this.refs=Object.fromEntries([...document.querySelectorAll('#hud [id],#bottom [id]')].map(e=>[e.id,e]));this.close();
+  confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
+  choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
+  help(back,page=0){
+    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Buy a tomato seed in City.\nPlant in the farm soil.\nWater before AND after 16:00.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4, then sell.\nTwo dry days kill a crop.';
+    this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
-  update(s,context){if(!this.refs)return;
-    const put=(id,value)=>{if(this.refs[id].textContent!==String(value))this.refs[id].textContent=value;};
-    put('day',`Day ${String(s.day).padStart(2,'0')}`);put('clock',clock(s));put('phase',`${phase(s)} · Clear`);put('money',s.money.toLocaleString());
-    for(const stat of ['health','energy']){put(stat,s[stat]);this.refs[stat+'-meter'].value=s[stat];}
-    put('count-seed',s.inventory.seed);put('count-harvest',s.inventory.tomato);put('context',context?.label||'Follow the paths. Find your own pace.');this.refs.use.disabled=!context;
-    const objective=s.sold?'First harvest sold. Plant another little beginning.':s.inventory.tomato?'Take your tomatoes to the city produce market.':s.plots.some(p=>p.crop)?'Water before & after 16:00. Sleep to grow.':s.inventory.seed?'Head to the farm. Plant a tomato seed.':'Visit the city seed shop. Your first seed costs 10 coins.';
-    put('objective',objective);
-    for(const b of this.bottom.querySelectorAll('[data-tool]')){const selected=b.dataset.tool===s.selected;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',selected);}
-    const name=LOCATIONS[s.area];const html=`<span>${name.name}</span><small>${name.subtitle}</small>`;if(this.location.innerHTML!==html)this.location.innerHTML=html;
+  play(){this.close();}
+  toast(value){this.notice={text:value.replace(/[·→]/g,'/'),until:this.time.now+6000};this.drawNotice();}
+  drawNotice(){
+    if(!this.noticeLayer)return;this.noticeLayer.removeAll(true);if(!this.notice)return;
+    const w=Math.min(240,this.w-16);const t=text(this,this.noticeLayer,8,6,this.notice.text,7,UI_COLORS.light,w-30);const height=t.height+12;
+    const bg=panel(this,this.noticeLayer,0,0,w,height);this.noticeLayer.sendToBack(bg);
+    const close=text(this,this.noticeLayer,w-15,5,'X',8,UI_COLORS.gold).setInteractive({useHandCursor:true});close.on('pointerdown',(p,x,y,e)=>{e.stopPropagation();this.notice=null;this.drawNotice();});
+    this.noticeLayer.setPosition(Math.floor((this.w-w)/2),this.menu?this.safe.top+5:Math.max(68,this.h-(this.touch&&this.w<this.h?155:90)-height));
   }
-  toast(text){const el=document.querySelector('#toast');el.textContent=text;el.classList.add('visible');clearTimeout(this.toastTimer);this.toastTimer=setTimeout(()=>el.classList.remove('visible'),4300);}
+  update(){if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu)this.hud?.update(this.app.state,this.app.scene.context());}
+  controlSnapshot(){return this.controls.map(({id,label,x,y,w,h,disabled})=>({id,label,x:x*2,y:y*2,w:w*2,h:h*2,disabled}));}
 }
