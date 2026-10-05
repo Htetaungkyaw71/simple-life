@@ -1,5 +1,6 @@
 // Visual layout and physical footprints share one source; positions are world units.
 export const MAP_SIZE = { width: 2240, height: 1152 };
+export function pondInset(y,h,w=288){const t=Math.min(1,Math.abs(y/h-.5)*2);return Math.round(Math.min(w/2-1,Math.max(8,w/2*(1-Math.sqrt(1-t*t))+8*Math.sin(y*.05))));}
 const prop=(name,x,y,extra={})=>({name,x,y,...extra});
 const trees=(x,y,cols,rows,step=112)=>Array.from({length:cols*rows},(_,i)=>prop('tree',x+i%cols*step,y+Math.floor(i/cols)*step));
 const border=[...Array.from({length:21},(_,i)=>prop('tree',i*112-16,-30)),...Array.from({length:21},(_,i)=>prop('tree',i*112-16,1056)),...Array.from({length:8},(_,i)=>prop('tree',-48,96+i*120)),...Array.from({length:8},(_,i)=>prop('tree',2184,96+i*120))];
@@ -32,18 +33,21 @@ const city={
  extras:[]
 };
 export const MAPS={home,farm,city};
-const footprints={tree:[30,64,36,26],cypress:[10,20,12,12],bush:[6,12,20,14],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:[2,2,28,30],crate:[0,0,32,32],fountain0:[4,40,88,48],scarecrow:[26,40,12,38],notice:[4,8,56,38],mailbox:[10,16,12,20],lamp:[12,48,8,14]};
+const footprints={tree:[22,76,20,16],cypress:[10,20,12,12],bush:[6,12,20,14],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:[2,2,28,30],crate:[0,0,32,32],fountain0:[4,40,88,48],scarecrow:[26,40,12,38],notice:[4,8,56,38],mailbox:[10,16,12,20],lamp:[12,48,8,14]};
 for(const [area,map]of Object.entries(MAPS)){
  map.props.push(...[[720,736],[1344,1000],[2064,96],[2080,960],[1984,384],[592,96]].map(([x,y])=>prop('rock',x,y)));
  map.props.push(...border.map(p=>({...p})));
+ const companions=map.props.filter(p=>p.name==='tree').map((p,i)=>prop('tree',p.x+44,p.y+20+(i%3)*8)).filter(p=>!map.paths.some(([x,y,w,h])=>p.x+32>x-44&&p.x+32<x+w+44&&p.y+90>y-44&&p.y+90<y+h+44)&&!(area==='home'&&p.x<640&&p.y<520));map.props.push(...companions);
  // Deterministic decoration avoids the roads, fields and room; decoration has no hitbox.
  map.details=Array.from({length:220},(_,i)=>({x:64+(i*173)%2112,y:64+(i*257)%992,name:i%9===0?'flowers':i%7===0?'mushroom':'grass-detail'})).filter(p=>!map.paths.some(([x,y,w,h])=>p.x>x-32&&p.x<x+w&&p.y>y-32&&p.y<y+h)&&!(area==='home'&&p.x<832&&p.y<544)&&!(area==='farm'&&map.fields.some(f=>p.x>f.x-32&&p.x<f.x+f.w&&p.y>f.y-32&&p.y<f.y+f.h)));
  for(const [x,y,w,dir]of map.fences)for(let n=0;n<w;n+=32)map.props.push(prop(dir==='h'?'fence':'fence-v',x+(dir==='h'?n:0),y+(dir==='v'?n:0),{fence:true}));
  if(area==='city')for(const [x,y]of [[256,352],[704,352],[960,352],[1376,352],[1920,352],[960,672],[1376,672],[1920,672],[352,928]])map.props.push(prop('lamp',x,y));
+ for(const tree of map.props.filter(p=>p.name==='tree')){for(let n=0;n<3;n++)map.details.push({name:n===0?'fern':n===1?'flowers'+(Math.floor(tree.x/112)%5+5)%5:'grass-detail',x:tree.x+((n*23+17)%74)-10,y:tree.y+82+n*6});}
+ map.details=map.details.filter(p=>!map.water.some(([x,y,w,h])=>p.x>x-16&&p.x<x+w&&p.y>y-16&&p.y<y+h));
  map.obstacles=[...map.buildings,...map.props].flatMap(p=>{const f=footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
- map.obstacles.push(...map.water.map(([x,y,w,h])=>[x+8,y+8,w-16,h-16]));
+ for(const [x,y,w,h]of map.water)for(let yy=8;yy<h-8;yy+=16){const inset=pondInset(yy,h,w);map.obstacles.push([x+inset,y+yy,w-inset*2,16]);}
 }
 // Cutaway home retains legacy safe coordinates, with one open south doorway.
-home.obstacles.push([160,128,640,16],[160,128,16,384],[784,128,16,384],[160,496,286,16],[514,496,286,16],[240,180,48,80],[580,174,96,64],[610,340,64,48]);
+home.obstacles.push([224,128,384,16],[224,128,16,384],[592,128,16,384],[224,496,222,16],[514,496,94,16],[240,180,48,80],[512,176,64,64],[256,380,64,48],[384,164,128,64]);
 // The two functional stalls are retained at their familiar map coordinates.
 city.obstacles.push([270,152,160,80],[560,152,160,80]);

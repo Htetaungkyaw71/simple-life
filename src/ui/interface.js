@@ -25,7 +25,7 @@ export class Interface extends Phaser.Scene {
     const {kicker,title,body,buttons,kind}=this.menu,w=this.w,h=this.h;
     const veil=this.add.rectangle(0,0,w,h,0x102b25,kind==='title'?.36:.78).setOrigin(0).setInteractive();this.root.add(veil);veil.on('pointerdown',(p,x,y,e)=>e.stopPropagation());
     const pw=Math.min(kind==='title'?270:290,w-this.safe.left-this.safe.right-16),x=Math.floor((w-pw)/2);
-    const titleSize=kind==='title'?24:12;
+    const titleSize=kind==='title'?(h<240?16:24):12;
     const measure=text(this,this.root,0,0,body,8,UI_COLORS.muted,pw-24);const bh=body?measure.height:0;measure.destroy();
     const portraitHeight=kind==='choose'?48:0;const titleMeasure=text(this,this.root,0,0,kind==='title'?'SIMPLE\nLIFE':title,titleSize,UI_COLORS.light,pw-20);const th=titleMeasure.height+10;titleMeasure.destroy();
     const total=12+10+th+bh+(bh?10:0)+portraitHeight+buttons.length*25+10;
@@ -47,9 +47,11 @@ export class Interface extends Phaser.Scene {
       ['New Game',()=>save?this.confirmNew():this.choose()],
       [save?'Continue / Day '+save.day:'Continue',()=>this.app.start(save),!save],
       ['How to Play',()=>this.help(()=>this.title())],
+      ['Credits',()=>this.credits()],
     ],'title');
     if(this.app.saves.error)this.toast(this.app.saves.error);
   }
+  credits(){this.modal('ART & CREDITS','Simple Life','Serene Village / LimeZu\nCC BY 4.0 / adapted palette\nand atlas. Original farmers,\nfurnishings and UI: Simple Life.',[['Asset source',()=>window.open('https://limezu.itch.io/serenevillagerevamped','_blank','noopener')],['CC BY 4.0 licence',()=>window.open('https://creativecommons.org/licenses/by/4.0/','_blank','noopener')],['Back',()=>this.title()]]);}
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){

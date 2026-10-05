@@ -1,4 +1,2 @@
-// Terrain uses two world units per source pixel. Keep display pixels integral.
-export function displayZoom(width, height) {
-  return (height < 600 || width < 600 ? 2 : 3) / 2;
-}
+// Two display pixels per source pixel: 64px farmer frames at every viewport.
+export function displayZoom() { return 1; }

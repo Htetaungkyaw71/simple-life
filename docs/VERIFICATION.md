@@ -1,3 +1,22 @@
+# Current verification — replacement craftsmanship pass
+
+2026-10-05, Chromium 154.0.8037.93, isolated contexts. Current evidence: `docs/verification/craftsmanship/`.
+
+- Development and production real-input full farming loop: PASS, day 4 / 86 coins after sell, Save/reload/Continue, zero page errors/warnings. `development-results.json` and `results.json`.
+- Five requested sizes: 1440×900, 1280×720, 1024×768, 844×390, 390×844. Canvas, controls, touch movement, camera and menus checked.
+- Current zoom 1; source pixels 2×. Farmer frame 64px (8.9% at 720px height). Four walking frames per direction plus directional idle.
+- Legacy/menu suite: PASS; v1 progress preserved, Credits links present, compact layouts fit, all four walking poses observed. `legacy-menus.json`.
+- 16-landmark exploration: actual keyboard paths, pond-area navigation, NPC/sign dialogs and bounded camera. `exploration.json`. Repeated after final pond shoreline/underplant correction.
+- 10/10 Node tests; production build succeeds; explicit eight-file art allowlist inspected. No vendor or unused source-pack files in dist.
+
+Visual corrections included removing a grass edge from the path-interior texture, preventing decoration over pond water, sharing rounded shoreline geometry with collisions, and updating old test assumptions for compact home/camera scale. The full game loop passed before the final pond/fern-only polish; affected exploration and legacy checks were rerun after rebuilding.
+
+Physical mobile devices and non-Chromium engines remain unverified. No human visual acceptance is claimed. Commands in the historical record below still name the same browser suites; their current output folder is craftsmanship.
+
+---
+
+## Historical pass 2 record (superseded art/scale)
+
 # Verification — Milestone 1 visual improvement pass 2
 Completed 2026-10-05, version 0.1.2. Browser engine: Chromium 154.0.8037.93. Tests use isolated browser contexts, not the user's live farm.
 
@@ -37,3 +56,5 @@ GAME_URL=http://127.0.0.1:4173/ node tests/browser/world-exploration.mjs
 
 ## Limits
 Mobile viewports/touch are Chromium emulation, not physical phones. Android/iOS, real notches/browser chrome, Safari/WebKit, Firefox, Edge and throttled-network timing remain unverified. No success is claimed for those. User visual review and competition declarations remain human work. No Milestone 2 or publishing actions.
+
+Final craftsmanship sign-placement review: `final-city.png` confirms both shop labels remain above the artwork. Final production page had zero errors; a short 60-frame local sample had median requestAnimationFrame interval 16.7 ms. This is not a physical-device performance claim. Final `npm test` and `npm run build` passed after that label-only correction.

@@ -45,3 +45,21 @@ The final environment atlas contains **45 named frames**, assembled from **49 se
 | world.png/world.json and font.png/font.xml | Retained original pass-1 code-native pixel assets | Crop stages, soil/water, floor/walls/windows/dresser, market stalls, plants/stones, item/HUD icons, interaction marker and bitmap text. Some environment entries are superseded; no new licence claim | Original inventory/source above; AI_USAGE.md |
 
 No externally generated AI imagery or PixelLab output was used. No audio pack was added. The production asset list contains only eight runtime PNG/JSON/XML files, with no vendor ZIP or unused pack files. Voluntary credit: **Tiny Town by Kenney (www.kenney.nl), CC0 1.0; palette/composition adapted for Simple Life.**
+
+## Current replacement — Serene Village craftsmanship pass (2026-10-05)
+
+This entry supersedes Tiny Town as the active environment family; the Kenney archive and its evidence remain historical. No Kenney-derived tile is in the current `town` runtime atlas.
+
+- **Name / creator:** Serene Village revamped v1.9, LimeZu.
+- **Official source:** https://limezu.itch.io/serenevillagerevamped
+- **Licence:** Creative Commons Attribution 4.0 International, https://creativecommons.org/licenses/by/4.0/ . Allows sharing/adaptation including commercial games, subject to attribution, licence link, change identification, and no additional restrictions on licensed material.
+- **Credit:** “Serene Village revamped by LimeZu — CC BY 4.0. Adapted palette and atlas for Simple Life.” In-game Credits includes clickable source/licence links. Original missing game art is identified separately.
+- **Downloaded:** 2026-10-05, official free itch.io flow, no account/payment.
+- **Untouched source:** `public/assets/vendor/limezu/serene-village/Serene_Village_revamped_v1.9.zip`, SHA-256 `22f5b68d950fd8eeafe65690daa1723c74b68ccbc3db7240c3bd4935915e9041`.
+- **Original files used:** `SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png`; `SERENE_VILLAGE_REVAMPED/Animated stuff/door_16x16.png`. No higher-resolution duplicates, demos or previews used.
+- **Modifications:** native-resolution extraction/repacking, selected green hues moved toward jade, original chimney/market-awning additions. Exact source rectangles in `public/assets/pixel/processed/manifest.json`; reproducible `scripts/process-rpg-assets.py`.
+- **Locations:** Home, Farm, City and title-world backdrop; trees, bushes/flowers, paths, houses, shed, shop fronts, fences, rocks and doors.
+- **Evidence:** `docs/assets/licenses/limezu/serene-village-source.html` (creator page declares CC BY 4.0), `CC-BY-4.0.txt` (full legal text), this attribution/change record. Archive has no standalone licence; the creator's explicit page declaration is preserved.
+- **Original additions:** boy/girl 24×32 sheets, NPC variants, missing kitchen/bed/storage/table/chair/rug/window/indoor tiles, fountain, utility props, water overlays, farming soil and effects. Created in the project pipeline, not from Modern Interiors or another pack. Existing original crop atlas, bitmap font, UI icons and markers remain. AI assistance recorded in AI_USAGE.md; no claim of exclusive copyright is made for AI-assisted originals.
+- **Rejected companion:** Modern Interiors Free v2.2 is non-commercial only and was not integrated. No purchased, login-only, GPL or ShareAlike assets were introduced.
+- **Distribution:** eight allowlisted runtime files only. Untouched ZIP and unused files never ship in `dist/`.

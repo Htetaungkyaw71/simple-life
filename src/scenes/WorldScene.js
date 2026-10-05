@@ -13,7 +13,7 @@ export class WorldScene extends Phaser.Scene {
     const base=import.meta.env.BASE_URL+'assets/pixel/';
     this.load.atlas('world',base+'world.png',base+'world.json');
     this.load.atlas('town',base+'processed/town.png',base+'processed/town.json');
-    for(const char of ['boy','girl'])this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:16,frameHeight:24});
+    for(const char of ['boy','girl'])this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:24,frameHeight:32});
     this.load.bitmapFont('pixel',base+'font.png',base+'font.xml');
     const text=this.add.text(20,20,'Loading Simple Life...',{fontFamily:'monospace',fontSize:'16px',color:'#e1d7ad'});
     this.load.on('complete',()=>text.destroy());

@@ -1,16 +1,33 @@
-# Simple Life art direction — Pass 2
-## Grid and scale
-Native terrain tiles: 16x16 pixels, displayed as 32x32 world units. Original farmers: 16x24 pixel frames, 3 columns (idle, walk A, walk B) and 4 rows (down, up, left, right). Foot collision radius remains 12 world units. All world artwork uses two world units per source pixel.
-Wide default: camera zoom 1.5 on desktop/tablet (3 display pixels per source pixel); zoom 1 on short (<600px high) or narrow (<600px wide) viewports (2 display pixels per source pixel). No cover-style zoom. At 1280x720 the view is 853.33x480 world units, or 26.67x15 tiles. Farmer frame height is 72px (10%); at 844x390 it is 48px (12.3%, visible ink slightly less). At 1440x900 it is 8%; at 390x844 it is 5.7% to preserve map visibility. No Normal/Wide selector was added: one bounded, responsive Wide policy avoids offering an oversized mode.
-Maps: 2240x1152 world units (70x36 tiles). At the desktop default, 2.625 viewports wide and 2.4 tall. Camera follows and clamps to these drawn bounds, with pixel rounding. HUD remains independently scaled 2x; never scale UI with the world camera.
+# Simple Life art bible — craftsmanship pass
 
-## Palette, light and perspective
-Primary environment: Kenney Tiny Town 1.1, CC0 1.0 Universal. Adapted to sage grass (#849760), leaf (#577547), dark green outline (#344b40), sand/wood (#c29b68, #a57d54), earth shadow (#694e40), slate (#607c78), cream (#d6cfad) and gold (#d7af55). Water/crop/UI accents extend the established tropical palette. The complete source-to-target colour lookup is in scripts/process-town-assets.py and the processed manifest.
-Top-down, slightly front-facing buildings and people. Upper-left light; two or three shade levels. Hard stair-step silhouettes and restrained one-pixel dark outlines. No gradients, antialiasing, emoji icons, smooth scenery shapes or mixed asset scales. Pixel rectangles are acceptable for UI panels and flat floor pattern composition.
+This replaces the previous olive/brown Tiny Town art direction. Milestone 1 only.
 
-## Motion and depth
-Farmer walk cycles: 8 fps, walk A / idle / walk B / idle. Both genders have independent four-direction frames. Faces turn toward interaction targets. Water/fountain animation changes at 600ms; butterflies flap at 180ms and drift by integer source pixels. Footstep dust is brief and capped by cadence. No final audio is included.
-Sprites sort by their feet/bottom footprint; foliage can overlap players behind trunks. Buildings block their body while roof pixels can overlap. HUD and night tint have separate high layers. Collision footprints and decorative positions live in mapLayouts.js, not duplicated scene rectangles.
+## Identity
 
-## Future work must preserve
-Use this one primary pack and normalize any approved additions before integration. Preserve 16px density and the 3x/2x display policy. Do not add independently scaled marketplace images, new palettes, oversized trees or permanent large text panels. Paths must connect landmark clusters; keep the active field/shop loop convenient and gate reserved content with short readable signs. Retain save crop indices and isolate presentation changes from farming/economy/clock rules. New external art requires a clear licence and evidence before integration. Original farmer, furniture, crop and icon source must remain attributed to disclosed Codex assistance, never to Kenney.
+A bright, lived-in garden settlement: jade and mint foliage, blue water, warm honey plaster, terracotta roofs, indigo shadows and coral flowers. Use the richness and layering of classic 16-bit farming RPGs without copying a commercial game's characters, palette or maps. Plant Tales was a quality/composition reference only.
+
+## Resolution and presentation
+
+- Base terrain: 16×16 source pixels, two world units per source pixel.
+- Original farmers: 24×32 frames, feet anchored near the bottom; expressive broad head, separate limbs, farm overalls and distinct hair/clothing.
+- Camera zoom: 1, producing two display pixels per source pixel. A 32-pixel sprite frame is 64 pixels (8.9% of 720); visible character ink is slightly shorter.
+- Nearest-neighbour textures, rounded camera position, no antialiasing or runtime remote assets.
+- Fullscreen Phaser world plus independent canvas UI. No visible DOM interface.
+
+## Sources
+
+Primary environment: Serene Village revamped 1.9 by LimeZu, CC BY 4.0. Native 16×16 source only. No character/UI pack. Original characters, missing home furniture, farming sprites, bitmap font and UI match the environment's perspective and colours. Kenney artwork is superseded, retained as historical vendor evidence only.
+
+## Drawing rules
+
+Three-quarter top-down view with visible upper surfaces and front faces. Light from upper left; dark plum/blue-green pixel shadows below and right. Selective dark outlines around characters and interactable objects; avoid heavy outlines on ground. Use clustered highlights, not random single-pixel noise. Tile variants should have similar contrast. Dense vegetation borders quieter paths and clear plot approaches. Never obscure interaction destinations permanently.
+
+Objects sort by their feet; tree trunks collide while crowns overlap the player. Near-player crowns soften briefly for readability. Lower leaves and flowers stay below feet. Furniture, roof ridges, windows, porch steps and small props provide scale. Interiors are compact and warm, with a clear bed approach and south doorway.
+
+## Animation
+
+Four walking poses per direction at 8 fps; subtle directional idle breathing/blink. Water 2 fps, leaves gently shift one source pixel, butterflies 5–6 fps. Ripe crops glint. Dust fades quickly; transactions float a coin indicator. Door response is brief. Effects must not change gameplay timing or save data.
+
+## Later work
+
+Preserve source files untouched under vendor, keep derivative outputs under pixel/processed, maintain a reproducible processing script and explicit production allowlist. Credit source creator, licence and adaptations in the game and documentation. Do not mix extra asset families without an audit. All later assets must follow this resolution, lighting, perspective and palette. Keep this pass within existing Home, Farm and City gameplay.

@@ -1,5 +1,5 @@
 # Simple Life — Milestone 1
-An original tropical homestead in warm sage, clay and cream. A small hopeful farming game: buy tomato seeds, nurture them over three successful days, sell the harvest, repeat.
+An original tropical homestead in jade greens, terracotta, honey plaster and blue water. A small hopeful farming game: buy tomato seeds, nurture them over three successful days, sell the harvest, repeat.
 Home → Farm → City are separate connected maps. Start at Home, 60 coins, health/energy 100, free watering can and harvest tool. Boy/girl choices share mechanics. Six pre-tilled plots keep the first loop focused.
 Tomato: seed 10 coins, yield 2, sell 18 each, three growth days. Water once before 16:00 and once after 16:00. Both waterings earn one growth day when sleeping/at midnight. Missing a watering delays growth; dry crops wilt after one fully dry day, die after two, and can be cleared. Mature crops remain harvestable. Actions cost energy; walking and clearing dead crops are free to prevent softlocks. Unlimited watering can.
 Clock: 06:00–24:00 over four real minutes. Morning, afternoon, evening, night tint. Bed offers rest until 16:00 (no growth/energy reward), or next-day sleep (restore energy). At midnight return home and start next day; no punitive/death mechanics in this slice. Menus and hidden tabs pause simulation.
@@ -12,3 +12,6 @@ Fullscreen original pixel-art presentation, bounded follow camera and canvas-onl
 ## 0.1.2 visual pass 2
 The same six crop beds now form one active field within a larger farm; three additional fields are reserved visually for later work. Expanded Home is a cutaway furnished house plus fenced homestead with shed, cottage, shade garden and pond. Its east gate leads to Farm. The farm's northeast lane reaches City; its functional shops remain on the west street. Lantern Square, residential lanes and three optional townspeople make room for exploration without quests or progression gates. The future weapon-shop exterior is closed and grants no items or mechanics.
 Movement is 260 world units/sec, increased from 190 to suit the larger maps. Wide framing uses 3x source pixels on desktop and 2x on compact screens; maps span 70x36 terrain tiles. Optional exploration does not make the shop/crop/bed loop depend on traversing the entire map. Farming, economy, time, energy, sleep and v1 progress rules remain unchanged.
+
+## Replacement craftsmanship presentation
+The later replacement brief supersedes the older scale/palette notes: Serene Village CC BY 4.0 environment, original 24×32 farmers (four walk frames/direction), camera zoom 1 / 2× pixels, compact furnished home, organic path/pond edges and layered vegetation. Smaller HUD and title Credits. Gameplay rules above remain unchanged.

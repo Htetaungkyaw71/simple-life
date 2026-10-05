@@ -4,8 +4,8 @@ import {LOCATIONS,walkable} from '../src/data/locations.js';
 import {MAPS,MAP_SIZE} from '../src/data/mapLayouts.js';
 import {displayZoom} from '../src/scenes/displayScale.js';
 test('wide display keeps useful tile coverage and small characters',()=>{
- const z=displayZoom(1280,720);assert.equal(z,1.5);assert.ok(1280/z/32>=24&&1280/z/32<=32);assert.ok(720/z/32>=14&&720/z/32<=18);
- for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){const zoom=displayZoom(w,h);assert.ok(Number.isInteger(zoom*2));assert.ok(48*zoom/h<.125);assert.ok(w/zoom<MAP_SIZE.width&&h/zoom<MAP_SIZE.height);}
+ const z=displayZoom(1280,720);assert.equal(z,1);assert.equal(1280/z/32,40);assert.ok(64*z/720>=.06&&64*z/720<=.09);
+ for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){const zoom=displayZoom(w,h);assert.ok(Number.isInteger(zoom*2));assert.ok(64*zoom/h<.17);assert.ok(w/zoom<MAP_SIZE.width&&h/zoom<MAP_SIZE.height);}
 });
 test('expanded areas connect every interaction and decorative district',()=>{
  const step=16;

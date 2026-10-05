@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:4173/?qa",
+  "viewport": [1280, 720],
+  "errors": [],
+  "medianAnimationFrameMs": 16.7,
+  "sampleIntervals": 60,
+  "scope": "Short local Chromium rendering sample, not a physical-device benchmark",
+  "screenshot": "final-city.png",
+  "review": "Final shop signs visible after label depth correction; production build passed"
+}

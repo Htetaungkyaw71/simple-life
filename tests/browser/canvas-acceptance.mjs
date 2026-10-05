@@ -3,8 +3,8 @@ import {mkdir,writeFile} from 'node:fs/promises';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.connectOverCDP(process.env.CDP_URL);const context=await browser.newContext({viewport:{width:1280,height:720},hasTouch:true});const page=await context.newPage();
 const errors=[],warnings=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='warning')warnings.push(m.text());});
-const base=process.env.GAME_URL||'http://127.0.0.1:5174/';await mkdir('docs/verification/pass2',{recursive:true});
-const shot=name=>page.screenshot({path:`docs/verification/pass2/${name}.png`});
+const base=process.env.GAME_URL||'http://127.0.0.1:5174/';await mkdir('docs/verification/craftsmanship',{recursive:true});
+const shot=name=>page.screenshot({path:`docs/verification/craftsmanship/${name}.png`});
 const snap=()=>page.evaluate(()=>window.__simpleLife.snapshot());
 async function click(id){const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,`Enabled control ${id}`);await page.mouse.click(c.x+c.w/2,c.y+c.h/2);await page.waitForTimeout(80);}
 async function key(k){await page.keyboard.press(k,{delay:60});await page.waitForTimeout(90);}
@@ -17,9 +17,9 @@ for(const [width,height]of [[1440,900],[1280,720],[1024,768],[390,844],[844,390]
  assert.deepEqual(dom.canvas,[width,height]);assert.deepEqual(dom.scroll,[width,height]);assert.equal(dom.extras,0);assert.equal(dom.bg,'rgb(38, 62, 56)');
  let s=await snap();for(const c of s.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=width&&c.y+c.h<=height,`${width} control clipped: ${JSON.stringify(c)}`);
  const before=s.state.position;await page.keyboard.down('ArrowRight');await page.waitForTimeout(130);await page.keyboard.up('ArrowRight');await page.waitForTimeout(60);s=await snap();assert.ok(s.state.position.x>before.x+5);
- if(width===1280){assert.ok(s.camera.width/32>=24&&s.camera.width/32<=32);assert.ok(s.camera.height/32>=14&&s.camera.height/32<=18);assert.ok(s.player.height/height<=.10);}assert.ok(s.player.height/height<.125);
+ if(width===1280){assert.ok(s.camera.width/32===40);assert.ok(s.camera.height/32===22.5);assert.ok(s.player.height/height<=.10);}assert.ok(s.player.height/height<.17);
  const cam=s.camera;assert.ok(cam.x>=-1&&cam.y>=-1&&cam.x+cam.width<=2241&&cam.y+cam.height<=1153,'Camera exposes no out-of-map area');
- await shot(`home-${width}x${height}`);await key('Escape');await shot(`pause-${width}x${height}`);s=await snap();for(const c of s.controls)assert.ok(c.y+c.h<=height,`pause clipped ${height}`);await click('Resume');
+ await page.keyboard.down('ArrowLeft');await page.waitForTimeout(130);await page.keyboard.up('ArrowLeft');await page.waitForTimeout(60);await shot(`home-${width}x${height}`);await key('Escape');await shot(`pause-${width}x${height}`);s=await snap();for(const c of s.controls)assert.ok(c.y+c.h<=height,`pause clipped ${height}`);await click('Resume');
  viewportResults.push({width,height,canvas:'fills viewport',scroll:false,movement:true,camera:cam});
 }
 await page.setViewportSize({width:390,height:844});await page.waitForTimeout(250);
@@ -38,7 +38,7 @@ await key('Escape');await click('Save');const saved=(await snap()).state;assert.
 for(const key of ['character','area','day','money','health','energy','inventory','plots','sold'])assert.deepEqual(loaded[key],saved[key],`save preservation ${key}`);
 await shot('continued-city');
 // Verify both directional sheets and idle transition through real controls.
-for(const [k,dir]of [['ArrowLeft','left'],['ArrowUp','up'],['ArrowRight','right'],['ArrowDown','down']]){await page.keyboard.down(k);await page.waitForTimeout(180);assert.equal((await snap()).player.direction,dir);await page.keyboard.up(k);await page.waitForTimeout(100);assert.equal(Number((await snap()).player.frame)%3,0);}
+for(const [k,dir]of [['ArrowLeft','left'],['ArrowUp','up'],['ArrowRight','right'],['ArrowDown','down']]){await page.keyboard.down(k);await page.waitForTimeout(180);assert.equal((await snap()).player.direction,dir);await page.keyboard.up(k);await page.waitForTimeout(100);assert.equal(Number((await snap()).player.frame)%6,0);}
 await key('Escape');const paused=(await snap()).state.minute;await page.waitForTimeout(800);assert.equal((await snap()).state.minute,paused);await click('Return to title');await click('New Game');await click('Start fresh');await click('Play as Boy');assert.equal((await snap()).state.character,'boy');
 const resources=await page.evaluate(()=>performance.getEntriesByType('resource').map(r=>r.name));assert.ok(resources.every(r=>new URL(r).origin===new URL(base).origin),'Local assets only');assert.deepEqual(errors,[]);
-const report={result:'PASS',url:base,browser:browser.version(),viewports:viewportResults,fullLoop:'PASS: day 4, 86 coins, save/reload/Continue',touch:true,bothCharacters:true,animations:true,errors,warnings};await writeFile('docs/verification/pass2/results.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));await context.close();await browser.close();
+const report={result:'PASS',url:base,browser:browser.version(),viewports:viewportResults,fullLoop:'PASS: day 4, 86 coins, save/reload/Continue',touch:true,bothCharacters:true,animations:true,errors,warnings};await writeFile('docs/verification/craftsmanship/results.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));await context.close();await browser.close();

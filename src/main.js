@@ -19,7 +19,7 @@ class Application {
   newGame(character){this.start(newState(character));this.ui.toast('Home / The shade garden. Follow the path to the east farm gate.');}
   select(tool){if(!this.state||this.paused)return;this.state.selected=tool;this.save();}
   save(show=false){if(!this.state)return;const ok=this.saves.write(this.state);if(show||(!ok&&!this.storageWarned))this.ui.toast(ok?'Your farm is saved.':this.saves.error);this.storageWarned=!ok;}
-  transact(fn){const message=fn(this.state);this.scene.renderCrops();this.save();if(message)this.ui.toast(message);return message;}
+  transact(fn){const money=this.state.money;const message=fn(this.state);if(this.state.money!==money)this.scene.atmosphere.coins(this.state.money-money,this.state.position);this.scene.renderCrops();this.save();if(message)this.ui.toast(message);return message;}
   advance(delta){if(tick(this.state,delta)){this.scene.build();this.save();this.ui.toast('A new dawn. You returned home and rested.');}this.elapsed+=delta;if(this.elapsed>2500){this.save();this.elapsed=0;}}
   use(){
     if(this.paused||!this.state)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);

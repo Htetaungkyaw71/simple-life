@@ -1,142 +1,297 @@
 {
-  "pack": "Tiny Town 1.1",
-  "creator": "Kenney",
-  "license": "CC0 1.0",
-  "tilesUsed": [
-    0,
-    1,
-    2,
-    4,
-    5,
-    12,
-    13,
-    14,
-    16,
-    24,
-    25,
-    26,
-    29,
-    36,
-    37,
-    38,
-    45,
-    47,
-    48,
-    49,
-    50,
-    52,
-    53,
-    54,
-    57,
-    59,
-    60,
-    61,
-    62,
-    63,
-    64,
-    65,
-    66,
-    67,
-    72,
-    73,
-    75,
-    76,
-    77,
-    79,
-    83,
-    84,
-    85,
-    88,
-    90,
-    103,
-    104,
-    105,
-    107
-  ],
-  "palette": {
-    "3f2631": "344b40",
-    "eaa56c": "c29b68",
-    "c0cbdc": "d6cfad",
-    "8b9bb4": "929e91",
-    "84c669": "849760",
-    "bd6c4a": "a57d54",
-    "5a6988": "607c78",
-    "c34b35": "a9674d",
-    "763b36": "694e40",
-    "fdbe53": "d7af55",
-    "262b44": "263e38",
-    "e38628": "b98b4c",
-    "479f4a": "577547",
-    "f28462": "cb8b62",
-    "52607c": "516964",
-    "3d212d": "344b40",
-    "65a556": "6d894f"
+  "pack": "Serene Village revamped 1.9",
+  "creator": "LimeZu",
+  "license": "CC BY 4.0",
+  "sourceRectangles": {
+    "grass": [
+      64,
+      0,
+      80,
+      16
+    ],
+    "path": [
+      144,
+      16,
+      160,
+      32
+    ],
+    "plaza": [
+      0,
+      48,
+      48,
+      96
+    ],
+    "path-nw": [
+      48,
+      16,
+      64,
+      32
+    ],
+    "path-n": [
+      64,
+      16,
+      80,
+      32
+    ],
+    "path-ne": [
+      80,
+      16,
+      96,
+      32
+    ],
+    "path-w": [
+      48,
+      32,
+      64,
+      48
+    ],
+    "path-e": [
+      80,
+      32,
+      96,
+      48
+    ],
+    "path-sw": [
+      48,
+      48,
+      64,
+      64
+    ],
+    "path-s": [
+      64,
+      48,
+      80,
+      64
+    ],
+    "path-se": [
+      80,
+      48,
+      96,
+      64
+    ],
+    "tree0": [
+      144,
+      192,
+      176,
+      240
+    ],
+    "tree1": [
+      176,
+      192,
+      208,
+      240
+    ],
+    "tree2": [
+      208,
+      192,
+      240,
+      240
+    ],
+    "tree3": [
+      240,
+      192,
+      272,
+      240
+    ],
+    "tree-tall": [
+      144,
+      144,
+      176,
+      192
+    ],
+    "tree-wide": [
+      144,
+      288,
+      192,
+      336
+    ],
+    "flowers0": [
+      32,
+      192,
+      48,
+      208
+    ],
+    "flowers1": [
+      48,
+      192,
+      64,
+      208
+    ],
+    "flowers2": [
+      64,
+      192,
+      80,
+      208
+    ],
+    "flowers3": [
+      80,
+      192,
+      96,
+      208
+    ],
+    "flowers4": [
+      96,
+      192,
+      112,
+      208
+    ],
+    "bush": [
+      112,
+      192,
+      128,
+      208
+    ],
+    "rock": [
+      0,
+      288,
+      32,
+      320
+    ],
+    "pebble": [
+      0,
+      320,
+      16,
+      336
+    ],
+    "fence": [
+      64,
+      240,
+      80,
+      256
+    ],
+    "fence-v": [
+      64,
+      256,
+      80,
+      272
+    ],
+    "post": [
+      64,
+      224,
+      80,
+      240
+    ],
+    "sign": [
+      112,
+      208,
+      128,
+      240
+    ],
+    "planter": [
+      64,
+      288,
+      80,
+      304
+    ],
+    "house": [
+      160,
+      336,
+      240,
+      400
+    ],
+    "house-blue": [
+      160,
+      592,
+      240,
+      656
+    ],
+    "house-green": [
+      160,
+      464,
+      240,
+      528
+    ],
+    "shed": [
+      0,
+      464,
+      48,
+      528
+    ],
+    "seed-shop": [
+      160,
+      464,
+      240,
+      528
+    ],
+    "produce-shop": [
+      160,
+      336,
+      240,
+      400
+    ]
   },
-  "frames": [
-    "grass",
-    "grass-detail",
-    "flowers",
-    "bush",
-    "mushroom",
-    "fence",
-    "post",
-    "fence-v",
-    "crate",
-    "sign",
-    "well",
-    "wheelbarrow",
-    "barrel",
-    "path-nw",
-    "path-n",
-    "path-ne",
-    "path-w",
-    "path",
-    "path-e",
-    "path-sw",
-    "path-s",
-    "path-se",
-    "tree",
-    "roof-left",
-    "roof-center",
-    "roof-right",
-    "house",
-    "house-blue",
-    "shed",
-    "plaza",
-    "bench",
-    "lamp",
-    "mailbox",
-    "scarecrow",
-    "notice",
-    "fountain0",
-    "fountain1",
-    "butterfly0",
-    "butterfly1",
-    "dust",
-    "bed",
-    "table",
-    "npc0",
-    "npc1",
-    "npc2"
-  ],
+  "sourceAliases": {
+    "tree": "tree0",
+    "flowers": "flowers0"
+  },
   "originalAdditions": [
-    "plaza",
-    "bench",
-    "lamp",
-    "mailbox",
-    "scarecrow",
-    "notice",
-    "fountain0",
-    "fountain1",
-    "butterfly0",
-    "butterfly1",
-    "dust",
-    "bed",
-    "table",
     "npc0",
     "npc1",
     "npc2",
-    "boy.png",
-    "girl.png"
-  ]
+    "grass0",
+    "grass1",
+    "grass2",
+    "grass3",
+    "grass-detail0",
+    "grass-detail1",
+    "grass-detail2",
+    "grass-detail3",
+    "grass-detail",
+    "fern",
+    "mushroom",
+    "water0",
+    "water1",
+    "soil",
+    "watered-soil",
+    "floor0",
+    "floor1",
+    "wall",
+    "window",
+    "bed",
+    "table",
+    "dresser",
+    "kitchen",
+    "shelf",
+    "chair",
+    "rug",
+    "pot",
+    "crate",
+    "barrel",
+    "bench",
+    "lamp",
+    "well",
+    "wheelbarrow",
+    "mailbox",
+    "notice",
+    "scarecrow",
+    "fountain0",
+    "fountain1",
+    "butterfly0",
+    "butterfly1",
+    "dust"
+  ],
+  "characterFrames": {
+    "size": [
+      24,
+      32
+    ],
+    "columns": 6,
+    "rows": [
+      "down",
+      "up",
+      "left",
+      "right"
+    ],
+    "idle": [
+      0,
+      5
+    ],
+    "walk": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "modifications": "Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture."
 }
