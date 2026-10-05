@@ -1,3 +1,4 @@
 # Asset credits
-Canonical record: [ASSET_LICENSES.md](ASSET_LICENSES.md), including every named pixel atlas frame, both character sheets, original bitmap font, generator and tool sources. Local dependency evidence: [licenses/DEPENDENCIES.md](licenses/DEPENDENCIES.md).
-All art and glyphs are original Codex-assisted pixel source, rasterized to committed PNG assets with Pillow. No external sprite packs, music, voice or downloaded fonts. Phaser is the runtime engine; Vite the build tool. Team human review and final usage confirmation remain to be recorded.
+Primary environment: **Tiny Town 1.1 by Kenney (www.kenney.nl), CC0 1.0 Universal**. Palette and tile composition adapted for Simple Life. Official source: https://kenney.nl/assets/tiny-town .
+Original characters, crop stages, furniture, effects, item/HUD icons and bitmap font: project work authored with OpenAI Codex assistance. This includes the smaller farmers, NPC colour variants and supplemental town/farm props. No copied commercial-game art, external font, music or voice.
+Phaser: MIT runtime engine. Vite: MIT build tooling. Pillow: HPND optional art-generation tooling. Full asset inventory, provenance, download URL, modifications and licence evidence: ASSET_LICENSES.md and assets/licenses/. AI disclosures: AI_USAGE.md.

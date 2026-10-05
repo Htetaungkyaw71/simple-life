@@ -8,3 +8,7 @@ Non-goals: forest, animals, combat, weapons, death, money recovery, additional c
 
 ## 0.1.1 visual correction
 Fullscreen original pixel-art presentation, bounded follow camera and canvas-only menus/HUD. Native 16px terrain, reusable PNG sprites, directional boy/girl animation, earthy tropical palette and compact pixel panels. No visible webpage shell or permanent tutorial paragraphs. Existing gameplay rules above are unchanged.
+
+## 0.1.2 visual pass 2
+The same six crop beds now form one active field within a larger farm; three additional fields are reserved visually for later work. Expanded Home is a cutaway furnished house plus fenced homestead with shed, cottage, shade garden and pond. Its east gate leads to Farm. The farm's northeast lane reaches City; its functional shops remain on the west street. Lantern Square, residential lanes and three optional townspeople make room for exploration without quests or progression gates. The future weapon-shop exterior is closed and grants no items or mechanics.
+Movement is 260 world units/sec, increased from 190 to suit the larger maps. Wide framing uses 3x source pixels on desktop and 2x on compact screens; maps span 70x36 terrain tiles. Optional exploration does not make the shop/crop/bed loop depend on traversing the entire map. Farming, economy, time, energy, sleep and v1 progress rules remain unchanged.

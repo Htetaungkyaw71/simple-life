@@ -8,7 +8,7 @@ await page.goto((process.env.GAME_URL||'http://127.0.0.1:4173/')+'?qa');await pa
 const snap=()=>page.evaluate(()=>window.__simpleLife.snapshot());async function click(id){const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,id);await page.mouse.click(c.x+c.w/2,c.y+c.h/2);await page.waitForTimeout(100);}
 async function fits(){const [w,h]=await page.evaluate(()=>[innerWidth,innerHeight]);for(const c of (await snap()).controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=w&&c.y+c.h<=h,`clipped ${c.id} at ${w}x${h}`);}
 for(const [w,h]of [[390,844],[844,390]]){
- await page.setViewportSize({width:w,height:h});await page.waitForTimeout(200);await fits();await click('How to Play');await fits();await click('Next / Farming');await fits();await click('Got it');await click('New Game');await fits();await click('Start fresh');await fits();await page.screenshot({path:`docs/verification/redesign/select-${w}x${h}.png`});await click('Back');
+ await page.setViewportSize({width:w,height:h});await page.waitForTimeout(200);await fits();await click('How to Play');await fits();await click('Next / Farming');await fits();await click('Got it');await click('New Game');await fits();await click('Start fresh');await fits();await page.screenshot({path:`docs/verification/pass2/select-${w}x${h}.png`});await click('Back');
 }
 await click('Continue / Day 9');const loaded=(await snap()).state;for(const key of ['version','character','area','day','money','health','energy','selected','inventory','plots','sold'])assert.deepEqual(loaded[key],fixture[key]);
 await page.setViewportSize({width:1280,height:720});await page.waitForTimeout(150);
@@ -18,6 +18,6 @@ for(const [key,dir,base]of [['ArrowLeft','left',6],['ArrowUp','up',3],['ArrowRig
  for(let n=0;n<16;n++){await page.waitForTimeout(40);frames.add(Number((await snap()).player.frame));}
  await page.keyboard.up(key);await page.waitForTimeout(80);assert.equal((await snap()).player.direction,dir);assert.equal(Number((await snap()).player.frame),base);assert.ok(frames.has(base+1)&&frames.has(base+2),`two walking frames ${dir}`);animationFrames[dir]=[...frames];
 }
-const before=(await snap()).state.position;await page.keyboard.down('ArrowLeft');await page.waitForTimeout(2500);await page.keyboard.up('ArrowLeft');const left=(await snap()).state.position;assert.ok(left.x>=57,'map boundary collision');assert.ok(left.x<before.x,'move to map boundary');
-const edge=(await snap()).camera;assert.ok(edge.x>=0&&edge.x+edge.width<=961);await page.screenshot({path:'docs/verification/redesign/map-boundary.png'});
-assert.deepEqual(errors,[]);const result={result:'PASS',legacySave:'v1 money/day/inventory/crops/energy/health preserved',menus:['390x844','844x390'],animationFrames,edge,errors};await writeFile('docs/verification/redesign/legacy-menus.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));await context.close();await browser.close();
+const before=(await snap()).state.position;await page.keyboard.down('ArrowLeft');await page.waitForTimeout(2500);await page.keyboard.up('ArrowLeft');const left=(await snap()).state.position;assert.ok(left.x>=44,'map boundary collision');assert.ok(left.x<before.x,'move to map boundary');
+const edge=(await snap()).camera;assert.ok(edge.x>=0&&edge.x+edge.width<=2241);await page.screenshot({path:'docs/verification/pass2/map-boundary.png'});
+assert.deepEqual(errors,[]);const result={result:'PASS',legacySave:'v1 money/day/inventory/crops/energy/health preserved',menus:['390x844','844x390'],animationFrames,edge,errors};await writeFile('docs/verification/pass2/legacy-menus.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));await context.close();await browser.close();

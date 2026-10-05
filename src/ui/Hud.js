@@ -36,7 +36,7 @@ export class Hud {
     this.selected.setText(s.selected==='seed'?'TOMATO SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');
     this.prompt.setVisible(!!c);if(!c)return;
     const cam=this.app.scene.cameras.main;const sx=(s.position.x-cam.worldView.x)*cam.zoom/2,sy=(s.position.y-cam.worldView.y)*cam.zoom/2;
-    const above=sy-30*cam.zoom-34;const py=above<65&&this.ui.h<230?sy+9:Math.max(this.ui.safe.top+62,above);
+    const above=sy-24*cam.zoom-34;const py=above<65&&this.ui.h<230?sy+9:Math.max(this.ui.safe.top+62,above);
     this.prompt.setPosition(Math.round(Math.max(6,Math.min(this.ui.w-126,sx-60))),Math.round(Math.min(this.ui.h-60,py)));
     let hint=c.label.replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Rest / Sleep');
     if(c.type==='plot'){const plot=s.plots[c.index];hint=plot.growth===3?'Select Harvest':plot.dryDays>=2?'Clear dead crop':hint;hint+=plot.growth===3?'\n3/3 days - Ripe':plot.crop?`\n${plot.growth}/3 days - ${plot.morning?'AM OK':'AM --'} ${plot.evening?'PM OK':'PM --'}`:'\nEmpty farm plot';}

@@ -1,4 +1,7 @@
 import Phaser from 'phaser';
+import { MAP_SIZE } from '../data/mapLayouts.js';
+import { displayZoom } from './displayScale.js';
+import { Atmosphere } from '../art/Atmosphere.js';
 import { WORLD } from '../config.js';
 import { LOCATIONS, walkable } from '../data/locations.js';
 import { PLOTS } from '../data/crops.js';
@@ -9,13 +12,14 @@ export class WorldScene extends Phaser.Scene {
   preload(){
     const base=import.meta.env.BASE_URL+'assets/pixel/';
     this.load.atlas('world',base+'world.png',base+'world.json');
-    for(const char of ['boy','girl'])this.load.spritesheet(char,base+char+'.png',{frameWidth:24,frameHeight:32});
+    this.load.atlas('town',base+'processed/town.png',base+'processed/town.json');
+    for(const char of ['boy','girl'])this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:16,frameHeight:24});
     this.load.bitmapFont('pixel',base+'font.png',base+'font.xml');
     const text=this.add.text(20,20,'Loading Simple Life...',{fontFamily:'monospace',fontSize:'16px',color:'#e1d7ad'});
     this.load.on('complete',()=>text.destroy());
   }
   create(){
-    for(const name of ['world','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
     this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE');
     this.keys.ESC.on('down',()=>this.app.pause());
     for(const key of ['E','SPACE'])this.keys[key].on('down',()=>this.app.use());
@@ -29,16 +33,17 @@ export class WorldScene extends Phaser.Scene {
     });
   }
   resize(){
-    const cam=this.cameras.main;cam.setZoom(Math.max(2,Math.ceil(this.scale.width/960),Math.ceil(this.scale.height/640)));cam.setBounds(0,0,960,640);cam.roundPixels=true;
+    const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));cam.setBounds(0,0,MAP_SIZE.width,MAP_SIZE.height);cam.roundPixels=true;
     if(this.player){cam.startFollow(this.player.sprite,true,1,1);cam.centerOn(this.player.sprite.x,this.player.sprite.y);}
     else cam.centerOn(448,290);
   }
   build(){
-    this.cameras.main.stopFollow();this.children.removeAll(true);this.player=null;
+    this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;
     const s=this.app.state;drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.renderCrops();
     if(s){this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
-    this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(1000).setVisible(false);
-    this.night=this.add.rectangle(0,0,960,640,0x162e3c,0).setOrigin(0).setDepth(2000);
+    this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(1900).setVisible(false);
+    this.atmosphere=new Atmosphere(this,s?.area||'farm');
+    this.night=this.add.rectangle(0,0,MAP_SIZE.width,MAP_SIZE.height,0x162e3c,0).setOrigin(0).setDepth(3000);
     this.resize();
   }
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state)drawPlots(this,this.app.state?.plots,this.plots);}
@@ -51,7 +56,7 @@ export class WorldScene extends Phaser.Scene {
       if(dist(PLOTS[i])<65)return {type:'plot',index:i,...PLOTS[i],label:`${s.selected==='seed'?'Plant seed':s.selected==='water'?'Water crop':'Harvest crop'}`};
     }return null;
   }
-  faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);}
+  faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   update(_,delta){
     const a=this.app,s=a.state;if(!s)return;let dx=0,dy=0;
     if(!a.paused&&!document.hidden){
@@ -61,7 +66,8 @@ export class WorldScene extends Phaser.Scene {
       if(walkable(s.area,nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(walkable(s.area,s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}a.advance(delta);
     }
     this.player?.update(s.position,dx,dy);
+    if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);
     this.night.setAlpha(s.minute>=1200?.38:s.minute>=960?.16:0);
-    const c=this.context();this.marker.setVisible(!!c&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-74-Math.floor(Math.sin(this.time.now/240)*2)*2);
+    const c=this.context();this.marker.setVisible(!!c&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

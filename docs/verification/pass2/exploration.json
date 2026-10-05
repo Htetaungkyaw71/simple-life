@@ -1,0 +1,262 @@
+{
+  "result": "PASS",
+  "visits": [
+    {
+      "area": "home",
+      "name": "homestead-gate",
+      "position": {
+        "x": 865.161400000001,
+        "y": 620.8032666666661
+      },
+      "camera": {
+        "x": 439,
+        "y": 381,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "home",
+      "name": "homestead-shed",
+      "position": {
+        "x": 1151.1432000000007,
+        "y": 382.47686666666556
+      },
+      "camera": {
+        "x": 725,
+        "y": 142,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "home",
+      "name": "homestead-cottage",
+      "position": {
+        "x": 1727.4514000000004,
+        "y": 352.1400666666655
+      },
+      "camera": {
+        "x": 1301,
+        "y": 112,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "home",
+      "name": "homestead-pond",
+      "position": {
+        "x": 1619.1198000000004,
+        "y": 672.7902666666656
+      },
+      "camera": {
+        "x": 1193,
+        "y": 433,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "home",
+      "name": "homestead-picnic",
+      "position": {
+        "x": 1038.4774000000007,
+        "y": 867.7850666666654
+      },
+      "camera": {
+        "x": 612,
+        "y": 628,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "farm",
+      "name": "farm-board",
+      "position": {
+        "x": 816.2338666666666,
+        "y": 417.3290000000001
+      },
+      "camera": {
+        "x": 390,
+        "y": 177,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "Four fields, one beginning"
+    },
+    {
+      "area": "farm",
+      "name": "farm-four-fields",
+      "position": {
+        "x": 1024.2234666666664,
+        "y": 560.3238000000002
+      },
+      "camera": {
+        "x": 598,
+        "y": 320,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "Water twice each day"
+    },
+    {
+      "area": "farm",
+      "name": "farm-orchard",
+      "position": {
+        "x": 1518.2208666666663,
+        "y": 560.3238000000002
+      },
+      "camera": {
+        "x": 1092,
+        "y": 320,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "The quiet orchard"
+    },
+    {
+      "area": "farm",
+      "name": "farm-irrigation",
+      "position": {
+        "x": 1648.2078666666662,
+        "y": 594.9974000000001
+      },
+      "camera": {
+        "x": 1222,
+        "y": 355,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "farm",
+      "name": "farm-east-boundary",
+      "position": {
+        "x": 2003.521266666666,
+        "y": 945.9765999999997
+      },
+      "camera": {
+        "x": 1387,
+        "y": 672,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "city",
+      "name": "city-mira",
+      "position": {
+        "x": 847.5680666666653,
+        "y": 354.99739999999997
+      },
+      "camera": {
+        "x": 422,
+        "y": 115,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "Mira"
+    },
+    {
+      "area": "city",
+      "name": "city-fountain",
+      "position": {
+        "x": 1168.2208666666652,
+        "y": 558.6554000000007
+      },
+      "camera": {
+        "x": 742,
+        "y": 319,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    },
+    {
+      "area": "city",
+      "name": "city-ko",
+      "position": {
+        "x": 1280.8918666666652,
+        "y": 593.3134000000006
+      },
+      "camera": {
+        "x": 855,
+        "y": 353,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "Ko"
+    },
+    {
+      "area": "city",
+      "name": "city-closed-shop",
+      "position": {
+        "x": 1488.871066666665,
+        "y": 879.3108000000005
+      },
+      "camera": {
+        "x": 1063,
+        "y": 639,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "A shop for another day"
+    },
+    {
+      "area": "city",
+      "name": "city-nell",
+      "position": {
+        "x": 1792.1870666666648,
+        "y": 913.9740000000005
+      },
+      "camera": {
+        "x": 1366,
+        "y": 672,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": "Nell"
+    },
+    {
+      "area": "city",
+      "name": "city-east-boundary",
+      "position": {
+        "x": 2099.8450666666654,
+        "y": 944.3004000000004
+      },
+      "camera": {
+        "x": 1387,
+        "y": 672,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      },
+      "dialog": null
+    }
+  ],
+  "errors": []
+}
