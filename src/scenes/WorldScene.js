@@ -61,7 +61,7 @@ export class WorldScene extends Phaser.Scene {
     this.resize();
   }
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state)drawPlots(this,this.app.state?.plots,this.plots);}
-  context(){return contextFor(this.app.state,this.targetPlot);}
+  context(){return contextFor(this.app.state,this.targetPlot,this.player?.direction);}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   update(_,delta){
     const a=this.app,s=a.state;if(!s)return;let dx=0,dy=0;

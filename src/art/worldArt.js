@@ -1,3 +1,4 @@
+import {pixelArrow} from '../ui/statusArt.js';
 import {FIELD,CROPS} from '../data/crops.js';
 import {cropVisual,waterPeriod} from '../systems/watering.js';
 import {ROOM,FURNITURE} from '../data/interior.js';
@@ -9,6 +10,7 @@ export function image(scene,name,x,y,depth=0){const atlas=scene.textures.get('to
 function tiled(scene,name,x,y,w,h,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.tileSprite(x,y,w,h,atlas,name).setOrigin(0).setTileScale(scene.artScale||SCALE).setDepth(depth);}
 function label(scene,x,y,value){return scene.add.bitmapText(x,y,'pixel',value,6).setScale(2).setOrigin(.5,0).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(y+3);}
 function object(scene,p){
+ if(p.name==='farm-sign')return farmSign(scene,p);
  let name=p.name;
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
@@ -19,6 +21,12 @@ function object(scene,p){
  if(p.animated==='fountain')scene.fountains.push(obj);
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
  return obj;
+}
+function farmSign(scene,p){
+ const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
+ g.fillStyle(0x544249);g.fillRect(9,19,6,13);g.fillStyle(0xa8794e);g.fillRect(10,20,4,12);
+ g.fillStyle(0x544249);g.fillRect(0,0,24,23);g.fillStyle(0xa8794e);g.fillRect(1,1,22,21);g.fillStyle(0xd6ad73);g.fillRect(2,2,20,2);g.fillRect(2,20,20,1);
+ pixelArrow(g,2,12,15,0xffedcc);scene.add.bitmapText(p.x+2,p.y+8,'pixel','FARM',8).setScale(2).setTint(0xffedcc).setDepth(p.y+65);return g;
 }
 export function drawWorld(scene,area){
  scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.canopies=[];scene.doors=[];

@@ -1,4 +1,23 @@
-# Current verification — final foundation and farming presentation
+# Current verification — Milestone 1.1, 2026-10-06
+
+Evidence: `docs/verification/farming-information/`. Google Chrome/Chromium, isolated profiles/contexts and disposable localStorage, real keyboard/mouse/CDP touch. Bundled Playwright was used because the agent-browser CLI was unavailable. User saves were untouched.
+
+`npm test`: **35/35 pass** (29 existing, six additional crop-status/navigation/migration tests). Production build passes with the same eight runtime art files and no vendor/QA assets or new dependencies. Source diff passes whitespace checks.
+
+- `farming-information.mjs`: complete starter → Farm → plant → AM water → bed rest → PM water → sleep, three nights → harvest → save/reload; visits stay saved; all sixteen targets; shed/gates/sign/expansion/interior regressions; five sizes. Report: results.json.
+- `farming-information-layout.mjs`: four care states at five sizes, explicit panel non-overlap with farmer, inspected tile, controls and prompt; objective/waypoint/physical sign screenshots; touch plant/water/move/save at both mobile sizes; real expiry, recovery and dead/clear; old save and fresh game. Report: layout-results.json.
+- `farming-information-targets.mjs`: all sixteen planted cells at both mobile sizes, objective minimizes after seven seconds, arrow hides at visible exit and pause/title works. Report: targets-results.json.
+- Existing `farming-care-touch.mjs` rerun with QA_OUTPUT pointing here: care/death/reload/v2/unsafe position, bed/kitchen/table/shelf/wall collision, original eight visual states, real touch. Report: care-touch-results.json.
+
+All reports have empty browser error/warning arrays. The full loop passed before a final landscape-only panel-width adjustment; final layout/all-target checks were repeated after it, followed by a passing complete final-build rerun for matching screenshots. The final added “Newly planted / water AM/PM” wording preserves these placements.
+
+Sizes: **1440×900, 1280×720, 1024×768, 844×390, 390×844**. Panels/crop/controls inspected at each. Desktop without coarse-pointer emulation was also smoke-tested; touch emulation deliberately covers hybrid desktop and mobile layouts. Physical phones and non-Chromium engines remain unverified.
+
+Run preview, launch an isolated Chrome CDP endpoint, then set PLAYWRIGHT_MODULE, CDP_URL and GAME_URL to run the three scripts. Supplemental accepts QA_OUTPUT; no browser package becomes a runtime dependency. No publishing or push.
+
+---
+
+# Historical verification — final foundation and farming presentation
 
 2026-10-06. Evidence: `docs/verification/farming-presentation/`. Isolated Chromium contexts with disposable saves; real keyboard/mouse/CDP touch input and read-only QA snapshots. User saves untouched.
 
@@ -104,3 +123,7 @@ GAME_URL=http://127.0.0.1:4173/ node tests/browser/world-exploration.mjs
 Mobile viewports/touch are Chromium emulation, not physical phones. Android/iOS, real notches/browser chrome, Safari/WebKit, Firefox, Edge and throttled-network timing remain unverified. No success is claimed for those. User visual review and competition declarations remain human work. No Milestone 2 or publishing actions.
 
 Final craftsmanship sign-placement review: `final-city.png` confirms both shop labels remain above the artwork. Final production page had zero errors; a short 60-frame local sample had median requestAnimationFrame interval 16.7 ms. This is not a physical-device performance claim. Final `npm test` and `npm run build` passed after that label-only correction.
+
+Final development smoke: desktop keyboard movement, schema 4, first-time waypoint, pause freeze, fullscreen/no scroll pass with empty errors/warnings. Fresh Chrome identified the initial-origin 404 as `/favicon.ico`; the shell now declares an empty inline favicon, preventing that browser request without adding a runtime asset or visible DOM UI. Fresh-process dev/production resource checks pass.
+
+Fresh-origin resource check is reproducible with `tests/browser/farming-information-resources.mjs` (PLAYWRIGHT_MODULE, optional CHROME_EXECUTABLE, DEV_URL and GAME_URL). It launches a new isolated browser; only same-origin files and locally generated data/blob images are accepted.

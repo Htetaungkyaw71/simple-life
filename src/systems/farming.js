@@ -9,12 +9,13 @@ export function usePlot(s,index){
  const def=CROPS[p.crop||'tomato'];
  if(s.selected==='seed'){
   if(p.crop)return 'Already planted';if(!s.inventory.seed)return 'No seeds';if(s.energy<5)return 'Too tired - rest at home';
-  s.energy-=5;s.inventory.seed--;p.crop='tomato';p.lastEvaluatedWindow=completedWindow(s);return 'Tomato planted';
+  s.hasVisitedFarm=true;s.energy-=5;s.inventory.seed--;p.crop='tomato';p.plantedDay=s.day;p.plantedMinute=Math.floor(s.minute);p.lastEvaluatedWindow=completedWindow(s);return 'Tomato planted';
  }
  if(!p.crop)return 'Select a seed';
  if(s.selected==='water'){
   if(p.growth>=def.growthDays)return 'Ready to harvest';const period=waterPeriod(s);
   if(!period)return 'Water at 06-12 or 16-22';if(p[period])return 'Already watered';if(s.energy<3)return 'Too tired - rest at home';
+  if(missed(p))p.recoveredWindow=(s.day-1)*2+(period==='evening'?1:0);
   s.energy-=3;p[period]=true;p.missedWindows=0;p.dryDays=0;return 'Watered';
  }
  if(p.growth<def.growthDays)return missed(p)?'Wilted - needs water':'Still growing';

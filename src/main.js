@@ -26,7 +26,7 @@ class Application {
   advance(delta){const window=waterPeriod(this.state);if(tick(this.state,delta)){this.scene.build();this.save();this.ui.toast('A new dawn. You returned home and rested.');}if(window!==waterPeriod(this.state))this.scene.renderCrops();this.elapsed+=delta;if(this.elapsed>2500){this.save();this.elapsed=0;}}
   use(){
     if(this.paused||!this.state)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);
-    if(c.type==='starter'){this.transact(collectStarterSeeds);return;}
+    if(c.type==='starter'){const claimed=this.state.starterSeedsClaimed;this.transact(collectStarterSeeds);if(!claimed&&this.state.starterSeedsClaimed){this.ui.notice=null;this.ui.drawNotice();this.ui.showFarmObjective();}return;}
     if(c.type==='refill'){this.scene.atmosphere.refill(this.state.position);this.ui.toast('Watering can full. Water is unlimited for now.');return;}
     if(c.type==='dialog'){this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.body,[['See you around',()=>this.ui.close()]]);return;}
     if(c.type==='hint'){this.ui.feedback(c.label);return;}
@@ -49,7 +49,7 @@ class Application {
     if(this.transitioning)return;this.transitioning=true;this.paused=true;this.input={};
     const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
     cam.once('camerafadeoutcomplete',()=>{
-      this.state.area=c.to;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
+      this.state.area=c.to;if(c.to==='farm')this.state.hasVisitedFarm=true;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
       this.scene.player.direction=c.facing||'down';this.scene.player.pose(false);this.scene.travelReady=this.scene.time.now+700;
       this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;
     });
@@ -70,5 +70,5 @@ window.addEventListener('blur',()=>{app.input={};if(app.scene.keys)Object.values
 document.addEventListener('visibilitychange',()=>{if(document.hidden){app.input={};app.save();}});
 // Read-only observability for automated canvas tests; no gameplay mutation hooks.
 if(import.meta.env.DEV||new URLSearchParams(location.search).has('qa'))window.__simpleLife=Object.freeze({snapshot:()=>{
-  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,menu:app.ui.menu?.kind||null,controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name,height:app.scene.player.sprite.displayHeight*cam.zoom}:null,context:app.scene.context(),prompt:app.ui.hud?.prompt.visible?{x:app.ui.hud.prompt.x*2,y:app.ui.hud.prompt.y*2,w:app.ui.hud.promptWidth*2,h:28}:null,room:{width:ROOM.width,height:ROOM.height,spawn:{...ROOM.spawn},bed:{...ROOM.bed},exit:{...ROOM.exit}},collisionDebug:!!app.scene.collisionWorld?.debug};
+  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,menu:app.ui.menu?.kind||null,controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name,height:app.scene.player.sprite.displayHeight*cam.zoom}:null,context:app.scene.context(),prompt:app.ui.hud?.prompt.visible?{x:app.ui.hud.prompt.x*2,y:app.ui.hud.prompt.y*2,w:app.ui.hud.promptWidth*2,h:28}:null,room:{width:ROOM.width,height:ROOM.height,spawn:{...ROOM.spawn},bed:{...ROOM.bed},exit:{...ROOM.exit}},cropInfo:app.ui.hud?.cropInfo.snapshot()||null,farmGuide:app.ui.hud?.farmGuide.snapshot()||null,collisionDebug:!!app.scene.collisionWorld?.debug};
 }});

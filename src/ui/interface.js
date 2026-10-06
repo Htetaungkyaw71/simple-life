@@ -58,7 +58,8 @@ export class Interface extends Phaser.Scene {
     const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4. City opens later.\nOne missed window wilts. Two kill.';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
-  play(){this.close();}
+  showFarmObjective(){this.objectiveStarted=true;this.objectiveUntil=this.time.now+7000;}
+  play(){this.objectiveStarted=false;this.close();}
   feedback(value){this.feedbackState={text:value,until:this.time.now+1800};}
   toast(value){this.notice={text:value.replace(/[·→]/g,'/'),until:this.time.now+6000};this.drawNotice();}
   drawNotice(){
@@ -68,6 +69,6 @@ export class Interface extends Phaser.Scene {
     const close=text(this,this.noticeLayer,w-15,5,'X',8,UI_COLORS.gold).setInteractive({useHandCursor:true});close.on('pointerdown',(p,x,y,e)=>{e.stopPropagation();this.notice=null;this.drawNotice();});
     this.noticeLayer.setPosition(Math.floor((this.w-w)/2),this.menu?this.safe.top+5:Math.max(68,this.h-(this.touch&&this.w<this.h?155:90)-height));
   }
-  update(){if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu)this.hud?.update(this.app.state,this.app.scene.context());}
+  update(){if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu)this.hud?.update(this.app.state,this.app.scene.context());if(this.noticeLayer)this.noticeLayer.setVisible(!this.hud?.cropInfo.root.visible||!!this.menu);}
   controlSnapshot(){return this.controls.map(({id,label,x,y,w,h,disabled})=>({id,label,x:x*2,y:y*2,w:w*2,h:h*2,disabled}));}
 }

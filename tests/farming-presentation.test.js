@@ -29,7 +29,7 @@ test('eight distinct data-driven tomato visual keys cover care and growth',()=>{
  capture();usePlot(s,0);capture();p.growth=1;capture();p.growth=2;capture();p.growth=3;capture();p.growth=2;p.morning=false;capture();p.missedWindows=1;capture();p.missedWindows=2;capture();assert.equal(seen.size,8);
 });
 test('v1/v2 saves migrate individual crops and preserve economy, reward and locked expansion',()=>{
- for(const version of [1,2]){const s=newState('girl');s.version=version;s.money=123;s.day=7;s.minute=1020;s.starterSeedsClaimed=true;delete s.expansionUnlocked;s.plots[3]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:1};const v=validate(s);assert.equal(v.version,3);assert.equal(v.money,123);assert.equal(v.starterSeedsClaimed,true);assert.equal(v.expansionUnlocked,false);assert.equal(v.plots[3].missedWindows,1);assert.equal(v.plots[3].growth,2);assert.equal(v.plots[3].morning,true);assert.deepEqual(validate(v),v);}
+ for(const version of [1,2]){const s=newState('girl');s.version=version;s.money=123;s.day=7;s.minute=1020;s.starterSeedsClaimed=true;delete s.expansionUnlocked;s.plots[3]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:1};const v=validate(s);assert.equal(v.version,4);assert.equal(v.money,123);assert.equal(v.starterSeedsClaimed,true);assert.equal(v.expansionUnlocked,false);assert.equal(v.plots[3].missedWindows,1);assert.equal(v.plots[3].growth,2);assert.equal(v.plots[3].morning,true);assert.deepEqual(validate(v),v);}
 });
 test('compact field has contiguous sixteen reachable cells, with no paths or props crossing them',()=>{
  assert.equal(PLOTS.length,16);assert.equal(new Set(PLOTS.map(p=>p.x)).size,4);assert.equal(FIELD.cell,48);

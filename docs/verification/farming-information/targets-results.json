@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "resultBySize": [
+    {
+      "width": 844,
+      "height": 390,
+      "inspectedCells": 16,
+      "cropAndPlayerClear": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "inspectedCells": 16,
+      "cropAndPlayerClear": true
+    }
+  ],
+  "objectiveMinimized": true,
+  "exitVisibleHidesWaypoint": true,
+  "pauseTitle": true,
+  "errors": []
+}

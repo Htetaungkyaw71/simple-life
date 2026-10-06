@@ -9,3 +9,6 @@ Serene Village revamped v1.9 by **LimeZu**, [source](https://limezu.itch.io/sere
 
 ## Farming presentation additions — 2026-10-06
 Ten original Codex-assisted frames in the current town atlas: field-soil, field-watered, tomato-seed, tomato-sprout, tomato-young, tomato-flowering, tomato-ripe, tomato-dry, tomato-wilted and tomato-dead. Reproducible source: scripts/crop_art.py. No new external asset or licence. LimeZu remains the active environment creator; Kenney above is historical.
+
+## Milestone 1.1 original UI and navigation art — 2026-10-06
+Original Codex-assisted Simple Life pixel masks: leaf, game clock, morning sun, evening moon, water drop, warning, harvest basket and eight-direction arrows (`src/ui/statusArt.js`). Original wooden FARM board/post geometry and bitmap label (`src/art/worldArt.js`). Source URL: none; created locally for this project, with reproducible source and Git history. The existing original tomato icon and font are reused. No new third-party asset/licence or runtime image file. Art evidence: `docs/assets/licenses/milestone-1.1-original-ui.md`; AI disclosure: AI_USAGE.md. LimeZu attribution and the runtime asset allowlist remain intact.

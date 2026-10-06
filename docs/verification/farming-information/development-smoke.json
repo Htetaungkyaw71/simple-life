@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "schema": 4,
+  "desktopKeyboard": true,
+  "pauseFreezes": true,
+  "fullscreen": {
+    "w": 1280,
+    "h": 720,
+    "cw": 1280,
+    "ch": 720,
+    "scroll": false
+  },
+  "errors": [],
+  "warnings": []
+}

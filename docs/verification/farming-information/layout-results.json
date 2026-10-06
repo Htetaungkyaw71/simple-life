@@ -1,0 +1,78 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "width": 1440,
+      "height": 900,
+      "states": [
+        "growing",
+        "paused",
+        "ready",
+        "dead"
+      ],
+      "cropAndPlayerClear": true,
+      "controlsClear": true,
+      "guide": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "states": [
+        "growing",
+        "paused",
+        "ready",
+        "dead"
+      ],
+      "cropAndPlayerClear": true,
+      "controlsClear": true,
+      "guide": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "states": [
+        "growing",
+        "paused",
+        "ready",
+        "dead"
+      ],
+      "cropAndPlayerClear": true,
+      "controlsClear": true,
+      "guide": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "states": [
+        "growing",
+        "paused",
+        "ready",
+        "dead"
+      ],
+      "cropAndPlayerClear": true,
+      "controlsClear": true,
+      "guide": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "states": [
+        "growing",
+        "paused",
+        "ready",
+        "dead"
+      ],
+      "cropAndPlayerClear": true,
+      "controlsClear": true,
+      "guide": true
+    }
+  ],
+  "touch": true,
+  "expiry": true,
+  "recovery": true,
+  "deathClear": true,
+  "migration": true,
+  "newGame": true,
+  "errors": [],
+  "warnings": []
+}

@@ -1,3 +1,5 @@
+import {CropInfo} from './CropInfo.js';
+import {FarmGuide} from './FarmGuide.js';
 import {wateringLabel} from '../systems/watering.js';
 import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
 import {clock,phase} from '../systems/time.js';
@@ -20,19 +22,19 @@ export class Hud {
       const x=start+i*(bw+bgap);const slot=button(u,p,tool,x,by,bw,28,()=>this.app.select(tool),{id:'tool-'+tool,iconName:name});
       this.slots.push({tool,slot,count:text(u,p,x+24,by+20,'',7).setOrigin(1,0)});text(u,p,x+4,by+3,String(i+1),6,UI_COLORS.muted);
     }
-    this.selected=text(u,p,w/2,by-12,'SEED',7,UI_COLORS.light).setOrigin(.5,0);
+    this.selected=text(u,p,w/2,touch&&!portrait&&h<240?h-u.safe.bottom-10:by-12,'SEED',7,UI_COLORS.light).setOrigin(.5,0);
     if(touch){
-      const dx=left+3,dy=h-u.safe.bottom-73,size=22,gap=2;
+      const dx=left+3,dy=h-u.safe.bottom-(portrait?73:49),size=22,gap=2;
       for(const [dir,label,col,row]of [['up','UP',1,0],['left','<',0,1],['down','DN',1,1],['right','>',2,1]]){
         const b=button(u,p,label,dx+col*(size+gap),dy+row*(size+gap),size,size,pointer=>{this.app.input[dir]=true;b.box.setAlpha(1);b.pointer=pointer.id;},{id:'move-'+dir});
         const release=pointer=>{if(b.pointer===pointer.id){this.app.input[dir]=false;b.pointer=null;b.box.setAlpha(.48);}};b.box.setAlpha(.48);b.box.on('pointerup',release);b.box.on('pointerout',release);
       }
-      button(u,p,'USE',right-34,h-u.safe.bottom-61,34,32,()=>this.app.use(),{id:'use'});
+      button(u,p,'USE',right-34,h-u.safe.bottom-(portrait?61:35),34,32,()=>this.app.use(),{id:'use'});
     }
-    this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);
+    this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
   }
   update(s,c){
-    this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(LOCATIONS[s.area].name);
+    this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(LOCATIONS[s.area].name);
     this.health.setSize(23*s.health/100,4);this.energy.setSize(21*s.energy/100,4);this.healthValue.setText(String(s.health));this.energyValue.setText(String(s.energy));
     for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory.seed):tool==='harvest'?String(s.inventory.tomato):'');}
     this.selected.setText(s.selected==='seed'?'TOMATO SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');
@@ -47,5 +49,6 @@ export class Hud {
     const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)*cam.zoom/2,py=(s.position.y-cam.worldView.y)*cam.zoom/2;
     const overlaps=Math.abs(px-this.ui.w/2)<pw/2+12&&py>this.promptY&&py-30<this.promptY+14;
     this.prompt.setPosition(Math.round(this.ui.w/2-pw/2),overlaps?Math.round(py-46):this.promptY);
+    const crop=this.cropInfo.snapshot();if(crop&&this.ui.touch&&this.ui.w>this.ui.h&&this.ui.h<240){this.prompt.setPosition(crop.x/2<this.ui.w/2?this.ui.w-this.ui.safe.right-pw-6:this.ui.safe.left+6,this.promptY);}
   }
 }

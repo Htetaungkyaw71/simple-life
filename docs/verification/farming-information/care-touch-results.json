@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "wiltOnce": true,
+  "recover": true,
+  "twoMissesDead": true,
+  "clearDead": true,
+  "saveReload": true,
+  "legacyV2": true,
+  "unsafeShedSave": true,
+  "indoorResults": [
+    "bed",
+    "kitchen",
+    "table",
+    "shelf",
+    "wall"
+  ],
+  "touchSizes": [
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "visuals": [
+    "seed",
+    "sprout",
+    "young",
+    "flowering",
+    "ripe",
+    "dry",
+    "wilted",
+    "dead"
+  ],
+  "errors": [],
+  "warnings": []
+}

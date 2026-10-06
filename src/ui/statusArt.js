@@ -1,0 +1,25 @@
+// Original 9x9 integer-pixel glyphs. Source is the asset creation evidence.
+export const STATUS_PIXELS={
+ leaf:['000000000','000011110','000111110','001111100','001111000','000110000','000100000','001000000','000000000'],
+ clock:['000111000','001000100','010010010','100010001','100011101','100000001','010000010','001000100','000111000'],
+ sun:['000010000','010000010','000111000','001111100','101111101','001111100','000111000','010000010','000010000'],
+ moon:['000111000','001100000','011000000','110000000','110000000','111000001','011100011','001111110','000111100'],
+ drop:['000010000','000111000','000111000','001111100','001111100','011111110','011111110','001111100','000111000'],
+ warning:['000010000','000111000','001010100','001010100','010010010','010000010','100010001','111111111','000000000'],
+ basket:['001111100','010000010','010000010','111111111','011111110','011010110','011010110','001111100','000000000'],
+};
+export const ARROW_PIXELS=[
+ ['000000000','000001000','000000100','111111110','000000100','000001000','000000000','000000000','000000000'],
+ ['000000000','001111110','000001110','000011010','000110010','001100010','011000000','000000000','000000000'],
+ ['000010000','000010000','000010000','000010000','010010010','001111100','000111000','000010000','000000000'],
+];
+export function pixels(g,name,x,y,color){g.fillStyle(color);for(const [row,line]of STATUS_PIXELS[name].entries())for(let col=0;col<line.length;col++)if(line[col]==='1')g.fillRect(x+col,y+row,1,1);}
+export function pixelArrow(g,direction,x,y,color){
+ // Eight orientations formed from cardinal and diagonal masks, without rotation
+ // of raster textures (all glyphs stay on the integer UI grid).
+ const cardinal=direction%2===0,mask=cardinal?ARROW_PIXELS[2]:ARROW_PIXELS[1];
+ g.fillStyle(color);for(let r=0;r<9;r++)for(let c=0;c<9;c++)if(mask[r][c]==='1'){
+  let px=c-4,py=r-4;const turns=cardinal?(direction-2+8)%8/2:(direction+1)%8/2;
+  for(let i=0;i<turns;i++)[px,py]=[-py,px];g.fillRect(x+px,y+py,1,1);
+ }
+}
