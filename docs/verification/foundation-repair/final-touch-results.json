@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "touchEdgeRoundTrip": true,
+  "spawnTwoTilesInside": true,
+  "touchDoor": true,
+  "promptHiddenOutOfRange": true,
+  "unsafeSaveRepair": true,
+  "errors": [],
+  "warnings": []
+}

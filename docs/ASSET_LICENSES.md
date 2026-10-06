@@ -66,3 +66,6 @@ This entry supersedes Tiny Town as the active environment family; the Kenney arc
 
 ## Stabilization sprite correction — 2026-10-05
 Original boy/girl sheets retain their 24×32 grid and 24-frame structure. Side eyes moved onto visible face pixels (x=9 left, x=15 right) in process-rpg-assets.py; related original NPC variants regenerate. No third-party art was redrawn or replaced. Offline frame gallery and pixel checks live under docs/verification/stabilization, outside the runtime allowlist. LimeZu attribution/licence unchanged; City source art is retained but City travel is disabled.
+
+## Foundation repair — 2026-10-06
+No runtime asset files changed or were added. Existing house atlas alpha runs inform collision only; existing floor/wall/furniture/door tiles are reused without stretching. Art licences, attribution, source evidence and eight-file production allowlist remain unchanged.

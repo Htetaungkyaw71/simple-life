@@ -16,8 +16,8 @@ class Application {
     this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){this.ui.title();}
-  start(state){if(!state)return;this.state=state;this.scene.build();this.ui.play();this.save();}
-  newGame(character){this.start(newState(character));this.ui.toast('Collect 3 seeds from the crate beside the house. The east gate leads to the active field.');}
+  start(state){if(!state)return;this.state=state;this.scene.build();this.scene.travelReady=this.scene.time.now+700;this.ui.play();this.save();}
+  newGame(character){this.start(newState(character));this.ui.toast('Collect 3 seeds from the crate beside the house. Follow the south path to the farm.');}
   select(tool){if(!this.state||this.paused)return;this.state.selected=tool;this.save();}
   save(show=false){if(!this.state)return;const ok=this.saves.write(this.state);if(show||(!ok&&!this.storageWarned))this.ui.toast(ok?'Your farm is saved.':this.saves.error);this.storageWarned=!ok;}
   transact(fn){const money=this.state.money;const message=fn(this.state);if(this.state.money!==money)this.scene.atmosphere.coins(this.state.money-money,this.state.position);this.scene.renderCrops();this.save();if(message)this.ui.toast(message);return message;}
@@ -28,7 +28,7 @@ class Application {
     if(c.type==='refill'){this.scene.atmosphere.refill(this.state.position);this.ui.toast('Watering can full. Water is unlimited for now.');return;}
     if(c.type==='dialog'){this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.body,[['See you around',()=>this.ui.close()]]);return;}
     if(c.type==='plot'){this.transact(s=>usePlot(s,c.index));return;}
-    if(c.type==='travel'){this.state.area=c.to;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();this.save();this.ui.toast(LOCATIONS[c.to].name+' / '+LOCATIONS[c.to].subtitle);this.visited.add(c.to);return;}
+    if(c.type==='travel'){this.travel(c);return;}
     if(c.type==='bed'){
       this.ui.modal('HOME','Rest a while','Sleep restores energy and grows watered crops. Rest skips to 16:00 for evening watering.',[
         ['Sleep / next day',()=>{this.transact(s=>{nextDay(s);return 'Good morning. Full energy, a fresh day.';});this.scene.build();this.ui.close();}],
@@ -36,13 +36,22 @@ class Application {
       ]);return;
     }this.market(c.type);
   }
+  travel(c){
+    if(this.transitioning)return;this.transitioning=true;this.paused=true;this.input={};
+    const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
+    cam.once('camerafadeoutcomplete',()=>{
+      this.state.area=c.to;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
+      this.scene.player.direction=c.facing||'down';this.scene.player.pose(false);this.scene.travelReady=this.scene.time.now+700;
+      this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;
+    });
+  }
   market(type){
     const s=this.state,selling=type==='sell';
     this.ui.modal(selling?'CITY / PRODUCE MARKET':'CITY / SEED SHOP',selling?'Fresh from the farm':'Tomato seeds',selling?`Sell tomatoes for 18 coins each.\n\nYour harvest: ${s.inventory.tomato}\nYour coins: ${s.money}`:`10 coins / seed\n3 growing days / 2 tomatoes\nWater morning and evening.\n\nYour coins: ${s.money}   Seeds: ${s.inventory.seed}`,[
       [selling?`Sell ${s.inventory.tomato} / ${s.inventory.tomato*18} coins`:'Buy 1 seed / 10 coins',()=>{const message=this.transact(selling?sellProduce:buySeed);this.market(type);this.ui.toast(message);}],['Back to the lane',()=>this.ui.close()],
     ]);
   }
-  pause(){if(!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','Take your time. Your farm can wait.',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
+  pause(){if(this.transitioning||!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','Take your time. Your farm can wait.',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
   pauseMenu(){this.paused=false;this.pause();}
 }
 const app=new Application();
@@ -52,5 +61,5 @@ window.addEventListener('blur',()=>{app.input={};if(app.scene.keys)Object.values
 document.addEventListener('visibilitychange',()=>{if(document.hidden){app.input={};app.save();}});
 // Read-only observability for automated canvas tests; no gameplay mutation hooks.
 if(import.meta.env.DEV||new URLSearchParams(location.search).has('qa'))window.__simpleLife=Object.freeze({snapshot:()=>{
-  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,menu:app.ui.menu?.kind||null,controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name,height:app.scene.player.sprite.displayHeight*cam.zoom}:null,context:app.scene.context(),collisionDebug:!!app.scene.collisionWorld?.debug};
+  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,menu:app.ui.menu?.kind||null,controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name,height:app.scene.player.sprite.displayHeight*cam.zoom}:null,context:app.scene.context(),prompt:app.ui.hud?.prompt.visible?{x:app.ui.hud.prompt.x*2,y:app.ui.hud.prompt.y*2,w:app.ui.hud.promptWidth*2,h:28}:null,collisionDebug:!!app.scene.collisionWorld?.debug};
 }});

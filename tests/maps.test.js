@@ -23,6 +23,6 @@ test('expanded areas connect every interaction and decorative district',()=>{
 test('new scenery only relocates unsafe legacy positions, preserving progress',async()=>{
  const {validate}=await import('../src/systems/save.js');const {newState}=await import('../src/systems/state.js');
  const legacy=newState('girl');Object.assign(legacy,{area:'farm',position:{x:160,y:190},day:8,money:172,energy:62,sold:6});legacy.inventory={seed:3,tomato:4};legacy.plots[0]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};
- assert.equal(walkable('farm',160,190),false);const loaded=validate(legacy);assert.deepEqual(loaded.position,LOCATIONS.farm.spawn);
+ assert.equal(walkable('farm',160,190),false);const loaded=validate(legacy);assert.ok(walkable(loaded.area,loaded.position.x,loaded.position.y));assert.ok(Math.hypot(loaded.position.x-160,loaded.position.y-190)<96);
  for(const key of ['character','day','money','energy','sold','plots','inventory'])assert.deepEqual(loaded[key],legacy[key]);
 });

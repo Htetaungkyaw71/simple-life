@@ -1,4 +1,17 @@
-# Current verification — final Milestone 1 stabilization
+# Current verification — Playable Foundation repair
+
+2026-10-06. Evidence: `docs/verification/foundation-repair/`. Disposable Chromium contexts, real keyboard/mouse/touch input; user save untouched.
+
+- `npm test`: **19/19 pass**. `npm run build`: succeeds, eight unchanged runtime art files.
+- `tests/browser/foundation-repair.mjs`: eight house approaches, separate door entry/exit, save refresh, old middle trigger absent, automatic edge travel round trip/no bounce, furniture and wall collision, sleeping, five viewport sizes. `results.json`, zero errors/warnings.
+- `tests/browser/foundation-repair-touch.mjs`: final rebuilt production exact two-tile inward spawns and real touch round trip, door Use, prompt hiding and unsafe-save recovery. `final-touch-results.json`. Both suites were rerun against the final house-clearance and two-tile-spawn build.
+- Screenshots: house approaches, safe exit, south path, Farm arrival, entrance/bed/exit at 1440×900, 1280×720, 1024×768, 844×390 and 390×844. Visually inspected. Compact prompt height 28px, zoom 1, no sprite or tile resampling.
+
+Run with `PLAYWRIGHT_MODULE` (optional module path), `CDP_URL` (isolated Chromium endpoint), optional `GAME_URL` (default preview 4173). The suites initialize disposable fixtures, navigate with real inputs and inspect read-only QA snapshots. Physical devices and non-Chromium engines remain unverified. Historical suites below retain old transition/interior coordinates and are not current acceptance claims.
+
+---
+
+# Historical verification — final Milestone 1 stabilization
 
 2026-10-05. Evidence: `docs/verification/stabilization/`. Tests use disposable Chromium contexts and leave the user’s live save untouched.
 

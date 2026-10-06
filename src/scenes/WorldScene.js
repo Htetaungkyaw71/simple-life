@@ -1,3 +1,5 @@
+import {ROOM} from '../data/interior.js';
+import {edgeTravel} from '../data/locations.js';
 import Phaser from 'phaser';
 import { CollisionWorld } from '../physics/CollisionWorld.js';
 import { contextFor } from '../systems/context.js';
@@ -36,7 +38,7 @@ export class WorldScene extends Phaser.Scene {
   }
   resize(){
     const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));cam.setBounds(0,0,MAP_SIZE.width,MAP_SIZE.height);cam.roundPixels=true;
-    if(this.app.state?.area==='interior'){cam.removeBounds();if(this.scale.height<600){cam.startFollow(this.player.sprite,true,1,1);cam.centerOn(this.player.sprite.x,this.player.sprite.y);}else{cam.stopFollow();cam.centerOn(416,320);}return;}
+    if(this.app.state?.area==='interior')cam.setBounds(-Math.max(48,(this.scale.width-ROOM.width)/2),-48,Math.max(this.scale.width,ROOM.width+96),Math.max(this.scale.height,ROOM.height+(this.scale.height<600?160:96)));
     if(this.player){cam.startFollow(this.player.sprite,true,1,1);cam.centerOn(this.player.sprite.x,this.player.sprite.y);}
     else cam.centerOn(448,290);
   }
@@ -59,7 +61,7 @@ export class WorldScene extends Phaser.Scene {
       const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
       const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
       const len=Math.hypot(x,y)||1,step=WORLD.speed*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
-      if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}if(dx||dy)this.targetPlot=null;a.advance(delta);
+      if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}if(dx||dy)this.targetPlot=null;a.advance(delta);const edge=edgeTravel(s);if(edge&&this.time.now>(this.travelReady||0)){a.travel(edge);return;}
     }
     this.player?.update(s.position,dx,dy);
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);

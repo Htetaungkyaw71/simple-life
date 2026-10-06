@@ -34,3 +34,6 @@ Preserve source files untouched under vendor, keep derivative outputs under pixe
 
 ## Stabilization approval
 The user approved this style in the final stabilization brief. Do not redesign it. Only facial-pixel corrections were made. Active Milestone 1 locations are Home exterior/interior and Farm; City/economy are deferred by the newer brief.
+
+## Foundation repair layout
+The 2026-10-06 brief authorizes expanding the furnished interior and adjusting edge paths while preserving art. Interior layout is now 1344×800, with integer-scale tiles and a matching wall border; compact screens scroll instead of shrinking sprites. Context prompts are small strips above the hotbar. No asset-family changes.

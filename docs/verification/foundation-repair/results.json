@@ -1,0 +1,88 @@
+{
+  "result": "PASS",
+  "sides": [
+    {
+      "name": "left",
+      "position": {
+        "x": 388.6545333333333,
+        "y": 400
+      }
+    },
+    {
+      "name": "right",
+      "position": {
+        "x": 571.0156000000001,
+        "y": 400
+      }
+    },
+    {
+      "name": "top",
+      "position": {
+        "x": 480,
+        "y": 318.28479999999985
+      }
+    },
+    {
+      "name": "bottom",
+      "position": {
+        "x": 480,
+        "y": 490
+      }
+    },
+    {
+      "name": "northwest",
+      "position": {
+        "x": 430,
+        "y": 342
+      }
+    },
+    {
+      "name": "northeast",
+      "position": {
+        "x": 554,
+        "y": 336
+      }
+    },
+    {
+      "name": "southwest",
+      "position": {
+        "x": 424,
+        "y": 490
+      }
+    },
+    {
+      "name": "southeast",
+      "position": {
+        "x": 536,
+        "y": 490
+      }
+    }
+  ],
+  "edgeTravel": true,
+  "doorAndSave": true,
+  "furnitureAndWalls": true,
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "errors": [],
+  "warnings": []
+}

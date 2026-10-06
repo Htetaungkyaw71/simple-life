@@ -27,7 +27,7 @@ export class Hud {
       }
       button(u,p,'USE',right-34,h-u.safe.bottom-61,34,32,()=>this.app.use(),{id:'use'});
     }
-    this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,120,29);this.promptText=text(u,this.prompt,6,5,'',7,UI_COLORS.light,108);
+    this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);
   }
   update(s,c){
     this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(LOCATIONS[s.area].name);
@@ -35,11 +35,12 @@ export class Hud {
     for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory.seed):tool==='harvest'?String(s.inventory.tomato):'');}
     this.selected.setText(s.selected==='seed'?'TOMATO SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');
     this.prompt.setVisible(!!c);if(!c)return;
-    const cam=this.app.scene.cameras.main;const sx=(s.position.x-cam.worldView.x)*cam.zoom/2,sy=(s.position.y-cam.worldView.y)*cam.zoom/2;
-    const above=sy-24*cam.zoom-34;const py=above<65&&this.ui.h<230?sy+9:Math.max(this.ui.safe.top+62,above);
-    this.prompt.setPosition(Math.round(Math.max(6,Math.min(this.ui.w-126,sx-60))),Math.round(Math.min(this.ui.h-60,py)));
     let hint=c.label.replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Rest / Sleep');
-    if(c.type==='plot'){const plot=s.plots[c.index];hint=c.label;hint+=plot.growth===3?'\n3/3 days - Ripe':plot.crop?`\n${plot.growth}/3 days - ${plot.morning?'AM OK':'AM --'} ${plot.evening?'PM OK':'PM --'}`:'\nEmpty farm plot';}
     this.promptText.setText((this.ui.touch?'USE: ':'E: ')+hint);
+    const pw=Math.min(156,Math.ceil(this.promptText.width)+10);this.promptWidth=pw;
+    this.promptPanel.clear().fillStyle(UI_COLORS.ink,.95).fillRect(0,0,pw,14).fillStyle(UI_COLORS.edge).fillRect(1,1,pw-2,12).fillStyle(UI_COLORS.panel,.96).fillRect(2,2,pw-4,10);
+    const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)/2,py=(s.position.y-cam.worldView.y)/2;
+    const overlaps=Math.abs(px-this.ui.w/2)<pw/2+12&&py>this.promptY&&py-30<this.promptY+14;
+    this.prompt.setPosition(Math.round(this.ui.w/2-pw/2),overlaps?Math.round(py-46):this.promptY);
   }
 }
