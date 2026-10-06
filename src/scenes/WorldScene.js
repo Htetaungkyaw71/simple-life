@@ -1,5 +1,5 @@
 import {ROOM} from '../data/interior.js';
-import {edgeTravel} from '../data/locations.js';
+import {edgeTravel,syncInterior,nearestSafe} from '../data/locations.js';
 import Phaser from 'phaser';
 import { CollisionWorld } from '../physics/CollisionWorld.js';
 import { contextFor } from '../systems/context.js';
@@ -31,14 +31,22 @@ export class WorldScene extends Phaser.Scene {
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
       const a=this.app;if(a.paused||a.state?.area!=='farm')return;
-      const world=this.cameras.main.getWorldPoint(p.x,p.y);const index=PLOTS.findIndex(v=>Math.hypot(v.x-world.x,v.y-world.y)<32);
+      const world=this.cameras.main.getWorldPoint(p.x,p.y);const index=PLOTS.findIndex(v=>Math.abs(v.x-world.x)<24&&Math.abs(v.y-world.y)<24);
       if(index<0)return;if(Math.hypot(PLOTS[index].x-a.state.position.x,PLOTS[index].y-a.state.position.y)>=60){a.ui.toast('Walk closer to that plot.');return;}
       this.targetPlot=index;a.use();
     });
   }
   resize(){
     const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));cam.setBounds(0,0,MAP_SIZE.width,MAP_SIZE.height);cam.roundPixels=true;
-    if(this.app.state?.area==='interior')cam.setBounds(-Math.max(48,(this.scale.width-ROOM.width)/2),-48,Math.max(this.scale.width,ROOM.width+96),Math.max(this.scale.height,ROOM.height+(this.scale.height<600?160:96)));
+    if(this.app.state?.area==='interior'){
+      const old={w:ROOM.width,h:ROOM.height},p=this.app.state.position;
+      if(syncInterior(this.scale.width,this.scale.height)){
+        this.app.state.position=nearestSafe('interior',{x:p.x*ROOM.width/old.w,y:p.y*ROOM.height/old.h});this.build();return;
+      }
+      cam.setZoom(2);const vw=this.scale.width/2,vh=this.scale.height/2;
+      cam.setBounds(-Math.max(8,(vw-ROOM.width)/2),-Math.max(24,(vh-ROOM.height)/2),Math.max(vw,ROOM.width+16),Math.max(vh,ROOM.height+48));
+      if(this.scale.width>=1000&&this.scale.height>=600){cam.stopFollow();cam.centerOn(ROOM.width/2,ROOM.height/2);return;}
+    }
     if(this.player){cam.startFollow(this.player.sprite,true,1,1);cam.centerOn(this.player.sprite.x,this.player.sprite.y);}
     else cam.centerOn(448,290);
   }
@@ -60,12 +68,12 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused&&!document.hidden){
       const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
       const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
-      const len=Math.hypot(x,y)||1,step=WORLD.speed*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
+      const len=Math.hypot(x,y)||1,step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
       if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}if(dx||dy)this.targetPlot=null;a.advance(delta);const edge=edgeTravel(s);if(edge&&this.time.now>(this.travelReady||0)){a.travel(edge);return;}
     }
     this.player?.update(s.position,dx,dy);
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);
     this.night.setAlpha(s.minute>=1200?.38:s.minute>=960?.16:0);
-    const c=this.context();this.plotOutline.clear();if(c?.type==='plot'&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*31,y=c.y+sy*31;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&c.type!=='plot'&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
+    const c=this.context();this.plotOutline.clear();if(c?.type==='plot'&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&c.type!=='plot'&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

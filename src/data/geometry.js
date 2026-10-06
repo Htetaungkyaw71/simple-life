@@ -9,3 +9,7 @@ export function pondInset(y,h,w=288){const t=Math.min(1,Math.abs(y/h-.5)*2);retu
 export function pondRows([x,y,w,h]){
  return Array.from({length:h/2},(_,row)=>{const inset=Math.round(pondInset(row*2,h,w)/2)*2;return [x+inset,y+row*2,w-inset*2,2];}).filter(row=>row[2]>0);
 }
+
+// The green-roof shed is closed. Its supports and foundation touch the ground
+// below the roof; use the contact area, never the full roof silhouette.
+export function shedSolids(x,y){return [[8,62,80,48],[4,106,88,12],[32,116,32,8]].map(([dx,dy,w,h])=>[x+dx,y+dy,w,h]);}

@@ -1,7 +1,7 @@
 const DIRECTIONS=['down','up','left','right'];
 export class PlayerView {
   constructor(scene,character){
-    this.sprite=scene.add.sprite(0,0,character,0).setOrigin(.5,.94).setScale(2);this.direction='down';this.character=character;
+    this.sprite=scene.add.sprite(0,0,character,0).setOrigin(.5,.94).setScale(scene.app.state?.area==='interior'?1:2);this.direction='down';this.character=character;
     for(const [row,dir]of DIRECTIONS.entries()){
       const walk=`${character}-${dir}`,idle=`${character}-${dir}-idle`;
       if(!scene.anims.exists(walk))scene.anims.create({key:walk,frames:[1,2,3,4].map(n=>({key:character,frame:row*6+n})),frameRate:8,repeat:-1});

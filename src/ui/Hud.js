@@ -1,3 +1,4 @@
+import {wateringLabel} from '../systems/watering.js';
 import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
 import {clock,phase} from '../systems/time.js';
 import {LOCATIONS} from '../data/locations.js';
@@ -9,6 +10,7 @@ export class Hud {
     icon(u,p,'sun',left+68,top+3,.75);icon(u,p,'heart',left+5,top+26,.75);icon(u,p,'energy',left+46,top+26,.75);
     this.health=u.add.rectangle(left+19,top+30,23,4,0xc75e41).setOrigin(0);p.add(this.health);this.energy=u.add.rectangle(left+60,top+30,21,4,0xd7af55).setOrigin(0);p.add(this.energy);
     this.healthValue=text(u,p,left+19,top+36,'100',6,UI_COLORS.muted);this.energyValue=text(u,p,left+60,top+36,'100',6,UI_COLORS.muted);
+    panel(u,p,left,top+45,88,12);this.waterWindow=text(u,p,left+5,top+48,'WATER AM 06-12',6,UI_COLORS.light);
     panel(u,p,right-60,top,60,21);icon(u,p,'coin',right-57,top+3,.75);this.money=text(u,p,right-40,top+6,'60',8);
     button(u,p,'Pause',right-23,top+25,23,22,()=>this.app.pause(),{id:'pause',iconName:'pause'});
     this.area=text(u,p,right-61,top+28,'HOME',7,UI_COLORS.muted);
@@ -27,19 +29,22 @@ export class Hud {
       }
       button(u,p,'USE',right-34,h-u.safe.bottom-61,34,32,()=>this.app.use(),{id:'use'});
     }
-    this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);
+    this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);
   }
   update(s,c){
-    this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(LOCATIONS[s.area].name);
+    this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(LOCATIONS[s.area].name);
     this.health.setSize(23*s.health/100,4);this.energy.setSize(21*s.energy/100,4);this.healthValue.setText(String(s.health));this.energyValue.setText(String(s.energy));
     for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory.seed):tool==='harvest'?String(s.inventory.tomato):'');}
     this.selected.setText(s.selected==='seed'?'TOMATO SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');
-    this.prompt.setVisible(!!c);if(!c)return;
-    let hint=c.label.replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Rest / Sleep');
-    this.promptText.setText((this.ui.touch?'USE: ':'E: ')+hint);
-    const pw=Math.min(156,Math.ceil(this.promptText.width)+10);this.promptWidth=pw;
+    const feedback=this.ui.feedbackState?.until>this.ui.time.now?this.ui.feedbackState.text:null;
+    this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;
+    let hint=(feedback||c.label).replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Rest / Sleep');
+    const farmDirection=hint==='FARM / SOUTH';if(farmDirection)hint='FARM';
+    this.promptText.setText((feedback||c.type==='hint'?'':this.ui.touch?'USE: ':'E: ')+hint);
+    const pw=Math.min(156,Math.ceil(this.promptText.width)+10+(farmDirection?9:0));this.promptWidth=pw;
     this.promptPanel.clear().fillStyle(UI_COLORS.ink,.95).fillRect(0,0,pw,14).fillStyle(UI_COLORS.edge).fillRect(1,1,pw-2,12).fillStyle(UI_COLORS.panel,.96).fillRect(2,2,pw-4,10);
-    const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)/2,py=(s.position.y-cam.worldView.y)/2;
+    this.promptArrow.clear();if(farmDirection){this.promptArrow.fillStyle(UI_COLORS.light);this.promptArrow.fillRect(pw-10,3,2,6);this.promptArrow.fillRect(pw-12,7,6,2);this.promptArrow.fillRect(pw-10,9,2,2);}
+    const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)*cam.zoom/2,py=(s.position.y-cam.worldView.y)*cam.zoom/2;
     const overlaps=Math.abs(px-this.ui.w/2)<pw/2+12&&py>this.promptY&&py-30<this.promptY+14;
     this.prompt.setPosition(Math.round(this.ui.w/2-pw/2),overlaps?Math.round(py-46):this.promptY);
   }

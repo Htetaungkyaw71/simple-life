@@ -1,0 +1,3 @@
+# Original farming art provenance — 2026-10-06
+
+Authoring source: project-owned scripts/crop_art.py, with OpenAI Codex assistance. Deterministic integer-pixel Pillow drawing; no imported crop imagery or external generation service. Ten frames: field-soil, field-watered, tomato-seed, tomato-sprout, tomato-young, tomato-flowering, tomato-ripe, tomato-dry, tomato-wilted, tomato-dead. Packed by scripts/process-rpg-assets.py into the existing processed/town atlas; manifest lists them as originals. No new third-party licence. AI_USAGE.md records assistance; ASSET_LICENSES.md distinguishes these additions from LimeZu’s CC BY 4.0 environment.

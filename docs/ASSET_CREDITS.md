@@ -6,3 +6,6 @@ Phaser: MIT runtime engine. Vite: MIT build tooling. Pillow: HPND optional art-g
 ## Active environment credit (replacement craftsmanship pass)
 
 Serene Village revamped v1.9 by **LimeZu**, [source](https://limezu.itch.io/serenevillagerevamped), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Palette/atlas adapted; chimneys added for Simple Life. This replaces Kenney as the runtime environment. Original farmers, furnishings, crop art, font and canvas UI are documented in ASSET_LICENSES.md. Title → Credits exposes the required source/licence links.
+
+## Farming presentation additions — 2026-10-06
+Ten original Codex-assisted frames in the current town atlas: field-soil, field-watered, tomato-seed, tomato-sprout, tomato-young, tomato-flowering, tomato-ripe, tomato-dry, tomato-wilted and tomato-dead. Reproducible source: scripts/crop_art.py. No new external asset or licence. LimeZu remains the active environment creator; Kenney above is historical.

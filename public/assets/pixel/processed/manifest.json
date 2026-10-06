@@ -268,7 +268,17 @@
     "fountain1",
     "butterfly0",
     "butterfly1",
-    "dust"
+    "dust",
+    "field-soil",
+    "field-watered",
+    "tomato-seed",
+    "tomato-sprout",
+    "tomato-young",
+    "tomato-flowering",
+    "tomato-ripe",
+    "tomato-dry",
+    "tomato-wilted",
+    "tomato-dead"
   ],
   "characterFrames": {
     "size": [

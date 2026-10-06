@@ -1,0 +1,120 @@
+{
+  "result": "PASS",
+  "cropLoop": "plant, two daily windows, three nights, harvest, save/reload",
+  "targetablePlots": 16,
+  "expansionLocked": true,
+  "shedResults": [
+    {
+      "name": "front",
+      "position": {
+        "x": 896,
+        "y": 763.3454666666667
+      }
+    },
+    {
+      "name": "back",
+      "position": {
+        "x": 896,
+        "y": 682.9809333333334
+      }
+    },
+    {
+      "name": "left",
+      "position": {
+        "x": 840.6528000000001,
+        "y": 720
+      }
+    },
+    {
+      "name": "right",
+      "position": {
+        "x": 951.3437333333334,
+        "y": 720
+      }
+    },
+    {
+      "name": "upper-left",
+      "position": {
+        "x": 860,
+        "y": 682.9826666666667
+      }
+    },
+    {
+      "name": "upper-right",
+      "position": {
+        "x": 932,
+        "y": 682.9826666666667
+      }
+    },
+    {
+      "name": "lower-left",
+      "position": {
+        "x": 852,
+        "y": 755.3489333333333
+      }
+    },
+    {
+      "name": "lower-right",
+      "position": {
+        "x": 940,
+        "y": 755.342
+      }
+    }
+  ],
+  "roadGate": true,
+  "sign": true,
+  "viewportResults": [
+    {
+      "width": 1440,
+      "height": 900,
+      "room": {
+        "width": 704,
+        "height": 400
+      },
+      "zoom": 2,
+      "playerPixels": 64
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "room": {
+        "width": 624,
+        "height": 304
+      },
+      "zoom": 2,
+      "playerPixels": 64
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "room": {
+        "width": 496,
+        "height": 336
+      },
+      "zoom": 2,
+      "playerPixels": 64
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "room": {
+        "width": 480,
+        "height": 304
+      },
+      "zoom": 2,
+      "playerPixels": 64
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "room": {
+        "width": 480,
+        "height": 368
+      },
+      "zoom": 2,
+      "playerPixels": 64
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

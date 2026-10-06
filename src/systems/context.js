@@ -1,12 +1,13 @@
 import {LOCATIONS,walkable} from '../data/locations.js';
 import {PLOTS} from '../data/crops.js';
-import {waterPeriod} from './farming.js';
+import {waterPeriod,missed} from './watering.js';
 export function plotPrompt(state,plot){
- if(plot.dryDays>=2)return 'Clear dead crop';
+ if(missed(plot)>=2)return 'Clear dead crop';
  if(plot.growth>=3)return state.selected==='harvest'?'Harvest':'Ripe - select Harvest';
- if(state.selected==='seed')return plot.crop?'Crop planted':state.inventory.seed?'Plant seed':'No seeds - starter crate';
+ if(missed(plot)===1&&state.selected!=='water')return 'Wilted - select Water';
+ if(state.selected==='seed')return plot.crop?'Crop planted':state.inventory.seed?'Plant seed':'No seeds';
  if(!plot.crop)return 'Select a seed';
- if(state.selected==='water')return plot[waterPeriod(state)]?'Already watered':'Water';
+ if(state.selected==='water'){const period=waterPeriod(state);return !period?'Water at 06-12 or 16-22':plot[period]?'Already watered':missed(plot)?'Wilted - water to recover':'Water';}
  return 'Growing - select Water';
 }
 export function contextFor(state,targetPlot=null){

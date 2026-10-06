@@ -1,12 +1,20 @@
-// Fixed tile layout: smaller screens explore with a bounded camera, never stretch art.
-export const ROOM={width:1344,height:800,spawn:{x:672,y:608},bed:{x:320,y:320},exit:{x:672,y:700}};
-export const FURNITURE=[
- ['window',288,80],['window',704,80],['window',1088,80],
- ['bed',240,224],['shelf',240,384],['kitchen',864,144],['dresser',1088,160],
- ['table',960,416],['chair',978,470],['rug',608,480],['pot',1248,192],['pot',1248,608],['planter',464,112]
-];
-export const ROOM_SOLIDS=[
- [32,64,1280,64],[32,128,32,640],[1280,128,32,640],[32,736,592,32],[720,736,592,32],
- [240,224,48,80],[240,384,64,48],[864,144,128,64],[1088,160,64,64],
- [960,416,64,48],[978,470,32,32],[1248,192,32,48],[1248,608,32,48],[464,112,64,32]
-];
+// Authored 800×480 envelope; desktop layouts fit the full room at integer zoom 2.
+// Native-size indoor sprites keep the farmer's displayed height equal to outdoors.
+export const ROOM={width:624,height:304,zoom:2,spawn:{},bed:{},exit:{},bounds:[]};
+export const FURNITURE=[],ROOM_SOLIDS=[];
+export function configureRoom(viewWidth=1280,viewHeight=720){
+ const w=Math.max(480,Math.min(800,Math.floor((viewWidth-32)/32)*16));
+ const h=Math.max(304,Math.min(480,Math.floor((viewHeight-96)/32)*16));
+ const changed=w!==ROOM.width||h!==ROOM.height;ROOM.width=w;ROOM.height=h;
+ Object.assign(ROOM.spawn,{x:w/2,y:h-112});Object.assign(ROOM.bed,{x:112,y:160});Object.assign(ROOM.exit,{x:w/2,y:h-80});ROOM.bounds=[16,48,w-32,h-80];
+ FURNITURE.splice(0,FURNITURE.length,
+  ['window',64,4],['window',w-192,4],['window',w-80,4],
+  ['bed',48,80],['rug',112,112],['shelf',48,h-96],['kitchen',w-224,56],['dresser',w-80,64],
+  ['table',w-208,h-120],['chair',w-188,h-68],['pot',w-48,144],['pot',144,h-64],['planter',w/2-32,32]);
+ ROOM_SOLIDS.splice(0,ROOM_SOLIDS.length,
+  [0,32,w,16],[0,48,16,h-48],[w-16,48,16,h-48],[0,h-32,w/2-24,32],[w/2+24,h-32,w/2-24,32],
+  [48,80,48,80],[48,h-96,64,48],[w-224,56,128,64],[w-80,64,64,64],
+  [w-208,h-120,64,48],[w-188,h-68,32,32],[w-48,144,32,48],[144,h-64,32,48],[w/2-32,32,64,32]);
+ return changed;
+}
+configureRoom();

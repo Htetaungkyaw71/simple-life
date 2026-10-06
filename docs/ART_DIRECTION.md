@@ -10,7 +10,7 @@ A bright, lived-in garden settlement: jade and mint foliage, blue water, warm ho
 
 - Base terrain: 16×16 source pixels, two world units per source pixel.
 - Original farmers: 24×32 frames, feet anchored near the bottom; expressive broad head, separate limbs, farm overalls and distinct hair/clothing.
-- Camera zoom: 1, producing two display pixels per source pixel. A 32-pixel sprite frame is 64 pixels (8.9% of 720); visible character ink is slightly shorter.
+- Outdoor camera zoom: 1, producing two display pixels per source pixel. A 32-pixel sprite frame is 64 pixels (8.9% of 720); visible character ink is slightly shorter.
 - Nearest-neighbour textures, rounded camera position, no antialiasing or runtime remote assets.
 - Fullscreen Phaser world plus independent canvas UI. No visible DOM interface.
 
@@ -35,5 +35,10 @@ Preserve source files untouched under vendor, keep derivative outputs under pixe
 ## Stabilization approval
 The user approved this style in the final stabilization brief. Do not redesign it. Only facial-pixel corrections were made. Active Milestone 1 locations are Home exterior/interior and Farm; City/economy are deferred by the newer brief.
 
-## Foundation repair layout
+## Historical foundation repair layout
 The 2026-10-06 brief authorizes expanding the furnished interior and adjusting edge paths while preserving art. Interior layout is now 1344×800, with integer-scale tiles and a matching wall border; compact screens scroll instead of shrinking sprites. Context prompts are small strips above the hotbar. No asset-family changes.
+
+## Current compact interior and farm pass — 2026-10-06
+The latest brief supersedes the expanded interior. Use a responsive compact room within an 800×480 logical envelope, integer zoom 2, native-scale farmer and scale-2 furniture. Farmer remains 64 display pixels tall indoors and outdoors. Larger furniture and small floor gaps create recognizable sleeping/kitchen/storage groups; desktop sees the room, mobile follows without fractional scaling.
+
+The active field is one joined 4×4 tilled bed, 48 world units per cell with subtle seams and a unified edge. Props stay outside cells. Expansion land is grassy/overgrown, with a nearby contextual wooden sign and no permanent debug labels. Eight original tomato states share outline, lighting and 24×32 source bounds; red ripe fruit contrasts with the olive drooping dry/wilted stages and bare brown dead stalks. Soil darkens when watered. Short soil/water/pickup particles supplement compact action feedback. Silent audio hooks only.

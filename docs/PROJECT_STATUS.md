@@ -1,22 +1,31 @@
 # Project status
 
-**Milestone 1 — focused Playable Foundation repair, 2026-10-06.** Existing Phaser 3/Vite engine, approved retro assets, farming, localStorage saves and fullscreen canvas HUD preserved. City remains closed and is the next separate milestone.
+**Milestone 1 — final foundation repair and farming presentation, 2026-10-06.** Existing Phaser 3/Vite, approved retro asset family, fullscreen canvas HUD, controls and localStorage retained. City remains closed. Approved future systems are design-only in GAME_DESIGN.md.
 
-## Changes completed
+## Completed
 
-- Exterior house static collision now follows the atlas silhouette, including the previously missed chimney, roof steps, windows and foundation. The front porch interaction approach remains accessible; a separate narrow front approach triggers E/Use entry. House-specific clearance keeps visible farmer pixels off the opaque walls/roof; the feet body remains small for other scenery. Foundation-based Y sorting handles front/behind ordering.
-- Player collision is **24×12 at the visible feet**, with the body bottom anchored at the saved player position. Runtime physics and save validation use the same footprint. Exiting places the player at **(480,528)**, more than a safe tile beyond the foundation. Unsafe old positions move to nearby safe ground on a two-unit search grid; remote/invalid coordinates use the safe-spawn fallback.
-- Removed the middle-of-Home Farm transition. The extended south dirt path reaches a fence opening at the bottom boundary. Crossing the final edge zone automatically enters Farm’s north path. Returning through Farm’s north edge works in reverse. Both arrival positions are **64 world units / two tiles inside**, face inward, use a 700ms transition cooldown and a 140ms fade each way. Decorative signs do not trigger travel.
-- Expanded the actual interior from its old 352×352 floor to a **1344×800 furnished room layout**. Existing bed, windows, kitchen, dresser, shelf, table/chair, rug and plants are rearranged with clear routes. Bounded follow camera and a matching pixel wall border replace empty green margins. Native 2× pixels and zoom 1 remain unchanged; mobile screens explore by scrolling rather than shrinking the room.
-- Context prompts are **28 display pixels high**, fitted to their text and positioned above the hotbar. They shift upward if the farmer would overlap them, appear only in interaction range and disappear on leaving. Sleep/pause menus retain their established presentation.
+- Greenhouse/shed supports, walls, foundation and step use shared ground-contact collision rectangles; roof projection is not solid. Feet probes align with the visible feet. Foundation depth gives natural front/behind ordering. Nearby Farm barrels/crate moved clear of the right approach. Unsafe saved positions relocate to nearby walkable ground.
+- Fence tiles intersecting roads are removed before collision creation. Three-tile gate opening, solid remaining sections, road-centered down arrow. Wooden roadside sign shows a compact **FARM ↓** hint; only the map edge triggers travel.
+- Compact responsive farmhouse, integer camera zoom **2**, larger furnishings, clear sleeping/kitchen/storage/entrance groups. Indoor farmer remains **64 display pixels**, matching outdoors. Full room visible on desktop; limited camera following on mobile. Authored envelope 800×480 is approximately 40% smaller than the old 1344×800; actual dimensions fit each viewport below.
+- One coherent **192×192 tilled field**, sixteen contiguous **48×48 cells**, subtle seams, individual targeting, props outside plots and accessible surrounding ground. Removed development labels. Overgrown expansion land has weeds/stones and a compact town-unlock hint, no planting or soil fatigue. Saved unlock flag defaults false.
+- Eight original tomato states: seed, sprout, young, flowering, ripe, dry, wilted and dead. Dark watered soil contrasts with lighter dry soil. Data-driven crop metadata includes future category/food/regrowth fields without adding new playable crops.
+- Plant, water and harvest particles/pickup, compact feedback and silent sound-event hooks. No placeholder audio.
+- Explicit **06:00–12:00 / 16:00–22:00** watering windows shown in HUD. One missed window wilts and pauses growth; timely watering recovers. Two consecutive misses kill. Three fully cared-for nights produce two tomatoes. Saved window cursor makes tick/rest/sleep/reload evaluation idempotent.
+- Schema **3**, same localStorage key; versions 1/2 migrate while retaining crop indices, money, inventory, day, reward and valid progress. Room-size metadata safely remaps indoor positions across screen sizes. No offline progression.
 
-## Preserved foundation
+## Interior sizes verified
 
-Boy/girl selection, movement, keyboard/touch controls, health/energy, day/night, rest/sleep, 60 starting coins, one-time three-seed crate, 4×4 active tomato field, two daily waterings, three growing nights, dry/dead states, harvesting, unlimited watering can/refill feedback, save/Continue, Credits and asset licences. Harvest remains in inventory while City/trading is deferred. Schema 2 and the existing localStorage key remain unchanged; old six-plot/City migrations remain supported.
+| Viewport | Logical room | Camera zoom | Farmer display height |
+| --- | --- | --- | --- |
+| 1440×900 | 704×400 | 2 | 64px |
+| 1280×720 | 624×304 | 2 | 64px |
+| 1024×768 | 496×336 | 2 | 64px |
+| 844×390 | 480×304 | 2 | 64px |
+| 390×844 | 480×368 | 2 | 64px |
 
 ## Controls and commands
 
-WASD/arrows move; E/Space interacts; 1/2/3 select tools; Escape pauses. Touch pad/tool buttons/USE are available. Walk through Home’s south edge or Farm’s north edge to travel automatically. Pause → Save / Return to title. Title → Continue / Credits.
+WASD/arrows move; E/Space uses the nearby target; 1/2/3 select Seed/Water/Harvest; Escape pauses. Touch direction pad, tools and USE are available. Walk through Home’s south map edge or Farm’s north edge to travel. Use the porch to enter Home and the indoor south door to leave. Bed offers rest until 16:00 or next-day sleep. Pause → Save; refresh → Continue.
 
 ```sh
 npm ci
@@ -26,23 +35,24 @@ npm run build
 npm run preview
 ```
 
-Production preview: http://127.0.0.1:4173/ . Refresh to load the repair. Development server uses port 5174 in this workspace. `?collisions` outlines static collision only in development.
+Current local development port: 5174. Production preview: http://127.0.0.1:4173/ . Refresh to load the latest build. Development-only `?collisions` shows solid geometry; `?qa` provides read-only verification snapshots.
 
 ## Verification
 
-- **19/19 automated tests pass**, including existing crop/economy/save regressions, malformed/denied storage, map connectivity, all spawns, nearest-safe relocation, house/chimney mask, edge-only travel and interior furniture/bounds.
-- `npm run build` succeeds. Same eight allowlisted runtime art files, no new runtime dependency, no vendor archives or verification galleries in dist.
-- Production browser acceptance checks all four house sides and four corners, door entry/exit, safe exit/save/refresh/Continue, old middle-trigger removal, physical edge round trip with inward facing/no bounce, all solid furniture, room walls, sleeping and exiting.
-- Interior entrance, bed and exit checked at **1440×900, 1280×720, 1024×768, 844×390, 390×844**. Canvas/HUD controls remain on screen, integer zoom is retained, player is visible and prompt/player rectangles do not overlap. Screenshots visually inspected for house layering, room framing and compact prompts.
-- Final focused touch suite verifies edge round trip, exact two-tile spawns, touch Use at the door, prompt disappearance and unsafe-save repair/reload after the final spawn-distance adjustment.
-- Current evidence: `docs/verification/foundation-repair/`; current scripts: `tests/browser/foundation-repair.mjs` and `foundation-repair-touch.mjs`. Browser console errors/warnings: **zero**. Prior stabilization scripts/evidence retain historical room/transition coordinates.
+- **29/29 Node tests pass**, covering window boundaries, care/growth, energy, legacy migration, repeated save evaluation, responsive position repair, road fences, crop targeting, greenhouse geometry, existing map/house/pond and storage regressions.
+- Development smoke passes: title canvas, new boy game, keyboard movement, schema 3 and no console errors (development-smoke.json).
+- Production build succeeds. Same eight allowlisted runtime art files; no vendor archives, unused pack files, QA galleries or new runtime dependency.
+- Real browser full loop: girl → starter crate → edge travel → all sixteen plot targets → plant → AM water → rest → PM water → sleep for three nights → harvest → Save → refresh → Continue. Locked expansion refuses planting.
+- Eight greenhouse approaches, open road gate/solid fence, non-transition sign, indoor bed/door and farm HUD at all five requested sizes. Screenshots inspected.
+- Supplemental browser fixtures cover one miss/recovery/two-miss death/clear, old v2 save, unsafe greenhouse save, compact indoor furniture/wall collision and real touch farming/movement at both mobile sizes. Zero browser page errors/console warnings.
+- Current scripts: tests/browser/farming-presentation.mjs and farming-care-touch.mjs. Evidence and JSON reports: docs/verification/farming-presentation/. Earlier suites use historical coordinates; see VERIFICATION.md.
 
-## Changed files and systems
+## Files and systems
 
-Added `src/data/interior.js`, `tests/foundation-repair.test.js`, two browser acceptance scripts and `docs/FOUNDATION_REPAIR_PLAN.md`. Updated geometry, locations/map layout, CollisionWorld, WorldScene, worldArt, Application travel, save recovery, sleeping coordinates, Hud prompts and existing affected tests. Updated README/design/architecture/status/technical/verification/art/licence/AI records. No runtime PNG/atlas files changed.
+Added systems/watering.js, scripts/crop_art.py, tests/farming-presentation.test.js, two browser scripts and docs/FARMING_PRESENTATION_PLAN.md. Updated crop/interior/geometry/location/map data, farming/time/state/save/context, WorldScene/CollisionWorld/PlayerView, worldArt/Atmosphere, main lifecycle and canvas UI. Regenerated town PNG/JSON/manifest (96 frames). Updated README, design, architecture, technical, art, status, verification, AI and asset credit/licence records.
 
-## Remaining limitations / next milestone
+## Known limitations and next milestone
 
-Physical phones, safe-area notches and non-Chromium engines remain untested; mobile checks use Chromium touch emulation. At narrow/short aspect ratios the interior scrolls, so all furniture is reachable but not simultaneously visible. Water remains unlimited. The brief mentioned three screenshots, but the attachment folder provided only text; existing project and live-game screenshots supplied visual evidence.
+No known blocker in the verified foundation loop. Physical phones, safe-area notches and non-Chromium engines remain untested; mobile results are Chromium emulation. Small screens scroll through the room. Water is unlimited; sound hooks are silent; harvest stays in inventory while City is closed. Existing automatic midnight return is retained until the future day/night survival redesign. The supplied attachment contained text, not the referenced screenshots, so live game and project evidence guided inspection.
 
-**Next milestone: City and economy**, only after separate authorization. No city, forest, animals, combat, weapons, extra crops, NPCs, quests or major new systems added. No publishing or push.
+**Recommended next milestone: City and Economy**, under a separate instruction. Future ten-crop/orchard, market, food, weather, forest/combat/recovery, tool/weapon and story designs are documented only. No push or publication.

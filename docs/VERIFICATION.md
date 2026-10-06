@@ -1,4 +1,21 @@
-# Current verification — Playable Foundation repair
+# Current verification — final foundation and farming presentation
+
+2026-10-06. Evidence: `docs/verification/farming-presentation/`. Isolated Chromium contexts with disposable saves; real keyboard/mouse/CDP touch input and read-only QA snapshots. User saves untouched.
+
+- Development at port 5174: title canvas/no Vite overlay, new boy game and keyboard movement pass without console errors (`development-smoke.json`, `development-title.png`).
+- `npm test`: **29/29 pass**. `npm run build`: succeeds, eight runtime art files; regenerated town atlas has 96 frames, no vendor/test files shipped.
+- `tests/browser/farming-presentation.mjs`: full starter/edge-travel/sixteen-target/plant/AM+PM water/rest/three-night/sleep/harvest/save-refresh loop, locked expansion, eight greenhouse approaches, road gate/closed fence, Farm sign, bed/exit and HUD at five sizes. Report `results.json`.
+- `tests/browser/farming-care-touch.mjs`: real window expiry, one-miss wilt, recovery, two-miss death/clear, repeated persistence, v2 migration, unsafe shed save, bed/kitchen/table/shelf/wall collision; real touch planting/watering/movement at 844×390 and 390×844. Report `care-touch-results.json`.
+- Sizes: **1440×900, 1280×720, 1024×768, 844×390, 390×844**. Outdoor zoom 1; indoor integer zoom 2; displayed farmer frame 64px throughout. Desktop room fully visible; mobile follows. See PROJECT_STATUS.md for logical dimensions.
+- Visually inspected eight-state crop gallery and in-world crop fixture, dry/wet/wilt/dead appearance, compact field, all room aspect ratios, greenhouse foundation approaches and Farm direction hint. Zero browser page errors/console warnings.
+
+Run with `PLAYWRIGHT_MODULE` (optional module path), `CDP_URL` (isolated Chromium endpoint), optional `GAME_URL` (default preview 4173). Main suite `SKIP_LOOP=1` is a focused geometry/layout rerun, not a full-loop pass; use the default for complete acceptance. Supplemental fixtures intentionally initialize isolated localStorage; gameplay actions use real inputs.
+
+Physical devices and non-Chromium browsers are unverified. Historical results below do not assert current room/plot coordinates or watering rules.
+
+---
+
+# Historical verification — Playable Foundation repair
 
 2026-10-06. Evidence: `docs/verification/foundation-repair/`. Disposable Chromium contexts, real keyboard/mouse/touch input; user save untouched.
 
