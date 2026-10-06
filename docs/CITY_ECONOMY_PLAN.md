@@ -1,0 +1,10 @@
+# Milestone 2: City and Economy V1 — 2026-10-06
+
+Baseline c3142d4: clean tree, 39 tests and production build pass. Home/interior/Farm browser geometry/bed/doors/controls at five sizes pass; isolated evidence /tmp/simple-life-city-baseline. Complete existing loop was verified at preceding commit.
+
+1. Reuse WorldScene, shared authored geometry and existing edge fades/cooldown. Open Home's east road to a compact 1280×896 City with plaza, two outdoor staffed stalls, decorative buildings/props, clear HOME return road and accurate collisions. No new shop interior needed.
+2. Extend crop configuration with Strawberry/Carrot/Corn, native original eight-state crop/item art via existing Pillow atlas pipeline. Retain tomato prices/growth, original field indices, expansion and manual bedtime.
+3. Add pure inventory/quantity transaction, shop hours, deterministic day/save-seed price and input-gate systems. Fixed seed prices, bounded 85–120% produce prices; atomic capped integer money/counts. Legacy tomato seed/produce keys remain compatible; other crop keys separate seeds from produce.
+4. Add canvas trade pages with crop navigation, icons/details, Buy/Sell 1/5/max/all, exact totals/affordability/reasons, keyboard/touch and paused simulation. Keep Farm board Tomato trading compatible at the shared daily price; select the planting crop within the Seed tool.
+5. Schema 6 migration preserves v1–v5 crops/coins/farms/positions; add crop inventories, selection, price seed, visit/harvest/purchase/sale tutorial flags. Add saved first-harvest city objective, one-time destination labels and audio event hooks.
+6. Test all crop and transaction contracts, migration, price bounds/determinism, debouncing, routes/solids. Browser new-game starter harvest → City sale → different seed → Farm grow/harvest → City sale → save/reload; quantity/closed/no-stock/rapid input and five sizes. Inspect screenshots, complete tests/build, update records and make local commit. No push/publish/deployment or out-of-scope systems.

@@ -3,7 +3,7 @@ import {edgeTravel,syncInterior,nearestSafe} from '../data/locations.js';
 import Phaser from 'phaser';
 import { CollisionWorld } from '../physics/CollisionWorld.js';
 import { contextFor } from '../systems/context.js';
-import { MAP_SIZE } from '../data/mapLayouts.js';
+import { MAP_SIZE,MAPS } from '../data/mapLayouts.js';
 import { displayZoom } from './displayScale.js';
 import { Atmosphere } from '../art/Atmosphere.js';
 import { WORLD } from '../config.js';
@@ -25,7 +25,8 @@ export class WorldScene extends Phaser.Scene {
   }
   create(){
     for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE');
+    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q');
+    this.keys.Q.on('down',()=>this.app.cycleCrop());
     this.keys.ESC.on('down',()=>this.app.pause());
     for(const key of ['E','SPACE'])this.keys[key].on('down',()=>this.app.use());
     for(const [key,tool]of [['ONE','seed'],['TWO','water'],['THREE','harvest']])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.select(tool);});
@@ -38,7 +39,7 @@ export class WorldScene extends Phaser.Scene {
     });
   }
   resize(){
-    const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));cam.setBounds(0,0,MAP_SIZE.width,MAP_SIZE.height);cam.roundPixels=true;
+    const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));const size=MAPS[this.app.state?.area||'farm'].size||MAP_SIZE;cam.setBounds(-Math.max(0,(this.scale.width-size.width)/2),-Math.max(0,(this.scale.height-size.height)/2),Math.max(size.width,this.scale.width),Math.max(size.height,this.scale.height));cam.roundPixels=true;
     if(this.app.state?.area==='interior'){
       const old={w:ROOM.width,h:ROOM.height},p=this.app.state.position;
       if(syncInterior(this.scale.width,this.scale.height)){

@@ -3,11 +3,11 @@ import {MAP_SIZE,pondInset} from '../data/mapLayouts.js';
 // irregular, connected shores without thousands of individual display objects.
 export function terrain(scene,area,map){
  const key='ground-'+area;if(scene.textures.exists(key))scene.textures.remove(key);
- const texture=scene.textures.createCanvas(key,MAP_SIZE.width/2,MAP_SIZE.height/2),ctx=texture.context;
+ const size=map.size||MAP_SIZE,texture=scene.textures.createCanvas(key,size.width/2,size.height/2),ctx=texture.context;
  ctx.imageSmoothingEnabled=false;
  const frame=name=>scene.textures.getFrame('town',name),source=scene.textures.get('town').getSourceImage();
  const stamp=(name,x,y)=>{const f=frame(name);ctx.drawImage(source,f.cutX,f.cutY,f.cutWidth,f.cutHeight,x,y,f.cutWidth,f.cutHeight);};
- for(let y=0;y<MAP_SIZE.height/2;y+=16)for(let x=0;x<MAP_SIZE.width/2;x+=16)stamp('grass'+((x*7+y*13)%4),x,y);
+ for(let y=0;y<size.height/2;y+=16)for(let x=0;x<size.width/2;x+=16)stamp('grass'+((x*7+y*13)%4),x,y);
  const dirt=ctx.createImageData(16,16),scratch=document.createElement('canvas');scratch.width=scratch.height=16;const sc=scratch.getContext('2d');const f=frame('path');sc.drawImage(source,f.cutX,f.cutY,16,16,0,0,16,16);dirt.data.set(sc.getImageData(0,0,16,16).data);
  const w=texture.width,h=texture.height,mask=new Uint8Array(w*h);
  for(const [rx,ry,rw,rh]of map.paths){
@@ -31,5 +31,6 @@ export function terrain(scene,area,map){
    if(yy>3&&yy<ph/2-6){ctx.fillStyle='#4d9fc5';ctx.fillRect(left+3,y/2+yy,right-left-6,1);}
   }
  }
+ if(area==='city')scene.add.tileSprite(-1024,-1024,3328,2944,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
  texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);
 }

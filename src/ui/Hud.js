@@ -1,3 +1,4 @@
+import {CROPS} from '../data/crops.js';
 import {CropInfo} from './CropInfo.js';
 import {FarmGuide} from './FarmGuide.js';
 import {wateringLabel} from '../systems/watering.js';
@@ -22,6 +23,7 @@ export class Hud {
       const x=start+i*(bw+bgap);const slot=button(u,p,tool,x,by,bw,28,()=>this.app.select(tool),{id:'tool-'+tool,iconName:name});
       this.slots.push({tool,slot,count:text(u,p,x+24,by+20,'',7).setOrigin(1,0)});text(u,p,x+4,by+3,String(i+1),6,UI_COLORS.muted);
     }
+    button(u,p,'BAG',start+93,by+3,24,22,()=>this.app.tradePanel.open('plant'),{id:'choose-seeds'});
     this.selected=text(u,p,w/2,touch&&!portrait&&h<240?h-u.safe.bottom-10:by-12,'SEED',7,UI_COLORS.light).setOrigin(.5,0);
     if(touch){
       const dx=left+3,dy=h-u.safe.bottom-(portrait?73:49),size=22,gap=2;
@@ -36,8 +38,8 @@ export class Hud {
   update(s,c){
     this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(s.area==='farm'?'FARM '+(s.currentFarm+1):LOCATIONS[s.area].name);
     this.health.setSize(23*s.health/100,4);this.energy.setSize(21*s.energy/100,4);this.healthValue.setText(String(s.health));this.energyValue.setText(String(s.energy));
-    for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory.seed):tool==='harvest'?String(s.inventory.tomato):'');}
-    this.selected.setText(s.selected==='seed'?'TOMATO SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');
+    for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):tool==='harvest'?String(s.inventory.tomato):'');}
+    this.selected.setText(s.selected==='seed'?CROPS[s.selectedCrop].name.toUpperCase()+' SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');
     const feedback=this.ui.feedbackState?.until>this.ui.time.now?this.ui.feedbackState.text:null;
     this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;
     let hint=(feedback||c.label).replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Rest / Sleep');

@@ -1,3 +1,4 @@
+import {shopOpen} from '../systems/market.js';
 import {pixelArrow} from '../ui/statusArt.js';
 import {FIELDS} from '../data/farms.js';
 import {ownedField} from '../systems/expansion.js';
@@ -12,6 +13,7 @@ export function image(scene,name,x,y,depth=0){const atlas=scene.textures.get('to
 function tiled(scene,name,x,y,w,h,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.tileSprite(x,y,w,h,atlas,name).setOrigin(0).setTileScale(scene.artScale||SCALE).setDepth(depth);}
 function label(scene,x,y,value){return scene.add.bitmapText(x,y,'pixel',value,6).setScale(2).setOrigin(.5,0).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(y+3);}
 function object(scene,p){
+ if(p.name==='road-sign')return roadSign(scene,p);
  if(p.name==='farm-sign')return farmSign(scene,p);
  let name=p.name;
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
@@ -30,8 +32,16 @@ function farmSign(scene,p){
  g.fillStyle(0x544249);g.fillRect(0,0,24,23);g.fillStyle(0xa8794e);g.fillRect(1,1,22,21);g.fillStyle(0xd6ad73);g.fillRect(2,2,20,2);g.fillRect(2,20,20,1);
  pixelArrow(g,2,12,15,0xffedcc);const t=scene.add.bitmapText(p.x+24,p.y+8,'pixel','FARM',6).setOrigin(.5,0).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.farmSigns.push({board:{x:p.x+4,y:p.y+4,w:40,h:38},text:t});return g;
 }
+function roadSign(scene,p){
+ const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
+ g.fillStyle(0x544249).fillRect(13,19,6,13);g.fillStyle(0xa8794e).fillRect(14,20,4,12);
+ g.fillStyle(0x544249).fillRect(0,0,32,23);g.fillStyle(0xa8794e).fillRect(1,1,30,21);g.fillStyle(0xd6ad73).fillRect(2,2,28,2).fillRect(2,20,28,1);
+ pixelArrow(g,p.direction,p.direction===4?6:26,11,0xffedcc);
+ const t=scene.add.bitmapText(p.x+(p.direction===4?22:7),p.y+16,'pixel',p.text,6).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.roadSigns.push({board:{x:p.x+4,y:p.y+4,w:56,h:38},text:t});
+ return g;
+}
 export function drawWorld(scene,area){
- scene.farmSigns=[];scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.canopies=[];scene.doors=[];
+ scene.roadSigns=[];scene.merchants=[];scene.shopLabels=[];scene.farmSigns=[];scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.canopies=[];scene.doors=[];
  if(area!=='interior')terrain(scene,area,map);
  for(const p of map.details)image(scene,p.name,p.x,p.y,0);
  for(const [x,y,w,h]of map.water){for(let yy=y+24;yy<y+h-24;yy+=40)for(let xx=x+60;xx<x+w-50;xx+=58){const rows=pondRows([x,y,w,h]).filter(r=>r[1]>=yy&&r[1]<yy+32);if(rows.length===16&&rows.every(r=>xx>=r[0]&&xx+32<=r[0]+r[2]))scene.water.push(image(scene,'water0',xx,yy,0));};for(let i=0;i<4;i++)image(scene,'bush',x+40+i*52,y+h-4,y+h+26);}
@@ -55,16 +65,16 @@ export function drawWorld(scene,area){
   }
   image(scene,'fence',832,220,252);image(scene,'fence',864,220,252);
  }else{
-  tiled(scene,'plaza',1024,400,320,176,0);
-  image(scene,'seed-shop',264,104,232);image(scene,'produce-shop',552,104,232);
-  for(const x of [264,392,552,680])image(scene,'planter',x,238,270);
-  image(scene,'crate',738,210,246);image(scene,'barrel',242,210,246);
-  label(scene,344,238,'SEEDS');label(scene,632,238,'PRODUCE');label(scene,1184,588,'LANTERN SQUARE');label(scene,94,338,'FARM');
-  scene.doors.push(image(scene,'door0',328,184,232),image(scene,'door0',616,184,232));
+  const [x,y,w,h]=map.plaza;tiled(scene,'town-paving',x,y,w,h,0);
+  for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE']]){
+   const t=label(scene,cx,290,name);scene.shopLabels.push({text:t,kind,name});
+  }
+  label(scene,704,608,'LANTERN SQUARE');label(scene,1080,626,'SEED AID');
  }
+
  for(const p of [...map.buildings,...map.props])object(scene,p);
- for(const npc of map.npcs||[])image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);
- for(const sign of map.signs)if(!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
+ for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,normal:npc.sprite,idle:npc.idle});}
+ for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
 }
 export function drawPlots(scene,plots,group){
  group.clear(true,true);

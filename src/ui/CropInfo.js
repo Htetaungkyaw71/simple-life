@@ -13,7 +13,7 @@ export class CropInfo {
  }
  update(s,c){
   const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(!!info);if(!info)return;
-  this.name.setText(info.name);this.stage.setText(`Stage ${info.stage}/${info.stages} / ${info.stageName}`);
+  this.crop.setTexture('town',info.icon);this.name.setText(info.name);this.stage.setText(`Stage ${info.stage}/${info.stages} / ${info.stageName}`);
   this.timer.setFontSize(7).setText(info.timer);if(this.timer.width>this.w-25)this.timer.setFontSize(6);this.next.setText(info.next);const condition=info.condition==='Newly planted'&&info.need?`Newly planted / water ${info.need.includes('morning')?'AM':'PM'}`:info.need||info.condition;this.condition.setText(condition);
   this.am.setText('AM '+info.care[0].label);this.pm.setText('PM '+info.care[1].label);
   const g=this.art;g.clear();pixels(g,'clock',6,36,UI_COLORS.gold);

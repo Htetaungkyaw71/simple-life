@@ -1,22 +1,25 @@
 import {CROPS} from '../data/crops.js';
+import {buySeed,sellProduce} from '../systems/economy.js';
+import {marketPrice} from '../systems/market.js';
+import {inputGate} from '../systems/inputGate.js';
 import {FIELDS,MAX_FARMS} from '../data/farms.js';
 import {buyField,buyFarm,visitFarm,ownedField,nextFarmPrice,canExpandFarm} from '../systems/expansion.js';
-import {buySeed,sellProduce} from '../systems/economy.js';
 
 // Menus live in the existing paused Phaser UI scene, with small, bounded pages.
 export class FarmOffice {
- constructor(app){this.app=app;}
+ constructor(app){this.app=app;this.gate=inputGate();}
  get s(){return this.app.state;}
  modal(title,body,buttons){this.app.ui.modal('FARM '+(this.s.currentFarm+1),title,body,buttons);}
  open(){this.modal('Farm board',`Coins: ${this.s.money}`,[
   ['Seeds and harvest',()=>this.trade()],['Buy planting land',()=>this.land()],
   ['Visit / buy farms',()=>this.farms()],['Back to farming',()=>this.app.ui.close()],
  ]);}
- trade(){this.modal('Seeds and harvest',`Coins: ${this.s.money} / Seeds: ${this.s.inventory.seed}\nTomatoes: ${this.s.inventory.tomato}`,[
-  [`Buy 1 seed / ${CROPS.tomato.seedPrice} coins`,()=>{this.app.transact(buySeed);this.trade();},this.s.money<CROPS.tomato.seedPrice||this.s.inventory.seed>=9999],
-  [`Sell all / ${this.s.inventory.tomato*CROPS.tomato.sellPrice} coins`,()=>{this.app.transact(sellProduce);this.trade();},!this.s.inventory.tomato],
+ trade(){const price=marketPrice(this.s,'tomato').price;this.modal('Seeds and harvest',`Coins: ${this.s.money} / Seeds: ${this.s.inventory.seed}\nTomatoes: ${this.s.inventory.tomato} / Today: ${price}c each`,[
+  [`Buy 1 seed / ${CROPS.tomato.seedPrice} coins`,()=>this.transaction(buySeed),this.s.money<CROPS.tomato.seedPrice||this.s.inventory.seed>=9999],
+  [`Sell all / ${this.s.inventory.tomato*price} coins`,()=>this.transaction(sellProduce),!this.s.inventory.tomato||this.s.money+this.s.inventory.tomato*price>9999999],
   ['Back',()=>this.open()],
  ]);}
+ transaction(fn){if(this.app.transitioning||!this.gate.accept(this.app.ui.time.now))return;this.app.transact(fn);this.trade();}
  land(){this.modal('Planting land',`Coins: ${this.s.money} / Each field: 16 cells`,[
   ...[1,2,3].map(field=>[ownedField(this.s,field)?`Field ${field+1} / owned`:`Field ${field+1} / ${FIELDS[field].price} coins`,()=>this.field(field),ownedField(this.s,field)]),
   ['Back',()=>this.open()],

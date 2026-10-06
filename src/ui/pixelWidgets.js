@@ -3,7 +3,7 @@ export function panel(scene,parent,x,y,w,h,color=UI_COLORS.panel){
   const g=scene.add.graphics();parent.add(g);g.fillStyle(UI_COLORS.ink,.95);g.fillRect(x,y,w,h);g.fillStyle(UI_COLORS.edge);g.fillRect(x+1,y+1,w-2,h-2);g.fillStyle(color,.96);g.fillRect(x+2,y+2,w-4,h-4);g.fillStyle(0x94b8ac);g.fillRect(x+3,y+2,w-6,1);return g;
 }
 export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width){const t=scene.add.bitmapText(Math.round(x),Math.round(y),'pixel',value,size).setTint(tint);if(width)t.setMaxWidth(width);parent.add(t);return t;}
-export function icon(scene,parent,name,x,y,scale=1){const i=scene.add.image(x,y,'world',name).setOrigin(0).setScale(scale);parent.add(i);return i;}
+export function icon(scene,parent,name,x,y,scale=1){const i=scene.add.image(x,y,scene.textures.get('town').has(name)?'town':'world',name).setOrigin(0).setScale(scale);parent.add(i);return i;}
 export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null}={}){
   const box=scene.add.rectangle(x,y,w,h,disabled?0x344b40:0x516d49).setOrigin(0).setStrokeStyle(1,disabled?0x516d49:0x98a76b);parent.add(box);
   if(iconName)icon(scene,parent,iconName,x+(w-16)/2,y+(h-16)/2);

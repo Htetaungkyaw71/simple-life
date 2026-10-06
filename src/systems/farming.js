@@ -8,10 +8,10 @@ export function usePlot(s,index){
  evaluateWatering(s);
  const p=s.plots[index];if(!p)return 'Choose a farm plot';
  if(missed(p)>=2){s.plots[index]=emptyPlot();return 'Dead crop cleared';}
- const def=CROPS[p.crop||'tomato'];
+ const crop=Object.hasOwn(CROPS,s.selectedCrop)?s.selectedCrop:'tomato',def=CROPS[p.crop||crop];
  if(s.selected==='seed'){
-  if(p.crop)return 'Already planted';if(!s.inventory.seed)return 'No seeds';if(s.energy<5)return 'Too tired - rest at home';
-  s.hasVisitedFarm=true;s.energy-=5;s.inventory.seed--;p.crop='tomato';p.plantedDay=s.day;p.plantedMinute=Math.floor(s.minute);p.lastEvaluatedWindow=completedWindow(s);return 'Tomato planted';
+  if(p.crop)return 'Already planted';if(!s.inventory[def.seedKey])return 'No seeds';if(s.energy<5)return 'Too tired - rest at home';
+  s.hasVisitedFarm=true;s.energy-=5;s.inventory[def.seedKey]--;p.crop=crop;p.plantedDay=s.day;p.plantedMinute=Math.floor(s.minute);p.lastEvaluatedWindow=completedWindow(s);return def.name+' planted';
  }
  if(!p.crop)return 'Select a seed';
  if(s.selected==='water'){
@@ -21,8 +21,8 @@ export function usePlot(s,index){
   s.energy-=3;p[period]=true;p.missedWindows=0;p.dryDays=0;return 'Watered';
  }
  if(p.growth<def.growthDays)return missed(p)?'Wilted - needs water':'Still growing';
- if(s.energy<4)return 'Too tired - rest at home';if(s.inventory.tomato>9999-def.harvestYield)return 'Produce bag full';
- s.energy-=4;s.inventory.tomato+=def.harvestYield;s.plots[index]=emptyPlot();return 'Tomatoes harvested';
+ if(s.energy<4)return 'Too tired - rest at home';if((s.inventory[def.produceKey]||0)>9999-def.harvestYield)return 'Produce bag full';
+ s.energy-=4;s.inventory[def.produceKey]=(s.inventory[def.produceKey]||0)+def.harvestYield;s.hasHarvestedFirstCrop=true;s.plots[index]=emptyPlot();return def.name+' harvested';
 }
 export function growOvernight(s){
  evaluateWatering(s,(s.day-1)*2+1);

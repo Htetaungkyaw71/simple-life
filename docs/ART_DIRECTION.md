@@ -45,3 +45,6 @@ The active field is one joined 4×4 tilled bed, 48 world units per cell with sub
 
 ## Paid expansion follow-up — 2026-10-06
 The user requested four planting fields matching the original. Each unlocked field repeats its joined 192×192 soil bed, border, northern fence, scarecrow and nearby barrel/flowers/pebble composition. Locked fields remain grassy and carry a compact number/coin label. Additional farms reuse the same authored Farm composition. Existing atlas/lighting/scale/palette remain intact. The first Home junction FARM label is smaller and centered inside its board; the duplicate southern board is removed. No new image/pack/dependency.
+
+## Milestone 2 approved extension — 2026-10-06
+City is now authorized. Extend the same native pixel family/palette with original jade/coral awning stalls, readable existing original farmer-derived merchants, quiet stone paving and three distinct crops: low strawberry rosettes with red berries, feathery carrot tops/orange roots and tall corn stalks/yellow cobs. All care states remain distinct. CITY/HOME signs use wood boards, small fitted font and original arrows. Do not redesign Home, the compact interior, fields or existing characters. No new external asset family.

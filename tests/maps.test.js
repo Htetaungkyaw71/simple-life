@@ -15,7 +15,7 @@ test('expanded areas connect every interaction and decorative district',()=>{
   for(let i=0;i<queue.length;i++){const p=queue[i];for(const [dx,dy]of [[step,0],[-step,0],[0,step],[0,-step]]){const x=p.x+dx,y=p.y+dy,key=x+','+y;if(!seen.has(key)&&walkable(area,x,y)&&walkable(area,p.x+dx/2,p.y+dy/2)){seen.add(key);queue.push({x,y});}}}
   for(const c of location.interactions)assert.ok(queue.some(p=>Math.hypot(p.x-c.x,p.y-c.y)<60),`${area}: unreachable ${c.label}`);
   if(area==='interior')continue;
-  for(const [x,y]of [[960,608],[1952,608],[960,960],[1952,960]])assert.ok(queue.some(p=>Math.hypot(p.x-x,p.y-y)<100),`${area} district ${x},${y}`);
+  for(const [x,y]of (area==='city'?[[432,320],[896,320],[640,560],[1080,608]]:[[960,608],[1952,608],[960,960],[1952,960]]))assert.ok(queue.some(p=>Math.hypot(p.x-x,p.y-y)<100),`${area} district ${x},${y}`);
   assert.ok(MAPS[area].buildings.length>=2);
  }
 });
@@ -24,6 +24,7 @@ test('new scenery only relocates unsafe legacy positions, preserving progress',a
  const {validate}=await import('../src/systems/save.js');const {newState}=await import('../src/systems/state.js');
  const legacy=newState('girl');Object.assign(legacy,{area:'farm',position:{x:160,y:190},day:8,money:172,energy:62,sold:6});legacy.inventory={seed:3,tomato:4};legacy.plots[0]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};
  assert.equal(walkable('farm',160,190),false);const loaded=validate(legacy);assert.ok(walkable(loaded.area,loaded.position.x,loaded.position.y));assert.ok(Math.hypot(loaded.position.x-160,loaded.position.y-190)<96);
- for(const key of ['character','day','money','energy','sold','inventory'])assert.deepEqual(loaded[key],legacy[key]);
+ for(const key of ['character','day','money','energy','sold'])assert.deepEqual(loaded[key],legacy[key]);
+ for(const [key,value]of Object.entries(legacy.inventory))assert.equal(loaded.inventory[key],value);
  for(const [key,value]of Object.entries(legacy.plots[0]))assert.deepEqual(loaded.plots[0][key],value);
 });

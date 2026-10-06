@@ -2,15 +2,36 @@
 
 ## Implemented now: foundation
 
-Home exterior, a compact furnished interior and Farm are playable. City remains a separate future milestone. The player chooses boy or girl, begins with 60 coins and claims three tomato seeds once from the crate beside Home. Keyboard/touch controls, health/energy, day/night, sleeping, pause, saving and Credits remain.
+Home exterior, a compact furnished interior and Farm are playable. City and Economy V1 are now playable as explicitly authorized in the Milestone 2 brief. The player chooses boy or girl, begins with 60 coins and claims three tomato seeds once from the crate beside Home. Keyboard/touch controls, health/energy, day/night, sleeping, pause, saving and Credits remain.
 
 The south Home road leads past a wooden Farm sign and through an open fence to the map edge. Only crossing the edge travels to Farm; signs never transition. Farm’s north edge returns Home. Short fades and inward spawns prevent immediate return loops. The small green-roof shed/greenhouse is closed: solid supports/foundation collide at ground level; its roof overhang is not a full-sprite collider. Feet bodies and depth sorting remain independent.
 
 The primary field is one **192×192 world-unit bed**, sixteen contiguous **48×48 cells**, at (352,224). Subtle seams and a targeting outline identify individual cells. Surrounding paths, flowers, fence, scarecrow and utility props stay outside its tiles. Save indices are retained. Former resting areas are **overgrown expansion land**, with weeds/stones and a nearby compact sign. There is no soil fatigue. Three independently purchased fields now unlock the same 4×4 design; ownership is saved per farm. The old `expansionUnlocked` flag remains only for compatibility.
 
-Tomatoes have original seed mound, sprout, young, flowering, ripe-red-fruit, dry, wilted and dead art. Dry soil is lighter than watered soil. The configuration owns identity/category, prices, growth duration/stages, watering requirements, harvest yield, future food energy, regrowth and sprite keys. Only tomato is playable. `energyRestored` is future food data, not an implemented eating action.
+Tomatoes have original seed mound, sprout, young, flowering, ripe-red-fruit, dry, wilted and dead art. Dry soil is lighter than watered soil. The configuration owns identity/category, prices, growth duration/stages, watering requirements, harvest yield, future food energy, regrowth and sprite keys. Tomato, Strawberry, Carrot and Corn are playable. `energyRestored` is future food data, not an implemented eating action.
 
 Plant/water/harvest show short pixel effects and compact feedback above the hotbar. Named farming events and silent sound-request hooks are ready for later reviewed audio. No placeholder sounds are added.
+
+## Milestone 2: City and Economy V1
+
+Home’s existing east road reaches x=2240; a boundary zone at x=2208 leads to City (64,488), facing east. CITY arrow signs stand beside the road. City’s west boundary returns to Home (2176,640), facing west. Both use the retained fade and cooldown. City is 1280×896 with a compact stone plaza, fountain, benches, lamps, tree borders, flower planters, noticeboard, two staffed awning stalls and five future-use decorative buildings. Clear roads connect the entrance, adjacent shop row, plaza and return.
+
+Clara sells four seeds at 07:00–20:00; Niko buys only harvested produce at 07:00–21:00. Paged canvas panels show one crop at a time, icon/name, owned stock, coins, metadata, quantity and total. Buy 1/5/Max and Sell 1/5/All are atomic integer transactions. Disabled choices explain affordability/stock limits. World/time pause while a panel is open; keyboard arrows/Tab/Enter, mouse, touch and Escape work. Q cycles planting crops; BAG provides a pointer/touch selector. Farming, crop information and eight visual care/growth states use the selected crop’s definition. No regrowth or eating mechanic.
+
+| Crop | Seed | Base sale/item | Cared-for nights | Yield | Base net/plot | Worst-day net/plot | Earned stages | Future food energy |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Tomato | 10 | 18 | 3 | 2 | 26 | 20 | 4 | 12 |
+| Strawberry | 18 | 28 | 4 | 2 | 38 | 30 | 5 | 8 |
+| Carrot | 28 | 70 | 4 | 1 | 42 | 32 | 5 | 22 |
+| Corn | 40 | 36 | 5 | 3 | 68 | 53 | 6 | 14 |
+
+Profit assumes a fully cared-for single planting; base yield value minus seed cost. Worst-day sale rounds 85% of base to an integer per item. Tomato gives quickest/cheapest cash flow; Strawberry gives a modest investment and two items; Carrot has higher capital/net per plot; Corn commits the most money and time for the largest plot return. Day-specific prices and different cash/time constraints keep alternatives useful. This is initial balance, not a long-term player study.
+
+Each new save has a random persisted unsigned 32-bit marketSeed. Prices hash that seed, the day and crop index through deterministic integer mixing, then choose an inclusive integer percentage from 85 through 120. Sale price is max(1, round(base × percentage / 100)). Below 95% is Low; above 105% is High; otherwise Normal. Fixed seed prices never reroll. Sleep advances the day and hence the prices; reload derives the identical prices. Schema 6 migration supplies seed 1 for old saves, adds all new seed/produce keys and first-harvest/city/buy/sell flags, and preserves original tomato indices, all paid farms/fields, money, time and care history. Shop panels are transient and resume safely closed after reload.
+
+First harvest briefly expands “Sell your harvest in the city.” / “Follow CITY signs east.” The saved city visit clears the temporary waypoint; permanent signs remain. First city entry has one nonblocking merchant greeting. The city noticeboard offers one free Tomato seed per day only if money <10, all seed/produce stock is zero and no living crop remains. Seed aid cannot duplicate within the same day and persists across reload, allowing recovery without money grants or automatic sleeping.
+
+Existing manual bedtime, three starter seeds, bought fields/farms and shared care on unvisited farms remain. No forest, other crops, animals, combat, weather, relationships or festival. Sound events are prepared for entry/open/buy/sell/failure/close; no unreviewed placeholder audio.
 
 ## Current watering and growth rules
 
@@ -20,9 +41,9 @@ Plant/water/harvest show short pixel effects and compact feedback above the hotb
 - A crop planted after a closed window is not retroactively penalized for it. That first partial day does not count as a fully cared-for growing night.
 - Both waterings in one day earn one growth night. **Three cared-for nights yield two tomatoes**. Mature plants remain harvestable; dead crops clear for free.
 - Rest until evening evaluates the morning window. Sleeping evaluates all remaining windows for that day, grows cared-for crops and starts the next morning with restored energy. Only player-selected Sleep advances the day. Late night stops at minute 1439 (display 23:50), leaving movement and interactions active until the player returns to bed. It never teleports the player or restores energy automatically.
-- Unlimited water and shoreline refill feedback remain. Sprinklers/weather are not implemented. Harvests can be sold for 18 coins each at the local farm board; tomato seeds cost 10 coins there.
+- Unlimited water and shoreline refill feedback remain. Sprinklers/weather are not implemented. Harvests are sold at the City produce market at deterministic daily prices; seeds have fixed prices at the City seed shop. Farm board retains its original Tomato seed/all-produce convenience trade using the same daily sale price, plus land/farm ownership. The other three seeds are sold in City.
 
-Schema 5 preserves money, inventory, days, reward status and original crop indices from v1–v4 and stores all farm/field ownership and crops. Legacy dry states migrate into missed-window state without applying old closed windows again. Indoor coordinates are normalized to the compact responsive room; any invalid position moves to nearby safe ground. No offline time progression is added.
+Schema 6 preserves money, inventory, days, reward status and original crop indices from v1–v5 and stores all farm/field ownership and crops. Legacy dry states migrate into missed-window state without applying old closed windows again. Indoor coordinates are normalized to the compact responsive room; any invalid position moves to nearby safe ground. No offline time progression is added.
 
 ## Milestone 1.1: crop information and first-time navigation
 
@@ -39,7 +60,7 @@ Schema **4** retains the same storage key and accepts versions 1–4. `hasVisite
 ## Milestone 1.2: paid expansion and local trade
 The user explicitly selected implementation now. Fields 2/3/4 cost 120/180/240 coins and each provides sixteen planting cells. Their soil, unified border, fence and surrounding utility composition match field 1. One northern road moves below field 2 to keep all cells clear. Locked land shows its field number and price and opens a purchase dialog on Use; the farm board also lists individual purchases.
 
-The board provides tomato seeds at 10 coins and sale of all tomatoes at 18 coins each, reusing the established economy. This makes reinvestment possible while City remains closed. It also provides Previous/Next farm navigation. After every field of the newest farm is owned, another farm costs 600 × current farm count and opens with field 1 owned, fields 2–4 locked. Earlier farm crops/ownership remain intact. All farms share day/time/energy/inventory; care expiry and growth settle across all planted plots. A 100-farm validation limit bounds browser save size. Prices are provisional balance, not playtested long-term.
+The board retains 10-coin Tomato seeds and sale of all Tomatoes; Milestone 2 routes its sale through the same daily City price. Other crop seeds are available in City. It also provides Previous/Next farm navigation. After every field of the newest farm is owned, another farm costs 600 × current farm count and opens with field 1 owned, fields 2–4 locked. Earlier farm crops/ownership remain intact. All farms share day/time/energy/inventory; care expiry and growth settle across all planted plots. A 100-farm validation limit bounds browser save size. Prices are provisional balance, not playtested long-term.
 
 ## Interior presentation
 
@@ -65,16 +86,16 @@ Common forest fruit restores modest energy, farm produce a moderate amount, and 
 
 Early: inexpensive field crops, limited energy, safe-edge foraging and selling in town. Mid: better seeds, expansion-field purchase, tool upgrades, basic weapons/armor and deeper forest trips. Late: sprinklers, valuable regrowing orchard plants, new map zones, farmhouse improvements, town reputation and the forest mystery. Order delivery as City/economy first, then farming upgrades/food and forest/combat with recovery; house/story/reputation follow after those foundations.
 
-## Ten-crop plan — provisional balance, not implemented
+## Crop roadmap — four active field crops, six future crops
 
-Values below are design starting points to tune in a later farming milestone. Selling values are per item; durations are game days with proper care. Only the tomato row is current gameplay.
+Values below are design starting points to tune in a later farming milestone. Selling values are per item; durations are game days with proper care. The four field rows below use the final Milestone 2 balance; other rows remain future design only.
 
 | Crop | Category | Seed/sapling price | Base sale | First growth | Harvest | Regrowth | Energy/item | Stage |
 | --- | --- | ---: | ---: | ---: | ---: | --- | ---: | --- |
 | Tomato | Field | 10 | 18 | 3 | 2 | None | 12 | Early; playable |
-| Carrot | Field | 8 | 14 | 2 | 1 | None | 10 | Early |
-| Strawberry | Field | 30 | 16 | 5 | 3 | Every 3 days, 3 further harvests | 8 | Mid |
-| Corn | Field | 35 | 22 | 5 | 2 | Every 3 days, 3 further harvests | 14 | Mid |
+| Carrot | Field | 28 | 70 | 4 | 1 | None | 22 | Playable |
+| Strawberry | Field | 18 | 28 | 4 | 2 | None | 8 | Playable |
+| Corn | Field | 40 | 36 | 5 | 3 | None | 14 | Playable |
 | Pumpkin | Field | 60 | 95 | 7 | 1 | None | 24 | Mid |
 | Pineapple | Field | 70 | 110 | 8 | 1 | None | 22 | Late field |
 | Banana | Orchard | 180 | 20 | 12 | 4 | Every 3 days after maturity | 8 | Mid/late |
@@ -82,15 +103,16 @@ Values below are design starting points to tune in a later farming milestone. Se
 | Papaya | Orchard | 220 | 30 | 14 | 3 | Every 4 days after maturity | 12 | Mid/late |
 | Coconut | Orchard | 320 | 40 | 18 | 3 | Every 5 days after maturity | 10 | Late |
 
-Orchard plants are expensive saplings with longer establishment and repeated production, never three-day field crops. Later balance must consider land occupied, energy/water costs, first-harvest payback, regrowth lifetime and market floors. No seeds, saplings or playable definitions for these nine future crops are registered now.
+Orchard plants are expensive saplings with longer establishment and repeated production, never three-day field crops. Later balance must consider land occupied, energy/water costs, first-harvest payback, regrowth lifetime and market floors. No seeds, saplings or playable definitions for the six remaining future crops are registered now.
 
 ## Future weather — design only
 
 Clear/rainy days are saved with the day. Rain automatically satisfies both required watering windows for living crops, freeing time to explore. Show rain on the world and HUD, reduce forest visibility moderately, and allow selected animals to become more aggressive. Coordinate rain with the same window evaluator so water credit is not duplicated. No weather implementation now.
 
-## Future City and dynamic economy — next milestone
+## Later economy ideas — deferred
 
-Implement shops, visible daily prices and the expansion-field purchase in City. Proposed controlled market range: 85–115% of crop base value, with a profitability floor validated against seed cost/yield. Show today’s exact price before confirming a sale. Publish category bonuses for special market days; a Fruit Festival temporarily boosts fruit categories. Prefer scheduled/seeded daily changes that support planning rather than punitive random swings. Save day/market modifiers so reload cannot reroll prices. Current slice has no active shop or market fluctuations.
+City shops and controlled 85–120% daily prices are implemented above. Fruit Festival/category bonuses remain deferred. Later economy tuning must preserve positive cared-for profit, visible exact sale prices, reload determinism and seed-aid recovery. No special market days or category modifier is implemented.
+
 
 ## Future equipment — design only
 

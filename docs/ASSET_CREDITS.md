@@ -1,5 +1,5 @@
 # Asset credits
-Primary environment: **Tiny Town 1.1 by Kenney (www.kenney.nl), CC0 1.0 Universal**. Palette and tile composition adapted for Simple Life. Official source: https://kenney.nl/assets/tiny-town .
+Historical foundation environment (superseded): **Tiny Town 1.1 by Kenney (www.kenney.nl), CC0 1.0 Universal**. Palette and tile composition adapted for Simple Life. Official source: https://kenney.nl/assets/tiny-town .
 Original characters, crop stages, furniture, effects, item/HUD icons and bitmap font: project work authored with OpenAI Codex assistance. This includes the smaller farmers, NPC colour variants and supplemental town/farm props. No copied commercial-game art, external font, music or voice.
 Phaser: MIT runtime engine. Vite: MIT build tooling. Pillow: HPND optional art-generation tooling. Full asset inventory, provenance, download URL, modifications and licence evidence: ASSET_LICENSES.md and assets/licenses/. AI disclosures: AI_USAGE.md.
 
@@ -15,3 +15,6 @@ Original Codex-assisted Simple Life pixel masks: leaf, game clock, morning sun, 
 
 ## Milestone 1.2 reuse — 2026-10-06
 No runtime raster/atlas/font file or external asset changed. The existing original soil/crop art and licensed LimeZu environment/props are reused for matching purchased fields/farms. FARM board geometry is retained with a smaller centered original bitmap label; its southern duplicate is removed. No new licence or dependency. Source-authored labels and canvas menus remain original Codex-assisted project work. Evidence: assets/licenses/milestone-1.1-original-ui.md and original-farming-art.md; existing LimeZu legal/source records and eight-file build allowlist remain unchanged.
+
+## Milestone 2 original City/crop additions — 2026-10-06
+39 original Codex-assisted frames extend the town atlas from 96 to 135: three new crops × eight states (24×32), four produce icons and four seed packets (16×16), two awning stalls (80×64), four merchant idle/blink frames derived from the existing original project NPCs (24×32), and one stone paving tile (16×16). Reproducible source: scripts/crop_art.py, packed by scripts/process-rpg-assets.py; manifest records original/addition provenance. CITY/HOME wooden signs and market arrows are original source geometry/glyphs in worldArt/statusArt. LimeZu environment props/tiles remain credited CC BY 4.0 with existing licence evidence. No new pack/download, image service, dependency, font or audio. Art evidence: assets/licenses/milestone-2-original-city.md. Runtime allowlist still contains eight files.

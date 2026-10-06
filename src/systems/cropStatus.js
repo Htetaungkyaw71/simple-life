@@ -26,5 +26,5 @@ export function cropStatus(state,index){
   const eligible=p.morning||state.minute<WATER_WINDOWS[0].end;
   next=fully?(remaining===1?'Ready after sleeping':'Next stage after sleeping'):eligible?'Next stage tomorrow if watered':'Next stage after a full care day';
  }
- return {index,name:def.name,icon:def.id,stage:p.growth+1,stages:def.growthDays+1,stageName:def.growthStages[p.growth],progress:p.growth/def.growthDays,remaining,condition,need,timer,next,care,paused:wilted,dead,ready,plantedDay:p.plantedDay??null,plantedMinute:p.plantedMinute??null};
+ return {index,name:def.name,icon:def.icon,stage:p.growth+1,stages:def.stageCount,stageName:def.growthStages[p.growth],progress:p.growth/def.growthDays,remaining,condition,need,timer,next,care,paused:wilted,dead,ready,plantedDay:p.plantedDay??null,plantedMinute:p.plantedMinute??null};
 }

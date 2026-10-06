@@ -24,5 +24,5 @@ export function cropVisual(p,s){
  if(p.growth>=CROPS[p.crop].growthDays)return 'ripe';
  const period=waterPeriod(s),watered=period?p[period]:s.minute<960?p.morning:p.evening;
  if(p.growth>0&&!watered)return 'dry';
- return p.growth>=2?'flowering':p.growth===1?'young':p.morning||p.evening?'sprout':'seed';
+ return p.growth/CROPS[p.crop].growthDays>=.6?'flowering':p.growth>0?'young':p.morning||p.evening?'sprout':'seed';
 }

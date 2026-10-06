@@ -166,8 +166,10 @@ d=make('dust',4,4);rect(d,(0,2,2,2),GOLD);rect(d,(2,0,3,0),LIGHT)
 # Animated official door frames, retained at native source resolution.
 door=Image.open(io.BytesIO(z.read('SERENE_VILLAGE_REVAMPED/Animated stuff/door_16x16.png'))).convert('RGBA')
 for i in range(door.width//16):assets['door'+str(i)]=door.crop((i*16,0,i*16+16,door.height))
-from crop_art import add_crop_art
+from crop_art import add_crop_art,add_city_crop_art,add_stall_art
 add_crop_art(assets)
+add_city_crop_art(assets)
+add_stall_art(assets)
 atlas=Image.new('RGBA',(512,512));frames={};x=y=rowh=0
 for name,im in assets.items():
  if x+im.width>512:x=0;y+=rowh+2;rowh=0

@@ -13,11 +13,15 @@ export const LOCATIONS = {
  ]},
  farm:{name:'Farm',subtitle:'The active field',spawn:{x:320,y:64},interactions:[
 
-  {type:'dialog',x:865,y:275,label:'City road - opening soon',title:'City road closed',body:'City is planned for the next milestone. Trade tomatoes, buy seeds and expand at the farm board.'},
+  {type:'hint',x:865,y:275,label:'CITY / return Home, then follow the east road'},
+ ]},
+ city:{name:'City',subtitle:'Lantern Market',spawn:{x:64,y:488},interactions:[
+  {type:'seed',x:432,y:306,label:'Browse seeds',approach:[372,288,120,56]},
+  {type:'sell',x:896,y:306,label:'Sell produce',approach:[836,288,120,56]},
  ]},
 };
 for(const [area,location]of Object.entries(LOCATIONS)){
- location.bounds=area==='interior'?ROOM.bounds:[32,0,MAP_SIZE.width-64,MAP_SIZE.height];location.obstacles=MAPS[area].obstacles;
+ location.bounds=area==='interior'?ROOM.bounds:area==='city'?[0,0,1280,896]:[0,0,MAP_SIZE.width,MAP_SIZE.height];location.obstacles=MAPS[area].obstacles;
  location.houseSolids=MAPS[area].buildings.filter(p=>p.name.startsWith('house')).flatMap(p=>houseSolids(p.x,p.y));
  location.interactions.push(...MAPS[area].signs.map(p=>({type:'dialog',...p})));
  location.shoreline=MAPS[area].water.flatMap(pond=>{const rows=pondRows(pond),[x,y,w,h]=pond;return [{x:x+w/2,y:y-16},{x:x+w/2,y:y+h+16},...rows.filter((_,i)=>i%8===0).flatMap(([x,y,w])=>[{x:x-16,y:y+1},{x:x+w+16,y:y+1}])];});
@@ -30,9 +34,11 @@ export function walkable(area,x,y,r=area==='interior'?6:12){return inBounds(area
 
 export const EDGE_TRAVEL={
  home:{zone:[448,1120,64,32],to:'farm',spawn:{x:320,y:64},facing:'down'},
+ homeCity:{zone:[2208,608,32,64],to:'city',spawn:{x:64,y:488},facing:'right'},
+ city:{zone:[0,448,32,80],to:'home',spawn:{x:2176,y:640},facing:'left'},
  farm:{zone:[288,0,64,32],to:'home',spawn:{x:480,y:1088},facing:'up'}
 };
-export function edgeTravel(state){const edge=EDGE_TRAVEL[state.area];if(!edge)return null;const [x,y,w,h]=edge.zone,p=state.position;return p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h?edge:null;}
+export function edgeTravel(state){const edges=state.area==='home'?[EDGE_TRAVEL.home,EDGE_TRAVEL.homeCity]:[EDGE_TRAVEL[state.area]];for(const edge of edges){if(!edge)continue;const [x,y,w,h]=edge.zone,p=state.position;if(p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h)return edge;}return null;}
 export function nearestSafe(area,position){
  if(walkable(area,position?.x,position?.y))return {x:position.x,y:position.y};
  if(Number.isFinite(position?.x)&&Number.isFinite(position?.y)){

@@ -1,3 +1,4 @@
+import {marketPrice} from '../src/systems/market.js';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { newState } from '../src/systems/state.js';
@@ -9,7 +10,7 @@ import { walkable, LOCATIONS } from '../src/data/locations.js';
 test('complete three-day farming economy and persistence loop',()=>{
  const s=newState('girl');buySeed(s);assert.equal(s.money,50);usePlot(s,0);s.selected='water';
  for(let day=0;day<3;day++){usePlot(s,0);const energy=s.energy;usePlot(s,0);assert.equal(s.energy,energy);s.minute=960;usePlot(s,0);nextDay(s);assert.equal(s.plots[0].growth,day+1);assert.equal(s.energy,100);}
- s.selected='harvest';usePlot(s,0);assert.equal(s.inventory.tomato,2);sellProduce(s);assert.equal(s.money,86);assert.equal(s.sold,2);
+ s.selected='harvest';usePlot(s,0);assert.equal(s.inventory.tomato,2);sellProduce(s);assert.equal(s.money,50+2*marketPrice(s,'tomato').price);assert.equal(s.sold,2);
  const memory=new Map();const saves=new SaveService({getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)});assert.ok(saves.write(s));assert.deepEqual(saves.load(),s);
 });
 test('missing water delays growth; dry crops die and can be cleared without energy',()=>{const s=newState();buySeed(s);usePlot(s,0);s.selected='water';usePlot(s,0);nextDay(s);assert.equal(s.plots[0].growth,0);assert.equal(s.plots[0].missedWindows,1);nextDay(s);assert.equal(s.plots[0].missedWindows,2);s.energy=0;usePlot(s,0);assert.equal(s.plots[0].crop,null);});

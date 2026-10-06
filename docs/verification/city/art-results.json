@@ -1,0 +1,30 @@
+{
+  "tomato": {
+    "uniqueStates": 8,
+    "size": [
+      24,
+      32
+    ]
+  },
+  "strawberry": {
+    "uniqueStates": 8,
+    "size": [
+      24,
+      32
+    ]
+  },
+  "carrot": {
+    "uniqueStates": 8,
+    "size": [
+      24,
+      32
+    ]
+  },
+  "corn": {
+    "uniqueStates": 8,
+    "size": [
+      24,
+      32
+    ]
+  }
+}

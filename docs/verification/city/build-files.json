@@ -1,0 +1,56 @@
+{
+  "version": "0.2.0",
+  "bytes": 1679409,
+  "runtimeArtCount": 8,
+  "totalFileCount": 12,
+  "files": [
+    {
+      "path": "dist/assets/index-DjKXa24a.js",
+      "bytes": 77134
+    },
+    {
+      "path": "dist/assets/index-DuO74lxp.css",
+      "bytes": 538
+    },
+    {
+      "path": "dist/assets/phaser-0YPJO2g1.js",
+      "bytes": 1481766
+    },
+    {
+      "path": "dist/assets/pixel/font.png",
+      "bytes": 791
+    },
+    {
+      "path": "dist/assets/pixel/font.xml",
+      "bytes": 10278
+    },
+    {
+      "path": "dist/assets/pixel/processed/boy.png",
+      "bytes": 2268
+    },
+    {
+      "path": "dist/assets/pixel/processed/girl.png",
+      "bytes": 2141
+    },
+    {
+      "path": "dist/assets/pixel/processed/town.json",
+      "bytes": 45068
+    },
+    {
+      "path": "dist/assets/pixel/processed/town.png",
+      "bytes": 34765
+    },
+    {
+      "path": "dist/assets/pixel/world.json",
+      "bytes": 16253
+    },
+    {
+      "path": "dist/assets/pixel/world.png",
+      "bytes": 7819
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 588
+    }
+  ]
+}

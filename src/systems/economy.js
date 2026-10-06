@@ -1,14 +1,28 @@
-import { CROPS } from '../data/crops.js';
-export function buySeed(s) {
-  const d = CROPS.tomato;
-  if (s.money < d.seedPrice) return 'Not enough coins. Each seed costs 10.';
-  if (s.inventory.seed >= 9999) return 'Seed bag is full.';
-  s.money -= d.seedPrice; s.inventory.seed++; return 'One tomato seed tucked into your bag.';
+import {CROPS} from '../data/crops.js';
+import {marketPrice} from './market.js';
+export const INVENTORY_LIMIT=9999,COIN_LIMIT=9999999;
+export const affordableSeeds=(s,id)=>CROPS[id]?Math.max(0,Math.min(INVENTORY_LIMIT-(s.inventory[CROPS[id].seedKey]||0),Math.floor(s.money/CROPS[id].seedPrice))):0;
+export function quote(s,type,id,quantity){
+ const d=Object.hasOwn(CROPS,id)?CROPS[id]:null;if(!d||!['seed','sell'].includes(type))return {ok:false,reason:'Unknown crop',quantity:0,total:0};
+ const owned=s.inventory[type==='seed'?d.seedKey:id]||0;
+ const emptyProduceReason=Object.values(CROPS).some(c=>s.inventory[c.produceKey]>0)?`No ${d.name} to sell.`:'You have no produce to sell.';
+ const max=type==='seed'?affordableSeeds(s,id):Math.min(owned,Math.floor((COIN_LIMIT-s.money)/marketPrice(s,id).price));
+ const count=quantity==='max'||quantity==='all'?max:quantity;
+ if(!Number.isInteger(count)||count<1)return {ok:false,reason:type==='seed'?(owned>=INVENTORY_LIMIT?'Inventory full':'Not enough coins'):owned?'Coin purse full':emptyProduceReason,quantity:0,total:0};
+ const unit=type==='seed'?d.seedPrice:marketPrice(s,id).price,total=unit*count;
+ const reason=type==='seed'?owned+count>INVENTORY_LIMIT?'Inventory full':total>s.money?'Not enough coins':null:count>owned?(owned?'Not enough produce':emptyProduceReason):s.money+total>COIN_LIMIT?'Coin purse full':null;
+ return {ok:!reason,reason,quantity:count,unit,total,owned};
 }
-export function sellProduce(s) {
-  const count = s.inventory.tomato;
-  if (!count) return 'Bring your harvested tomatoes here to sell.';
-  const earned = count * CROPS.tomato.sellPrice;
-  s.inventory.tomato = 0; s.money += earned; s.sold += count;
-  return `Sold ${count} tomatoes for ${earned} coins. Your little farm is growing!`;
+export function buySeeds(s,id='tomato',quantity=1){
+ const q=quote(s,'seed',id,quantity);if(!q.ok)return q.reason;
+ s.money-=q.total;s.inventory[CROPS[id].seedKey]=(s.inventory[CROPS[id].seedKey]||0)+q.quantity;s.hasBoughtSeeds=true;
+ return `Bought ${q.quantity} ${CROPS[id].name} seeds for ${q.total} coins.`;
 }
+export function sellCrop(s,id='tomato',quantity='all'){
+ const q=quote(s,'sell',id,quantity);if(!q.ok)return q.reason;
+ s.inventory[id]-=q.quantity;s.money+=q.total;s.sold+=q.quantity;s.hasSoldProduce=true;
+ return `Sold ${q.quantity} ${CROPS[id].name} for ${q.total} coins.`;
+}
+// Existing Farm board entry points continue to share the same safe transactions/prices.
+export const buySeed=s=>buySeeds(s,'tomato',1);
+export const sellProduce=s=>sellCrop(s,'tomato','all');

@@ -1,4 +1,24 @@
-# Current verification — Milestone 1.2, 2026-10-06
+# Current verification — Milestone 2 City and Economy V1, 2026-10-06
+
+Version 0.2.0. Isolated Chrome CDP profile and Playwright contexts, disposable localStorage, real keyboard/mouse/touch, no state mutation hooks or user-save edits. The bundled Playwright fallback is used because agent-browser CLI is unavailable.
+
+- Baseline c3142d4: 39 tests/build, Home/interior/Farm geometry/bed/doors and five sizes passed before editing. Baseline screenshots stayed in /tmp/simple-life-city-baseline.
+- Final `npm test`: **50/50 pass**. Eleven added tests cover four crop growth/status/configuration, integer buy/sell quantities/caps/atomicity, inventory separation and empty-stock messages, daily price bounds and determinism across 100 days, hours/context, safe routes/tutorials, schemas 1–5 migration with paid farms, input gates and seed aid.
+- `npm run build`: **PASS**, **1,679,409 bytes**, twelve output files and exactly eight allowlisted runtime art files. No new dependency or remote runtime resource; no source/vendor/archive/QA assets. Inventory: city/build-files.json. `git diff --check`: clean.
+- Full `tests/browser/city-economy.mjs`: natural New Game girl with 60 coins / three starter seeds / three fully watered Tomato nights / first-harvest City objective / Home east travel / sell / buy Strawberry / Home/Farm return / four fully watered nights / harvest / City sale / Save/refresh/Continue. All sale and persistence assertions pass; recorded seed 446008489 produces final day-8 **138 coins**, two starter seeds left, zero harvested stock, four total sold and four saved tutorial flags. Report: city/natural-loop.json; visible evidence: completed-two-crop-city-loop.png and intermediate growth/market/objective shots. No growth/time/inventory injection in this natural run; evening rest and sleep were selected at the actual bed.
+- Full suite `city/results.json` and final focused `city/final/results.json`: Buy 1/5/Max, Sell 1/5/All, empty/insufficient states, rapid buy/sell bursts, closed-hours interaction and paused finish near closing, three City round trips, keyboard purchase, touch buy/select/Corn plant+water, all four crop panels, daily rendered-price label on reload, legacy City migration, counter/post/back/fountain collision, wooden sign text containment and retained Farm-board trade at matching daily prices.
+- **1440×900, 1280×720, 1024×768, 844×390, 390×844**: City and all eight seed/produce crop pages fit; UI button and actual rendered text bounds stay inside the panel. No DOM HUD or document scrolling. Large portrait quantities keep exact coin totals and a readable quantity summary. Gallery checks confirm 32 nonempty 24×32 crop frames and eight unique art states for each crop (city/art-results.json / crop-gallery.png).
+- Reports have **zero page errors, console errors/warnings, failed HTTP requests or foreign runtime requests**. Images inspected: city/plaza/shops, short Corn panel/disabled reason, portrait shop/large quantities/empty market, objective and completed loop. Final stock-message check distinguishes missing selected Corn from a truly empty bag, and opens the market on available produce.
+
+Browser helper navigation now includes extra margin below obstacles so compressed paths do not brush prop corners. A focused closing-hours fixture was moved earlier because its loading/input setup advances the normal clock. These were test-driver timing/path corrections; gameplay collision and manual-time contracts remained. Art review found identical Carrot dry/wilt pixels; the original generator now gives them distinct droop geometry, confirmed by all-eight-state hash checks.
+
+These are Chromium desktop and touch-emulation checks. Real phones/notches and Safari/WebKit/Firefox/Edge remain unverified; initial balance and silent audio still need later review. Outdoor shops intentionally have no separate interiors. No final human acceptance, push, publication or competition submission is claimed.
+
+To reproduce, build and preview, launch an isolated Chrome CDP endpoint, then set PLAYWRIGHT_MODULE, CDP_URL and GAME_URL and run `node tests/browser/city-economy.mjs`. `SKIP_LOOP=1 QA_OUTPUT=docs/verification/city/final` repeats focused checks without regrowing the already verified crops. Historical expansion scripts contain fixed-sale assumptions predating daily prices; their previous evidence remains tied to the earlier commit.
+
+---
+
+# Historical verification — Milestone 1.2, 2026-10-06
 
 Evidence: `docs/verification/expansion/`, plus `regression/` for the complete farm loop. Chromium/Google Chrome, bundled Playwright fallback (agent-browser CLI unavailable), isolated profiles/contexts, disposable localStorage and real keyboard/mouse/touch. User saves untouched.
 

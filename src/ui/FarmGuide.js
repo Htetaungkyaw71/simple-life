@@ -1,4 +1,4 @@
-import {farmObjective,farmWaypoint} from '../systems/navigation.js';
+import {farmObjective,farmWaypoint,cityObjective,cityWaypoint} from '../systems/navigation.js';
 import {panel,text,UI_COLORS} from './pixelWidgets.js';
 import {pixels,pixelArrow} from './statusArt.js';
 export class FarmGuide {
@@ -11,11 +11,13 @@ export class FarmGuide {
   this.waypoint=u.add.container();this.root.add(this.waypoint);this.arrow=u.add.graphics();this.waypoint.add(this.arrow);this.farm=text(u,this.waypoint,0,10,'FARM',6,UI_COLORS.light).setOrigin(.5,0);
  }
  update(s){
-  const u=this.ui,active=farmObjective(s)&&s.area==='home';
-  if(active&&!u.objectiveStarted)u.showFarmObjective();
-  const expanded=active&&u.time.now<u.objectiveUntil;
+  const u=this.ui,city=cityObjective(s)&&['home','farm'].includes(s.area),active=city||farmObjective(s)&&s.area==='home';
+  this.label.setText(city?'Sell your harvest in the city.':'Take the starter seeds\nto the farm.');this.direction.setText(city?'Follow CITY signs east.':'Follow the FARM sign south.');this.farm.setText(city?'CITY':'FARM');
+  if(city&&!u.cityStarted)u.showCityObjective();
+  if(active&&!city&&!u.objectiveStarted)u.showFarmObjective();
+  const expanded=active&&u.time.now<(city?u.cityUntil:u.objectiveUntil);
   this.objective.setVisible(active);this.box.setVisible(expanded);this.label.setVisible(expanded);this.direction.setVisible(expanded);
-  const view=u.app.scene.cameras.main.worldView,way=farmWaypoint(s,view);this.way=way;this.waypoint.setVisible(!!way);if(!way)return;
+  const view=u.app.scene.cameras.main.worldView,way=city?cityWaypoint(s,view):farmWaypoint(s,view);this.way=way;this.waypoint.setVisible(!!way);if(!way)return;
   // Ray from player to the real transition, clipped to a safe gameplay rectangle.
   const cam=u.app.scene.cameras.main,px=(s.position.x-view.x)*cam.zoom/2,py=(s.position.y-view.y)*cam.zoom/2;
   const bounds={left:u.safe.left+12,right:u.w-u.safe.right-12,top:u.safe.top+66,bottom:u.h-u.safe.bottom-(u.touch&&u.w<u.h?146:u.touch?80:76)};
