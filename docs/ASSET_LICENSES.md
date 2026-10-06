@@ -63,3 +63,6 @@ This entry supersedes Tiny Town as the active environment family; the Kenney arc
 - **Original additions:** boy/girl 24×32 sheets, NPC variants, missing kitchen/bed/storage/table/chair/rug/window/indoor tiles, fountain, utility props, water overlays, farming soil and effects. Created in the project pipeline, not from Modern Interiors or another pack. Existing original crop atlas, bitmap font, UI icons and markers remain. AI assistance recorded in AI_USAGE.md; no claim of exclusive copyright is made for AI-assisted originals.
 - **Rejected companion:** Modern Interiors Free v2.2 is non-commercial only and was not integrated. No purchased, login-only, GPL or ShareAlike assets were introduced.
 - **Distribution:** eight allowlisted runtime files only. Untouched ZIP and unused files never ship in `dist/`.
+
+## Stabilization sprite correction — 2026-10-05
+Original boy/girl sheets retain their 24×32 grid and 24-frame structure. Side eyes moved onto visible face pixels (x=9 left, x=15 right) in process-rpg-assets.py; related original NPC variants regenerate. No third-party art was redrawn or replaced. Offline frame gallery and pixel checks live under docs/verification/stabilization, outside the runtime allowlist. LimeZu attribution/licence unchanged; City source art is retained but City travel is disabled.

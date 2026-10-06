@@ -1,26 +1,28 @@
+import {HOUSE,houseSolids,pondRows} from './geometry.js';
+export {pondInset} from './geometry.js';
 // Visual layout and physical footprints share one source; positions are world units.
 export const MAP_SIZE = { width: 2240, height: 1152 };
-export function pondInset(y,h,w=288){const t=Math.min(1,Math.abs(y/h-.5)*2);return Math.round(Math.min(w/2-1,Math.max(8,w/2*(1-Math.sqrt(1-t*t))+8*Math.sin(y*.05))));}
+
 const prop=(name,x,y,extra={})=>({name,x,y,...extra});
 const trees=(x,y,cols,rows,step=112)=>Array.from({length:cols*rows},(_,i)=>prop('tree',x+i%cols*step,y+Math.floor(i/cols)*step));
 const border=[...Array.from({length:21},(_,i)=>prop('tree',i*112-16,-30)),...Array.from({length:21},(_,i)=>prop('tree',i*112-16,1056)),...Array.from({length:8},(_,i)=>prop('tree',-48,96+i*120)),...Array.from({length:8},(_,i)=>prop('tree',2184,96+i*120))];
 const home={
  paths:[[448,448,64,256],[448,608,1568,64],[864,256,64,672],[1088,320,576,64],[1600,320,64,352],[896,896,832,64]],
- buildings:[prop('shed',1088,224),prop('house-blue',1664,160),prop('shed',1888,800)],
- props:[prop('mailbox',816,572),prop('notice',936,576),prop('bench',960,824),prop('table',976,884),prop('bench',1064,916),prop('wheelbarrow',1056,326),prop('barrel',1200,290),prop('crate',1204,328),prop('well',1356,420),prop('bench',1760,344),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
+ buildings:[prop('house',HOUSE.x,HOUSE.y),prop('shed',1088,224),prop('house-blue',1664,160),prop('shed',1888,800)],
+ props:[prop('crate',528,496),prop('mailbox',816,572),prop('notice',936,576),prop('bench',960,824),prop('table',976,884),prop('bench',1064,916),prop('wheelbarrow',1056,326),prop('barrel',1200,290),prop('crate',1204,328),prop('well',1356,420),prop('bench',1760,344),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
  water:[[1376,736,288,128]],
  fences:[[832,176,416,'h'],[832,176,320,'v'],[832,704,480,'h'],[832,768,256,'v'],[832,1024,928,'h']],
  signs:[{x:944,y:606,label:'Read the board',title:'A little room to grow',body:'Welcome home. The east gate leads to your farm. The well and picnic corner are yours to enjoy.'},{x:880,y:896,label:'Read the carving',title:'The shade garden',body:'Someone carved a tiny sun into this bench. A fine spot to watch the afternoon drift by.'}],
  extras:[]
 };
 const farm={
- paths:[[128,400,832,64],[832,256,64,192],[160,224,64,416],[192,432,1024,64],[640,288,64,640],[640,896,1376,64],[960,448,64,448],[960,576,928,64],[1472,256,64,672],[1024,256,800,64]],
+ paths:[[192,272,144,64],[128,528,832,64],[832,256,64,192],[160,224,64,416],[192,432,1024,64],[640,288,64,640],[640,896,1376,64],[960,448,64,448],[960,576,928,64],[1472,256,64,672],[1024,256,800,64]],
  buildings:[prop('house',96,96),prop('shed',848,624)],
  props:[prop('scarecrow',640,154),prop('notice',736,384),prop('wheelbarrow',796,688),prop('barrel',952,688),prop('crate',952,722),prop('well',1456,472),prop('bench',1888,864),prop('sign',828,236),...trees(1648,128,4,3,120),...trees(96,608,2,3),...trees(1168,944,6,1)],
  water:[[1696,656,320,176]],
- fields:[{x:326,y:192,w:280,h:200,active:true},{x:1088,y:128,w:288,h:288},{x:1088,y:656,w:288,h:192},{x:352,y:656,w:224,h:192}],
- fences:[[304,160,32,'v'],[304,336,32,'v'],[304,400,288,'h'],[1056,96,352,'h'],[1056,384,352,'h'],[1056,624,352,'h'],[1056,864,352,'h'],[320,624,288,'h'],[320,864,288,'h'],[1600,96,512,'h'],[1600,504,512,'h']],
- signs:[{x:764,y:428,label:'Read the farm board',title:'Four fields, one beginning',body:'The northwest field is ready for tomatoes. The other three fields are resting for a future season. No new crops are available yet.'},{x:1496,y:568,label:'Read orchard sign',title:'The quiet orchard',body:'Young trees, long shadows. Fruit growing is reserved for a later season.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water before 16:00 and again in the evening. Three well-watered nights bring your first harvest.'}],
+ fields:[{x:326,y:201,w:304,h:304,active:true},{x:1088,y:128,w:288,h:288},{x:1088,y:656,w:288,h:192},{x:352,y:656,w:224,h:192}],
+ fences:[[1056,96,352,'h'],[1056,384,352,'h'],[1056,624,352,'h'],[1056,864,352,'h'],[320,624,288,'h'],[320,864,288,'h'],[1600,96,512,'h'],[1600,504,512,'h']],
+ signs:[{x:764,y:428,label:'Read the farm board',title:'The active field',body:'The 4 by 4 field beside the home lane is ready for tomatoes. Collect 3 starter seeds from the crate beside your house. Other fields are resting.'},{x:1496,y:568,label:'Read orchard sign',title:'The quiet orchard',body:'Young trees, long shadows. Fruit growing is reserved for a later season.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water before 16:00 and again in the evening. Three well-watered nights bring your first harvest.'}],
  extras:[]
 };
 const city={
@@ -32,6 +34,7 @@ const city={
  npcs:[{x:864,y:366,name:'Mira',sprite:'npc0',body:'I take the long way past the fountain each morning. There is always a little colour hiding between the paving stones.'},{x:1296,y:604,name:'Ko',sprite:'npc1',body:'The seed stall is on the west street. Tomatoes like a morning drink and another before bed. That is my whole gardening secret.'},{x:1792,y:930,name:'Nell',sprite:'npc2',body:'This is the quiet end of town. The closed shop can wait. Today, a full basket and a good walk are plenty.'}],
  extras:[]
 };
+const interior={paths:[],buildings:[],props:[],water:[],fences:[],signs:[],details:[],obstacles:[]};
 export const MAPS={home,farm,city};
 const footprints={tree:[22,76,20,16],cypress:[10,20,12,12],bush:[6,12,20,14],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:[2,2,28,30],crate:[0,0,32,32],fountain0:[4,40,88,48],scarecrow:[26,40,12,38],notice:[4,8,56,38],mailbox:[10,16,12,20],lamp:[12,48,8,14]};
 for(const [area,map]of Object.entries(MAPS)){
@@ -44,10 +47,14 @@ for(const [area,map]of Object.entries(MAPS)){
  if(area==='city')for(const [x,y]of [[256,352],[704,352],[960,352],[1376,352],[1920,352],[960,672],[1376,672],[1920,672],[352,928]])map.props.push(prop('lamp',x,y));
  for(const tree of map.props.filter(p=>p.name==='tree')){for(let n=0;n<3;n++)map.details.push({name:n===0?'fern':n===1?'flowers'+(Math.floor(tree.x/112)%5+5)%5:'grass-detail',x:tree.x+((n*23+17)%74)-10,y:tree.y+82+n*6});}
  map.details=map.details.filter(p=>!map.water.some(([x,y,w,h])=>p.x>x-16&&p.x<x+w&&p.y>y-16&&p.y<y+h));
- map.obstacles=[...map.buildings,...map.props].flatMap(p=>{const f=footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
- for(const [x,y,w,h]of map.water)for(let yy=8;yy<h-8;yy+=16){const inset=pondInset(yy,h,w);map.obstacles.push([x+inset,y+yy,w-inset*2,16]);}
+ map.obstacles=[...map.buildings,...map.props].flatMap(p=>{if(p.name.startsWith('house'))return houseSolids(p.x,p.y);const f=footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
+ map.obstacles.push(...map.water.flatMap(pondRows));
 }
 // Cutaway home retains legacy safe coordinates, with one open south doorway.
-home.obstacles.push([224,128,384,16],[224,128,16,384],[592,128,16,384],[224,496,222,16],[514,496,94,16],[240,180,48,80],[512,176,64,64],[256,380,64,48],[384,164,128,64]);
+interior.obstacles.push([224,128,384,16],[224,128,16,384],[592,128,16,384],[224,496,222,16],[514,496,94,16],[240,180,48,80],[512,176,64,64],[256,380,64,48],[384,164,128,64]);
 // The two functional stalls are retained at their familiar map coordinates.
 city.obstacles.push([270,152,160,80],[560,152,160,80]);
+
+MAPS.interior=interior;
+home.details=home.details.filter(p=>!(p.x>380&&p.x<610&&p.y>290&&p.y<555));
+farm.obstacles.push([840,232,16,16],[872,232,16,16]);

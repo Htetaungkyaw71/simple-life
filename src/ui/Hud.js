@@ -39,7 +39,7 @@ export class Hud {
     const above=sy-24*cam.zoom-34;const py=above<65&&this.ui.h<230?sy+9:Math.max(this.ui.safe.top+62,above);
     this.prompt.setPosition(Math.round(Math.max(6,Math.min(this.ui.w-126,sx-60))),Math.round(Math.min(this.ui.h-60,py)));
     let hint=c.label.replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Rest / Sleep');
-    if(c.type==='plot'){const plot=s.plots[c.index];hint=plot.growth===3?'Select Harvest':plot.dryDays>=2?'Clear dead crop':hint;hint+=plot.growth===3?'\n3/3 days - Ripe':plot.crop?`\n${plot.growth}/3 days - ${plot.morning?'AM OK':'AM --'} ${plot.evening?'PM OK':'PM --'}`:'\nEmpty farm plot';}
+    if(c.type==='plot'){const plot=s.plots[c.index];hint=c.label;hint+=plot.growth===3?'\n3/3 days - Ripe':plot.crop?`\n${plot.growth}/3 days - ${plot.morning?'AM OK':'AM --'} ${plot.evening?'PM OK':'PM --'}`:'\nEmpty farm plot';}
     this.promptText.setText((this.ui.touch?'USE: ':'E: ')+hint);
   }
 }

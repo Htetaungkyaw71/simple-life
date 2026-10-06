@@ -14,6 +14,7 @@ test('expanded areas connect every interaction and decorative district',()=>{
   const queue=[start],seen=new Set([start.x+','+start.y]);
   for(let i=0;i<queue.length;i++){const p=queue[i];for(const [dx,dy]of [[step,0],[-step,0],[0,step],[0,-step]]){const x=p.x+dx,y=p.y+dy,key=x+','+y;if(!seen.has(key)&&walkable(area,x,y)&&walkable(area,p.x+dx/2,p.y+dy/2)){seen.add(key);queue.push({x,y});}}}
   for(const c of location.interactions)assert.ok(queue.some(p=>Math.hypot(p.x-c.x,p.y-c.y)<60),`${area}: unreachable ${c.label}`);
+  if(area==='interior')continue;
   for(const [x,y]of [[960,608],[1952,608],[960,960],[1952,960]])assert.ok(queue.some(p=>Math.hypot(p.x-x,p.y-y)<100),`${area} district ${x},${y}`);
   assert.ok(MAPS[area].buildings.length>=2);
  }
@@ -21,7 +22,7 @@ test('expanded areas connect every interaction and decorative district',()=>{
 
 test('new scenery only relocates unsafe legacy positions, preserving progress',async()=>{
  const {validate}=await import('../src/systems/save.js');const {newState}=await import('../src/systems/state.js');
- const legacy=newState('girl');Object.assign(legacy,{area:'farm',position:{x:316,y:350},day:8,money:172,energy:62,sold:6});legacy.inventory={seed:3,tomato:4};legacy.plots[0]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};
- assert.equal(walkable('farm',316,350),false);const loaded=validate(legacy);assert.deepEqual(loaded.position,LOCATIONS.farm.spawn);
+ const legacy=newState('girl');Object.assign(legacy,{area:'farm',position:{x:160,y:190},day:8,money:172,energy:62,sold:6});legacy.inventory={seed:3,tomato:4};legacy.plots[0]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};
+ assert.equal(walkable('farm',160,190),false);const loaded=validate(legacy);assert.deepEqual(loaded.position,LOCATIONS.farm.spawn);
  for(const key of ['character','day','money','energy','sold','plots','inventory'])assert.deepEqual(loaded[key],legacy[key]);
 });

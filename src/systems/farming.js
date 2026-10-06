@@ -8,7 +8,7 @@ export function usePlot(s, index) {
   const def = CROPS[p.crop || 'tomato'];
   if (s.selected === 'seed') {
     if (p.crop) return 'Something is already growing here.';
-    if (!s.inventory.seed) return 'Buy tomato seeds at the city seed shop.';
+    if (!s.inventory.seed) return 'No seeds. Collect the starter crate beside your house.';
     if (s.energy < 5) return 'Too tired to plant. Sleep at home.';
     s.energy -= 5; s.inventory.seed--; p.crop = 'tomato'; return 'Tomato planted. Water before and after 16:00.';
   }
@@ -22,9 +22,9 @@ export function usePlot(s, index) {
   }
   if (p.growth < def.growthDays) return `Growing: ${p.growth}/${def.growthDays} days. Water morning & evening.`;
   if (s.energy < 4) return 'Too tired to harvest. Sleep at home.';
-  if (s.inventory.tomato > 9999 - def.harvestYield) return 'Produce bag full. Sell in the city first.';
+  if (s.inventory.tomato > 9999 - def.harvestYield) return 'Produce bag full. City trading is coming next milestone.';
   s.energy -= 4; s.inventory.tomato += def.harvestYield; s.plots[index] = emptyPlot();
-  return `Picked ${def.harvestYield} tomatoes! Sell them at the city produce market.`;
+  return `Picked ${def.harvestYield} tomatoes! Your harvest is saved in your bag.`;
 }
 export function growOvernight(s) {
   for (const p of s.plots) {

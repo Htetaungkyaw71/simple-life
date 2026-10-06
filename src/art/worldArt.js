@@ -1,3 +1,4 @@
+import {pondRows} from '../data/geometry.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {terrain} from './Terrain.js';
 const SCALE=2;
@@ -18,10 +19,10 @@ function object(scene,p){
 }
 export function drawWorld(scene,area){
  const map=MAPS[area];scene.water=[];scene.fountains=[];scene.canopies=[];scene.doors=[];
- terrain(scene,area,map);
+ if(area==='interior')scene.add.rectangle(-2240,-1152,6720,3456,0x263e38).setOrigin(0).setDepth(-2);else terrain(scene,area,map);
  for(const p of map.details)image(scene,p.name,p.x,p.y,0);
- for(const [x,y,w,h]of map.water){for(let yy=y+24;yy<y+h-24;yy+=40)for(let xx=x+60;xx<x+w-50;xx+=58)scene.water.push(image(scene,'water0',xx,yy,0));for(let i=0;i<4;i++)image(scene,'bush',x+40+i*52,y+h-4,y+h+26);}
- if(area==='home'){
+ for(const [x,y,w,h]of map.water){for(let yy=y+24;yy<y+h-24;yy+=40)for(let xx=x+60;xx<x+w-50;xx+=58){const rows=pondRows([x,y,w,h]).filter(r=>r[1]>=yy&&r[1]<yy+32);if(rows.length===16&&rows.every(r=>xx>=r[0]&&xx+32<=r[0]+r[2]))scene.water.push(image(scene,'water0',xx,yy,0));};for(let i=0;i<4;i++)image(scene,'bush',x+40+i*52,y+h-4,y+h+26);}
+ if(area==='interior'){
   // A compact furnished cutaway; familiar bed, spawn and south-door coordinates stay safe.
   tiled(scene,'floor0',240,144,352,352,1);
   tiled(scene,'wall',224,112,384,64,170);
@@ -31,12 +32,13 @@ export function drawWorld(scene,area){
   image(scene,'bed',240,180,260);image(scene,'kitchen',384,164,228);image(scene,'dresser',512,176,240);
   image(scene,'shelf',246,278,330);image(scene,'pot',554,306,354);image(scene,'table',256,380,428);image(scene,'chair',274,434,480);
   image(scene,'rug',382,374,2);image(scene,'pot',538,426,474);image(scene,'planter',404,132,173);
-  image(scene,'sign',524,526,558);label(scene,416,94,'HOME / SHADE GARDEN');label(scene,880,686,'FARM GATE');
-  image(scene,'post',840,640,672);image(scene,'post',920,640,672);
+  label(scene,416,94,'HOME / SHADE GARDEN');
   scene.doors.push(image(scene,'door0',464,482,485));
+ }else if(area==='home'){
+  label(scene,544,554,'STARTER SEEDS');label(scene,880,686,'FARM GATE');image(scene,'post',840,640,672);image(scene,'post',920,640,672);
  }else if(area==='farm'){
   for(const field of map.fields)if(!field.active){tiled(scene,'soil',field.x,field.y,field.w,field.h,1);for(let y=field.y+16;y<field.y+field.h;y+=64)for(let x=field.x+16;x<field.x+field.w;x+=64)image(scene,'grass-detail',x,y,2);label(scene,field.x+field.w/2,field.y+field.h+12,'RESTING FIELD');}
-  label(scene,468,150,'FIRST ROOTS');label(scene,180,234,'HOME');label(scene,864,318,'CITY LANE');label(scene,1872,544,'QUIET ORCHARD');
+  image(scene,'sign',292,198,250);label(scene,478,183,'ACTIVE FIELD / 4 X 4');label(scene,180,234,'HOME');label(scene,864,318,'CITY / OPENING SOON');image(scene,'fence',832,220,252);image(scene,'fence',864,220,252);label(scene,1872,544,'QUIET ORCHARD');
  }else{
   tiled(scene,'plaza',1024,400,320,176,0);
   image(scene,'seed-shop',264,104,232);image(scene,'produce-shop',552,104,232);

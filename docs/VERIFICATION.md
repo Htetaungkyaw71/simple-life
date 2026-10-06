@@ -1,4 +1,20 @@
-# Current verification — replacement craftsmanship pass
+# Current verification — final Milestone 1 stabilization
+
+2026-10-05. Evidence: `docs/verification/stabilization/`. Tests use disposable Chromium contexts and leave the user’s live save untouched.
+
+- `npm test`: 16/16 pass. `npm run build`: succeeds, eight runtime art files, no development galleries/vendor archives.
+- `tests/browser/stabilization.mjs`: production full real-input starter/house/field/pond/three-day crop/harvest/save/refresh/Continue loop, closed City, five viewport sizes; zero errors/warnings. `production-results.json`.
+- `tests/browser/stabilization-fixtures.mjs`: both characters’ four walking frames and idle in every direction, sixteen saved crop variants, development-only collision outlines, real touch selection/movement/Use/starter uniqueness/tools. `fixtures.json`.
+- `tests/browser/stabilization-interior.mjs`: final rebuilt production bed/exit visibility and actual interactions at 844×390 and 390×844. `interior.json`. This focused test follows the final short-interior camera correction; the full loop passed before that correction.
+- `scripts/verify-character-frames.py`: all 48 original boy/girl frames checked; nearest-neighbour galleries inspected. Crop-state, mobile and compact-interior screenshots also inspected.
+
+Browser scripts use `PLAYWRIGHT_MODULE` (optional module path), `CDP_URL` (isolated Chromium endpoint), and the main suite accepts `GAME_URL`. Fixture/interior suites use local preview 4173 and development 5174. Current camera zoom remains 1. Physical devices and non-Chromium engines are unverified.
+
+Earlier scripts `canvas-acceptance.mjs`, `canvas-legacy-menus.mjs` and `world-exploration.mjs` retain historical City/six-plot assumptions. Their results below belong to earlier commits and are not current-scope acceptance claims.
+
+---
+
+# Historical verification — replacement craftsmanship pass
 
 2026-10-05, Chromium 154.0.8037.93, isolated contexts. Current evidence: `docs/verification/craftsmanship/`.
 

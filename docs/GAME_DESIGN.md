@@ -1,17 +1,17 @@
-# Simple Life — Milestone 1
-An original tropical homestead in jade greens, terracotta, honey plaster and blue water. A small hopeful farming game: buy tomato seeds, nurture them over three successful days, sell the harvest, repeat.
-Home → Farm → City are separate connected maps. Start at Home, 60 coins, health/energy 100, free watering can and harvest tool. Boy/girl choices share mechanics. Six pre-tilled plots keep the first loop focused.
-Tomato: seed 10 coins, yield 2, sell 18 each, three growth days. Water once before 16:00 and once after 16:00. Both waterings earn one growth day when sleeping/at midnight. Missing a watering delays growth; dry crops wilt after one fully dry day, die after two, and can be cleared. Mature crops remain harvestable. Actions cost energy; walking and clearing dead crops are free to prevent softlocks. Unlimited watering can.
-Clock: 06:00–24:00 over four real minutes. Morning, afternoon, evening, night tint. Bed offers rest until 16:00 (no growth/energy reward), or next-day sleep (restore energy). At midnight return home and start next day; no punitive/death mechanics in this slice. Menus and hidden tabs pause simulation.
-Controls: WASD/arrows, E/Space use, 1/2/3 seed/water/harvest, Escape pause. On-screen directional pad, contextual use and clickable tools support touch. Click a nearby plot to target it; proximity still required.
-Non-goals: forest, animals, combat, weapons, death, money recovery, additional crops, story ending, final audio. Health is visible and saved but remains 100 in normal slice play.
+# Simple Life — stabilized Milestone 1
 
-## 0.1.1 visual correction
-Fullscreen original pixel-art presentation, bounded follow camera and canvas-only menus/HUD. Native 16px terrain, reusable PNG sprites, directional boy/girl animation, earthy tropical palette and compact pixel panels. No visible webpage shell or permanent tutorial paragraphs. Existing gameplay rules above are unchanged.
+The approved retro pixel-art direction, Phaser canvas and camera zoom are unchanged. Current active locations: Home exterior → door-only furnished interior, and Farm. City road is closed; City and economy are the next milestone. Earlier City material below is historical.
 
-## 0.1.2 visual pass 2
-The same six crop beds now form one active field within a larger farm; three additional fields are reserved visually for later work. Expanded Home is a cutaway furnished house plus fenced homestead with shed, cottage, shade garden and pond. Its east gate leads to Farm. The farm's northeast lane reaches City; its functional shops remain on the west street. Lantern Square, residential lanes and three optional townspeople make room for exploration without quests or progression gates. The future weapon-shop exterior is closed and grants no items or mechanics.
-Movement is 260 world units/sec, increased from 190 to suit the larger maps. Wide framing uses 3x source pixels on desktop and 2x on compact screens; maps span 70x36 terrain tiles. Optional exploration does not make the shop/crop/bed loop depend on traversing the entire map. Farming, economy, time, energy, sleep and v1 progress rules remain unchanged.
+Start as boy or girl outside Home with 60 coins, health/energy 100, unlimited watering can and harvest tool. The crate beside the house awards **3 tomato seeds once per save**. The claimed flag persists across refresh/Continue; new games start unclaimed.
 
-## Replacement craftsmanship presentation
-The later replacement brief supersedes the older scale/palette notes: Serene Village CC BY 4.0 environment, original 24×32 farmers (four walk frames/direction), camera zoom 1 / 2× pixels, compact furnished home, organic path/pond edges and layered vegetation. Smaller HUD and title Credits. Gameplay rules above remain unchanged.
+The farm entrance leads directly to a labelled **4×4 ACTIVE FIELD**. Sixteen 64×64 tilled cells have 8px walking gaps; cell centres are spaced 72 world units. The original six crop indices remain first in save order. A subtle corner outline identifies the target. Prompts reflect available seeds, watering period, crop maturity and dead crops. No planting on grass/paths/decorative fields.
+
+Tomatoes take three successful growing nights and yield two fruit. Water once before 16:00 and once after; both waterings earn one growth day. A missed watering delays growth; one fully dry day wilts, two kills the crop. Mature crops persist; dead crops clear for free. Harvests stay in inventory until future trading. Actions consume energy; walking/refill/clearing do not. The bed restores energy overnight or rests until evening without growth. Midnight safely returns the player to the interior.
+
+Water is non-walkable. Refill contexts are on valid shoreline ground, shown only with the can selected. Use plays a short splash and confirms the can is full; capacity remains unlimited. Limited water is deferred.
+
+House entry requires E/Use at the porch. Windows, side walls, foundations and rear have solid collision; no automatic entry or alternate wall entrances. Exiting places the player on safe ground in front. Existing saves migrate without losing inventory/money/crop progress; unsafe positions are repaired.
+
+Controls: WASD/arrows, E/Space use, 1/2/3 tools, Escape pause, pointer/touch menus and on-screen pad/Use. Fullscreen HUD, health/energy, time/day, saving and Credits remain.
+
+No city access, forest, animals, combat, weapons, death/recovery, extra crop types, expanded story or final audio.

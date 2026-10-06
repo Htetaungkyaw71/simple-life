@@ -55,7 +55,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Buy a tomato seed in City.\nPlant in the farm soil.\nWater before AND after 16:00.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4, then sell.\nTwo dry days kill a crop.';
+    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the ACTIVE FIELD.\nWater before AND after 16:00.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4. City opens later.\nTwo dry days kill a crop.';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   play(){this.close();}

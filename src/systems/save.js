@@ -4,10 +4,12 @@ import { LOCATIONS, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || raw.version !== 1 || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
-  s.position = walkable(s.area, raw.position?.x, raw.position?.y) ? { x: raw.position.x, y: raw.position.y } : { ...LOCATIONS[s.area].spawn };
+  if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
+  s.starterSeedsClaimed=raw.starterSeedsClaimed===true;
+  s.position = raw.area==='city'?{...LOCATIONS.home.spawn}:walkable(s.area, raw.position?.x, raw.position?.y) ? { x: raw.position.x, y: raw.position.y } : { ...LOCATIONS[s.area].spawn };
   for (const [key,min,max] of [['day',1,99999],['minute',360,1439],['money',0,9999999],['health',0,100],['energy',0,100],['sold',0,999999]]) s[key] = number(raw[key],s[key],min,max);
   s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
   for (const key of ['seed','tomato']) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);

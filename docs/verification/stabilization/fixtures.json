@@ -1,0 +1,79 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "gender": "boy",
+      "animation": {
+        "ArrowLeft": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "ArrowUp": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "ArrowRight": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "ArrowDown": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "productionDebug": false
+    },
+    {
+      "gender": "girl",
+      "animation": {
+        "ArrowLeft": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "ArrowUp": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "ArrowRight": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "ArrowDown": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "productionDebug": false
+    },
+    {
+      "name": "crop-states",
+      "plotsPreserved": 16,
+      "debug": false
+    },
+    {
+      "name": "development-collisions",
+      "plotsPreserved": 16,
+      "debug": true
+    },
+    {
+      "mobile": "real touch New Game, girl selection, movement, Use, one-time reward, tool selection"
+    }
+  ],
+  "errors": []
+}

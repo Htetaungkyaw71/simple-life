@@ -12,6 +12,7 @@ export class Atmosphere {
   for(const b of this.butterflies)b.sprite.setFrame('butterfly'+Math.floor(time/180+b.i)%2).setPosition(b.x+Math.round(Math.sin(time/1300+b.i)*24)*2,b.y+Math.round(Math.cos(time/1800+b.i)*12)*2);
   if(moving&&time-this.lastStep>180){this.lastStep=time;const dust=this.scene.add.image(Math.round(position.x/2)*2,Math.round(position.y/2)*2,'town','dust').setScale(2).setDepth(position.y-1);this.scene.tweens.add({targets:dust,y:dust.y-6,alpha:0,duration:280,onComplete:()=>dust.destroy()});}
  }
+ refill(position){for(let i=0;i<6;i++){const drop=this.scene.add.rectangle(position.x-12+i*4,position.y-12,2,4,0xade8ed).setDepth(position.y+1);this.scene.tweens.add({targets:drop,y:drop.y-18-(i%3)*4,alpha:0,duration:450+i*35,onComplete:()=>drop.destroy()});}}
  coins(amount,position){const coin=this.scene.add.image(position.x,position.y-70,'world','coin').setScale(2).setDepth(3100);const caption=this.scene.add.bitmapText(position.x+20,position.y-76,'pixel',(amount>0?'+':'')+amount,8).setScale(2).setTint(0xffdd96).setDepth(3100);this.scene.tweens.add({targets:[coin,caption],y:'-=30',alpha:0,duration:1500,onComplete:()=>{coin.destroy();caption.destroy();}});}
  feedback(x,y){const spark=this.scene.add.image(x,y-48,'world','marker').setScale(2).setDepth(1900);this.scene.tweens.add({targets:spark,y:y-68,alpha:0,duration:240,onComplete:()=>spark.destroy()});}
 }

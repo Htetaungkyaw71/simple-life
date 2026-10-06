@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "width": 844,
+      "height": 390,
+      "target": "bed",
+      "visible": true,
+      "interaction": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "target": "exit",
+      "visible": true,
+      "interaction": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "target": "bed",
+      "visible": true,
+      "interaction": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "target": "exit",
+      "visible": true,
+      "interaction": true
+    }
+  ],
+  "errors": []
+}

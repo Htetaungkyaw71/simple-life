@@ -1,25 +1,21 @@
 # Project status
 
-**Milestone 1 — replacement craftsmanship pass, 2026-10-05.** Phaser 3 / JavaScript / Vite retained. Milestone 2 has not started. Prior working art is preserved by Git tag `art-before-craftsmanship-0.1.2`.
+**Milestone 1 — final stabilization pass, 2026-10-05.** Approved retro pixel art, Phaser 3, JavaScript, Vite and fullscreen Canvas retained. City access is closed by the latest user instruction. Milestone 2 has not started.
 
 ## Completed
 
-- Audited five packs; selected **Serene Village revamped v1.9 by LimeZu, CC BY 4.0**. Detailed environment family replaces Tiny Town. Untouched official ZIP, source-page evidence, full licence, source rectangles, adaptation manifest and title Credits are included.
-- Original expressive **24×32 boy/girl sheets: 24 frames each**, four directions with four walking frames and two idle poses. Walking 8 fps, breathing/blink idle, feet collision, interaction facing and depth retained. Original related NPC variants.
-- Camera **zoom 1**, nearest-neighbour **2× source pixels**; 64px farmer frame at 1280×720 (**8.9%**). World view 40×22.5 base tiles. Each location remains 2240×1152, bounded and fullscreen.
-- Baked terrain with subtle grass variants, irregular connected path edges, rounded variable pond shores, ripples and shared shore/collision geometry. Flowers/grass are excluded from water. Denser layered tree clusters, fern undergrowth, varied foliage colour, shadows and readable crown occlusion.
-- Home floor reduced from 608×352 to **352×352 world units**, furnished with kitchen/sink/stove, bed, dresser, shelf, table/chair, rug, windows and plants. Clear south doorway and bed approach. Detailed exterior roofs, windows, porch steps, chimneys and storage sheds.
-- Distinct green seed/red produce shopfronts with awnings; planters, market props, lamps, fountain/cobbles, NPCs and existing explorable districts. Active crop beds retain their indices, watered soil and three-day growth. Other fields remain decorative.
-- Water/fountain animation, ripe glint, tiny leaf motion, butterflies, walking dust, proximity door frames and floating transaction coins.
-- HUD information panel reduced 102×51 → 88×43 UI units; coin panel 70×24 → 60×21; tool slots 34×34 → 28×28 (roughly 15–20% smaller linear dimensions). Readable independent 2× UI; idle directional button backgrounds translucent. Context prompts only near objects. Title Credits has source/licence links.
+- House collision fixed using multiple Phaser static bodies matching the visible roof/walls/foundation. Porch remains usable. Only E/Use at the doorway enters the existing furnished interior; exiting places the farmer safely in front. Unsafe saved positions are repaired.
+- Both original 24×32 character sheets corrected at source: side eyes moved clear of dark hair edges. All 48 frames inspected at nearest-neighbour scale; front/side eyes remain aligned, back frames remain natural. Four walking frames per direction plus idle verified in the running production game. Galleries are development evidence only.
+- Clearly labelled **4×4 ACTIVE FIELD**, immediately east of the Farm entrance, connected by dirt path. Sixteen 64×64 usable cells with 8-unit gaps, centres x370–586/y245–461. Other fields remain decorative. Subtle target outline and state/tool-specific planting, watering, harvesting and empty-seed feedback.
+- Starter crate beside Home gives **3 tomato seeds once per save**. Claimed status survives refresh/Continue; a new game starts fresh.
+- Pond collision follows the rendered shoreline in two-world-unit rows. Full perimeter remains navigable. Select Water on the bank for **Refill watering can**, animation and feedback. Water remains unlimited.
+- Three-day tomato growth, two daily waterings, dry/dead crop states, harvest, health/energy, day/night, sleep, pause, credits, keyboard and touch controls preserved. Start with 60 coins; harvest stays in the bag while trading is deferred.
+- Save schema 2 retains the existing localStorage key, migrates the old six crop indices into sixteen cells, preserves progress and redirects old City saves safely to Home. Old room saves load in the interior.
+- Zoom remains 1 with 2× source pixels. Outdoors retain the established follow camera. Interior is centred on taller screens and follows the player on short landscape screens so bed/exit remain accessible.
 
-## Gameplay and saving
+## Controls and commands
 
-Pure gameplay systems and crop data unchanged. New Game, Continue, both characters, Home/Farm/City travel, desktop/touch movement, collisions, shops, planting/watering/harvest, health/energy, time/sleep, pause and autosave remain playable. Start 60 coins; seed costs 10; two waterings per day across three nights produce two tomatoes; sell for 36. Version-1 key/schema unchanged. Unsafe old positions relocate to the same area's safe spawn without discarding progress.
-
-## Controls / commands
-
-WASD/arrows: move. E/Space: use. 1/2/3: Seed/Water/Harvest. Escape: pause. Menu arrows/Enter or pointer/touch. Touch pad, tools and USE. Pause → Save or Return to title. Title → Credits.
+WASD/arrows move; E/Space uses the nearby target; 1/2/3 selects Seed/Water/Harvest; Escape pauses. Pointer/touch menus, directional pad, tool buttons and USE are available. Pause → Save or Return to title. Title → Continue or Credits.
 
 ```sh
 npm ci
@@ -29,23 +25,26 @@ npm run build
 npm run preview
 ```
 
-Production preview: http://127.0.0.1:4173/ . Refresh an existing tab. Development check used port 5174. All runtime assets are committed; optional regeneration is `python3 scripts/process-rpg-assets.py` with Pillow. Older `process-town-assets.py` is historical and must not overwrite the current art.
+Current production preview: http://127.0.0.1:4173/ . Development verification used port 5174. Refresh to load this build. Production assets are local; optional Pillow regeneration is `python3 scripts/process-rpg-assets.py`.
 
-## Verification
+## Verification completed
 
-- `npm test`: **10/10 pass**. Rules, malformed/denied saves, collision/spawns, map connectivity, camera scale and legacy unsafe-position preservation.
-- Development and production full real-input loop: choose → explore → buy → plant → morning/evening watering and sleep over three days → harvest → sell → Save → refresh → Continue. **Day 4, 86 coins**, correct inventory/crop/stats preservation; **zero page errors or console warnings**.
-- **1440×900, 1280×720, 1024×768, 844×390, 390×844**: fullscreen, no scrolling/DOM HUD, accessible controls, movement and bounded camera. Real CDP touch input verified.
-- Production legacy fixture retains character, money/day, inventory, crop growth/water, health/energy and selected tool. Four distinct walking frames plus idle verified in all directions. Credits/title/help/confirmation/selection fit both compact orientations.
-- Production exploration checks 16 landmarks and NPC/sign conversations. Final pond/vegetation polish passed renewed route/legacy verification with zero page errors; results are recorded under `docs/verification/craftsmanship/`.
-- Production build succeeds. Eight explicit runtime art files only; vendor ZIP, licence/source HTML, manifest and unused pack files excluded. No new runtime dependencies.
+- **16/16 Node tests pass**, covering rules, malformed/denied saves, legacy migration, all active spawns, house/pond geometry, sixteen crop states, starter uniqueness, field contexts and map reachability.
+- Production real-input acceptance: boy → starter reward → left/right/rear/both front-corner house collisions → window rejection → porch/door entry and exit → field planting → pond collision/refill/full perimeter → morning/evening watering and sleeping across three nights → harvest two tomatoes → Save/refresh/Continue. House position, claimed reward and crop progress persisted. City closure verified. **Zero page errors or console warnings.**
+- **1440×900, 1280×720, 1024×768, 844×390, 390×844** viewport checks pass; movement/tool controls and fullscreen layout retained.
+- Companion production fixtures verify both characters' complete directional walk/idle sequences, sixteen restored crop states, debug disabled, and real CDP touch New Game/girl/movement/Use/reward/tool selection. Development collision debug verified separately.
+- Final focused rebuilt-production tests confirm bed/exit visibility and interactions at **844×390 and 390×844** after the short-interior camera correction. Crop pointer reach was aligned with the same 60-unit context limit.
+- All **48 sprite frames** pass the source-pixel verifier; nearest-neighbour galleries visually inspected. Screenshots of field states, touch layout and compact interiors inspected.
+- `npm run build` succeeds. Eight allowlisted runtime art files; archives, licences, galleries and unused pack files excluded. No new runtime dependencies.
 
-## Files / systems
+Current evidence and JSON results: `docs/verification/stabilization/`. Current browser suites: `tests/browser/stabilization.mjs`, `stabilization-fixtures.mjs`, `stabilization-interior.mjs`. Earlier City/economy browser suites and craftsmanship evidence describe the previous scope, not current acceptance.
 
-Added `src/art/Terrain.js`, `scripts/process-rpg-assets.py`, `docs/ASSET_CANDIDATES.md`, LimeZu vendor/licence evidence and craftsmanship verification evidence. Updated atlas/manifest/farmer sheets, map footprints/composition, world rendering, PlayerView, camera, atmosphere, HUD/menu/Credits, transaction feedback, browser tests, scale tests, README and permanent design/architecture/licence/AI/status records. Existing crop/economy/time/save modules are preserved.
+## Files and systems
 
-## Known limits / next milestone
+Added shared `src/data/geometry.js`, Phaser `src/physics/CollisionWorld.js`, pure context/starter systems, stabilization unit/browser tests, sprite-frame verifier and stabilization plan/evidence. Updated location/map definitions, sixteen-cell crop data, save/state/time handling, WorldScene, world art/atmosphere, HUD/help, original boy/girl PNG generation and permanent documentation. Existing economy source remains dormant for the next milestone; City has no active location or transition.
 
-The visual style is richer but remains a small reusable pixel-art set: some ground/roof patterns repeat, supplemental furniture/effects are simpler than the licensed vegetation, and the farm's remote reserve fields stay sparse. The home uses a cutaway rather than a separate enterable exterior scene. Canopy transparency is a simple proximity treatment. At 844×390, a 64px frame occupies about 16% of the short screen; desktop 720px target remains 8.9%. Physical Android/iOS/notches, Safari/WebKit, Firefox and Edge are unverified; mobile results are Chromium emulation. Final human aesthetic review remains open.
+## Known limits and next milestone
 
-Recommended next step: review this art pass and check physical devices before authorizing any Milestone 2 work. No forest, animals, combat, weapons, death, money recovery, extra crops, large story or final audio implemented. No publishing or push.
+No known blocking issue in the tested Chromium flows. Physical Android/iOS devices, notches and Safari/Firefox/Edge remain unverified; mobile evidence uses Chromium emulation. Water is intentionally unlimited; a limited-water system is deferred. The starter reward is finite and trading is intentionally unavailable, so this slice ends with harvested produce in the bag. Remote Farm fields remain decorative. Existing art licences and credits are preserved.
+
+**Next milestone: City and economy.** Implement the city seed shop and produce selling only after new authorization. No forest, animals, combat, weapons, death, recovery, additional crops or final audio added. No publishing or push.

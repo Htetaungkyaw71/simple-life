@@ -44,7 +44,7 @@ for gender in ['boy','girl']:
    if direction=='up':
     rect(d,(6,7+bob,18,14+bob),hair);rect(d,(8,8+bob,15,9+bob),'#b0705b');rect(d,(9,15+bob,15,16+bob),hair)
    else:
-    eyes=[9,15] if direction=='down' else [7] if direction=='left' else [17]
+    eyes=[9,15] if direction=='down' else [9] if direction=='left' else [15]
     for x in eyes:rect(d,(x,10+bob,x,10+bob+(0 if frame==5 else 1)),INK)
     if direction=='down':rect(d,(12,14+bob,13,14+bob),'#a96164');rect(d,(7,13+bob,8,13+bob),'#db8d79');rect(d,(16,13+bob,17,13+bob),'#db8d79')
    if gender=='girl':
