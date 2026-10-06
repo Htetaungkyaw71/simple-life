@@ -6,7 +6,7 @@ export class FarmGuide {
   this.ui=hud.ui;const u=this.ui;this.root=u.add.container();hud.root.add(this.root);
   this.objective=u.add.container(u.safe.left+6,u.safe.top+66);this.root.add(this.objective);
   this.box=panel(u,this.objective,0,0,Math.min(184,u.w-u.safe.left-u.safe.right-12),38,0x304a40);
-  this.label=text(u,this.objective,19,6,'Take the starter seeds\nto the farm.',7);this.direction=text(u,this.objective,6,27,'Follow the FARM signs south.',6,UI_COLORS.gold);
+  this.label=text(u,this.objective,19,6,'Take the starter seeds\nto the farm.',7);this.direction=text(u,this.objective,6,27,'Follow the FARM sign south.',6,UI_COLORS.gold);
   this.objectiveArt=u.add.graphics();this.objective.add(this.objectiveArt);pixels(this.objectiveArt,'leaf',6,7,UI_COLORS.gold);
   this.waypoint=u.add.container();this.root.add(this.waypoint);this.arrow=u.add.graphics();this.waypoint.add(this.arrow);this.farm=text(u,this.waypoint,0,10,'FARM',6,UI_COLORS.light).setOrigin(.5,0);
  }

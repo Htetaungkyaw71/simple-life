@@ -13,7 +13,7 @@ export const LOCATIONS = {
  ]},
  farm:{name:'Farm',subtitle:'The active field',spawn:{x:320,y:64},interactions:[
 
-  {type:'dialog',x:865,y:275,label:'City road - opening soon',title:'City road closed',body:'City and economy are planned for the next milestone. Collect your starter seeds beside the house and grow your first harvest here.'},
+  {type:'dialog',x:865,y:275,label:'City road - opening soon',title:'City road closed',body:'City is planned for the next milestone. Trade tomatoes, buy seeds and expand at the farm board.'},
  ]},
 };
 for(const [area,location]of Object.entries(LOCATIONS)){

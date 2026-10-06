@@ -1,0 +1,59 @@
+{
+  "result": "PASS",
+  "signFits": true,
+  "southSignRemoved": true,
+  "coins": true,
+  "fieldPurchases": 3,
+  "newFarm": true,
+  "independentCropIndices": [
+    0,
+    16,
+    32,
+    48,
+    64
+  ],
+  "targetedCells": 64,
+  "mobileCropTargets": 40,
+  "manualSleep": true,
+  "persistence": true,
+  "sizes": [
+    {
+      "width": 1440,
+      "height": 900,
+      "menusFit": true,
+      "touchPurchase": false
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "menusFit": true,
+      "touchPurchase": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "menusFit": true,
+      "touchPurchase": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "menusFit": true,
+      "touchPurchase": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "menusFit": true,
+      "touchPurchase": true
+    },
+    {
+      "width": 640,
+      "height": 360,
+      "menusFit": true,
+      "touchPurchase": true
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

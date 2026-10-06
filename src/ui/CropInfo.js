@@ -1,5 +1,4 @@
 import {cropStatus} from '../systems/cropStatus.js';
-import {PLOTS} from '../data/crops.js';
 import {panel,text,icon,UI_COLORS} from './pixelWidgets.js';
 import {pixels} from './statusArt.js';
 const intersects=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
@@ -26,7 +25,7 @@ export class CropInfo {
  }
  place(s,c){
   const u=this.ui,cam=u.app.scene.cameras.main,screen=p=>({x:(p.x-cam.worldView.x)*cam.zoom/2,y:(p.y-cam.worldView.y)*cam.zoom/2});
-  const player=screen(s.position),plot=screen(PLOTS[c.index]);
+  const player=screen(s.position),plot=screen(c);
   const avoid=[{x:player.x-14,y:player.y-34,w:28,h:38},{x:plot.x-25,y:plot.y-24,w:50,h:47}];
   const left=u.safe.left+6,right=u.w-u.safe.right-6-this.w,top=u.safe.top+64;
   // Candidate positions avoid the farmer, inspected sprite/soil and existing HUD.

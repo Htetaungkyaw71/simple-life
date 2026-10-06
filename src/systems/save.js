@@ -1,3 +1,5 @@
+import {MAX_FARMS,PLOTS_PER_FARM} from '../data/farms.js';
+import {newFarm,plotOwned} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
 import {ROOM} from '../data/interior.js';
 import {completedWindow} from './watering.js';
@@ -7,10 +9,15 @@ import { LOCATIONS, nearestSafe } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
+  if(raw.version===5&&Array.isArray(raw.farms)&&raw.farms.length){
+    s.farms=raw.farms.slice(0,MAX_FARMS).map(f=>({fields:[true,...[1,2,3].map(i=>f?.fields?.[i]===true)]}));
+  }else s.farms=[newFarm()];
+  s.currentFarm=number(raw.version===5?raw.currentFarm:0,0,0,s.farms.length-1);
+  s.plots=Array.from({length:s.farms.length*PLOTS_PER_FARM},emptyPlot);
   s.expansionUnlocked=raw.expansionUnlocked===true;
   s.starterSeedsClaimed=raw.starterSeedsClaimed===true;
   const oldRoom=raw.version<3?{width:1344,height:800}:raw.roomSize;
@@ -22,7 +29,7 @@ export function validate(raw) {
   for (const key of ['seed','tomato']) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
   s.plots = s.plots.map((_,i) => {
     const p = raw.plots?.[i];
-    return p && Object.hasOwn(CROPS,p.crop) ? { crop: p.crop, growth: number(p.growth,0,0,CROPS[p.crop].growthDays), morning: p.morning === true, evening: p.evening === true, dryDays: number(p.missedWindows??p.dryDays,0,0,2), missedWindows: number(p.missedWindows??p.dryDays,0,0,2), lastEvaluatedWindow: raw.version<3?completedWindow(s):number(p.lastEvaluatedWindow,(s.day-1)*2-1,(s.day-1)*2-1,completedWindow(s)) } : emptyPlot();
+    return plotOwned(s,i) && p && Object.hasOwn(CROPS,p.crop) ? { crop: p.crop, growth: number(p.growth,0,0,CROPS[p.crop].growthDays), morning: p.morning === true, evening: p.evening === true, dryDays: number(p.missedWindows??p.dryDays,0,0,2), missedWindows: number(p.missedWindows??p.dryDays,0,0,2), lastEvaluatedWindow: raw.version<3?completedWindow(s):number(p.lastEvaluatedWindow,(s.day-1)*2-1,(s.day-1)*2-1,completedWindow(s)) } : emptyPlot();
   });
   s.hasVisitedFarm=inferFarmVisit(raw,s);
   s.plots.forEach((p,i)=>{if(!p.crop)return;const old=raw.plots[i];

@@ -1,3 +1,4 @@
+import {FIELDS} from './farms.js';
 import {ROOM_SOLIDS} from './interior.js';
 import {HOUSE,houseSolids,shedSolids,pondRows} from './geometry.js';
 export {pondInset} from './geometry.js';
@@ -10,20 +11,20 @@ const border=[...Array.from({length:21},(_,i)=>prop('tree',i*112-16,-30)),...Arr
 const home={
  paths:[[448,448,64,704],[448,608,1568,64],[864,256,96,672],[1088,320,576,64],[1600,320,64,352],[896,896,832,64]],
  buildings:[prop('house',HOUSE.x,HOUSE.y),prop('shed',1088,224),prop('house-blue',1664,160),prop('shed',1888,800)],
- props:[prop('crate',528,496),prop('farm-sign',384,568),prop('farm-sign',396,996),prop('mailbox',816,572),prop('notice',936,576),prop('bench',960,824),prop('table',976,884),prop('bench',1064,916),prop('wheelbarrow',1056,326),prop('barrel',1200,290),prop('crate',1204,328),prop('well',1356,420),prop('bench',1760,344),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
+ props:[prop('crate',528,496),prop('farm-sign',384,568),prop('mailbox',816,572),prop('notice',936,576),prop('bench',960,824),prop('table',976,884),prop('bench',1064,916),prop('wheelbarrow',1056,326),prop('barrel',1200,290),prop('crate',1204,328),prop('well',1356,420),prop('bench',1760,344),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
  water:[[1376,736,288,128]],
  fences:[[256,1104,160,'h'],[544,1104,160,'h'],[832,176,416,'h'],[832,176,320,'v'],[832,704,480,'h'],[832,768,256,'v'],[832,1024,928,'h']],
- signs:[{x:408,y:616,type:'hint',label:'Farm - follow the south road'},{x:420,y:1044,type:'hint',label:'Farm - follow the south road'},{x:944,y:606,label:'Read the board',title:'A little room to grow',body:'Welcome home. The south path leads to your farm. The well and picnic corner are yours to enjoy.'},{x:880,y:896,label:'Read the carving',title:'The shade garden',body:'Someone carved a tiny sun into this bench. A fine spot to watch the afternoon drift by.'}],
+ signs:[{x:408,y:616,type:'hint',label:'Farm - follow the south road'},{x:944,y:606,label:'Read the board',title:'A little room to grow',body:'Welcome home. The south path leads to your farm. The well and picnic corner are yours to enjoy.'},{x:880,y:896,label:'Read the carving',title:'The shade garden',body:'Someone carved a tiny sun into this bench. A fine spot to watch the afternoon drift by.'}],
  extras:[]
 };
 const farm={
- paths:[[288,0,64,336],[192,272,144,64],[128,528,832,64],[832,256,64,192],[160,224,64,416],[192,432,1024,64],[640,288,64,640],[640,896,1376,64],[960,448,64,448],[960,576,928,64],[1472,256,64,672],[1024,256,800,64]],
+ paths:[[288,0,64,336],[192,272,144,64],[128,528,832,64],[832,256,64,192],[160,224,64,416],[192,432,1024,64],[640,288,64,640],[640,896,1376,64],[960,448,64,448],[960,576,928,64],[1472,256,64,672],[1024,352,800,64]],
  buildings:[prop('house',96,96),prop('shed',848,624)],
- props:[prop('scarecrow',568,176),prop('barrel',568,320),prop('pebble',568,376),prop('flowers2',552,256),prop('flowers1',304,384),prop('sign',288,672),prop('notice',736,384),prop('wheelbarrow',796,688),prop('barrel',1016,688),prop('crate',1016,738),prop('well',1456,472),prop('bench',1888,864),prop('sign',828,236),...trees(1648,128,4,3,120),...trees(96,608,2,3),...trees(1168,944,6,1)],
+ props:[...FIELDS.flatMap(f=>[prop('scarecrow',f.x+216,f.y-48),prop('barrel',f.x+216,f.y+96),prop('pebble',f.x+216,f.y+152),prop('flowers2',f.x+200,f.y+32),prop('flowers1',f.x-48,f.y+160)]),prop('sign',288,672),prop('notice',736,384),prop('wheelbarrow',796,688),prop('barrel',1016,688),prop('crate',1016,738),prop('well',1456,472),prop('bench',1888,864),prop('sign',828,236),...trees(1648,128,4,3,120),...trees(96,608,2,3),...trees(1168,944,6,1)],
  water:[[1696,656,320,176]],
- fields:[{x:352,y:224,w:192,h:192,active:true},{x:1088,y:128,w:288,h:288},{x:1088,y:656,w:288,h:192},{x:352,y:656,w:224,h:192}],
- fences:[[368,176,160,'h'],[1056,96,352,'h'],[1056,384,352,'h'],[1056,624,352,'h'],[1056,864,352,'h'],[320,624,288,'h'],[320,864,288,'h'],[1600,96,512,'h'],[1600,504,512,'h']],
- signs:[{x:304,y:712,type:'hint',label:'Unlock more farmland in town'},{x:764,y:428,label:'Read the farm board',title:'The active field',body:'The tilled field beside the home lane is ready for tomatoes. Collect 3 starter seeds from the crate beside your house. Overgrown land can be unlocked in town later.'},{x:1496,y:568,label:'Read orchard sign',title:'The quiet orchard',body:'Young trees, long shadows. Fruit growing is reserved for a later season.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water at 06:00-12:00 and 16:00-22:00. Three well-watered nights bring your first harvest.'}],
+ fields:FIELDS,
+ fences:[...FIELDS.map(f=>[f.x+16,f.y-48,160,'h']),[1600,96,512,'h'],[1600,504,512,'h']],
+ signs:[{x:304,y:712,type:'field',field:3,label:'Buy field 4 / 240 coins'},{x:764,y:428,type:'farmOffice',label:'Farm board / trade and expand'},{x:1496,y:568,label:'Read orchard sign',title:'The quiet orchard',body:'Young trees, long shadows. Fruit growing is reserved for a later season.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water at 06:00-12:00 and 16:00-22:00. Three well-watered nights bring your first harvest.'}],
  extras:[]
 };
 const city={

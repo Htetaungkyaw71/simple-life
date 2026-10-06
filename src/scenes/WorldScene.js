@@ -8,11 +8,12 @@ import { displayZoom } from './displayScale.js';
 import { Atmosphere } from '../art/Atmosphere.js';
 import { WORLD } from '../config.js';
 
-import { PLOTS } from '../data/crops.js';
+import {FARM_PLOTS,PLOTS_PER_FARM} from '../data/farms.js';
+import {visiblePlots} from '../systems/expansion.js';
 import { drawWorld,drawPlots } from '../art/worldArt.js';
 import { PlayerView } from '../entities/PlayerView.js';
 export class WorldScene extends Phaser.Scene {
-  constructor(app){super('World');this.app=app;this.plotPositions=PLOTS;}
+  constructor(app){super('World');this.app=app;this.plotPositions=[];}
   preload(){
     const base=import.meta.env.BASE_URL+'assets/pixel/';
     this.load.atlas('world',base+'world.png',base+'world.json');
@@ -31,9 +32,9 @@ export class WorldScene extends Phaser.Scene {
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
       const a=this.app;if(a.paused||a.state?.area!=='farm')return;
-      const world=this.cameras.main.getWorldPoint(p.x,p.y);const index=PLOTS.findIndex(v=>Math.abs(v.x-world.x)<24&&Math.abs(v.y-world.y)<24);
-      if(index<0)return;if(Math.hypot(PLOTS[index].x-a.state.position.x,PLOTS[index].y-a.state.position.y)>=60){a.ui.toast('Walk closer to that plot.');return;}
-      this.targetPlot=index;a.use();
+      const world=this.cameras.main.getWorldPoint(p.x,p.y);const index=FARM_PLOTS.findIndex(v=>Math.abs(v.x-world.x)<24&&Math.abs(v.y-world.y)<24);
+      if(index<0)return;if(Math.hypot(FARM_PLOTS[index].x-a.state.position.x,FARM_PLOTS[index].y-a.state.position.y)>=60){a.ui.toast('Walk closer to that plot.');return;}
+      this.targetPlot=(a.state.currentFarm||0)*PLOTS_PER_FARM+index;a.use();
     });
   }
   resize(){
@@ -52,7 +53,7 @@ export class WorldScene extends Phaser.Scene {
   }
   build(){
     this.collisionWorld?.destroy();this.collisionWorld=null;this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;
-    const s=this.app.state;drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.renderCrops();
+    const s=this.app.state;this.targetPlot=null;this.plotPositions=visiblePlots(s||{farms:[{fields:[true,false,false,false]}]});drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.renderCrops();
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(1900).setVisible(false);

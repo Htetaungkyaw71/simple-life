@@ -34,7 +34,7 @@ export class Hud {
     this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
   }
   update(s,c){
-    this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(LOCATIONS[s.area].name);
+    this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(s.area==='farm'?'FARM '+(s.currentFarm+1):LOCATIONS[s.area].name);
     this.health.setSize(23*s.health/100,4);this.energy.setSize(21*s.energy/100,4);this.healthValue.setText(String(s.health));this.energyValue.setText(String(s.energy));
     for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory.seed):tool==='harvest'?String(s.inventory.tomato):'');}
     this.selected.setText(s.selected==='seed'?'TOMATO SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');

@@ -7,3 +7,5 @@ Date: 2026-10-06. Creator: Simple Life project, authored with OpenAI Codex assis
 - Existing original `world/tomato` icon and bitmap font reuse their documented generator provenance.
 
 No copied reference pixels, image-generation output, external font, new asset pack, new licence restriction or runtime dependency. Existing LimeZu CC BY 4.0 evidence remains applicable to the surrounding environment, not claimed as creator of these additions. AI assistance/human review status: docs/AI_USAGE.md. Reproducible source and local commit history are retained; no claim of exclusive copyright in AI-assisted work.
+
+2026-10-06 Milestone 1.2: remaining FARM label resized/centered; south duplicate removed. Farm purchase/trade menus and locked-field number/price labels reuse this original bitmap font and canvas widget geometry. Field/farm composition reuses existing licensed environment/props and original crop/soil frames; no new third-party source, image-model output, raster asset or licence.

@@ -31,8 +31,8 @@ test('misses, recovery, partial days and death never promise false growth',()=>{
  const late=newState();late.minute=970;late.inventory.seed=1;usePlot(late,0);late.selected='water';usePlot(late,0);
  assert.equal(cropStatus(late,0).next,'Next stage after a full care day');nextDay(late);assert.equal(late.plots[0].growth,0);
 });
-test('all four save versions infer farm visits only from real evidence and preserve fresh tutorials',()=>{
- for(const version of [1,2,3,4]){
+test('all five save versions infer farm visits only from real evidence and preserve fresh tutorials',()=>{
+ for(const version of [1,2,3,4,5]){
   const fresh=newState();fresh.version=version;delete fresh.hasVisitedFarm;assert.equal(validate(fresh).hasVisitedFarm,false);
   for(const evidence of [{area:'farm'},{area:'city'},{inventory:{seed:0,tomato:2}},{sold:2},{plots:[{...emptyPlot(),crop:'tomato'}]}])assert.equal(validate({...fresh,...evidence}).hasVisitedFarm,true);
   assert.equal(validate({...fresh,hasVisitedFarm:true}).hasVisitedFarm,true);
@@ -46,9 +46,10 @@ test('waypoint uses actual transition and hides for visible exit, interior and c
  assert.equal(farmWaypoint(s,{...view,y:500}),null);s.area='interior';assert.equal(farmWaypoint(s,view),null);s.area='home';s.hasVisitedFarm=true;assert.equal(farmWaypoint(s,view),null);
 });
 test('permanent signs sit beside roads with accurate small colliders and remain hints',()=>{
- const signs=MAPS.home.props.filter(p=>p.name==='farm-sign');assert.equal(signs.length,2);
+ const signs=MAPS.home.props.filter(p=>p.name==='farm-sign');assert.equal(signs.length,1);
+ assert.ok(!MAPS.home.obstacles.some(([x,y,w,h])=>x===416&&y===1044&&w===8&&h===16));
  for(const p of signs){assert.ok(MAPS.home.obstacles.some(([x,y,w,h])=>x===p.x+20&&y===p.y+48&&w===8&&h===16));assert.ok(walkable('home',480,p.y+48));}
- assert.equal(LOCATIONS.home.interactions.filter(p=>p.label==='Farm - follow the south road').length,2);
+ assert.equal(LOCATIONS.home.interactions.filter(p=>p.label==='Farm - follow the south road').length,1);
 });
 test('pixel waypoint arrow tips match all eight game directions',async()=>{
  const {pixelArrow}=await import('../src/ui/statusArt.js');

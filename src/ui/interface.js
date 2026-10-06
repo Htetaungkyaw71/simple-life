@@ -28,8 +28,10 @@ export class Interface extends Phaser.Scene {
     const titleSize=kind==='title'?(h<240?16:24):12;
     const measure=text(this,this.root,0,0,body,8,UI_COLORS.muted,pw-24);const bh=body?measure.height:0;measure.destroy();
     const portraitHeight=kind==='choose'?48:0;const titleMeasure=text(this,this.root,0,0,kind==='title'?'SIMPLE\nLIFE':title,titleSize,UI_COLORS.light,pw-20);const th=titleMeasure.height+10;titleMeasure.destroy();
-    const total=12+10+th+bh+(bh?10:0)+portraitHeight+buttons.length*25+10;
+    const buttonStep=h<200?24:25;
+    const total=12+10+th+bh+(bh?10:0)+portraitHeight+buttons.length*buttonStep+10;
     const y=Math.max(this.safe.top+5,Math.floor((h-total)/2));
+    this.menuBounds={x:x*2,y:y*2,w:pw*2,h:total*2};
     panel(this,this.root,x,y,pw,total,kind==='title'?0x263e38:0x263e38);
     text(this,this.root,w/2,y+10,kicker,7,UI_COLORS.gold).setOrigin(.5,0);
     text(this,this.root,w/2,y+24,kind==='title'?'SIMPLE\nLIFE':title,titleSize,UI_COLORS.light,pw-20).setOrigin(.5,0).setCenterAlign();
@@ -39,7 +41,7 @@ export class Interface extends Phaser.Scene {
       cy+=portraitHeight;
     }
     if(body){text(this,this.root,x+12,cy,body,8,UI_COLORS.muted,pw-24);cy+=bh+10;}
-    buttons.forEach(([label,fn,disabled=false],i)=>button(this,this.root,label,x+12,cy+i*25,pw-24,21,fn,{disabled,id:label}));this.highlight();
+    buttons.forEach(([label,fn,disabled=false],i)=>button(this,this.root,label,x+12,cy+i*buttonStep,pw-24,21,fn,{disabled,id:label}));this.highlight();
   }
   title(){
     const save=this.app.saves.load();this.notice=null;
@@ -55,7 +57,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4. City opens later.\nOne missed window wilts. Two kill.';
+    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4. Trade at farm board.\nOne missed window wilts. Two kill.';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   showFarmObjective(){this.objectiveStarted=true;this.objectiveUntil=this.time.now+7000;}

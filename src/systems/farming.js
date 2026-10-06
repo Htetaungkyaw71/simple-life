@@ -1,8 +1,10 @@
+import {plotOwned} from './expansion.js';
 import {CROPS} from '../data/crops.js';
 import {emptyPlot} from './state.js';
 import {waterPeriod,completedWindow,evaluateWatering,missed} from './watering.js';
 export {waterPeriod} from './watering.js';
 export function usePlot(s,index){
+ if(!plotOwned(s,index))return 'Buy this field before planting.';
  evaluateWatering(s);
  const p=s.plots[index];if(!p)return 'Choose a farm plot';
  if(missed(p)>=2){s.plots[index]=emptyPlot();return 'Dead crop cleared';}

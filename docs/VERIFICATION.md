@@ -1,4 +1,19 @@
-# Current verification — Milestone 1.1, 2026-10-06
+# Current verification — Milestone 1.2, 2026-10-06
+
+Evidence: `docs/verification/expansion/`, plus `regression/` for the complete farm loop. Chromium/Google Chrome, bundled Playwright fallback (agent-browser CLI unavailable), isolated profiles/contexts, disposable localStorage and real keyboard/mouse/touch. User saves untouched.
+
+- `npm test`: **39/39 pass**. Production build succeeds, **1,648,968 bytes** uncompressed; eight unchanged allowlisted runtime art files, no source/vendor/QA assets or new dependencies. Whitespace diff check passes.
+- `tests/browser/expansion.mjs`: sign lettering containment/removal, insufficient funds, farm-board seed/produce trade, all three field purchases, confirmed new-farm purchase/gating/switching and reload, independent farm crop indices, all 64 original-farm targets, late-night movement/persistence and manual bed Sleep. Forty mobile crop targets verify panel boundaries and non-overlap across expanded fields/farm 2. Six viewports: 1440×900,1280×720,1024×768,844×390,390×844,640×360; every farm-board/trade/land/confirmation/farm page fits. Touch purchases at all small sizes. Report `results.json`; errors/warnings empty; requests same-origin/data/local blob only.
+- `tests/browser/farming-information.mjs` with `QA_OUTPUT=docs/verification/expansion/regression`: full starter → Farm → plant → AM water → bed rest → PM water → three sleeps → harvest → saved reload, old field cell targeting, shed/road/sign/locked-field/interior regressions and five sizes. Report `regression/results.json`; errors/warnings empty.
+
+The first focused run found the 640×360 board menu bottom four pixels outside the viewport. Button-row spacing below 400 display pixels was adjusted; the complete final focused suite passed afterward. Sign, field, crop and menu screenshots were visually inspected. Physical phones and non-Chromium browsers remain unverified. No publishing/push.
+
+Run production preview and an isolated Chrome CDP endpoint, then set PLAYWRIGHT_MODULE, CDP_URL and GAME_URL. Current full regression supports QA_OUTPUT to keep older reports intact. Historical browser suites use older scene coordinates/rules; their previous reports do not claim current acceptance.
+
+---
+
+# Historical verification — Milestone 1.1, 2026-10-06
+
 
 Evidence: `docs/verification/farming-information/`. Google Chrome/Chromium, isolated profiles/contexts and disposable localStorage, real keyboard/mouse/CDP touch. Bundled Playwright was used because the agent-browser CLI was unavailable. User saves were untouched.
 

@@ -5,7 +5,7 @@ import {PLOTS} from '../../src/data/crops.js';
 import {newState} from '../../src/systems/state.js';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.connectOverCDP(process.env.CDP_URL),base=process.env.GAME_URL||'http://127.0.0.1:4173/';
-const out='docs/verification/farming-information';await mkdir(out,{recursive:true});
+const out=process.env.QA_OUTPUT||'docs/verification/farming-information';await mkdir(out,{recursive:true});
 const ctx=await browser.newContext({viewport:{width:1280,height:720},hasTouch:true}),page=await ctx.newPage(),errors=[],warnings=[];
 page.on('response',r=>{if(r.status()>=400)console.log('HTTP '+r.status()+' '+r.url());});
 page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='warning')warnings.push(m.text());if(m.type()==='error')errors.push(m.text());});
@@ -47,7 +47,7 @@ for(let day=1;day<=3;day++){
  await toBed();await click('Rest until evening');await toField();await key('2');await use();assert.equal((await snap()).state.plots[0].evening,true);assert.equal((await snap()).cropInfo.condition,'Fully watered today');assert.equal((await snap()).cropInfo.remaining,4-day);await shot('growing-'+day);await toBed();await click('Sleep / next day');assert.equal((await snap()).state.plots[0].growth,day);await reloadContinue();console.log('Growing night '+day+' / save passed');
 }
 await toField();await key('3');assert.equal((await snap()).cropInfo.timer,'Ready to harvest');await shot('ripe');await use();assert.equal((await snap()).state.inventory.tomato,2);assert.equal((await snap()).state.plots[0].crop,null);assert.equal((await snap()).cropInfo,null);await reloadContinue();
-assert.equal((await snap()).state.expansionUnlocked,false);await navigate(304,712);assert.equal((await snap()).context.type,'hint');await use();assert.equal((await snap()).menu,null);await shot('expansion-field');await navigate(448,736);await key('1');assert.notEqual((await snap()).context?.type,'plot');const seeds=(await snap()).state.inventory.seed;await use();assert.equal((await snap()).state.inventory.seed,seeds);
+assert.equal((await snap()).state.expansionUnlocked,false);await navigate(304,712);assert.equal((await snap()).context.type,'field');await use();assert.equal((await snap()).menu,'dialog');await click('Not now');await shot('expansion-field');await navigate(448,736);await key('1');assert.notEqual((await snap()).context?.type,'plot');const seeds=(await snap()).state.inventory.seed;await use();assert.equal((await snap()).state.inventory.seed,seeds);if((await snap()).menu)await click('Not now');
 console.log('Full crop loop, all sixteen targets and locked expansion passed');
 }
 const shedResults=[];
@@ -55,7 +55,7 @@ for(const[name,x,y,key]of [['front',896,772,'ArrowUp'],['back',896,670,'ArrowDow
  await fixture('farm',{x,y});await hold(key,350);const p=(await snap()).state.position;await hold(key,220);const q=(await snap()).state.position;assert.ok(Math.hypot(q.x-p.x,q.y-p.y)<4,name);await shot('shed-'+name);shedResults.push({name,position:q});
 }
 await fixture('home',{x:896,y:672});await hold('ArrowDown',400);assert.ok((await snap()).state.position.y>750);await shot('open-road-gate');await fixture('home',{x:784,y:680});await hold('ArrowDown',350); // open ground beside closed fence
-await fixture('home',{x:1000,y:680});await hold('ArrowDown',350);assert.ok((await snap()).state.position.y<=716);await fixture('home',{x:436,y:1036});assert.equal((await snap()).context.type,'hint');await use();assert.equal((await snap()).state.area,'home');assert.equal((await snap()).menu,null);await shot('farm-sign');
+await fixture('home',{x:1000,y:680});await hold('ArrowDown',350);assert.ok((await snap()).state.position.y<=716);await fixture('home',{x:448,y:616});assert.equal((await snap()).context.type,'hint');await use();assert.equal((await snap()).state.area,'home');assert.equal((await snap()).menu,null);await shot('farm-sign');
 const viewportResults=[];
 for(const[width,height]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){
  await page.setViewportSize({width,height});syncInterior(width,height);const {ROOM}=await import('../../src/data/interior.js');
