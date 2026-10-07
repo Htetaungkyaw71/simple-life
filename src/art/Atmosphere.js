@@ -18,7 +18,7 @@ export class Atmosphere {
   for(const c of this.scene.canopies){const near=Math.abs(position.x-c.x)<42&&position.y<c.y&&position.y>c.y-80;c.sprite.setAlpha(near?.5:1);c.sprite.setX(c.x-32+(Math.sin(time/1800+c.x)>.94?2:0));}
   for(const door of this.scene.doors){const near=Math.hypot(position.x-door.x-16,position.y-door.y)<85;door.setFrame(near?'door2':'door0');}
   for(const b of this.butterflies)b.sprite.setVisible(this.scene.app.state.minute>=360&&this.scene.app.state.minute<1200).setFrame('butterfly'+Math.floor(time/180+b.i)%2).setPosition(b.x+Math.round(Math.sin(time/1300+b.i)*24)*2,b.y+Math.round(Math.cos(time/1800+b.i)*12)*2);
-  if(moving&&!this.waterView.wading&&time-this.lastStep>180){this.lastStep=time;const dust=this.scene.add.image(Math.round(position.x/2)*2,Math.round(position.y/2)*2,'town','dust').setScale(2).setDepth(position.y-1);this.scene.tweens.add({targets:dust,y:dust.y-6,alpha:0,duration:280,onComplete:()=>dust.destroy()});}
+  if(moving&&!this.scene.jumping?.active&&!this.waterView.wading&&time-this.lastStep>180){this.lastStep=time;const dust=this.scene.add.image(Math.round(position.x/2)*2,Math.round(position.y/2)*2,'town','dust').setScale(2).setDepth(position.y-1);this.scene.tweens.add({targets:dust,y:dust.y-6,alpha:0,duration:280,onComplete:()=>dust.destroy()});}
  }
  refill(position){for(let i=0;i<6;i++){const drop=this.scene.add.rectangle(position.x-12+i*4,position.y-12,2,4,0xade8ed).setDepth(position.y+1);this.scene.tweens.add({targets:drop,y:drop.y-18-(i%3)*4,alpha:0,duration:450+i*35,onComplete:()=>drop.destroy()});}}
  farming(action,x,y,crop='tomato'){

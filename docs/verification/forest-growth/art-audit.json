@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "characters": {
+    "boy": {
+      "size": [
+        216,
+        128
+      ],
+      "frames": 36,
+      "retainedIdleWalkFramesIdentical": 24,
+      "distinctJumpFramesPerDirection": 3
+    },
+    "girl": {
+      "size": [
+        216,
+        128
+      ],
+      "frames": 36,
+      "retainedIdleWalkFramesIdentical": 24,
+      "distinctJumpFramesPerDirection": 3
+    }
+  },
+  "atlasFrames": 545,
+  "grassFrames": 27,
+  "licensedCliffFrames": 4,
+  "suppliedPacksIntegrated": false
+}

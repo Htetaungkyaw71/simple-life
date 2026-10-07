@@ -1,3 +1,6 @@
+## v0.4.2 grounded jumps and added scenery
+Schema remains **9**; all prior valid progress migrates unchanged. Jump origin/destination/arc/cooldown and grass bending are transient. During flight, autosave/manual Save/pagehide write the grounded take-off point; pause freezes the same arc in memory, while refresh resumes standing. On ordinary saves, position is the current feet position. Animal damage interrupts flight and grounds safely before existing defeat/bag rules. New tree/ledge masks use the existing nearest-safe repair for legacy positions now inside scenery, preserving stocks/crops/currency/equipment. Water positions remain valid. No height/customisation/extra saved keys.
+
 ## v0.4.1 water traversal follow-up
 Schema stays **9**. A valid player or Stash Bag location inside water is now preserved by shared walkability validation. Solid structures, waterfall rock banks and map bounds still reject unsafe positions. Existing animal health, crops, inventories, money and legacy migration remain. New quiet woodland sprites are transient display state and add no saved keys.
 

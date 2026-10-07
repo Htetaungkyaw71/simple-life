@@ -24,7 +24,7 @@ export class Interface extends Phaser.Scene {
   drawMenu(){
     if(['trade','survival','wilderness'].includes(this.menu.kind)){this.menu.draw();return;}
     const {kicker,title,body:fullBody,buttons,kind}=this.menu,w=this.w,h=this.h;
-    const body=h<200&&kicker==='ART & CREDITS'?'LimeZu / CC BY 4.0 / adapted.':h<200&&kicker==='WILDLIFE & RUINS'?'Hunt animals, ruins and plants.\nCraftpix / PNG frames repacked.':fullBody;
+    const body=h<200&&kicker==='ART & CREDITS'?'LimeZu / CC BY 4.0 / adapted.':h<200&&kicker==='WILDLIFE & RUINS'?'Hunt animals, ruins and plants.\nCraftpix / PNG frames repacked.':h<200&&kicker==='FIELD NOTES'&&title==='Controls'?'Move: WASD / arrows\nUse: E / Attack: Space or K\nForest jump: J / Shift\nTools: 1 / 2 / 3 / Q\nMap: M / Pause: Escape\nTouch: pad and action buttons.':fullBody;
     const veil=this.add.rectangle(0,0,w,h,0x102b25,kind==='title'?.36:.78).setOrigin(0).setInteractive();this.root.add(veil);veil.on('pointerdown',(p,x,y,e)=>e.stopPropagation());
     const pw=Math.min(kind==='title'?270:290,w-this.safe.left-this.safe.right-16),x=Math.floor((w-pw)/2);
     const titleSize=kind==='title'?(h<240?16:24):12;
@@ -60,7 +60,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows: move\nE: use / Space or K: attack\n1 / 2 / 3: choose a tool\nQ: change seed crop / BAG on touch\nM: wilderness map / Escape: pause\n\nTouch: pad, tools, USE / ATTACK.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nSleep by day: wake at 20:00.\nWater PM, then sleep to 06:00.\nTime keeps moving at midnight.\nOne missed window wilts. Two kill.';
+    const body=page===0?'WASD / arrows: move\nE: use / Space or K: attack\nJ / Shift: jump in the forest\n1 / 2 / 3: choose a tool\nQ: change seed crop / BAG on touch\nM: wilderness map / Escape: pause\n\nTouch: pad, tools, USE / ATTACK / JUMP.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nSleep by day: wake at 20:00.\nWater PM, then sleep to 06:00.\nTime keeps moving at midnight.\nOne missed window wilts. Two kill.';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}

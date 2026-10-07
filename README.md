@@ -1,6 +1,6 @@
 # Simple Life — Wilderness expansion
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.1**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.2**, schema **9**.
 
 The 2026-10-07 asset/water follow-up uses the user-supplied Craftpix packs: animated Boar replacement, quiet Deer/Hare/Fox/Grouse, textured ruin fragments and animated plant scenery. All water is walkable with ankle ripples; continuous river banks and animated waterfalls replace the earlier rectangular pools. Existing 22 combat species, habitats, treasure and progress remain. Pack coverage is five woodland animals; the other 21 combat species still use original project art. Craftpix licence evidence and exact selected frame rectangles are documented locally, with in-game Credits.
 
@@ -34,7 +34,7 @@ Follow Home's wooden **FOREST ↑** sign to a **5120×5120 wilderness**, exactly
 
 At zero health, fall/fade and wake beside the home bed at **06:00 next day**, with health/energy restored. Drop **floor(25% of carried coins)** into one saved Stash Bag at the safe forest defeat position. Return and USE it to recover the coins. A second defeat permanently replaces the old bag. Zero loss creates no empty bag. Crops, inventory, equipment and paid farms remain. First-visit and first-defeat messages explain the rules and pause safely.
 
-- WASD/arrows: move; E: USE. Space/K: directional ATTACK.
+- WASD/arrows: move; E: USE. Space/K: directional ATTACK. J/Shift or JUMP: leap across low forest ledges.
 - 1/2/3: Seed / Water / Harvest; Q: cycle planting crop.
 - M / MAP: wilderness discovery map. BAG: seeds, paged FOOD and GEAR. Arrows/Tab/Enter navigate menus; Escape closes/pauses.
 - Touch: directional pad, tools, USE and a separate ATTACK button with an equipped club.
@@ -57,3 +57,8 @@ Current results and reproduction commands: docs/VERIFICATION.md and docs/verific
 Physical phones/notches, Safari/WebKit, Firefox and Edge remain unverified; touch results use Chromium emulation. Combat/economy values are initial balance requiring human play review. Audio is silent, water is unlimited, additional farms reuse the same map. No final team acceptance or competition submission is claimed. Team profile/contact, private reviewer repository, official hosting, matching ZIP/screenshots/demo and signed declarations remain separate submission work.
 
 This user-authorized follow-up expands the completed Milestone 3 wilderness. The earlier one-small-map/one-enemy limit is superseded. No additional weapons/armor/crafting/weather/relationships/backend or unrelated progression. Nothing was pushed, published or deployed.
+
+## Forest growth and jumping — 0.4.2
+The forest has 787 trees and 33 bamboo stands, 3,880 responsive grass clumps and 20 stepped terraces with stair openings. Touching grass bends it; it springs upright after departure. Nearby grass is rendered on demand. Forest jumps have a 600ms arc and 850ms cooldown, cost no energy and cross only low ledges; trees, rocks and structures stay solid. Animal hits interrupt the jump. Use/attack wait until landing. Pausing freezes the arc; saving during it stores the grounded take-off point. Water walking remains, with the ankle line hidden while airborne.
+
+The supplied Mana Seed sample and FreeEnvironment ZIP were inspected but are **not integrated**: Mana Seed's current licence prohibits use alongside AI-generated code/art, and ToffeeCraft's free licence grants personal use only. This AI-assisted competition project therefore retains existing licensed trees and original farmers, adding original crouch/air/landing poses. See docs/assets/licenses/forest-growth/SOURCE_RECORD.md. Commercial permission for ToffeeCraft and an explicit exception from Mana Seed would be needed for those exact asset replacements; no purchase or creator contact was made.

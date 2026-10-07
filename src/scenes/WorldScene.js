@@ -1,3 +1,5 @@
+import {GrassView} from '../art/GrassView.js';
+import {jumpRuntime,beginJump,stepJump,jumpPose,cancelJump} from '../systems/jump.js';
 import {forestRegion} from '../data/forest.js';
 import {ForestView,forestNight} from '../art/ForestView.js';
 import {combatRuntime,stepCombat} from '../systems/combat.js';
@@ -29,7 +31,8 @@ export class WorldScene extends Phaser.Scene {
   }
   create(){
     for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q,K,M');
+    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q,K,M,J,SHIFT');
+    for(const key of ['J','SHIFT'])this.keys[key].on('down',(_,event)=>{if(!event?.repeat)this.jump();});
     this.keys.M.on('down',()=>{if(this.app.state?.area==='forest'&&!this.app.paused)this.app.wildernessMap.open();});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
     this.keys.ESC.on('down',()=>this.app.pause());
@@ -54,7 +57,7 @@ export class WorldScene extends Phaser.Scene {
       cam.setBounds(-Math.max(8,(vw-ROOM.width)/2),-Math.max(24,(vh-ROOM.height)/2),Math.max(vw,ROOM.width+16),Math.max(vh,ROOM.height+48));
       if(this.scale.width>=1000&&this.scale.height>=600){cam.stopFollow();cam.centerOn(ROOM.width/2,ROOM.height/2);return;}
     }
-    if(this.player){cam.startFollow(this.player.sprite,true,1,1);cam.centerOn(this.player.sprite.x,this.player.sprite.y);}
+    if(this.player){cam.startFollow(this.player.anchor,true,1,1);cam.centerOn(this.player.anchor.x,this.player.anchor.y);}
     else cam.centerOn(448,290);
   }
   build(){
@@ -63,6 +66,7 @@ export class WorldScene extends Phaser.Scene {
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
+    this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
     this.combat=combatRuntime();this.forestView=new ForestView(this);
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
     const light=daylight(s||{minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);
@@ -72,16 +76,26 @@ export class WorldScene extends Phaser.Scene {
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state)drawPlots(this,this.app.state?.plots,this.plots);}
   context(){return contextFor(this.app.state,this.targetPlot,this.player?.direction);}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
+  jump(){
+    const a=this.app;if(!a.state||a.paused||a.transitioning||document.hidden)return;
+    const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
+    const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
+    const facing={down:{x:0,y:1},up:{x:0,y:-1},left:{x:-1,y:0},right:{x:1,y:0}};
+    beginJump(a.state,this.jumping,x||y?{x,y}:facing[this.player.direction]);
+  }
   update(_,delta){
     const a=this.app,s=a.state;if(!s||a.transitioning)return;let dx=0,dy=0;
     if(!a.paused&&!document.hidden){
       const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
       const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
       const len=Math.hypot(x,y)||1,step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
-      if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}if(dx||dy)this.targetPlot=null;a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge){a.travel(edge);return;}
+      const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
+      if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
+      else {if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy)this.targetPlot=null;a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
-    if(!a.paused&&!document.hidden){const result=stepCombat(s,this.combat,delta);if(result.hurt){this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
-    this.player?.update(s.position,dx,dy);
+    if(!a.paused&&!document.hidden){const result=stepCombat(s,this.combat,delta);if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
+    this.player?.update(s.position,dx,dy,jumpPose(this.jumping));
+    if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);
     const light=daylight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);

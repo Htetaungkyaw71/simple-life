@@ -1,3 +1,4 @@
+import {growForest} from './forestGrowth.js';
 import {FOREST_MAP as STARTER,FORAGE_NODES as STARTER_NODES,FOREST_GUIDANCE} from './starterForest.js';
 export {FOREST_GUIDANCE};
 // Four columns, five rows: 5120² is exactly 20 times the original 1280×1024.
@@ -87,4 +88,5 @@ for(const r of REGIONS){
  map.details.push(prop('cp-ruins-'+variant+'-5',r.x+344,r.y+520));
  if(['jungle','bamboo','marsh'].includes(r.biome))map.props.push(prop('cp-plant-'+(1+REGIONS.indexOf(r)%3)+'-0',r.x+320,r.y+824,{animated:'plant'}));
 }
+growForest(map,REGIONS,FORAGE_NODES,TREASURES);
 export const FOREST_MAP=map;

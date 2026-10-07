@@ -1,3 +1,33 @@
+# Forest growth and jumping — v0.4.2, 2026-10-07
+
+Evidence: **verification/forest-growth/**. Baseline clean **8fc977a**, 83 tests/build (`baseline-tests.txt`, `baseline-build.txt`). Final **88/88 tests**, production build (`tests.txt`, `build.txt`), whitespace and runtime allowlist audit pass. `build-audit.json`: **1,978,827 bytes / 12 files / eight art files**, no vendor/archive/guide/unused-pack/QA/evidence files. `art-audit.json`: all 48 previous idle/walk/face cells pixel-identical, 24 new distinct jump poses, 27 grass frames, four licensed cliff cells, 545-frame atlas; neither supplied pack integrated. `boy-all-frames.png` / `girl-all-frames.png` inspect all 72 cells.
+
+`tests/forest-growth.test.js` adds five meaningful checks: ledge walking/stairs and jump crossing/cooldown/grounded reload, swept tree/cave/boundary blocking and invalid-origin refusal, safe zero-energy interruption, density/route preservation, actual animal damage during a leap. The retained 83 crop/economy/time/ownership/survival/cache/migration/shared-water checks pass, including BFS reachability for all fruits/caches and every species' safe group home.
+
+`tests/browser/forest-growth.mjs` → `results.json`: real keyboard walk stops at ledge; J leaps and lands above it, airborne attack spends nothing; Shift/pause freezes elapsed arc, Save/reload/Continue stores take-off and resumes standing; girl/boy directions; grass bends under the farmer and springs back after leaving; distant grass remains uninstantiated; water wading/crop hides during flight and restores after landing/reload. Zero-energy touch JUMP and help/control bounds pass **1440×900,1280×720,1024×768,844×390,390×844,360×640,640×360**. Canvas and WebGL night grass/jump render. Native/cliff/grass/jump/phone/short-help/renderer screenshots inspected.
+
+`tests/browser/asset-water.mjs` → `water-regression/results.json`: PASS for retained actual direct river crossing away from bridges, waterfall centre, Home/Farm ponds, wet Save/refresh/Continue, native Boar hit/flee/hide/reload, four woodland species, ruins/plants, held touch, both linked Credits panels/seven sizes and Canvas/WebGL night water.
+
+`tests/browser/forest-growth-final.mjs` → `final/results.json`: final production PASS for simultaneous touch direction+jump, correct horizontal destination, continued movement after releasing the jump finger, and no extra jumps from held/repeated J events. An initial fixture stopped at a real tree; the test now uses a verified collision-free trail, without weakening input/collision assertions. Full growth/water runs preceded only the final crouch-versus-landing leg spread and non-gameplay debug/snapshot/record changes; final smoke, all unit/build and pixel/source audits follow them. No newly grown full farming loop is claimed for these art/jump changes; previous full-loop evidence is historical.
+
+All completed reports have empty error/warning/failed-request/foreign-request arrays. QA uses disposable isolated Chromium localStorage, prepared starting fixtures, actual keyboard/mouse/CDP touch and read-only snapshots. User-origin saves remain untouched. Supplied archive/licence audit is in assets/licenses/forest-growth/SOURCE_RECORD.md. No purchase, creator contact, subagent, runtime dependency or image-generation service.
+
+Reproduce with production preview on 4175 and an isolated Chromium CDP endpoint:
+
+```sh
+npm test
+npm run build
+npm run preview -- --port 4175
+# Supply CDP_URL and PLAYWRIGHT_MODULE if using bundled QA tooling.
+node tests/browser/forest-growth.mjs
+node tests/browser/forest-growth-final.mjs
+QA_OUTPUT=docs/verification/forest-growth/water-regression node tests/browser/asset-water.mjs
+```
+
+Physical phones/non-Chromium engines and prolonged human balance/performance/visual acceptance remain unverified. Exact supplied player/environment replacement is pending compatible rights. No push, publishing or deployment.
+
+---
+
 # Supplied assets / water acceptance — v0.4.1, 2026-10-07
 
 `npm test`: **83/83 passed**. `npm run build`: success. Five new tests check whole-river continuity/bridge coverage, direct water traversal with solid fall rock banks and river refill context, wet player/bag save integrity, shared render/wading geometry, actual licensed animation keys and atlas bounds. Existing crop/economy/time/expansion/survival/treasure/migration/reachability tests still pass; former blocked-pond expectations were updated to the user's new walkability requirement. Final build/runtime art/source archive audit: asset-water/build-audit.json.

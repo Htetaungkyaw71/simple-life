@@ -38,10 +38,11 @@ export class Hud {
       button(u,p,'USE',right-34,h-u.safe.bottom-(portrait?61:35),34,32,()=>this.app.use(),{id:'use'});
     }
     this.attackButton=button(u,p,'ATTACK',right-58,h-u.safe.bottom-(touch&&portrait?98:touch?72:76),58,28,()=>this.app.attack(),{id:'attack'});
+    this.jumpButton=button(u,p,'JUMP',right-54,top+50,54,24,()=>this.app.scene.jump(),{id:'jump'});
     this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
   }
   update(s,c){
-    const forest=s.area==='forest';this.mapButton.box.setVisible(forest);this.mapButton.text.setVisible(forest);this.mapButton.box.input.enabled=forest;this.region.setText(forest?forestRegion(s.position).name:'').setVisible(forest&&this.ui.w>=320);
+    const forest=s.area==='forest';this.jumpButton.box.setVisible(forest);this.jumpButton.text.setVisible(forest);this.jumpButton.box.input.enabled=forest;this.mapButton.box.setVisible(forest);this.mapButton.text.setVisible(forest);this.mapButton.box.input.enabled=forest;this.region.setText(forest?forestRegion(s.position).name:'').setVisible(forest&&this.ui.w>=320);
     this.attackButton.box.setVisible(s.clubEquipped);this.attackButton.box.input.enabled=s.clubEquipped;
     // The text belongs to the same canvas container; hide it with its button.
     this.attackButton.text?.setVisible(s.clubEquipped);

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "twoFingerDirectionalJump": true,
+  "movementPersistsAfterJumpTouchRelease": true,
+  "heldKeyRepeatNoChain": true,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}

@@ -1,3 +1,6 @@
+## v0.4.2 scope — forest growth and jump
+The user authorizes dense vegetation, responsive grass, raised ground and jumping plus supplied asset replacements. All four reference PDFs/master prompt were reread as requirements evidence, not authority overriding the user. Primary creator terms prevent current use of Mana Seed in this AI-assisted project and do not establish commercial rights for ToffeeCraft's free archive. Both are excluded pending compatible permission; the remaining requested systems use existing licensed/original work. Responsive canvas controls, local runtime, licence/AI evidence and no-publication scope remain.
+
 ## v0.4.1 scope follow-up — 2026-10-07
 The latest user explicitly authorizes three supplied Craftpix asset packs, river/waterfall improvements and water traversal. Product/licence provenance and exact PNG extraction are recorded; native source ZIPs remain outside the runtime build. Existing fullscreen canvas, local runtime, disclosures and no-publication requirements remain. Referenced PDFs are requirements evidence, not authority overriding the user.
 

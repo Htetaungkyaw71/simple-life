@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      640,
+      360
+    ]
+  ],
+  "grassTotal": 3880,
+  "terraces": 20,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": [],
+  "treeAndBambooProps": 820,
+  "trees": 787,
+  "bambooStands": 33
+}

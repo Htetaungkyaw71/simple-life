@@ -1,3 +1,4 @@
+import {ledgeBlocked} from './forestGrowth.js';
 import {FOREST_ENTRANCE} from './forest.js';
 import {ROOM,configureRoom} from './interior.js';
 import {MAPS,MAP_SIZE} from './mapLayouts.js';
@@ -43,7 +44,7 @@ function candidates(area,x,y,r){
  if(!index){index=new Map();for(const box of map.obstacles){const [a,b,w,h]=box;for(let cy=Math.floor(b/128);cy<=Math.floor((b+h)/128);cy++)for(let cx=Math.floor(a/128);cx<=Math.floor((a+w)/128);cx++){const k=cx+":"+cy;if(!index.has(k))index.set(k,[]);index.get(k).push(box);}}spatial.set(map.obstacles,index);}
  const found=new Set();for(let cy=Math.floor((y-r)/128);cy<=Math.floor(y/128);cy++)for(let cx=Math.floor((x-r)/128);cx<=Math.floor((x+r)/128);cx++)for(const b of index.get(cx+":"+cy)||[])found.add(b);return [...found];
 }
-export function walkable(area,x,y,r=area==='interior'?6:12){return inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(([ox,oy,ow,oh])=>x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh);}
+export function walkable(area,x,y,r=area==='interior'?6:12,ignoreLedges=false){return (ignoreLedges||!ledgeBlocked(MAPS[area]?.ledges||[],x,y,r))&&inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(([ox,oy,ow,oh])=>x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh);}
 
 export const EDGE_TRAVEL={
  home:{zone:[448,1120,64,32],to:'farm',spawn:{x:320,y:64},facing:'down'},

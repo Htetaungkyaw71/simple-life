@@ -1,3 +1,6 @@
+## Current v0.4.2 assistance — 2026-10-07
+Codex assisted with forest density, original grass/jump pixels, low terraces, transient jump/save/input behavior, native existing licensed cliff extraction, QA and documentation. Supplied Mana Seed/FreeEnvironment pixels are excluded for current licence incompatibility. See AI_USAGE.md and assets/licenses/forest-growth/SOURCE_RECORD.md. No signed human acceptance is claimed.
+
 ## Current v0.4.1 assistance — 2026-10-07
 Codex assisted with supplied Craftpix PNG cell extraction, rendering, original procedural waterfall/water visuals, water traversal, QA and records. Craftpix pixels are external licensed art; original waterfall source is AI-assisted project work. Details, purpose, affected code and verification: AI_USAGE.md and assets/licenses/craftpix/SOURCE_RECORD.md. No image-generation model or model-training use. Human final review/declaration remains unsigned.
 

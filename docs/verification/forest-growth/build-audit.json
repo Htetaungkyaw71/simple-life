@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "version": "0.4.2",
+  "totalBytes": 1978827,
+  "runtimeArtFiles": 8,
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 588,
+      "sha256": "176369fb1a19da3f944a8dd982aed12f6ba08a4aecb8409224c4683f4342affc"
+    },
+    {
+      "path": "assets/index-D4oQvhs5.js",
+      "bytes": 129625,
+      "sha256": "7e862e0f89976bb160c2ab79bee9d29b6ad9378187c7628c6aa42bdba8d0a237"
+    },
+    {
+      "path": "assets/phaser-0YPJO2g1.js",
+      "bytes": 1481766,
+      "sha256": "3c73b8d15f22eb21b75a78f863fa809a5f19a8539228d4bb14f2aa115f743b91"
+    },
+    {
+      "path": "assets/index-DuO74lxp.css",
+      "bytes": 538,
+      "sha256": "4f9075c4b1f0041ae565b6925ed336dce90805c21a871f5e1a3529f473e32978"
+    },
+    {
+      "path": "assets/pixel/world.png",
+      "bytes": 7819,
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721"
+    },
+    {
+      "path": "assets/pixel/font.xml",
+      "bytes": 10278,
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d"
+    },
+    {
+      "path": "assets/pixel/font.png",
+      "bytes": 791,
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1"
+    },
+    {
+      "path": "assets/pixel/world.json",
+      "bytes": 16253,
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2"
+    },
+    {
+      "path": "assets/pixel/processed/town.png",
+      "bytes": 140908,
+      "sha256": "06f51ad315ea900aa3dc859542baff4ac21178076348db56390264924b670640"
+    },
+    {
+      "path": "assets/pixel/processed/girl.png",
+      "bytes": 2743,
+      "sha256": "2c0d32c9ff733f6daebe1e4aaf7058711639d246a97df30fa70465d2a7ad5838"
+    },
+    {
+      "path": "assets/pixel/processed/town.json",
+      "bytes": 184597,
+      "sha256": "5338f4604e3e80a6a00525c1688f54522c4fa99aae327f7cdc510ad34880d561"
+    },
+    {
+      "path": "assets/pixel/processed/boy.png",
+      "bytes": 2921,
+      "sha256": "e7d95a515ada21a6ae6459d1bf4d52a33cb3aa49856198c57b9ebb40db004cbb"
+    }
+  ]
+}

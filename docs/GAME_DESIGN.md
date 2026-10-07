@@ -1,3 +1,10 @@
+# Forest growth and jumping — v0.4.2
+The latest request authorizes thick vegetation, responsive grass, raised ground and jumping. Forest remains exactly 5120² / 20-fold area and retains all habitats/species/fruit/treasure. It now contains 787 trees and 33 bamboo stands, 3,880 grass clumps and 20 low terraces with stair gaps. J/Shift or canvas JUMP makes a 600ms directional leap of up to 128 units, with an 850ms cooldown. It crosses low ledges, not trunks/rocks/structures/bounds; blocked destinations shorten the leap. Walking and jump cost no energy, and animal attacks still hurt during flight. Hits cancel the leap safely. Interacting and attacking resume at landing. Paused menus freeze the arc; saves/reloads during flight use grounded take-off coordinates.
+
+Grass bends on grounded foot contact, including stationary overlap, and springs upright after leaving; airborne players pass above it. Dense trees preserve clear trails/species territories/forage/cache approaches. Textured raised ground has steps and low rims; no new falling damage, swimming cost, weapons, weather or crafting. Supplied character/environment pixel replacements remain blocked by their current licences; existing original farmers gain jump poses and licensed existing cliffs are reused.
+
+---
+
 # Wilderness expansion — 2026-10-07
 
 The user's follow-up explicitly authorizes a 20-fold forest area, many grouped animal species with different difficulty, more fruit and rare dangerous treasure. This supersedes the prior compact forest/one species restriction. Camera scale and all farming/City/sleep/Stash Bag rules remain.

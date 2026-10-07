@@ -40,6 +40,13 @@ export function terrain(scene,area,map){
   const i=(y*w+x)*4;for(let c=0;c<3;c++)waterPixels.data[i+c]=color[c];waterPixels.data[i+3]=255;
  }
  ctx.putImageData(waterPixels,0,0);
+ // Native licensed cliff faces, shallow stepped rims and a walkable stair gap.
+ for(const t of map.terraces||[]){
+  const x=t.x/2,y=t.y/2;const top=ctx.getImageData(x+2,y+2,t.w/2-4,t.h/2-14);for(let n=0;n<top.data.length;n+=4)for(let c=0;c<3;c++)top.data[n+c]=Math.min(255,top.data[n+c]+9);ctx.putImageData(top,x+2,y+2);
+  for(let yy=0;yy<t.h/2-16;yy+=16){stamp('cliff-left',x, y+yy);stamp('cliff-right',x+t.w/2-16,y+yy);}
+  for(let i=0;i<8;i++){if(i===3||i===4)continue;const off=[0,0,8,8,8,8,0,0][i];stamp('cliff-face',x+i*16,y+t.h/2-16-off);}
+  stamp('cliff-stairs',x+48,y+t.h/2-24);
+ }
  if(area==='city')scene.add.tileSprite(-1024,-1024,size.width+2048,size.height+2048,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
  texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);
 }

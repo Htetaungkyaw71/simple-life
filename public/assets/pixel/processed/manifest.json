@@ -3,6 +3,30 @@
   "creator": "LimeZu",
   "license": "CC BY 4.0",
   "sourceRectangles": {
+    "cliff-face": [
+      16,
+      160,
+      32,
+      176
+    ],
+    "cliff-stairs": [
+      32,
+      160,
+      64,
+      176
+    ],
+    "cliff-left": [
+      0,
+      144,
+      16,
+      160
+    ],
+    "cliff-right": [
+      80,
+      144,
+      96,
+      160
+    ],
     "grass": [
       64,
       0,
@@ -3797,14 +3821,41 @@
     "fall-flow-0",
     "fall-flow-1",
     "fall-flow-2",
-    "fall-flow-3"
+    "fall-flow-3",
+    "tall-grass-0-0",
+    "tall-grass-dry-0-0",
+    "tall-grass-snow-0-0",
+    "tall-grass-0-1",
+    "tall-grass-dry-0-1",
+    "tall-grass-snow-0-1",
+    "tall-grass-0-2",
+    "tall-grass-dry-0-2",
+    "tall-grass-snow-0-2",
+    "tall-grass-1-0",
+    "tall-grass-dry-1-0",
+    "tall-grass-snow-1-0",
+    "tall-grass-1-1",
+    "tall-grass-dry-1-1",
+    "tall-grass-snow-1-1",
+    "tall-grass-1-2",
+    "tall-grass-dry-1-2",
+    "tall-grass-snow-1-2",
+    "tall-grass-2-0",
+    "tall-grass-dry-2-0",
+    "tall-grass-snow-2-0",
+    "tall-grass-2-1",
+    "tall-grass-dry-2-1",
+    "tall-grass-snow-2-1",
+    "tall-grass-2-2",
+    "tall-grass-dry-2-2",
+    "tall-grass-snow-2-2"
   ],
   "characterFrames": {
     "size": [
       24,
       32
     ],
-    "columns": 6,
+    "columns": 9,
     "rows": [
       "down",
       "up",
@@ -3820,6 +3871,11 @@
       2,
       3,
       4
+    ],
+    "jump": [
+      6,
+      7,
+      8
     ]
   },
   "modifications": "Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture."

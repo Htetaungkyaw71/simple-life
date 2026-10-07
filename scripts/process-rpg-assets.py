@@ -17,11 +17,11 @@ INK='#34344f';WOOD='#ad7056';LIGHT='#efd6a0';SHADE='#694757';GOLD='#e6af66';JADE
 # Original 24x32 farmers. Four genuinely different walking poses per direction,
 # plus two idle poses. Row order is shared with PlayerView.
 for gender in ['boy','girl']:
- out=Image.new('RGBA',(144,128))
+ out=Image.new('RGBA',(216,128))
  for row,direction in enumerate(['down','up','left','right']):
-  for frame in range(6):
+  for frame in range(9):
    im=Image.new('RGBA',(24,32));d=ImageDraw.Draw(im)
-   step=[0,-2,0,2,0,0][frame];bob=1 if frame in [2,4] else 0
+   step=[0,-2,0,2,0,0,0,0,0][frame];bob=1 if frame in [2,4] else 0
    shirt='#e99566' if gender=='boy' else '#e6c879';pants='#457da5' if gender=='boy' else '#539a8a';hair='#634555' if gender=='boy' else '#964e48'
    d.ellipse((5,27,20,30),fill=(36,46,68,65))
    # Walking legs alternate extension and expose the boot tops.
@@ -53,6 +53,14 @@ for gender in ['boy','girl']:
    else:
     d.polygon([(3,6+bob),(6,4+bob),(7,2+bob),(15,1+bob),(18,4+bob),(21,6+bob),(19,8+bob),(5,8+bob)],fill=SHADE)
     rect(d,(6,4+bob,18,6+bob),GOLD);rect(d,(8,2+bob,15,4+bob),LIGHT);rect(d,(8,5+bob,17,5+bob),'#b47852');rect(d,(3,7+bob,20,7+bob),GOLD)
+   if frame>=6:
+    # Original crouch / tucked knees / landing poses, retaining the existing face.
+    im.paste((0,0,0,0),(4,23,21,31));jd=ImageDraw.Draw(im)
+    if frame==7:
+     for x in [8,14]:rect(jd,(x,22,x+3,25),pants);rect(jd,(x-1,25,x+3,26),SHADE)
+     for x in [4,19]:rect(jd,(x,15,x+1,20),SKIN);rect(jd,(x,14,x+1,16),shirt)
+    else:
+     for x in ([7,15] if frame==8 else [8,14]):rect(jd,(x,23,x+3,27),pants);rect(jd,(x-1,27,x+3,28),SHADE)
    out.alpha_composite(im,(frame*24,row*32))
  out.save(OUT/(gender+'.png'))
 for n,(base,colour) in enumerate([('girl',(163,110,170)),('boy',(109,152,106)),('girl',(101,143,185))]):
@@ -62,6 +70,7 @@ for n,(base,colour) in enumerate([('girl',(163,110,170)),('boy',(109,152,106)),(
    if px[x,y][:3]==old:px[x,y]=(*colour,255)
  assets['npc'+str(n)]=im
 # Native source rectangles only; no preview extraction or resampling.
+crop('cliff-face',(16,160,32,176));crop('cliff-stairs',(32,160,64,176));crop('cliff-left',(0,144,16,160));crop('cliff-right',(80,144,96,160));
 crop('grass',(64,0,80,16));crop('path',(144,16,160,32));crop('plaza',(0,48,48,96))
 # This source tile includes a grass edge; remove that edge from the interior fill.
 px=assets['path'].load()
@@ -176,11 +185,13 @@ from wilderness_art import add_wilderness_art
 add_wilderness_art(assets)
 from craftpix_art import add_craftpix_art
 craftpix=add_craftpix_art(assets)
+from forest_growth_art import add_grass_art
+add_grass_art(assets)
 atlas=Image.new('RGBA',(1024,2048));frames={};x=y=rowh=0
 for name,im in assets.items():
  if x+im.width>1024:x=0;y+=rowh+2;rowh=0
  atlas.alpha_composite(im,(x,y));frames[name]={'frame':dict(x=x,y=y,w=im.width,h=im.height),'rotated':False,'trimmed':False,'spriteSourceSize':dict(x=0,y=0,w=im.width,h=im.height),'sourceSize':dict(w=im.width,h=im.height)};x+=im.width+2;rowh=max(rowh,im.height)
 assert y+rowh<=2048
 atlas.save(OUT/'town.png');(OUT/'town.json').write_text(json.dumps({'frames':frames,'meta':{'image':'town.png','size':{'w':1024,'h':2048}}},indent=2))
-(OUT/'manifest.json').write_text(json.dumps({'pack':'Serene Village revamped 1.9','creator':'LimeZu','license':'CC BY 4.0','sourceRectangles':source,'sourceAliases':{'tree':'tree0','flowers':'flowers0'},'derivedAdditions':{'guava-tree':'LimeZu tree0 plus original Guava clusters','mango-tree':'LimeZu tree0 plus original Mango clusters','snow-pine':'LimeZu tree0 with original snow palette','acacia-tree':'LimeZu tree0 with original dry palette'},'atlasComposition':'LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2 selected PNGs, and original project additions; licences apply per source, not globally to the atlas.','craftpixFrames':craftpix,'originalAdditions':[n for n in assets if n not in craftpix and n not in ['guava-tree','mango-tree','snow-pine','acacia-tree'] and n not in source and not n.startswith('door') and n not in ['tree','flowers']],'characterFrames':{'size':[24,32],'columns':6,'rows':['down','up','left','right'],'idle':[0,5],'walk':[1,2,3,4]},'modifications':'Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.'},indent=2))
-print('Packed',len(assets),'frames, original farmers 24x32 / 24 frames each')
+(OUT/'manifest.json').write_text(json.dumps({'pack':'Serene Village revamped 1.9','creator':'LimeZu','license':'CC BY 4.0','sourceRectangles':source,'sourceAliases':{'tree':'tree0','flowers':'flowers0'},'derivedAdditions':{'guava-tree':'LimeZu tree0 plus original Guava clusters','mango-tree':'LimeZu tree0 plus original Mango clusters','snow-pine':'LimeZu tree0 with original snow palette','acacia-tree':'LimeZu tree0 with original dry palette'},'atlasComposition':'LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2 selected PNGs, and original project additions; licences apply per source, not globally to the atlas.','craftpixFrames':craftpix,'originalAdditions':[n for n in assets if n not in craftpix and n not in ['guava-tree','mango-tree','snow-pine','acacia-tree'] and n not in source and not n.startswith('door') and n not in ['tree','flowers']],'characterFrames':{'size':[24,32],'columns':9,'rows':['down','up','left','right'],'idle':[0,5],'walk':[1,2,3,4],'jump':[6,7,8]},'modifications':'Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.'},indent=2))
+print('Packed',len(assets),'frames, original farmers 24x32 / 36 frames each')
