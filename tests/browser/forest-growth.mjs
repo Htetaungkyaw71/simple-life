@@ -37,7 +37,7 @@ async function fixture(area,position,extra={}){syncInterior(page.viewportSize().
 
 
 import {FOREST_MAP} from '../../src/data/forest.js';
-const t=FOREST_MAP.terraces.find(t=>t.id==='entrance-terrace');
+const t=FOREST_MAP.terraces.find(t=>t.id==='riverbank-0');
 await fixture('forest',{x:t.x+32,y:t.y+t.h+16},{minute:600,forestTutorialComplete:true,ownsClub:true,clubEquipped:true});
 await hold('ArrowUp',400);const stopped=(await snap()).state.position;assert.ok(stopped.y>=t.y+t.h+8,'walking stops at ledge');await shot('ledge-walking-blocked');
 await page.keyboard.press('j',{delay:20});await page.waitForTimeout(230);const airborne=await snap();assert.ok(airborne.jump.active);assert.equal(airborne.player.frame,16);assert.ok(airborne.state.position.y<stopped.y);await shot('jump-over-ledge');

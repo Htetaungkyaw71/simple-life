@@ -1,3 +1,10 @@
+# v0.4.5 natural forest shores
+The latest user request removes visible Forest dirt roads, waterfalls and the old stone pillars/stairs. Preserve textured moss/flowers and dense moving grass. Keep grassy exploration passages and wooden HOME signs. Add native olive palms and drooping willows, mixed with retained LimeZu broadleaf variants, FreeEnvironment conifers, fruit trees, acacias and bamboo according to habitat. Tree trunks stay on dry land; natural crown overhang is allowed. Entire grass footprints clear bridge decks and water.
+
+River waves scatter across the channel with independent delays, periods and appearances. Ten original low earth banks beside the river have irregular grassy tops, exposed warm soil strata and grassy slope openings. These use source pixel geometry instead of the earlier incorrectly selected stone/wood terrace cells. Jump/collision uses the same stepped front profile. User screenshots guide general material/vegetation density only; no pixels or map layout are copied. Existing external art keeps its separate credits.
+
+---
+
 # v0.4.4 ground and river materials — 2026-10-07
 The user approves current trees/tall grass and requests richer ground and a natural river based on three supplied screenshots. Use original code-native pixel materials: coherent moss/shade patches, clustered short blades, low leaf/clover marks, cream flowers, irregular soil grain and scattered path pebbles. Keep low contrast below characters and interaction props. Blend adjoining habitat palettes instead of hard seams. Water uses exposed earth/sand/turf shores, muted submerged stones, shaded shallows, dark blue-green channels and restrained moving reflections. Native 1-pixel marks display at 2× with no blur. References inform material density and depth only; no screenshot pixels, tiles or layouts are extracted. Existing tree/grass packs, stepped cliffs, walkable water and gameplay remain.
 

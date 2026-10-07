@@ -1,5 +1,5 @@
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
-import {FORAGE_NODES,TREASURES,WATERFALLS} from '../data/forest.js';
+import {FORAGE_NODES,TREASURES} from '../data/forest.js';
 import {FOODS} from '../data/items.js';
 import {forageAvailable,treasureAvailable} from '../systems/forest.js';
 import {attackBox,animalRuntime} from '../systems/combat.js';
@@ -18,7 +18,6 @@ export class ForestView {
    }
    this.animals=ANIMAL_SPAWNS.map(a=>({definition:a,direction:'down',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',a.species==='boar'?wildlifeFrame('boar','idle','down',0):a.species+'0').setOrigin(.5,.9).setScale(2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080),name:scene.add.bitmapText(0,0,'pixel',SPECIES[a.species].name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)}));
    this.woodland=new WoodlandView(scene);
-   this.falls=WATERFALLS.map(f=>scene.add.image(f.x-24,f.y,'town','fall-flow-0').setOrigin(0).setScale(2).setDepth(2));
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
    this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2);
   }
@@ -28,7 +27,6 @@ export class ForestView {
  update(delta,r){
   const s=this.scene.app.state;if(!s)return;
   for(const {node,sprite}of this.nodes)sprite.setVisible(forageAvailable(s,node));
-  for(const fall of this.falls||[])fall.setFrame('fall-flow-'+Math.floor(r.now/140)%4);
   this.woodland?.update(delta,r.now);
   if(this.animals){
    const view=this.scene.cameras.main.worldView;

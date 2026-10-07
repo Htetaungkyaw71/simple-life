@@ -1,3 +1,8 @@
+# v0.4.5 forest shore originality record
+Palms, willows, earth-bank geometry and ripple motifs are newly authored local code with Codex assistance. User screenshots inform general foliage/ground style and identify unwanted objects; no screenshot pixels, tiles or map layouts are extracted. Retained licensed assets and their creators remain identified separately. No exclusive-copyright or signed human-acceptance claim is made. See assets/licenses/forest-shore.md.
+
+---
+
 # v0.4.4 terrain originality record
 Ground and river material code is newly authored locally with Codex assistance. The three supplied screenshots informed general pixel texture density, foliage marks and shoreline layering; no screenshot pixels, tiles, layouts, characters or interface were copied. Candidate terrain packs were inspected but not integrated. Existing third-party tree/player/cliff art remains separately identified and credited. See assets/licenses/ground-river-materials.md; no signed human review or submission is claimed.
 

@@ -1,3 +1,10 @@
+# v0.4.5 forest shore rendering
+`forestGrowth.js` composes ten river-adjacent banks and a shared front profile for low ledges; `bankTerrain.js` renders original continuous earth faces and grassy slopes from that profile. No old stone/stair sprites are rendered. `finishForest` applies habitat tree varieties and full-footprint dry placement after generation, then clears path data while preserving reserved grassy passages. `water.js` centralizes bridge detection and dry footprint checks.
+
+`waterRipples.js` creates deterministic scattered seeds with independent lifetimes/delays; `WaterView` caches them and redraws camera-local waves at bounded intervals. Paused WorldScene skips atmosphere updates. Existing wet ankle crop, bridge suppression, jumping and saves remain. Original palm/willow pixels join the retained atlas through `forest_trees_art.py`; broadleaf rendering reuses existing credited frames. No save schema or world/UI scene contract change. The disposable QA fixture server is development tooling, excluded from production.
+
+---
+
 # v0.4.4 native ground surfaces
 `art/groundSurface.js` supplies pure deterministic pixel materials, hash fields and a two-sweep shore-distance transform. `Terrain.js` builds the existing path mask and shared `waterRows` union, paints ground/soil/banks/channels into native ImageData, then stamps original short vegetation/flowers and the retained licensed cliff faces. Regional colours blend across shared boundaries. Static Forest terrain still bakes once into a 2560² texture and is cached across reentry. `WaterView` redraws only camera-local reflection motifs as its simulation phase/camera changes, retaining ankle cropping, bridge coverage and jump suppression. No additional asset file, saved field, geometry, collision, game-system or UI contract changes.
 

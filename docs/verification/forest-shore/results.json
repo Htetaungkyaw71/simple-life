@@ -1,0 +1,98 @@
+{
+  "version": "0.4.5",
+  "browser": "Codex in-app Chromium browser through CUA",
+  "origin": "http://127.0.0.1:4176/",
+  "disposableSave": true,
+  "unitTests": 96,
+  "build": "pass",
+  "bank": {
+    "walkStop": {
+      "x": 2048,
+      "y": 989.6424
+    },
+    "jump": {
+      "active": {
+        "origin": {
+          "x": 2048,
+          "y": 989.6424
+        },
+        "destination": {
+          "x": 2048,
+          "y": 861.6424
+        },
+        "elapsed": 166.7
+      },
+      "cooldown": 683.3000000000001
+    },
+    "landing": {
+      "x": 2048,
+      "y": 861.6424
+    }
+  },
+  "waterMovement": {
+    "from": {
+      "x": 2370,
+      "y": 1900
+    },
+    "to": {
+      "x": 2370,
+      "y": 1661.5539999999994
+    },
+    "wading": true
+  },
+  "bridge": {
+    "wading": false
+  },
+  "saveReload": {
+    "saved": {
+      "x": 2048,
+      "y": 1122
+    },
+    "reloaded": {
+      "x": 2048,
+      "y": 1122
+    }
+  },
+  "waterPause": {
+    "unchanged": true,
+    "clockFrozen": true
+  },
+  "oldStoneAssembly": {
+    "position": {
+      "x": 224,
+      "y": 5018
+    },
+    "removed": true
+  },
+  "formerWaterfall": {
+    "position": {
+      "x": 160,
+      "y": 3340
+    },
+    "wading": true,
+    "rendererQuery": "webgl",
+    "night": true
+  },
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 640,
+      "height": 360
+    }
+  ],
+  "consoleWarningsErrors": [],
+  "limitations": [
+    "Physical devices and other browser engines not tested.",
+    "Prepared starting saves and native canvas controls used; no new complete farming playthrough.",
+    "Browser key taps were too brief to move; canvas directional drag verified movement instead."
+  ],
+  "portraitControlsFit": true,
+  "shortLandscapeControlsFit": true
+}

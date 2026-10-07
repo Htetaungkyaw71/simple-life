@@ -1,4 +1,4 @@
-import {growForest} from './forestGrowth.js';
+import {growForest,finishForest} from './forestGrowth.js';
 import {FOREST_MAP as STARTER,FORAGE_NODES as STARTER_NODES,FOREST_GUIDANCE} from './starterForest.js';
 export {FOREST_GUIDANCE};
 // Four columns, five rows: 5120² is exactly 20 times the original 1280×1024.
@@ -11,7 +11,7 @@ const names=[
  ['frost','Frost Lake','snow',5,'polarBear'],['highland','Cloud Highlands','highland',4,'gorilla'],['basalt','Basalt Caves','stone',4,'komodo'],['pride','Sunstone Savanna','savanna',5,'lion'],
  ['bamboo','Bamboo Sanctuary','bamboo',2,'panda'],['leopard','Dappled Glade','jungle',4,'leopard'],['tiger','Tiger Thicket','jungle',5,'tiger'],['cheetah','Windgrass Plain','savanna',4,'cheetah'],
  ['guava','Guava Valley','jungle',2,'chimpanzee'],['rhino','Hornstone Basin','savanna',4,'rhinoceros'],['elephant','Elephant Grove','savanna',4,'elephant'],['herds','Longneck Meadows','savanna',2,'giraffe'],
- ['jaguar','Emerald Falls','jungle',5,'jaguar'],['wolf','Whispering Pines','pine',3,'wolf'],['hyena','Broken Sun Ruins','stone',3,'hyena'],['brush','Redbrush Reach','savanna',2,'kangaroo'],
+ ['jaguar','Emerald Banks','jungle',5,'jaguar'],['wolf','Whispering Pines','pine',3,'wolf'],['hyena','Broken Sun Ruins','stone',3,'hyena'],['brush','Redbrush Reach','savanna',2,'kangaroo'],
  ['entrance','Homewood','wood',1,'boar'],['river','Riverbend Marsh','marsh',4,'crocodile'],['canopy','Monkey Canopy','jungle',1,'monkey'],['snake','Serpent Hollow','stone',3,'snake'],
 ];
 export const REGIONS=names.map(([id,name,biome,danger,species],i)=>({id,name,biome,danger,species,x:(i%4)*1280,y:Math.floor(i/4)*1024,w:1280,h:1024}));
@@ -31,7 +31,7 @@ for(const [i,r] of REGIONS.entries()){
  map.paths.push([x,y+672,1280,96],[x+448,y,96,1024],[x+448,y+480,384,80],[x+752,y+480,80,272],[x+bend,y+240,80,480],[x+bend,y+240,432-bend,80]);
  const landmark=r.id==='hyena'?'cp-ruins-brown-gray-3':r.biome==='stone'?'cave-mouth':r.biome==='snow'?'ice-crystal':r.id==='bamboo'?'bamboo-gate':r.id==='hyena'?'ruin-pillar':r.id==='herds'?'camp-tent':r.id==='jaguar'?'cp-ruins-water-3':'shrine-stone';
  map.props.push(prop(landmark,x+250,y+368));
- map.signs.push({type:'dialog',x:x+282,y:y+446,label:'Explore '+r.name,title:r.name,body:r.biome==='snow'?'Cold water, old ice and bear tracks. This is the farthest edge of the woods.':r.biome==='stone'?'A hidden stone chamber. Listen for movement before searching the shadows.':r.id==='jaguar'?'The falling river hides an old trail. Watch for spotted hunters near the far bank.':'Fruit and animal tracks mark this place. The main crossroads leads homeward to the southwest.'});
+ map.signs.push({type:'dialog',x:x+282,y:y+446,label:'Explore '+r.name,title:r.name,body:r.biome==='snow'?'Cold water, old ice and bear tracks. This is the farthest edge of the woods.':r.biome==='stone'?'A hidden stone chamber. Listen for movement before searching the shadows.':r.id==='jaguar'?'Earth banks overlook the river. Watch for spotted hunters near the far bank.':'Fruit and animal tracks mark this place. The main crossroads leads homeward to the southwest.'});
  map.props.push(prop('road-sign',x+560,y+774,{text:'HOME',direction:i%4?4:2}));
  map.signs.push({type:'hint',x:x+590,y:y+830,label:'HOME / southwest through Homewood'});
  // Three connected groves; the deepest fruit sits inside each species territory.
@@ -55,7 +55,7 @@ for(const [i,r] of REGIONS.entries()){
  }
 }
 // One connected river crossed by visible timber bridges, not invisible water gaps.
-export const WATERFALLS=[{x:112,y:3280,w:96,h:144},{x:2320,y:320,w:96,h:144}];
+export const WATERFALLS=[];
 map.falls=WATERFALLS;
 map.rivers=[{x:2304,y:0,w:144,h:5120,phase:0},{x:96,y:3112,w:128,h:352,phase:1}];
 export const BRIDGES=[];
@@ -89,4 +89,5 @@ for(const r of REGIONS){
  if(['jungle','bamboo','marsh'].includes(r.biome))map.props.push(prop('cp-plant-'+(1+REGIONS.indexOf(r)%3)+'-0',r.x+320,r.y+824,{animated:'plant'}));
 }
 growForest(map,REGIONS,FORAGE_NODES,TREASURES);
+finishForest(map,REGIONS);
 export const FOREST_MAP=map;

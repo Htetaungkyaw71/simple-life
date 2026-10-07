@@ -1,8 +1,10 @@
-import {waterAt} from './water.js';
-// Authored low terraces stay away from species territories and connected roads.
+import {waterAt,dryFootprint} from './water.js';
+export const BANK_PROFILE=[0,0,12,20,16,12,4,0];
+export const forestTree=p=>p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree');
+// Natural low earth banks replace the old stacked stone/stair assemblies.
 export function growForest(map,regions,nodes,treasures){
- map.terraces=regions.map((r,i)=>({id:r.id+'-terrace',x:r.x+144+(i%2)*64,y:r.y+816,w:256,h:128}));
- map.ledges=map.terraces.flatMap(t=>Array.from({length:8},(_,i)=>({x:t.x+i*32,y:t.y+t.h-24-([0,0,16,16,16,16,0,0][i]),w:32,h:20})).filter((_,i)=>i!==3&&i!==4).concat([{x:t.x,y:t.y,w:16,h:t.h-32},{x:t.x+t.w-16,y:t.y,w:16,h:t.h-32}]));
+ map.terraces=Array.from({length:5},(_,i)=>[{id:'riverbank-'+i,x:2016,y:i*1024+850,w:256,h:128},{id:'riverbank-east-'+i,x:2496,y:i*1024+866,w:256,h:128}]).flat();
+ map.ledges=map.terraces.flatMap(t=>Array.from({length:8},(_,i)=>({x:t.x+i*32,y:t.y+t.h-24-BANK_PROFILE[i],w:32,h:20})).filter((_,i)=>i!==3&&i!==4));
  // Remove old scenery under the new landform rather than hiding solid trunks.
  map.props=map.props.filter(p=>!map.terraces.some(t=>p.x+32>t.x-28&&p.x+32<t.x+t.w+28&&p.y+80>t.y-32&&p.y+80<t.y+t.h+32));
  const nearRoad=(x,y,pad=24)=>map.paths.some(([a,b,w,h])=>x>a-pad&&x<a+w+pad&&y>b-pad&&y<b+h+pad);
@@ -19,11 +21,27 @@ export function growForest(map,regions,nodes,treasures){
  }
  map.grass=[];
  for(const [i,r]of regions.entries())for(let n=0;n<(r.biome==='snow'?90:r.biome==='savanna'?200:440);n++){
-  // Clumps grow in winding patches, with quiet dirt paths left visible.
+  // Keep grassy passages clear for exploration; no dirt road is rendered.
   const patch=Math.floor(n/11),k=n%11;
   const x=r.x+48+(patch*193+i*37+k*22)%1168,y=r.y+64+(patch*277+i*59+(k%4)*24)%880;
   if(nearRoad(x,y,6)||waterAt(map,{x,y})||protectedPlace(x,y)||map.ledges.some(l=>x>l.x-24&&x<l.x+l.w+24&&y>l.y-24&&y<l.y+l.h+24))continue;
   map.grass.push({id:r.id+'-grass-'+n,x,y,variant:n%3,dry:r.biome==='savanna',snow:r.biome==='snow'});
  }
+}
+export function finishForest(map,regions){
+ for(const p of map.props){
+  if(p.name!=='tree'&&p.name!=='acacia-tree')continue;
+  const region=regions.find(r=>p.x+32>=r.x&&p.x+32<r.x+r.w&&p.y+90>=r.y&&p.y+90<r.y+r.h),biome=region?.biome||'wood',n=Math.abs(Math.floor(p.x*3+p.y*7))%13;
+  if(['jungle','bamboo'].includes(biome))p.name=n<4?'palm-tree':n<8?'broadleaf-tree':'tree';
+  else if(biome==='marsh')p.name=n<6?'willow-tree':n<9?'palm-tree':'broadleaf-tree';
+  else if(biome==='wood')p.name=n<2?'palm-tree':n<6?'broadleaf-tree':n===6?'willow-tree':'tree';
+  else if(biome==='savanna'&&n<3)p.name='palm-tree';
+  else if(['pine','highland','stone'].includes(biome)&&n<4)p.name='broadleaf-tree';
+ }
+ map.props=map.props.filter(p=>!forestTree(p)||dryFootprint(map,{x:p.x+6,y:p.y+76,w:52,h:20}));
+ map.details=map.details.filter(p=>dryFootprint(map,{x:p.x,y:p.y,w:64,h:48}));
+ map.grass=map.grass.filter(g=>dryFootprint(map,{x:g.x-24,y:g.y-48,w:48,h:48}));
+ // Road masks were only used to reserve passable gaps during placement.
+ map.paths=[];
 }
 export function ledgeBlocked(ledges,x,y,r=12){return ledges.some(l=>x+r>l.x&&x-r<l.x+l.w&&y>l.y&&y-r<l.y+l.h);}

@@ -15,10 +15,11 @@ test('river water is continuous across all five regions and bridges cover connec
  for(const river of MAPS.forest.rivers)for(let y=river.y+16;y<river.y+river.h-16;y+=2){const [left,,w]=riverRow(river,y);assert.ok(waterAt(MAPS.forest,{x:left+w/2,y},false));}
  for(const bridge of MAPS.forest.bridges){const p={x:bridge.x+80,y:bridge.y+80};assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
 });
-test('player crosses water directly; falls leave their water open and rock banks solid',()=>{
+test('player crosses water directly; removed falls leave no invisible side-bank obstacles',()=>{
  const s=newState();s.area='forest';s.selected='water';const [left]=riverRow(MAPS.forest.rivers[0],1900);s.position={x:left-16,y:1900};assert.equal(contextFor(s).type,'refill');
  const p={x:2240,y:1900};displace('forest',p,280,0);assert.deepEqual(p,{x:2520,y:1900});assert.ok(lineClear('forest',{x:2240,y:1900},p));
- for(const f of WATERFALLS){assert.ok(walkable('forest',f.x+f.w/2,f.y+f.h/2));assert.equal(walkable('forest',f.x-12,f.y+64),false);assert.equal(walkable('forest',f.x+f.w+12,f.y+64),false);}
+ assert.deepEqual(WATERFALLS,[]);assert.deepEqual(MAPS.forest.falls,[]);
+ assert.ok(walkable('forest',100,3344),'former west fall rock removed');assert.ok(walkable('forest',220,3344),'former east fall rock removed');
 });
 test('wet positions and coin bags round-trip without relocation or progress loss',()=>{
  for(const [area,p]of [['home',{x:1520,y:800}],['farm',{x:1856,y:744}],['forest',{x:2370,y:1900}]]){

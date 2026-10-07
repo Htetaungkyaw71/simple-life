@@ -1,3 +1,8 @@
+# v0.4.5 disclosure update
+Codex assisted original palm/willow pixels, source-authored earth banks and scattered ripples, placement, QA and documentation. These are locally generated project source, without screenshot sampling or external image-model generation. Existing licensed scenery/player attribution remains separate. Details: AI_USAGE.md and assets/licenses/forest-shore.md. Final human review/signature remains pending.
+
+---
+
 # v0.4.4 disclosure update
 Codex assisted code-native ground/river materials, pure tests, browser QA and documentation. These original pixel marks are procedural project code; reference screenshots were not sampled, and no image-generation model or newly downloaded pack was used. Existing supplied/licensed scenery retains creator credits. See AI_USAGE.md and assets/licenses/ground-river-materials.md. Human visual review and final declarations remain unsigned.
 

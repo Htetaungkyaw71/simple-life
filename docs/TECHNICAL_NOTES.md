@@ -1,3 +1,10 @@
+# v0.4.5 forest shore follow-up
+Forest: 796 trees + 41 bamboo stands, 4,033 grass clumps, ten earth banks, no rendered dirt roads/falls. Geometry/placement are deterministic and established 5120² terrain caching/collision indexing remain. New original palm/willow cells bring the atlas to 555 frames; all old frame pixels/player files are unchanged. Ripples independently appear/fade at 2-pixel positions without aligned wave rows. Vegetation footprints check water/bridges every four world units.
+
+No gameplay-system rewrite, schema change, dependency or new runtime file. Production: 12 files / eight allowlisted art files / 2,031,270 bytes. `tests/browser/forest-shore-server.mjs` serves isolated prepared saves from built dist on 4176 and exports copied read-only QA state into a canvas attribute; it is local test tooling, never runtime production code. Browser verification uses native CUA controls and DOM-only telemetry. See verification/forest-shore/VERIFICATION.md.
+
+---
+
 # v0.4.4 ground/river update — schema 9
 Original Canvas/ImageData materials replace repeating ground/soil and flat water bands. The old tile selector used multiples of 16 modulo four and therefore always chose grass0; native coordinate hash fields remove that aliasing. Surface arrays are temporary during the static bake; Forest retains its established cached canvas texture. The shared water geometry remains authoritative for banks, currents and wading; only colour and native material marks change. Camera-local currents use six 240ms phases and pause with simulation. No per-frame full-map pixel work, new dependency, remote runtime asset, atlas change or save migration. See verification/terrain for affected-flow checks and observed local loading times; device performance is not inferred from emulation.
 

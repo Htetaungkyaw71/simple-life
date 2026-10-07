@@ -3968,7 +3968,9 @@
     "tall-grass-snow-2-1",
     "tall-grass-2-2",
     "tall-grass-dry-2-2",
-    "tall-grass-snow-2-2"
+    "tall-grass-snow-2-2",
+    "palm-tree",
+    "willow-tree"
   ],
   "characterFrames": {
     "size": [

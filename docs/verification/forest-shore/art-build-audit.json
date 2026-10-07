@@ -1,0 +1,24 @@
+{
+  "baseline": "32ea2a3",
+  "unchangedExistingAtlasFrames": 553,
+  "newFrames": [
+    "palm-tree",
+    "willow-tree"
+  ],
+  "unchangedFarmers": {
+    "boy.png": true,
+    "girl.png": true
+  },
+  "runtimeArtFiles": [
+    "assets/pixel/font.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/processed/boy.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/world.json",
+    "assets/pixel/world.png"
+  ],
+  "productionFiles": 12,
+  "productionBytes": 2031270
+}

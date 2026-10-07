@@ -71,10 +71,11 @@ export function paintWater(pixels,water,distance,w,h,fields){
  // Draw only through the shared water mask: currents, collision and feet agree.
  for(let yy=4;yy<h-10;yy+=11)for(let xx=4;xx<w-12;xx+=13){
   const seed=groundHash(xx,yy,438);if(seed%5===0)continue;
-  const cx=xx+seed%7-3,cy=yy+(seed>>>5)%7-3,rw=4+(seed>>>9)%7,rh=3+(seed>>>13)%5;
+  const cx=xx+seed%13-3,cy=yy+(seed>>>5)%11-3,rw=4+(seed>>>9)%7,rh=3+(seed>>>13)%5;
   if(!water[cy*w+cx])continue;
   for(let sy=0;sy<rh;sy++)for(let sx=0;sx<rw;sx++){
    const x=cx+sx,y=cy+sy,p=y*w+x,i=p*4;
+   if(x<0||y<0||x>=w||y>=h)continue;
    if(!water[p]||distance[p]<2||((sy===0||sy===rh-1)&&(sx<2||sx>rw-3))||sx===0&&sy<2)continue;
    const edge=sy===rh-1||sx===rw-1,light=sy===1&&sx>1&&sx<rw-2;
    const delta=edge?-7:light?14:7;

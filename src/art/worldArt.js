@@ -16,8 +16,8 @@ function object(scene,p){
  if(p.name==='road-sign')return roadSign(scene,p);
  if(p.name==='farm-sign')return farmSign(scene,p);
  if(scene.app.state?.area==='forest'){
-  const tree=p.name==='tree'||p.name==='snow-pine',variant=Math.abs(Math.floor(p.x/32+p.y/32));
-  const replacement=tree?(p.name==='snow-pine'?'env-pine-snow':(variant%7===0?'env-fir':variant%2?'env-pine-olive':'env-pine-jade')):p.name==='rock'?'env-boulder':p.name==='ice-crystal'?'env-ice':null;
+  const tree=['tree','snow-pine','palm-tree','willow-tree','broadleaf-tree'].includes(p.name),variant=Math.abs(Math.floor(p.x/32+p.y/32));
+  const replacement=tree?(p.name==='palm-tree'||p.name==='willow-tree'?p.name:p.name==='broadleaf-tree'?['tree0','tree1','tree-tall','tree-wide'][variant%4]:p.name==='snow-pine'?'env-pine-snow':(variant%7===0?'env-fir':variant%2?'env-pine-olive':'env-pine-jade')):p.name==='rock'?'env-boulder':p.name==='ice-crystal'?'env-ice':null;
   if(replacement){
    const frame=scene.textures.getFrame('town',replacement),scale=tree?2:1;
    const foot=p.y+(tree?90:p.name==='rock'?64:104),cx=p.x+32;

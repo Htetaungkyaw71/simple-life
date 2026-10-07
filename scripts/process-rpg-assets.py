@@ -187,6 +187,8 @@ from craftpix_art import add_craftpix_art
 craftpix=add_craftpix_art(assets)
 from forest_growth_art import add_grass_art
 add_grass_art(assets)
+from forest_trees_art import add_forest_trees
+add_forest_trees(assets)
 from supplied_art import write_supplied_farmers, add_supplied_environment
 supplied_characters=write_supplied_farmers(OUT)
 supplied_environment=add_supplied_environment(assets)

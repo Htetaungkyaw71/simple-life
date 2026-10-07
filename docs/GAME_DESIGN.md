@@ -1,3 +1,8 @@
+# v0.4.5 forest scenery adjustment
+Latest user instruction removes Forest dirt roads, waterfalls and old stone/stair terrace assemblies. Traversable grassy passages retain connected exploration. Low river-adjacent earth banks have walkable slope openings and use the existing free jump across their fronts. Habitat tree mixtures add palms, willows and broadleaf variants; grass avoids bridge decks and trunks avoid water. Ripples scatter and animate independently. All wilderness scale, species/forage/cache rules and farming/City/sleep/save/recovery contracts remain unchanged.
+
+---
+
 # Forest growth and jumping — v0.4.2
 The latest request authorizes thick vegetation, responsive grass, raised ground and jumping. Forest remains exactly 5120² / 20-fold area and retains all habitats/species/fruit/treasure. It now contains 787 trees and 33 bamboo stands, 3,880 grass clumps and 20 low terraces with stair gaps. J/Shift or canvas JUMP makes a 600ms directional leap of up to 128 units, with an 850ms cooldown. It crosses low ledges, not trunks/rocks/structures/bounds; blocked destinations shorten the leap. Walking and jump cost no energy, and animal attacks still hurt during flight. Hits cancel the leap safely. Interacting and attacking resume at landing. Paused menus freeze the arc; saves/reloads during flight use grounded take-off coordinates.
 

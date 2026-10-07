@@ -1,3 +1,14 @@
+# v0.4.5 original forest shore additions — 2026-10-07
+| Asset | Source / provenance | Use |
+| --- | --- | --- |
+| palm-tree 64×96, willow-tree 72×96 | Original Simple Life native-pixel source in scripts/forest_trees_art.py, authored with OpenAI Codex assistance; no external source URL or exclusive-copyright claim | Two new atlas cells, displayed at 2× with dry trunk anchors |
+| Grassy earth banks and scattered water ripple motifs | Original project code in src/art/bankTerrain.js and waterRipples.js / WaterView.js | Native soil strata/turf/slope geometry and independently phased waves; no reference pixels |
+| Broadleaf tree0/tree1/tree-tall/tree-wide | Existing LimeZu Serene Village revamped 1.9; CC BY 4.0, existing legal/source evidence under assets/licenses/limezu | Existing unchanged native atlas pixels, newly mixed into Forest habitats; existing attribution retained |
+
+Creation/art evidence: [forest-shore.md](assets/licenses/forest-shore.md); AI disclosure: AI_USAGE.md. Previous 553 atlas frame pixels and both Channeechan player sheets remain unchanged. Existing FreeEnvironment/Craftpix/LimeZu provenance remains applicable. No new downloaded pack, runtime asset file, audio, font or dependency. Same eight-file art allowlist. Historical waterfall/stone cells stay in the existing atlas but are not rendered as Forest terraces/falls; original archives and unused pack files are excluded from builds.
+
+---
+
 # v0.4.4 original ground/river materials — 2026-10-07
 Original deterministic native-pixel materials are authored in `src/art/groundSurface.js`, composed by `Terrain.js`, with camera-local currents/wading marks in `WaterView.js`. Source URLs: none; local project code and Git history with disclosed Codex assistance. No claim of exclusive copyright for AI-assisted work. The supplied screenshots inform material style only; no pixels/layouts were sampled. CC0 terrain candidates were surveyed but neither downloaded nor used. No new art pack, image-generation model, font, audio, runtime file, dependency or licensing obligation. Existing licensed LimeZu cliffs and supplied trees/player art remain independently credited; all eight allowlisted processed runtime art files are unchanged. [Creation and survey evidence](assets/licenses/ground-river-materials.md).
 

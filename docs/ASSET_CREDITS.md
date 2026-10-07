@@ -1,3 +1,8 @@
+# v0.4.5 forest shore credits
+Original palm/willow pixels and earth-bank/ripple geometry: Simple Life project source, authored with OpenAI Codex assistance. Broadleaf variants reuse unchanged LimeZu Serene Village CC BY 4.0 cells. Existing supplied FreeEnvironment/Craftpix/Channeechan/Eris Esra attribution remains. Source/licence record: assets/licenses/forest-shore.md.
+
+---
+
 # v0.4.4 terrain material credit
 Ground shade/moss, short grass/clover/leaf marks, flowers, soil/pebbles, layered banks, submerged water stones and animated reflections: original Simple Life code-authored pixel work with OpenAI Codex assistance. Source files: groundSurface.js, Terrain.js, WaterView.js. Screenshot references provide style guidance only. Existing in-game original-project-art/AI credit applies; source-pack/creator credits remain. No newly downloaded terrain pack is used. Evidence: assets/licenses/ground-river-materials.md.
 

@@ -1,3 +1,12 @@
+# 2026-10-07 — v0.4.5 forest shore cleanup
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted implementation, deterministic original palm/willow pixel creation, native earth-bank and ripple code, habitat composition/dry placement, tests, asset audit, browser QA and documentation. User requested scattered waves, no Forest roads/waterfalls, more tree varieties, near-river ground, no grass on bridges/tree roots in water, and removal of old stone/stair assemblies.
+
+Source: scripts/forest_trees_art.py and process-rpg-assets.py; src/art/bankTerrain.js, waterRipples.js, WaterView.js, Terrain.js, groundSurface.js, worldArt.js and ForestView.js; src/data/forestGrowth.js, forest.js, water.js and mapLayouts.js. Two original tree frames are added; existing third-party pixels retain attribution and all previous atlas cells/player sheets are unchanged. References dated 22:06:18 and 22:07:33 guide the requested style/removals only, without extracting pixels/layouts. No external image model, downloaded pack, new dependency or subagent was used.
+
+Validation: 96 tests/build; independent dry-footprint/ripple checks, CUA isolated browser interactions and old/new art crop audit (verification/forest-shore). QA initialization is separate from actual native controls and read-only DOM telemetry; user-origin save untouched. No new complete farming-loop claim, final human acceptance, push, publication or submission.
+
+---
+
 # 2026-10-07 — ground and river realism, v0.4.4
 OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted original deterministic Canvas/ImageData grass, soil, shoreline and submerged-stone materials, habitat palette blending, camera-local water reflections/wading colours, pure material tests, isolated browser verification and documentation. The user's three screenshots informed texture density, restrained palette and layered shore depth only; no reference pixels/assets/map layouts were copied. Primary free terrain candidate pages were inspected, but no new pack was downloaded or integrated. Source: src/art/groundSurface.js, Terrain.js and WaterView.js; art evidence assets/licenses/ground-river-materials.md. Existing supplied player/tree/grass/atlas/licence records remain. No generative image model, subagent, dependency, purchase, creator contact, user live-save edits, push or publication. Original ground marks are code-authored with AI assistance, not claimed as hand-drawn human work. Human visual acceptance remains outstanding.
 
