@@ -1,3 +1,8 @@
+# v0.4.4 ground/river materials — 2026-10-07
+**92/92 unit tests and production build pass.** Final isolated Chromium growth/water/material suites verify affected interactions at seven sizes, Canvas/WebGL day/night, all nine habitat palettes and water animation pause/resume. Empty error/warning/failed/foreign-request arrays. Same eight byte-identical art files; 12 production files / 2,024,149 bytes. [Commands, evidence, visual review and limitations](verification/terrain/VERIFICATION.md). No user live-save edits, push or publication.
+
+---
+
 # v0.4.3 supplied art — 2026-10-07
 88/88 tests and production build pass; 72 native player cells audited (48 idle/walk exactly source-identical), 553-frame atlas, same eight runtime art files. Full forest jump/grass/water/save regression passes; final both-character/five-area/four-direction/seven-habitat/seven-viewport selection/credit/crown checks, two-finger jump/repeat and actual new-game/water/save flows pass in isolated Chromium. Empty browser errors/warnings/failed/foreign requests in main/final art reports. Production: 12 files / 2,021,045 bytes, no source packs or unused/evidence assets. [Detailed commands, corrections, timing and limitations](verification/supplied-art/VERIFICATION.md). Physical devices/non-Chromium/human acceptance and ToffeeCraft public prize-entry rights remain unconfirmed. Nothing pushed or published.
 

@@ -1,0 +1,19 @@
+{
+  "version": "0.4.4",
+  "unitTests": {
+    "command": "npm test",
+    "passed": 92,
+    "failed": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "passed": true
+  },
+  "browserReports": [
+    "growth/results.json",
+    "water/results.json",
+    "materials/results.json"
+  ],
+  "userLiveSaveUntouched": true,
+  "noPushOrPublication": true
+}

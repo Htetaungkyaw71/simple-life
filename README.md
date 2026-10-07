@@ -1,8 +1,10 @@
 # Simple Life — Wilderness expansion
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.3**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.4**, schema **9**.
 
 The 2026-10-07 asset/water follow-up uses the user-supplied Craftpix packs: animated Boar replacement, quiet Deer/Hare/Fox/Grouse, textured ruin fragments and animated plant scenery. All water is walkable with ankle ripples; continuous river banks and animated waterfalls replace the earlier rectangular pools. Existing 22 combat species, habitats, treasure and progress remain. Pack coverage is five woodland animals; the other 21 combat species still use original project art. Craftpix licence evidence and exact selected frame rectangles are documented locally, with in-game Credits.
+
+The latest ground/river pass adds original moss and short-grass textures, small flower clusters, varied soil/pebbles, blended habitat colours and shaded sandy banks, submerged stones and dark water channels. Current trees, moving tall grass, jumping and water walking remain. Source and checks: docs/assets/licenses/ground-river-materials.md and docs/verification/terrain.
 
 ## Run locally
 
@@ -61,6 +63,6 @@ This user-authorized follow-up expands the completed Milestone 3 wilderness. The
 ## Forest growth and jumping — 0.4.2
 The forest has 787 trees and 33 bamboo stands, 3,880 responsive grass clumps and 20 stepped terraces with stair openings. Touching grass bends it; it springs upright after departure. Nearby grass is rendered on demand. Forest jumps have a 600ms arc and 850ms cooldown, cost no energy and cross only low ledges; trees, rocks and structures stay solid. Animal hits interrupt the jump. Use/attack wait until landing. Pausing freezes the arc; saving during it stores the grounded take-off point. Water walking remains, with the ankle line hidden while airborne.
 
-The latest follow-up integrates **FreeEnvironment** and **Cute Farmer Character by Channeechan**, version 0.4.3. Boy/girl selection and every location use the new native character cells, including adapted jump poses. Forest has sample conifers, boulders, ice and dry plants with correctly anchored trunks and fading crowns. Fruit broadleaf trees/acacias/bamboo, responsive grass and terraces remain. Source records and compact in-game credits identify Channeechan, Eris Esra and ToffeeCraft. Mana Seed is not used.
+The v0.4.3 follow-up integrates **FreeEnvironment** and **Cute Farmer Character by Channeechan**, version 0.4.3. Boy/girl selection and every location use the new native character cells, including adapted jump poses. Forest has sample conifers, boulders, ice and dry plants with correctly anchored trunks and fading crowns. Fruit broadleaf trees/acacias/bamboo, responsive grass and terraces remain. Source records and compact in-game credits identify Channeechan, Eris Esra and ToffeeCraft. Mana Seed is not used.
 
 FreeEnvironment's Standard Free licence permits personal game development. The user explicitly requests this noncommercial local integration; **public prize-competition coverage remains unconfirmed**. Neither intent nor integration establishes additional creator permission; no commercial release, push, publication or competition submission occurred. The earlier blanket assertion that competitions require commercial rights is corrected. See docs/assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md. New source archives/original PNGs stay with the user and are excluded from repository/build; optional regeneration accepts SIMPLE_LIFE_FARMER_RAR and SIMPLE_LIFE_ENV_ZIP paths. Builds use the committed processed art.

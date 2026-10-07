@@ -1,0 +1,338 @@
+{
+  "passed": true,
+  "biomes": [
+    "snow",
+    "highland",
+    "stone",
+    "savanna",
+    "bamboo",
+    "jungle",
+    "pine",
+    "wood",
+    "marsh"
+  ],
+  "captures": [
+    {
+      "name": "home",
+      "area": "home",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 960,
+        "y": 800
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 650
+    },
+    {
+      "name": "farm",
+      "area": "farm",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 320,
+        "y": 620
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 568
+    },
+    {
+      "name": "city",
+      "area": "city",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 640,
+        "y": 480
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 533
+    },
+    {
+      "name": "homewood",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 640,
+        "y": 4848
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1031
+    },
+    {
+      "name": "waterfall",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 160,
+        "y": 3340
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 996
+    },
+    {
+      "name": "habitat-snow",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 640,
+        "y": 800
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1001
+    },
+    {
+      "name": "habitat-highland",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 1920,
+        "y": 800
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1004
+    },
+    {
+      "name": "habitat-stone",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 3200,
+        "y": 800
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 994
+    },
+    {
+      "name": "habitat-savanna",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 4480,
+        "y": 800
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1006
+    },
+    {
+      "name": "habitat-bamboo",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 640,
+        "y": 1826
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1048
+    },
+    {
+      "name": "habitat-jungle",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 1920,
+        "y": 1824
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1020
+    },
+    {
+      "name": "habitat-pine",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 1920,
+        "y": 3872
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1002
+    },
+    {
+      "name": "habitat-wood",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 640,
+        "y": 4896
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1041
+    },
+    {
+      "name": "habitat-marsh",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 1920,
+        "y": 4896
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1055
+    },
+    {
+      "name": "river-canvas-600",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 2370,
+        "y": 1900
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 988
+    },
+    {
+      "name": "river-canvas-1320",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 1320,
+      "position": {
+        "x": 2370,
+        "y": 1900
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 987
+    },
+    {
+      "name": "river-webgl-600",
+      "area": "forest",
+      "renderer": "webgl",
+      "minute": 600,
+      "position": {
+        "x": 2370,
+        "y": 1900
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1141
+    },
+    {
+      "name": "river-webgl-1320",
+      "area": "forest",
+      "renderer": "webgl",
+      "minute": 1320,
+      "position": {
+        "x": 2370,
+        "y": 1900
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 1145
+    },
+    {
+      "name": "river-before-pause",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 2370,
+        "y": 1900
+      },
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "readyMs": 984
+    },
+    {
+      "name": "portrait-ground",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 640,
+        "y": 4848
+      },
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "readyMs": 1073
+    },
+    {
+      "name": "portrait-river",
+      "area": "forest",
+      "renderer": "canvas",
+      "minute": 600,
+      "position": {
+        "x": 2370,
+        "y": 1900
+      },
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "readyMs": 967
+    }
+  ],
+  "pausedRiverPixelsStable": true,
+  "reflectionAnimationResumes": true,
+  "userLiveSaveUntouched": true,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}

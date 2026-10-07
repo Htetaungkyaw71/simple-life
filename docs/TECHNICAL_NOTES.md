@@ -1,3 +1,8 @@
+# v0.4.4 ground/river update — schema 9
+Original Canvas/ImageData materials replace repeating ground/soil and flat water bands. The old tile selector used multiples of 16 modulo four and therefore always chose grass0; native coordinate hash fields remove that aliasing. Surface arrays are temporary during the static bake; Forest retains its established cached canvas texture. The shared water geometry remains authoritative for banks, currents and wading; only colour and native material marks change. Camera-local currents use six 240ms phases and pause with simulation. No per-frame full-map pixel work, new dependency, remote runtime asset, atlas change or save migration. See verification/terrain for affected-flow checks and observed local loading times; device performance is not inferred from emulation.
+
+---
+
 # v0.4.3 art update
 Channeechan native 64×64 source padding trims into the retained 24×32 / 9×4 player-sheet contract; the game loads no additional files. Eight native ToffeeCraft cells join the atlas. Forest tree footpoints/solids and all gameplay/save rules remain. New canopy dimensions guide fade/sway. Optional regeneration: Pillow + bsdtar, `SIMPLE_LIFE_FARMER_RAR` and `SIMPLE_LIFE_ENV_ZIP` point to user-provided archives; originals stay outside repository/build. `npm run build` needs only committed processed assets. No new dependency/runtime network request. Licence scope and non-Chromium/physical-device limits are in PROJECT_STATUS.md.
 

@@ -1,3 +1,8 @@
+# v0.4.4 terrain originality record
+Ground and river material code is newly authored locally with Codex assistance. The three supplied screenshots informed general pixel texture density, foliage marks and shoreline layering; no screenshot pixels, tiles, layouts, characters or interface were copied. Candidate terrain packs were inspected but not integrated. Existing third-party tree/player/cliff art remains separately identified and credited. See assets/licenses/ground-river-materials.md; no signed human review or submission is claimed.
+
+---
+
 # v0.4.3 disclosure update
 Player pixels now originate from Channeechan's Cute Farmer Character (Eris Esra template acknowledged), selected Forest scenery from ToffeeCraft's FreeEnvironment sample. Codex assisted extraction/repacking, adapted jump body poses, rendering/credits/QA/docs; these are not claimed as original human-drawn artwork. User specifically authorizes local noncommercial use. ToffeeCraft public prize-competition rights remain unconfirmed. No final team signature/rights acceptance or submission is claimed. Evidence: assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md and AI_USAGE.md.
 

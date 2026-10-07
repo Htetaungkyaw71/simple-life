@@ -1,3 +1,8 @@
+# v0.4.4 terrain audit
+Original code-native ground/river materials; no newly downloaded pack, runtime art file or dependency. [Creation and primary-source candidate survey](assets/licenses/ground-river-materials.md). Existing eight processed art files are byte-identical to v0.4.3; build audit: verification/terrain/build-audit.json. Screenshot references provide style only; no reference pixels/layouts sampled.
+
+---
+
 ## v0.4.3 current audit
 User-requested Channeechan farmer and local noncommercial FreeEnvironment integration completed; [current source and licence evidence](assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md). Both creators and underlying Eris Esra template credited. Public prize-entry scope for ToffeeCraft remains unconfirmed; historical blocked FreeEnvironment conclusions below are superseded by the user’s clarified scope. Mana Seed remains excluded. Only selected game textures enter production.
 

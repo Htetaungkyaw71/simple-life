@@ -1,3 +1,8 @@
+# v0.4.4 terrain material credit
+Ground shade/moss, short grass/clover/leaf marks, flowers, soil/pebbles, layered banks, submerged water stones and animated reflections: original Simple Life code-authored pixel work with OpenAI Codex assistance. Source files: groundSurface.js, Terrain.js, WaterView.js. Screenshot references provide style guidance only. Existing in-game original-project-art/AI credit applies; source-pack/creator credits remain. No newly downloaded terrain pack is used. Evidence: assets/licenses/ground-river-materials.md.
+
+---
+
 # Current player and forest additions — v0.4.3
 Cute Farmer Character — Channeechan, https://channeechan.itch.io/cute-farmer-character . Commercial/noncommercial game use and modifications permitted; original-file redistribution/standalone resale prohibited. Original character template by Eris Esra: https://erisesra.itch.io/character-templates-pack . Native cropped idle/walk and adapted jump poses; both creators credited in-game.
 

@@ -1,3 +1,8 @@
+# v0.4.4 ground and river materials — 2026-10-07
+The user approves current trees/tall grass and requests richer ground and a natural river based on three supplied screenshots. Use original code-native pixel materials: coherent moss/shade patches, clustered short blades, low leaf/clover marks, cream flowers, irregular soil grain and scattered path pebbles. Keep low contrast below characters and interaction props. Blend adjoining habitat palettes instead of hard seams. Water uses exposed earth/sand/turf shores, muted submerged stones, shaded shallows, dark blue-green channels and restrained moving reflections. Native 1-pixel marks display at 2× with no blur. References inform material density and depth only; no screenshot pixels, tiles or layouts are extracted. Existing tree/grass packs, stepped cliffs, walkable water and gameplay remain.
+
+---
+
 # v0.4.3 user-authorized farmer/environment replacement
 This latest request supersedes the original player-face and blocked-new-pack constraints below. Both playable farmers use Channeechan's native red-haired characters, with source-identical idle/walk poses, native 24×32 trimmed cells and adapted body jump poses. Four-direction keys and displayed scale stay established. Keep original NPCs. Forest uses ToffeeCraft sample conifers with native trunk-aligned bases and broad crowns fading by their actual size; broad firs are occasional. Native-scale boulders, ice and occasional dry plants extend the sample. Preserve broadleaf fruit trees/acacias/bamboo, quiet trails, wildlife identity, responsive original tall grass and jumpable LimeZu terraces. Credits/licence evidence distinguish every family. No source-pack original redistribution; eight-file production allowlist remains.
 

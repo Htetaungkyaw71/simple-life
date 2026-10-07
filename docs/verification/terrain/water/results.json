@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "riverCrossingWithoutBridge": true,
+  "waterfallTraversal": true,
+  "homeFarmPonds": true,
+  "wetSaveContinue": true,
+  "nativeBoarCombatAndSave": true,
+  "woodlandSpecies": [
+    "deer",
+    "hare",
+    "fox",
+    "grouse"
+  ],
+  "ruinsAndPlants": true,
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      640,
+      360
+    ]
+  ],
+  "canvasAndWebGL": true,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}
