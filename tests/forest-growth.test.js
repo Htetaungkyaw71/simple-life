@@ -7,14 +7,14 @@ import {newState} from '../src/systems/state.js';
 import {validate} from '../src/systems/save.js';
 import {jumpRuntime,beginJump,stepJump,jumpPose,groundedPosition,cancelJump} from '../src/systems/jump.js';
 const forest=p=>Object.assign(newState(),{area:'forest',position:p});
-test('low terrace blocks walking, has a grassy slope and permits a swept jump with grounded reload',()=>{
- const t=FOREST_MAP.terraces.find(t=>t.id==='riverbank-0'),p={x:t.x+32,y:t.y+t.h+16},s=forest(p),r=jumpRuntime();
- assert.equal(walkable('forest',p.x,t.y+t.h-8),false);
- assert.ok(walkable('forest',t.x+128,t.y+t.h-12),'grassy slope is open');
+test('removed earth bank is walkable and jumping retains cooldown and grounded reload',()=>{
+ const p={x:2048,y:994},s=forest(p),r=jumpRuntime();
+ assert.ok(walkable('forest',p.x,970));
+ assert.deepEqual(FOREST_MAP.ledges,[]);
  assert.equal(beginJump(s,r,{x:0,y:-1}),true);assert.equal(beginJump(s,r,{x:0,y:-1}),false);
  for(let n=0;n<5;n++)stepJump(s,r,50);assert.ok(jumpPose(r).height>0);assert.ok(s.position.y<p.y);
  const loaded=validate({...s,position:groundedPosition(s,r)});assert.deepEqual(loaded.position,p);assert.equal(loaded.version,9);
- for(let n=0;n<7;n++)stepJump(s,r,50);assert.equal(r.active,null);assert.ok(s.position.y<t.y+t.h-40);assert.ok(walkable('forest',s.position.x,s.position.y));
+ for(let n=0;n<7;n++)stepJump(s,r,50);assert.equal(r.active,null);assert.ok(s.position.y<p.y-60);assert.ok(walkable('forest',s.position.x,s.position.y));
  assert.equal(beginJump(s,r,{x:0,y:-1}),false,'cooldown');for(let n=0;n<6;n++)stepJump(s,r,50);assert.equal(beginJump(s,r,{x:0,y:0}),true);
 });
 test('jump cannot tunnel through tree trunks, cave pillars or bounds and never grants combat immunity',()=>{
@@ -29,7 +29,7 @@ test('interrupting a leap returns safely to its grounded origin without losing p
  const s=forest({x:640,y:4848}),r=jumpRuntime(),origin={...s.position};s.money=312;s.inventory.mango=7;s.energy=0;beginJump(s,r,{x:1,y:0});stepJump(s,r,50);cancelJump(s,r);assert.equal(r.active,null);assert.deepEqual(s.position,origin);assert.equal(s.money,312);assert.equal(s.inventory.mango,7);assert.equal(s.energy,0);
 });
 test('dense vegetation leaves natural riverbanks, fruits and water accessible',()=>{
- assert.ok(FOREST_MAP.terraces.length>=5);assert.ok(FOREST_MAP.grass.length>3000);
+ assert.deepEqual(FOREST_MAP.terraces,[]);assert.ok(FOREST_MAP.grass.length>3000);
  assert.ok(FOREST_MAP.props.filter(p=>p.name.includes('tree')||p.name==='snow-pine'||p.name==='bamboo-clump').length>750);
  for(const n of FORAGE_NODES)assert.ok(walkable('forest',n.x,n.y),n.id);
  for(const t of FOREST_MAP.terraces)assert.ok(walkable('forest',t.x+128,t.y+t.h+8),t.id);

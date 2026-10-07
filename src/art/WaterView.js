@@ -12,9 +12,10 @@ export class WaterView {
     if(r.x<camera.x-32||r.x>camera.right+32||r.y<camera.y-24||r.y>camera.bottom+24)continue;
     const pose=ripplePose(r,time);if(!pose)continue;const {x:xx,y:yy,width,alpha}=pose,half=Math.ceil(width/4)*2;
     if(![[xx-half,yy-2],[xx+half+2,yy+6]].every(([x,y])=>waterAt(this.map,{x,y})))continue;
-    g.fillStyle(0x8aaba0,.27*alpha).fillRect(xx-half,yy,width,2).fillRect(xx+2,yy+2,half,2);
-    g.fillStyle(0x344d51,.20*alpha).fillRect(xx-8,yy+4,12,2);
-    if(r.seed%5===0)g.fillStyle(0xcad8c4,.5*alpha).fillRect(xx,yy-2,4,2).fillRect(xx+4,yy,4,2);
+    // Broken little reflection clusters rather than long horizontal strokes.
+    g.fillStyle(0x91aaa0,.24*alpha).fillRect(xx-half,yy,4,2).fillRect(xx-2,yy-2,6,2).fillRect(xx+6,yy+2,4,2);
+    g.fillStyle(0x577877,.24*alpha).fillRect(xx+2,yy+4,6,2);
+    if(r.seed%7===0)g.fillStyle(0xc2cec0,.42*alpha).fillRect(xx,yy,2,2).fillRect(xx+2,yy-2,2,2);
    }
   }
   const wet=!this.scene.jumping?.active&&waterAt(this.map,p),sprite=this.scene.player?.sprite;

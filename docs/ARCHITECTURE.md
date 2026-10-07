@@ -1,3 +1,10 @@
+# v0.4.6 Forest rendering corrections
+`BridgeView.js` renders opaque horizontal decks from the same data used by `bridgeAt` and dry vegetation placement. `nightBands.js` merges neighbouring equal-opacity cells in both axes; `ForestView` paints those rectangles with unchanged light levels. `forestPalette.js` derives cached native-size local Canvas textures for Forest trees/bamboo from retained town atlas cells. It maps foliage to shared olive shades while retaining non-foliage colours/alpha; canopy metadata retains source frame identity alongside the generated texture key. No shader, remote image or new production art file.
+
+Forest terraces/ledges are empty and `bankTerrain.js` is removed; teal ferns are filtered before rendering. Existing jump/collision systems remain. Small native wave clusters reuse independent ripple seeds/timing. Fullscreen world/UI scene split, cached ground, saves and pure gameplay systems remain.
+
+---
+
 # v0.4.5 forest shore rendering
 `forestGrowth.js` composes ten river-adjacent banks and a shared front profile for low ledges; `bankTerrain.js` renders original continuous earth faces and grassy slopes from that profile. No old stone/stair sprites are rendered. `finishForest` applies habitat tree varieties and full-footprint dry placement after generation, then clears path data while preserving reserved grassy passages. `water.js` centralizes bridge detection and dry footprint checks.
 

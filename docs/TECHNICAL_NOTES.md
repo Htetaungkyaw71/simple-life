@@ -1,3 +1,10 @@
+# v0.4.6 bridge and Forest theme
+Five bridges now span both banks at 272×72. Opaque timber decks suppress wading consistently with their actual bounds. Night equal-alpha rectangles merge to eliminate transparency-grid seams while retaining near/far visibility. Olive foliage variants generate once per used native atlas frame and stay cached; no per-frame recolouring or disk asset rewrite. All eight art files remain byte-identical to v0.4.5 (555 atlas cells), with unchanged dependency licences. Forest has 844 trees + 41 bamboo stands / 4,201 grass clumps, no terrace/ledge objects or teal ferns. Natural shores and jumping remain.
+
+Build: 12 files / 2,031,148 bytes; 99 tests pass. Details/evidence: verification/forest-theme. No schema/runtime backend/remote asset/new dependency change.
+
+---
+
 # v0.4.5 forest shore follow-up
 Forest: 796 trees + 41 bamboo stands, 4,033 grass clumps, ten earth banks, no rendered dirt roads/falls. Geometry/placement are deterministic and established 5120² terrain caching/collision indexing remain. New original palm/willow cells bring the atlas to 555 frames; all old frame pixels/player files are unchanged. Ripples independently appear/fade at 2-pixel positions without aligned wave rows. Vegetation footprints check water/bridges every four world units.
 

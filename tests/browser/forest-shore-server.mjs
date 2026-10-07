@@ -5,7 +5,7 @@ import {readFile} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
 import {newState} from '../../src/systems/state.js';
 const root=resolve('dist'),port=Number(process.env.QA_PORT||4176);
-const places={homewood:[640,4848],river:[2370,1900],bank:[2048,994],palms:[640,3872],willows:[1920,4896],bridge:[2368,1744],oldTerrace:[224,5020],formerFall:[160,3340]};
+const places={homewood:[640,4848],river:[2370,1900],bank:[2048,994],palms:[640,3872],willows:[1920,4896],bridge:[2368,1744],bridgeApproach:[2220,1744],oldTerrace:[224,5020],formerFall:[160,3340]};
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.json':'application/json','.xml':'text/xml'};
 createServer(async(req,res)=>{
  try{

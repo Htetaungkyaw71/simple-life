@@ -13,7 +13,7 @@ import {lineClear} from '../src/systems/forest.js';
 import {displace} from '../src/systems/combat.js';
 test('river water is continuous across all five regions and bridges cover connected water',()=>{
  for(const river of MAPS.forest.rivers)for(let y=river.y+16;y<river.y+river.h-16;y+=2){const [left,,w]=riverRow(river,y);assert.ok(waterAt(MAPS.forest,{x:left+w/2,y},false));}
- for(const bridge of MAPS.forest.bridges){const p={x:bridge.x+80,y:bridge.y+80};assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
+ for(const bridge of MAPS.forest.bridges){const p={x:bridge.x+bridge.w/2,y:bridge.y+bridge.h/2};assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
 });
 test('player crosses water directly; removed falls leave no invisible side-bank obstacles',()=>{
  const s=newState();s.area='forest';s.selected='water';const [left]=riverRow(MAPS.forest.rivers[0],1900);s.position={x:left-16,y:1900};assert.equal(contextFor(s).type,'refill');

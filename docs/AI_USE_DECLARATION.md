@@ -1,3 +1,8 @@
+# v0.4.6 disclosure update
+Codex assisted olive Forest colour adaptations, bridge/night seam corrections, ripple motifs, scenery removal and QA/documentation. External tree silhouettes retain their creator attribution; new render colours/bridge code are disclosed project source. No screenshot sampling or external image model. See AI_USAGE.md and assets/licenses/forest-theme.md; final human signature/acceptance remains pending.
+
+---
+
 # v0.4.5 disclosure update
 Codex assisted original palm/willow pixels, source-authored earth banks and scattered ripples, placement, QA and documentation. These are locally generated project source, without screenshot sampling or external image-model generation. Existing licensed scenery/player attribution remains separate. Details: AI_USAGE.md and assets/licenses/forest-shore.md. Final human review/signature remains pending.
 

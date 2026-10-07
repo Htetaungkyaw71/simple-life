@@ -1,3 +1,16 @@
+# Forest theme and bridge correction — 2026-10-07, v0.4.6 / schema 9
+Latest user requests supersede the v0.4.5 raised earth banks: **all raised assemblies/low-ledge masks and teal fern scenery are removed from Forest**. Natural textured shores remain. Forest dirt roads/waterfalls remain absent; jumping stays free and respects trunks/structures. Removing bank reservations leaves **844 trees + 41 bamboo stands / 4,201 responsive grass clumps**, with retained species/forage/cache routes.
+
+All five bridges are now **272×72 horizontal timber crossings**, with opaque native planks, rails and end posts extending onto dry land at both banks. Shared bridge/wading/dry-footprint geometry uses these decks. The visible night grid was caused by independently drawn transparency cells; equal-opacity runs now merge into continuous rectangles, preserving the established near/far light levels. Forest tree/bamboo foliage uses cached native-size olive colour variants, preserving bark/fruit/neutral snow, silhouettes, anchors and alpha. Other locations keep their existing colours. River wave motifs are short broken reflection clusters with retained independent timing/scattering, closer to the supplied visual reference.
+
+Validation: **99/99 npm tests**, production build, syntax/whitespace checks pass. Three added tests cover olive foliage versus bark/fruit, full bridge span/dry endpoints/traversability and complete nonoverlapping night shade coverage. Previous terrace tests now verify its removal and retained jumping/save rules. Existing farming/City/time/20-habitat/22-species/68-animal/forage/guarded-cache/migration/25%-Stash recovery tests pass. CUA isolated browser checks verify desktop Canvas day and WebGL night bridge, actual bank-to-bank canvas-control crossing with no ankle waterline, portrait controls, pause/Save/reload, retained JUMP, palette caches and quiet river. Evidence: verification/forest-theme.
+
+All eight runtime art files are byte-identical to v0.4.5; only code changes the Forest render colours. No new pack, dependency, backend, remote asset or save schema. Production: **12 files / 2,031,148 bytes**, allowlist preserved. Art/AI evidence: assets/licenses/forest-theme.md, ASSET_LICENSES.md and AI_USAGE.md.
+
+Limits: browser checks use disposable prepared saves on 4176, not another complete farming playthrough. Physical devices/other engines and final human acceptance remain unverified; prior supplied-pack rights records remain applicable. User-origin save untouched. Main preview on 4175 remains; no push, publication or submission.
+
+---
+
 # Forest shore cleanup — 2026-10-07, v0.4.5 / schema 9
 Latest user request supersedes the earlier Forest roads, waterfalls and stone/stair terrace art. River ripples now have scattered positions, different lifetimes/delays and native-pixel movement; submerged stone placement has wider jitter. Forest dirt paths are removed after reserving navigable grassy gaps. Ten low grassy earth banks beside the river replace all twenty old stone/stair assemblies. Slopes allow walking; low faces allow the established jump. Emerald Falls is displayed as Emerald Banks, retaining its saved region ID.
 

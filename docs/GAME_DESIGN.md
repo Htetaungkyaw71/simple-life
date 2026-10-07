@@ -1,3 +1,8 @@
+# v0.4.6 Forest cleanup
+Latest user removes all artificial raised earth banks and teal fern scenery, replacing no objects. Natural textured shores, water walking and free jumping remain. Horizontal timber bridges meet both banks and render cleanly at night. Forest foliage shares a muted olive palette and small scattered wave clusters. Wilderness scale, species/forage/cache rules, farming/City/sleep, schema 9 and coin recovery remain.
+
+---
+
 # v0.4.5 forest scenery adjustment
 Latest user instruction removes Forest dirt roads, waterfalls and old stone/stair terrace assemblies. Traversable grassy passages retain connected exploration. Low river-adjacent earth banks have walkable slope openings and use the existing free jump across their fronts. Habitat tree mixtures add palms, willows and broadleaf variants; grass avoids bridge decks and trunks avoid water. Ripples scatter and animate independently. All wilderness scale, species/forage/cache rules and farming/City/sleep/save/recovery contracts remain unchanged.
 

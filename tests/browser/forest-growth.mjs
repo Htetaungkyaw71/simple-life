@@ -37,11 +37,11 @@ async function fixture(area,position,extra={}){syncInterior(page.viewportSize().
 
 
 import {FOREST_MAP} from '../../src/data/forest.js';
-const t=FOREST_MAP.terraces.find(t=>t.id==='riverbank-0');
+const t={x:2016,y:850,w:256,h:128}; // former bank location, now open ground
 await fixture('forest',{x:t.x+32,y:t.y+t.h+16},{minute:600,forestTutorialComplete:true,ownsClub:true,clubEquipped:true});
-await hold('ArrowUp',400);const stopped=(await snap()).state.position;assert.ok(stopped.y>=t.y+t.h+8,'walking stops at ledge');await shot('ledge-walking-blocked');
-await page.keyboard.press('j',{delay:20});await page.waitForTimeout(230);const airborne=await snap();assert.ok(airborne.jump.active);assert.equal(airborne.player.frame,16);assert.ok(airborne.state.position.y<stopped.y);await shot('jump-over-ledge');
-const energy=airborne.state.energy;await page.keyboard.press('k');assert.equal((await snap()).state.energy,energy,'airborne club input does not spend energy');await page.waitForTimeout(600);const landed=await snap();assert.equal(landed.jump.active,null);assert.ok(landed.state.position.y<t.y+t.h-60);assert.ok(walkable('forest',landed.state.position.x,landed.state.position.y));await shot('terrace-landed');
+await hold('ArrowUp',400);const stopped=(await snap()).state.position;assert.ok(stopped.y<t.y+t.h,'removed bank permits walking');await shot('former-bank-walkable');
+await page.keyboard.press('j',{delay:20});await page.waitForTimeout(230);const airborne=await snap();assert.ok(airborne.jump.active);assert.equal(airborne.player.frame,16);assert.ok(airborne.state.position.y<stopped.y);await shot('jump-open-ground');
+const energy=airborne.state.energy;await page.keyboard.press('k');assert.equal((await snap()).state.energy,energy,'airborne club input does not spend energy');await page.waitForTimeout(600);const landed=await snap();assert.equal(landed.jump.active,null);assert.ok(landed.state.position.y<t.y+t.h-60);assert.ok(walkable('forest',landed.state.position.x,landed.state.position.y));await shot('ground-landed');
 // Pausing freezes the arc. Saving/reloading during it stores its grounded origin.
 await fixture('forest',{x:t.x+32,y:t.y+t.h+16},{minute:600,forestTutorialComplete:true,character:'girl'});await hold('ArrowUp',70);const origin=(await snap()).state.position;await page.keyboard.press('Shift',{delay:15});await page.waitForTimeout(140);await page.keyboard.press('Escape');const paused=await snap();assert.ok(paused.jump.active);await page.waitForTimeout(750);assert.equal((await snap()).jump.active.elapsed,paused.jump.active.elapsed);await click('Save');const persisted=await page.evaluate(()=>JSON.parse(localStorage.getItem('simple-life.save.v1')));assert.deepEqual(persisted.position,origin);assert.equal(persisted.version,9);await page.reload();await page.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('Continue / Day 1');assert.equal((await snap()).jump.active,null);assert.deepEqual((await snap()).state.position,origin);await shot('girl-grounded-reload');
 // Touching a clump bends its native pixels; leaving it lets it spring upright.

@@ -1,3 +1,8 @@
+# v0.4.6 Forest theme/bridge — 2026-10-07
+**99/99 tests and production build pass.** New checks cover palette preservation, every bridge's bank coverage/traversability and merged night-shade coverage. Isolated CUA browser checks verify bridge day/night, native bank-to-bank crossing without wading, portrait controls, pause/save/reload, jumping and palette/river appearance. All eight art files are unchanged; 12 production files / 2,031,148 bytes. Current evidence: verification/forest-theme. User save untouched; physical devices/other engines/final human acceptance remain unverified. No publishing/push.
+
+---
+
 # v0.4.5 forest shore cleanup — 2026-10-07
 **96/96 tests and production build pass.** Isolated CUA browser checks verify actual canvas-controlled water walking, dry bridge deck, bank collision/jump/landing, pause/Save/reload, mixed trees, old stone structure removal and waterfall-free WebGL night water. Desktop/portrait/short landscape inspected; no observed browser errors/warnings. The eight-file art allowlist remains; previous 553 atlas frames and both farmer sheets are pixel-identical. [Evidence, reproduction and limits](verification/forest-shore/VERIFICATION.md). No live-save changes, push or publication.
 

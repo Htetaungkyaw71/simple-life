@@ -1,3 +1,4 @@
+import {nightBands} from './nightBands.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {FORAGE_NODES,TREASURES} from '../data/forest.js';
 import {FOODS} from '../data/items.js';
@@ -76,10 +77,5 @@ export function forestNight(graphics,s,light){
  const cx=Math.round(s.position.x/16)*16,cy=Math.round(s.position.y/16)*16,key=[cx,cy,left,top,right,bottom,light.color,light.alpha].join(':');
  if(graphics.lightKey===key)return;graphics.lightKey=key;graphics.fillColor=light.color;graphics.clear().setAlpha(light.alpha);
  const radius=isNight(s)||s.minute>=1080?208:0;
- for(let y=top;y<bottom;y+=16){
-  if(!radius||Math.abs(y-cy)>radius){graphics.fillStyle(light.color).fillRect(left,y,right-left,16);continue;}
-  if(cx-radius>left)graphics.fillStyle(light.color).fillRect(left,y,cx-radius-left,16);
-  if(right>cx+radius)graphics.fillStyle(light.color).fillRect(cx+radius,y,right-cx-radius,16);
-  for(let x=Math.max(left,cx-radius);x<Math.min(right,cx+radius);x+=16){const a=Math.abs(x-cx),b=Math.abs(y-cy),distance=Math.max(a,b)+Math.min(a,b)*.4;const alpha=distance<112?.28:distance<160?.48:distance<200?.72:1;graphics.fillStyle(light.color,alpha).fillRect(x,y,16,16);}
- }
+ for(const r of nightBands({left,top,right,bottom,cx,cy,radius}))graphics.fillStyle(light.color,r.alpha).fillRect(r.x,r.y,r.w,r.h);
 }

@@ -1,3 +1,10 @@
+# v0.4.6 unified Forest palette and simpler shores
+Remove all raised earth assemblies and teal fern sprites from Forest, as shown in the user's second/third images. Keep natural textured shores, flowers and approved moving grass. Preserve tree species silhouettes while converting Forest foliage to one muted olive family with dark green shadows and yellow-green highlights; bark, fruit and neutral snow retain their original colours. Do not recolour other locations. Reference dated 22:59:17 guides general foliage hue and small broken river reflections, without pixel/asset/layout extraction.
+
+Bridges cross horizontally between dry banks with an opaque short deck, individual native planks, top/bottom rails and end posts. Night shading merges equal-opacity regions to avoid a visible grid on the deck. Retain independent scattered wave timing, quiet small reflection clusters and water walking. Latest request supersedes v0.4.5 artificial earth banks; no replacement raised object is added.
+
+---
+
 # v0.4.5 natural forest shores
 The latest user request removes visible Forest dirt roads, waterfalls and the old stone pillars/stairs. Preserve textured moss/flowers and dense moving grass. Keep grassy exploration passages and wooden HOME signs. Add native olive palms and drooping willows, mixed with retained LimeZu broadleaf variants, FreeEnvironment conifers, fruit trees, acacias and bamboo according to habitat. Tree trunks stay on dry land; natural crown overhang is allowed. Entire grass footprints clear bridge decks and water.
 

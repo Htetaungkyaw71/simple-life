@@ -1,12 +1,8 @@
 import {waterAt,dryFootprint} from './water.js';
-export const BANK_PROFILE=[0,0,12,20,16,12,4,0];
 export const forestTree=p=>p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree');
-// Natural low earth banks replace the old stacked stone/stair assemblies.
+// Reserve connected clearings while growing the forest; no raised assemblies.
 export function growForest(map,regions,nodes,treasures){
- map.terraces=Array.from({length:5},(_,i)=>[{id:'riverbank-'+i,x:2016,y:i*1024+850,w:256,h:128},{id:'riverbank-east-'+i,x:2496,y:i*1024+866,w:256,h:128}]).flat();
- map.ledges=map.terraces.flatMap(t=>Array.from({length:8},(_,i)=>({x:t.x+i*32,y:t.y+t.h-24-BANK_PROFILE[i],w:32,h:20})).filter((_,i)=>i!==3&&i!==4));
- // Remove old scenery under the new landform rather than hiding solid trunks.
- map.props=map.props.filter(p=>!map.terraces.some(t=>p.x+32>t.x-28&&p.x+32<t.x+t.w+28&&p.y+80>t.y-32&&p.y+80<t.y+t.h+32));
+ map.terraces=[];map.ledges=[];
  const nearRoad=(x,y,pad=24)=>map.paths.some(([a,b,w,h])=>x>a-pad&&x<a+w+pad&&y>b-pad&&y<b+h+pad);
  const protectedPlace=(x,y)=>nodes.concat(treasures).some(p=>Math.hypot(p.x-x,p.y-y)<88)||map.terraces.some(t=>x>t.x-48&&x<t.x+t.w+48&&y>t.y-48&&y<t.y+t.h+48);
  for(const [i,r]of regions.entries()){
@@ -39,7 +35,7 @@ export function finishForest(map,regions){
   else if(['pine','highland','stone'].includes(biome)&&n<4)p.name='broadleaf-tree';
  }
  map.props=map.props.filter(p=>!forestTree(p)||dryFootprint(map,{x:p.x+6,y:p.y+76,w:52,h:20}));
- map.details=map.details.filter(p=>dryFootprint(map,{x:p.x,y:p.y,w:64,h:48}));
+ map.details=map.details.filter(p=>p.name!=='fern'&&dryFootprint(map,{x:p.x,y:p.y,w:64,h:48}));
  map.grass=map.grass.filter(g=>dryFootprint(map,{x:g.x-24,y:g.y-48,w:48,h:48}));
  // Road masks were only used to reserve passable gaps during placement.
  map.paths=[];

@@ -1,3 +1,8 @@
+# v0.4.6 Forest colour treatment and bridge art — 2026-10-07
+Forest olive variants are local render adaptations of the retained LimeZu/ToffeeCraft/original tree and bamboo atlas cells. Shapes/alpha/native size are preserved, green foliage is remapped, bark/fruit/neutral snow retained. Existing creator attribution and legal/source records remain; no new pack or art-file redistribution. All eight runtime art files are byte-identical to v0.4.5. New bridge planks/rails, merged night rendering and broken ripple motifs are original Codex-assisted project code. Source/adaptation evidence: [forest-theme.md](assets/licenses/forest-theme.md). Original shaderless palette source: src/art/forestPalette.js. Dependencies/tool licences unchanged. No reference-image sampling or external image-model generation.
+
+---
+
 # v0.4.5 original forest shore additions — 2026-10-07
 | Asset | Source / provenance | Use |
 | --- | --- | --- |

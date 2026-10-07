@@ -11,9 +11,9 @@ function verifyDry(rect,label){
  for(const b of m.bridges)assert.ok(!overlaps(rect,b),label+' must clear the whole bridge');
  for(let y=rect.y;y<=rect.y+rect.h;y+=8)for(let x=rect.x;x<=rect.x+rect.w;x+=4)assert.equal(waterAt(m,{x,y},false),false,label+' must have a dry footprint');
 }
-test('forest has no dirt roads or waterfall faces and banks replace the old regional stone assemblies',()=>{
+test('forest has no dirt roads or waterfall faces and all raised assemblies and teal ferns are removed',()=>{
  assert.deepEqual(m.paths,[]);assert.deepEqual(m.falls,[]);assert.equal(REGIONS.find(r=>r.id==='jaguar').name,'Emerald Banks');
- assert.ok(m.terraces.length>=5);for(const t of m.terraces){assert.ok(t.id.startsWith('riverbank-'));assert.ok(Math.min(Math.abs(t.x+t.w-2304),Math.abs(t.x-2448))<70,'bank is beside the river');assert.ok(walkable('forest',t.x+128,t.y+t.h-12),'grassy slope is passable');}
+ assert.deepEqual(m.terraces,[]);assert.deepEqual(m.ledges,[]);assert.ok(!m.details.some(p=>p.name==='fern'));assert.ok(walkable('forest',2048,970));
 });
 test('every grass sprite footprint and every tree root avoids bridge decks and water',()=>{
  assert.ok(m.grass.length>3000);for(const g of m.grass)verifyDry({x:g.x-24,y:g.y-48,w:48,h:48},g.id);

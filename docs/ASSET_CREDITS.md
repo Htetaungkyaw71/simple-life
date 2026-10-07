@@ -1,3 +1,8 @@
+# v0.4.6 Forest palette/bridge
+Olive Forest colour variants adapt existing credited LimeZu and ToffeeCraft tree/bamboo silhouettes and original project trees, without new source assets. Native bridge/ripple code: Simple Life project work with OpenAI Codex assistance. Existing player/Craftpix/template credits remain. Evidence: assets/licenses/forest-theme.md.
+
+---
+
 # v0.4.5 forest shore credits
 Original palm/willow pixels and earth-bank/ripple geometry: Simple Life project source, authored with OpenAI Codex assistance. Broadleaf variants reuse unchanged LimeZu Serene Village CC BY 4.0 cells. Existing supplied FreeEnvironment/Craftpix/Channeechan/Eris Esra attribution remains. Source/licence record: assets/licenses/forest-shore.md.
 

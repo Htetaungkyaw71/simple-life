@@ -1,3 +1,8 @@
+# v0.4.6 Forest theme record
+Bridge/ripple geometry, merged night bands and olive colour rules are newly authored local code with Codex assistance. External tree silhouettes retain licensed attribution and are adapted only in render colour. Supplied screenshots guide general palette/material appearance and identify unwanted scenery; no pixels/assets/layouts are extracted. No exclusive-copyright or final human-acceptance claim. Evidence: assets/licenses/forest-theme.md.
+
+---
+
 # v0.4.5 forest shore originality record
 Palms, willows, earth-bank geometry and ripple motifs are newly authored local code with Codex assistance. User screenshots inform general foliage/ground style and identify unwanted objects; no screenshot pixels, tiles or map layouts are extracted. Retained licensed assets and their creators remain identified separately. No exclusive-copyright or signed human-acceptance claim is made. See assets/licenses/forest-shore.md.
 

@@ -8,6 +8,8 @@ import {cropVisual,waterPeriod} from '../systems/watering.js';
 import {ROOM,FURNITURE} from '../data/interior.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {terrain} from './Terrain.js';
+import {forestTexture} from './forestPalette.js';
+import {drawBridge} from './BridgeView.js';
 const SCALE=2;
 export function image(scene,name,x,y,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.image(Math.round(x),Math.round(y),atlas,name).setOrigin(0).setScale(scene.artScale||SCALE).setDepth(depth);}
 function tiled(scene,name,x,y,w,h,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.tileSprite(x,y,w,h,atlas,name).setOrigin(0).setTileScale(scene.artScale||SCALE).setDepth(depth);}
@@ -21,9 +23,9 @@ function object(scene,p){
   if(replacement){
    const frame=scene.textures.getFrame('town',replacement),scale=tree?2:1;
    const foot=p.y+(tree?90:p.name==='rock'?64:104),cx=p.x+32;
-   const obj=scene.add.image(cx,foot,'town',replacement).setOrigin(.5,1).setScale(scale).setDepth(foot);
+   const obj=scene.add.image(cx,foot,tree?forestTexture(scene,replacement):'town',tree?undefined:replacement).setOrigin(.5,1).setScale(scale).setDepth(foot);
    scene.add.ellipse(cx,foot-3,tree?48:40,12,0x253951,.18).setDepth(1);
-   if(tree)scene.canopies.push({sprite:obj,x:cx,y:foot,baseX:cx,width:frame.width*scale,height:frame.height*scale});
+   if(tree)scene.canopies.push({sprite:obj,x:cx,y:foot,baseX:cx,width:frame.width*scale,height:frame.height*scale,frame:replacement});
    return obj;
   }
  }
@@ -32,8 +34,9 @@ function object(scene,p){
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
  const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')?90:name.startsWith('house')?110:name==='shed'?124:height);
  if(!p.fence){const shadow=scene.add.ellipse(p.x+height*.28,p.y+height-5,Math.min(100,height*.72),12,0x253951,.18).setDepth(1);if(name.startsWith('tree'))shadow.setPosition(p.x+34,p.y+88).setSize(78,24);}
- const obj=image(scene,name,p.x,p.y,foot);
- if(name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90});
+ const forestPlant=scene.app.state?.area==='forest'&&(name.endsWith('-tree')||name==='bamboo-clump');
+ const obj=forestPlant?scene.add.image(p.x,p.y,forestTexture(scene,name)).setOrigin(0).setScale(2).setDepth(foot):image(scene,name,p.x,p.y,foot);
+ if(name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90,frame:name});
  if(p.animated==='fountain')scene.fountains.push(obj);
  if(p.animated==='plant')scene.plants.push({sprite:obj,prefix:name.slice(0,-1)});
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
@@ -88,7 +91,7 @@ export function drawWorld(scene,area){
   label(scene,704,608,'LANTERN SQUARE');label(scene,1080,626,'SEED AID');
  }
 
- if(area==='forest'){for(const b of BRIDGES){const bridge=scene.add.graphics().setDepth(0);bridge.fillStyle(0x694757).fillRect(b.x,b.y,b.w,b.h);for(let yy=4;yy<b.h;yy+=12){bridge.fillStyle(0xb58b61).fillRect(b.x+4,b.y+yy,b.w-8,8);bridge.fillStyle(0xd5b37e).fillRect(b.x+4,b.y+yy,b.w-8,2);}bridge.fillStyle(0x544249).fillRect(b.x,b.y,6,b.h).fillRect(b.x+b.w-6,b.y,6,b.h);}}
+ if(area==='forest')for(const b of BRIDGES)drawBridge(scene,b);
  for(const p of [...map.buildings,...map.props])object(scene,p);
  for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.kind||(npc.name==='Clara'?'seed':'sell'),normal:npc.sprite,idle:npc.idle});}
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);

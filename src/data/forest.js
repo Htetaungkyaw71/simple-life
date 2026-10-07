@@ -62,7 +62,7 @@ export const BRIDGES=[];
 for(let row=0;row<5;row++){
  const y=row*1024;
  // Banks bend continuously through every district.
- BRIDGES.push({x:2288,y:y+640,w:160,h:160});
+ BRIDGES.push({x:2240,y:y+684,w:272,h:72});
  map.props.push(prop('cp-ruins-water-5',2216,y+552));
 }
 map.bridges=BRIDGES;

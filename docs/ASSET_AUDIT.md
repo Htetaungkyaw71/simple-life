@@ -1,3 +1,8 @@
+# v0.4.6 render-only Forest colour audit
+All eight allowlisted runtime art files match v0.4.5 byte for byte. Local cached olive render variants preserve native cell size/alpha and existing source attribution; no new image download, atlas cell, source archive or dependency. Original bridge/ripple/night-rendering code is recorded separately. Production: 12 files / 2,031,148 bytes. Evidence: verification/forest-theme/build-audit.json and assets/licenses/forest-theme.md.
+
+---
+
 # v0.4.5 forest shore audit
 Only original palm-tree/willow-tree cells are added (555 atlas frames). All 553 previous frame pixels and both farmer files match baseline 32ea2a3. Same eight runtime art files; production has 12 files / 2,031,270 bytes. Existing pack provenance/credits unchanged; no new download or dependency. Evidence: verification/forest-shore/art-build-audit.json and assets/licenses/forest-shore.md.
 

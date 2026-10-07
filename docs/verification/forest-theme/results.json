@@ -1,0 +1,75 @@
+{
+  "version": "0.4.6",
+  "method": "CUA native browser interactions on isolated local QA origin",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "rendererChecks": [
+    "Canvas day",
+    "WebGL night"
+  ],
+  "bridgeCrossing": {
+    "start": {
+      "x": 2220,
+      "y": 1744
+    },
+    "middle": {
+      "x": 2458.3627999999994,
+      "y": 1744
+    },
+    "end": {
+      "x": 2666.4641999999976,
+      "y": 1744
+    },
+    "wading": [
+      false,
+      false,
+      false
+    ]
+  },
+  "savedPosition": {
+    "x": 2666.4641999999976,
+    "y": 1744
+  },
+  "checks": {
+    "bridgeStayedDry": true,
+    "saveReloadPositionPreserved": true,
+    "pauseClockFrozen": true,
+    "portraitControlsFit": true,
+    "freeJumpStarted": true,
+    "allForestCanopiesUsePalette": true,
+    "riverWadingWorks": true,
+    "wavesAnimate": true,
+    "pausedWavesFrozen": true,
+    "consoleWarningsErrorsEmpty": true
+  },
+  "waveMotion": {
+    "pixelsChanged": true,
+    "lightingStart": {
+      "alpha": 0,
+      "color": 1582138
+    },
+    "lightingEnd": {
+      "alpha": 0,
+      "color": 1582138
+    }
+  },
+  "pausedWater": {
+    "pixelsFrozen": true,
+    "clockFrozen": true,
+    "paused": true
+  },
+  "consoleLogs": [],
+  "limitations": [
+    "No physical touch device tested",
+    "No new full farming or City browser playthrough in this visual pass",
+    "Native jump start checked; landing covered by pure tests"
+  ]
+}

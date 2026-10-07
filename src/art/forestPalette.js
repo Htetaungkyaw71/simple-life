@@ -1,0 +1,15 @@
+// Forest-only olive foliage treatment; native silhouettes, bark and fruit stay.
+export const FOREST_LEAF_TONES=[[43,51,31],[58,69,36],[78,91,43],[103,116,53],[129,140,68],[154,164,88],[181,187,116],[207,211,155]];
+export function forestLeafColor(r,g,b){
+ if(g<=r*1.03||g<b*.82||Math.max(r,g,b)-Math.min(r,g,b)<10)return [r,g,b];
+ const light=.24*r+.60*g+.16*b,index=[44,65,87,110,137,165,195].filter(t=>light>=t).length;
+ return FOREST_LEAF_TONES[index];
+}
+export function forestTexture(scene,name){
+ const key='forest-foliage-'+name;if(scene.textures.exists(key))return key;
+ const f=scene.textures.getFrame('town',name),texture=scene.textures.createCanvas(key,f.width,f.height),ctx=texture.context;
+ ctx.imageSmoothingEnabled=false;ctx.drawImage(f.source.image,f.cutX,f.cutY,f.cutWidth,f.cutHeight,0,0,f.width,f.height);
+ const pixels=ctx.getImageData(0,0,f.width,f.height);
+ for(let i=0;i<pixels.data.length;i+=4){if(!pixels.data[i+3])continue;const c=forestLeafColor(...pixels.data.subarray(i,i+3));for(let n=0;n<3;n++)pixels.data[i+n]=c[n];}
+ ctx.putImageData(pixels,0,0);texture.refresh();return key;
+}

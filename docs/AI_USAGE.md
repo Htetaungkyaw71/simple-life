@@ -1,3 +1,10 @@
+# 2026-10-07 — v0.4.6 Forest theme and bridge
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted bridge geometry/pixel drawing, night-grid diagnosis/rectangle merging, original olive palette treatment, wave motifs, removal of raised banks/teal ferns, tests and isolated CUA browser QA/documentation. User supplied four screenshots showing the defects/removals and muted foliage/water reference. No screenshot pixels, commercial-game assets or map layout were extracted.
+
+Source: BridgeView.js, nightBands.js, forestPalette.js, worldArt.js, ForestView.js, WaterView.js, Terrain.js, forest.js/forestGrowth.js and read-only canopy QA metadata in main.js. Olive variants retain original licensed tree shapes; these are adapted render colours, not claimed as original human-drawn trees. Art files/dependencies remain unchanged. AI-created source colours/bridge/ripple geometry are documented in assets/licenses/forest-theme.md. No external image model, new pack or subagent. 99 tests/build and actual native canvas-control checks pass. No final human acceptance, push/publication/submission claim.
+
+---
+
 # 2026-10-07 — v0.4.5 forest shore cleanup
 OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted implementation, deterministic original palm/willow pixel creation, native earth-bank and ripple code, habitat composition/dry placement, tests, asset audit, browser QA and documentation. User requested scattered waves, no Forest roads/waterfalls, more tree varieties, near-river ground, no grass on bridges/tree roots in water, and removal of old stone/stair assemblies.
 
