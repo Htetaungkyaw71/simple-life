@@ -2,6 +2,7 @@ import {ROOM,configureRoom} from './interior.js';
 import {MAPS,MAP_SIZE} from './mapLayouts.js';
 import {HOUSE,houseSolids,pondRows} from './geometry.js';
 export const LOCATIONS = {
+ forest:{name:'Forest',subtitle:'The Wild Woods',spawn:{x:640,y:752},interactions:[]},
  home:{name:'Home',subtitle:'The shade garden',spawn:{x:480,y:500},interactions:[
   {type:'travel',...HOUSE.door,label:'Enter house',to:'interior',spawn:{...ROOM.spawn},approach:[464,480,32,28]},
   {type:'starter',x:544,y:542,label:'Collect starter seeds'},
@@ -16,12 +17,13 @@ export const LOCATIONS = {
   {type:'hint',x:865,y:275,label:'CITY / return Home, then follow the east road'},
  ]},
  city:{name:'City',subtitle:'Lantern Market',spawn:{x:64,y:488},interactions:[
+  {type:'outfitter',x:336,y:738,label:'Browse Outfitter',approach:[276,720,120,56]},
   {type:'seed',x:432,y:306,label:'Browse seeds',approach:[372,288,120,56]},
   {type:'sell',x:896,y:306,label:'Sell produce',approach:[836,288,120,56]},
  ]},
 };
 for(const [area,location]of Object.entries(LOCATIONS)){
- location.bounds=area==='interior'?ROOM.bounds:area==='city'?[0,0,1280,896]:[0,0,MAP_SIZE.width,MAP_SIZE.height];location.obstacles=MAPS[area].obstacles;
+ location.bounds=area==='interior'?ROOM.bounds:[0,0,(MAPS[area].size||MAP_SIZE).width,(MAPS[area].size||MAP_SIZE).height];location.obstacles=MAPS[area].obstacles;
  location.houseSolids=MAPS[area].buildings.filter(p=>p.name.startsWith('house')).flatMap(p=>houseSolids(p.x,p.y));
  location.interactions.push(...MAPS[area].signs.map(p=>({type:'dialog',...p})));
  location.shoreline=MAPS[area].water.flatMap(pond=>{const rows=pondRows(pond),[x,y,w,h]=pond;return [{x:x+w/2,y:y-16},{x:x+w/2,y:y+h+16},...rows.filter((_,i)=>i%8===0).flatMap(([x,y,w])=>[{x:x-16,y:y+1},{x:x+w+16,y:y+1}])];});
@@ -34,11 +36,13 @@ export function walkable(area,x,y,r=area==='interior'?6:12){return inBounds(area
 
 export const EDGE_TRAVEL={
  home:{zone:[448,1120,64,32],to:'farm',spawn:{x:320,y:64},facing:'down'},
+ homeForest:{zone:[672,0,96,32],to:'forest',spawn:{x:640,y:752},facing:'up'},
+ forest:{zone:[592,992,96,32],to:'home',spawn:{x:720,y:64},facing:'down'},
  homeCity:{zone:[2208,608,32,64],to:'city',spawn:{x:64,y:488},facing:'right'},
  city:{zone:[0,448,32,80],to:'home',spawn:{x:2176,y:640},facing:'left'},
  farm:{zone:[288,0,64,32],to:'home',spawn:{x:480,y:1088},facing:'up'}
 };
-export function edgeTravel(state){const edges=state.area==='home'?[EDGE_TRAVEL.home,EDGE_TRAVEL.homeCity]:[EDGE_TRAVEL[state.area]];for(const edge of edges){if(!edge)continue;const [x,y,w,h]=edge.zone,p=state.position;if(p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h)return edge;}return null;}
+export function edgeTravel(state){const edges=state.area==='home'?[EDGE_TRAVEL.home,EDGE_TRAVEL.homeCity,EDGE_TRAVEL.homeForest]:[EDGE_TRAVEL[state.area]];for(const edge of edges){if(!edge)continue;const [x,y,w,h]=edge.zone,p=state.position;if(p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h)return edge;}return null;}
 export function nearestSafe(area,position){
  if(walkable(area,position?.x,position?.y))return {x:position.x,y:position.y};
  if(Number.isFinite(position?.x)&&Number.isFinite(position?.y)){
@@ -55,3 +59,6 @@ export function syncInterior(width,height){
  Object.assign(room.interactions[0],ROOM.bed);Object.assign(room.interactions[1],ROOM.exit,{approach:[ROOM.width/2-24,ROOM.height-104,48,48]});
  LOCATIONS.home.interactions[0].spawn={...ROOM.spawn};return changed;
 }
+
+export const TRAVEL_COOLDOWN=700;
+export function readyEdgeTravel(state,now,ready){return now>=ready?edgeTravel(state):null;}

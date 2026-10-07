@@ -18,10 +18,10 @@ function object(scene,p){
  let name=p.name;
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
- const foot=p.y+(name.startsWith('tree')?90:name.startsWith('house')?110:name==='shed'?124:height);
+ const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree'))?90:name.startsWith('house')?110:name==='shed'?124:height);
  if(!p.fence){const shadow=scene.add.ellipse(p.x+height*.28,p.y+height-5,Math.min(100,height*.72),12,0x253951,.18).setDepth(1);if(name.startsWith('tree'))shadow.setPosition(p.x+34,p.y+88).setSize(78,24);}
  const obj=image(scene,name,p.x,p.y,foot);
- if(name.startsWith('tree'))scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90});
+ if(name.startsWith('tree')||name.endsWith('-tree'))scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90});
  if(p.animated==='fountain')scene.fountains.push(obj);
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
  return obj;
@@ -36,8 +36,8 @@ function roadSign(scene,p){
  const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
  g.fillStyle(0x544249).fillRect(13,19,6,13);g.fillStyle(0xa8794e).fillRect(14,20,4,12);
  g.fillStyle(0x544249).fillRect(0,0,32,23);g.fillStyle(0xa8794e).fillRect(1,1,30,21);g.fillStyle(0xd6ad73).fillRect(2,2,28,2).fillRect(2,20,28,1);
- pixelArrow(g,p.direction,p.direction===4?6:26,11,0xffedcc);
- const t=scene.add.bitmapText(p.x+(p.direction===4?22:7),p.y+16,'pixel',p.text,6).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.roadSigns.push({board:{x:p.x+4,y:p.y+4,w:56,h:38},text:t});
+ pixelArrow(g,p.direction,p.direction===4?6:p.direction===6||p.direction===2?16:26,p.direction===6||p.direction===2?15:11,0xffedcc);
+ const t=scene.add.bitmapText(p.x+(p.direction===4?22:7),p.y+(p.direction===6||p.direction===2?6:16),'pixel',p.text,p.text==='FOREST'?5:6).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.roadSigns.push({board:{x:p.x+4,y:p.y+4,w:56,h:38},text:t});
  return g;
 }
 export function drawWorld(scene,area){
@@ -64,16 +64,16 @@ export function drawWorld(scene,area){
    const border=scene.add.graphics().setDepth(1);border.fillStyle(0x66564a);border.fillRect(field.x-4,field.y-4,200,200);border.lineStyle(2,0xc2a17a);border.strokeRect(field.x-2,field.y-2,196,196);
   }
   image(scene,'fence',832,220,252);image(scene,'fence',864,220,252);
- }else{
+ }else if(area==='city'){
   const [x,y,w,h]=map.plaza;tiled(scene,'town-paving',x,y,w,h,0);
-  for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE']]){
-   const t=label(scene,cx,290,name);scene.shopLabels.push({text:t,kind,name});
+  for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE'],[336,'outfitter','OUTFITTER']]){
+   const t=label(scene,cx,kind==='outfitter'?722:290,name);scene.shopLabels.push({text:t,kind,name});
   }
   label(scene,704,608,'LANTERN SQUARE');label(scene,1080,626,'SEED AID');
  }
 
  for(const p of [...map.buildings,...map.props])object(scene,p);
- for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.name==='Clara'?'seed':'sell',normal:npc.sprite,idle:npc.idle});}
+ for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.kind||(npc.name==='Clara'?'seed':'sell'),normal:npc.sprite,idle:npc.idle});}
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
 }
 export function drawPlots(scene,plots,group){

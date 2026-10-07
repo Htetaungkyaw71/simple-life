@@ -1,3 +1,33 @@
+# Verification — Milestone 3, 2026-10-07
+
+Current evidence: **docs/verification/forest/**. Production preview on local port 4175, isolated Chromium and disposable saves. Actual keyboard/mouse/touch drives gameplay; `?qa` provides copied read-only state/UI/combat snapshots. No user save or gameplay mutation hook was used. Supplemental fixtures initialize isolated localStorage deliberately; the complete playthrough starts with New Game.
+
+- Baseline `878d155`: clean repository, **56/56 tests**, production build successful before edits. Final `npm test`: **71/71 pass**; 15 added survival tests cover routes/cooldown/collision, collection/day/reentry, eating/selling, permanent club/hours, directional attacks/cooldown/cost, boar warning/charge/solids/damage/invulnerability/defeat/night behavior, next-morning care settlement and coin rounding, bag recovery/replacement/persistence, schemas 1–7 migration and malformed schema-8 repair. Existing farming, city, expansion and day/night suites pass. Log: `tests.txt`.
+- `npm run build`: PASS, 12 files, eight allowlisted art files, **1,711,341 bytes**. Inventory: `build-files.json`; log: `build.txt`. No new runtime dependency, vendor/source archive, unused pack, QA artifact or remote runtime asset enters dist. Whitespace check passes.
+- `tests/browser/forest-survival.mjs` complete run: PASS. New girl/starter → AM+PM Tomato care over three real sleeps → harvest/sell → buy club → first forest visit → berry/guava → eat → boar hurt/defeat/hide → mango → leave/reenter without refresh → fruit/hide market sales → bed/new-day boar → die → first-death guidance → save/reload preserved bag → return/recover → Home/save/reload. Evidence: `natural-loop.json`, `results.json`, `natural-*.png`. Final day 6 / 101 coins / saved equipped club / tutorial and defeat flags / no stash. Numerical inventory, damage, prices and floor-25%-loss assertions pass.
+- Final focused run on the final production build: `final/results.json` PASS. **1440×900, 1280×720, 1024×768, 844×390, 390×844**: FOOD/GEAR/Outfitter/fruit market fit, controls stay in viewport, touch eat/attack, paused state, tutorials shown once, closed keeper hidden, zero-energy eating-to-attack, full energy prevents consumption. Two-finger touch keeps movement held when the attack finger lifts. Second defeat replaces a prior 50-coin bag with the new 24-coin bag; refreshing during the fade preserves day 2 / 75 coins / full health. Night matches in default Canvas and explicit `?renderer=webgl` with the .78 distant overlay intact. Screenshots: `final/`.
+- Existing `tests/browser/city-economy.mjs` focused regression: `city/results.json` PASS at all five sizes. Buy/sell quantities, rapid repetition, hours, repeated gates, touch/keyboard, aid, crop panels, city geometry, stable prices/reload, legacy migration, wooden signs and retained Farm-board trade. The real farming/sales loop is also exercised by the new full survival playthrough.
+- All completed browser reports have **zero errors, warnings, failed HTTP requests and foreign runtime requests**. Visually inspected day forest, shrine/path/fruit, boar damage/defeat, death/recovery, compact/portrait FOOD/GEAR/shops, final inward arrival, two-finger combat and pixel night bands. Default Canvas and WebGL use the same stepped Graphics geometry. Atlas retains both original farmer sheets and their facial pixels; original frame verification from prior milestone remains applicable.
+
+The full playthrough preceded the final safe inward-arrival and independent pointer-release corrections. The affected routes, five-size layouts, touch combat and interrupted defeat cases were repeated afterward; this is recorded separately rather than claiming another full farming playthrough on unchanged rules. A preliminary two-finger test used an invalid CDP partial `touchEnd`; the driver now changes the active-point set with `touchMove`, then ends all points with an empty `touchEnd`. The corrected real-input test passes. During implementation, defeat initially let the old forest view see the new interior state during the fade; the WorldScene transition guard fixes this, and complete-loop plus final interrupted-fade checks pass.
+
+Reproduction (bundled Playwright may be supplied through PLAYWRIGHT_MODULE; no test package becomes a runtime dependency):
+
+```sh
+npm test
+npm run build
+npm run preview -- --port 4175
+# Launch a disposable Chromium profile with a local remote-debugging endpoint.
+# Set CDP_URL to that endpoint and PLAYWRIGHT_MODULE if needed.
+GAME_URL=http://127.0.0.1:4175/ node tests/browser/forest-survival.mjs
+QA_OUTPUT=docs/verification/forest/final SKIP_LOOP=1 GAME_URL=http://127.0.0.1:4175/ node tests/browser/forest-survival.mjs
+QA_OUTPUT=docs/verification/forest/city SKIP_LOOP=1 GAME_URL=http://127.0.0.1:4175/ node tests/browser/city-economy.mjs
+```
+
+Physical devices, notches/browser chrome and non-Chromium engines remain unverified. This is automated/visual QA, not human acceptance or a prolonged balance study. Audio hooks are silent because no suitable licensed sound assets exist. No push, publish, deploy or Milestone 4.
+
+---
+
 # Current verification — clean shops/day-night, 2026-10-07
 
 Version 0.2.1, schema 7. `npm test`: **56/56 pass**. `npm run build`: succeeds with 12 runtime files and eight allowlisted art files; inventory is verification/day-night/build-files.json. No dependency/raster art changes or remote runtime requests.

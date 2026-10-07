@@ -31,7 +31,7 @@ test('sleeping across expired windows cannot dodge missed care or earn twice in 
 test('awake fatigue persists fractionally through reload and bottoms at zero without movement changes',()=>{
  const s=newState();s.minute=10;s.energy=1;s.fatigueMinutes=29.8;s.area='farm';const p={...s.position};const v=validate(s);assert.equal(v.minute,10);assert.equal(v.fatigueMinutes,29.8);tick(v,100);assert.equal(v.energy,0);
  for(let n=0;n<100;n++)tick(v,100);assert.equal(v.energy,0);assert.equal(v.area,'farm');assert.deepEqual(v.position,validate(s).position);assert.deepEqual(s.position,p);
- const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,7);
+ const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,8);
  const bad=validate({...s,fatigueMinutes:Infinity});assert.equal(bad.fatigueMinutes,0);
 });
 test('midnight clock and phases remain correct; both shops close at night',()=>{

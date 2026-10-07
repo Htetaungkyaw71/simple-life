@@ -1,3 +1,4 @@
+import {FOREST_MAP} from './forest.js';
 import {FIELDS} from './farms.js';
 import {ROOM_SOLIDS} from './interior.js';
 import {HOUSE,houseSolids,shedSolids,pondRows} from './geometry.js';
@@ -17,6 +18,9 @@ const home={
  signs:[{x:2048,y:604,type:'hint',label:'CITY / follow the east road'},{x:1088,y:604,type:'hint',label:'CITY / follow the east road'},{x:408,y:616,type:'hint',label:'Farm - follow the south road'},{x:944,y:606,label:'Read the board',title:'A little room to grow',body:'Welcome home. The south path leads to your farm. The well and picnic corner are yours to enjoy.'},{x:880,y:896,label:'Read the carving',title:'The shade garden',body:'Someone carved a tiny sun into this bench. A fine spot to watch the afternoon drift by.'}],
  extras:[]
 };
+home.paths.push([672,0,96,672]);
+home.props.push(prop('road-sign',768,136,{text:'FOREST',direction:6}));
+home.signs.push({type:'hint',x:800,y:192,label:'FOREST / follow the north road'});
 const farm={
  paths:[[288,0,64,336],[192,272,144,64],[128,528,832,64],[832,256,64,192],[160,224,64,416],[192,432,1024,64],[640,288,64,640],[640,896,1376,64],[960,448,64,448],[960,576,928,64],[1472,256,64,672],[1024,352,800,64]],
  buildings:[prop('house',96,96),prop('shed',848,624)],
@@ -38,9 +42,11 @@ const city={
  npcs:[{x:432,y:246,name:'Clara',sprite:'seed-keeper0',idle:'seed-keeper1'},{x:896,y:246,name:'Niko',sprite:'produce-keeper0',idle:'produce-keeper1'}],
  extras:[]
 };
+city.props.push(prop('outfitter-stall',256,592));
+city.npcs.push({x:336,y:678,name:'Rowan',kind:'outfitter',sprite:'npc1'});
 const interior={paths:[],buildings:[],props:[],water:[],fences:[],signs:[],details:[],obstacles:[]};
 export const MAPS={home,farm,city};
-const footprints={tree:[22,76,20,16],cypress:[10,20,12,12],bush:[6,12,20,14],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:[2,2,28,30],crate:[0,0,32,32],fountain0:[4,40,88,48],scarecrow:[26,40,12,38],notice:[4,8,56,38],mailbox:[10,16,12,20],lamp:[12,48,8,14],sign:[10,44,12,16],'farm-sign':[20,48,8,16],'road-sign':[28,48,8,16],planter:[4,8,24,20],'seed-stall':[8,88,144,40],'produce-stall':[8,88,144,40]};
+const footprints={tree:[22,76,20,16],cypress:[10,20,12,12],bush:[6,12,20,14],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:[2,2,28,30],crate:[0,0,32,32],fountain0:[4,40,88,48],scarecrow:[26,40,12,38],notice:[4,8,56,38],mailbox:[10,16,12,20],lamp:[12,48,8,14],sign:[10,44,12,16],'farm-sign':[20,48,8,16],'road-sign':[28,48,8,16],planter:[4,8,24,20],'seed-stall':[8,88,144,40],'produce-stall':[8,88,144,40],'outfitter-stall':[8,88,144,40]};
 for(const [area,map]of Object.entries(MAPS)){
  if(area!=='city')map.props.push(...[[720,736],[1344,1000],[2064,96],[2080,960],[1984,384],[592,96]].map(([x,y])=>prop('rock',x,y)));
  map.props.push(...(area==='city'?[...Array.from({length:12},(_,i)=>prop('tree',i*112-16,-48)),...Array.from({length:12},(_,i)=>prop('tree',i*112-16,840)),...Array.from({length:6},(_,i)=>prop('tree',-48,72+i*120)),...Array.from({length:6},(_,i)=>prop('tree',1224,72+i*120))]:border).map(p=>({...p})));
@@ -51,7 +57,7 @@ for(const [area,map]of Object.entries(MAPS)){
 
  for(const tree of map.props.filter(p=>p.name==='tree')){for(let n=0;n<3;n++)map.details.push({name:n===0?'fern':n===1?'flowers'+(Math.floor(tree.x/112)%5+5)%5:'grass-detail',x:tree.x+((n*23+17)%74)-10,y:tree.y+82+n*6});}
  if(area==='city'){map.props=map.props.filter(p=>p.x<1280&&p.y<896&&!(p.x<80&&Math.abs(p.y+90-488)<100));map.details=map.details.filter(p=>p.x<1250&&p.y<864&&!(p.x>360&&p.x<1032&&p.y>312&&p.y<640));}
- if(area==='home'){map.props=map.props.filter(p=>!(p.x>2100&&Math.abs(p.y+90-640)<112));map.details=map.details.filter(p=>!(p.x>2112&&Math.abs(p.y-640)<64));}
+ if(area==='home'){map.props=map.props.filter(p=>!(Math.abs(p.x+32-720)<92&&p.y<96));map.props=map.props.filter(p=>!(p.x>2100&&Math.abs(p.y+90-640)<112));map.details=map.details.filter(p=>!(p.x>2112&&Math.abs(p.y-640)<64));}
  map.details=map.details.filter(p=>!map.water.some(([x,y,w,h])=>p.x>x-16&&p.x<x+w&&p.y>y-16&&p.y<y+h));
  if(area==='home'||area==='farm'){const cx=area==='home'?480:320;const nearEdge=p=>Math.abs(p.x+32-cx)<88&&(area==='home'?p.y>1000:p.y<48);map.props=map.props.filter(p=>!nearEdge(p));map.details=map.details.filter(p=>!nearEdge(p));}
  // Cut 2–3 tile openings where a fence intersects a road; collision uses this filtered list.
@@ -64,6 +70,10 @@ interior.obstacles=ROOM_SOLIDS;
 for(const p of city.props.filter(p=>p.name.endsWith('-stall')))city.obstacles.push([p.x+6,p.y+40,8,88],[p.x+146,p.y+40,8,88],[p.x+8,p.y+40,144,14]);
 city.obstacles.push([696,418,16,48],...city.npcs.map(n=>[n.x-10,n.y-12,20,12]));
 
+FOREST_MAP.details=Array.from({length:150},(_,i)=>({name:i%9===0?'flowers2':i%7===0?'mushroom':'fern',x:48+(i*173)%1180,y:80+(i*257)%864})).filter(p=>!FOREST_MAP.paths.some(([x,y,w,h])=>p.x>x-32&&p.x<x+w+16&&p.y>y-32&&p.y<y+h+16)&&!FOREST_MAP.water.some(([x,y,w,h])=>p.x>x-16&&p.x<x+w&&p.y>y-16&&p.y<y+h));
+FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{const f=footprints[p.name]||({'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],rock:[6,28,50,28],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
+FOREST_MAP.obstacles.push(...FOREST_MAP.water.flatMap(pondRows));
+MAPS.forest=FOREST_MAP;
 MAPS.interior=interior;
 home.details=home.details.filter(p=>!(p.x>380&&p.x<610&&p.y>290&&p.y<555));
 farm.obstacles.push([840,232,16,16],[872,232,16,16]);

@@ -1,3 +1,34 @@
+# Milestone 3 — Forest, Foraging & Survival V1 (2026-10-07)
+
+The current playable scope extends Milestone 2 with one complete forest survival loop. The older design-only and closure notes below are historical and superseded for the features explicitly described here. Farming, all four crops, city trading, paid farms, boy/girl controls, midnight growth and manual sleep remain.
+
+Home's north road at x=672–768 leads to the forest across its full width. A wooden FOREST/up-arrow sign marks the road. Forest's south path returns Home. Both use 140ms fades, safe inward spawns and a shared 700ms cooldown. The 1280×1024 forest has a safe berry clearing, winding route, guava grove, still-water shrine pond, fallen logs and deeper boar clearing. Trees/rocks/water/log/stone footprints share rendering, player collision, enemy movement and save repair; canopies sort by feet and soften near the farmer.
+
+| Item | Energy per fruit | Base sale | Location |
+| --- | ---: | ---: | --- |
+| Wild Berry | 12 | 6 | Three common entrance/path bushes |
+| Guava | 20 | 12 | Two fruit trees beside the middle route |
+| Mango | 30 | 20 | One tree in the deeper clearing |
+| Wild Hide | — | 18 | One guaranteed boar defeat reward; sell at City Market |
+
+Six authored nodes yield one item each per game day. Collect with E/USE, within 64 units and with a clear line past solids. The bag caps at 9999 per item. Collected node IDs and their day persist; leaving/reloading cannot reroll them. Every crossed midnight restores forage availability, including sleep and defeat. Food remains separate from field crops: no fruit seeds or orchard cultivation. Produce Market has crops/fruit pages and buys all fruit/hide with the existing 85–120% deterministic daily pricing; original crop price salts stay unchanged.
+
+BAG → FOOD shows icon/name/count, energy and today's sale value. EAT 1 consumes exactly one item and caps energy at 100; full energy consumes nothing and explains why. Left/right and Enter, mouse and touch work. BAG → FOOD → GEAR shows permanent club ownership/equipped state and hide count/sale destination. Seeds retain their existing BAG selector. Panels pause movement, fatigue, clock and combat.
+
+The compact City Outfitter is beside the southwest path, with one original farmer-derived keeper. It follows 07:00–20:00 hours, hiding the keeper when closed. Wooden Club costs 45 coins once and auto-equips permanently; EQUIP is available in Gear. No switching tiers/upgrades are added. Space/K and the separate visible ATTACK canvas button swing in the current facing direction; E and USE remain normal interactions. Each accepted swing costs 5 energy with a 450ms cooldown; insufficient energy says Too tired. The club has a directional rectangle hitbox, solid-object line check, stepped swing, impact pixels, flash and subtle shake.
+
+One Wild Boar lives in the deeper clearing. It wanders in a bounded territory, sees the player within 190 units with clear sight, warns for 650ms, locks its charge direction, charges for up to 650ms and rests for 1000ms after a charge. Charges stop at solids/territory edges and cannot tunnel; escape returns it to wandering. Three club hits make it flee without gore and add one Wild Hide. Partial health/position and defeated day persist. It respawns on a later day, never on reentry/reload that day. Each build/reentry grants an 800ms awareness grace; paused menus freeze its timers. At 20:00–06:00 movement is 15% faster and awareness grows to 228, retaining the warning.
+
+Boar contact during a charge deals 15 health with 750ms player invulnerability and collision-safe knockback. At zero health input stops, a brief fall/fade plays, and the farmer wakes beside the home bed with 100 health/energy at 06:00 on the next day—even if defeated after midnight. The shared time skip evaluates watering and crop growth at each crossed midnight once. Inventory, equipment, crops and farm ownership stay intact.
+
+Defeat drops exactly **floor(current coins × .25)** into one forest Stash Bag, retaining the other coins. There is no minimum loss. Zero loss creates no empty bag. A second defeat replaces the old bag permanently, including replacement by no bag when no coins drop. The safe forest position/value saves atomically with respawn progress before the fade; refresh during the animation cannot apply loss twice. E/USE within 64 units recovers the stored integer coins once. The bag survives travel, sleep, day rollover and refresh; invalid saved coordinates repair to safe ground. First-defeat guidance explains replacement.
+
+Three short first-visit canvas messages pause simulation; completing all three sets the saved tutorial flag. Night shows one saved warning about animal activity. The forest keeps the global cool night overlay, with 16-unit pixel bands at stepped lower opacity within roughly 208 units of the player; distant areas remain dark. The implementation uses Graphics rectangles for both Canvas and WebGL, with no shader/blur.
+
+Schema **8** retains `simple-life.save.v1` and migrates schemas 1–7 independently without clearing valid progress. See SAVE_SCHEMA.md. Original source-authored pixel additions and LimeZu tree adaptations are recorded in ASSET_LICENSES.md. Audio remains silent because no suitable licensed effect assets exist in the project. This milestone stops before Milestone 4.
+
+---
+
 # Simple Life — playable foundation and approved future direction
 
 ## Implemented now: foundation

@@ -224,6 +224,10 @@
     "tree": "tree0",
     "flowers": "flowers0"
   },
+  "derivedAdditions": {
+    "guava-tree": "LimeZu tree0 plus original Guava clusters",
+    "mango-tree": "LimeZu tree0 plus original Mango clusters"
+  },
   "originalAdditions": [
     "npc0",
     "npc1",
@@ -317,7 +321,20 @@
     "seed-keeper0",
     "seed-keeper1",
     "produce-keeper0",
-    "produce-keeper1"
+    "produce-keeper1",
+    "wild-berry-item",
+    "guava-item",
+    "mango-item",
+    "wild-hide-item",
+    "wooden-club-item",
+    "stash-bag",
+    "boar0",
+    "boar1",
+    "boar2",
+    "boar3",
+    "forest-log",
+    "shrine-stone",
+    "outfitter-stall"
   ],
   "characterFrames": {
     "size": [

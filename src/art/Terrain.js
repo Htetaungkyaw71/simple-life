@@ -31,6 +31,6 @@ export function terrain(scene,area,map){
    if(yy>3&&yy<ph/2-6){ctx.fillStyle='#4d9fc5';ctx.fillRect(left+3,y/2+yy,right-left-6,1);}
   }
  }
- if(area==='city')scene.add.tileSprite(-1024,-1024,3328,2944,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
+ if(area==='city'||area==='forest')scene.add.tileSprite(-1024,-1024,3328,2944,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
  texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);
 }

@@ -30,13 +30,17 @@ export class Hud {
       const dx=left+3,dy=h-u.safe.bottom-(portrait?73:49),size=22,gap=2;
       for(const [dir,label,col,row]of [['up','UP',1,0],['left','<',0,1],['down','DN',1,1],['right','>',2,1]]){
         const b=button(u,p,label,dx+col*(size+gap),dy+row*(size+gap),size,size,pointer=>{this.app.input[dir]=true;b.box.setAlpha(1);b.pointer=pointer.id;},{id:'move-'+dir});
-        const release=pointer=>{if(b.pointer===pointer.id){this.app.input[dir]=false;b.pointer=null;b.box.setAlpha(.48);}};b.box.setAlpha(.48);b.box.on('pointerup',release);b.box.on('pointerout',release);
+        const release=pointer=>{if(b.pointer===pointer.id){this.app.input[dir]=false;b.pointer=null;b.box.setAlpha(.48);}};b.release=release;b.box.setAlpha(.48);b.box.on('pointerup',release);b.box.on('pointerout',release);
       }
       button(u,p,'USE',right-34,h-u.safe.bottom-(portrait?61:35),34,32,()=>this.app.use(),{id:'use'});
     }
+    this.attackButton=button(u,p,'ATTACK',right-58,h-u.safe.bottom-(touch&&portrait?98:touch?72:76),58,28,()=>this.app.attack(),{id:'attack'});
     this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
   }
   update(s,c){
+    this.attackButton.box.setVisible(s.clubEquipped);this.attackButton.box.input.enabled=s.clubEquipped;
+    // The text belongs to the same canvas container; hide it with its button.
+    this.attackButton.text?.setVisible(s.clubEquipped);
     this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s));this.sky.clear();pixels(this.sky,isNight(s)?'moon':'sun',this.skyPosition.x,this.skyPosition.y,isNight(s)?0xb9cadd:UI_COLORS.gold);this.money.setText(String(s.money));this.area.setText(s.area==='farm'?'FARM '+(s.currentFarm+1):LOCATIONS[s.area].name);
     this.health.setSize(23*s.health/100,4);this.energy.setSize(21*s.energy/100,4);this.healthValue.setText(String(s.health));this.energyValue.setText(String(s.energy));
     for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):tool==='harvest'?String(s.inventory.tomato):'');}

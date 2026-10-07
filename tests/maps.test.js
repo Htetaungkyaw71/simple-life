@@ -15,8 +15,8 @@ test('expanded areas connect every interaction and decorative district',()=>{
   for(let i=0;i<queue.length;i++){const p=queue[i];for(const [dx,dy]of [[step,0],[-step,0],[0,step],[0,-step]]){const x=p.x+dx,y=p.y+dy,key=x+','+y;if(!seen.has(key)&&walkable(area,x,y)&&walkable(area,p.x+dx/2,p.y+dy/2)){seen.add(key);queue.push({x,y});}}}
   for(const c of location.interactions)assert.ok(queue.some(p=>Math.hypot(p.x-c.x,p.y-c.y)<60),`${area}: unreachable ${c.label}`);
   if(area==='interior')continue;
-  for(const [x,y]of (area==='city'?[[432,320],[896,320],[640,560],[1080,608]]:[[960,608],[1952,608],[960,960],[1952,960]]))assert.ok(queue.some(p=>Math.hypot(p.x-x,p.y-y)<100),`${area} district ${x},${y}`);
-  assert.ok(MAPS[area].buildings.length>=2);
+  for(const [x,y]of (area==='forest'?[[640,880],[480,704],[616,536],[944,304]]:area==='city'?[[432,320],[896,320],[640,560],[1080,608]]:[[960,608],[1952,608],[960,960],[1952,960]]))assert.ok(queue.some(p=>Math.hypot(p.x-x,p.y-y)<100),`${area} district ${x},${y}`);
+  if(area!=='forest')assert.ok(MAPS[area].buildings.length>=2);
  }
 });
 

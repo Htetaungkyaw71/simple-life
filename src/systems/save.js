@@ -1,3 +1,5 @@
+import {FORAGE_NODES} from '../data/forest.js';
+import {inTerritory,freshBoar,safeStash} from './forest.js';
 import {MAX_FARMS,PLOTS_PER_FARM} from '../data/farms.js';
 import {newFarm,plotOwned} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
@@ -5,11 +7,11 @@ import {ROOM} from '../data/interior.js';
 import {completedWindow} from './watering.js';
 import { CROPS,INVENTORY_KEYS } from '../data/crops.js';
 import { SAVE_KEY, TOOLS } from '../config.js';
-import { LOCATIONS, nearestSafe } from '../data/locations.js';
+import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -45,6 +47,21 @@ export function validate(raw) {
     if(Number.isFinite(old.plantedMinute))p.plantedMinute=number(old.plantedMinute,360,0,1439);
     if(Number.isFinite(old.recoveredWindow))p.recoveredWindow=number(old.recoveredWindow,-1,-1,(s.day-1)*2+1);
   });
+  for(const key of ['forestTutorialComplete','nightWarningSeen','deathTutorialSeen','hasDied','ownsClub'])s[key]=raw[key]===true;
+  s.clubEquipped=s.ownsClub&&raw.clubEquipped!==false;
+  s.forest.forageDay=number(raw.forest?.forageDay,s.day,1,s.day);
+  s.forest.collected=FORAGE_NODES.filter(n=>raw.forest?.collected?.includes?.(n.id)).map(n=>n.id);
+  if(s.forest.forageDay<s.day){s.forest.forageDay=s.day;s.forest.collected=[];}
+  const boar=raw.forest?.boar;
+  if(boar){
+    s.forest.boar.health=number(boar.health,3,0,3);
+    s.forest.boar.defeatedDay=number(boar.defeatedDay,s.day,0,s.day);
+    const p=nearestSafe('forest',boar.position);
+    s.forest.boar.position=inTerritory(p)&&walkable('forest',p.x,p.y,16)?p:freshBoar().position;
+    if(!s.forest.boar.health&&s.forest.boar.defeatedDay<s.day)s.forest.boar=freshBoar();
+  }
+  const coins=number(raw.stash?.coins,0,0,9999999);
+  if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(raw.stash),coins};
   return s;
 }
 export class SaveService {

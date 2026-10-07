@@ -1,0 +1,659 @@
+{
+  "result": "PASS",
+  "steps": "New Game / starter / Tomato grow-harvest-sell / buy club / forest tutorials / berry-guava / eat / boar damage-defeat / mango / market sales / sleep / die / save-reload / recover stash / return-reload",
+  "state": {
+    "version": 8,
+    "forest": {
+      "forageDay": 6,
+      "collected": [],
+      "boar": {
+        "position": {
+          "x": 887.497640903832,
+          "y": 474.4072521644602
+        },
+        "health": 3,
+        "defeatedDay": 0
+      }
+    },
+    "forestTutorialComplete": true,
+    "nightWarningSeen": false,
+    "deathTutorialSeen": true,
+    "hasDied": true,
+    "ownsClub": true,
+    "clubEquipped": true,
+    "stash": null,
+    "roomSize": {
+      "width": 624,
+      "height": 304
+    },
+    "character": "girl",
+    "area": "home",
+    "position": {
+      "x": 720,
+      "y": 124.66320000000002
+    },
+    "day": 6,
+    "minute": 428.3984200000001,
+    "money": 101,
+    "health": 85,
+    "energy": 98,
+    "fatigueMinutes": 8.837612100000198,
+    "selected": "harvest",
+    "marketSeed": 2709990251,
+    "selectedCrop": "tomato",
+    "hasHarvestedFirstCrop": true,
+    "hasVisitedCity": true,
+    "hasBoughtSeeds": false,
+    "hasSoldProduce": true,
+    "lastRecoveryDay": 0,
+    "inventory": {
+      "seed": 2,
+      "tomato": 0,
+      "strawberrySeed": 0,
+      "strawberry": 0,
+      "carrotSeed": 0,
+      "carrot": 0,
+      "cornSeed": 0,
+      "corn": 0,
+      "wildBerry": 0,
+      "guava": 0,
+      "mango": 0,
+      "wildHide": 0
+    },
+    "currentFarm": 0,
+    "farms": [
+      {
+        "fields": [
+          true,
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "plots": [
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      }
+    ],
+    "sold": 5,
+    "hasVisitedFarm": true,
+    "starterSeedsClaimed": true,
+    "expansionUnlocked": false
+  },
+  "errors": [],
+  "warnings": []
+}

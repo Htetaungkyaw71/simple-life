@@ -1,0 +1,55 @@
+{
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 588
+    },
+    {
+      "path": "assets/phaser-0YPJO2g1.js",
+      "bytes": 1481766
+    },
+    {
+      "path": "assets/index-HjdxXYAy.js",
+      "bytes": 99851
+    },
+    {
+      "path": "assets/index-DuO74lxp.css",
+      "bytes": 538
+    },
+    {
+      "path": "assets/pixel/world.png",
+      "bytes": 7819
+    },
+    {
+      "path": "assets/pixel/font.xml",
+      "bytes": 10278
+    },
+    {
+      "path": "assets/pixel/font.png",
+      "bytes": 791
+    },
+    {
+      "path": "assets/pixel/world.json",
+      "bytes": 16253
+    },
+    {
+      "path": "assets/pixel/processed/town.png",
+      "bytes": 38959
+    },
+    {
+      "path": "assets/pixel/processed/girl.png",
+      "bytes": 2141
+    },
+    {
+      "path": "assets/pixel/processed/town.json",
+      "bytes": 50089
+    },
+    {
+      "path": "assets/pixel/processed/boy.png",
+      "bytes": 2268
+    }
+  ],
+  "totalBytes": 1711341,
+  "fileCount": 12,
+  "artCount": 8
+}

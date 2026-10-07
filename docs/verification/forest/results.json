@@ -1,0 +1,36 @@
+{
+  "result": "PASS",
+  "naturalLoop": true,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 844,
+      "height": 390
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "canvasAndWebGLNight": true,
+  "tutorialPause": true,
+  "closedOutfitter": true,
+  "zeroEnergyEating": true,
+  "touchAttack": true,
+  "fullEnergyNoConsumption": true,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}

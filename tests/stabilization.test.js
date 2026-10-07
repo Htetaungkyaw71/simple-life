@@ -13,7 +13,7 @@ test('starter reward is exactly three, once across save/continue, fresh in a new
 });
 test('legacy crops expand without reordering and City saves migrate safely into the opened town',()=>{
  const old=newState('girl');old.version=1;old.area='city';old.money=217;old.plots=old.plots.slice(0,6);old.plots[5]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};delete old.starterSeedsClaimed;
- const s=validate(old);assert.equal(s.version,7);assert.equal(s.area,'city');assert.ok(walkable('city',s.position.x,s.position.y));assert.equal(s.money,217);for(const [key,value]of Object.entries(old.plots[5]))assert.deepEqual(s.plots[5][key],value);assert.equal(s.plots.length,64);assert.equal(s.plots[15].crop,null);assert.equal(s.starterSeedsClaimed,false);
+ const s=validate(old);assert.equal(s.version,8);assert.equal(s.area,'city');assert.ok(walkable('city',s.position.x,s.position.y));assert.equal(s.money,217);for(const [key,value]of Object.entries(old.plots[5]))assert.deepEqual(s.plots[5][key],value);assert.equal(s.plots.length,64);assert.equal(s.plots[15].crop,null);assert.equal(s.starterSeedsClaimed,false);
  old.area='home';old.position={x:370,y:350};assert.equal(validate(old).area,'interior');
 });
 test('house solids cover walls, corners, windows and rear; porch and door remain accessible',()=>{

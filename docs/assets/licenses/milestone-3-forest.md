@@ -1,0 +1,7 @@
+# Milestone 3 creation and rights evidence — 2026-10-07
+
+Source: scripts/forest_art.py (deterministic native integer-pixel geometry), scripts/process-rpg-assets.py (atlas packing) and src/art/ForestView.js / worldArt.js (canvas geometry). Tool: OpenAI Codex, GPT-6 family session identity; no external image model/service. User prompt: Milestone 3 Forest, Foraging & Survival V1, requiring cohesive original/licensed retro sprites and license records. Newly authored item/bag/boar/log/shrine sprites and original stall adaptation are project work, with AI assistance disclosed; final human review is not claimed.
+
+Two fruit-tree frames retain **LimeZu** tree0 pixels from Serene Village revamped 1.9, with original fruit clusters added. Source: https://limezu.itch.io/serenevillagerevamped . License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ . In-game credit and existing legal/source/archive hash evidence: docs/assets/licenses/limezu and docs/ASSET_LICENSES.md. Atlas manifest records these two as derivedAdditions, excluding them from originalAdditions. Existing tree/grass/path/rock/flower pixels remain licensed adaptations.
+
+All sprites are committed in public/assets/pixel/processed/town.png/json. Regeneration uses Pillow (existing HPND license record), without smoothing or network calls. Runtime allowlist remains eight files, with no source/vendor/QA assets. No commercial-game pixels, reference media, new audio/font/pack or paid asset was used. No exclusivity/ownership or final legal declaration is signed on the team's behalf.

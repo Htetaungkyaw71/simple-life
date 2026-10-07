@@ -1,3 +1,4 @@
+import {refreshForest} from './forest.js';
 import {evaluateWatering} from './watering.js';
 import {ROOM} from '../data/interior.js';
 import {DAY_SECONDS} from '../config.js';
@@ -7,7 +8,7 @@ export const isNight=s=>s.minute<MORNING||s.minute>=NIGHT;
 // Each crossed midnight settles care/growth once, awake or asleep.
 function advanceMinutes(s,minutes){
  s.minute+=minutes;
- while(s.minute>=1440){growOvernight(s);s.day++;s.minute-=1440;}
+ while(s.minute>=1440){growOvernight(s);s.day++;s.minute-=1440;refreshForest(s);}
  evaluateWatering(s);
 }
 function rested(s){s.energy=100;s.fatigueMinutes=0;s.area='interior';s.position={x:ROOM.bed.x,y:ROOM.bed.y+16};}

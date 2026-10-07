@@ -84,3 +84,14 @@ No runtime raster/atlas/font file or external asset changed. The existing origin
 
 ## 2026-10-07 reuse and presentation
 Compact shop cards and day/night tint are original Codex-assisted Phaser canvas geometry/code. Original crop/packet/coin icons, font and sun/moon masks are reused; no runtime art file or external asset/licence/dependency changed. Existing LimeZu CC BY 4.0 credits remain. Creation evidence: assets/licenses/day-night-ui.md; AI disclosure: AI_USAGE.md. Eight-file production art allowlist is preserved.
+
+## Milestone 3 forest assets — 2026-10-07
+
+| Asset / local frame | Creator/source | License/provenance | Modifications/use |
+| --- | --- | --- | --- |
+| wild-berry-item, guava-item, mango-item, wild-hide-item, wooden-club-item, stash-bag, boar0–3, forest-log, shrine-stone | Simple Life original project work, authored with OpenAI Codex assistance in scripts/forest_art.py | Original integer-pixel source and Git history; no third-party source URL; no exclusive-copyright claim for AI-assisted work | 16×16 items, 24×24 bag, 32×26 boar poses, 32×18 log and 24×28 stone; native outline/shadow/highlight palette |
+| guava-tree, mango-tree | LimeZu Serene Village revamped 1.9 tree0; source https://limezu.itch.io/serenevillagerevamped | CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ ; existing creator-page/legal evidence under assets/licenses/limezu | Retains the native tree pixels/palette adaptation; original fruit clusters added by forest_art.py. Explicit derivedAdditions in manifest |
+| outfitter-stall | Original Simple Life seed-stall from crop_art.py, adapted by forest_art.py | Original Codex-assisted source; no external pack | Cloth recolour and original Wooden Club display; existing original npc1 keeper reused |
+| Forest route, wooden direction boards, stepped night bands, swing/impact/energy effects and canvas panels | Original project source in forest.js, worldArt.js, ForestView.js, SurvivalPanel.js | Codex assistance disclosed in AI_USAGE.md | Integer-pixel geometry and retained bitmap font; no reference-game artwork |
+
+Current town atlas: **150 frames** (15 added). Existing licensed environment and character attribution stay visible in Credits. No new downloaded art, sound, music, font, runtime dependency or image-generation service. The existing eight-file art allowlist is unchanged; no vendor archive/source file enters production. Forest asset evidence: assets/licenses/milestone-3-forest.md. Existing library/tool license evidence under docs/licenses remains applicable, with package versions unchanged. Audio hooks stay silent because there are no suitable license-safe effects already supplied.
