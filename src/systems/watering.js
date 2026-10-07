@@ -1,7 +1,7 @@
 import {WATER_WINDOWS,CROPS} from '../data/crops.js';
 export const waterPeriod=s=>WATER_WINDOWS.find(w=>s.minute>=w.start&&s.minute<w.end)?.id||null;
 export const completedWindow=s=>(s.day-1)*2+(s.minute>=1320?1:s.minute>=720?0:-1);
-export const wateringLabel=s=>waterPeriod(s)==='morning'?'WATER AM 06-12':waterPeriod(s)==='evening'?'WATER PM 16-22':s.minute<960?'NEXT WATER 16:00':'NEXT WATER 06:00';
+export const wateringLabel=s=>waterPeriod(s)==='morning'?'WATER AM 06-12':waterPeriod(s)==='evening'?'WATER PM 16-22':s.minute<360?'NEXT WATER 06:00':s.minute<960?'NEXT WATER 16:00':'NEXT WATER 06:00';
 export const missed=p=>p.missedWindows??p.dryDays??0;
 // Cursor makes window expiry idempotent across ticks, sleeping, reloads and time skips.
 export function evaluateWatering(s,through=completedWindow(s)){

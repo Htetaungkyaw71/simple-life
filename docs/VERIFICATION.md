@@ -1,4 +1,16 @@
-# Current verification — Milestone 2 City and Economy V1, 2026-10-06
+# Current verification — clean shops/day-night, 2026-10-07
+
+Version 0.2.1, schema 7. `npm test`: **56/56 pass**. `npm run build`: succeeds with 12 runtime files and eight allowlisted art files; inventory is verification/day-night/build-files.json. No dependency/raster art changes or remote runtime requests.
+
+`tests/browser/day-night.mjs` exercises real-input bed sleep (daytime, evening, before/after midnight), continuous awake midnight with single cared-for crop growth and new prices, energy drain/zero-energy movement, before-dawn save/reload, shopkeeper close/hide and closed interactions, compact shop quotes/optional information, keyboard crop cycling/purchase and touch selection. Seven viewports: **1440×900,1280×720,1024×768,844×390,390×844,360×640,640×360**; shop/detail/BAG text and controls stay in bounds and paused state remains frozen. Evidence: verification/day-night/results.json and screenshots. Final production run follows the coin-header spacing and smooth lighting-colour correction.
+
+The adapted City acceptance suite selects quantity then confirms, uses crop-icon tabs, and uses daytime sleep to 20:00/evening sleep to 06:00 for farming. The real new-game Tomato → City sale → Strawberry buy/grow → second sale → save/reload loop passes (natural-loop.json), ending day 8 with 138 coins and four sold items. Reload compares persistent progress and saved fatigue plus elapsed awake time, rather than assuming energy freezes after Continue. Full results.json and focused final/results.json pass quantity/repeat/closed/touch/keyboard/price/migration/collision/sign/Farm-trade checks; browser errors/warnings/HTTP failures/foreign requests are empty. Evidence: verification/day-night/city/. Historical suites expecting the retired Rest-until-evening or Sleep-next-day UI and 23:50 cap belong to previous versions; their old reports are retained. Current continuous-clock rules are covered by the new suite and updated Node tests.
+
+All browser evidence uses isolated Chromium/disposable saves and real keyboard/mouse/touch with read-only snapshots. Physical devices and non-Chromium engines remain unverified. No final human acceptance or publish/push is claimed. Reproduce with PLAYWRIGHT_MODULE, CDP_URL and GAME_URL and run the two current browser scripts against a production preview.
+
+---
+
+# Historical verification — Milestone 2 City and Economy V1, 2026-10-06
 
 Version 0.2.0. Isolated Chrome CDP profile and Playwright contexts, disposable localStorage, real keyboard/mouse/touch, no state mutation hooks or user-save edits. The bundled Playwright fallback is used because agent-browser CLI is unavailable.
 

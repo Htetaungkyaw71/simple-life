@@ -7,13 +7,13 @@ export class Atmosphere {
   this.butterflies=MAPS[area].details.filter(p=>p.name.startsWith('flowers')).slice(0,8).map((p,i)=>({x:p.x,y:p.y,i,sprite:scene.add.image(p.x,p.y,'town','butterfly0').setScale(2).setDepth(1800)}));
  }
  update(time,moving,position){
-  for(const n of this.scene.merchants||[])if(n.idle)n.sprite.setFrame(time%4300<160?n.idle:n.normal);
+  for(const n of this.scene.merchants||[]){n.sprite.setVisible(shopOpen(this.scene.app.state,n.kind));if(n.idle)n.sprite.setFrame(time%4300<160?n.idle:n.normal);}
   for(const l of this.scene.shopLabels||[])l.text.setText(shopOpen(this.scene.app.state,l.kind)?l.name:l.name+' / CLOSED');
   const frame=Math.floor(time/600)%2;
   if(frame!==this.frame){this.frame=frame;for(const water of this.scene.water)water.setFrame('water'+frame);for(const fountain of this.scene.fountains)fountain.setFrame('fountain'+frame);}
   for(const c of this.scene.canopies){const near=Math.abs(position.x-c.x)<42&&position.y<c.y&&position.y>c.y-80;c.sprite.setAlpha(near?.5:1);c.sprite.setX(c.x-32+(Math.sin(time/1800+c.x)>.94?2:0));}
   for(const door of this.scene.doors){const near=Math.hypot(position.x-door.x-16,position.y-door.y)<85;door.setFrame(near?'door2':'door0');}
-  for(const b of this.butterflies)b.sprite.setFrame('butterfly'+Math.floor(time/180+b.i)%2).setPosition(b.x+Math.round(Math.sin(time/1300+b.i)*24)*2,b.y+Math.round(Math.cos(time/1800+b.i)*12)*2);
+  for(const b of this.butterflies)b.sprite.setVisible(this.scene.app.state.minute>=360&&this.scene.app.state.minute<1200).setFrame('butterfly'+Math.floor(time/180+b.i)%2).setPosition(b.x+Math.round(Math.sin(time/1300+b.i)*24)*2,b.y+Math.round(Math.cos(time/1800+b.i)*12)*2);
   if(moving&&time-this.lastStep>180){this.lastStep=time;const dust=this.scene.add.image(Math.round(position.x/2)*2,Math.round(position.y/2)*2,'town','dust').setScale(2).setDepth(position.y-1);this.scene.tweens.add({targets:dust,y:dust.y-6,alpha:0,duration:280,onComplete:()=>dust.destroy()});}
  }
  refill(position){for(let i=0;i<6;i++){const drop=this.scene.add.rectangle(position.x-12+i*4,position.y-12,2,4,0xade8ed).setDepth(position.y+1);this.scene.tweens.add({targets:drop,y:drop.y-18-(i%3)*4,alpha:0,duration:450+i*35,onComplete:()=>drop.destroy()});}}

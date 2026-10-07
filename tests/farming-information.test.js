@@ -16,7 +16,7 @@ test('crop status is pure, stages follow earned nights and timer agrees through 
  for(let night=0;night<3;night++){
   usePlot(s,0);assert.equal(cropStatus(s,0).care[0].label,'Watered');assert.equal(cropStatus(s,0).condition,'Watered for this window');
   restUntilEvening(s);assert.equal(cropStatus(s,0).need,'Needs evening water');usePlot(s,0);
-  info=cropStatus(s,0);assert.equal(info.condition,'Fully watered today');assert.equal(info.next,night===2?'Ready after sleeping':'Next stage after sleeping');
+  info=cropStatus(s,0);assert.equal(info.condition,'Fully watered today');assert.equal(info.next,night===2?'Ready at midnight':'Next stage at midnight');
   assert.deepEqual(cropStatus(validate(JSON.parse(JSON.stringify(s))),0),info);nextDay(s);s.area='farm';assert.equal(cropStatus(s,0).stage,night+2);assert.equal(cropStatus(s,0).remaining,2-night);
  }
  info=cropStatus(s,0);assert.equal(info.timer,'Ready to harvest');assert.equal(info.progress,1);s.selected='harvest';usePlot(s,0);assert.equal(cropStatus(s,0),null);

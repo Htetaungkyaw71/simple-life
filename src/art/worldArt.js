@@ -73,7 +73,7 @@ export function drawWorld(scene,area){
  }
 
  for(const p of [...map.buildings,...map.props])object(scene,p);
- for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,normal:npc.sprite,idle:npc.idle});}
+ for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.name==='Clara'?'seed':'sell',normal:npc.sprite,idle:npc.idle});}
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
 }
 export function drawPlots(scene,plots,group){

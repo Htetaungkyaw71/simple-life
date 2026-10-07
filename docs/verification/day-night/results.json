@@ -1,0 +1,146 @@
+{
+  "result": "PASS",
+  "moods": [
+    {
+      "name": "day",
+      "minute": 481.671334200027,
+      "lighting": {
+        "alpha": 0,
+        "color": 1582138
+      },
+      "merchants": [
+        {
+          "kind": "seed",
+          "visible": true
+        },
+        {
+          "kind": "sell",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "sunset",
+      "minute": 1141.68531,
+      "lighting": {
+        "alpha": 0.45926920500000046,
+        "color": 5255719
+      },
+      "merchants": [
+        {
+          "kind": "seed",
+          "visible": true
+        },
+        {
+          "kind": "sell",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "night",
+      "minute": 1321.604445300065,
+      "lighting": {
+        "alpha": 0.78,
+        "color": 463393
+      },
+      "merchants": [
+        {
+          "kind": "seed",
+          "visible": false
+        },
+        {
+          "kind": "sell",
+          "visible": false
+        }
+      ]
+    },
+    {
+      "name": "after-midnight",
+      "minute": 121.68450359999996,
+      "lighting": {
+        "alpha": 0.78,
+        "color": 463393
+      },
+      "merchants": [
+        {
+          "kind": "seed",
+          "visible": false
+        },
+        {
+          "kind": "sell",
+          "visible": false
+        }
+      ]
+    }
+  ],
+  "sleeps": [
+    {
+      "from": 480,
+      "day": 1,
+      "wake": 1201,
+      "energy": 100
+    },
+    {
+      "from": 1200,
+      "day": 2,
+      "wake": 361,
+      "energy": 100
+    },
+    {
+      "from": 1430,
+      "day": 2,
+      "wake": 361,
+      "energy": 100
+    },
+    {
+      "from": 120,
+      "day": 1,
+      "wake": 361,
+      "energy": 100
+    }
+  ],
+  "continuousMidnight": true,
+  "midnightReload": true,
+  "fatigue": true,
+  "zeroEnergyMovement": true,
+  "merchantClosing": true,
+  "compactShop": true,
+  "optionalDetails": true,
+  "keyboard": true,
+  "touch": true,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 844,
+      "height": 390
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 360,
+      "height": 640
+    },
+    {
+      "width": 640,
+      "height": 360
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "failed": [],
+  "foreign": []
+}

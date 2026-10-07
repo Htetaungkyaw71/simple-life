@@ -9,7 +9,7 @@ import { LOCATIONS, nearestSafe } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -31,7 +31,8 @@ export function validate(raw) {
   s.hasBoughtSeeds=raw.hasBoughtSeeds===true;
   s.hasSoldProduce=raw.hasSoldProduce===true||raw.sold>0;
   s.lastRecoveryDay=number(raw.lastRecoveryDay,0,0,99999);
-  for (const [key,min,max] of [['day',1,99999],['minute',360,1439],['money',0,9999999],['health',0,100],['energy',0,100],['sold',0,999999]]) s[key] = number(raw[key],s[key],min,max);
+  for (const [key,min,max] of [['day',1,99999],['minute',0,1439],['money',0,9999999],['health',0,100],['energy',0,100],['sold',0,999999]]) s[key] = number(raw[key],s[key],min,max);
+  s.fatigueMinutes=Number.isFinite(raw.fatigueMinutes)?Math.max(0,Math.min(29.999999,raw.fatigueMinutes)):0;
   s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
   for (const key of INVENTORY_KEYS) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
   s.plots = s.plots.map((_,i) => {
@@ -41,7 +42,7 @@ export function validate(raw) {
   s.hasVisitedFarm=inferFarmVisit(raw,s);
   s.plots.forEach((p,i)=>{if(!p.crop)return;const old=raw.plots[i];
     if(Number.isFinite(old.plantedDay))p.plantedDay=number(old.plantedDay,1,1,s.day);
-    if(Number.isFinite(old.plantedMinute))p.plantedMinute=number(old.plantedMinute,360,360,1439);
+    if(Number.isFinite(old.plantedMinute))p.plantedMinute=number(old.plantedMinute,360,0,1439);
     if(Number.isFinite(old.recoveredWindow))p.recoveredWindow=number(old.recoveredWindow,-1,-1,(s.day-1)*2+1);
   });
   return s;

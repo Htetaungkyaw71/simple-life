@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "naturalLoop": true,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 844,
+      "height": 390
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "quantities": "buy 1 / 5 / max; sell 1 / 5 / all",
+  "rapidRepeat": true,
+  "closedHours": true,
+  "repeatedGates": true,
+  "touch": true,
+  "seedAid": true,
+  "keyboard": true,
+  "cropPanels": true,
+  "cityCollisions": true,
+  "priceReload": true,
+  "migration": true,
+  "signFit": true,
+  "preservedFarmTrade": true,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}

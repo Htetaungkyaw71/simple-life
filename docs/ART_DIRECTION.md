@@ -48,3 +48,6 @@ The user requested four planting fields matching the original. Each unlocked fie
 
 ## Milestone 2 approved extension — 2026-10-06
 City is now authorized. Extend the same native pixel family/palette with original jade/coral awning stalls, readable existing original farmer-derived merchants, quiet stone paving and three distinct crops: low strawberry rosettes with red berries, feathery carrot tops/orange roots and tall corn stalks/yellow cobs. All care states remain distinct. CITY/HOME signs use wood boards, small fitted font and original arrows. Do not redesign Home, the compact interior, fields or existing characters. No new external asset family.
+
+## Shop and day/night follow-up — 2026-10-07
+User requested less text and a stronger game presentation. Reuse the original frames/font: compact crop-icon tabs, larger item icon, restrained name/bag/unit-price information, quantity selection and one exact-total action. Move care/description/shop details behind ?. Keep pixel edges and the world visible around the card. World daylight fades through warm sunset and dawn into dark cool moonlight (22% scene remains visible at full night). No artificial lamp/window/player halo or new raster art. Sun/moon HUD masks and daytime-only butterflies reuse original assets. Hide both merchants outside 07:00–20:00.

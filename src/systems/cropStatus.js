@@ -2,7 +2,7 @@ import {CROPS,WATER_WINDOWS} from '../data/crops.js';
 import {evaluateWatering,missed,waterPeriod} from './watering.js';
 
 // Presentation derives from the same window evaluator as ticks/rest/sleep. Never
-// mutate the inspected state or run a second countdown. Growth is earned at sleep.
+// mutate the inspected state or run a second countdown. Growth is earned at midnight.
 export function cropStatus(state,index){
  const original=state?.plots[index];if(!original?.crop)return null;
  const def=CROPS[original.crop];if(!def)return null;
@@ -24,7 +24,7 @@ export function cropStatus(state,index){
   // A missed or skipped morning cannot be repaired in the evening. No growth
   // tonight even after recovery; the next complete care day earns a stage.
   const eligible=p.morning||state.minute<WATER_WINDOWS[0].end;
-  next=fully?(remaining===1?'Ready after sleeping':'Next stage after sleeping'):eligible?'Next stage tomorrow if watered':'Next stage after a full care day';
+  next=fully?(remaining===1?'Ready at midnight':'Next stage at midnight'):eligible?'Next stage tomorrow if watered':'Next stage after a full care day';
  }
  return {index,name:def.name,icon:def.icon,stage:p.growth+1,stages:def.stageCount,stageName:def.growthStages[p.growth],progress:p.growth/def.growthDays,remaining,condition,need,timer,next,care,paused:wilted,dead,ready,plantedDay:p.plantedDay??null,plantedMinute:p.plantedMinute??null};
 }

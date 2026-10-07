@@ -3,14 +3,15 @@ import {CropInfo} from './CropInfo.js';
 import {FarmGuide} from './FarmGuide.js';
 import {wateringLabel} from '../systems/watering.js';
 import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
-import {clock,phase} from '../systems/time.js';
+import {pixels} from './statusArt.js';
+import {clock,isNight} from '../systems/time.js';
 import {LOCATIONS} from '../data/locations.js';
 export class Hud {
   constructor(ui){this.ui=ui;this.scene=ui;this.app=ui.app;this.root=ui.add.container(0,0);ui.root.add(this.root);this.create();}
   create(){
     const u=this.ui,w=u.w,h=u.h,p=this.root;const top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6;
     panel(u,p,left,top,88,43);this.day=text(u,p,left+7,top+4,'DAY 1',8);this.clock=text(u,p,left+7,top+15,'06:00',8,UI_COLORS.gold);
-    icon(u,p,'sun',left+68,top+3,.75);icon(u,p,'heart',left+5,top+26,.75);icon(u,p,'energy',left+46,top+26,.75);
+    this.sky=u.add.graphics();p.add(this.sky);this.skyPosition={x:left+71,y:top+5};icon(u,p,'heart',left+5,top+26,.75);icon(u,p,'energy',left+46,top+26,.75);
     this.health=u.add.rectangle(left+19,top+30,23,4,0xc75e41).setOrigin(0);p.add(this.health);this.energy=u.add.rectangle(left+60,top+30,21,4,0xd7af55).setOrigin(0);p.add(this.energy);
     this.healthValue=text(u,p,left+19,top+36,'100',6,UI_COLORS.muted);this.energyValue=text(u,p,left+60,top+36,'100',6,UI_COLORS.muted);
     panel(u,p,left,top+45,88,12);this.waterWindow=text(u,p,left+5,top+48,'WATER AM 06-12',6,UI_COLORS.light);
@@ -36,7 +37,7 @@ export class Hud {
     this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
   }
   update(s,c){
-    this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s)+' '+phase(s).slice(0,3));this.money.setText(String(s.money));this.area.setText(s.area==='farm'?'FARM '+(s.currentFarm+1):LOCATIONS[s.area].name);
+    this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setText(wateringLabel(s));this.day.setText('DAY '+s.day);this.clock.setText(clock(s));this.sky.clear();pixels(this.sky,isNight(s)?'moon':'sun',this.skyPosition.x,this.skyPosition.y,isNight(s)?0xb9cadd:UI_COLORS.gold);this.money.setText(String(s.money));this.area.setText(s.area==='farm'?'FARM '+(s.currentFarm+1):LOCATIONS[s.area].name);
     this.health.setSize(23*s.health/100,4);this.energy.setSize(21*s.energy/100,4);this.healthValue.setText(String(s.health));this.energyValue.setText(String(s.energy));
     for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?0x826a43:0x344b40);slot.box.setStrokeStyle(s.selected===tool?2:1,s.selected===tool?0xd7af55:0x657553);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):tool==='harvest'?String(s.inventory.tomato):'');}
     this.selected.setText(s.selected==='seed'?CROPS[s.selectedCrop].name.toUpperCase()+' SEED':s.selected==='water'?'WATERING CAN':'HARVEST TOOL');

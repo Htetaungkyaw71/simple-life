@@ -1,3 +1,4 @@
+import {daylight} from '../systems/time.js';
 import {ROOM} from '../data/interior.js';
 import {edgeTravel,syncInterior,nearestSafe} from '../data/locations.js';
 import Phaser from 'phaser';
@@ -59,7 +60,8 @@ export class WorldScene extends Phaser.Scene {
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(1900).setVisible(false);
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
-    this.night=this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,0x162e3c,0).setOrigin(0).setDepth(3000);
+    const light=daylight(s||{minute:720});this.night=this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(3000);
+    if(s)this.atmosphere.update(0,false,s.position);
     this.resize();
   }
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state)drawPlots(this,this.app.state?.plots,this.plots);}
@@ -75,7 +77,7 @@ export class WorldScene extends Phaser.Scene {
     }
     this.player?.update(s.position,dx,dy);
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);
-    this.night.setAlpha(s.minute>=1200?.38:s.minute>=960?.16:0);
+    const light=daylight(s);this.night.setFillStyle(light.color).setAlpha(light.alpha);
     const c=this.context();this.plotOutline.clear();if(c?.type==='plot'&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&c.type!=='plot'&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

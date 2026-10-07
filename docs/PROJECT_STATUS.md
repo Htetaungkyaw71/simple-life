@@ -1,6 +1,28 @@
 # Project status
 
-## Milestone 2 — City and Economy V1, 2026-10-06
+## Clean shops and continuous day/night — 2026-10-07
+
+**Implemented on Milestone 2, version 0.2.1**, following the user's screenshot and explicit request. The text-heavy shop is replaced by a compact pixel card: four crop-icon tabs, item/name, bag count and unit price, 1/5/Max or All selection and one Buy/Sell action with exact quantity/total. The ? button opens optional care/growth/yield/shop/price details. BAG uses the same icon tabs. World remains visible around the smaller card. Keyboard focus starts on the primary action; left/right cycle crops, up/down/Tab navigate and Enter confirms. Mouse/touch and Escape remain.
+
+- Full daylight, warm dusk and dawn fade into dark cool moonlight. Full night starts at **20:00**; only 22% of the scene remains visible beneath the overlay. No lamp/player/window light halo is added. Existing original sun/moon HUD glyphs track the phase; butterflies hide at night.
+- Both shops now operate **07:00–20:00**. Shopkeepers disappear outside their opening hours and reappear on reopening, including immediate load/travel. Closed counters show their hours and cannot open trade. Panels continue pausing the world, clock and fatigue.
+- The minute-precision clock runs continuously through **23:59 → 00:00**, incrementing the day without teleporting, forcing sleep or restoring energy. Midnight evaluates care/growth once for every farm and derives the new day's market prices. Crops grow when properly cared for even if the player stays awake. Before-dawn watering guidance points to 06:00.
+- Awake time drains **one energy per 30 game minutes**, in addition to existing farming costs. The fractional remainder is saved. Energy bottoms at zero; movement and the route home remain available. Sleep is always chosen at the bed: daytime **06:00–20:00** sleep wakes at **20:00** that day; nighttime sleep wakes at **06:00** next day, or the same morning when already past midnight. The bed shows the wake time before confirmation and restores energy to 100. Early-morning sleep cannot grant duplicate growth. Daytime sleep leaves the 20:00–22:00 portion of evening watering available.
+- Schema **7** retains the storage key and accepts versions **1–7**, preserving previous crops/coins/farms/care/positions. Saves now permit 00:00–05:59 and include fatigueMinutes. No offline simulation, forced sleep, damage/death, extra crops, weather or audio is introduced. Raster art, dependencies, existing licence evidence and the eight-file runtime art allowlist remain.
+
+### Checks and limitations
+
+`npm test`: **56/56 pass**; `npm run build`: succeeds. Six new meaningful rule tests cover all sleep boundaries, awake/shared-farm midnight and single growth, skipped-window care/death, saved fatigue/zero energy, clock/hours and lighting bounds. Existing regression assertions follow schema 7 and midnight growth text. Build inventory: verification/day-night/build-files.json (12 files, eight art files, 1681390 bytes). Whitespace diff check passes.
+
+Browser evidence is under **docs/verification/day-night/**. `results.json`: PASS for awake midnight/single growth/new prices, saved pre-dawn time/fatigue, all four bed sleep cases, zero-energy movement, merchant closing/hiding, optional details, keyboard crop/purchase and touch seed selection. Shop/detail/BAG bounds pass at **1440×900,1280×720,1024×768,844×390,390×844,360×640,640×360**. The short landscape layout compresses its vertical spacing. Night/day/sunset, phone/short-shop and optional-detail screenshots were visually inspected. Browser error/warning/failed/foreign-request arrays are empty.
+
+`city/natural-loop.json`: complete real New Game starter → three cared-for Tomato nights → City sale → Strawberry purchase → four cared-for nights → second sale → Save/refresh/Continue PASS, finishing day 8 with 138 coins and four total produce sold. The actual bed uses Sleep-to-20:00 for evening care and Sleep-to-06:00 overnight; no growth/time/stock injection. Reload verifies saved stocks/care/progress and exact fatigue accounting for the awake minutes after Continue. The prior energy-only assertion was corrected because resuming near a fatigue boundary legitimately costs another point. `city/results.json` (full suite) and `city/final/results.json` (focused pass): shop quantities/repeat gates/closed hours/price reload/touch/crop panels/collisions/signs/retained Farm trade PASS with empty browser errors/warnings and only local requests. QA uses isolated disposable saves and actual keyboard/mouse/touch; the user's save is untouched. Existing maps/assets/fullscreen architecture and Farm expansion remain.
+
+Limits: Chromium desktop and touch emulation; physical phones/notches and Safari/WebKit/Firefox/Edge are unverified. Fatigue/darkness are initial balance values requiring user play review; night intentionally has limited visibility. Silent audio/unlimited water/repeated farm maps remain. No push, publication, hosting or competition submission.
+
+---
+
+## Historical Milestone 2 — City and Economy V1, 2026-10-06
 
 **Completed on the existing Phaser/Vite foundation**, version 0.2.0. The latest user brief explicitly opens City and four crops. Home/interior/Farm, the original three starter seeds, matching paid fields/additional farms and manual bedtime are preserved. No push, publish or deployment.
 

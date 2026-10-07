@@ -6,7 +6,7 @@ export class Interface extends Phaser.Scene {
   create(){
     this.app.ui=this;this.input.addPointer(3);this.scale.on('resize',()=>this.layout());
     this.input.on('pointerup',()=>{this.app.input={};});this.input.on('gameout',()=>{this.app.input={};});
-    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.highlight();});
+    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;if(this.menu.kind==='trade'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.tradePanel.move(e.code==='ArrowLeft'?-1:1);return;}const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.highlight();});
     this.app.ready();
   }
   layout(){
@@ -58,7 +58,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nQ: change seed crop / BAG on touch\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nRest until evening at the bed.\nSleep. Repeat for 3 days.\nHarvest on day 4. Follow CITY east.\nOne missed window wilts. Two kill.';
+    const body=page===0?'WASD / arrows: move\nE / Space: use nearby object\n1 / 2 / 3: choose a tool\nQ: change seed crop / BAG on touch\nEscape: pause\n\nTouch: pad, tools and USE.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nSleep by day: wake at 20:00.\nWater PM, then sleep to 06:00.\nTime keeps moving at midnight.\nOne missed window wilts. Two kill.';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}
