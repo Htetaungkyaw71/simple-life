@@ -1,3 +1,6 @@
+## 2026-10-07 — supplied assets and walkable water
+OpenAI Codex assisted with native cell extraction/atlas packing of three user-supplied Craftpix archives, direction/action frame selection, transient woodland animal movement, textured ruin/animated flora placement, original deterministic waterfall pixels, shared continuous river/pond geometry, waterline/currents, walkable-water collision changes, source/licence records, read-only QA snapshots, automated tests, isolated browser checks and documentation. Pack pixels are Craftpix's licensed work, not AI-authored originals. The other 21 combat species retain previous original art. No generative image model, subagent, dependency, final audio or runtime remote asset was added. Official licence pages were checked; the game integration does not train/develop an AI model. Existing save schema and gameplay systems remain. The user's live save was not edited. No push, publish or signed human acceptance is claimed.
+
 # AI assistance record
 Date: 2026-10-03. Tool: OpenAI Codex, GPT-6 family (session identity); exact backend model identifier unavailable.
 User prompt: read master prompt and four competition PDFs; implement only a Phaser/Vite Milestone 1 vertical slice with Home/Farm/City and one three-day crop, saving, original placeholder graphics and verification.

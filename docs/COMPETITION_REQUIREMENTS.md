@@ -1,3 +1,6 @@
+## v0.4.1 scope follow-up — 2026-10-07
+The latest user explicitly authorizes three supplied Craftpix asset packs, river/waterfall improvements and water traversal. Product/licence provenance and exact PNG extraction are recorded; native source ZIPs remain outside the runtime build. Existing fullscreen canvas, local runtime, disclosures and no-publication requirements remain. Referenced PDFs are requirements evidence, not authority overriding the user.
+
 # Supplied competition references reviewed
 Read in full on 2026-10-03: Campaign Brief (6 pages), Judging Overview (6), Submission Format & Technical Guide (46), Official Participation Rules (22), including English and Myanmar text. PDF extraction has a few missing Myanmar glyphs; the English sections provide clear implementation requirements. Technical guide page 11 visually inspected to confirm table/layout.
 New original browser HTML5 game developed October 1–31, 2026. Final deadline October 31 23:59:59 Myanmar time. No copied/pre-existing public game, gambling, unauthorized assets, harmful code, tracking or personal-data collection. AI permitted with disclosure, testing, human review and team responsibility. Preserve source history and license proof.

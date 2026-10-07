@@ -1,4 +1,5 @@
-import {MAP_SIZE,pondInset} from '../data/mapLayouts.js';
+import {MAP_SIZE} from '../data/mapLayouts.js';
+import {waterRows} from '../data/water.js';
 // Bake static ground once per location. Pixel-space masks give paths/ponds
 // irregular, connected shores without thousands of individual display objects.
 export function terrain(scene,area,map){
@@ -27,14 +28,18 @@ export function terrain(scene,area,map){
  const palettes={snow:[188,210,204],savanna:[170,168,104],stone:[133,145,128],jungle:[76,146,104],bamboo:[101,160,99],pine:[90,138,120],marsh:[107,152,118],highland:[135,163,139]};
  for(const r of map.biomes||[]){const color=palettes[r.biome];if(!color)continue;for(let y=r.y/2;y<(r.y+r.h)/2;y++)for(let x=r.x/2;x<(r.x+r.w)/2;x++){if(mask[y*w+x])continue;const i=(y*w+x)*4,t=.75;for(let c=0;c<3;c++)pixels.data[i+c]=Math.round(pixels.data[i+c]*(1-t)+color[c]*t);}}
  ctx.putImageData(pixels,0,0);
- for(const [x,y,pw,ph]of map.water){
-  for(let yy=0;yy<ph/2;yy++){
-   const inset=Math.round(pondInset(yy*2,ph,pw)/2),left=x/2+inset,right=(x+pw)/2-inset;
-   ctx.fillStyle='#c5b77d';ctx.fillRect(left-3,y/2+yy,right-left+6,1);
-   ctx.fillStyle=yy<ph/2-4?'#70c7ce':'#347aa2';ctx.fillRect(left,y/2+yy,right-left,1);
-   if(yy>3&&yy<ph/2-6){ctx.fillStyle='#4d9fc5';ctx.fillRect(left+3,y/2+yy,right-left-6,1);}
-  }
+ // Union surfaces before painting banks: no oval caps or seams along a river.
+ const water=new Uint8Array(w*h);
+ for(const [x,y,pw]of waterRows(map)){const yy=Math.floor(y/2);if(yy<0||yy>=h)continue;for(let xx=Math.max(0,x/2);xx<Math.min(w,(x+pw)/2);xx++)water[yy*w+xx]=1;}
+ const waterPixels=ctx.getImageData(0,0,w,h),at=(x,y)=>x>=0&&y>=0&&x<w&&y<h&&water[y*w+x];
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+  const wet=at(x,y);if(!wet&&!at(x-2,y)&&!at(x+2,y)&&!at(x,y-2)&&!at(x,y+2))continue;
+  const edge=wet&&(!at(x-3,y)||!at(x+3,y)||!at(x,y-3)||!at(x,y+3));
+  const shallow=wet&&(!at(x-9,y)||!at(x+9,y)||!at(x,y-9)||!at(x,y+9));
+  const color=!wet?[160,176,123]:edge?[144,208,195]:shallow?[94,182,193]:((x*3+y*7)%67<3?[73,155,180]:[65,150,177]);
+  const i=(y*w+x)*4;for(let c=0;c<3;c++)waterPixels.data[i+c]=color[c];waterPixels.data[i+3]=255;
  }
+ ctx.putImageData(waterPixels,0,0);
  if(area==='city')scene.add.tileSprite(-1024,-1024,size.width+2048,size.height+2048,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
  texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);
 }

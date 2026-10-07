@@ -1,3 +1,9 @@
+# Asset/water follow-up — v0.4.1 / schema 9
+
+`data/water.js` supplies shared pond/river/fall surface geometry and bridge coverage. Terrain bakes the union of those surfaces; `WaterView` draws camera-local currents and the ankle waterline. Water is omitted from physical obstacle masks; waterfall rock banks remain solid. Save validation accepts safe water positions without migration. `wildlifeArt.js` owns direction/frame selection and eight quiet woodland placements. `WoodlandView` uses collision-safe transient wandering/fleeing with no new saved gameplay state. `ForestView` uses native Craftpix direction/action cells for Boar, preserving the established combat system and original remaining species. Craftpix PNG extraction adds named frames to the existing atlas through `craftpix_art.py`; no runtime dependency or remote requests. Credits is a separate page in the canvas UI. Existing world/UI scene division and eight-file runtime allowlist remain.
+
+---
+
 # Wilderness expansion architecture
 
 Data: forest.js composes the preserved starterForest.js entrance, 20 habitats, 63 nodes, bridges/waterfalls, broad clues and 14 caches; wildlife.js defines 22 species and 68 stable spawn IDs. Rules: forest.js manages daily availability, fruit/equipment/bag/cache transactions; combat.js keeps transient per-animal modes under one shared attack clock/damage immunity. Save schema 9 bounds records and migrates the original forest coordinates.

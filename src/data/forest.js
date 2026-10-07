@@ -28,7 +28,7 @@ for(const [i,r] of REGIONS.entries()){
  // Offset bends and side loops give each region a different travel silhouette.
  const bend=96+(i%3)*64;
  map.paths.push([x,y+672,1280,96],[x+448,y,96,1024],[x+448,y+480,384,80],[x+752,y+480,80,272],[x+bend,y+240,80,480],[x+bend,y+240,432-bend,80]);
- const landmark=r.biome==='stone'?'cave-mouth':r.biome==='snow'?'ice-crystal':r.id==='bamboo'?'bamboo-gate':r.id==='hyena'?'ruin-pillar':r.id==='herds'?'camp-tent':r.id==='jaguar'?'waterfall-stone':'shrine-stone';
+ const landmark=r.id==='hyena'?'cp-ruins-brown-gray-3':r.biome==='stone'?'cave-mouth':r.biome==='snow'?'ice-crystal':r.id==='bamboo'?'bamboo-gate':r.id==='hyena'?'ruin-pillar':r.id==='herds'?'camp-tent':r.id==='jaguar'?'cp-ruins-water-3':'shrine-stone';
  map.props.push(prop(landmark,x+250,y+368));
  map.signs.push({type:'dialog',x:x+282,y:y+446,label:'Explore '+r.name,title:r.name,body:r.biome==='snow'?'Cold water, old ice and bear tracks. This is the farthest edge of the woods.':r.biome==='stone'?'A hidden stone chamber. Listen for movement before searching the shadows.':r.id==='jaguar'?'The falling river hides an old trail. Watch for spotted hunters near the far bank.':'Fruit and animal tracks mark this place. The main crossroads leads homeward to the southwest.'});
  map.props.push(prop('road-sign',x+560,y+774,{text:'HOME',direction:i%4?4:2}));
@@ -55,21 +55,36 @@ for(const [i,r] of REGIONS.entries()){
 }
 // One connected river crossed by visible timber bridges, not invisible water gaps.
 export const WATERFALLS=[{x:112,y:3280,w:96,h:144},{x:2320,y:320,w:96,h:144}];
+map.falls=WATERFALLS;
+map.rivers=[{x:2304,y:0,w:144,h:5120,phase:0},{x:96,y:3112,w:128,h:352,phase:1}];
 export const BRIDGES=[];
 for(let row=0;row<5;row++){
  const y=row*1024;
- map.water.push([2304,y,128,640],[2304,y+800,128,224]);
+ // Banks bend continuously through every district.
  BRIDGES.push({x:2288,y:y+640,w:160,h:160});
- map.props.push(prop('waterfall-stone',2240,y+560));
+ map.props.push(prop('cp-ruins-water-5',2216,y+552));
 }
+map.bridges=BRIDGES;
 // Local pools, lake and marsh banks remain navigable and visually distinct.
 map.water.push([48,96,352,144],[1472,4896,224,144],[2864,288,224,128],[48,3328,224,128]);
 map.details=map.details.filter(p=>!map.water.some(([x,y,w,h])=>p.x>x-24&&p.x<x+w&&p.y>y-24&&p.y<y+h));
 map.props=map.props.filter(p=>!map.water.some(([x,y,w,h])=>p.x+32>x-8&&p.x+32<x+w+8&&p.y+90>y-8&&p.y+90<y+h+8));
+// Keep tree trunks and ground vegetation out of flowing channels and fall faces.
+const flowing=(x,y,pad=0)=>[...map.rivers,...WATERFALLS].some(r=>x>r.x-28-pad&&x<r.x+r.w+28+pad&&y>r.y-pad&&y<r.y+r.h+pad);
+map.props=map.props.filter(p=>!flowing(p.x+32,p.y+76,12));
+map.details=map.details.filter(p=>!flowing(p.x+16,p.y+16,16));
 // Peripheral vegetation is staggered. Leave the entire Home return lane clear.
 for(let n=0;n<44;n++)for(const [x,y]of [[n*120-16,-32],[-44,n*120],[5064,n*120],[n*120-16,5030]]){
  if(y>5000&&Math.abs(x+32-640)<100)continue;
  map.props.push(prop('tree',x,y));
 }
 export const TREASURES=REGIONS.filter(r=>r.danger>=3&&r.id!=='entrance').map((r,i)=>({id:r.id+'-cache',region:r.id,x:r.x+(r.id==='snake'?282:r.x===1280?992:1056),y:r.y+(r.id==='snake'?280:392),coins:120+r.danger*45+i*13,clue:'Look beyond the '+(r.biome==='stone'?'cave mouth':r.biome==='snow'?'frozen lake':'animal tracks')+'.'}));
+// Curated ruin fragments and colourful animated flora frame off-road landmarks.
+for(const r of REGIONS){
+ if(r.id==='entrance')continue;
+ const variant=r.biome==='snow'?'snow':r.biome==='savanna'?'sand':r.id==='jaguar'||r.id==='river'?'water':'brown-gray';
+ map.props.push(prop('cp-ruins-'+variant+'-4',r.x+208,r.y+176));
+ map.details.push(prop('cp-ruins-'+variant+'-5',r.x+344,r.y+520));
+ if(['jungle','bamboo','marsh'].includes(r.biome))map.props.push(prop('cp-plant-'+(1+REGIONS.indexOf(r)%3)+'-0',r.x+320,r.y+824,{animated:'plant'}));
+}
 export const FOREST_MAP=map;

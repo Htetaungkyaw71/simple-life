@@ -1,6 +1,8 @@
 # Simple Life — Wilderness expansion
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.0**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.1**, schema **9**.
+
+The 2026-10-07 asset/water follow-up uses the user-supplied Craftpix packs: animated Boar replacement, quiet Deer/Hare/Fox/Grouse, textured ruin fragments and animated plant scenery. All water is walkable with ankle ripples; continuous river banks and animated waterfalls replace the earlier rectangular pools. Existing 22 combat species, habitats, treasure and progress remain. Pack coverage is five woodland animals; the other 21 combat species still use original project art. Craftpix licence evidence and exact selected frame rectangles are documented locally, with in-game Credits.
 
 ## Run locally
 

@@ -1,3 +1,6 @@
+## v0.4.1 water traversal follow-up
+Schema stays **9**. A valid player or Stash Bag location inside water is now preserved by shared walkability validation. Solid structures, waterfall rock banks and map bounds still reject unsafe positions. Existing animal health, crops, inventories, money and legacy migration remain. New quiet woodland sprites are transient display state and add no saved keys.
+
 # Save schema 9 — large wilderness
 
 Storage key remains `simple-life.save.v1`; versions **1–9** are accepted. The previous farming/City/currency/care/fatigue/character fields remain unchanged. Six new fruit inventory keys default to zero. Original sale indices remain stable.

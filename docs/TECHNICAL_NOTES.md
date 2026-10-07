@@ -1,3 +1,9 @@
+# Asset/water follow-up — v0.4.1 / schema 9
+
+Town atlas: 514 frames, 1024×2048 native pixels. 258 Craftpix frames and four original waterfall frames extend the previous 252-frame atlas. Same eight runtime art files and unchanged dependencies; source ZIPs and provenance stay outside production. Forest remains 5120² / 20 times its original area. Water geometry is shared by the baked ground and wading visuals; continuous channel rows are cached, and animated currents are camera bounded. Physical obstacles retain trees/rocks/structures and fall side banks, omitting all water surfaces. Safe wet positions/bags save without a schema change. New ambient woodland animals have transient display state, no drops/difficulty/save changes. See PROJECT_STATUS.md and verification/asset-water/results.json for actual browser checks and limitations.
+
+---
+
 # Wilderness expansion technical notes
 
 Version 0.4.0 / schema 9. 5120² world area is exactly 20 times the previous 1280×1024. Default Canvas plus optional WebGL remains; local-only runtime and eight-file allowlist are unchanged. Atlas grows from 150 to 252 frames at 1024² source pixels, with original farmers unchanged. No runtime dependency changes.

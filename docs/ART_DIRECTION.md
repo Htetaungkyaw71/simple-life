@@ -1,3 +1,6 @@
+## Current asset and water follow-up — 2026-10-07
+The user explicitly authorizes the three supplied Craftpix packs, improving river/waterfall art and walkable water; this supersedes earlier no-new-pack and blocked-water restrictions. Audit: native four-direction 32×32 hunt cells at scale 2, selected natural-colour ruins, fixed native plant crops; unchanged farmer faces, pixel font, local-only Phaser canvas shell. Preserve actual species identities and missing-species original art. Colourful plants are scenery. Water has connected bending banks, layered shallow/deep blue, quiet animated currents and original crisp waterfall frames/foam/rock faces. Ankles crop beneath a small pixel ripple while wading; bridge decks suppress the waterline. Water has no new stamina/drowning/swimming rules. Solid scenery and waterfall side rocks remain blocked. Licensing/source evidence is recorded separately; no image-model generation.
+
 # Simple Life art bible — craftsmanship pass
 
 This replaces the previous olive/brown Tiny Town art direction. Milestone 1 only.

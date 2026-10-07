@@ -1,3 +1,15 @@
+# Supplied assets / water acceptance — v0.4.1, 2026-10-07
+
+`npm test`: **83/83 passed**. `npm run build`: success. Five new tests check whole-river continuity/bridge coverage, direct water traversal with solid fall rock banks and river refill context, wet player/bag save integrity, shared render/wading geometry, actual licensed animation keys and atlas bounds. Existing crop/economy/time/expansion/survival/treasure/migration/reachability tests still pass; former blocked-pond expectations were updated to the user's new walkability requirement. Final build/runtime art/source archive audit: asset-water/build-audit.json.
+
+`tests/browser/asset-water.mjs` passed against local production on port 4175 using disposable localStorage and read-only snapshots. Real keyboard input crosses the river away from all bridges, saves/refreshes/Continues inside water, exits onto land, walks into/out of Home/Farm ponds and through the waterfall centre. A real club swing drives the new Boar sprite away, gives exactly one hide, and preserves defeat after reload. Four ambient woodland species, textured ruin/animated flora and both waterfalls render without missing frames. Held real touch moves while wading. Both Credits panels and gameplay controls fit 1440×900, 1280×720, 1024×768, 844×390, 390×844, 360×640 and 640×360; Canvas and WebGL night water both load. Browser console errors, warnings, failed asset requests and foreign runtime requests are empty. Results and screenshots: verification/asset-water/.
+
+The final idle-animation correction gates zero-speed woodland movement; targeted final production smoke confirms visible idle frames and repeats direct river traversal with no console/resource errors (final-smoke.json). No gameplay contract changed after the seven-viewport pass. Credits' short landscape text was shortened after a clipped panel was detected; final minimum-size checks pass. Timing-based river movement in an early browser attempt was replaced by measured keyboard endpoints; no collision failure is hidden by a fixture teleport during the crossing.
+
+Repeat: start `npm run preview -- --port 4175`, connect an isolated Chromium CDP session, set CDP_URL and PLAYWRIGHT_MODULE if Playwright is external, then run `node tests/browser/asset-water.mjs`. Screenshots and results stay outside production. Pack identities are limited to Boar/Fox/Hare/Deer/Grouse; remaining combat species keep original sprites. Browser coverage is Chromium desktop/touch emulation, not certification of physical devices or other engines. Existing complete farming/treasure loop evidence remains historical; this pass adds focused affected-flow verification. No remote publishing or user-save edits.
+
+---
+
 # Verification — large wilderness, 2026-10-07
 
 Current evidence: **docs/verification/wilderness/**; version **0.4.0 / schema 9**. Isolated Chromium, disposable localStorage, real keyboard/mouse/touch and copied read-only QA snapshots. The user's live save is untouched. Browser fixture setup prepares explicit starting saves; it is separate from real-input interactions and is not claimed as a New Game farming loop.

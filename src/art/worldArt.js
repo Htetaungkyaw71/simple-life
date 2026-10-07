@@ -6,7 +6,6 @@ import {ownedField} from '../systems/expansion.js';
 import {CROPS} from '../data/crops.js';
 import {cropVisual,waterPeriod} from '../systems/watering.js';
 import {ROOM,FURNITURE} from '../data/interior.js';
-import {pondRows} from '../data/geometry.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {terrain} from './Terrain.js';
 const SCALE=2;
@@ -24,6 +23,7 @@ function object(scene,p){
  const obj=image(scene,name,p.x,p.y,foot);
  if(name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90});
  if(p.animated==='fountain')scene.fountains.push(obj);
+ if(p.animated==='plant')scene.plants.push({sprite:obj,prefix:name.slice(0,-1)});
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
  return obj;
 }
@@ -42,10 +42,9 @@ function roadSign(scene,p){
  return g;
 }
 export function drawWorld(scene,area){
- scene.roadSigns=[];scene.merchants=[];scene.shopLabels=[];scene.farmSigns=[];scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.canopies=[];scene.doors=[];
+ scene.roadSigns=[];scene.merchants=[];scene.shopLabels=[];scene.farmSigns=[];scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.plants=[];scene.canopies=[];scene.doors=[];
  if(area!=='interior')terrain(scene,area,map);
  for(const p of map.details)image(scene,p.name,p.x,p.y,0);
- for(const [x,y,w,h]of map.water){for(let yy=y+24;yy<y+h-24;yy+=40)for(let xx=x+60;xx<x+w-50;xx+=58){const rows=pondRows([x,y,w,h]).filter(r=>r[1]>=yy&&r[1]<yy+32);if(rows.length===16&&rows.every(r=>xx>=r[0]&&xx+32<=r[0]+r[2]))scene.water.push(image(scene,'water0',xx,yy,0));};for(let i=0;i<4;i++)image(scene,'bush',x+40+i*52,y+h-4,y+h+26);}
  if(area==='interior'){
   const w=ROOM.width,h=ROOM.height;
   tiled(scene,'wall',-1024,-1024,3072,3072,-1);tiled(scene,'floor0',0,0,w,h,0);

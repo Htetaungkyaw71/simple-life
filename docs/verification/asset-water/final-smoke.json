@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "idle": [
+    "cp-deer-idle-down-1",
+    "cp-hare-idle-down-1"
+  ],
+  "riverTraversal": true,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}

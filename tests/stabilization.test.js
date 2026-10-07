@@ -27,9 +27,9 @@ test('active field has sixteen reachable cells and action-specific prompts',()=>
  const s=newState();s.area='farm';for(const p of PLOTS)assert.ok(walkable('farm',p.x,p.y));s.position={...PLOTS[0]};assert.match(contextFor(s).label,/No seeds/);collectStarterSeeds(s);assert.equal(contextFor(s).label,'Plant seed');s.selected='water';assert.equal(contextFor(s).label,'Select a seed');s.plots[0].crop='tomato';assert.equal(contextFor(s).label,'Water');s.plots[0].morning=true;assert.equal(contextFor(s).label,'Already watered');s.plots[0].growth=3;s.selected='harvest';assert.equal(contextFor(s).label,'Harvest');s.position={x:800,y:520};assert.notEqual(contextFor(s)?.type,'plot');
  assert.ok(Object.hasOwn(LOCATIONS,'city'));assert.ok(!LOCATIONS.farm.interactions.some(p=>p.to==='city'));
 });
-test('every rendered pond row is blocked, adjacent bank is usable and can refills on land',()=>{
+test('pond surfaces are walkable, adjacent banks remain usable and cans refill on land',()=>{
  for(const area of ['home','farm'])for(const pond of MAPS[area].water){
-  const rows=pondRows(pond);for(const [x,y,w]of rows){assert.equal(walkable(area,x+w/2,y+1,0),false);assert.equal(walkable(area,x+.5,y+1,0),false);assert.equal(walkable(area,x+w-.5,y+1,0),false);}
+  const rows=pondRows(pond);for(const [x,y,w]of rows){assert.equal(walkable(area,x+w/2,y+1,0),true);assert.equal(walkable(area,x+.5,y+1,0),true);assert.equal(walkable(area,x+w-.5,y+1,0),true);}
   const [x,y,w]=pond;const s=newState();s.area=area;s.selected='water';s.position={x:x+w/2,y:y-16};assert.ok(walkable(area,s.position.x,s.position.y));assert.equal(contextFor(s).type,'refill');s.selected='seed';assert.notEqual(contextFor(s)?.type,'refill');
  }
 });

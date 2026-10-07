@@ -1,0 +1,24 @@
+{
+  "version": "0.4.1",
+  "saveSchema": 9,
+  "files": 12,
+  "bytes": 1953156,
+  "runtimeArt": [
+    "font.png",
+    "font.xml",
+    "processed/boy.png",
+    "processed/girl.png",
+    "processed/town.json",
+    "processed/town.png",
+    "world.json",
+    "world.png"
+  ],
+  "excluded": [
+    "vendor ZIPs",
+    "unused standalone PNGs",
+    "source projects",
+    "licence records",
+    "screenshots"
+  ],
+  "sourceArchiveHashesMatch": true
+}

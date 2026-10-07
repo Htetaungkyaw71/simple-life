@@ -22,7 +22,7 @@ test('forest edges cover the whole north/south road, with safe inward spawns and
  }
  const old=newState();old.position={x:720,y:80};assert.equal(edgeTravel(old),null);
 });
-test('forest solid trees, rocks, pond, log and landmark share collision and safe position repair',()=>{
+test('forest solid trees, rocks, log and landmark share collision and safe position repair',()=>{
  for(const [x,y,w,h]of MAPS.forest.obstacles)assert.equal(walkable('forest',x+w/2,y+h/2,0),false);
  for(const p of [LOCATIONS.forest.spawn,BOAR_HOME,...FORAGE_NODES])assert.ok(walkable('forest',p.x,p.y),JSON.stringify(p));
  for(const p of [{x:-400,y:-100},{x:150,y:4596},{x:1100,y:4736}]){const fixed=nearestSafe('forest',p);assert.ok(walkable('forest',fixed.x,fixed.y));}
@@ -56,7 +56,7 @@ test('boar telegraphs, locks a charge, damages once, recovers and returns to wan
  let hurt=false;for(let i=0;i<15;i++)hurt=stepCombat(s,r,50).hurt||hurt;assert.ok(hurt);assert.equal(s.health,85);assert.equal(r.mode,'recover');s.position={x:640,y:5056};for(let i=0;i<30;i++)stepCombat(s,r,50);assert.equal(r.mode,'wander');
 });
 test('boar charges cannot tunnel through obstacles or territory; melee cannot hit through solids',()=>{
- const p={x:340,y:4644};assert.equal(lineClear('forest',p,{x:280,y:4596},12),false);displace('forest',p,-160,0);assert.ok(walkable('forest',p.x,p.y));assert.ok(p.x>300);
+ const p={x:724,y:4810};assert.equal(lineClear('forest',p,{x:724,y:4770},12),false);displace('forest',p,0,-160);assert.ok(walkable('forest',p.x,p.y));assert.ok(p.y>4770);
  const s=forest(),r=combatRuntime();r.mode='charge';r.timer=650;r.heading={x:1,y:0};s.forest.boar.position={x:1128,y:4486};for(let i=0;i<30;i++)stepCombat(s,r,50);assert.ok(inTerritory(s.forest.boar.position));assert.ok(walkable('forest',s.forest.boar.position.x,s.forest.boar.position.y,16));
  // Solid log directly separates a deliberately close player/animal fixture.
  s.position={x:724,y:4802};s.forest.boar.position={x:724,y:4770};s.ownsClub=s.clubEquipped=true;r.nextAttack=0;assert.equal(attack(s,r,'up').hit,false);

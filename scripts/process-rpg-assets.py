@@ -174,11 +174,13 @@ from forest_art import add_forest_art
 add_forest_art(assets)
 from wilderness_art import add_wilderness_art
 add_wilderness_art(assets)
-atlas=Image.new('RGBA',(1024,1024));frames={};x=y=rowh=0
+from craftpix_art import add_craftpix_art
+craftpix=add_craftpix_art(assets)
+atlas=Image.new('RGBA',(1024,2048));frames={};x=y=rowh=0
 for name,im in assets.items():
  if x+im.width>1024:x=0;y+=rowh+2;rowh=0
  atlas.alpha_composite(im,(x,y));frames[name]={'frame':dict(x=x,y=y,w=im.width,h=im.height),'rotated':False,'trimmed':False,'spriteSourceSize':dict(x=0,y=0,w=im.width,h=im.height),'sourceSize':dict(w=im.width,h=im.height)};x+=im.width+2;rowh=max(rowh,im.height)
-assert y+rowh<=1024
-atlas.save(OUT/'town.png');(OUT/'town.json').write_text(json.dumps({'frames':frames,'meta':{'image':'town.png','size':{'w':1024,'h':1024}}},indent=2))
-(OUT/'manifest.json').write_text(json.dumps({'pack':'Serene Village revamped 1.9','creator':'LimeZu','license':'CC BY 4.0','sourceRectangles':source,'sourceAliases':{'tree':'tree0','flowers':'flowers0'},'derivedAdditions':{'guava-tree':'LimeZu tree0 plus original Guava clusters','mango-tree':'LimeZu tree0 plus original Mango clusters','snow-pine':'LimeZu tree0 with original snow palette','acacia-tree':'LimeZu tree0 with original dry palette'},'originalAdditions':[n for n in assets if n not in ['guava-tree','mango-tree','snow-pine','acacia-tree'] and n not in source and not n.startswith('door') and n not in ['tree','flowers']],'characterFrames':{'size':[24,32],'columns':6,'rows':['down','up','left','right'],'idle':[0,5],'walk':[1,2,3,4]},'modifications':'Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.'},indent=2))
+assert y+rowh<=2048
+atlas.save(OUT/'town.png');(OUT/'town.json').write_text(json.dumps({'frames':frames,'meta':{'image':'town.png','size':{'w':1024,'h':2048}}},indent=2))
+(OUT/'manifest.json').write_text(json.dumps({'pack':'Serene Village revamped 1.9','creator':'LimeZu','license':'CC BY 4.0','sourceRectangles':source,'sourceAliases':{'tree':'tree0','flowers':'flowers0'},'derivedAdditions':{'guava-tree':'LimeZu tree0 plus original Guava clusters','mango-tree':'LimeZu tree0 plus original Mango clusters','snow-pine':'LimeZu tree0 with original snow palette','acacia-tree':'LimeZu tree0 with original dry palette'},'atlasComposition':'LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2 selected PNGs, and original project additions; licences apply per source, not globally to the atlas.','craftpixFrames':craftpix,'originalAdditions':[n for n in assets if n not in craftpix and n not in ['guava-tree','mango-tree','snow-pine','acacia-tree'] and n not in source and not n.startswith('door') and n not in ['tree','flowers']],'characterFrames':{'size':[24,32],'columns':6,'rows':['down','up','left','right'],'idle':[0,5],'walk':[1,2,3,4]},'modifications':'Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.'},indent=2))
 print('Packed',len(assets),'frames, original farmers 24x32 / 24 frames each')

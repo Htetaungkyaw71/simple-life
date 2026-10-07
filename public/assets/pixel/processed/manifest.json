@@ -230,6 +230,3363 @@
     "snow-pine": "LimeZu tree0 with original snow palette",
     "acacia-tree": "LimeZu tree0 with original dry palette"
   },
+  "atlasComposition": "LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2 selected PNGs, and original project additions; licences apply per source, not globally to the atlas.",
+  "craftpixFrames": {
+    "cp-boar-idle-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-idle-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Idle.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-down-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        160,
+        0,
+        192,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-up-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        160,
+        32,
+        192,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-left-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        160,
+        64,
+        192,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-walk-right-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Walk.png",
+      "rectangle": [
+        160,
+        96,
+        192,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-run-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Run.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-boar-attack-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Boar/Boar_Attack.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-idle-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_Idle.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-down-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        160,
+        0,
+        192,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-up-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        160,
+        32,
+        192,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-left-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        160,
+        64,
+        192,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-fox-walk-right-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Fox/Fox_walk.png",
+      "rectangle": [
+        160,
+        96,
+        192,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-idle-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Idle.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-hare-walk-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Hare/Hare_Walk.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-idle-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Idle.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-down-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        160,
+        0,
+        192,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-up-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        160,
+        32,
+        192,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-left-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        160,
+        64,
+        192,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-deer-walk-right-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Deer/Deer_Walk.png",
+      "rectangle": [
+        160,
+        96,
+        192,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-idle-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Idle.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-down-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-down-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        32,
+        0,
+        64,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-down-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        64,
+        0,
+        96,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-down-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        96,
+        0,
+        128,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-down-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        128,
+        0,
+        160,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-down-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        160,
+        0,
+        192,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-up-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        0,
+        32,
+        32,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-up-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        32,
+        32,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-up-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        64,
+        32,
+        96,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-up-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        96,
+        32,
+        128,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-up-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        128,
+        32,
+        160,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-up-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        160,
+        32,
+        192,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-left-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-left-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        32,
+        64,
+        64,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-left-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        64,
+        64,
+        96,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-left-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        96,
+        64,
+        128,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-left-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        128,
+        64,
+        160,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-left-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        160,
+        64,
+        192,
+        96
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-right-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        0,
+        96,
+        32,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-right-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        32,
+        96,
+        64,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-right-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        64,
+        96,
+        96,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-right-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        96,
+        96,
+        128,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-right-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        128,
+        96,
+        160,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-grouse-walk-right-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack.zip",
+      "file": "PNG/Without_shadow/Black_grouse/Black_grouse_Walk.png",
+      "rectangle": [
+        160,
+        96,
+        192,
+        128
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-brown-gray-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Brown-gray_ruins3.png",
+      "rectangle": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-brown-gray-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Brown-gray_ruins4.png",
+      "rectangle": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-brown-gray-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Brown-gray_ruins5.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-snow-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Snow_ruins4.png",
+      "rectangle": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-snow-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Snow_ruins5.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-sand-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Sand_ruins4.png",
+      "rectangle": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-sand-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Sand_ruins5.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-water-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Water_ruins3.png",
+      "rectangle": [
+        0,
+        0,
+        48,
+        64
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-water-4": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Water_ruins4.png",
+      "rectangle": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-ruins-water-5": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-934618-free-top-down-ruins-pixel-art.zip",
+      "file": "PNG/Assets/Water_ruins5.png",
+      "rectangle": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-1-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant1/Without_shadow/Plant1_Idle_without_shadow.png",
+      "rectangle": [
+        12,
+        12,
+        52,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-1-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant1/Without_shadow/Plant1_Idle_without_shadow.png",
+      "rectangle": [
+        76,
+        12,
+        116,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-1-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant1/Without_shadow/Plant1_Idle_without_shadow.png",
+      "rectangle": [
+        140,
+        12,
+        180,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-1-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant1/Without_shadow/Plant1_Idle_without_shadow.png",
+      "rectangle": [
+        204,
+        12,
+        244,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-2-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant2/Without_shadow/Plant2_Idle_without_shadow.png",
+      "rectangle": [
+        12,
+        12,
+        52,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-2-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant2/Without_shadow/Plant2_Idle_without_shadow.png",
+      "rectangle": [
+        76,
+        12,
+        116,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-2-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant2/Without_shadow/Plant2_Idle_without_shadow.png",
+      "rectangle": [
+        140,
+        12,
+        180,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-2-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant2/Without_shadow/Plant2_Idle_without_shadow.png",
+      "rectangle": [
+        204,
+        12,
+        244,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-3-0": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant3/Without_shadow/Plant3_Idle_without_shadow.png",
+      "rectangle": [
+        12,
+        12,
+        52,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-3-1": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant3/Without_shadow/Plant3_Idle_without_shadow.png",
+      "rectangle": [
+        76,
+        12,
+        116,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-3-2": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant3/Without_shadow/Plant3_Idle_without_shadow.png",
+      "rectangle": [
+        140,
+        12,
+        180,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    },
+    "cp-plant-3-3": {
+      "creator": "Craftpix",
+      "license": "Craftpix Freebie Products \u00a72",
+      "archive": "craftpix-net-284465-free-predator-plant-mobs-pixel-art-pack.zip",
+      "file": "PNG/Plant3/Without_shadow/Plant3_Idle_without_shadow.png",
+      "rectangle": [
+        204,
+        12,
+        244,
+        54
+      ],
+      "modifications": "Native PNG cell extraction/repacking; no resampling or recolour."
+    }
+  },
   "originalAdditions": [
     "npc0",
     "npc1",
@@ -436,7 +3793,11 @@
     "camp-tent",
     "bamboo-gate",
     "waterfall-stone",
-    "ancient-chest"
+    "ancient-chest",
+    "fall-flow-0",
+    "fall-flow-1",
+    "fall-flow-2",
+    "fall-flow-3"
   ],
   "characterFrames": {
     "size": [

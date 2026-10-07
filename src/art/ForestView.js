@@ -3,6 +3,8 @@ import {FORAGE_NODES,TREASURES,WATERFALLS} from '../data/forest.js';
 import {FOODS} from '../data/items.js';
 import {forageAvailable,treasureAvailable} from '../systems/forest.js';
 import {attackBox,animalRuntime} from '../systems/combat.js';
+import {WoodlandView} from './WoodlandView.js';
+import {animalDirection,wildlifeFrame} from '../data/wildlifeArt.js';
 import {isNight} from '../systems/time.js';
 
 export class ForestView {
@@ -14,8 +16,9 @@ export class ForestView {
     const sprite=scene.add.image(node.x,node.y-22,'town',FOODS[node.item].icon).setScale(2).setDepth(node.y+1);
     this.nodes.push({node,sprite});
    }
-   this.animals=ANIMAL_SPAWNS.map(a=>({definition:a,sprite:scene.add.sprite(0,0,'town',a.species+'0').setOrigin(.5,.9).setScale(2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080),name:scene.add.bitmapText(0,0,'pixel',SPECIES[a.species].name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)}));
-   this.falls=WATERFALLS.map(f=>({fall:f,graphics:scene.add.graphics().setDepth(2)}));
+   this.animals=ANIMAL_SPAWNS.map(a=>({definition:a,direction:'down',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',a.species==='boar'?wildlifeFrame('boar','idle','down',0):a.species+'0').setOrigin(.5,.9).setScale(2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080),name:scene.add.bitmapText(0,0,'pixel',SPECIES[a.species].name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)}));
+   this.woodland=new WoodlandView(scene);
+   this.falls=WATERFALLS.map(f=>scene.add.image(f.x-24,f.y,'town','fall-flow-0').setOrigin(0).setScale(2).setDepth(2));
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
    this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2);
   }
@@ -25,13 +28,18 @@ export class ForestView {
  update(delta,r){
   const s=this.scene.app.state;if(!s)return;
   for(const {node,sprite}of this.nodes)sprite.setVisible(forageAvailable(s,node));
-  for(const {fall:f,graphics:g}of this.falls||[]){g.clear().fillStyle(0x657b80).fillRect(f.x-12,f.y-8,f.w+24,f.h+16).fillStyle(0x498fac).fillRect(f.x,f.y,f.w,f.h);const phase=Math.floor(r.now/180)%3;for(let n=0;n<8;n++){const x=f.x+4+n*12;g.fillStyle(n%2?0xa8dcdb:0x77becb).fillRect(x,f.y+phase*4,4,f.h-12-phase*4);}g.fillStyle(0xc5e3d9);for(let n=0;n<6;n++)g.fillRect(f.x+n*16,f.y+f.h-4-(n+phase)%3*4,12,4);}
+  for(const fall of this.falls||[])fall.setFrame('fall-flow-'+Math.floor(r.now/140)%4);
+  this.woodland?.update(delta,r.now);
   if(this.animals){
    const view=this.scene.cameras.main.worldView;
    for(const entry of this.animals){
     const b=s.forest.animals[entry.definition.id],p=b.position,runtime=animalRuntime(r,b.id),d=SPECIES[b.species];
     const visible=b.health>0&&p.x>view.x-120&&p.x<view.right+120&&p.y>view.y-120&&p.y<view.bottom+120;
-    entry.sprite.setVisible(visible).setPosition(Math.round(p.x/2)*2,Math.round(p.y/2)*2).setDepth(p.y).setFlipX(runtime.heading.x>0).setFrame(b.species+(runtime.mode==='warning'?3:Math.floor(r.now/180)%3));
+    const moving=Math.hypot(p.x-entry.previous.x,p.y-entry.previous.y)>.05;
+    entry.direction=animalDirection(runtime.heading,entry.direction);entry.previous={...p};
+    const native=b.species==='boar',action=runtime.mode==='charge'?'run':runtime.mode==='warning'?'attack':moving?'walk':'idle';
+    const frame=native?wildlifeFrame('boar',action,entry.direction,r.now):b.species+(runtime.mode==='warning'?3:moving?Math.floor(r.now/180)%3:0);
+    entry.sprite.setVisible(visible).setPosition(Math.round(p.x/2)*2,Math.round(p.y/2)*2).setDepth(p.y).setFlipX(!native&&runtime.heading.x>0).setFrame(frame);
     const top=entry.sprite.displayHeight;
     entry.warning.setPosition(p.x,p.y-top-20).setDepth(p.y+1).setVisible(visible&&runtime.mode==='warning');
     entry.health.clear().setDepth(p.y+1);
@@ -54,7 +62,7 @@ export class ForestView {
  attack(direction,result){
   this.swingDirection=direction;this.swingLeft=260;
   if(result.hit){const animal=this.scene.app.state.forest.animals[result.animalId],entry=this.animals.find(a=>a.definition.id===result.animalId),p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());this.scene.cameras.main.shake(80,.0012);}
-  if(result.defeated){const b=this.scene.app.state.forest.animals[result.animalId].position;const ghost=this.scene.add.image(b.x,b.y,'town',result.species+'0').setOrigin(.5,.9).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,x:b.x+20,y:b.y-12,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast(SPECIES[result.species].name+' fled / +1 Wild Hide.');}
+  if(result.defeated){const b=this.scene.app.state.forest.animals[result.animalId].position;const entry=this.animals.find(a=>a.definition.id===result.animalId);const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,.9).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,x:b.x+20,y:b.y-12,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast(SPECIES[result.species].name+' fled / +1 Wild Hide.');}
  }
  hurt(){const p=this.scene.app.state.position;this.bits(p.x,p.y-24,0xe99566);this.scene.cameras.main.shake(100,.0015);}
  bits(x,y,color){for(let i=0;i<8;i++){const bit=this.scene.add.rectangle(x-14+i*4,y,4,4,color).setDepth(y+60);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*4,y:y-20-(i%3)*6,alpha:0,duration:400+i*20,onComplete:()=>bit.destroy()});}}

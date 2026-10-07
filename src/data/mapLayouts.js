@@ -1,7 +1,7 @@
 import {FOREST_MAP,WATERFALLS} from './forest.js';
 import {FIELDS} from './farms.js';
 import {ROOM_SOLIDS} from './interior.js';
-import {HOUSE,houseSolids,shedSolids,pondRows} from './geometry.js';
+import {HOUSE,houseSolids,shedSolids} from './geometry.js';
 export {pondInset} from './geometry.js';
 // Visual layout and physical footprints share one source; positions are world units.
 export const MAP_SIZE = { width: 2240, height: 1152 };
@@ -63,15 +63,16 @@ for(const [area,map]of Object.entries(MAPS)){
  // Cut 2–3 tile openings where a fence intersects a road; collision uses this filtered list.
  map.props=map.props.filter(p=>!p.fence||!map.paths.some(([x,y,w,h])=>p.x+24>x&&p.x+8<x+w&&p.y+28>y&&p.y+12<y+h));
  map.obstacles=[...map.buildings,...map.props].flatMap(p=>{if(p.name.startsWith('house'))return houseSolids(p.x,p.y);if(p.name==='shed')return shedSolids(p.x,p.y);const f=footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
- map.obstacles.push(...map.water.flatMap(pondRows));
+ // Water is walkable; only scenery contributes physical footprints.
 }
 interior.obstacles=ROOM_SOLIDS;
 // Staffed stall posts/back shelves/counters and fountain column share actual art geometry.
 for(const p of city.props.filter(p=>p.name.endsWith('-stall')))city.obstacles.push([p.x+6,p.y+40,8,88],[p.x+146,p.y+40,8,88],[p.x+8,p.y+40,144,14]);
 city.obstacles.push([696,418,16,48],...city.npcs.map(n=>[n.x-10,n.y-12,20,12]));
 
-FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{if(p.name==='cave-mouth')return [[p.x+4,p.y+28,26,56],[p.x+96,p.y+28,28,56]];if(p.name==='bamboo-gate')return [[p.x,p.y,16,84],[p.x+80,p.y,16,84]];const f=footprints[p.name]||({'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],rock:[6,28,50,28],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26],'bamboo-clump':[20,48,20,16],'snow-pine':[22,76,20,16],'acacia-tree':[22,76,20,16],'cave-mouth':[8,56,112,24],'ice-crystal':[6,34,40,22],'bamboo-gate':[0,0,8,84],'ruin-pillar':[8,40,24,24],'camp-tent':[8,48,72,24],'waterfall-stone':[8,32,40,24]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
-FOREST_MAP.obstacles.push(...FOREST_MAP.water.flatMap(pondRows),...WATERFALLS.map(f=>[f.x,f.y,f.w,f.h]));
+FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{if(p.name.startsWith('cp-plant-'))return [];if(p.name.startsWith('cp-ruins-')){const n=Number(p.name.at(-1));return n===3?[[p.x+8,p.y+40,28,32],[p.x+84,p.y+40,28,32]]:n===4?[[p.x+10,p.y+42,70,38]]:[];}if(p.name==='cave-mouth')return [[p.x+4,p.y+28,26,56],[p.x+96,p.y+28,28,56]];if(p.name==='bamboo-gate')return [[p.x,p.y,16,84],[p.x+80,p.y,16,84]];const f=footprints[p.name]||({'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],rock:[6,28,50,28],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26],'bamboo-clump':[20,48,20,16],'snow-pine':[22,76,20,16],'acacia-tree':[22,76,20,16],'cave-mouth':[8,56,112,24],'ice-crystal':[6,34,40,22],'bamboo-gate':[0,0,8,84],'ruin-pillar':[8,40,24,24],'camp-tent':[8,48,72,24],'waterfall-stone':[8,32,40,24]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
+// Solid rock side banks leave the waterfall's flowing centre open.
+FOREST_MAP.obstacles.push(...WATERFALLS.flatMap(f=>[[f.x-24,f.y+10,24,f.h-4],[f.x+f.w,f.y+10,24,f.h-4]]));
 MAPS.forest=FOREST_MAP;
 MAPS.interior=interior;
 home.details=home.details.filter(p=>!(p.x>380&&p.x<610&&p.y>290&&p.y<555));
