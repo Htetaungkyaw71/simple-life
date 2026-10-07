@@ -1,3 +1,8 @@
+# v0.4.3 disclosure update
+Player pixels now originate from Channeechan's Cute Farmer Character (Eris Esra template acknowledged), selected Forest scenery from ToffeeCraft's FreeEnvironment sample. Codex assisted extraction/repacking, adapted jump body poses, rendering/credits/QA/docs; these are not claimed as original human-drawn artwork. User specifically authorizes local noncommercial use. ToffeeCraft public prize-competition rights remain unconfirmed. No final team signature/rights acceptance or submission is claimed. Evidence: assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md and AI_USAGE.md.
+
+---
+
 ## Current v0.4.2 assistance — 2026-10-07
 Codex assisted with forest density, original grass/jump pixels, low terraces, transient jump/save/input behavior, native existing licensed cliff extraction, QA and documentation. Supplied Mana Seed/FreeEnvironment pixels are excluded for current licence incompatibility. See AI_USAGE.md and assets/licenses/forest-growth/SOURCE_RECORD.md. No signed human acceptance is claimed.
 

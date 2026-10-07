@@ -1,3 +1,8 @@
+# v0.4.3 art update
+Channeechan native 64×64 source padding trims into the retained 24×32 / 9×4 player-sheet contract; the game loads no additional files. Eight native ToffeeCraft cells join the atlas. Forest tree footpoints/solids and all gameplay/save rules remain. New canopy dimensions guide fade/sway. Optional regeneration: Pillow + bsdtar, `SIMPLE_LIFE_FARMER_RAR` and `SIMPLE_LIFE_ENV_ZIP` point to user-provided archives; originals stay outside repository/build. `npm run build` needs only committed processed assets. No new dependency/runtime network request. Licence scope and non-Chromium/physical-device limits are in PROJECT_STATUS.md.
+
+---
+
 # Forest growth / jumping — v0.4.2, schema 9
 787 forest trees + 33 bamboo stands / 3,880 grass clumps / 20 terraces. Native atlas 545 frames / 1024×2048; boy/girl rigs 216×128 with 9×4 cells of 24×32, existing first six directional frames plus three jump poses. Same eight runtime art files, no dependency/remote asset/backend change. Camera-local grass uses 256-unit spatial buckets and pooled visible sprites; transient bending freezes when paused. Indexed collision remains authoritative, with separate low ledges crossable only by a swept jump. Saves store grounded take-off during flight, and player art offsets from a stable feet camera anchor. Water crop/dust suppress during flight. Supplied Mana Seed/FreeEnvironment pixels are excluded pending rights; primary source/licence evidence and hashes are recorded under assets/licenses/forest-growth.
 

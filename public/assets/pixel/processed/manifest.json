@@ -254,7 +254,127 @@
     "snow-pine": "LimeZu tree0 with original snow palette",
     "acacia-tree": "LimeZu tree0 with original dry palette"
   },
-  "atlasComposition": "LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2 selected PNGs, and original project additions; licences apply per source, not globally to the atlas.",
+  "atlasComposition": "LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2, ToffeeCraft Standard Free personal-use scenery, and original additions; licences apply per source.",
+  "suppliedEnvironment": {
+    "env-pine-jade": [
+      200,
+      270,
+      252,
+      384
+    ],
+    "env-pine-olive": [
+      104,
+      270,
+      156,
+      384
+    ],
+    "env-pine-snow": [
+      4,
+      270,
+      64,
+      384
+    ],
+    "env-fir": [
+      4,
+      136,
+      96,
+      256
+    ],
+    "env-agave": [
+      130,
+      46,
+      224,
+      128
+    ],
+    "env-dry-plant": [
+      226,
+      58,
+      318,
+      128
+    ],
+    "env-boulder": [
+      398,
+      170,
+      502,
+      242
+    ],
+    "env-ice": [
+      388,
+      270,
+      510,
+      374
+    ]
+  },
+  "suppliedCharacters": {
+    "boy": {
+      "creator": "Channeechan",
+      "sourceURL": "https://channeechan.itch.io/cute-farmer-character",
+      "license": "Creator game-use terms: commercial/noncommercial; modifications allowed; no standalone resale/original-file redistribution",
+      "templateCreator": "Eris Esra",
+      "source": "Farmer001-Idle.png / Farmer001-Walk.png",
+      "sourceCellSize": [
+        64,
+        64
+      ],
+      "trim": [
+        20,
+        18,
+        44,
+        50
+      ],
+      "sourceRows": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "idleSourceColumns": [
+        0,
+        2
+      ],
+      "walkSourceColumns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "jump": "three adapted poses from supplied idle pixels"
+    },
+    "girl": {
+      "creator": "Channeechan",
+      "sourceURL": "https://channeechan.itch.io/cute-farmer-character",
+      "license": "Creator game-use terms: commercial/noncommercial; modifications allowed; no standalone resale/original-file redistribution",
+      "templateCreator": "Eris Esra",
+      "source": "Farmer002-Idle.png / Farmer002-Walk.png",
+      "sourceCellSize": [
+        64,
+        64
+      ],
+      "trim": [
+        20,
+        18,
+        44,
+        50
+      ],
+      "sourceRows": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "idleSourceColumns": [
+        0,
+        2
+      ],
+      "walkSourceColumns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "jump": "three adapted poses from supplied idle pixels"
+    }
+  },
   "craftpixFrames": {
     "cp-boar-idle-down-0": {
       "creator": "Craftpix",

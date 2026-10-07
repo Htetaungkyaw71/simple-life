@@ -1,3 +1,6 @@
+## v0.4.3 current audit
+User-requested Channeechan farmer and local noncommercial FreeEnvironment integration completed; [current source and licence evidence](assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md). Both creators and underlying Eris Esra template credited. Public prize-entry scope for ToffeeCraft remains unconfirmed; historical blocked FreeEnvironment conclusions below are superseded by the user’s clarified scope. Mana Seed remains excluded. Only selected game textures enter production.
+
 # Pass 2 asset audit — 2026-10-04
 Only official pack files covered by a clear licence were integrated. No login, purchase, subscription, marketplace preview extraction or image-generation service was used.
 

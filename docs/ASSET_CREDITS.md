@@ -1,3 +1,10 @@
+# Current player and forest additions — v0.4.3
+Cute Farmer Character — Channeechan, https://channeechan.itch.io/cute-farmer-character . Commercial/noncommercial game use and modifications permitted; original-file redistribution/standalone resale prohibited. Original character template by Eris Esra: https://erisesra.itch.io/character-templates-pack . Native cropped idle/walk and adapted jump poses; both creators credited in-game.
+
+Forest Nature Pack / FreeEnvironment sample — ToffeeCraft, https://toffeecraft.itch.io/forest-nature-pack . Standard Free personal game-development terms, no asset redistribution/resale. Used locally at user's explicit noncommercial request; public prize-entry rights unconfirmed. Eight selected native scenery rectangles. [Full evidence](assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md). Existing LimeZu/Craftpix/font/tool/dependency credits remain below. Mana Seed is not used.
+
+---
+
 ## Current forest growth — 2026-10-07, v0.4.2
 Native cliff faces/stairs/rims reuse **Serene Village 1.9 by LimeZu**, https://limezu.itch.io/serenevillagerevamped , **CC BY 4.0**, https://creativecommons.org/licenses/by/4.0/ . Four source rectangles are recorded in the manifest; extraction/repacking, existing palette/atlas adaptations. Existing in-game linked LimeZu credit applies. Tall grass/bent clumps and added farmer jump poses are original project work authored with Codex assistance, not pixels from the user's supplied packs. Those two packs were inspected and excluded for licence incompatibility; see assets/licenses/forest-growth/SOURCE_RECORD.md. Existing Craftpix, original UI/font/crops and dependency credits remain.
 

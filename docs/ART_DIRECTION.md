@@ -1,3 +1,8 @@
+# v0.4.3 user-authorized farmer/environment replacement
+This latest request supersedes the original player-face and blocked-new-pack constraints below. Both playable farmers use Channeechan's native red-haired characters, with source-identical idle/walk poses, native 24×32 trimmed cells and adapted body jump poses. Four-direction keys and displayed scale stay established. Keep original NPCs. Forest uses ToffeeCraft sample conifers with native trunk-aligned bases and broad crowns fading by their actual size; broad firs are occasional. Native-scale boulders, ice and occasional dry plants extend the sample. Preserve broadleaf fruit trees/acacias/bamboo, quiet trails, wildlife identity, responsive original tall grass and jumpable LimeZu terraces. Credits/licence evidence distinguish every family. No source-pack original redistribution; eight-file production allowlist remains.
+
+---
+
 ## Current forest growth — 2026-10-07, v0.4.2
 Latest user authorizes new farmer/environment assets, dense trees/grass, raised ground and jumping. Supplied replacements cannot be integrated under their current terms (SOURCE_RECORD.md); existing licensed environment and original farmer faces remain. Extend original farmers with native crouch/tucked-knee/landing poses. Use credited native LimeZu cliff faces, stair gaps and stepped low terraces, textured grassy tops, varied tree clusters and original green/dry/snow tall grass. Grass bends locally on contact and springs back after departure. Source scale stays integer; camera tracks ground feet while sprite follows a crisp vertical arc. Waterline hides during flight. Preserve habitat identity, clear trails, fruit/cache/animal routes and quiet UI; no screenshot pixels/layout copied.
 

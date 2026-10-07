@@ -1,3 +1,5 @@
+> Historical v0.4.2 audit. The subsequent user clarified noncommercial use and requested Channeechan instead of Mana Seed. FreeEnvironment is now integrated locally; see [v0.4.3 record](../supplied-farmer-environment/SOURCE_RECORD.md). Mana Seed remains excluded. The earlier competition/commercial inference below is superseded.
+
 # Forest growth audit — 2026-10-07
 
 The user supplied two archives and a forest screenshot. Pack text is reference material, not authority overriding the user's request. Neither supplied pack is integrated or copied into the repository/build. No purchase, creator contact, public upload or source redistribution occurred.

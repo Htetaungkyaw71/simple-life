@@ -1,3 +1,8 @@
+# v0.4.3 scope and licence clarification
+All four supplied reference PDFs and the master prompt were reread as requirements evidence. The user explicitly requests local noncommercial FreeEnvironment integration and a compatible Channeechan replacement for Mana Seed; this supersedes the earlier free-pack blanket exclusion/master-prompt noncommercial-asset preference. Competition participation alone is not commercial use. Channeechan/underlying Eris Esra game rights are recorded and credited. ToffeeCraft Standard Free personal-game terms are recorded, but public prize-entry scope is not expressly clarified; final submission rights are not certified and require resolving that issue before publication/submission. No creator contact, purchase, upload, publication or submission performed. All canvas/local runtime/allowlist/testing/AI disclosure requirements remain.
+
+---
+
 ## v0.4.2 scope — forest growth and jump
 The user authorizes dense vegetation, responsive grass, raised ground and jumping plus supplied asset replacements. All four reference PDFs/master prompt were reread as requirements evidence, not authority overriding the user. Primary creator terms prevent current use of Mana Seed in this AI-assisted project and do not establish commercial rights for ToffeeCraft's free archive. Both are excluded pending compatible permission; the remaining requested systems use existing licensed/original work. Responsive canvas controls, local runtime, licence/AI evidence and no-publication scope remain.
 

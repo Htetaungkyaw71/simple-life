@@ -1,3 +1,8 @@
+# 2026-10-07 — supplied farmer/environment integration
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) audited primary licences, extracted/repacked user-supplied Channeechan idle/walk pixels at native scale, adapted three jump poses per direction, selected native ToffeeCraft conifers/rocks/ice/dry plants, integrated forest-only foot/canopy rendering, credit pages, QA snapshots, source integrity/gallery verification, isolated browser checks and documentation. No image-generation model, subagent, new dependency, purchase, creator contact, push, publish or competition submission. Creator pixels are externally authored and credited, not AI originals. Original NPC/grass/terrain art remains separately disclosed. User clarified noncommercial use and explicitly requested these replacements; FreeEnvironment public prize-entry permission remains unconfirmed. User live save untouched. Human code/art/rights acceptance is not claimed.
+
+---
+
 ## 2026-10-07 — forest density, grass response and low-ledge jumping
 OpenAI Codex (GPT-6 family session identity; exact backend ID unavailable) assisted with the user-requested dense forest, contact-responsive grass, raised ground and jumping. It audited the supplied FreeEnvironment and Mana Seed sample and their primary creator terms. Neither pack's pixels are integrated: Mana Seed prohibits use alongside AI-generated code/art and ToffeeCraft's free licence is personal-use only. User informed; no separate permission/paid licence evidence received. No purchase, creator contact, subagent, image-generation model or new dependency.
 

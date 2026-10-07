@@ -15,6 +15,18 @@ function label(scene,x,y,value){return scene.add.bitmapText(x,y,'pixel',value,6)
 function object(scene,p){
  if(p.name==='road-sign')return roadSign(scene,p);
  if(p.name==='farm-sign')return farmSign(scene,p);
+ if(scene.app.state?.area==='forest'){
+  const tree=p.name==='tree'||p.name==='snow-pine',variant=Math.abs(Math.floor(p.x/32+p.y/32));
+  const replacement=tree?(p.name==='snow-pine'?'env-pine-snow':(variant%7===0?'env-fir':variant%2?'env-pine-olive':'env-pine-jade')):p.name==='rock'?'env-boulder':p.name==='ice-crystal'?'env-ice':null;
+  if(replacement){
+   const frame=scene.textures.getFrame('town',replacement),scale=tree?2:1;
+   const foot=p.y+(tree?90:p.name==='rock'?64:104),cx=p.x+32;
+   const obj=scene.add.image(cx,foot,'town',replacement).setOrigin(.5,1).setScale(scale).setDepth(foot);
+   scene.add.ellipse(cx,foot-3,tree?48:40,12,0x253951,.18).setDepth(1);
+   if(tree)scene.canopies.push({sprite:obj,x:cx,y:foot,baseX:cx,width:frame.width*scale,height:frame.height*scale});
+   return obj;
+  }
+ }
  let name=p.name;
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
@@ -44,7 +56,11 @@ function roadSign(scene,p){
 export function drawWorld(scene,area){
  scene.roadSigns=[];scene.merchants=[];scene.shopLabels=[];scene.farmSigns=[];scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.plants=[];scene.canopies=[];scene.doors=[];
  if(area!=='interior')terrain(scene,area,map);
- for(const p of map.details)image(scene,p.name,p.x,p.y,0);
+ for(const p of map.details){
+  if(area==='forest'&&p.name==='dry-grass'&&Math.floor(p.x+p.y)%5===0){
+   scene.add.image(p.x+16,p.y+32,'town',Math.floor(p.x)%2?'env-agave':'env-dry-plant').setOrigin(.5,1).setScale(1).setDepth(0);
+  }else image(scene,p.name,p.x,p.y,0);
+ }
  if(area==='interior'){
   const w=ROOM.width,h=ROOM.height;
   tiled(scene,'wall',-1024,-1024,3072,3072,-1);tiled(scene,'floor0',0,0,w,h,0);

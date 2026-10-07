@@ -1,3 +1,11 @@
+# Supplied character / forest art — 2026-10-07, v0.4.3 / schema 9
+The latest user explicitly authorizes FreeEnvironment for their noncommercial game and Channeechan's Cute Farmer Character instead of Mana Seed. Both supplied boy/girl characters now replace the original player in every location and selection preview; 24×32 cells/animation keys/feet/scale remain. All idle/walk pixels are native source pixels; three jump poses adapt the supplied body. New conifers, boulders, ice and dry plants update Forest scenery, while fruit broadleaf trees/acacias/bamboo preserve distinct habitats. Tree bases align with existing solids and larger crowns fade/sway correctly. Existing 820 tree/bamboo props, 3,880 responsive grass clumps, 20 terraces, walkable water, 20 habitats/22 species, forage/guarded treasure, farming/City/sleep/save/recovery remain. No gameplay/save schema change, dependency, backend or remote runtime asset.
+
+Licences/source/selected rectangles: [SOURCE_RECORD.md](assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md). Channeechan allows commercial/noncommercial game use and modifications; underlying Eris Esra template also permits game use. Both credited. FreeEnvironment's Standard Free licence allows personal game development; user's noncommercial instruction authorizes local integration but **public prize-competition coverage remains unconfirmed**, and no additional creator permission is claimed. Mana Seed stays excluded. Original source archives/PNGs remain outside the repository; eight allowlisted processed runtime art files only. Nothing pushed, published or submitted.
+
+
+---
+
 ## Forest growth audit — 2026-10-07, v0.4.2
 The supplied Mana Seed farmer sample and ToffeeCraft FreeEnvironment are **excluded** pending compatible rights. Mana Seed's full User License prohibits use alongside AI-generated code/art; this project has documented AI assistance. ToffeeCraft's free licence is personal-use only, with commercial use reserved for its paid licence. Primary licence HTML, supplied ZIP hashes, findings and exact current asset provenance: [SOURCE_RECORD.md](assets/licenses/forest-growth/SOURCE_RECORD.md). No purchase/creator contact/source redistribution. User informed; no separate permission supplied.
 

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "character": "boy",
+      "newGame": true,
+      "waterWalk": true,
+      "waterJump": true,
+      "savedProgress": true
+    },
+    {
+      "character": "girl",
+      "newGame": true,
+      "waterWalk": true,
+      "waterJump": true,
+      "savedProgress": true
+    }
+  ],
+  "errors": []
+}

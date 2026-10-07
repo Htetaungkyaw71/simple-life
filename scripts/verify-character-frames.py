@@ -1,18 +1,25 @@
-"""Development-only sprite gallery and facial-pixel regression check; not shipped."""
+"""Native sprite integrity/gallery QA, never included in production."""
 from pathlib import Path
 from PIL import Image, ImageDraw
-OUT=Path('docs/verification/forest-growth');OUT.mkdir(parents=True,exist_ok=True)
-ink=(52,52,79,255)
-for gender in ['boy','girl']:
- sheet=Image.open(f'public/assets/pixel/processed/{gender}.png').convert('RGBA')
- assert sheet.size==(216,128)
- gallery=Image.new('RGB',(9*104,4*154),'#849497');draw=ImageDraw.Draw(gallery)
- for row,direction in enumerate(['down','up','left','right']):
-  for frame in range(9):
-   im=sheet.crop((frame*24,row*32,frame*24+24,row*32+32));bob=1 if frame in [2,4] else 0
-   eyes=[9,15] if direction=='down' else [9] if direction=='left' else [15] if direction=='right' else []
-   for x in eyes:assert im.getpixel((x,10+bob))==ink,(gender,direction,frame,x,'missing eye')
-   scaled=im.resize((96,128),Image.Resampling.NEAREST);gallery.paste(scaled,(frame*104,row*154+22),scaled)
-   draw.text((frame*104+2,row*154+3),direction+' '+str(frame)+(' idle' if frame in [0,5] else ' jump' if frame>5 else ' walk'),fill='white')
- gallery.save(OUT/f'{gender}-all-frames.png')
-print('PASS: all 72 frames have valid dimensions; every front/side frame has its expected eye pixels.')
+import io, os, subprocess
+OUT=Path('docs/verification/supplied-art'); OUT.mkdir(parents=True,exist_ok=True)
+archive=os.environ.get('SIMPLE_LIFE_FARMER_RAR',str(Path.home()/'Downloads/Cute Farmer Character by Channeechan.rar'))
+for character,number in [('boy','001'),('girl','002')]:
+    sheet=Image.open(f'public/assets/pixel/processed/{character}.png').convert('RGBA')
+    assert sheet.size==(216,128)
+    gallery=Image.new('RGB',(9*104,4*154),'#849497'); draw=ImageDraw.Draw(gallery)
+    sources={action:Image.open(io.BytesIO(subprocess.check_output(['bsdtar','-xOf',archive,f'Cute Farmer Character by Channeechan/Farmer{number}-{action}.png']))).convert('RGBA') for action in ['Idle','Walk']}
+    for row,direction in enumerate(['down','up','left','right']):
+        sr=[0,2,3,1][row]
+        for col in range(9):
+            im=sheet.crop((col*24,row*32,col*24+24,row*32+32))
+            assert im.getbbox() is not None
+            if col<6:
+                action='Walk' if 1<=col<=4 else 'Idle'; n=col-1 if action=='Walk' else 2 if col==5 else 0
+                source=sources[action].crop((n*64+20,sr*64+18,n*64+44,sr*64+50))
+                assert im.tobytes()==source.tobytes(),(character,direction,col,'source pixels changed')
+            else:assert im.getbbox()[3]<=30
+            scaled=im.resize((96,128),Image.Resampling.NEAREST); gallery.paste(scaled,(col*104,row*154+22),scaled)
+            draw.text((col*104+2,row*154+3),direction+' '+str(col)+(' idle' if col in [0,5] else ' jump' if col>5 else ' walk'),fill='white')
+    gallery.save(OUT/f'{character}-all-frames.png')
+print('PASS: 72 native frames; all 48 idle/walk cells preserve exact supplied pixels and correct direction rows.')

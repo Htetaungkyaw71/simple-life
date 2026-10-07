@@ -1,3 +1,8 @@
+# v0.4.3 artwork integration
+`scripts/supplied_art.py` reads the user-owned RAR/ZIP without copying source files to the repository, crops/reorders native Channeechan cells into the established 9×4 character contract and adds eight named ToffeeCraft atlas cells. `process-rpg-assets.py` retains original NPC generation before replacing the two player sheets; manifest provenance separates source families. `worldArt.js` maps forest-only scenery at render time, aligns its base with existing map solids and passes actual crown dimensions to `Atmosphere.js`. Gameplay/map coordinates/systems/save schema remain unchanged. Credits are separate compact canvas pages. Read-only QA snapshots expose canopy frames/anchors for visual verification. Regeneration source paths are overridable; builds use committed game textures, never source archives.
+
+---
+
 # Forest growth / jump follow-up — v0.4.2, schema 9
 `forestGrowth.js` enriches existing map data with trees, grass, terraces and low-ledge masks, preserving routes/species clearings. Shared `walkable` checks low ledges in addition to indexed ordinary solids; only jump path checks explicitly omit ledges. `jump.js` owns pure transient origin/destination/elapsed/cooldown and 4-unit swept planning, a 600ms arc / 850ms cooldown / at most 128 units. Invalid/blocked landings shorten the leap; solid trunks/structures/bounds never get bypassed. No energy cost or extra invulnerability. Animal hits cancel to the safe origin; existing combat damage stays authoritative. Use/attack wait until landing.
 

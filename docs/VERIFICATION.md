@@ -1,3 +1,8 @@
+# v0.4.3 supplied art — 2026-10-07
+88/88 tests and production build pass; 72 native player cells audited (48 idle/walk exactly source-identical), 553-frame atlas, same eight runtime art files. Full forest jump/grass/water/save regression passes; final both-character/five-area/four-direction/seven-habitat/seven-viewport selection/credit/crown checks, two-finger jump/repeat and actual new-game/water/save flows pass in isolated Chromium. Empty browser errors/warnings/failed/foreign requests in main/final art reports. Production: 12 files / 2,021,045 bytes, no source packs or unused/evidence assets. [Detailed commands, corrections, timing and limitations](verification/supplied-art/VERIFICATION.md). Physical devices/non-Chromium/human acceptance and ToffeeCraft public prize-entry rights remain unconfirmed. Nothing pushed or published.
+
+---
+
 # Forest growth and jumping — v0.4.2, 2026-10-07
 
 Evidence: **verification/forest-growth/**. Baseline clean **8fc977a**, 83 tests/build (`baseline-tests.txt`, `baseline-build.txt`). Final **88/88 tests**, production build (`tests.txt`, `build.txt`), whitespace and runtime allowlist audit pass. `build-audit.json`: **1,978,827 bytes / 12 files / eight art files**, no vendor/archive/guide/unused-pack/QA/evidence files. `art-audit.json`: all 48 previous idle/walk/face cells pixel-identical, 24 new distinct jump poses, 27 grass frames, four licensed cliff cells, 545-frame atlas; neither supplied pack integrated. `boy-all-frames.png` / `girl-all-frames.png` inspect all 72 cells.
