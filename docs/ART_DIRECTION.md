@@ -1,3 +1,8 @@
+# v0.4.7 recognisable asset-based wildlife
+Use selected licensed animal silhouettes with integer 2× display, native alpha and per-direction source-pixel ground anchors. Preserve actual pack capabilities: orthogonal walks where supplied; horizontal mirroring and remembered facing for side-only packs; idle loops where no authored walks exist. Retain species warning/health readability and add restrained ground shadows. Match coat identity through orange tiger stripes, ivory/charcoal panda and zebra, spotted tawny hyena, differing big-cat spots/rosettes and readable olive snake/crocodile scales. These are adaptations of credited animal art, not wholly original species illustrations. No change to approved forest/farmer pixels. Fifteen new replacements plus retained Craftpix Boar; six original species remain. Evidence: assets/licenses/wildlife-sprites/SOURCE_RECORD.md and verification/wildlife-sprites.
+
+---
+
 # v0.4.6 unified Forest palette and simpler shores
 Remove all raised earth assemblies and teal fern sprites from Forest, as shown in the user's second/third images. Keep natural textured shores, flowers and approved moving grass. Preserve tree species silhouettes while converting Forest foliage to one muted olive family with dark green shadows and yellow-green highlights; bark, fruit and neutral snow retain their original colours. Do not recolour other locations. Reference dated 22:59:17 guides general foliage hue and small broken river reflections, without pixel/asset/layout extraction.
 

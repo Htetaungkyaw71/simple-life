@@ -5,7 +5,7 @@ import {FOODS} from '../data/items.js';
 import {forageAvailable,treasureAvailable} from '../systems/forest.js';
 import {attackBox,animalRuntime} from '../systems/combat.js';
 import {WoodlandView} from './WoodlandView.js';
-import {animalDirection,wildlifeFrame} from '../data/wildlifeArt.js';
+import {animalDirection,combatAnimalVisual} from '../data/wildlifeArt.js';
 import {isNight} from '../systems/time.js';
 
 export class ForestView {
@@ -17,7 +17,7 @@ export class ForestView {
     const sprite=scene.add.image(node.x,node.y-22,'town',FOODS[node.item].icon).setScale(2).setDepth(node.y+1);
     this.nodes.push({node,sprite});
    }
-   this.animals=ANIMAL_SPAWNS.map(a=>({definition:a,direction:'down',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',a.species==='boar'?wildlifeFrame('boar','idle','down',0):a.species+'0').setOrigin(.5,.9).setScale(2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080),name:scene.add.bitmapText(0,0,'pixel',SPECIES[a.species].name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)}));
+   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:scene.add.ellipse(0,0,Math.min(64,SPECIES[a.species].body*2.5),10,0x253324,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080),name:scene.add.bitmapText(0,0,'pixel',SPECIES[a.species].name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)};});
    this.woodland=new WoodlandView(scene);
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
    this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2);
@@ -36,10 +36,12 @@ export class ForestView {
     const visible=b.health>0&&p.x>view.x-120&&p.x<view.right+120&&p.y>view.y-120&&p.y<view.bottom+120;
     const moving=Math.hypot(p.x-entry.previous.x,p.y-entry.previous.y)>.05;
     entry.direction=animalDirection(runtime.heading,entry.direction);entry.previous={...p};
-    const native=b.species==='boar',action=runtime.mode==='charge'?'run':runtime.mode==='warning'?'attack':moving?'walk':'idle';
-    const frame=native?wildlifeFrame('boar',action,entry.direction,r.now):b.species+(runtime.mode==='warning'?3:moving?Math.floor(r.now/180)%3:0);
-    entry.sprite.setVisible(visible).setPosition(Math.round(p.x/2)*2,Math.round(p.y/2)*2).setDepth(p.y).setFlipX(!native&&runtime.heading.x>0).setFrame(frame);
-    const top=entry.sprite.displayHeight;
+    if(['left','right'].includes(entry.direction))entry.lastSide=entry.direction;
+    const action=runtime.mode==='charge'?'run':runtime.mode==='warning'?'attack':moving?'walk':'idle';
+    const pose=combatAnimalVisual(b.species,action,entry.direction,r.now,entry.lastSide);
+    entry.sprite.setVisible(visible).setPosition(Math.round(p.x/2)*2,Math.round(p.y/2)*2).setDepth(p.y).setFlipX(pose.flipX).setFrame(pose.frame).setOrigin(.5,pose.originY);
+    entry.shadow.setVisible(visible).setPosition(entry.sprite.x,entry.sprite.y-2).setDepth(p.y-.1);
+    const top=entry.sprite.displayHeight*entry.sprite.originY;
     entry.warning.setPosition(p.x,p.y-top-20).setDepth(p.y+1).setVisible(visible&&runtime.mode==='warning');
     entry.health.clear().setDepth(p.y+1);
     const near=visible&&Math.hypot(p.x-s.position.x,p.y-s.position.y)<190;
@@ -61,7 +63,7 @@ export class ForestView {
  attack(direction,result){
   this.swingDirection=direction;this.swingLeft=260;
   if(result.hit){const animal=this.scene.app.state.forest.animals[result.animalId],entry=this.animals.find(a=>a.definition.id===result.animalId),p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());this.scene.cameras.main.shake(80,.0012);}
-  if(result.defeated){const b=this.scene.app.state.forest.animals[result.animalId].position;const entry=this.animals.find(a=>a.definition.id===result.animalId);const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,.9).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,x:b.x+20,y:b.y-12,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast(SPECIES[result.species].name+' fled / +1 Wild Hide.');}
+  if(result.defeated){const b=this.scene.app.state.forest.animals[result.animalId].position;const entry=this.animals.find(a=>a.definition.id===result.animalId);const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,x:b.x+20,y:b.y-12,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast(SPECIES[result.species].name+' fled / +1 Wild Hide.');}
  }
  hurt(){const p=this.scene.app.state.position;this.bits(p.x,p.y-24,0xe99566);this.scene.cameras.main.shake(100,.0015);}
  bits(x,y,color){for(let i=0;i<8;i++){const bit=this.scene.add.rectangle(x-14+i*4,y,4,4,color).setDepth(y+60);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*4,y:y-20-(i%3)*6,alpha:0,duration:400+i*20,onComplete:()=>bit.destroy()});}}

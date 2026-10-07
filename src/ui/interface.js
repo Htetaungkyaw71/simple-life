@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import {ANIMAL_CREDITS} from '../data/animalCredits.js';
 import {Hud} from './Hud.js';
 import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
 export class Interface extends Phaser.Scene {
@@ -24,14 +25,15 @@ export class Interface extends Phaser.Scene {
   drawMenu(){
     if(['trade','survival','wilderness'].includes(this.menu.kind)){this.menu.draw();return;}
     const {kicker,title,body:fullBody,buttons,kind}=this.menu,w=this.w,h=this.h;
-    const body=h<200&&kicker==='ART LICENCES'?'ToffeeCraft / personal-use sample.':h<200&&kicker==='FARMERS & FOREST'?'Channeechan / Eris Esra\nNative sprites / adapted jump':h<200&&kicker==='ART & CREDITS'?'LimeZu / CC BY 4.0 / adapted.':h<200&&kicker==='WILDLIFE & RUINS'?'Hunt animals, ruins and plants.\nCraftpix / PNG frames repacked.':h<200&&kicker==='FIELD NOTES'&&title==='Controls'?'Move: WASD / arrows\nUse: E / Attack: Space or K\nForest jump: J / Shift\nTools: 1 / 2 / 3 / Q\nMap: M / Pause: Escape\nTouch: pad and action buttons.':fullBody;
+    const body=h<200&&kicker==='ART LICENCES'?'ToffeeCraft / personal-use sample.':h<200&&kicker==='FARMERS & FOREST'?'Channeechan / Eris Esra\nNative sprites / adapted jump':h<200&&kicker==='ART & CREDITS'?'LimeZu / CC BY 4.0 / adapted.':h<200&&kicker==='WILDLIFE & RUINS'?'Craftpix / PNG frames repacked.':h<200&&kicker==='FIELD NOTES'&&title==='Controls'?'Move: WASD / arrows\nUse: E / Attack: Space or K\nForest jump: J / Shift\nTools: 1 / 2 / 3 / Q\nMap: M / Pause: Escape\nTouch: pad and action buttons.':fullBody;
     const veil=this.add.rectangle(0,0,w,h,0x102b25,kind==='title'?.36:.78).setOrigin(0).setInteractive();this.root.add(veil);veil.on('pointerdown',(p,x,y,e)=>e.stopPropagation());
     const pw=Math.min(kind==='title'?270:290,w-this.safe.left-this.safe.right-16),x=Math.floor((w-pw)/2);
     const titleSize=kind==='title'?(h<240?16:24):12;
     const measure=text(this,this.root,0,0,body,8,UI_COLORS.muted,pw-24);const bh=body?measure.height:0;measure.destroy();
     const portraitHeight=kind==='choose'?(h<200?44:48):0;const titleMeasure=text(this,this.root,0,0,kind==='title'?'SIMPLE\nLIFE':title,titleSize,UI_COLORS.light,pw-20);const th=titleMeasure.height+10;titleMeasure.destroy();
-    const buttonStep=h<200?24:25;
-    const total=12+10+th+bh+(bh?10:0)+portraitHeight+buttons.length*buttonStep+10;
+    const compactAnimals=h<200&&kicker.startsWith('ANIMAL ART');
+    const bodyGap=compactAnimals?4:10,buttonStep=compactAnimals?22:h<200?24:25;
+    const total=12+10+th+bh+(bh?bodyGap:0)+portraitHeight+buttons.length*buttonStep+10;
     const y=Math.max(this.safe.top+5,Math.floor((h-total)/2));
     this.menuBounds={x:x*2,y:y*2,w:pw*2,h:total*2};
     panel(this,this.root,x,y,pw,total,kind==='title'?0x263e38:0x263e38);
@@ -42,7 +44,7 @@ export class Interface extends Phaser.Scene {
       for(const [i,char]of ['boy','girl'].entries()){const sx=w/2+(i?35:-35);const p=this.add.sprite(sx,cy+17,char,0).setScale(1);this.root.add(p);text(this,this.root,sx,cy+35,char,8).setOrigin(.5,0);}
       cy+=portraitHeight;
     }
-    if(body){text(this,this.root,x+12,cy,body,8,UI_COLORS.muted,pw-24);cy+=bh+10;}
+    if(body){text(this,this.root,x+12,cy,body,8,UI_COLORS.muted,pw-24);cy+=bh+bodyGap;}
     buttons.forEach(([label,fn,disabled=false],i)=>button(this,this.root,label,x+12,cy+i*buttonStep,pw-24,21,fn,{disabled,id:label}));this.highlight();
   }
   title(){
@@ -58,7 +60,11 @@ export class Interface extends Phaser.Scene {
   credits(){this.modal('ART & CREDITS','Simple Life','Serene Village / LimeZu\nCC BY 4.0 / palette adapted.',[['Asset source',()=>window.open('https://limezu.itch.io/serenevillagerevamped','_blank','noopener')],['More art credits',()=>this.suppliedCredits()],['Wildlife & ruins',()=>this.craftpixCredits()],['Back',()=>this.title()]]);}
   suppliedCredits(){this.modal('FARMERS & FOREST','Artist credits','Farmers / Channeechan\nTemplate / Eris Esra', [['Farmer source & terms',()=>window.open('https://channeechan.itch.io/cute-farmer-character','_blank','noopener')],['Original character template',()=>window.open('https://erisesra.itch.io/character-templates-pack','_blank','noopener')],['Forest & licences',()=>this.artLicence()]]);}
   artLicence(){this.modal('ART LICENCES','Forest sample','Forest sample / ToffeeCraft\nStandard Free / personal use', [['Forest source & terms',()=>window.open('https://toffeecraft.itch.io/forest-nature-pack','_blank','noopener')],['CC BY 4.0 licence',()=>window.open('https://creativecommons.org/licenses/by/4.0/','_blank','noopener')],['Back',()=>this.credits()]]);}
-  craftpixCredits(){this.modal('WILDLIFE & RUINS','Craftpix','Hunt animals, ruins and\nplant sprites / Craftpix.\nFreebie licence / selected\nPNG frames repacked.',[['Craftpix assets',()=>window.open('https://craftpix.net/freebies/','_blank','noopener')],['Craftpix licence',()=>window.open('https://craftpix.net/file-licenses/','_blank','noopener')],['Back',()=>this.credits()]]);}
+  craftpixCredits(){this.modal('WILDLIFE & RUINS','Craftpix','Hunt animals, ruins and\nplant sprites / Craftpix.\nFreebie licence / selected\nPNG frames repacked.',[['Craftpix assets',()=>window.open('https://craftpix.net/freebies/','_blank','noopener')],['Craftpix licence',()=>window.open('https://craftpix.net/file-licenses/','_blank','noopener')],['More animals',()=>this.animalCredits()],['Back',()=>this.credits()]]);}
+  animalCredits(page=0){
+    const c=ANIMAL_CREDITS[page],links=c.links.map(([label,url])=>[label,()=>window.open(url,'_blank','noopener')]);
+    this.modal('ANIMAL ART / '+(page+1)+' OF '+ANIMAL_CREDITS.length,c.title,c.body,[...links,...(page<ANIMAL_CREDITS.length-1?[['Next artists',()=>this.animalCredits(page+1)]]:[]),['Back to credits',()=>this.credits()]]);
+  }
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){

@@ -1,0 +1,1351 @@
+{
+  "before": null,
+  "after": {
+    "version": 9,
+    "forest": {
+      "forageDay": 1,
+      "collected": [],
+      "animals": {
+        "polarBear-0": {
+          "id": "polarBear-0",
+          "species": "polarBear",
+          "position": {
+            "x": 852,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "polarBear-1": {
+          "id": "polarBear-1",
+          "species": "polarBear",
+          "position": {
+            "x": 996,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "polarBear-2": {
+          "id": "polarBear-2",
+          "species": "polarBear",
+          "position": {
+            "x": 852,
+            "y": 400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "gorilla-0": {
+          "id": "gorilla-0",
+          "species": "gorilla",
+          "position": {
+            "x": 2132,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "gorilla-1": {
+          "id": "gorilla-1",
+          "species": "gorilla",
+          "position": {
+            "x": 2276,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "gorilla-2": {
+          "id": "gorilla-2",
+          "species": "gorilla",
+          "position": {
+            "x": 2132,
+            "y": 400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "komodo-0": {
+          "id": "komodo-0",
+          "species": "komodo",
+          "position": {
+            "x": 3412,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "komodo-1": {
+          "id": "komodo-1",
+          "species": "komodo",
+          "position": {
+            "x": 3556,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "komodo-2": {
+          "id": "komodo-2",
+          "species": "komodo",
+          "position": {
+            "x": 3412,
+            "y": 400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "lion-0": {
+          "id": "lion-0",
+          "species": "lion",
+          "position": {
+            "x": 4692,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "lion-1": {
+          "id": "lion-1",
+          "species": "lion",
+          "position": {
+            "x": 4836,
+            "y": 328
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "lion-2": {
+          "id": "lion-2",
+          "species": "lion",
+          "position": {
+            "x": 4692,
+            "y": 400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "panda-0": {
+          "id": "panda-0",
+          "species": "panda",
+          "position": {
+            "x": 852,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "panda-1": {
+          "id": "panda-1",
+          "species": "panda",
+          "position": {
+            "x": 996,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "panda-2": {
+          "id": "panda-2",
+          "species": "panda",
+          "position": {
+            "x": 852,
+            "y": 1424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "leopard-0": {
+          "id": "leopard-0",
+          "species": "leopard",
+          "position": {
+            "x": 2132,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "leopard-1": {
+          "id": "leopard-1",
+          "species": "leopard",
+          "position": {
+            "x": 2276,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "leopard-2": {
+          "id": "leopard-2",
+          "species": "leopard",
+          "position": {
+            "x": 2132,
+            "y": 1424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "tiger-0": {
+          "id": "tiger-0",
+          "species": "tiger",
+          "position": {
+            "x": 3412,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "tiger-1": {
+          "id": "tiger-1",
+          "species": "tiger",
+          "position": {
+            "x": 3556,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "tiger-2": {
+          "id": "tiger-2",
+          "species": "tiger",
+          "position": {
+            "x": 3412,
+            "y": 1424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "cheetah-0": {
+          "id": "cheetah-0",
+          "species": "cheetah",
+          "position": {
+            "x": 4692,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "cheetah-1": {
+          "id": "cheetah-1",
+          "species": "cheetah",
+          "position": {
+            "x": 4836,
+            "y": 1352
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "cheetah-2": {
+          "id": "cheetah-2",
+          "species": "cheetah",
+          "position": {
+            "x": 4692,
+            "y": 1424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "chimpanzee-0": {
+          "id": "chimpanzee-0",
+          "species": "chimpanzee",
+          "position": {
+            "x": 852,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "chimpanzee-1": {
+          "id": "chimpanzee-1",
+          "species": "chimpanzee",
+          "position": {
+            "x": 996,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "chimpanzee-2": {
+          "id": "chimpanzee-2",
+          "species": "chimpanzee",
+          "position": {
+            "x": 852,
+            "y": 2448
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "rhinoceros-0": {
+          "id": "rhinoceros-0",
+          "species": "rhinoceros",
+          "position": {
+            "x": 2132,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "rhinoceros-1": {
+          "id": "rhinoceros-1",
+          "species": "rhinoceros",
+          "position": {
+            "x": 2276,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "rhinoceros-2": {
+          "id": "rhinoceros-2",
+          "species": "rhinoceros",
+          "position": {
+            "x": 2132,
+            "y": 2448
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "elephant-0": {
+          "id": "elephant-0",
+          "species": "elephant",
+          "position": {
+            "x": 3412,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "elephant-1": {
+          "id": "elephant-1",
+          "species": "elephant",
+          "position": {
+            "x": 3556,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "elephant-2": {
+          "id": "elephant-2",
+          "species": "elephant",
+          "position": {
+            "x": 3412,
+            "y": 2448
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "giraffe-0": {
+          "id": "giraffe-0",
+          "species": "giraffe",
+          "position": {
+            "x": 4692,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "giraffe-1": {
+          "id": "giraffe-1",
+          "species": "giraffe",
+          "position": {
+            "x": 4836,
+            "y": 2376
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "giraffe-2": {
+          "id": "giraffe-2",
+          "species": "giraffe",
+          "position": {
+            "x": 4692,
+            "y": 2448
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "zebra-0": {
+          "id": "zebra-0",
+          "species": "zebra",
+          "position": {
+            "x": 4000,
+            "y": 2388
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "zebra-1": {
+          "id": "zebra-1",
+          "species": "zebra",
+          "position": {
+            "x": 4144,
+            "y": 2388
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "zebra-2": {
+          "id": "zebra-2",
+          "species": "zebra",
+          "position": {
+            "x": 4000,
+            "y": 2460
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "jaguar-0": {
+          "id": "jaguar-0",
+          "species": "jaguar",
+          "position": {
+            "x": 852,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "jaguar-1": {
+          "id": "jaguar-1",
+          "species": "jaguar",
+          "position": {
+            "x": 996,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "jaguar-2": {
+          "id": "jaguar-2",
+          "species": "jaguar",
+          "position": {
+            "x": 852,
+            "y": 3472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "wolf-0": {
+          "id": "wolf-0",
+          "species": "wolf",
+          "position": {
+            "x": 2149.9999999999995,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "wolf-1": {
+          "id": "wolf-1",
+          "species": "wolf",
+          "position": {
+            "x": 2276,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "wolf-2": {
+          "id": "wolf-2",
+          "species": "wolf",
+          "position": {
+            "x": 2132,
+            "y": 3472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "wolf-3": {
+          "id": "wolf-3",
+          "species": "wolf",
+          "position": {
+            "x": 2276,
+            "y": 3472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hyena-0": {
+          "id": "hyena-0",
+          "species": "hyena",
+          "position": {
+            "x": 3412,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hyena-1": {
+          "id": "hyena-1",
+          "species": "hyena",
+          "position": {
+            "x": 3556,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hyena-2": {
+          "id": "hyena-2",
+          "species": "hyena",
+          "position": {
+            "x": 3412,
+            "y": 3472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hyena-3": {
+          "id": "hyena-3",
+          "species": "hyena",
+          "position": {
+            "x": 3556,
+            "y": 3472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "kangaroo-0": {
+          "id": "kangaroo-0",
+          "species": "kangaroo",
+          "position": {
+            "x": 4692,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "kangaroo-1": {
+          "id": "kangaroo-1",
+          "species": "kangaroo",
+          "position": {
+            "x": 4836,
+            "y": 3400
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "kangaroo-2": {
+          "id": "kangaroo-2",
+          "species": "kangaroo",
+          "position": {
+            "x": 4692,
+            "y": 3472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "boar-original": {
+          "id": "boar-original",
+          "species": "boar",
+          "position": {
+            "x": 936,
+            "y": 4472
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "boar-1": {
+          "id": "boar-1",
+          "species": "boar",
+          "position": {
+            "x": 1008,
+            "y": 4432
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "crocodile-0": {
+          "id": "crocodile-0",
+          "species": "crocodile",
+          "position": {
+            "x": 2132,
+            "y": 4424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "crocodile-1": {
+          "id": "crocodile-1",
+          "species": "crocodile",
+          "position": {
+            "x": 2276,
+            "y": 4424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "crocodile-2": {
+          "id": "crocodile-2",
+          "species": "crocodile",
+          "position": {
+            "x": 2132,
+            "y": 4496
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hippopotamus-0": {
+          "id": "hippopotamus-0",
+          "species": "hippopotamus",
+          "position": {
+            "x": 1440,
+            "y": 4436
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hippopotamus-1": {
+          "id": "hippopotamus-1",
+          "species": "hippopotamus",
+          "position": {
+            "x": 1584,
+            "y": 4436
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "hippopotamus-2": {
+          "id": "hippopotamus-2",
+          "species": "hippopotamus",
+          "position": {
+            "x": 1440,
+            "y": 4508
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "monkey-0": {
+          "id": "monkey-0",
+          "species": "monkey",
+          "position": {
+            "x": 3412,
+            "y": 4424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "monkey-1": {
+          "id": "monkey-1",
+          "species": "monkey",
+          "position": {
+            "x": 3556,
+            "y": 4424
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "monkey-2": {
+          "id": "monkey-2",
+          "species": "monkey",
+          "position": {
+            "x": 3412,
+            "y": 4496
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "monkey-3": {
+          "id": "monkey-3",
+          "species": "monkey",
+          "position": {
+            "x": 3556,
+            "y": 4496
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "snake-0": {
+          "id": "snake-0",
+          "species": "snake",
+          "position": {
+            "x": 4064,
+            "y": 4408
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "snake-1": {
+          "id": "snake-1",
+          "species": "snake",
+          "position": {
+            "x": 4208,
+            "y": 4408
+          },
+          "health": 0,
+          "defeatedDay": 1
+        },
+        "snake-2": {
+          "id": "snake-2",
+          "species": "snake",
+          "position": {
+            "x": 4064,
+            "y": 4480
+          },
+          "health": 0,
+          "defeatedDay": 1
+        }
+      },
+      "boar": {
+        "id": "boar-original",
+        "species": "boar",
+        "position": {
+          "x": 936,
+          "y": 4472
+        },
+        "health": 0,
+        "defeatedDay": 1
+      },
+      "explored": [
+        "entrance",
+        "wolf"
+      ],
+      "treasures": []
+    },
+    "forestTutorialComplete": true,
+    "nightWarningSeen": true,
+    "deathTutorialSeen": false,
+    "hasDied": false,
+    "ownsClub": true,
+    "clubEquipped": true,
+    "stash": null,
+    "roomSize": {
+      "width": 624,
+      "height": 304
+    },
+    "character": "girl",
+    "area": "forest",
+    "position": {
+      "x": 2092,
+      "y": 3400
+    },
+    "day": 1,
+    "minute": 600.5025000000002,
+    "money": 60,
+    "health": 100,
+    "energy": 95,
+    "fatigueMinutes": 0.5024999999999998,
+    "selected": "seed",
+    "marketSeed": 1,
+    "selectedCrop": "tomato",
+    "hasHarvestedFirstCrop": false,
+    "hasVisitedCity": false,
+    "hasBoughtSeeds": false,
+    "hasSoldProduce": false,
+    "lastRecoveryDay": 0,
+    "inventory": {
+      "seed": 0,
+      "tomato": 0,
+      "strawberrySeed": 0,
+      "strawberry": 0,
+      "carrotSeed": 0,
+      "carrot": 0,
+      "cornSeed": 0,
+      "corn": 0,
+      "wildBerry": 0,
+      "guava": 0,
+      "mango": 0,
+      "wildHide": 1,
+      "banana": 0,
+      "orange": 0,
+      "papaya": 0,
+      "coconut": 0,
+      "dragonFruit": 0,
+      "pineapple": 0
+    },
+    "currentFarm": 0,
+    "farms": [
+      {
+        "fields": [
+          true,
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "plots": [
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "morning": false,
+        "evening": false,
+        "dryDays": 0,
+        "missedWindows": 0,
+        "lastEvaluatedWindow": -1
+      }
+    ],
+    "sold": 0,
+    "hasVisitedFarm": false,
+    "starterSeedsClaimed": false,
+    "expansionUnlocked": false
+  }
+}

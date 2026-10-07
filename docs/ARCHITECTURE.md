@@ -1,3 +1,8 @@
+# v0.4.7 selected wildlife animation rigs
+The established Python atlas pipeline calls wildlife_sprites.py, curates only selected local cells and emits data-driven wildlifeSprites.js. Identical wildlife cell bytes share physical atlas rectangles with separate named aliases. Per-frame provenance remains in the source-only manifest. wildlifeArt.combatAnimalVisual is a pure selector for real frame counts/directions, source facing, idle fallback and per-direction origins. ForestView keeps existing combat/runtime/save inputs, rendering sprites/shadows and health/warning labels without changing gameplay systems. Flee art copies the current pose/origin. animalCredits.js supplies five linked Phaser UI pages; no DOM HUD or runtime asset request. Isolated tests/browser/wildlife-server.mjs prepares QA saves and read-only canvas telemetry, excluded from builds.
+
+---
+
 # v0.4.6 Forest rendering corrections
 `BridgeView.js` renders opaque horizontal decks from the same data used by `bridgeAt` and dry vegetation placement. `nightBands.js` merges neighbouring equal-opacity cells in both axes; `ForestView` paints those rectangles with unchanged light levels. `forestPalette.js` derives cached native-size local Canvas textures for Forest trees/bamboo from retained town atlas cells. It maps foliage to shared olive shades while retaining non-foliage colours/alpha; canopy metadata retains source frame identity alongside the generated texture key. No shader, remote image or new production art file.
 

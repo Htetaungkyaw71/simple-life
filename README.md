@@ -1,8 +1,8 @@
 # Simple Life — Wilderness expansion
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.6**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.7**, schema **9**.
 
-The 2026-10-07 asset/water follow-up uses the user-supplied Craftpix packs: animated Boar replacement, quiet Deer/Hare/Fox/Grouse, textured ruin fragments and animated plant scenery. All water is walkable with ankle ripples and continuous river banks. Existing 22 combat species, habitats, treasure and progress remain. Pack coverage is five woodland animals; the other 21 combat species still use original project art. Craftpix licence evidence and exact selected frame rectangles are documented locally, with in-game Credits.
+The 2026-10-07 asset/water follow-up uses the user-supplied Craftpix packs: animated Boar replacement, quiet Deer/Hare/Fox/Grouse, textured ruin fragments and animated plant scenery. All water is walkable with ankle ripples and continuous river banks. Existing 22 combat species, habitats, treasure and progress remain. The v0.4.7 animal pass adds licensed sprites/adaptations for fifteen more combat species: sixteen of the twenty-two (including Boar) now use external asset bases. Six retain original project art. Side/idle-only pack limits are explicit; all difficulty and save rules remain. Source/rights evidence: docs/assets/licenses/wildlife-sprites/SOURCE_RECORD.md. Craftpix licence evidence and exact selected frame rectangles are documented locally, with in-game Credits.
 
 The latest ground/river pass adds original moss and short-grass textures, small flower clusters, varied soil/pebbles, blended habitat colours and shaded sandy banks, submerged stones and dark water channels. Current trees, moving tall grass, jumping and water walking remain. Source and checks: docs/assets/licenses/ground-river-materials.md and docs/verification/terrain.
 

@@ -1,3 +1,8 @@
+# v0.4.7 selected animal source licences — 2026-10-08
+Fifteen more combat species use selected licensed animal pixels: tapatilorenzo CC0 exception (non-Sevarihk lion/bears), ScratchIO CC0 wolf, lawnjelly + AntumDeluge CC BY 3.0 elephant, bleutailfly OGA-BY 3.0 crocodile, Ilaria Lazzarotto creator-permitted game/modification Florida panther poses, and Stojkea creator-permitted game/edit animal poses. Native versus adapted species, licence text/pages, fingerprints, rectangles and source restrictions: [full animal record](assets/licenses/wildlife-sprites/SOURCE_RECORD.md). In-game linked credits added. The creator-restricted standalone originals remain outside the repository; unrestricted vendor archives are excluded from production. The supplied basic vermin ZIP is unused. Existing asset/dependency records remain independently applicable.
+
+---
+
 # v0.4.6 Forest colour treatment and bridge art — 2026-10-07
 Forest olive variants are local render adaptations of the retained LimeZu/ToffeeCraft/original tree and bamboo atlas cells. Shapes/alpha/native size are preserved, green foliage is remapped, bark/fruit/neutral snow retained. Existing creator attribution and legal/source records remain; no new pack or art-file redistribution. All eight runtime art files are byte-identical to v0.4.5. New bridge planks/rails, merged night rendering and broken ripple motifs are original Codex-assisted project code. Source/adaptation evidence: [forest-theme.md](assets/licenses/forest-theme.md). Original shaderless palette source: src/art/forestPalette.js. Dependencies/tool licences unchanged. No reference-image sampling or external image-model generation.
 

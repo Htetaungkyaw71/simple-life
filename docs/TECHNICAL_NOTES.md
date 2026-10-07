@@ -1,3 +1,8 @@
+# v0.4.7 wildlife assets
+914 named town frames (419 new animal keys, 60 superseded placeholders removed); shared wildlife images deduplicated within the retained 1024×2048 atlas. 495 retained frame pixels and six other art files remain unchanged. Native integer 2× display, source-order direction mapping and per-direction foot anchors prevent mirroring errors/ground drift. Sprite bounds do not alter authoritative combat body radii, hitboxes, territory, difficulty or save state. The user sheet and Stojkea originals remain external regeneration inputs; override paths through SIMPLE_LIFE_ENDANGERED_PNG / SIMPLE_LIFE_ANIMALS_ZIP. Runtime build/play requires only committed local assets. Same eight-art-file allowlist; 12 files / 2,258,286 bytes. 103 tests and affected browser checks pass; evidence: verification/wildlife-sprites.
+
+---
+
 # v0.4.6 bridge and Forest theme
 Five bridges now span both banks at 272×72. Opaque timber decks suppress wading consistently with their actual bounds. Night equal-alpha rectangles merge to eliminate transparency-grid seams while retaining near/far visibility. Olive foliage variants generate once per used native atlas frame and stay cached; no per-frame recolouring or disk asset rewrite. All eight art files remain byte-identical to v0.4.5 (555 atlas cells), with unchanged dependency licences. Forest has 844 trees + 41 bamboo stands / 4,201 grass clumps, no terrace/ledge objects or teal ferns. Natural shores and jumping remain.
 

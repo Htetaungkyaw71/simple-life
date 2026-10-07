@@ -1,3 +1,8 @@
+# v0.4.7 animal source separation
+Animal silhouettes/poses are third-party art under documented CC0, attribution licences or creator game-use permissions. Coat edits, frame selection/ground-origin logic and integration are newly authored local code with Codex assistance. Native versus adapted species are identified explicitly; supplied Florida panther poses are not falsely described as original cheetah/leopard/jaguar pack art. Fifteen replacements plus retained Boar; six original species remain. No preview extraction or commercial-game copying. Records: assets/licenses/wildlife-sprites/SOURCE_RECORD.md. No exclusive-copyright or final human-acceptance claim.
+
+---
+
 # v0.4.6 Forest theme record
 Bridge/ripple geometry, merged night bands and olive colour rules are newly authored local code with Codex assistance. External tree silhouettes retain licensed attribution and are adapted only in render colour. Supplied screenshots guide general palette/material appearance and identify unwanted scenery; no pixels/assets/layouts are extracted. No exclusive-copyright or final human-acceptance claim. Evidence: assets/licenses/forest-theme.md.
 

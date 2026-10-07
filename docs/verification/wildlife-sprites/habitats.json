@@ -1,0 +1,906 @@
+[
+  {
+    "species": "lion",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "lion-0",
+        "frame": "wa-lion-walk-right-1",
+        "visible": true,
+        "texture": "town",
+        "originY": 0.890625,
+        "flipX": false,
+        "x": 4710,
+        "y": 298,
+        "width": 128,
+        "height": 128,
+        "shadow": true
+      },
+      {
+        "id": "lion-1",
+        "frame": "wa-lion-walk-right-1",
+        "visible": true,
+        "texture": "town",
+        "originY": 0.890625,
+        "flipX": false,
+        "x": 4870,
+        "y": 328,
+        "width": 128,
+        "height": 128,
+        "shadow": true
+      },
+      {
+        "id": "lion-2",
+        "frame": "wa-lion-walk-down-1",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4712,
+        "y": 428,
+        "width": 128,
+        "height": 128,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 4472,
+      "y": 398
+    }
+  },
+  {
+    "species": "panda",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "panda-0",
+        "frame": "wa-panda-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 852,
+        "y": 1352,
+        "width": 120,
+        "height": 126,
+        "shadow": true
+      },
+      {
+        "id": "panda-1",
+        "frame": "wa-panda-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 996,
+        "y": 1352,
+        "width": 120,
+        "height": 126,
+        "shadow": true
+      },
+      {
+        "id": "panda-2",
+        "frame": "wa-panda-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 852,
+        "y": 1424,
+        "width": 120,
+        "height": 126,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 632,
+      "y": 1422
+    }
+  },
+  {
+    "species": "wolf",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 2132,
+        "y": 3400,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 2276,
+        "y": 3400,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 2132,
+        "y": 3472,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 2276,
+        "y": 3472,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 1912,
+      "y": 3472
+    }
+  },
+  {
+    "species": "elephant",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "elephant-0",
+        "frame": "wa-elephant-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 2376,
+        "width": 188,
+        "height": 152,
+        "shadow": true
+      },
+      {
+        "id": "elephant-1",
+        "frame": "wa-elephant-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 2376,
+        "width": 188,
+        "height": 152,
+        "shadow": true
+      },
+      {
+        "id": "elephant-2",
+        "frame": "wa-elephant-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 2448,
+        "width": 188,
+        "height": 152,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 3192,
+      "y": 2446
+    }
+  },
+  {
+    "species": "crocodile",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "crocodile-0",
+        "frame": "wa-crocodile-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 2132,
+        "y": 4424,
+        "width": 128,
+        "height": 88,
+        "shadow": true
+      },
+      {
+        "id": "crocodile-1",
+        "frame": "wa-crocodile-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 2276,
+        "y": 4424,
+        "width": 128,
+        "height": 88,
+        "shadow": true
+      },
+      {
+        "id": "crocodile-2",
+        "frame": "wa-crocodile-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 2132,
+        "y": 4496,
+        "width": 128,
+        "height": 88,
+        "shadow": true
+      },
+      {
+        "id": "hippopotamus-0",
+        "frame": "hippopotamus0",
+        "visible": true,
+        "texture": "town",
+        "originY": 0.9,
+        "flipX": true,
+        "x": 1440,
+        "y": 4436,
+        "width": 96,
+        "height": 88,
+        "shadow": true
+      },
+      {
+        "id": "hippopotamus-1",
+        "frame": "hippopotamus0",
+        "visible": true,
+        "texture": "town",
+        "originY": 0.9,
+        "flipX": true,
+        "x": 1584,
+        "y": 4436,
+        "width": 96,
+        "height": 88,
+        "shadow": true
+      },
+      {
+        "id": "hippopotamus-2",
+        "frame": "hippopotamus0",
+        "visible": true,
+        "texture": "town",
+        "originY": 0.9,
+        "flipX": true,
+        "x": 1440,
+        "y": 4508,
+        "width": 96,
+        "height": 88,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 1912,
+      "y": 4494
+    }
+  },
+  {
+    "species": "polarBear",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "polarBear-0",
+        "frame": "wa-polarBear-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 852,
+        "y": 328,
+        "width": 128,
+        "height": 128,
+        "shadow": true
+      },
+      {
+        "id": "polarBear-1",
+        "frame": "wa-polarBear-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 996,
+        "y": 328,
+        "width": 128,
+        "height": 128,
+        "shadow": true
+      },
+      {
+        "id": "polarBear-2",
+        "frame": "wa-polarBear-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 852,
+        "y": 400,
+        "width": 128,
+        "height": 128,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 632,
+      "y": 398
+    }
+  },
+  {
+    "species": "tiger",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "tiger-0",
+        "frame": "wa-tiger-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 1352,
+        "width": 128,
+        "height": 124,
+        "shadow": true
+      },
+      {
+        "id": "tiger-1",
+        "frame": "wa-tiger-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 1352,
+        "width": 128,
+        "height": 124,
+        "shadow": true
+      },
+      {
+        "id": "tiger-2",
+        "frame": "wa-tiger-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 1424,
+        "width": 128,
+        "height": 124,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 3192,
+      "y": 1422
+    }
+  },
+  {
+    "species": "hyena",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "hyena-0",
+        "frame": "wa-hyena-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 3412,
+        "y": 3400,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      },
+      {
+        "id": "hyena-1",
+        "frame": "wa-hyena-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 3556,
+        "y": 3400,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      },
+      {
+        "id": "hyena-2",
+        "frame": "wa-hyena-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 3412,
+        "y": 3472,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      },
+      {
+        "id": "hyena-3",
+        "frame": "wa-hyena-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": true,
+        "x": 3556,
+        "y": 3472,
+        "width": 120,
+        "height": 70,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 3192,
+      "y": 3470
+    }
+  },
+  {
+    "species": "cheetah",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "cheetah-0",
+        "frame": "wa-cheetah-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4692,
+        "y": 1352,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      },
+      {
+        "id": "cheetah-1",
+        "frame": "wa-cheetah-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4836,
+        "y": 1352,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      },
+      {
+        "id": "cheetah-2",
+        "frame": "wa-cheetah-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4692,
+        "y": 1424,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 4472,
+      "y": 1422
+    }
+  },
+  {
+    "species": "leopard",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "leopard-0",
+        "frame": "wa-leopard-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 2132,
+        "y": 1352,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      },
+      {
+        "id": "leopard-1",
+        "frame": "wa-leopard-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 2276,
+        "y": 1352,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      },
+      {
+        "id": "leopard-2",
+        "frame": "wa-leopard-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 2132,
+        "y": 1424,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 1912,
+      "y": 1424
+    }
+  },
+  {
+    "species": "jaguar",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "jaguar-0",
+        "frame": "wa-jaguar-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 852,
+        "y": 3400,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      },
+      {
+        "id": "jaguar-1",
+        "frame": "wa-jaguar-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 996,
+        "y": 3400,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      },
+      {
+        "id": "jaguar-2",
+        "frame": "wa-jaguar-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 852,
+        "y": 3472,
+        "width": 124,
+        "height": 52,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 632,
+      "y": 3470
+    }
+  },
+  {
+    "species": "monkey",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "monkey-0",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 4424,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "monkey-1",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 4424,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "monkey-2",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 4496,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "monkey-3",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 4496,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 3192,
+      "y": 4494
+    }
+  },
+  {
+    "species": "kangaroo",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "kangaroo-0",
+        "frame": "wa-kangaroo-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4692,
+        "y": 3400,
+        "width": 64,
+        "height": 54,
+        "shadow": true
+      },
+      {
+        "id": "kangaroo-1",
+        "frame": "wa-kangaroo-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4836,
+        "y": 3400,
+        "width": 64,
+        "height": 54,
+        "shadow": true
+      },
+      {
+        "id": "kangaroo-2",
+        "frame": "wa-kangaroo-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4692,
+        "y": 3472,
+        "width": 64,
+        "height": 54,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 4472,
+      "y": 3470
+    }
+  },
+  {
+    "species": "snake",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "monkey-0",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 4424,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "monkey-1",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 4424,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "monkey-2",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 4496,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "monkey-3",
+        "frame": "wa-monkey-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 4496,
+        "width": 56,
+        "height": 48,
+        "shadow": true
+      },
+      {
+        "id": "snake-0",
+        "frame": "wa-snake-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4064,
+        "y": 4408,
+        "width": 60,
+        "height": 12,
+        "shadow": true
+      },
+      {
+        "id": "snake-1",
+        "frame": "wa-snake-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4208,
+        "y": 4408,
+        "width": 60,
+        "height": 12,
+        "shadow": true
+      },
+      {
+        "id": "snake-2",
+        "frame": "wa-snake-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4064,
+        "y": 4480,
+        "width": 60,
+        "height": 12,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 3844,
+      "y": 4478
+    }
+  },
+  {
+    "species": "zebra",
+    "area": "forest",
+    "visible": [
+      {
+        "id": "elephant-0",
+        "frame": "wa-elephant-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 2376,
+        "width": 188,
+        "height": 152,
+        "shadow": true
+      },
+      {
+        "id": "elephant-1",
+        "frame": "wa-elephant-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3556,
+        "y": 2376,
+        "width": 188,
+        "height": 152,
+        "shadow": true
+      },
+      {
+        "id": "elephant-2",
+        "frame": "wa-elephant-idle-down-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 3412,
+        "y": 2448,
+        "width": 188,
+        "height": 152,
+        "shadow": true
+      },
+      {
+        "id": "zebra-0",
+        "frame": "wa-zebra-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4000,
+        "y": 2388,
+        "width": 64,
+        "height": 50,
+        "shadow": true
+      },
+      {
+        "id": "zebra-1",
+        "frame": "wa-zebra-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4144,
+        "y": 2388,
+        "width": 64,
+        "height": 50,
+        "shadow": true
+      },
+      {
+        "id": "zebra-2",
+        "frame": "wa-zebra-idle-side-0",
+        "visible": true,
+        "texture": "town",
+        "originY": 1,
+        "flipX": false,
+        "x": 4000,
+        "y": 2460,
+        "width": 64,
+        "height": 50,
+        "shadow": true
+      }
+    ],
+    "position": {
+      "x": 3780,
+      "y": 2458
+    }
+  }
+]

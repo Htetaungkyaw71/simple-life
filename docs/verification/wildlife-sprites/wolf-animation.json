@@ -1,0 +1,492 @@
+[
+  {
+    "now": 389.77333333333337,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 584.9533333333335,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 780.2366666666674,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": true,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 993.2300000000001,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-walk-side-7",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-7",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-walk-side-7",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-walk-side-7",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 1187.8566666666666,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-walk-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-0",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-attack-side-8",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-walk-side-0",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 1285.903333333333,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-walk-side-1",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-1",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-attack-side-9",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-walk-side-1",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 1481.439999999999,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-walk-side-2",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-2",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-attack-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-attack-side-0",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 1675.1466666666652,
+    "health": 100,
+    "mode": "wander",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-walk-side-3",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-3",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-attack-side-1",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-attack-side-1",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 1873.5766666666657,
+    "health": 100,
+    "mode": "warning",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-attack-side-3",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-5",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-run-side-4",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-attack-side-3",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2032,
+      "y": 3470
+    }
+  },
+  {
+    "now": 2057.3966666666656,
+    "health": 82,
+    "mode": "warning",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-attack-side-4",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-6",
+        "flipX": true,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-attack-side-4",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2014.0375641653754,
+      "y": 3468.837718241132
+    }
+  },
+  {
+    "now": 2273.8566666666648,
+    "health": 82,
+    "mode": "warning",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-attack-side-6",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-run-side-2",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2014.0375641653754,
+      "y": 3468.837718241132
+    }
+  },
+  {
+    "now": 2356.946666666665,
+    "health": 82,
+    "mode": "warning",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-attack-side-6",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-run-side-3",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2014.0375641653754,
+      "y": 3468.837718241132
+    }
+  },
+  {
+    "now": 2573.906666666665,
+    "health": 82,
+    "mode": "charge",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-run-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-2",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-run-side-0",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2014.0375641653754,
+      "y": 3468.837718241132
+    }
+  },
+  {
+    "now": 2773.4966666666646,
+    "health": 82,
+    "mode": "charge",
+    "frames": [
+      {
+        "id": "wolf-0",
+        "frame": "wa-wolf-run-side-2",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-1",
+        "frame": "wa-wolf-walk-side-3",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-2",
+        "frame": "wa-wolf-idle-side-0",
+        "flipX": false,
+        "originY": 1
+      },
+      {
+        "id": "wolf-3",
+        "frame": "wa-wolf-run-side-2",
+        "flipX": false,
+        "originY": 1
+      }
+    ],
+    "position": {
+      "x": 2014.0375641653754,
+      "y": 3468.837718241132
+    }
+  }
+]

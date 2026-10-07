@@ -1,0 +1,48 @@
+{
+  "baseline": "c1efdfe",
+  "atlasFrames": 914,
+  "retainedFramePixelsUnchanged": 495,
+  "removedPlaceholderFrames": 60,
+  "unchangedOtherArtFiles": [
+    "world.png",
+    "world.json",
+    "font.png",
+    "font.xml",
+    "processed/boy.png",
+    "processed/girl.png"
+  ],
+  "newSpecies": [
+    "lion",
+    "polarBear",
+    "tiger",
+    "panda",
+    "wolf",
+    "hyena",
+    "elephant",
+    "cheetah",
+    "leopard",
+    "jaguar",
+    "monkey",
+    "kangaroo",
+    "snake",
+    "zebra",
+    "crocodile"
+  ],
+  "newNamedFrames": 419,
+  "productionFiles": 12,
+  "productionBytes": 2258286,
+  "productionPaths": [
+    "dist/index.html",
+    "dist/assets/phaser-0YPJO2g1.js",
+    "dist/assets/index-CCJbA52k.js",
+    "dist/assets/index-DuO74lxp.css",
+    "dist/assets/pixel/world.png",
+    "dist/assets/pixel/font.xml",
+    "dist/assets/pixel/font.png",
+    "dist/assets/pixel/world.json",
+    "dist/assets/pixel/processed/town.png",
+    "dist/assets/pixel/processed/girl.png",
+    "dist/assets/pixel/processed/town.json",
+    "dist/assets/pixel/processed/boy.png"
+  ]
+}

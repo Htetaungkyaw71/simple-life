@@ -1,0 +1,632 @@
+{
+  "desktop": [
+    {
+      "page": 0,
+      "bounds": {
+        "x": 350,
+        "y": 172,
+        "w": 580,
+        "h": 374
+      },
+      "controls": [
+        {
+          "id": "Lions & bears source",
+          "label": "Lions & bears source",
+          "x": 374,
+          "y": 330,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Wolf source & licence",
+          "label": "Wolf source & licence",
+          "x": 374,
+          "y": 380,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 374,
+          "y": 430,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 374,
+          "y": 480,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "bounds": {
+        "x": 350,
+        "y": 172,
+        "w": 580,
+        "h": 374
+      },
+      "controls": [
+        {
+          "id": "Elephant source",
+          "label": "Elephant source",
+          "x": 374,
+          "y": 330,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "CC BY 3.0 licence",
+          "label": "CC BY 3.0 licence",
+          "x": 374,
+          "y": 380,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 374,
+          "y": 430,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 374,
+          "y": 480,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "bounds": {
+        "x": 350,
+        "y": 198,
+        "w": 580,
+        "h": 324
+      },
+      "controls": [
+        {
+          "id": "Cat source & game-use terms",
+          "label": "Cat source & game-use terms",
+          "x": 374,
+          "y": 356,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 374,
+          "y": 406,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 374,
+          "y": 456,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "bounds": {
+        "x": 350,
+        "y": 198,
+        "w": 580,
+        "h": 324
+      },
+      "controls": [
+        {
+          "id": "Animal source & game-use terms",
+          "label": "Animal source & game-use terms",
+          "x": 374,
+          "y": 356,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 374,
+          "y": 406,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 374,
+          "y": 456,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "bounds": {
+        "x": 350,
+        "y": 198,
+        "w": 580,
+        "h": 324
+      },
+      "controls": [
+        {
+          "id": "Crocodile source",
+          "label": "Crocodile source",
+          "x": 374,
+          "y": 356,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "OGA-BY 3.0 licence",
+          "label": "OGA-BY 3.0 licence",
+          "x": 374,
+          "y": 406,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 374,
+          "y": 456,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "short": [
+    {
+      "page": 0,
+      "bounds": {
+        "x": 30,
+        "y": 10,
+        "w": 580,
+        "h": 338
+      },
+      "controls": [
+        {
+          "id": "Lions & bears source",
+          "label": "Lions & bears source",
+          "x": 54,
+          "y": 156,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Wolf source & licence",
+          "label": "Wolf source & licence",
+          "x": 54,
+          "y": 200,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 54,
+          "y": 244,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 54,
+          "y": 288,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "bounds": {
+        "x": 30,
+        "y": 10,
+        "w": 580,
+        "h": 338
+      },
+      "controls": [
+        {
+          "id": "Elephant source",
+          "label": "Elephant source",
+          "x": 54,
+          "y": 156,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "CC BY 3.0 licence",
+          "label": "CC BY 3.0 licence",
+          "x": 54,
+          "y": 200,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 54,
+          "y": 244,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 54,
+          "y": 288,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "bounds": {
+        "x": 30,
+        "y": 32,
+        "w": 580,
+        "h": 294
+      },
+      "controls": [
+        {
+          "id": "Cat source & game-use terms",
+          "label": "Cat source & game-use terms",
+          "x": 54,
+          "y": 178,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 54,
+          "y": 222,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 54,
+          "y": 266,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "bounds": {
+        "x": 30,
+        "y": 32,
+        "w": 580,
+        "h": 294
+      },
+      "controls": [
+        {
+          "id": "Animal source & game-use terms",
+          "label": "Animal source & game-use terms",
+          "x": 54,
+          "y": 178,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 54,
+          "y": 222,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 54,
+          "y": 266,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "bounds": {
+        "x": 30,
+        "y": 32,
+        "w": 580,
+        "h": 294
+      },
+      "controls": [
+        {
+          "id": "Crocodile source",
+          "label": "Crocodile source",
+          "x": 54,
+          "y": 178,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "OGA-BY 3.0 licence",
+          "label": "OGA-BY 3.0 licence",
+          "x": 54,
+          "y": 222,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 54,
+          "y": 266,
+          "w": 532,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "portrait": [
+    {
+      "page": 0,
+      "bounds": {
+        "x": 16,
+        "y": 210,
+        "w": 358,
+        "h": 424
+      },
+      "controls": [
+        {
+          "id": "Lions & bears source",
+          "label": "Lions & bears source",
+          "x": 40,
+          "y": 418,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Wolf source & licence",
+          "label": "Wolf source & licence",
+          "x": 40,
+          "y": 468,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 40,
+          "y": 518,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 40,
+          "y": 568,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "bounds": {
+        "x": 16,
+        "y": 234,
+        "w": 358,
+        "h": 374
+      },
+      "controls": [
+        {
+          "id": "Elephant source",
+          "label": "Elephant source",
+          "x": 40,
+          "y": 392,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "CC BY 3.0 licence",
+          "label": "CC BY 3.0 licence",
+          "x": 40,
+          "y": 442,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 40,
+          "y": 492,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 40,
+          "y": 542,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "bounds": {
+        "x": 16,
+        "y": 240,
+        "w": 358,
+        "h": 364
+      },
+      "controls": [
+        {
+          "id": "Cat source & game-use terms",
+          "label": "Cat source & game-use terms",
+          "x": 40,
+          "y": 438,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 40,
+          "y": 488,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 40,
+          "y": 538,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "bounds": {
+        "x": 16,
+        "y": 240,
+        "w": 358,
+        "h": 364
+      },
+      "controls": [
+        {
+          "id": "Animal source & game-use terms",
+          "label": "Animal source & game-use terms",
+          "x": 40,
+          "y": 438,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Next artists",
+          "label": "Next artists",
+          "x": 40,
+          "y": 488,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 40,
+          "y": 538,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "bounds": {
+        "x": 16,
+        "y": 250,
+        "w": 358,
+        "h": 344
+      },
+      "controls": [
+        {
+          "id": "Crocodile source",
+          "label": "Crocodile source",
+          "x": 40,
+          "y": 428,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "OGA-BY 3.0 licence",
+          "label": "OGA-BY 3.0 licence",
+          "x": 40,
+          "y": 478,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        },
+        {
+          "id": "Back to credits",
+          "label": "Back to credits",
+          "x": 40,
+          "y": 528,
+          "w": 310,
+          "h": 42,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

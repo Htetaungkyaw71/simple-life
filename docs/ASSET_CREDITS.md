@@ -1,3 +1,8 @@
+# v0.4.7 animal attribution
+Lions/bears — tapatilorenzo, [source](https://opengameart.org/content/lpc-bears-deer-lions-and-more), selected non-Sevarihk work CC0. Wolves — ScratchIO / Scratchlo, [source](https://opengameart.org/content/animated-wild-animals), CC0. Elephant — lawnjelly and Jordan Irwin / AntumDeluge, [source](https://opengameart.org/content/elephant-rework), [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Crocodile — bleutailfly, [source](https://opengameart.org/content/crocodile-1), [OGA-BY 3.0](https://static.opengameart.org/OGA-BY-3.0.txt). Endangered species / Florida panther poses — Ilaria Lazzarotto / hello_tazzina, [source and game-use terms](https://hello-tazzina.itch.io/animals). Small animals — Stojkea, [source and game/edit terms](https://stojkea.itch.io/pixel-art-animal). Cells selected, trimmed/repacked; tiger/panda/hyena/big-cat/zebra coats adapted, snake/crocodile palette adapted, crocodile exact nearest size conversion. Credits identify actual source species and edits; no authorship claim over source artwork. Details: assets/licenses/wildlife-sprites/SOURCE_RECORD.md. All creators are linked in Title → Credits → Wildlife & ruins → More animals.
+
+---
+
 # v0.4.6 Forest palette/bridge
 Olive Forest colour variants adapt existing credited LimeZu and ToffeeCraft tree/bamboo silhouettes and original project trees, without new source assets. Native bridge/ripple code: Simple Life project work with OpenAI Codex assistance. Existing player/Craftpix/template credits remain. Evidence: assets/licenses/forest-theme.md.
 

@@ -1,3 +1,8 @@
+# v0.4.7 animal validation — 2026-10-08
+103/103 npm tests, production build and pixel/source allowlist audit pass. Added tests cover all 22 species across actions/directions/time, side/four-direction facing and real warning fallback, stable native-pixel foot origins, complete provenance/removal of placeholders and creator/licence credits. Native CUA Continue checks render all fifteen new species in their habitats. Native Right/Space hits an isolated prepared one-health wolf, awards one Hide and hides its art/shadow; reload/Continue retains defeat/reward. Five artist credit pages and the Craftpix entry fit desktop, short landscape and portrait screens. WebGL wolf idle/walk/warning/run frames and frozen pause timing are verified; portrait Monkey labels and controls fit. Evidence/logs: verification/wildlife-sprites; full source/limits: assets/licenses/wildlife-sprites/SOURCE_RECORD.md. No full farming replay, physical-device or final human acceptance claim.
+
+---
+
 # v0.4.6 Forest theme/bridge — 2026-10-07
 **99/99 tests and production build pass.** New checks cover palette preservation, every bridge's bank coverage/traversability and merged night-shade coverage. Isolated CUA browser checks verify bridge day/night, native bank-to-bank crossing without wading, portrait controls, pause/save/reload, jumping and palette/river appearance. All eight art files are unchanged; 12 production files / 2,031,148 bytes. Current evidence: verification/forest-theme. User save untouched; physical devices/other engines/final human acceptance remain unverified. No publishing/push.
 

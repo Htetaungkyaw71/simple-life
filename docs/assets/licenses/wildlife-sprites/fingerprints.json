@@ -1,0 +1,30 @@
+{
+  "lpc_animals_2022_v1.1.zip": {
+    "bytes": 421287,
+    "sha256": "a4ea2c5b33061858e02a60dda34adb30bc8c4a334030bdcc7fafef32c810c002"
+  },
+  "elephant-1.1.zip": {
+    "bytes": 378945,
+    "sha256": "dc0c422727848180bf7a66ef9b1734cca05dfac20793025a61a6cb5f44e3ef63"
+  },
+  "Wolf_2.zip": {
+    "bytes": 3807,
+    "sha256": "e262318c2861f21e840616016bf0234d6a86cf9d0f0c13ea88f48e3662666f4f"
+  },
+  "crocodile.png": {
+    "bytes": 10636,
+    "sha256": "4e82878cff6f5f7066f92e0327eca4bfc2e1b84aa37c7924ae90263457a6e91e"
+  },
+  "Animals v1.0.zip": {
+    "bytes": 136275,
+    "sha256": "f8c9e43cd44498cbc8d3137f6775cddcd5bbc27933aa69d2f70591b405c2ba74"
+  },
+  "endangered_animals_ilaria_lazzartotto.png": {
+    "bytes": 26885,
+    "sha256": "bc878a5f995b8bdc94ed582407bd7d4910e95fa05f4588a1e599adb40eb67bfa"
+  },
+  "basic asset pack.zip": {
+    "bytes": 48323,
+    "sha256": "96b6a76862c51660d1277bb62c1499b45d43f78e64740d2c53706ca2f1bec3d5"
+  }
+}

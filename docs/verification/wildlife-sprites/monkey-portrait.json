@@ -1,0 +1,175 @@
+{
+  "animals": [
+    {
+      "id": "monkey-0",
+      "frame": "wa-monkey-idle-side-1",
+      "visible": true,
+      "texture": "town",
+      "originY": 1,
+      "flipX": false,
+      "x": 3412,
+      "y": 4424,
+      "width": 56,
+      "height": 48,
+      "shadow": true
+    },
+    {
+      "id": "monkey-1",
+      "frame": "wa-monkey-idle-side-1",
+      "visible": true,
+      "texture": "town",
+      "originY": 1,
+      "flipX": false,
+      "x": 3556,
+      "y": 4424,
+      "width": 56,
+      "height": 48,
+      "shadow": true
+    },
+    {
+      "id": "monkey-2",
+      "frame": "wa-monkey-idle-side-1",
+      "visible": true,
+      "texture": "town",
+      "originY": 1,
+      "flipX": false,
+      "x": 3412,
+      "y": 4496,
+      "width": 56,
+      "height": 48,
+      "shadow": true
+    },
+    {
+      "id": "monkey-3",
+      "frame": "wa-monkey-idle-side-1",
+      "visible": true,
+      "texture": "town",
+      "originY": 1,
+      "flipX": false,
+      "x": 3556,
+      "y": 4496,
+      "width": 56,
+      "height": 48,
+      "shadow": true
+    }
+  ],
+  "controls": [
+    {
+      "id": "pause",
+      "label": "Pause",
+      "x": 332,
+      "y": 62,
+      "w": 46,
+      "h": 44,
+      "disabled": false
+    },
+    {
+      "id": "wilderness-map",
+      "label": "MAP",
+      "x": 12,
+      "y": 134,
+      "w": 84,
+      "h": 42,
+      "disabled": false
+    },
+    {
+      "id": "tool-seed",
+      "label": "seed",
+      "x": 104,
+      "y": 612,
+      "w": 56,
+      "h": 56,
+      "disabled": false
+    },
+    {
+      "id": "tool-water",
+      "label": "water",
+      "x": 166,
+      "y": 612,
+      "w": 56,
+      "h": 56,
+      "disabled": false
+    },
+    {
+      "id": "tool-harvest",
+      "label": "harvest",
+      "x": 228,
+      "y": 612,
+      "w": 56,
+      "h": 56,
+      "disabled": false
+    },
+    {
+      "id": "choose-seeds",
+      "label": "BAG",
+      "x": 290,
+      "y": 618,
+      "w": 48,
+      "h": 44,
+      "disabled": false
+    },
+    {
+      "id": "move-up",
+      "label": "UP",
+      "x": 66,
+      "y": 698,
+      "w": 44,
+      "h": 44,
+      "disabled": false
+    },
+    {
+      "id": "move-left",
+      "label": "<",
+      "x": 18,
+      "y": 746,
+      "w": 44,
+      "h": 44,
+      "disabled": false
+    },
+    {
+      "id": "move-down",
+      "label": "DN",
+      "x": 66,
+      "y": 746,
+      "w": 44,
+      "h": 44,
+      "disabled": false
+    },
+    {
+      "id": "move-right",
+      "label": ">",
+      "x": 114,
+      "y": 746,
+      "w": 44,
+      "h": 44,
+      "disabled": false
+    },
+    {
+      "id": "use",
+      "label": "USE",
+      "x": 310,
+      "y": 722,
+      "w": 68,
+      "h": 64,
+      "disabled": false
+    },
+    {
+      "id": "attack",
+      "label": "ATTACK",
+      "x": 262,
+      "y": 648,
+      "w": 116,
+      "h": 56,
+      "disabled": false
+    },
+    {
+      "id": "jump",
+      "label": "JUMP",
+      "x": 270,
+      "y": 112,
+      "w": 108,
+      "h": 48,
+      "disabled": false
+    }
+  ]
+}

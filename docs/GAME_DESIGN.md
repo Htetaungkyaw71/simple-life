@@ -1,3 +1,8 @@
+# v0.4.7 animal visual upgrade
+Fifteen existing species receive external asset-based art, with recognisable coats and actual source animation capabilities. Existing Craftpix Boar remains; six combat species still use original art. This is presentation only: unchanged animal species/counts, territories, health/damage/awareness, attack warning/charge/recovery, club energy/cooldown, Hide reward and daily revival/saved defeat. See assets/licenses/wildlife-sprites/SOURCE_RECORD.md.
+
+---
+
 # v0.4.6 Forest cleanup
 Latest user removes all artificial raised earth banks and teal fern scenery, replacing no objects. Natural textured shores, water walking and free jumping remain. Horizontal timber bridges meet both banks and render cleanly at night. Forest foliage shares a muted olive palette and small scattered wave clusters. Wilderness scale, species/forage/cache rules, farming/City/sleep, schema 9 and coin recovery remain.
 

@@ -1,3 +1,8 @@
+# v0.4.7 animal audit
+Fifteen newly curated combat species / 419 named animal frames; removed 60 superseded placeholders; total 914 atlas entries. Pixel comparison against c1efdfe verifies all 495 retained frame pixels and other six art files unchanged. Source hashes and exact cell provenance retained. Production: 12 files / 2,258,286 bytes with eight allowlisted art files; no source archives, manifest, generator, licence HTML or QA tooling. Supplied vermin ZIP and unused candidate art excluded. Audit tool: scripts/audit-wildlife-assets.py; result/contact sheets: verification/wildlife-sprites; licence evidence: assets/licenses/wildlife-sprites.
+
+---
+
 # v0.4.6 render-only Forest colour audit
 All eight allowlisted runtime art files match v0.4.5 byte for byte. Local cached olive render variants preserve native cell size/alpha and existing source attribution; no new image download, atlas cell, source archive or dependency. Original bridge/ripple/night-rendering code is recorded separately. Production: 12 files / 2,031,148 bytes. Evidence: verification/forest-theme/build-audit.json and assets/licenses/forest-theme.md.
 

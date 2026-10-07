@@ -1,3 +1,8 @@
+# v0.4.7 assistance disclosure
+Codex assisted licensed animal research/curation, native sprite processing, coat adaptations, data-driven animation/ground anchors, attribution UI, tests and isolated browser QA. Fifteen replacement species use separately credited external artwork; six remain original project art. This disclosure does not claim exclusive authorship of external pixels or signed human review. Full trace: AI_USAGE.md and assets/licenses/wildlife-sprites/SOURCE_RECORD.md.
+
+---
+
 # v0.4.6 disclosure update
 Codex assisted olive Forest colour adaptations, bridge/night seam corrections, ripple motifs, scenery removal and QA/documentation. External tree silhouettes retain their creator attribution; new render colours/bridge code are disclosed project source. No screenshot sampling or external image model. See AI_USAGE.md and assets/licenses/forest-theme.md; final human signature/acceptance remains pending.
 

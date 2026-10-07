@@ -1,3 +1,8 @@
+# 2026-10-08 — v0.4.7 animal asset improvement
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted public-source research/licence review, selected cell extraction, deterministic coat/colour adaptations, animation/foot-origin integration, deduplication, credits, tests, source audit, documentation and native CUA browser QA. The user supplied Basic Vermin Animations ZIP (unused) and Ilaria Lazzarotto's endangered sheet (five Florida panther poses used/adapted). Additional selected sources: tapatilorenzo, ScratchIO, lawnjelly/AntumDeluge, Stojkea and bleutailfly. Third-party source silhouettes are credited; edited coats are Codex-assisted adaptations, not claimed original human-drawn species. No external image model, subagent, screenshot asset extraction, paid purchase, account or third-party message. Fifteen species improved, six retain original art; side/idle source limitations recorded. Sources/modifications: assets/licenses/wildlife-sprites/SOURCE_RECORD.md. 103 tests/build/audit and affected isolated native browser checks pass. No final human acceptance, push/publication/submission claim.
+
+---
+
 # 2026-10-07 — v0.4.6 Forest theme and bridge
 OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted bridge geometry/pixel drawing, night-grid diagnosis/rectangle merging, original olive palette treatment, wave motifs, removal of raised banks/teal ferns, tests and isolated CUA browser QA/documentation. User supplied four screenshots showing the defects/removals and muted foliage/water reference. No screenshot pixels, commercial-game assets or map layout were extracted.
 
