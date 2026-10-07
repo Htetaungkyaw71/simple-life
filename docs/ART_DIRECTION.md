@@ -54,3 +54,6 @@ User requested less text and a stronger game presentation. Reuse the original fr
 
 ## Milestone 3 extension — 2026-10-07
 One authored woodland with irregular tree clusters, safe quiet entrance, winding path, fruit grove, shrine pond/log landmarks and deeper boar clearing. Reuse the approved native pixel family. Original berry/guava/mango/club/hide/bag/boar/log/stone pixels extend the same atlas; guava/mango trees adapt licensed LimeZu trees with original fruit clusters. Keep 2× source pixels, foot layering and existing farmer eyes. Forest night uses stepped pixel opacity bands around the player while retaining distant darkness; this explicitly supersedes the earlier no-player-halo restriction for Forest only. No new asset pack/font/audio or modern blurred gradient.
+
+
+2026-10-07 user-authorized large-wilderness follow-up supersedes the one-small-map/one-enemy cap: exactly 20-fold area, distinct stylized habitats with all listed species plus snakes in groups, more fruit, river/bridges/pixel waterfalls, walkable cave chambers and finite guarded treasure. Preserve crisp native pixels, existing farmer faces/canvas shell, local-only runtime, license/AI disclosures, farming/City/sleep/recovery and no-publication obligations. No real-world ecosystem accuracy is claimed for the mixed-climate game map.

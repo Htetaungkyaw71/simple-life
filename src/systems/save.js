@@ -1,5 +1,6 @@
-import {FORAGE_NODES} from '../data/forest.js';
-import {inTerritory,freshBoar,safeStash} from './forest.js';
+import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
+import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS} from '../data/forest.js';
+import {inTerritory,freshAnimal,safeStash} from './forest.js';
 import {MAX_FARMS,PLOTS_PER_FARM} from '../data/farms.js';
 import {newFarm,plotOwned} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
@@ -11,7 +12,7 @@ import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -25,7 +26,8 @@ export function validate(raw) {
   const oldRoom=raw.version<3?{width:1344,height:800}:raw.roomSize;
   const position=s.area==='interior'&&oldRoom?.width>0&&oldRoom?.height>0?{x:raw.position?.x*ROOM.width/oldRoom.width,y:raw.position?.y*ROOM.height/oldRoom.height}:raw.position;
   s.roomSize={width:ROOM.width,height:ROOM.height};
-  s.position = nearestSafe(s.area,position);
+  const forestPosition=p=>raw.version<9&&p?{x:p.x,y:p.y+LEGACY_FOREST_OFFSET}:p;
+  s.position = nearestSafe(s.area,s.area==='forest'?forestPosition(position):position);
   s.marketSeed=number(raw.marketSeed,1,0,4294967295);
   s.selectedCrop=Object.hasOwn(CROPS,raw.selectedCrop)?raw.selectedCrop:'tomato';
   s.hasVisitedCity=raw.hasVisitedCity===true||raw.area==='city';
@@ -52,16 +54,21 @@ export function validate(raw) {
   s.forest.forageDay=number(raw.forest?.forageDay,s.day,1,s.day);
   s.forest.collected=FORAGE_NODES.filter(n=>raw.forest?.collected?.includes?.(n.id)).map(n=>n.id);
   if(s.forest.forageDay<s.day){s.forest.forageDay=s.day;s.forest.collected=[];}
-  const boar=raw.forest?.boar;
-  if(boar){
-    s.forest.boar.health=number(boar.health,3,0,3);
-    s.forest.boar.defeatedDay=number(boar.defeatedDay,s.day,0,s.day);
-    const p=nearestSafe('forest',boar.position);
-    s.forest.boar.position=inTerritory(p)&&walkable('forest',p.x,p.y,16)?p:freshBoar().position;
-    if(!s.forest.boar.health&&s.forest.boar.defeatedDay<s.day)s.forest.boar=freshBoar();
+  for(const a of ANIMAL_SPAWNS){
+    const old=raw.version<9?(a.id==='boar-original'?raw.forest?.boar:null):raw.forest?.animals?.[a.id];
+    if(!old)continue;
+    const restored=s.forest.animals[a.id],definition=SPECIES[a.species];
+    restored.health=number(old.health,definition.health,0,definition.health);
+    restored.defeatedDay=number(old.defeatedDay,s.day,0,s.day);
+    const p=nearestSafe('forest',raw.version<9?forestPosition(old.position):old.position);
+    restored.position=inTerritory(p,a.territory)&&walkable('forest',p.x,p.y,definition.body)?p:{...a.home};
+    if(!restored.health&&restored.defeatedDay<s.day)s.forest.animals[a.id]=freshAnimal(a);
   }
+  s.forest.boar=s.forest.animals['boar-original'];
+  s.forest.explored=REGIONS.filter(r=>r.id==='entrance'||Array.isArray(raw.forest?.explored)&&raw.forest.explored.includes(r.id)).map(r=>r.id);
+  s.forest.treasures=TREASURES.filter(t=>Array.isArray(raw.forest?.treasures)&&raw.forest.treasures.includes(t.id)).map(t=>t.id);
   const coins=number(raw.stash?.coins,0,0,9999999);
-  if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(raw.stash),coins};
+  if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(forestPosition(raw.stash)),coins};
   return s;
 }
 export class SaveService {

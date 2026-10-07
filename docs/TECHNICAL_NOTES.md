@@ -1,3 +1,11 @@
+# Wilderness expansion technical notes
+
+Version 0.4.0 / schema 9. 5120² world area is exactly 20 times the previous 1280×1024. Default Canvas plus optional WebGL remains; local-only runtime and eight-file allowlist are unchanged. Atlas grows from 150 to 252 frames at 1024² source pixels, with original farmers unchanged. No runtime dependency changes.
+
+The enlarged map required indexed collision, cached terrain and nearby-only animal simulation. Static world objects remain Phaser-rendered; the renderer culls offscreen sprites. Forest night draws the viewport only and stays above every world foot depth. The wilderness map and food/market paging remain paused canvas UI. Regional discovery and finite guarded-cache records save alongside each known animal; v8 forest positions translate rather than losing progress. No backend, remote assets, extra equipment or publishing.
+
+---
+
 # Current Milestone 3 extension — 2026-10-07
 
 Version 0.3.0, schema 8; the historical sections below describe earlier foundations. `data/forest.js` owns authored forest nodes/map/boar territory/guidance, `data/items.js` owns food and club values. `systems/forest.js` owns collection/eating/equipment/recovery/daily refresh and shared sight checks. `systems/combat.js` owns deterministic collision-safe boar movement, telegraphs, melee/cooldowns/damage/invulnerability; transient timers advance only with unpaused simulation. `systems/defeat.js` performs atomic loss/next-morning respawn through the established time/crop rules. Save validation preserves older progress and repairs forest coordinates; SAVE_SCHEMA.md specifies new fields.

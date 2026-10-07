@@ -38,7 +38,7 @@ export class TradePanel {
   text(u,u.root,tx,y+14,plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold);
   button(u,u.root,'X',right-22,y+8,22,22,()=>u.close(),{id:'trade-close'});
   if(plant)button(u,u.root,'FOOD',tx+76,y+8,44,22,()=>this.app.survivalPanel.open('food'),{id:'bag-food'});
-  if(selling)button(u,u.root,this.index<4?'FRUIT >':'< CROPS',tx+64,y+8,66,22,()=>this.selectCrop(this.index<4?4:0),{id:'market-page'});
+  if(selling)button(u,u.root,'PAGE '+(Math.floor(this.index/4)+1)+' >',tx+64,y+8,66,22,()=>this.selectCrop((Math.floor(this.index/4)*4+4)%this.ids.length),{id:'market-page'});
   if(!plant&&!selling){
    const coins=text(u,u.root,right-30,y+14,String(s.money),8).setOrigin(1,0);
    const purse=icon(u,u.root,'coin',right-46-coins.width,y+11,.75);

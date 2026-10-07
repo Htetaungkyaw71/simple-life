@@ -1,3 +1,17 @@
+# Save schema 9 — large wilderness
+
+Storage key remains `simple-life.save.v1`; versions **1–9** are accepted. The previous farming/City/currency/care/fatigue/character fields remain unchanged. Six new fruit inventory keys default to zero. Original sale indices remain stable.
+
+`forest.animals` is a bounded record of the 68 known spawn IDs. Every record has known species/id, health clamped to that species' maximum, collision-safe territory position and defeatedDay. Unknown IDs are ignored. `forest.boar` aliases `animals['boar-original']` in memory for compatibility with the established survival API. JSON may contain the compatibility record; schema 9 restoration uses the authoritative animal record and reconstructs the alias. Charge headings/timers/cooldowns stay transient and start with entry grace/warnings.
+
+`forest.explored` contains deduplicated known region IDs, always including entrance. `forest.treasures` contains deduplicated known collected cache IDs. Forage uses the established day/collected fields over 63 known IDs. Daily rollover refreshes forage and dead animals, while keeping discovery and caches.
+
+For **schema 8 and earlier Forest saves**, add **4096 to Y** for player, original boar and forest Stash Bag before safe validation; this moves them with their retained southwest Homewood geometry. Old collected IDs, partial/dead boar health, bag amount, coins, inventory, farm expansion, care, day/time and price seed survive. Home/City/Farm/interior coordinates are not shifted. New species initialize at their distinct safe habitats. Invalid positions repair to nearby valid feet positions; an animal outside its territory falls back to its own safe home. No save is deleted to migrate.
+
+Defeat remains atomic before the visual fade. Cache collection saves immediately and pays once. All retained sleep/midnight/crop rules and existing bag persistence remain. Tests include explicit schema-8 forest/bag/boar translation and identical original daily prices, plus schemas 1–7 and malformed schema-9 fields.
+
+---
+
 # Save schema 8 — Milestone 3
 
 Storage key: `simple-life.save.v1` (unchanged). Accepted source versions: 1–8. Migration validates each field and preserves all valid existing character, area/safe position, farm/field ownership, crop indices/care/history, coins, seed/produce inventory, day/minute/fatigue, market seed and City guidance/transaction flags. No save deletion, offline simulation or price reroll. Schema 7 before-dawn times remain valid.

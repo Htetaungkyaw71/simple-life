@@ -1,3 +1,4 @@
+import {forestRegion} from '../data/forest.js';
 import {ForestView,forestNight} from '../art/ForestView.js';
 import {combatRuntime,stepCombat} from '../systems/combat.js';
 import {daylight} from '../systems/time.js';
@@ -28,7 +29,8 @@ export class WorldScene extends Phaser.Scene {
   }
   create(){
     for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q,K');
+    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q,K,M');
+    this.keys.M.on('down',()=>{if(this.app.state?.area==='forest'&&!this.app.paused)this.app.wildernessMap.open();});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
     this.keys.ESC.on('down',()=>this.app.pause());
     this.keys.E.on('down',()=>this.app.use());for(const key of ['SPACE','K'])this.keys[key].on('down',()=>this.app.attack());
@@ -60,10 +62,10 @@ export class WorldScene extends Phaser.Scene {
     const s=this.app.state;this.targetPlot=null;this.plotPositions=visiblePlots(s||{farms:[{fields:[true,false,false,false]}]});drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.renderCrops();
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
-    this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(1900).setVisible(false);
+    this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
     this.combat=combatRuntime();this.forestView=new ForestView(this);
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
-    const light=daylight(s||{minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(3000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(3000);
+    const light=daylight(s||{minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);
     if(s)this.atmosphere.update(0,false,s.position);
     this.resize();
   }
@@ -78,7 +80,7 @@ export class WorldScene extends Phaser.Scene {
       const len=Math.hypot(x,y)||1,step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
       if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}if(dx||dy)this.targetPlot=null;a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge){a.travel(edge);return;}
     }
-    if(!a.paused&&!document.hidden){const result=stepCombat(s,this.combat,delta);if(result.hurt){this.forestView.hurt();a.ui.feedback('Ouch / -15 health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();}
+    if(!a.paused&&!document.hidden){const result=stepCombat(s,this.combat,delta);if(result.hurt){this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
     this.player?.update(s.position,dx,dy);
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);

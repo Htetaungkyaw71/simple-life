@@ -1,3 +1,11 @@
+# Wilderness expansion architecture
+
+Data: forest.js composes the preserved starterForest.js entrance, 20 habitats, 63 nodes, bridges/waterfalls, broad clues and 14 caches; wildlife.js defines 22 species and 68 stable spawn IDs. Rules: forest.js manages daily availability, fruit/equipment/bag/cache transactions; combat.js keeps transient per-animal modes under one shared attack clock/damage immunity. Save schema 9 bounds records and migrates the original forest coordinates.
+
+WorldScene retains Phaser world/camera; ForestView renders native animals, nearby hit bars/warnings, hidden caches and pixel waterfalls. Separate UI scene owns WildernessMap, paged food/equipment and existing shop pages. No DOM HUD. Terrain bakes the 2560×2560 source-pixel world once and caches it for forest reentry; the extra giant fallback tile canvas is omitted for this bounded map. Only nearby animals simulate. Forest collision queries index the same rectangle masks in 128-unit cells, avoiding a full obstacle scan per sight/charge step; CollisionWorld delegates forest movement to those pure masks. Other areas keep their established Arcade queries. Night graphics paint only the visible camera bounds and use depth 10000 so southern tree feet cannot render over darkness.
+
+---
+
 # Current Milestone 3 extension — 2026-10-07
 
 Version 0.3.0, schema 8; the historical sections below describe earlier foundations. `data/forest.js` owns authored forest nodes/map/boar territory/guidance, `data/items.js` owns food and club values. `systems/forest.js` owns collection/eating/equipment/recovery/daily refresh and shared sight checks. `systems/combat.js` owns deterministic collision-safe boar movement, telegraphs, melee/cooldowns/damage/invulnerability; transient timers advance only with unpaused simulation. `systems/defeat.js` performs atomic loss/next-morning respawn through the established time/crop rules. Save validation preserves older progress and repairs forest coordinates; SAVE_SCHEMA.md specifies new fields.

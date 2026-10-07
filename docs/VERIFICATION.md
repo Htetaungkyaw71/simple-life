@@ -1,3 +1,36 @@
+# Verification — large wilderness, 2026-10-07
+
+Current evidence: **docs/verification/wilderness/**; version **0.4.0 / schema 9**. Isolated Chromium, disposable localStorage, real keyboard/mouse/touch and copied read-only QA snapshots. The user's live save is untouched. Browser fixture setup prepares explicit starting saves; it is separate from real-input interactions and is not claimed as a New Game farming loop.
+
+- Clean baseline **38aacac**: **71 tests**, production build passed before edits. Final **78/78 tests pass** (`tests.txt`). Seven new tests cover 20-fold area, all 22 species/safe groups and species-sized bodies, route connectivity to every region/fruit/cache, species melee/damage/shared group immunity, territory and later-day respawn, guarded finite treasure and reload, v8 player/boar/bag translation with unchanged prices/progress, malformed v9 records. Retained farming/City/expansion/day-night/food/boar/death/bag tests pass.
+- Production build passes (`build.txt`, `build-files.json`): **12 files / eight allowlisted art files / 1,784,795 bytes**. Atlas has 252 frames; boy/girl sheets remain unchanged. No vendor archives, source manifest/generator, QA images, unused pack or new dependency ships. No whitespace errors.
+- `tests/browser/wilderness.mjs` full run (`results.json`): PASS for Home north edge → actual walk to a newly discovered region → gather fruit → pause/read/keyboard map → return Home/save/reload. All 20 regions and all 22 species load at their own habitats. The snake cave initially blocks its chest; actual directional attacks drive all three snakes away, then USE pays 424 coins once (60 → 484); saved collection survives refresh/Continue. Species/region/cave/collection screenshots are under this folder. Cave test uses a prepared equipped-character save; no health/animal/treasure mutations occur during combat.
+- Final focused run (`final/results.json`): PASS for **1440×900,1280×720,1024×768,844×390,390×844**. Map fits, discovered/unknown regions and species hit/damage data show, touch/keyboard region navigation works, paged nine-fruit FOOD fits including navigation controls and touch eating, four market pages fit. Actual bridge traversal and animated waterfall inspection pass. At the far north, Canvas and WebGL night both retain distant .78 darkness and stepped nearby light. Local 60-frame median 16.7ms is only a desktop sample.
+- Retained `forest-survival.mjs` focused run (`forest/results.json`): PASS for first-visit pause/completion, closed Outfitter keeper, zero-energy food/attack, full-energy non-consumption, touch attack, simultaneous two-finger movement, second bag replacement and reload during defeat fade, Canvas/WebGL night and all five sizes.
+- Retained `city-economy.mjs` focused run (`city/results.json`): PASS for exact quantities/repetition gates/hours, repeated travel, keyboard/touch purchases and planting, aid, four crop panels, city collisions, unchanged saved prices, old-save migration, signs and Farm-board trading.
+- All completed reports have **zero page/console errors, warnings, failed HTTP requests or foreign runtime requests**. Visual QA inspected region/group sprites, native snow/dry tree detail, cave and treasure, map/food short and portrait layouts, bridge/falls and far-north darkness.
+
+Corrections: final map clue/footer spacing and portrait food arrow positions were repaired after screenshot review and repeated at all sizes. The first cave navigation test tried to maintain an exact coordinate during knockback; its real-input combat driver now approaches and aims while animals move. A denser vegetation pass briefly covered a hippo spawn; species clearing exclusions repair it, with every body's safe spawn and all destinations validated afterward. Larger-world night depth/masks, terrain caching and collision indexing are covered by route/rules and actual renderer/browser checks. Development collision outlines are retained.
+
+The full exploration/cave playthrough precedes only final UI spacing/species-value text and a development-only debug fix. Its relevant layout/renderer cases were repeated on the final production build. Current farming rules and focused City/Farm/forest regressions pass; the previous complete New Game crop/survival playthrough remains historical, not another full-loop claim for this extension.
+
+Reproduce with an isolated Chromium CDP endpoint; set CDP_URL and optional bundled PLAYWRIGHT_MODULE:
+
+```sh
+npm test
+npm run build
+npm run preview -- --port 4175
+GAME_URL=http://127.0.0.1:4175/ node tests/browser/wilderness.mjs
+QA_OUTPUT=docs/verification/wilderness/final SKIP_LOOP=1 GAME_URL=http://127.0.0.1:4175/ node tests/browser/wilderness.mjs
+QA_OUTPUT=docs/verification/wilderness/forest SKIP_LOOP=1 GAME_URL=http://127.0.0.1:4175/ node tests/browser/forest-survival.mjs
+QA_OUTPUT=docs/verification/wilderness/city SKIP_LOOP=1 GAME_URL=http://127.0.0.1:4175/ node tests/browser/city-economy.mjs
+```
+
+Physical phones/browser chrome/notches and non-Chromium engines remain unverified. Audio is silent; prolonged balance and human acceptance are pending. No push, publish, deploy or unrelated progression.
+
+
+---
+
 # Verification — Milestone 3, 2026-10-07
 
 Current evidence: **docs/verification/forest/**. Production preview on local port 4175, isolated Chromium and disposable saves. Actual keyboard/mouse/touch drives gameplay; `?qa` provides copied read-only state/UI/combat snapshots. No user save or gameplay mutation hook was used. Supplemental fixtures initialize isolated localStorage deliberately; the complete playthrough starts with New Game.

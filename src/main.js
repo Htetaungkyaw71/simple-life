@@ -1,6 +1,7 @@
+import {WildernessMap} from './ui/WildernessMap.js';
 import {SurvivalPanel} from './ui/SurvivalPanel.js';
 import {FORAGE_NODES,FOREST_GUIDANCE} from './data/forest.js';
-import {collectForage,recoverStash} from './systems/forest.js';
+import {collectForage,recoverStash,recoverTreasure} from './systems/forest.js';
 import {attack} from './systems/combat.js';
 import {defeat} from './systems/defeat.js';
 import {isNight} from './systems/time.js';
@@ -24,7 +25,7 @@ class Application {
   constructor(){
     syncInterior(innerWidth,innerHeight);this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
     try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
-    this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
+    this.wildernessMap=new WildernessMap(this);this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){this.ui.title();}
   start(state){if(!state)return;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.save();}
@@ -38,6 +39,7 @@ class Application {
   use(){
     if(this.paused||!this.state)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);
     if(c.type==='forage'){const before=this.state.inventory[c.item];this.ui.feedback(collectForage(this.state,c.id));if(this.state.inventory[c.item]>before){this.scene.forestView.collect(FORAGE_NODES.find(n=>n.id===c.id));this.sound('forest:collect');}this.save();return;}
+    if(c.type==='treasure'){this.transact(s=>recoverTreasure(s,c.id));return;}
     if(c.type==='stash'){this.transact(recoverStash);return;}
     if(c.type==='outfitter'){this.survivalPanel.open('outfitter');return;}
     if(c.type==='starter'){const claimed=this.state.starterSeedsClaimed;this.transact(collectStarterSeeds);if(!claimed&&this.state.starterSeedsClaimed){this.ui.notice=null;this.ui.drawNotice();this.ui.showFarmObjective();}return;}

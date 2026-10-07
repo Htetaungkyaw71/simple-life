@@ -18,8 +18,8 @@ async function click(id){
 }
 async function key(k){await page.keyboard.press(k,{delay:40});await page.waitForTimeout(360);}
 async function hold(k,ms){await page.keyboard.down(k);await page.waitForTimeout(ms);await page.keyboard.up(k);await page.waitForTimeout(40);const s=await snap();assert.ok(walkable(s.state.area,s.state.position.x,s.state.position.y),'runtime stays in valid collision space');}
-async function move(x,y){for(const [axis,target,neg,pos]of [['x',x,'ArrowLeft','ArrowRight'],['y',y,'ArrowUp','ArrowDown']])for(let n=0;n<12;n++){const d=target-(await snap()).state.position[axis];if(Math.abs(d)<3)break;await hold(d<0?neg:pos,Math.max(20,Math.abs(d)/((await snap()).state.area==='interior'?130:260)*1000));}const p=(await snap()).state.position;assert.ok(Math.hypot(p.x-x,p.y-y)<12,`move ${JSON.stringify(p)} -> ${x},${y}`);}
-async function navigate(x,y){
+async function move(x,y){if((await snap()).state.area==='forest'&&y<=1024)y+=4096;for(const [axis,target,neg,pos]of [['x',x,'ArrowLeft','ArrowRight'],['y',y,'ArrowUp','ArrowDown']])for(let n=0;n<12;n++){const d=target-(await snap()).state.position[axis];if(Math.abs(d)<3)break;await hold(d<0?neg:pos,Math.max(20,Math.abs(d)/((await snap()).state.area==='interior'?130:260)*1000));}const p=(await snap()).state.position;assert.ok(Math.hypot(p.x-x,p.y-y)<12,`move ${JSON.stringify(p)} -> ${x},${y}`);}
+async function navigate(x,y){if((await snap()).state.area==='forest'&&y<=1024)y+=4096;
  const s=await snap(),area=s.state.area,p=s.state.position,safe=(x,y)=>walkable(area,x,y,16)&&walkable(area,x,y+6,16);let start=[Math.round(p.x/16)*16,Math.round(p.y/16)*16];
  if(!safe(...start)){const nearby=[];for(let yy=-2;yy<=2;yy++)for(let xx=-2;xx<=2;xx++){const v=[start[0]+xx*16,start[1]+yy*16];if(safe(...v))nearby.push(v);}nearby.sort((a,b)=>Math.hypot(a[0]-p.x,a[1]-p.y)-Math.hypot(b[0]-p.x,b[1]-p.y));start=nearby[0];}
  await move(...start);const q=[start],from=new Map([[start.join(','),null]]);let goal;
@@ -31,7 +31,7 @@ async function navigate(x,y){
 const shot=name=>page.screenshot({path:`${out}/${name}.png`});const use=()=>key('e');
 async function reloadContinue(){const day=(await snap()).state.day;await key('Escape');await click('Save');const saved=(await snap()).state;await page.reload();await page.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('Continue / Day '+day);const loaded=(await snap()).state;for(const k of ['version','character','area','money','inventory','plots','starterSeedsClaimed','hasVisitedFarm','health'])assert.deepEqual(loaded[k],saved[k],k);const elapsed=(loaded.day-saved.day)*1440+loaded.minute-Math.floor(saved.minute);assert.equal(loaded.energy,Math.max(0,saved.energy-Math.floor((saved.fatigueMinutes+elapsed)/30)));assert.ok(Math.abs(loaded.fatigueMinutes-(saved.fatigueMinutes+elapsed)%30)<.0001);}
 
-async function fixture(area,position,extra={}){syncInterior(page.viewportSize().width,page.viewportSize().height);const s=newState();s.area=area;s.position=position;Object.assign(s,extra);await page.goto(base+'?qa');await page.evaluate(s=>localStorage.setItem('simple-life.save.v1',JSON.stringify(s)),s);await page.reload();await page.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('Continue / Day '+s.day);await page.waitForTimeout(200);}
+async function fixture(area,position,extra={}){syncInterior(page.viewportSize().width,page.viewportSize().height);const s=newState();s.area=area;s.position=area==='forest'&&position.y<=1024?{x:position.x,y:position.y+4096}:position;Object.assign(s,extra);await page.goto(base+'?qa');await page.evaluate(s=>localStorage.setItem('simple-life.save.v1',JSON.stringify(s)),s);await page.reload();await page.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('Continue / Day '+s.day);await page.waitForTimeout(200);}
 
 
 import {FORAGE_NODES} from '../../src/data/forest.js';
@@ -43,7 +43,7 @@ async function toCity(){await toHome();await navigate(2176,640);await hold('Arro
 async function toForest(){await toHome();await navigate(720,64);await hold('ArrowUp',500);await page.waitForTimeout(350);assert.equal((await snap()).state.area,'forest');if((await snap()).menu){for(let i=0;i<3;i++)await click('Continue');}assert.equal((await snap()).state.forestTutorialComplete,true);}
 async function fight(){
  for(let n=0;n<12&&(await snap()).state.forest.boar.health>0;n++){
-  const s=await snap(),b=s.state.forest.boar.position;await move(b.x,Math.min(480,b.y+44));await hold('ArrowUp',25);await key(n%2?'k':'Space');await page.waitForTimeout(350);
+  const s=await snap(),b=s.state.forest.boar.position;await move(b.x,Math.min(4576,b.y+44));await hold('ArrowUp',25);await key(n%2?'k':'Space');await page.waitForTimeout(350);
  }
  assert.equal((await snap()).state.forest.boar.health,0);
 }
@@ -69,7 +69,7 @@ if(!process.env.SKIP_LOOP){
  const deathMoney=(await snap()).state.money,deathDay=(await snap()).state.day;
  for(let n=0;n<18;n++){
   let s=await snap();if(s.state.area==='interior')break;
-  const health=s.state.health,b=s.state.forest.boar.position;try{await move(b.x,Math.min(474,b.y+38));}catch(e){if((await snap()).state.area!=='interior')throw e;}
+  const health=s.state.health,b=s.state.forest.boar.position;try{await move(b.x,Math.min(4570,b.y+38));}catch(e){if((await snap()).state.area!=='interior')throw e;}
   if((await snap()).state.area==='interior')break;
   await page.waitForFunction(h=>{const s=window.__simpleLife.snapshot();return s.state.health<h||s.state.area==='interior';},health,{timeout:6000});
  }
@@ -104,7 +104,7 @@ await touchSession.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoint
 await touchSession.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[finger]});const heldX=(await snap()).state.position.x;await page.waitForTimeout(150);assert.ok((await snap()).state.position.x>heldX+15);assert.equal((await snap()).state.energy,95);
 await touchSession.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await touchSession.detach();await shot('two-finger-move-attack');await page.setViewportSize({width:1280,height:720});
 // A second fall replaces the saved old bag, and refresh during the fade is atomic.
-await fixture('forest',{x:936,y:438},{minute:480,health:15,money:99,forestTutorialComplete:true,deathTutorialSeen:true,ownsClub:true,clubEquipped:true,stash:{area:'forest',x:640,y:960,coins:50}});
+await fixture('forest',{x:936,y:438},{minute:480,health:15,money:99,forestTutorialComplete:true,deathTutorialSeen:true,ownsClub:true,clubEquipped:true,stash:{area:'forest',x:640,y:5056,coins:50}});
 await page.waitForFunction(()=>window.__simpleLife.snapshot().state.area==='interior');
 await page.reload();await page.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('Continue / Day 2');
 assert.equal((await snap()).state.money,75);assert.equal((await snap()).state.stash.coins,24);assert.equal((await snap()).state.health,100);assert.equal((await snap()).state.day,2);await shot('second-defeat-interrupted-fade-reload');

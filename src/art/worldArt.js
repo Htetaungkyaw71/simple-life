@@ -1,3 +1,4 @@
+import {BRIDGES} from '../data/forest.js';
 import {shopOpen} from '../systems/market.js';
 import {pixelArrow} from '../ui/statusArt.js';
 import {FIELDS} from '../data/farms.js';
@@ -18,10 +19,10 @@ function object(scene,p){
  let name=p.name;
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
- const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree'))?90:name.startsWith('house')?110:name==='shed'?124:height);
+ const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')?90:name.startsWith('house')?110:name==='shed'?124:height);
  if(!p.fence){const shadow=scene.add.ellipse(p.x+height*.28,p.y+height-5,Math.min(100,height*.72),12,0x253951,.18).setDepth(1);if(name.startsWith('tree'))shadow.setPosition(p.x+34,p.y+88).setSize(78,24);}
  const obj=image(scene,name,p.x,p.y,foot);
- if(name.startsWith('tree')||name.endsWith('-tree'))scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90});
+ if(name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90});
  if(p.animated==='fountain')scene.fountains.push(obj);
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
  return obj;
@@ -72,6 +73,7 @@ export function drawWorld(scene,area){
   label(scene,704,608,'LANTERN SQUARE');label(scene,1080,626,'SEED AID');
  }
 
+ if(area==='forest'){for(const b of BRIDGES){const bridge=scene.add.graphics().setDepth(0);bridge.fillStyle(0x694757).fillRect(b.x,b.y,b.w,b.h);for(let yy=4;yy<b.h;yy+=12){bridge.fillStyle(0xb58b61).fillRect(b.x+4,b.y+yy,b.w-8,8);bridge.fillStyle(0xd5b37e).fillRect(b.x+4,b.y+yy,b.w-8,2);}bridge.fillStyle(0x544249).fillRect(b.x,b.y,6,b.h).fillRect(b.x+b.w-6,b.y,6,b.h);}}
  for(const p of [...map.buildings,...map.props])object(scene,p);
  for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.kind||(npc.name==='Clara'?'seed':'sell'),normal:npc.sprite,idle:npc.idle});}
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);

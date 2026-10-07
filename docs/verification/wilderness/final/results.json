@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "fullExplorationAndCave": false,
+  "regions": 20,
+  "species": 22,
+  "animals": 68,
+  "forageNodes": 63,
+  "guardedTreasures": 14,
+  "realInputRegionalExploration": false,
+  "caveCombatTreasureReload": false,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 844,
+      "height": 390
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "canvasAndWebGLFarNorth": true,
+  "riverBridgeCrossing": true,
+  "animatedWaterfall": true,
+  "localMedianFrameMs": 16.699999999999818,
+  "errors": [],
+  "warnings": [],
+  "failedRequests": [],
+  "foreignRequests": []
+}

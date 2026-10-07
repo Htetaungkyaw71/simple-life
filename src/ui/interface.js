@@ -6,7 +6,7 @@ export class Interface extends Phaser.Scene {
   create(){
     this.app.ui=this;this.input.addPointer(3);this.scale.on('resize',()=>this.layout());
     this.input.on('pointerup',pointer=>{for(const c of this.controls)c.release?.(pointer);});this.input.on('gameout',()=>{this.app.input={};});
-    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;if(this.menu.kind==='trade'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.tradePanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='survival'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.survivalPanel.move(e.code==='ArrowLeft'?-1:1);return;}const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.highlight();});
+    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;if(this.menu.kind==='trade'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.tradePanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='survival'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.survivalPanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='wilderness'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.wildernessMap.move(e.code==='ArrowLeft'?-1:1);return;}const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.highlight();});
     this.app.ready();
   }
   layout(){
@@ -22,7 +22,7 @@ export class Interface extends Phaser.Scene {
   close(){if(this.menu?.kind==='trade')this.app.sound('shop:close');this.menu=null;this.app.paused=false;this.app.input={};Object.values(this.app.scene.keys).forEach(k=>k.reset());this.layout();}
   highlight(){const choices=this.controls.filter(c=>!c.disabled);choices.forEach((c,i)=>c.box.setStrokeStyle(i===this.focus?2:1,i===this.focus?UI_COLORS.gold:UI_COLORS.edge));}
   drawMenu(){
-    if(['trade','survival'].includes(this.menu.kind)){this.menu.draw();return;}
+    if(['trade','survival','wilderness'].includes(this.menu.kind)){this.menu.draw();return;}
     const {kicker,title,body,buttons,kind}=this.menu,w=this.w,h=this.h;
     const veil=this.add.rectangle(0,0,w,h,0x102b25,kind==='title'?.36:.78).setOrigin(0).setInteractive();this.root.add(veil);veil.on('pointerdown',(p,x,y,e)=>e.stopPropagation());
     const pw=Math.min(kind==='title'?270:290,w-this.safe.left-this.safe.right-16),x=Math.floor((w-pw)/2);
@@ -58,7 +58,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Make yourself at home','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows: move\nE: use / Space or K: attack\n1 / 2 / 3: choose a tool\nQ: change seed crop / BAG on touch\nEscape: pause\n\nTouch: pad, tools, USE / ATTACK.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nSleep by day: wake at 20:00.\nWater PM, then sleep to 06:00.\nTime keeps moving at midnight.\nOne missed window wilts. Two kill.';
+    const body=page===0?'WASD / arrows: move\nE: use / Space or K: attack\n1 / 2 / 3: choose a tool\nQ: change seed crop / BAG on touch\nM: wilderness map / Escape: pause\n\nTouch: pad, tools, USE / ATTACK.\nWalk close to doors or plots.':'Collect 3 starter seeds by Home.\nPlant in the tilled field.\nWater 06-12 AND 16-22.\nSleep by day: wake at 20:00.\nWater PM, then sleep to 06:00.\nTime keeps moving at midnight.\nOne missed window wilts. Two kill.';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Next / Farming',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}

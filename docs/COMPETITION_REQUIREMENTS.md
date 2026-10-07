@@ -9,3 +9,6 @@ Scope resolution: the latest user request supersedes the larger master prompt an
 2026-10-07 user-authorized follow-up replaces late-night waiting with a continuous clock and manual day/night sleep, saved awake fatigue, readable dark moonlight and cleaner canvas shops. Existing competition responsiveness, local-only runtime, disclosure and no-publication obligations remain unchanged.
 
 2026-10-07 Milestone 3 brief explicitly supersedes the forest/combat/death closure above. Only one forest, three foods, one club/enemy and one 25%-coin Stash Bag are active; larger master-prompt progression remains deferred. All four supplied competition PDFs were reread for this extension. Local-only runtime, disclosures, asset evidence, responsive controls and no-publication obligations remain.
+
+
+2026-10-07 user-authorized large-wilderness follow-up supersedes the one-small-map/one-enemy cap: exactly 20-fold area, distinct stylized habitats with all listed species plus snakes in groups, more fruit, river/bridges/pixel waterfalls, walkable cave chambers and finite guarded treasure. Preserve crisp native pixels, existing farmer faces/canvas shell, local-only runtime, license/AI disclosures, farming/City/sleep/recovery and no-publication obligations. No real-world ecosystem accuracy is claimed for the mixed-climate game map.

@@ -1,3 +1,4 @@
+import {forestRegion} from '../data/forest.js';
 import {CROPS} from '../data/crops.js';
 import {CropInfo} from './CropInfo.js';
 import {FarmGuide} from './FarmGuide.js';
@@ -17,6 +18,8 @@ export class Hud {
     panel(u,p,left,top+45,88,12);this.waterWindow=text(u,p,left+5,top+48,'WATER AM 06-12',6,UI_COLORS.light);
     panel(u,p,right-60,top,60,21);icon(u,p,'coin',right-57,top+3,.75);this.money=text(u,p,right-40,top+6,'60',8);
     button(u,p,'Pause',right-23,top+25,23,22,()=>this.app.pause(),{id:'pause',iconName:'pause'});
+    this.mapButton=button(u,p,'MAP',left,top+61,42,21,()=>this.app.wildernessMap.open(),{id:'wilderness-map'});
+    this.region=text(u,p,w/2,top+5,'',6,UI_COLORS.gold,Math.max(40,w-180)).setOrigin(.5,0);
     this.area=text(u,p,right-61,top+28,'HOME',7,UI_COLORS.muted);
     const touch=u.touch;const portrait=w<h;const by=h-u.safe.bottom-(touch&&portrait?116:43),bw=28,bgap=3,start=Math.floor(w/2-(3*bw+2*bgap)/2);
     this.slots=[];
@@ -38,6 +41,7 @@ export class Hud {
     this.promptY=by-25;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,14);this.promptText=text(u,this.prompt,5,3,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
   }
   update(s,c){
+    const forest=s.area==='forest';this.mapButton.box.setVisible(forest);this.mapButton.text.setVisible(forest);this.mapButton.box.input.enabled=forest;this.region.setText(forest?forestRegion(s.position).name:'').setVisible(forest&&this.ui.w>=320);
     this.attackButton.box.setVisible(s.clubEquipped);this.attackButton.box.input.enabled=s.clubEquipped;
     // The text belongs to the same canvas container; hide it with its button.
     this.attackButton.text?.setVisible(s.clubEquipped);

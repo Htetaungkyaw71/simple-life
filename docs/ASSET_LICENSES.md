@@ -95,3 +95,14 @@ Compact shop cards and day/night tint are original Codex-assisted Phaser canvas 
 | Forest route, wooden direction boards, stepped night bands, swing/impact/energy effects and canvas panels | Original project source in forest.js, worldArt.js, ForestView.js, SurvivalPanel.js | Codex assistance disclosed in AI_USAGE.md | Integer-pixel geometry and retained bitmap font; no reference-game artwork |
 
 Current town atlas: **150 frames** (15 added). Existing licensed environment and character attribution stay visible in Credits. No new downloaded art, sound, music, font, runtime dependency or image-generation service. The existing eight-file art allowlist is unchanged; no vendor archive/source file enters production. Forest asset evidence: assets/licenses/milestone-3-forest.md. Existing library/tool license evidence under docs/licenses remains applicable, with package versions unchanged. Audio hooks stay silent because there are no suitable license-safe effects already supplied.
+
+
+## Wilderness expansion — 2026-10-07
+
+| Asset | Creator/source | License/evidence | Modifications |
+|---|---|---|---|
+| 84 wildlife frames, six fruit icons, grass details, bamboo, cave mouth, ruin pillar, ice crystal, camp tent, waterfall stone, ancient chest | Original Simple Life project work with OpenAI Codex assistance; scripts/wilderness_art.py; no external source URL | Original source/Git evidence; disclosed AI assistance, no exclusivity claim | Native 16×16 item pixels and species-specific silhouettes/markings/four poses; consistent shadow and highlight clusters |
+| snow-pine, acacia-tree | LimeZu Serene Village tree0; https://limezu.itch.io/serenevillagerevamped | CC BY 4.0; https://creativecommons.org/licenses/by/4.0/ ; existing assets/licenses/limezu evidence | Recolored native foliage clusters with luminance retained; explicit derivedAdditions, excluded from originalAdditions |
+| River, timber bridges, animated stepped waterfalls, cave floors, habitat palettes, exploration map | Original project data/Graphics/Canvas source | Codex assistance recorded in AI_USAGE.md | Uses the established bitmap font and licensed grass/tree palette family; no new downloaded asset or smooth filter |
+
+Detailed creation record: assets/licenses/wilderness-expansion.md. Atlas now **252 frames at 1024²**, adding 100 original and two derived frames. Existing farmer sheets and original boar remain; same eight-file runtime allowlist. No new npm dependency, font, audio, external image service or remote runtime asset. Existing dependency/license evidence under docs/licenses remains unchanged.

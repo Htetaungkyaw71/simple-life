@@ -1,4 +1,4 @@
-import {FOREST_MAP} from './forest.js';
+import {FOREST_MAP,WATERFALLS} from './forest.js';
 import {FIELDS} from './farms.js';
 import {ROOM_SOLIDS} from './interior.js';
 import {HOUSE,houseSolids,shedSolids,pondRows} from './geometry.js';
@@ -70,9 +70,8 @@ interior.obstacles=ROOM_SOLIDS;
 for(const p of city.props.filter(p=>p.name.endsWith('-stall')))city.obstacles.push([p.x+6,p.y+40,8,88],[p.x+146,p.y+40,8,88],[p.x+8,p.y+40,144,14]);
 city.obstacles.push([696,418,16,48],...city.npcs.map(n=>[n.x-10,n.y-12,20,12]));
 
-FOREST_MAP.details=Array.from({length:150},(_,i)=>({name:i%9===0?'flowers2':i%7===0?'mushroom':'fern',x:48+(i*173)%1180,y:80+(i*257)%864})).filter(p=>!FOREST_MAP.paths.some(([x,y,w,h])=>p.x>x-32&&p.x<x+w+16&&p.y>y-32&&p.y<y+h+16)&&!FOREST_MAP.water.some(([x,y,w,h])=>p.x>x-16&&p.x<x+w&&p.y>y-16&&p.y<y+h));
-FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{const f=footprints[p.name]||({'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],rock:[6,28,50,28],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
-FOREST_MAP.obstacles.push(...FOREST_MAP.water.flatMap(pondRows));
+FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{if(p.name==='cave-mouth')return [[p.x+4,p.y+28,26,56],[p.x+96,p.y+28,28,56]];if(p.name==='bamboo-gate')return [[p.x,p.y,16,84],[p.x+80,p.y,16,84]];const f=footprints[p.name]||({'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],rock:[6,28,50,28],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26],'bamboo-clump':[20,48,20,16],'snow-pine':[22,76,20,16],'acacia-tree':[22,76,20,16],'cave-mouth':[8,56,112,24],'ice-crystal':[6,34,40,22],'bamboo-gate':[0,0,8,84],'ruin-pillar':[8,40,24,24],'camp-tent':[8,48,72,24],'waterfall-stone':[8,32,40,24]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
+FOREST_MAP.obstacles.push(...FOREST_MAP.water.flatMap(pondRows),...WATERFALLS.map(f=>[f.x,f.y,f.w,f.h]));
 MAPS.forest=FOREST_MAP;
 MAPS.interior=interior;
 home.details=home.details.filter(p=>!(p.x>380&&p.x<610&&p.y>290&&p.y<555));

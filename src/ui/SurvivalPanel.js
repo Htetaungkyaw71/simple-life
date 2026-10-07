@@ -26,7 +26,7 @@ export class SurvivalPanel {
    button(u,u.root,'SEEDS',tx,y+36,48,24,()=>{u.close();this.app.tradePanel.open('plant');},{id:'bag-seeds'});
    button(u,u.root,food?'GEAR':'FOOD',tx+52,y+36,48,24,()=>this.open(food?'gear':'food'),{id:'bag-gear'});
   }else text(u,u.root,tx,y+40,'Coins '+s.money+' / 07:00-20:00',7,UI_COLORS.muted);
-  if(food){FOOD_IDS.forEach((key,i)=>button(u,u.root,FOODS[key].name,tx+i*40,y+66-lift,36,25,()=>{this.index=i;this.message='';this.show();},{id:'food-'+key,iconName:FOODS[key].icon}));}
+  if(food){const page=Math.floor(this.index/3),tabWidth=Math.floor((pw-84)/3);button(u,u.root,'<',tx+pw-72,y+66-lift,24,25,()=>this.move(-3),{id:'food-prev'});button(u,u.root,'>',tx+pw-44,y+66-lift,24,25,()=>this.move(3),{id:'food-next'});FOOD_IDS.slice(page*3,page*3+3).forEach((key,i)=>button(u,u.root,FOODS[key].name,tx+i*(tabWidth+3),y+66-lift,tabWidth,25,()=>{this.index=page*3+i;this.message='';this.show();},{id:'food-'+key,iconName:FOODS[key].icon}));}
   icon(u,u.root,d.icon,tx,y+98-lift,1.6);
   text(u,u.root,tx+32,y+99-lift,d.name,8);
   text(u,u.root,tx+32,y+113-lift,food?'Bag '+s.inventory[id]+' / +'+d.energyRestored+' energy':s.ownsClub?'Owned / '+(s.clubEquipped?'Equipped':'Unequipped'):'45 coins / permanent',7,UI_COLORS.muted,pw-52);

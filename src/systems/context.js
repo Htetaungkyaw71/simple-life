@@ -1,6 +1,6 @@
-import {FORAGE_NODES} from '../data/forest.js';
+import {FORAGE_NODES,TREASURES} from '../data/forest.js';
 import {FOODS} from '../data/items.js';
-import {forageAvailable,lineClear} from './forest.js';
+import {forageAvailable,treasureAvailable,lineClear} from './forest.js';
 import {CROPS} from '../data/crops.js';
 import {shopOpen,SHOP_HOURS} from './market.js';
 import {LOCATIONS,walkable} from '../data/locations.js';
@@ -22,6 +22,7 @@ export function contextFor(state,targetPlot=null,direction='down'){
  const nearby=location.interactions.filter(p=>dist(p)<(p.type==='starter'?52:72)&&(!p.approach||(x>=p.approach[0]&&x<=p.approach[0]+p.approach[2]&&y>=p.approach[1]&&y<=p.approach[1]+p.approach[3]))).sort((a,b)=>dist(a)-dist(b));
  if(state.area==='forest'){
   const bag=state.stash;if(bag&&dist(bag)<64&&lineClear('forest',state.position,bag))return {type:'stash',...bag,label:'Recover '+bag.coins+' coins'};
+  const treasure=TREASURES.find(t=>dist(t)<64&&treasureAvailable(state,t)&&lineClear('forest',state.position,t));if(treasure)return {type:'treasure',...treasure,label:'Search ancient chest'};
   const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n)).sort((a,b)=>dist(a)-dist(b))[0];
   if(node)return {type:'forage',...node,label:'Gather '+FOODS[node.item].name};
  }

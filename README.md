@@ -1,6 +1,6 @@
-# Simple Life — Milestone 3
+# Simple Life — Wilderness expansion
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.3.0**, schema **8**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.0**, schema **9**.
 
 ## Run locally
 
@@ -22,15 +22,19 @@ Choose boy/girl. Start with 60 coins, collect three Tomato seeds from the Home c
 
 Four crops remain: Tomato / Strawberry / Carrot / Corn. Seed prices **10 / 18 / 28 / 40**, growth **3 / 4 / 4 / 5** cared-for nights, yield **2 / 2 / 1 / 3**. Home's east edge leads to City. Clara sells seeds; Niko buys crops, forest fruit and Wild Hide; Rowan's southwest **OUTFITTER** sells one permanent auto-equipped **Wooden Club for 45 coins**. All merchants operate **07:00–20:00**, disappearing when closed. Shops pause simulation, use icon tabs, exact quotes and 1/5/Max or All quantities. City seed aid retains one free Tomato seed/day for eligible broke farmers.
 
-Follow Home's wooden **FOREST ↑** sign and north road to the full-width edge. The south forest path returns Home. Six free daily nodes offer **Wild Berry (+12 energy, 6 base coins), Guava (+20, 12), Mango (+30, 20)**. Collect with E/USE; BAG → FOOD shows count, energy and today's sale price. EAT 1 consumes one fruit, caps energy at 100 and refuses consumption when full. Sell fruit at the City Market's fruit page. Daily prices stay at 85–120% of base, fixed for the day/save. Reentering/reloading never refreshes fruit early.
+Follow Home's wooden **FOREST ↑** sign to a **5120×5120 wilderness**, exactly **20 times the previous forest area** at the same camera/character scale. Twenty connected regions include Homewood, jungle groves, savanna, bamboo, pine woods, marsh/river, basalt caves, ruins, highlands and a stylized snowy lake. Timber bridges cross the river, animated pixel waterfalls feed pools, and walkable stone chambers, camp, shrine and ice landmarks reward exploring. MAP / M shows discovered regions, the player, danger, species combat values and broad treasure clues. Head southwest to Homewood, then south to Home.
 
-The deeper clearing has one Wild Boar. Its `!` warning precedes a locked charge; move aside, then swing toward it. Three hits make it flee and give one **Wild Hide (18 base coins; sell at City Market)**. Club attacks cost 5 energy with a 450ms cooldown. Charges deal 15 health; 750ms invulnerability and small collision-safe knockback keep hits distinct. Boars stop at solids and respawn on a later day. Night movement/awareness increase slightly; stepped nearby visibility keeps paths readable while distant woodland remains dark.
+**63 daily forage nodes** provide nine fruits: Wild Berry (+12 energy / 6 base coins), Guava (+20 / 12), Mango (+30 / 20), Banana (+18 / 10), Orange (+22 / 14), Papaya (+32 / 22), Coconut (+35 / 24), Dragon Fruit (+42 / 36), Pineapple (+38 / 28). E/USE collects; BAG → FOOD pages through icon tabs and EAT 1 consumes one, caps energy at 100 and refuses consumption when full. Market pages buy every fruit and Wild Hide with the retained 85–120% daily multiplier. Original crop/fruit/hide price salts stay unchanged. Nodes refresh once per day, never on scene reentry/reload.
+
+**68 animals across 22 species** live in their own territories in groups of 2–4: boar, lion, tiger, cheetah, leopard, jaguar, wolf, hyena, elephant, giraffe, hippo, zebra, rhino, kangaroo, panda, chimpanzee, gorilla, monkey, crocodile, Komodo dragon, polar bear and snake. This is a stylized game wilderness, not a recreation of real animal geography. Species vary from 2–9 club hits, 8–28 damage and 210–400 charge speed. Herbivores have shorter defensive awareness; predators notice from farther away. All warn before a locked charge, respect solids/territory, recover after hit/miss and share player damage invulnerability across the group. Club cost/cooldown stays 5 energy / 450ms. One Wild Hide drops per animal driven away. Saved partial health/dead states survive travel and dead animals return on a later day. Night awareness/movement increase slightly; stepped local visibility keeps distant areas dark.
+
+**14 rare ancient caches** hide off the main roads in dangerous regions, including the Serpent Hollow chamber. Approach to spot a chest; nearby living animals within 240 units block its recovery. Drive those guards away, then USE to recover 313–462 coins depending on the cache. Each cache pays once per save; sleep, reentry and reload cannot reroll it. MAP supplies broad clues after discovering the region, without revealing exact chest positions.
 
 At zero health, fall/fade and wake beside the home bed at **06:00 next day**, with health/energy restored. Drop **floor(25% of carried coins)** into one saved Stash Bag at the safe forest defeat position. Return and USE it to recover the coins. A second defeat permanently replaces the old bag. Zero loss creates no empty bag. Crops, inventory, equipment and paid farms remain. First-visit and first-defeat messages explain the rules and pause safely.
 
 - WASD/arrows: move; E: USE. Space/K: directional ATTACK.
 - 1/2/3: Seed / Water / Harvest; Q: cycle planting crop.
-- BAG: seeds, FOOD and GEAR. Arrows/Tab/Enter navigate menus; Escape closes/pauses.
+- M / MAP: wilderness discovery map. BAG: seeds, paged FOOD and GEAR. Arrows/Tab/Enter navigate menus; Escape closes/pauses.
 - Touch: directional pad, tools, USE and a separate ATTACK button with an equipped club.
 - Pause → Save, Controls, Resume or Return to title. Refresh → Continue.
 
@@ -38,7 +42,7 @@ Fields 2/3/4 still cost **120/180/240** coins. After buying all four fields on t
 
 ## Saves and sources
 
-`simple-life.save.v1` remains the storage key; schemas 1–7 migrate to 8 without deleting progress. Autosave follows actions/travel/sleep/defeat, every 2.5 seconds and pagehide. Invalid positions repair to nearby safe ground. Save scope is browser/origin. New Game confirms replacement; unavailable storage is reported. No offline simulation. See docs/SAVE_SCHEMA.md.
+`simple-life.save.v1` remains the storage key; schemas 1–8 migrate to 9 without deleting progress. Autosave follows actions/travel/sleep/defeat, every 2.5 seconds and pagehide. Invalid positions repair to nearby safe ground. Save scope is browser/origin. New Game confirms replacement; unavailable storage is reported. No offline simulation. See docs/SAVE_SCHEMA.md.
 
 Rules stay under `src/systems`, definitions under `src/data`, world rendering in WorldScene/ForestView and UI in a separate Phaser scene. Outdoor source pixels render at 2×; indoors retain integer zoom 2 and 64px farmer frames. Primary environment: **Serene Village revamped 1.9 by LimeZu, CC BY 4.0**, adapted palette/atlas and fruit trees. Original farmers, forest/crop/item/effect art, font and UI are code-authored with Codex assistance. Evidence: docs/ASSET_LICENSES.md, docs/assets/licenses and docs/AI_USAGE.md; title → Credits links creator/license. No commercial-game assets, downloaded audio or external font. Silent sound hooks remain; no suitable licensed sounds exist yet.
 
@@ -46,8 +50,8 @@ The build emits only eight allowlisted runtime art files. Vendor archives, manif
 
 ## Verification and limits
 
-Current results and reproduction commands: docs/VERIFICATION.md and docs/verification/forest/. Automated tests retain farming, city, expansion, migration and time regressions and cover the complete survival rules. Browser checks use isolated Chromium saves, real keyboard/mouse/touch and read-only `?qa` snapshots. Required viewports: **1440×900,1280×720,1024×768,844×390,390×844**. Default renderer is Canvas; `?renderer=webgl` supports local comparison of pixel lighting. Development-only `?collisions` shows solids.
+Current results and reproduction commands: docs/VERIFICATION.md and docs/verification/wilderness/. Automated tests retain farming, city, expansion, migration and time regressions and cover the complete survival rules. Browser checks use isolated Chromium saves, real keyboard/mouse/touch and read-only `?qa` snapshots. Required viewports: **1440×900,1280×720,1024×768,844×390,390×844**. Default renderer is Canvas; `?renderer=webgl` supports local comparison of pixel lighting. Development-only `?collisions` shows solids.
 
 Physical phones/notches, Safari/WebKit, Firefox and Edge remain unverified; touch results use Chromium emulation. Combat/economy values are initial balance requiring human play review. Audio is silent, water is unlimited, additional farms reuse the same map. No final team acceptance or competition submission is claimed. Team profile/contact, private reviewer repository, official hosting, matching ZIP/screenshots/demo and signed declarations remain separate submission work.
 
-This task stops at Milestone 3: one forest, three foods, one weapon/enemy and Stash Bag recovery. No Milestone 4, other enemies/weapons/armor/crafting/weather/relationships/backend. Nothing was pushed, published or deployed.
+This user-authorized follow-up expands the completed Milestone 3 wilderness. The earlier one-small-map/one-enemy limit is superseded. No additional weapons/armor/crafting/weather/relationships/backend or unrelated progression. Nothing was pushed, published or deployed.

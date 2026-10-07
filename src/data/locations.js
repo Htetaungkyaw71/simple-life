@@ -1,8 +1,9 @@
+import {FOREST_ENTRANCE} from './forest.js';
 import {ROOM,configureRoom} from './interior.js';
 import {MAPS,MAP_SIZE} from './mapLayouts.js';
 import {HOUSE,houseSolids,pondRows} from './geometry.js';
 export const LOCATIONS = {
- forest:{name:'Forest',subtitle:'The Wild Woods',spawn:{x:640,y:752},interactions:[]},
+ forest:{name:'Forest',subtitle:'The Wild Woods',spawn:{...FOREST_ENTRANCE},interactions:[]},
  home:{name:'Home',subtitle:'The shade garden',spawn:{x:480,y:500},interactions:[
   {type:'travel',...HOUSE.door,label:'Enter house',to:'interior',spawn:{...ROOM.spawn},approach:[464,480,32,28]},
   {type:'starter',x:544,y:542,label:'Collect starter seeds'},
@@ -32,12 +33,19 @@ export function inBounds(area,x,y,r=area==='interior'?6:12){const map=LOCATIONS[
 // Keep the visible farmer clear of opaque house art without enlarging the feet body
 // used for trees, ponds, furniture and crops. The front interaction approach stays open.
 export function houseClearance(area,x,y){return !LOCATIONS[area].houseSolids.some(([ox,oy,ow,oh])=>x+20>ox&&x-20<ox+ow&&y>oy&&y-60<oy+oh);}
-export function walkable(area,x,y,r=area==='interior'?6:12){return inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!LOCATIONS[area].obstacles.some(([ox,oy,ow,oh])=>x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh);}
+const spatial=new Map();
+function candidates(area,x,y,r){
+ if(area!=='forest')return LOCATIONS[area].obstacles;
+ const map=LOCATIONS[area];let index=spatial.get(map.obstacles);
+ if(!index){index=new Map();for(const box of map.obstacles){const [a,b,w,h]=box;for(let cy=Math.floor(b/128);cy<=Math.floor((b+h)/128);cy++)for(let cx=Math.floor(a/128);cx<=Math.floor((a+w)/128);cx++){const k=cx+":"+cy;if(!index.has(k))index.set(k,[]);index.get(k).push(box);}}spatial.set(map.obstacles,index);}
+ const found=new Set();for(let cy=Math.floor((y-r)/128);cy<=Math.floor(y/128);cy++)for(let cx=Math.floor((x-r)/128);cx<=Math.floor((x+r)/128);cx++)for(const b of index.get(cx+":"+cy)||[])found.add(b);return [...found];
+}
+export function walkable(area,x,y,r=area==='interior'?6:12){return inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(([ox,oy,ow,oh])=>x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh);}
 
 export const EDGE_TRAVEL={
  home:{zone:[448,1120,64,32],to:'farm',spawn:{x:320,y:64},facing:'down'},
- homeForest:{zone:[672,0,96,32],to:'forest',spawn:{x:640,y:752},facing:'up'},
- forest:{zone:[592,992,96,32],to:'home',spawn:{x:720,y:64},facing:'down'},
+ homeForest:{zone:[672,0,96,32],to:'forest',spawn:{...FOREST_ENTRANCE},facing:'up'},
+ forest:{zone:[592,5088,96,32],to:'home',spawn:{x:720,y:64},facing:'down'},
  homeCity:{zone:[2208,608,32,64],to:'city',spawn:{x:64,y:488},facing:'right'},
  city:{zone:[0,448,32,80],to:'home',spawn:{x:2176,y:640},facing:'left'},
  farm:{zone:[288,0,64,32],to:'home',spawn:{x:480,y:1088},facing:'up'}
