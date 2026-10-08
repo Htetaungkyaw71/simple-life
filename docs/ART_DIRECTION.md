@@ -1,3 +1,8 @@
+# v0.5.0 shared leaf/parchment interface
+Use a restrained cream, muted olive, warm wood and parchment family throughout the canvas interface. Original stepped corners, bevels, small leaf stitches and bitmap glyphs frame compact icon actions. A heart badge/red meter and gold energy meter sit opposite a 12-hour clock/day and coin badge. No upper action row or on-screen Jump button. Bag uses a roomy item grid; map uses a wooden notebook border, discovery hatching, broad grove/soil shapes and actual river silhouettes with a facing arrow. Keep reference-inspired composition without copying reference pixels, UI art, logos, characters or exact layouts. Existing world/farmer pixels retain their separate creators and licences. Text stays brief except necessary care, transaction, confirmation and attribution information. Gameplay/world art is unchanged.
+
+---
+
 # v0.4.9 larger approved forest
 Retain the accepted olive canopy/palm/palmetto/grass and moss/red-soil pixels. Slightly thin tree placement (about 16.7% in the old half) while extending twenty connected habitats east at the existing scale. The river reference dated 2026-10-07 18:47:40 guides independently uneven banks, changing channel widths, jagged turf/earth edges and variable sandy pockets. Screenshots supply general style only, not pixels/shapes/layouts. Keep restrained scattered animated reflections, dry roots, clear grass-free decks and water walking. No new pack/pixel asset, road, waterfall, fern or artificial raised bank. Fruit and animal homes stay on dry banks; native Craftpix species only.
 

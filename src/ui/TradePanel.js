@@ -7,6 +7,7 @@ import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
 export class TradePanel {
  constructor(app){this.app=app;this.gate=inputGate();this.index=0;this.message='';}
  open(type){
+  if(type==='plant'){this.app.bagPanel.open('seeds');return;}
   if(this.app.transitioning||this.app.paused)return;
   this.type=type;this.ids=type==='sell'?SALE_IDS:CROP_IDS;this.catalog=type==='sell'?SALE_ITEMS:CROPS;this.index=Math.max(0,CROP_IDS.indexOf(this.app.state.selectedCrop));
   if(type==='sell'&&!this.app.state.inventory[this.ids[this.index]])this.index=Math.max(0,this.ids.findIndex(id=>this.app.state.inventory[id]>0));
@@ -33,7 +34,7 @@ export class TradePanel {
   const pw=Math.min(252,u.w-u.safe.left-u.safe.right-16),ph=Math.min(181,u.h-u.safe.top-u.safe.bottom-10),lift=181-ph,x=Math.floor((u.w-pw)/2),y=Math.max(u.safe.top+5,Math.floor((u.h-ph)/2));
   u.menuBounds={x:x*2,y:y*2,w:pw*2,h:ph*2};
   const veil=u.add.rectangle(0,0,u.w,u.h,0x102025,.46).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,lx,ly,e)=>e.stopPropagation());
-  panel(u,u.root,x,y,pw,ph,0x263e38);
+  panel(u,u.root,x,y,pw,ph,UI_COLORS.panel);
   const tx=x+10,right=x+pw-10;
   text(u,u.root,tx,y+14,plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold);
   button(u,u.root,'X',right-22,y+8,22,22,()=>u.close(),{id:'trade-close'});
@@ -48,7 +49,7 @@ export class TradePanel {
   this.ids.slice(selling?Math.floor(this.index/4)*4:0,selling?Math.floor(this.index/4)*4+4:4).forEach((crop,i)=>{
    const index=this.ids.indexOf(crop);
    const c=button(u,u.root,this.catalog[crop].name,tx+i*(cw+3),y+37-Math.min(4,lift),cw,28-Math.min(4,lift),()=>this.selectCrop(index),{id:'crop-'+crop,iconName:selling?this.catalog[crop].icon:CROPS[crop].seedIcon});
-   if(index===this.index){c.box.setFillStyle(0x826a43);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}
+   if(index===this.index){c.box.setFillStyle(UI_COLORS.selected);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}
   });
   icon(u,u.root,selling?d.icon:d.seedIcon,tx,y+75-lift,2);
   text(u,u.root,tx+40,y+75-lift,d.name,9);
@@ -69,7 +70,7 @@ export class TradePanel {
    const quantities=[1,5,selling?'all':'max'],bw=Math.floor((pw-26)/3);
    quantities.forEach((quantity,i)=>{
     const c=button(u,u.root,String(quantity).toUpperCase(),tx+i*(bw+3),y+113-lift,bw,22,()=>{this.quantity=quantity;this.message='';this.show('trade-'+quantity);},{id:'trade-'+quantity});
-    if(this.quantity===quantity){c.box.setFillStyle(0x826a43);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}
+    if(this.quantity===quantity){c.box.setFillStyle(UI_COLORS.selected);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}
    });
    const q=quote(s,this.type,id,this.quantity);
    button(u,u.root,(selling?'Sell ':'Buy ')+(q.quantity||0)+' / '+(q.total||0)+'c',tx,y+140-lift,pw-20,24,()=>this.perform(),{id:'trade-confirm',disabled:!q.ok});

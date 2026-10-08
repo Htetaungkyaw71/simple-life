@@ -1,3 +1,12 @@
+# v0.5.0 — notebook UI, 2026-10-08
+`npm test`: 122/122; `npm run build`: succeeds. Ten new tests exercise key gates/Space versus K, paired touch taps, seven-viewport bounds, actual HUD control placement/map restrictions, four bag categories and guarded actions, hidden/revealed notebook terrain/player projection, generic menu controls, Graphics hit/hover/disabled behavior and compact crop inspection/text bounds. Existing 112 gameplay/art/save tests remain green.
+
+Reproduce supplemental offline studies with `node scripts/qa/notebook-ui.mjs`, then Pillow Python `scripts/qa/notebook-ui.py`. The Node adapter records actual component draw commands without starting Phaser, a browser or live storage; Python renders them over a retained offline world-study background. Forty-two outputs cover fourteen states × 1280×720, 390×844 and 640×360; selected outputs were visually inspected. Every image is labelled OFFLINE UI STUDY / NOT A BROWSER CAPTURE. Bounds tests additionally cover 1440×900, 1024×768, 844×390 and 360×640. This does not exercise browser renderer/input dispatch or real touch gestures.
+
+Local-preview URL security was rejected earlier by the browser tool. No alternate browser/CDP/OS route was used to bypass it. Browser acceptance for this version remains unverified; historical browser evidence below does not validate this redesign. Test/build/runtime-byte audit and read-only local HTTP health evidence: `verification/notebook-ui/`. No live save was changed. No publication or push.
+
+---
+
 # v0.4.9 expanded forest validation — 2026-10-08
 112/112 automated tests and production build pass. New checks cover exactly twofold area/original region coordinates, moderate western thinning, native wavy-bank geometry, GPU-safe complete terrain tile coverage, all-dry fruit/new homes, small native animal groups and schema-9 old-progress/new-region initialization. Existing BFS reaches all forty regions/163 fruit spots/fourteen caches; water/bridge/grass/root/boar/combat/day/club/25%-coin recovery/farming/City/sleep/save regressions pass. Existing water tests now select actual channel centres instead of assuming the previous straight bank/bridge centre.
 

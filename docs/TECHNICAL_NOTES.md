@@ -1,3 +1,8 @@
+# v0.5.0 interface verification notes
+The UI root remains integer scale 2. Original graphics/glyphs use native integer coordinates; dynamic notebook textures use Phaser's pinned NEAREST filter value (1). Shared Graphics buttons provide explicit local hit rectangles and preserve selected fills/glyphs across hover. Disabled actions stay noninteractive. Mobile layouts retain ≥44-display-pixel action targets in tested sizes. Space and K are separate forest actions; B works in playable areas and M is Forest-only; paused/repeated/transitioning events do not dispatch. Touch double taps require <320ms and <28 display pixels; UI controls stop propagation. Browser-engine/input-dispatch verification is pending because the local-preview URL was rejected by browser policy; Node layout/input tests and offline Pillow studies are supplemental evidence only. Dependencies and the runtime art allowlist remain unchanged.
+
+---
+
 # v0.4.9 technical update
 10240×5120 forest; forty regions, 163 forage points, thirty saved boars and forty-eight transient quiet animals. Six river definitions and twenty-two bridges use shared integer-native water geometry; other locations retain their materials. Six cached forest ground textures cap individual native dimensions at 2048×2048, preserving coherent borders on the wider map. Schema 9/local-only canvas architecture and all eight art files remain. Production 12 files / 2,008,179 bytes; 112 tests/build pass. A local offline CPU terrain bake took 1,263ms; current native browser loading/Canvas/WebGL/memory/frame timing/mobile/interaction checks remain unverified due browser URL policy. Offline studies are not browser captures. Preview: http://127.0.0.1:4175/.
 

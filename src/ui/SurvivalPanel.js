@@ -5,7 +5,7 @@ import {inputGate} from '../systems/inputGate.js';
 import {button,panel,text,icon,UI_COLORS} from './pixelWidgets.js';
 export class SurvivalPanel {
  constructor(app){this.app=app;this.index=0;this.gate=inputGate();this.message='';}
- open(type){if(this.app.transitioning)return;this.type=type;this.message='';this.show();}
+ open(type){if(type==='food'||type==='gear'){this.app.bagPanel.open(type);return;}if(this.app.transitioning)return;this.type=type;this.message='';this.show();}
  show(){const u=this.app.ui;this.app.paused=true;this.app.input={};u.notice=null;u.menu={kind:'survival',draw:()=>this.draw(u)};u.focus=0;u.layout();u.focus=Math.max(0,u.controls.filter(c=>!c.disabled).findIndex(c=>c.id==='survival-action'));u.highlight();}
  move(step){if(this.type!=='food')return;this.index=(this.index+step+FOOD_IDS.length)%FOOD_IDS.length;this.message='';this.show();}
  perform(){
@@ -27,11 +27,11 @@ export class SurvivalPanel {
    button(u,u.root,food?'GEAR':'FOOD',tx+52,y+36,48,24,()=>this.open(food?'gear':'food'),{id:'bag-gear'});
   }else text(u,u.root,tx,y+40,'Coins '+s.money+' / 07:00-20:00',7,UI_COLORS.muted);
   if(food){const page=Math.floor(this.index/3),tabWidth=Math.floor((pw-84)/3);button(u,u.root,'<',tx+pw-72,y+66-lift,24,25,()=>this.move(-3),{id:'food-prev'});button(u,u.root,'>',tx+pw-44,y+66-lift,24,25,()=>this.move(3),{id:'food-next'});FOOD_IDS.slice(page*3,page*3+3).forEach((key,i)=>button(u,u.root,FOODS[key].name,tx+i*(tabWidth+3),y+66-lift,tabWidth,25,()=>{this.index=page*3+i;this.message='';this.show();},{id:'food-'+key,iconName:FOODS[key].icon}));}
-  icon(u,u.root,d.icon,tx,y+98-lift,1.6);
-  text(u,u.root,tx+32,y+99-lift,d.name,8);
-  text(u,u.root,tx+32,y+113-lift,food?'Bag '+s.inventory[id]+' / +'+d.energyRestored+' energy':s.ownsClub?'Owned / '+(s.clubEquipped?'Equipped':'Unequipped'):'45 coins / permanent',7,UI_COLORS.muted,pw-52);
+  icon(u,u.root,d.icon,tx,y+98-lift,2);
+  text(u,u.root,tx+40,y+99-lift,d.name,8);
+  text(u,u.root,tx+40,y+113-lift,food?'Bag '+s.inventory[id]+' / +'+d.energyRestored+' energy':s.ownsClub?'Owned / '+(s.clubEquipped?'Equipped':'Unequipped'):'45 coins / permanent',7,UI_COLORS.muted,pw-60);
   if(food)text(u,u.root,tx,y+132-lift,'Sale '+marketPrice(s,id).price+'c / City Market',7,UI_COLORS.gold);
-  else text(u,u.root,tx,y+75-lift,shop?'Space / K to swing. Costs 5 energy.':'Hide '+s.inventory.wildHide+' / sell at City Market.',7,UI_COLORS.muted,pw-20);
+  else text(u,u.root,tx,y+75-lift,shop?'K / attack / 5 energy.':'Hide '+s.inventory.wildHide+' / sell at City Market.',7,UI_COLORS.muted,pw-20);
   button(u,u.root,food?'EAT 1':shop?s.ownsClub?'OWNED':'BUY / 45c':'EQUIP',tx,y+146-lift,pw-20,22,()=>this.perform(),{id:'survival-action',disabled:food?!s.inventory[id]:shop?(s.ownsClub||s.money<45||!shopOpen(s,'outfitter')):!s.ownsClub});
   const message=this.message||(shop&&!s.ownsClub&&s.money<45?'Earn coins through farming.':'');
   text(u,u.root,tx,y+171-lift,message,6,UI_COLORS.muted,pw-20);

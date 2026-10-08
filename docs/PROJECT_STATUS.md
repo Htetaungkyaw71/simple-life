@@ -1,3 +1,21 @@
+# v0.5.0 — Leaf and parchment interface, 2026-10-08
+
+Completed the latest user-authorized theme pass. Title, farmer choice, pause, controls, credits, confirmation/dialogs, Farm board, shops, crop information, HUD and bag share original cream/olive stepped frames and small leaf stitches. The title composes retained credited forest/farmer sprites with original warm trunk/light/water graphics; reference screenshots supply inspiration only.
+
+- Top action buttons and the canvas Jump button are removed. The upper HUD contains heart/energy meters, day/time and coins. Lower icon slots contain tools, Bag, Pause and Forest-only Map/club actions. Touch directional movement and USE remain.
+- Space jumps in Forest; K attacks. B opens Bag; M opens the Forest map. Legacy J/Shift jump aliases remain. Nearby touch double taps on open Forest ground jump, without another button. Held/paused/transitioning actions are gated.
+- Bag uses four icon tabs (seeds, produce, food, gear), a 4×3 grid, counts and one short selected-item detail. Selecting seeds, eating and equipping reuse established rules/save guards; food refuses consumption at full energy. Shop transactions and purchase confirmation remain.
+- Parchment map draws actual rivers and a simplified terrain miniature, hatches undiscovered regions, shows player location/current facing and keeps optional region/cache clues. It cannot open outside Forest. It preserves world aspect at every tested viewport; exact cache positions remain hidden.
+- Shorter guidance and compact crop inspection retain watering windows, growth/care, ready/wilt/dead information. Small landscape crop information avoids inspected plot/player and keeps text within its panel.
+
+Checks: 122/122 Node tests, including 10 new input/bag/map/control/layout regressions; production build succeeds; whitespace check clean. Bounds checks cover 1440×900, 1280×720, 1024×768, 844×390, 390×844, 640×360 and 360×640. Forty-two labelled offline UI studies cover fourteen screen states at desktop, portrait and small landscape sizes, with selected studies visually inspected. Test/build/art-allowlist/HTTP evidence is in `verification/notebook-ui/`; source/provenance is in `assets/licenses/notebook-ui.md`.
+
+Limits: Browser interaction QA is blocked by the previously recorded browser tool URL-policy rejection for the local preview. Offline draw-command studies use a test adapter and Pillow, not Phaser, actual input dispatch or browser screenshots; they do not certify renderer behaviour, real touch gestures, accessibility, physical phones/notches or browser compatibility. Current browser acceptance remains unverified. No user save was accessed or changed during QA. Prior browser results below are historical.
+
+Version 0.5.0 / schema 9; no world content, gameplay economy or save migration changes. Farming, City, permanent club, continuous day/sleep, discovery, 25%-coin recovery and all eight runtime art files remain. No new dependency, remote runtime resource, source-pack redistribution, publication or push.
+
+---
+
 # Larger forest and wavy shores — 2026-10-08, v0.4.9 / schema 9
 Latest user requests slightly fewer trees, twice the current forest area, more rivers with wavy reference shores, more fruits and more animals. Forest extends east to **10240×5120 / 40 connected regions**, exactly twice v0.4.8 and 40 times the original area. Original region IDs/coordinates and southwest entrance remain. The old eastern boundary opens onto twenty new habitats. Forest has **4,070 trees (2,092 western / 1,978 eastern), 110 bamboo stands, 628 palmettos and 15,027 grass clumps**; western tree count is about 16.7% below 2,512. Approved olive art/character scale remains.
 

@@ -1,3 +1,8 @@
+# v0.5.0 interface and controls
+Current theme: cream/olive leafy pixel panels, wooden parchment map and bottom icon hotbar. Space jumps in Forest; K attacks; B opens the four-tab bag; M opens the Forest-only map. Touch retains directional pad, tool slots, USE and club icon, with nearby ground double taps for Forest jumping. Upper action controls and the separate Jump button are removed. No map in Home, Farm, City or the interior. Map includes facing, discovered terrain/rivers and optional broad clues; no exact treasure coordinates. Bag grids show seed/produce/food/gear counts and reuse existing selection/eating/equipment rules. All gameplay values, world content, save key/schema and progression remain. Historical controls below are superseded by this entry.
+
+---
+
 # v0.4.9 user-authorized forest extension
 Twice the v0.4.8 area is implemented by extending east: 10240×5120, forty connected 1280×1024 regions. Original bounds/IDs and Homewood entrance remain. Reduce western tree density about 16.7%; retain responsive grass and cleared passages. Four long rivers, one tributary, one short pool channel, three additional ponds and twenty-two bridges use traversable shared water surfaces. Daily fruit increases from 63 to 163 collection points, retaining nine types and prices/energy values. Animals increase from 24 to 78 using only approved Craftpix Boar/Deer/Hare/Fox/Grouse: thirty saved boars and forty-eight transient quiet animals. New regions have quiet pairs and seven small boar pairs; unchanged 3-hit/15-damage charge/club/drop/day rules. Keep fourteen finite guarded caches/rewards. Stable save IDs preserve collected fruit, old boar health/discovery/cache/farm/City/time/sleep and recovery progress; new areas start unexplored.
 

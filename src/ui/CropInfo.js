@@ -4,23 +4,25 @@ import {pixels} from './statusArt.js';
 const intersects=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
 export class CropInfo {
  constructor(hud){
-  this.hud=hud;this.ui=hud.ui;const u=this.ui;this.w=Math.min(u.touch&&u.w>u.h&&u.h<240?176:184,u.w-u.safe.left-u.safe.right-12);this.h=80;
-  this.root=u.add.container().setVisible(false);hud.root.add(this.root);panel(u,this.root,0,0,this.w,this.h,0x304a40);
+  this.hud=hud;this.ui=hud.ui;const u=this.ui;this.compact=u.touch&&u.w>u.h&&u.h<200;this.w=Math.min(this.compact&&u.w<=340?128:u.touch&&u.w>u.h&&u.h<240?176:184,u.w-u.safe.left-u.safe.right-12);this.h=this.compact?66:70;
+  this.root=u.add.container().setVisible(false);hud.root.add(this.root);panel(u,this.root,0,0,this.w,this.h,UI_COLORS.panel);
   this.art=u.add.graphics();this.root.add(this.art);this.crop=icon(u,this.root,'tomato',6,4,.75);
-  this.name=text(u,this.root,23,5,'',8,UI_COLORS.gold);this.stage=text(u,this.root,6,18,'',7);
-  this.timer=text(u,this.root,19,37,'',7);this.next=text(u,this.root,6,48,'',6,UI_COLORS.muted);
-  this.condition=text(u,this.root,19,58,'',7);this.am=text(u,this.root,18,70,'',6);this.pm=text(u,this.root,104,70,'',6);
+  this.name=text(u,this.root,23,5,'',8,UI_COLORS.gold);this.stage=text(u,this.root,6,18,'',this.w<=140?6:7);
+  this.timer=text(u,this.root,19,this.compact?34:37,'',7);
+  this.condition=text(u,this.root,19,this.compact?45:48,'',7);this.am=text(u,this.root,18,this.compact?56:60,'',this.w<=130?5:6);this.pm=text(u,this.root,this.w<=130?76:104,this.compact?56:60,'',this.w<=130?5:6);
  }
  update(s,c){
   const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(!!info);if(!info)return;
-  this.crop.setTexture('town',info.icon);this.name.setText(info.name);this.stage.setText(`Stage ${info.stage}/${info.stages} / ${info.stageName}`);
-  this.timer.setFontSize(7).setText(info.timer);if(this.timer.width>this.w-25)this.timer.setFontSize(6);this.next.setText(info.next);const condition=info.condition==='Newly planted'&&info.need?`Newly planted / water ${info.need.includes('morning')?'AM':'PM'}`:info.need||info.condition;this.condition.setText(condition);
-  this.am.setText('AM '+info.care[0].label);this.pm.setText('PM '+info.care[1].label);
-  const g=this.art;g.clear();pixels(g,'clock',6,36,UI_COLORS.gold);
-  pixels(g,info.dead||info.paused?'warning':info.ready?'basket':info.need?'drop':'leaf',6,57,UI_COLORS.gold);
-  pixels(g,'sun',6,68,info.care[0].watered?UI_COLORS.gold:UI_COLORS.muted);pixels(g,'moon',92,68,info.care[1].watered?UI_COLORS.gold:UI_COLORS.muted);
+  this.crop.setTexture('town',info.icon);this.name.setText(info.name);this.stage.setText(`${info.stageName} / ${info.stage}/${info.stages}`);
+  const narrow=this.w<=130,timer=narrow?(info.dead?'Dead / clear':info.ready?'Ready to harvest':info.paused?'Paused / water':`Harvest / ${info.remaining} care nights`):info.timer;
+  this.timer.setFontSize(7).setText(timer);if(this.timer.width>this.w-25)this.timer.setFontSize(6);
+  const period=info.need.includes('morning')?'AM':'PM',condition=narrow?(info.dead?'Dead':info.ready?'Ready':info.paused?'Wilted / water':info.need?(info.condition==='Newly planted'?'New / water ':'Water ')+period:info.condition==='Fully watered today'?'Watered today':info.condition==='Watered for this window'?'Watered':info.condition):info.condition==='Newly planted'&&info.need?`Newly planted / water ${period}`:info.need||info.condition;this.condition.setText(condition);
+  const careLabel=label=>narrow?label.replace('Needs water','Water').replace('Due later','Later'):label;this.am.setText('AM '+careLabel(info.care[0].label));this.pm.setText('PM '+careLabel(info.care[1].label));
+  const g=this.art;g.clear();pixels(g,'clock',6,this.compact?33:36,UI_COLORS.gold);
+  pixels(g,info.dead||info.paused?'warning':info.ready?'basket':info.need?'drop':'leaf',6,this.compact?44:47,UI_COLORS.gold);
+  pixels(g,'sun',6,this.compact?54:58,info.care[0].watered?UI_COLORS.gold:UI_COLORS.muted);pixels(g,'moon',this.w<=130?64:92,this.compact?54:58,info.care[1].watered?UI_COLORS.gold:UI_COLORS.muted);
   const sw=Math.floor((this.w-12-(info.stages-1)*3)/info.stages);
-  for(let i=0;i<info.stages;i++){g.fillStyle(UI_COLORS.ink);g.fillRect(6+i*(sw+3),29,sw,5);g.fillStyle(i<info.stage?UI_COLORS.gold:0x536e59);g.fillRect(7+i*(sw+3),30,sw-2,3);}
+  for(let i=0;i<info.stages;i++){g.fillStyle(UI_COLORS.ink);g.fillRect(6+i*(sw+3),this.compact?27:29,sw,5);g.fillStyle(i<info.stage?UI_COLORS.gold:0x536e59);g.fillRect(7+i*(sw+3),this.compact?28:30,sw-2,3);}
   this.place(s,c);
  }
  place(s,c){

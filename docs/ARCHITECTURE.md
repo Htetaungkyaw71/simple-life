@@ -1,3 +1,8 @@
+# v0.5.0 canvas interface
+`pixelWidgets.js` shares stepped Graphics frames/buttons and bitmap text; explicit hit-area callbacks preserve the canvas input contract under the UI root's 2× scale. `MenuView.js` composes generic screens/title with retained sprites. `layouts.js` supplies pure responsive bag/HUD/map geometry. `BagPanel.js` presents existing inventory definitions and calls established food/equipment/save/input-gate systems; old seed/food/gear entry points route into it. `controls.js` owns keyboard gating and nearby double-tap recognition; WorldScene dispatches Space jump/K attack/B bag/M Forest map. The HUD rebuilds after location, club-equipment or selected-crop changes. `forestMapArt.js` creates an original local terrain miniature from existing region/water data; WildernessMap caches nearest-filtered canvas textures by viewport and discovery list and draws the player's current facing. No new persistent state, DOM HUD, backend or runtime network art.
+
+---
+
 # v0.4.9 eastern extension and terrain cache
 forestExpansion.js defines twenty eastern region bounds and seven boar pairs; woodlandWildlife.js holds the transient native-species roster independently of forest.js to avoid import cycles. Existing data-driven map/growth/combat/save contracts remain. The shared riverRow function supplies separately scalloped left/right native-pixel banks to terrain masks, waterAt, waves, vegetation and the aspect-correct forty-region canvas map. Fruit IDs stay stable while wet points move to nearby clear dry banks before growth reservation.
 

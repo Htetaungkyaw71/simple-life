@@ -1,6 +1,8 @@
-# Simple Life — Wilderness expansion
+# Simple Life — Leaf and parchment UI
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.4.9**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.5.0**, schema **9**.
+
+The current interface uses original cream/olive pixel frames, a scenic forest title, a heart meter, a compact clock/coin badge and a bottom icon hotbar. Bag, shops, pause, help, farming and confirmation screens share this theme. The bag has seed/produce/food/gear icon grids. The forest-only parchment map reveals explored terrain and rivers with a player-facing arrow; details are optional. Supplied screenshots guide style only.
 
 The latest forest extension doubles the approved wilderness area to **10240×5120**, with **40 connected regions**. The original western half has about **16% fewer trees**; the eastern half adds new groves, clearings and river habitats at the same character/camera scale. Four full-length rivers, a tributary and a short pool channel have independently scalloped banks, changing widths and sandy pockets inspired by the supplied reference. Twenty-two grass-free wooden bridges connect their banks. Water remains walkable.
 
@@ -26,9 +28,9 @@ Choose boy/girl. Start with 60 coins, collect three Tomato seeds from the Home c
 
 Four crops remain: Tomato / Strawberry / Carrot / Corn. Seed prices **10 / 18 / 28 / 40**, growth **3 / 4 / 4 / 5** cared-for nights, yield **2 / 2 / 1 / 3**. Home's east edge leads to City. Clara sells seeds; Niko buys crops, forest fruit and Wild Hide; Rowan's southwest **OUTFITTER** sells one permanent auto-equipped **Wooden Club for 45 coins**. All merchants operate **07:00–20:00**, disappearing when closed. Shops pause simulation, use icon tabs, exact quotes and 1/5/Max or All quantities. City seed aid retains one free Tomato seed/day for eligible broke farmers.
 
-Follow Home's wooden **FOREST ↑** sign to a **10240×5120 wilderness**, exactly **twice v0.4.8 and 40 times the original forest area** at the same camera/character scale. Forty connected regions include Homewood, jungle groves, savanna, bamboo, pine woods, marsh/river, basalt caves, ruins, highlands and a stylized snowy lake. Timber bridges cross the river; natural shores, walkable stone chambers, camp, shrine and ice landmarks reward exploring. MAP / M shows discovered regions, the player, danger, species combat values and broad treasure clues. Head southwest to Homewood, then south to Home.
+Follow Home's wooden **FOREST ↑** sign to a **10240×5120 wilderness**, exactly **twice v0.4.8 and 40 times the original forest area** at the same camera/character scale. Forty connected regions include Homewood, jungle groves, savanna, bamboo, pine woods, marsh/river, basalt caves, ruins, highlands and a stylized snowy lake. Timber bridges cross the river; natural shores, walkable stone chambers, camp, shrine and ice landmarks reward exploring. The map icon / M opens the Forest-only parchment map, with explored terrain, rivers, player position and current facing. The ? control offers broad cache clues; exact treasure positions stay hidden. Head southwest to Homewood, then south to Home.
 
-**163 daily forage nodes** provide nine fruits: Wild Berry (+12 energy / 6 base coins), Guava (+20 / 12), Mango (+30 / 20), Banana (+18 / 10), Orange (+22 / 14), Papaya (+32 / 22), Coconut (+35 / 24), Dragon Fruit (+42 / 36), Pineapple (+38 / 28). E/USE collects; BAG → FOOD pages through icon tabs and EAT 1 consumes one, caps energy at 100 and refuses consumption when full. Market pages buy every fruit and Wild Hide with the retained 85–120% daily multiplier. Original crop/fruit/hide price salts stay unchanged. Nodes refresh once per day, never on scene reentry/reload.
+**163 daily forage nodes** provide nine fruits: Wild Berry (+12 energy / 6 base coins), Guava (+20 / 12), Mango (+30 / 20), Banana (+18 / 10), Orange (+22 / 14), Papaya (+32 / 22), Coconut (+35 / 24), Dragon Fruit (+42 / 36), Pineapple (+38 / 28). E/USE collects; Bag → food tab shows a nine-item grid and Eat consumes one, caps energy at 100 and refuses consumption when full. Market pages buy every fruit and Wild Hide with the retained 85–120% daily multiplier. Original crop/fruit/hide price salts stay unchanged. Nodes refresh once per day, never on scene reentry/reload.
 
 **Only Craftpix animals remain:** 30 saved Wild Boars (two in Homewood, one per existing cache and seven new pairs), plus 48 quiet Deer/Hare/Fox/Grouse. Boars need three club hits, deal 15 damage and charge at 280 units/second. They warn before charging, respect solids/territory and share player damage invulnerability. Club cost/cooldown stays 5 energy / 450ms. One Wild Hide drops per boar driven away. Saved partial health/dead states survive travel; defeated boars return on a later day. Night awareness/movement increase slightly; distant areas remain dark.
 
@@ -36,10 +38,10 @@ Follow Home's wooden **FOREST ↑** sign to a **10240×5120 wilderness**, exactl
 
 At zero health, fall/fade and wake beside the home bed at **06:00 next day**, with health/energy restored. Drop **floor(25% of carried coins)** into one saved Stash Bag at the safe forest defeat position. Return and USE it to recover the coins. A second defeat permanently replaces the old bag. Zero loss creates no empty bag. Crops, inventory, equipment and paid farms remain. First-visit and first-defeat messages explain the rules and pause safely.
 
-- WASD/arrows: move; E: USE. Space/K: directional ATTACK. J/Shift or JUMP: jump in the forest.
+- WASD/arrows: move; E: USE. Space: forest jump; K: directional attack. Legacy J/Shift jump keys remain available.
 - 1/2/3: Seed / Water / Harvest; Q: cycle planting crop.
-- M / MAP: wilderness discovery map. BAG: seeds, paged FOOD and GEAR. Arrows/Tab/Enter navigate menus; Escape closes/pauses.
-- Touch: directional pad, tools, USE and a separate ATTACK button with an equipped club.
+- B / bag icon: seeds, produce, food and gear. M / map icon: Forest-only map. Arrows/Tab/Enter navigate menus; Escape closes/pauses.
+- Touch: directional pad, tools, USE and the club icon with an equipped club. Double tap open Forest ground to jump. No upper action row or on-screen Jump button.
 - Pause → Save, Controls, Resume or Return to title. Refresh → Continue.
 
 Fields 2/3/4 still cost **120/180/240** coins. After buying all four fields on the newest farm, another independent farm costs **600 × farms owned**. Each farm has up to 64 cells; time/care apply across every owned farm. Use Farm board to manage land/farms and its retained Tomato convenience trade.
@@ -54,7 +56,7 @@ The build emits only eight allowlisted runtime art files. Vendor archives, manif
 
 ## Verification and limits
 
-Current results and reproduction commands: docs/VERIFICATION.md and docs/verification/forest-expansion/. This pass has automated tests, a production build and offline art studies; native browser interaction checks are blocked by the browser tool URL policy. Earlier browser results below are historical. Automated tests retain farming, city, expansion, migration and time regressions and cover the complete survival rules. Browser checks use isolated Chromium saves, real keyboard/mouse/touch and read-only `?qa` snapshots. Required viewports: **1440×900,1280×720,1024×768,844×390,390×844**. Default renderer is Canvas; `?renderer=webgl` supports local comparison of pixel lighting. Development-only `?collisions` shows solids.
+Current results and reproduction commands: docs/VERIFICATION.md and docs/verification/notebook-ui/. This pass has automated tests, a production build and offline art studies; native browser interaction checks are blocked by the browser tool URL policy. Earlier browser results below are historical. Automated tests retain farming, city, expansion, migration and time regressions and cover the complete survival rules. Browser checks use isolated Chromium saves, real keyboard/mouse/touch and read-only `?qa` snapshots. Required viewports: **1440×900,1280×720,1024×768,844×390,390×844**. Default renderer is Canvas; `?renderer=webgl` supports local comparison of pixel lighting. Development-only `?collisions` shows solids.
 
 Physical phones/notches, Safari/WebKit, Firefox and Edge remain unverified; touch results use Chromium emulation. Combat/economy values are initial balance requiring human play review. Audio is silent, water is unlimited, additional farms reuse the same map. No final team acceptance or competition submission is claimed. Team profile/contact, private reviewer repository, official hosting, matching ZIP/screenshots/demo and signed declarations remain separate submission work.
 

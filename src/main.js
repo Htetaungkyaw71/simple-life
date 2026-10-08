@@ -1,5 +1,6 @@
 import {groundedPosition,cancelJump} from './systems/jump.js';
 import {WildernessMap} from './ui/WildernessMap.js';
+import {BagPanel} from './ui/BagPanel.js';
 import {SurvivalPanel} from './ui/SurvivalPanel.js';
 import {FORAGE_NODES,FOREST_GUIDANCE} from './data/forest.js';
 import {collectForage,recoverStash,recoverTreasure} from './systems/forest.js';
@@ -26,11 +27,11 @@ class Application {
   constructor(){
     syncInterior(innerWidth,innerHeight);this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
     try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
-    this.wildernessMap=new WildernessMap(this);this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
+    this.bagPanel=new BagPanel(this);this.wildernessMap=new WildernessMap(this);this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){this.ui.title();}
   start(state){if(!state)return;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.save();}
-  newGame(character){this.start(newState(character,crypto.getRandomValues(new Uint32Array(1))[0]));this.ui.toast('Collect 3 seeds from the crate beside the house. Follow the south path to the farm.');}
+  newGame(character){this.start(newState(character,crypto.getRandomValues(new Uint32Array(1))[0]));this.ui.toast('Crate / 3 seeds. Farm / south.');}
   sound(key){this.scene.game.events.emit('sound:request',{key,area:this.state?.area,day:this.state?.day});}
   cycleCrop(){if(this.paused||!this.state)return;this.state.selectedCrop=CROP_IDS[(CROP_IDS.indexOf(this.state.selectedCrop)+1)%CROP_IDS.length];this.state.selected='seed';this.save();this.ui.feedback(CROPS[this.state.selectedCrop].name+' seeds selected.');}
   select(tool){if(!this.state||this.paused)return;this.state.selected=tool;this.save();}
@@ -103,7 +104,7 @@ class Application {
       this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;this.sound('travel:enter');if(firstCity)this.ui.toast('Welcome to Lantern Square. Clara sells seeds; Niko buys your harvest.');
     });
   }
-  pause(){if(this.transitioning||!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','Take your time. Your farm can wait.',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
+  pause(){if(this.transitioning||!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
   pauseMenu(){this.paused=false;this.pause();}
 }
 const app=new Application();

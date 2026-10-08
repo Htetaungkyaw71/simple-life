@@ -1,3 +1,8 @@
+# v0.5.0 interface provenance
+No new external asset, font, dependency or pack enters runtime. Original code-authored stepped frames, leaf/heart/bag/map/menu glyphs, notebook terrain and warm title geometry use the project licence; the title also composes retained licensed tree/farmer sprites with their unchanged author/terms. All eight runtime art files are byte-identical to v0.4.9. Five supplied screenshots are reference-only, with no extracted pixels or redistribution. Evidence: `assets/licenses/notebook-ui.md` and `verification/notebook-ui/runtime-audit.json`. Existing creator licences and previously recorded publication limitations remain unchanged.
+
+---
+
 # v0.4.9 unchanged art and original river geometry
 All eight runtime art files are byte-identical to baseline 8275b7f (474 town atlas frames). Craftpix/LimeZu/ToffeeCraft/Channeechan/Eris Esra licences and credits remain; no new art pack or pixel extraction. River bank/shore/material/placement/texture-cache code is original Codex-assisted project source. The supplied screenshot guides general appearance only. [Source and licence evidence](assets/licenses/forest-expansion.md). Existing public prize-entry rights uncertainty remains unresolved; no publication/submission.
 

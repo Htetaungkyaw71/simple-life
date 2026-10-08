@@ -1,0 +1,97 @@
+{
+  "version": "0.5.0",
+  "schema": 9,
+  "base_commit": "88ae91c",
+  "runtime_file_count": 12,
+  "runtime_bytes": 2015797,
+  "allowlisted_art_count": 8,
+  "art": [
+    {
+      "path": "public/assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721",
+      "bytes": 7819,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2",
+      "bytes": 16253,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/font.png",
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1",
+      "bytes": 791,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/font.xml",
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d",
+      "bytes": 10278,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/town.png",
+      "sha256": "ce4c260d87a84a1451332478c305e93c3ba832ee4e0f766c02a34ecb13714443",
+      "bytes": 178020,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/town.json",
+      "sha256": "827d8dc004c6e6bba0354afc00be04075414489e3f199b7b76e140270bdde542",
+      "bytes": 161087,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/boy.png",
+      "sha256": "b2f244d772547cb53f1d90868199245a8dddf1db3cc3d5c169c3fff31b160b8e",
+      "bytes": 4927,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/girl.png",
+      "sha256": "de1cc4ac5fa32af7b7ef575c0d97dd15e1db8a19be152856f2c1378ce038f0e2",
+      "bytes": 5382,
+      "unchanged_from": "88ae91c",
+      "dist_identical": true
+    }
+  ],
+  "files": [
+    "assets/index-DuO74lxp.css",
+    "assets/index-dMV0gQ4N.js",
+    "assets/phaser-0YPJO2g1.js",
+    "assets/pixel/font.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/processed/boy.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/world.json",
+    "assets/pixel/world.png",
+    "index.html"
+  ],
+  "local_preview": {
+    "url": "http://127.0.0.1:4175/",
+    "index_http_success": true,
+    "bundle": "assets/index-dMV0gQ4N.js",
+    "browser_acceptance": "unverified: existing local-URL security rejection",
+    "bundle_http_success": true,
+    "served_bundle_sha256": "9ea17f4551bfb450ac6596eb8523c6d0e9824edd5e8b78cf7eaffbf80d05bafb"
+  },
+  "ui_studies": {
+    "count": 42,
+    "sizes": [
+      "1280x720",
+      "390x844",
+      "640x360"
+    ],
+    "kind": "offline command adapter + Pillow; not browser captures"
+  }
+}

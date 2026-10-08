@@ -1,3 +1,4 @@
+import {KEY_ACTIONS,keyboardAction,touchJumpTap} from '../data/controls.js';
 import {GrassView} from '../art/GrassView.js';
 import {jumpRuntime,beginJump,stepJump,jumpPose,cancelJump} from '../systems/jump.js';
 import {forestRegion} from '../data/forest.js';
@@ -31,16 +32,17 @@ export class WorldScene extends Phaser.Scene {
   }
   create(){
     for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q,K,M,J,SHIFT');
-    for(const key of ['J','SHIFT'])this.keys[key].on('down',(_,event)=>{if(!event?.repeat)this.jump();});
-    this.keys.M.on('down',()=>{if(this.app.state?.area==='forest'&&!this.app.paused)this.app.wildernessMap.open();});
+    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,Q,K,M,J,SHIFT,B');
+    for(const key of Object.keys(KEY_ACTIONS))this.keys[key].on('down',(_,event)=>{const action=keyboardAction(key,this.app.state?.area,{paused:this.app.paused,repeat:event?.repeat,transitioning:this.app.transitioning});if(action==='jump')this.jump();else if(action==='attack')this.app.attack();else if(action==='map')this.app.wildernessMap.open();else if(action==='bag')this.app.bagPanel.open('seeds');});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
     this.keys.ESC.on('down',()=>this.app.pause());
-    this.keys.E.on('down',()=>this.app.use());for(const key of ['SPACE','K'])this.keys[key].on('down',()=>this.app.attack());
+    this.keys.E.on('down',()=>this.app.use());
     for(const [key,tool]of [['ONE','seed'],['TWO','water'],['THREE','harvest']])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.select(tool);});
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
-      const a=this.app;if(a.paused||a.state?.area!=='farm')return;
+      const a=this.app;if(a.paused)return;
+      if(a.state?.area==='forest'&&p.wasTouch){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
+      if(a.state?.area!=='farm')return;
       const world=this.cameras.main.getWorldPoint(p.x,p.y);const index=FARM_PLOTS.findIndex(v=>Math.abs(v.x-world.x)<24&&Math.abs(v.y-world.y)<24);
       if(index<0)return;if(Math.hypot(FARM_PLOTS[index].x-a.state.position.x,FARM_PLOTS[index].y-a.state.position.y)>=60){a.ui.toast('Walk closer to that plot.');return;}
       this.targetPlot=(a.state.currentFarm||0)*PLOTS_PER_FARM+index;a.use();
@@ -66,7 +68,7 @@ export class WorldScene extends Phaser.Scene {
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
-    this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
+    this.lastGroundTap=null;this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
     this.combat=combatRuntime();this.forestView=new ForestView(this);
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
     const light=daylight(s||{minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);

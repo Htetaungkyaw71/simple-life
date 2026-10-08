@@ -1,3 +1,8 @@
+# v0.5.0 interface scope clarification
+The user explicitly authorizes reference-inspired changes across all screens, fewer visible labels, Space jumping, no upper action/Jump button, and a Forest-only parchment map with facing. All four PDFs/master were reviewed as requirements evidence; they do not override the request. Original UI code and credited existing sprites preserve local runtime, canvas architecture and AI/licence disclosures. Mobile keyboard/touch paths remain, but final browser acceptance is still pending under the existing local-URL policy restriction. No submission, publication, external asset download or rights certification is performed.
+
+---
+
 # v0.4.9 scope clarification
 The latest user explicitly authorizes twice the current forest area, modest tree thinning, more fruit/animals and wavy-edged rivers. This extends the v0.4.8 scope while retaining its supplied-only five animal species, local runtime/canvas architecture, asset/AI disclosures and no-publication obligations. The result is 40 times the original forest area, forty connected regions. Browser acceptance/performance remain unverified under the existing URL-policy limitation. Reference screenshot is style evidence only; competition submission and creator-rights certification are not performed.
 

@@ -1,3 +1,8 @@
+# v0.5.0 UI-only compatibility
+Schema stays 9 and storage key remains `simple-life.save.v1`. Theme, hotbar, keyboard bindings, bag selection index, notebook canvas and facing indicator add no persistent fields or migration. Seed selection uses existing selectedCrop/selected fields; food and permanent club actions use existing inventory/energy/equipment fields. QA uses isolated in-memory states and never loads live user storage.
+
+---
+
 # v0.4.9 eastward expansion, schema 9 unchanged
 Original twenty region IDs/coordinates, old forage/cache IDs, original sixteen boar IDs and all reward/currency/farm/City/day/sleep/recovery fields remain. Twenty new regions, one hundred additional fruit IDs and fourteen boar IDs extend known bounded collections. Missing new animals initialize safely; no eastern regions auto-discover. Forty-eight quiet animals remain transient. Fruit spots covered by wider rivers move to dry banks without changing their saved collection IDs. No schema-9 position translation; schemas 1–8 retain the same legacy +4096 Y migration. Unsafe positions use established nearest-safe repair. No save deletion.
 
