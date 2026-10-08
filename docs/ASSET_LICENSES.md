@@ -1,3 +1,8 @@
+# v0.5.1 cached font colours
+Original local font pixels are recoloured into in-memory UI textures using their alpha mask and unchanged metrics. No new font/pack/file/dependency is downloaded or packaged; all eight allowlisted runtime art files remain byte-identical to aad0861. Original project art/code attribution and existing licensed title/world assets remain. Evidence: assets/licenses/ui-readability.md and verification/ui-fixes/runtime-audit.json.
+
+---
+
 # v0.5.0 interface provenance
 No new external asset, font, dependency or pack enters runtime. Original code-authored stepped frames, leaf/heart/bag/map/menu glyphs, notebook terrain and warm title geometry use the project licence; the title also composes retained licensed tree/farmer sprites with their unchanged author/terms. All eight runtime art files are byte-identical to v0.4.9. Five supplied screenshots are reference-only, with no extracted pixels or redistribution. Evidence: `assets/licenses/notebook-ui.md` and `verification/notebook-ui/runtime-audit.json`. Existing creator licences and previously recorded publication limitations remain unchanged.
 

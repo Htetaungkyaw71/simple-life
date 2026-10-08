@@ -1,3 +1,8 @@
+# v0.5.1 readability correction
+Cream panels must use actual dark/olive/gold font pixels, with high contrast independent of renderer tint. Intentional cream title/world text remains. Remove 1/2/3 tool-corner badges; preserve small stock counts and selected fills. The Forest-only Map action has a clear short label in the lower hotbar. Clock shows two whole-minute digits; no decimals. Existing shared theme/world art remains.
+
+---
+
 # v0.5.0 shared leaf/parchment interface
 Use a restrained cream, muted olive, warm wood and parchment family throughout the canvas interface. Original stepped corners, bevels, small leaf stitches and bitmap glyphs frame compact icon actions. A heart badge/red meter and gold energy meter sit opposite a 12-hour clock/day and coin badge. No upper action row or on-screen Jump button. Bag uses a roomy item grid; map uses a wooden notebook border, discovery hatching, broad grove/soil shapes and actual river silhouettes with a facing arrow. Keep reference-inspired composition without copying reference pixels, UI art, logos, characters or exact layouts. Existing world/farmer pixels retain their separate creators and licences. Text stays brief except necessary care, transaction, confirmation and attribution information. Gameplay/world art is unchanged.
 

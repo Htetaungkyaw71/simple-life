@@ -1,3 +1,8 @@
+# v0.5.1 — UI bug repair
+Codex investigated user screenshots and pinned Phaser Canvas source, corrected an earlier offline tint assumption, implemented cached font colours/whole-minute clock formatting, removed numeric tool badges, clarified the Forest Map action, updated the test adapter and exercised the pinned renderer in a Node regression. AI-assisted code and documentation; no image model, external asset/dependency or reference-pixel extraction. 125 tests/build pass. Offline studies and stub-context engine tests do not certify browser acceptance, which remains blocked by URL policy.
+
+---
+
 # v0.5.0 — 2026-10-08
 Codex assisted with reference interpretation, original cream/olive/wood frame and glyph code, retained-sprite title composition, bag/icon layouts, forest notebook miniature/facing, Space/K/B/M input gating, touch double-tap jumping, shorter farming copy, regression tests, documentation and labelled offline UI studies. Five user screenshots supplied style guidance only; no pixels, logo, reference character or layout were extracted. No image-model generation, third-party service or external asset download. Existing atlas/font/farmers retain their credited authors/provenance. Automated tests/build and selected offline studies were reviewed; actual browser input/rendering acceptance is not claimed due to the existing URL-policy restriction. Team responsibility/human visual acceptance and final competition certification remain.
 

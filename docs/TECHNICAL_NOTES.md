@@ -1,3 +1,8 @@
+# v0.5.1 renderer regression
+Phaser 3.90's `BitmapTextCanvasRenderer.js` samples the font image without applying tint. Do not rely on BitmapText.setTint for Canvas UI contrast. Shared labels now select cached coloured font images with unchanged alpha/metrics; WebGL uses neutral white tint on the same coloured sources. A Node regression executes the pinned Canvas renderer with stub transforms/context and checks that it draws the coloured cached image. This supplements tests; actual browser acceptance remains pending. Clock formatting floors fractional gameplay minutes before modulo/12-hour conversion. Tool numeric overlays are removed while shortcuts/counts remain; Forest Map now has a text label.
+
+---
+
 # v0.5.0 interface verification notes
 The UI root remains integer scale 2. Original graphics/glyphs use native integer coordinates; dynamic notebook textures use Phaser's pinned NEAREST filter value (1). Shared Graphics buttons provide explicit local hit rectangles and preserve selected fills/glyphs across hover. Disabled actions stay noninteractive. Mobile layouts retain ≥44-display-pixel action targets in tested sizes. Space and K are separate forest actions; B works in playable areas and M is Forest-only; paused/repeated/transitioning events do not dispatch. Touch double taps require <320ms and <28 display pixels; UI controls stop propagation. Browser-engine/input-dispatch verification is pending because the local-preview URL was rejected by browser policy; Node layout/input tests and offline Pillow studies are supplemental evidence only. Dependencies and the runtime art allowlist remain unchanged.
 

@@ -1,3 +1,10 @@
+# v0.5.1 UI repairs
+125/125 tests pass; build succeeds. New coverage: real pinned Canvas BitmapText renderer source selection for four UI colours and font-cache reuse; fractional clock boundaries across the day; actual Forest HUD Map action/menu generation at all seven viewports. Numeric tool overlays are absent. Existing gameplay, bag, discovery, bounds and save tests remain green.
+
+The offline adapter now uses baked font colours and no longer pretends Canvas text tint works. Updated 42 labelled studies under verification/ui-fixes are supplemental; selected shop/HUD/map layouts were inspected. The earlier v0.5.0 study tint assumption was wrong, as confirmed by the user's screenshots. Actual browser interactions still cannot be verified under the recorded local-URL policy. Evidence includes test/build logs, byte/allowlist audit and read-only preview HTTP checks; no live storage was used.
+
+---
+
 # v0.5.0 — notebook UI, 2026-10-08
 `npm test`: 122/122; `npm run build`: succeeds. Ten new tests exercise key gates/Space versus K, paired touch taps, seven-viewport bounds, actual HUD control placement/map restrictions, four bag categories and guarded actions, hidden/revealed notebook terrain/player projection, generic menu controls, Graphics hit/hover/disabled behavior and compact crop inspection/text bounds. Existing 112 gameplay/art/save tests remain green.
 

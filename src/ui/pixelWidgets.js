@@ -1,3 +1,4 @@
+import {coloredFont} from './coloredFont.js';
 export const UI_COLORS={ink:0x423a32,edge:0x85945c,panel:0xf3eccf,light:0x35462e,muted:0x747154,gold:0xa37035,cream:0xfffbe5,selected:0xc6d699,wood:0x93694c,paper:0xeed7a6};
 // Original stepped silhouettes, cream bevels and small leaf stitches.
 export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLORS.edge,thick=1){
@@ -12,7 +13,7 @@ export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLOR
  return g;
 }
 export function panel(scene,parent,x,y,w,h,color=UI_COLORS.panel,style='leaf'){const g=scene.add.graphics();parent.add(g);return frame(g,x,y,w,h,color,style);}
-export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width){const t=scene.add.bitmapText(Math.round(x),Math.round(y),'pixel',value,size).setTint(tint);if(width)t.setMaxWidth(width);parent.add(t);return t;}
+export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width){const t=scene.add.bitmapText(Math.round(x),Math.round(y),coloredFont(scene,tint),value,size);if(width)t.setMaxWidth(width);parent.add(t);return t;}
 export function icon(scene,parent,name,x,y,scale=1){const i=scene.add.image(x,y,scene.textures.get('town').has(name)?'town':'world',name).setOrigin(0).setScale(scale);parent.add(i);return i;}
 export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null,glyph=null}={}){
  const box=scene.add.graphics();parent.add(box);let fill=disabled?0xd7d2b4:UI_COLORS.cream,edge=UI_COLORS.edge,stroke=1,base=fill;

@@ -1,3 +1,8 @@
+# v0.5.1 Canvas font colour repair
+`coloredFont.js` creates one nearest-filtered 128×64 local canvas texture/cache entry per UI colour, compositing the original font mask with source-in. It shares the original BitmapFont metrics, draws the coloured texture directly and avoids Canvas's ignored tint property. `pixelWidgets.text` selects that font key; no renderer switch, font download or saved field is needed. Whole-minute clock formatting and a labelled Forest Map action remove the remaining HUD ambiguity; numeric tool badges are gone.
+
+---
+
 # v0.5.0 canvas interface
 `pixelWidgets.js` shares stepped Graphics frames/buttons and bitmap text; explicit hit-area callbacks preserve the canvas input contract under the UI root's 2× scale. `MenuView.js` composes generic screens/title with retained sprites. `layouts.js` supplies pure responsive bag/HUD/map geometry. `BagPanel.js` presents existing inventory definitions and calls established food/equipment/save/input-gate systems; old seed/food/gear entry points route into it. `controls.js` owns keyboard gating and nearby double-tap recognition; WorldScene dispatches Space jump/K attack/B bag/M Forest map. The HUD rebuilds after location, club-equipment or selected-crop changes. `forestMapArt.js` creates an original local terrain miniature from existing region/water data; WildernessMap caches nearest-filtered canvas textures by viewport and discovery list and draws the player's current facing. No new persistent state, DOM HUD, backend or runtime network art.
 

@@ -27,7 +27,7 @@ test('hotbar/bag/map layouts fit seven viewports with no upper or Jump buttons; 
  const b=bagLayout(u),m=mapLayout(u);for(const l of [b,m])assert.ok(l.x>=0&&l.y>=0&&l.x+l.w<=u.w&&l.y+l.h<=u.h,`${w}x${h}`);
  assert.ok(b.cell>=22);assert.equal(m.mw/m.mh,FOREST_SIZE.width/FOREST_SIZE.height);
  }
- assert.deepEqual([displayClock(0),displayClock(360),displayClock(720),displayClock(1439)],['12:00 am','6:00 am','12:00 pm','11:59 pm']);assert.deepEqual(facingIndex,{right:0,down:2,left:4,up:6});
+ assert.deepEqual([displayClock(0),displayClock(360),displayClock(720),displayClock(1439.995)],['12:00 am','6:00 am','12:00 pm','11:59 pm']);assert.deepEqual(facingIndex,{right:0,down:2,left:4,up:6});
 });
 test('bag actions select seeds without stock mutations and eat through existing guarded food rules',()=>{
  const s=newState(),a=appFor(s),b=new BagPanel(a);a.bagPanel=b;b.open('seeds');b.index=1;const before={...s.inventory};b.perform();assert.equal(s.selectedCrop,'strawberry');assert.deepEqual(s.inventory,before);assert.equal(a.ui.closed,true);
@@ -50,7 +50,7 @@ test('actual HUD draws lower icon actions, forest-only map and touch movement wi
  const {Hud}=await import('../src/ui/Hud.js');
  for(const [w,h]of sizes)for(const area of ['home','city','farm','forest']){
   const s=newState();s.area=area;s.clubEquipped=true;const u=recorder(w,h),a=appFor(s,u);a.bagPanel={open(){}};a.wildernessMap={open(){}};new Hud(u);
-  assert.equal(u.controls.some(c=>c.id==='wilderness-map'),area==='forest');assert.equal(u.controls.some(c=>c.id==='attack'),area==='forest');
+  assert.equal(u.controls.some(c=>c.id==='wilderness-map'),area==='forest');assert.equal(u.controls.some(c=>c.id==='attack'),area==='forest');assert.equal(u.controls.find(c=>c.id==='wilderness-map')?.label,area==='forest'?'Map':undefined);const allNodes=n=>[n,...n.list.flatMap(allNodes)];assert.ok(!allNodes(u.root).some(n=>n.type==='text'&&['1','2','3'].includes(n.text)));
   for(const c of u.controls){assert.ok(c.y>u.h/2,c.id);assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);assert.ok(!/jump/i.test(c.id));}
  }
 });
@@ -69,4 +69,25 @@ test('themed button retains glyph/selected colour through hover, with bounded hi
 
 test('compact crop inspection remains visible beside the player and plot at 640 x 360',async()=>{
  const {Hud}=await import('../src/ui/Hud.js'),{usePlot}=await import('../src/systems/farming.js'),{FARM_PLOTS}=await import('../src/data/farms.js');const s=newState();s.area='farm';s.inventory.seed=1;usePlot(s,0);const plot=FARM_PLOTS[0];s.position={x:plot.x,y:plot.y+40};const u=recorder(640,360),a=appFor(s,u);a.scene.cameras={main:{zoom:1,worldView:{x:s.position.x-320,y:s.position.y-180,width:640,height:360}}};u.showFarmObjective=()=>{};u.showCityObjective=()=>{};const hud=new Hud(u);hud.update(s,{...plot,type:'plot',index:0,label:'Water Tomato'});const crop=hud.cropInfo.snapshot();assert.ok(crop);assert.ok(crop.x>=0&&crop.y>=128&&crop.x+crop.w<=640&&crop.y+crop.h<=300);assert.equal(crop.remaining,3);for(const t of [hud.cropInfo.timer,hud.cropInfo.condition,hud.cropInfo.am,hud.cropInfo.pm])assert.ok(t.x+t.width<=hud.cropInfo.w-4,t.text);
+});
+
+test('UI uses baked font colours that the pinned Canvas BitmapText renderer actually draws',async()=>{
+ const {createRequire}=await import('node:module'),require=createRequire(import.meta.url),render=require('phaser/src/gameobjects/bitmaptext/static/BitmapTextCanvasRenderer.js'),Matrix=require('phaser/src/gameobjects/components/TransformMatrix.js');
+ const {text,UI_COLORS}=await import('../src/ui/pixelWidgets.js'),{glyphs}=await import('./helpers/uiRecorder.js'),u=recorder();const chars=Object.fromEntries(Object.entries(glyphs).map(([c,g])=>[c.charCodeAt(0),{x:g.x,y:g.y,width:g.width,height:g.height,xOffset:g.xoffset,yOffset:g.yoffset,xAdvance:g.xadvance,kerning:{}}]));
+ for(const color of [UI_COLORS.light,UI_COLORS.muted,UI_COLORS.gold,UI_COLORS.cream]){
+  const node=text(u,u.root,0,0,'Map',8,color),entry=u.cache.bitmapFont.get(node.font),texture=u.textures.cache.get(entry.texture),frame=u.textures.getFrame(entry.texture),drawn=[];
+  assert.equal(texture.fontColor,color);assert.equal(texture.sourceImage.key,'pixel');assert.equal(texture.context.globalCompositeOperation,'source-over');assert.equal(texture.filter,1);const count=u.textures.cache.size;text(u,u.root,0,0,'Clock',8,color);assert.equal(u.textures.cache.size,count,'font colours are cached');
+  const ctx={save(){},restore(){},translate(){},scale(){},setTransform(){},drawImage(image){drawn.push(image);}},camera={alpha:1,matrix:new Matrix(),scrollX:0,scrollY:0,roundPixels:true,addToRenderList(){}};
+  const src={_text:'Map',fontData:{size:8,lineHeight:10,chars},_fontSize:8,_letterSpacing:0,_lineSpacing:0,_align:0,_bounds:{lines:{longest:18,lengths:[18]}},getTextBounds(){return {};},maxWidth:0,displayOriginX:0,displayOriginY:0,fromAtlas:false,texture:{frames:{__BASE:frame}},frame,x:0,y:0,rotation:0,scaleX:1,scaleY:1,scrollFactorX:1,scrollFactorY:1,blendMode:0,alpha:1,tint:0xffffff};
+  render({currentContext:ctx,blendModes:['source-over']},src,camera);assert.equal(drawn.length,3);assert.ok(drawn.every(image=>image===texture&&image.fontColor===color),'Canvas must draw the coloured source, independent of tint');
+ }
+});
+
+test('fractional gameplay minutes never leak decimals or overflow the 12-hour clock',()=>{
+ for(const [minute,expected]of [[468.750645,'7:48 am'],[719.999,'11:59 am'],[720.01,'12:00 pm'],[1200.8,'8:00 pm'],[0.0001,'12:00 am']])assert.equal(displayClock(minute),expected);
+ for(let m=0;m<1440;m+=.137)assert.match(displayClock(m),/^\d{1,2}:\d{2} [ap]m$/);
+});
+
+test('the clearly labelled Forest map opens from its actual hotbar action and shows current facing',async()=>{
+ const {Hud}=await import('../src/ui/Hud.js');for(const [w,h]of sizes){const s=newState();s.area='forest';const u=recorder(w,h),a=appFor(s,u);a.wildernessMap=new WildernessMap(a);a.bagPanel=new BagPanel(a);new Hud(u);const action=u.controls.find(c=>c.id==='wilderness-map');assert.equal(action.label,'Map');action.action();assert.equal(a.paused,true);assert.equal(u.menu.kind,'wilderness');assert.ok([...u.textures.cache.values()].some(t=>t.pixels?.some((value,i)=>i%4===3&&value===255)));assert.ok(u.controls.some(c=>c.id==='wilderness-locate'));}
 });

@@ -1,3 +1,15 @@
+# v0.5.1 — UI readability repairs, 2026-10-08
+
+Fixed the white UI text shown in the user's screenshots. Phaser 3.90 Canvas BitmapText draws its source texture and ignores tint; the v0.5.0 offline adapter incorrectly assumed tint would affect Canvas text. `coloredFont.js` now caches coloured local font textures using the original alpha mask/metrics. Every shared UI label/button uses those pixels directly, so dark olive, muted and gold text appears on cream panels in Canvas and WebGL. Light title/world labels retain their intentional cream colours.
+
+The live clock receives fractional minutes; displayClock now floors to a whole minute before formatting, removing decimal tails/overflow. The Forest hotbar has a clearly labelled Map control (M also opens it), replacing the ambiguous small glyph. All 1/2/3 tool-corner badges are removed; item counts and keyboard shortcuts remain. Map is still Forest-only, with position/facing, discovery and broad clues.
+
+Checks: 125/125 tests and production build pass; whitespace clean. Three added regressions invoke the pinned Phaser Canvas font renderer against coloured cached sources, exercise fractional clock values, and open the map through the actual HUD action at seven sizes. Existing geometry/input/gameplay tests remain. The corrected offline adapter no longer models BitmapText tint; 42 updated labelled studies were generated, with selected shop/HUD/map studies inspected. Evidence: verification/ui-fixes; art/source: assets/licenses/ui-readability.md. Eight runtime art files are unchanged; schema stays 9.
+
+Limitations: Browser interaction QA remains blocked by the previously recorded local-URL browser policy. Engine unit tests use stub canvas contexts and do not certify browser rendering or input dispatch. Offline images remain supplemental studies, not browser captures. No live user save, publication or push. The reported map symptom cannot be checked in a live browser here; the visible label/contrast and actual action checks address access/readability without changing discovery rules.
+
+---
+
 # v0.5.0 — Leaf and parchment interface, 2026-10-08
 
 Completed the latest user-authorized theme pass. Title, farmer choice, pause, controls, credits, confirmation/dialogs, Farm board, shops, crop information, HUD and bag share original cream/olive stepped frames and small leaf stitches. The title composes retained credited forest/farmer sprites with original warm trunk/light/water graphics; reference screenshots supply inspiration only.

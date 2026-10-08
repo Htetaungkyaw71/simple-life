@@ -1,6 +1,8 @@
 # Simple Life — Leaf and parchment UI
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.5.0**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.5.1**, schema **9**.
+
+The v0.5.1 repair uses cached coloured font pixels for readable Canvas/WebGL text, whole-minute clock formatting and a clearly labelled Forest Map control; tool slots no longer show 1/2/3 badges. Keyboard shortcuts remain.
 
 The current interface uses original cream/olive pixel frames, a scenic forest title, a heart meter, a compact clock/coin badge and a bottom icon hotbar. Bag, shops, pause, help, farming and confirmation screens share this theme. The bag has seed/produce/food/gear icon grids. The forest-only parchment map reveals explored terrain and rivers with a player-facing arrow; details are optional. Supplied screenshots guide style only.
 
@@ -56,7 +58,7 @@ The build emits only eight allowlisted runtime art files. Vendor archives, manif
 
 ## Verification and limits
 
-Current results and reproduction commands: docs/VERIFICATION.md and docs/verification/notebook-ui/. This pass has automated tests, a production build and offline art studies; native browser interaction checks are blocked by the browser tool URL policy. Earlier browser results below are historical. Automated tests retain farming, city, expansion, migration and time regressions and cover the complete survival rules. Browser checks use isolated Chromium saves, real keyboard/mouse/touch and read-only `?qa` snapshots. Required viewports: **1440×900,1280×720,1024×768,844×390,390×844**. Default renderer is Canvas; `?renderer=webgl` supports local comparison of pixel lighting. Development-only `?collisions` shows solids.
+Current results and reproduction commands: docs/VERIFICATION.md and docs/verification/ui-fixes/. This pass has automated tests, a production build and offline art studies; native browser interaction checks are blocked by the browser tool URL policy. Earlier browser results below are historical. Automated tests retain farming, city, expansion, migration and time regressions and cover the complete survival rules. Browser checks use isolated Chromium saves, real keyboard/mouse/touch and read-only `?qa` snapshots. Required viewports: **1440×900,1280×720,1024×768,844×390,390×844**. Default renderer is Canvas; `?renderer=webgl` supports local comparison of pixel lighting. Development-only `?collisions` shows solids.
 
 Physical phones/notches, Safari/WebKit, Firefox and Edge remain unverified; touch results use Chromium emulation. Combat/economy values are initial balance requiring human play review. Audio is silent, water is unlimited, additional farms reuse the same map. No final team acceptance or competition submission is claimed. Team profile/contact, private reviewer repository, official hosting, matching ZIP/screenshots/demo and signed declarations remain separate submission work.
 

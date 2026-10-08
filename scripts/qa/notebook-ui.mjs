@@ -12,7 +12,7 @@ import {FARM_PLOTS} from '../../src/data/farms.js';
 import {newState} from '../../src/systems/state.js';
 import {REGIONS,FOREST_ENTRANCE} from '../../src/data/forest.js';
 const dest='/tmp/simplelife-notebook-ui';mkdirSync(dest,{recursive:true});const noop=()=>{};
-function setup(w,h){const u=recorder(w,h),s=newState();s.area='forest';s.position={...FOREST_ENTRANCE};s.forestTutorialComplete=true;s.inventory.wildBerry=4;s.inventory.mango=3;s.inventory.tomato=2;s.inventory.wildHide=2;s.energy=68;s.health=83;s.money=222;s.ownsClub=true;s.clubEquipped=true;s.forest.explored=REGIONS.slice(8).map(r=>r.id);
+function setup(w,h){const u=recorder(w,h),s=newState();s.area='forest';s.position={...FOREST_ENTRANCE};s.forestTutorialComplete=true;s.inventory.wildBerry=4;s.inventory.mango=3;s.inventory.tomato=2;s.inventory.wildHide=2;s.energy=68;s.health=83;s.money=222;s.minute=468.750645;s.ownsClub=true;s.clubEquipped=true;s.forest.explored=REGIONS.slice(8).map(r=>r.id);
  const a={state:s,ui:u,input:{},paused:false,sound:noop,save:noop,select:noop,pause:noop,attack:noop,use:noop,scene:{player:{direction:'right'},cameras:{main:{worldView:{x:320,y:4528},zoom:1}},forestView:{energy:noop},keys:{}}};u.app=a;u.showFarmObjective=()=>{u.objectiveStarted=true;u.objectiveUntil=8000;};u.showCityObjective=()=>{u.cityStarted=true;u.cityUntil=8000;};a.bagPanel=new BagPanel(a);a.wildernessMap=new WildernessMap(a);a.tradePanel=new TradePanel(a);a.survivalPanel=new SurvivalPanel(a);return {u,a,s};}
 for(const [w,h]of [[1280,720],[390,844],[640,360]])for(const mode of ['title','choose','pause','controls','bag','food','map','hud','shop','market','outfitter','crop','home','city']){
  const {u,a,s}=setup(w,h);

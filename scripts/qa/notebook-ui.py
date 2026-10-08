@@ -1,11 +1,11 @@
 """Approximate offline render of actual UI draw commands, not a browser capture."""
-import json,math,re
+import json,math,re,sys
 from pathlib import Path
 from PIL import Image,ImageDraw
 base=Path.cwd();processed=base/'public/assets/pixel/processed';atlas=Image.open(processed/'town.png').convert('RGBA');frames=json.loads((processed/'town.json').read_text())['frames'];world=Image.open(base/'public/assets/pixel/world.png').convert('RGBA');wf=json.loads((base/'public/assets/pixel/world.json').read_text())['frames'];font=Image.open(base/'public/assets/pixel/font.png').convert('RGBA');xml=(base/'public/assets/pixel/font.xml').read_text();glyphs={}
 for m in re.finditer(r'<char ([^>]+)/>',xml):
  d={k:int(v) for k,v in re.findall(r'(\w+)="([^"]+)"',m[1])};glyphs[chr(d['id'])]=d
-outdir=base/'docs/verification/notebook-ui';outdir.mkdir(parents=True,exist_ok=True)
+outdir=base/(sys.argv[1] if len(sys.argv)>1 else 'docs/verification/notebook-ui');outdir.mkdir(parents=True,exist_ok=True)
 def color(c):return (c>>16&255,c>>8&255,c&255)
 def advance(s,size):return sum(glyphs.get(c,{}).get('xadvance',0)*size/8 for c in s)
 def lines(s,size,limit):
@@ -54,7 +54,7 @@ for p in sorted(Path('/tmp/simplelife-notebook-ui').glob('*.json')):
     xx=x+(tw-advance(line,size))*sx/2 if n.get('align')=='center' else x
     for ch in line:
      if ch not in glyphs:continue
-     d=glyphs[ch];art=font.crop((d['x'],d['y'],d['x']+d['width'],d['y']+d['height']));t=Image.new('RGBA',art.size,(*color(n['tint']),255));t.putalpha(art.getchannel('A'));sizeX=max(1,round(art.width*size/8*sx));sizeY=max(1,round(art.height*size/8*sy));patch(t.resize((sizeX,sizeY),Image.Resampling.NEAREST),xx+d['xoffset']*size/8*sx,y+(i*10+d['yoffset'])*size/8*sy,alpha);xx+=d['xadvance']*size/8*sx
+     d=glyphs[ch];art=font.crop((d['x'],d['y'],d['x']+d['width'],d['y']+d['height']));t=Image.new('RGBA',art.size,(*color(n['fontColor']),255));t.putalpha(art.getchannel('A'));sizeX=max(1,round(art.width*size/8*sx));sizeY=max(1,round(art.height*size/8*sy));patch(t.resize((sizeX,sizeY),Image.Resampling.NEAREST),xx+d['xoffset']*size/8*sx,y+(i*10+d['yoffset'])*size/8*sy,alpha);xx+=d['xadvance']*size/8*sx
   for child in n['children']:visit(child,x,y,sx,sy,alpha)
  visit(r['root']);label=Image.new('RGB',(w,h+24),'#263e38');label.paste(im.convert('RGB'),(0,24));ImageDraw.Draw(label).text((6,6),'OFFLINE UI STUDY / NOT A BROWSER CAPTURE',fill='#fff0c8');label.save(outdir/(p.stem+'.png'))
 print('42 labelled offline UI studies')

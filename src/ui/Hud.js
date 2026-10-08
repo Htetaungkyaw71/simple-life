@@ -21,8 +21,8 @@ export class Hud {
   for(const [i,id]of layout.ids.entries()){
    const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'can',harvest:'sickle',attack:'wooden-club-item'},glyphs={bag:'bag',map:'map',pause:'menu'};
    const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():id==='attack'?this.app.attack():this.app.select(id);
-   const control=button(u,p,id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
-   if(i<3){panel(u,p,sx,y,9,9,UI_COLORS.edge);text(u,p,sx+2,y+1,String(i+1),6,UI_COLORS.cream);this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
+   const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]&&id!=='map'?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
+   if(i<3){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
   }
   if(u.touch){
    const portrait=w<h,dx=left+3,dy=h-u.safe.bottom-(portrait?73:49),size=22;
