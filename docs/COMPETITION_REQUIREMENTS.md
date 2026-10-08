@@ -1,3 +1,8 @@
+# v0.4.9 scope clarification
+The latest user explicitly authorizes twice the current forest area, modest tree thinning, more fruit/animals and wavy-edged rivers. This extends the v0.4.8 scope while retaining its supplied-only five animal species, local runtime/canvas architecture, asset/AI disclosures and no-publication obligations. The result is 40 times the original forest area, forty connected regions. Browser acceptance/performance remain unverified under the existing URL-policy limitation. Reference screenshot is style evidence only; competition submission and creator-rights certification are not performed.
+
+---
+
 # v0.4.8 scope clarification
 The user explicitly removes all animals except the supplied Craftpix Hunt pack and requests the five-image forest style. This supersedes the former all-species requirement. All four reference PDFs/master prompt were checked as requirements evidence; reference art is visual guidance, not copied game pixels/layouts. Local runtime, original/credited art, AI disclosure and no-publication scope remain. Native browser QA is currently blocked by URL policy; offline art studies are not browser acceptance.
 

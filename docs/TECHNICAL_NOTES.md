@@ -1,3 +1,8 @@
+# v0.4.9 technical update
+10240×5120 forest; forty regions, 163 forage points, thirty saved boars and forty-eight transient quiet animals. Six river definitions and twenty-two bridges use shared integer-native water geometry; other locations retain their materials. Six cached forest ground textures cap individual native dimensions at 2048×2048, preserving coherent borders on the wider map. Schema 9/local-only canvas architecture and all eight art files remain. Production 12 files / 2,008,179 bytes; 112 tests/build pass. A local offline CPU terrain bake took 1,263ms; current native browser loading/Canvas/WebGL/memory/frame timing/mobile/interaction checks remain unverified due browser URL policy. Offline studies are not browser captures. Preview: http://127.0.0.1:4175/.
+
+---
+
 # v0.4.8 technical update
 Five Craftpix animal identities only; 16 boar records and eight transient quiet animals. Schema 9 remains, removed animal records ignored and progress preserved. Forest adds original layered canopy art, 7,945 camera-local responsive grass clumps and cached deterministic moss/soil materials. 106 tests/build and unchanged eight-file art allowlist pass. Native browser/responsive/interaction/device performance checks for this denser version remain unverified because browser URL policy blocks access. Offline art studies are not browser tests; earlier timings/results below are historical. Local preview remains on 4175.
 

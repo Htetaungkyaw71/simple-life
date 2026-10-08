@@ -1,3 +1,10 @@
+# v0.4.9 expanded forest validation — 2026-10-08
+112/112 automated tests and production build pass. New checks cover exactly twofold area/original region coordinates, moderate western thinning, native wavy-bank geometry, GPU-safe complete terrain tile coverage, all-dry fruit/new homes, small native animal groups and schema-9 old-progress/new-region initialization. Existing BFS reaches all forty regions/163 fruit spots/fourteen caches; water/bridge/grass/root/boar/combat/day/club/25%-coin recovery/farming/City/sleep/save regressions pass. Existing water tests now select actual channel centres instead of assuming the previous straight bank/bridge centre.
+
+All eight art files match baseline 8275b7f; twelve production files / 2,008,179 bytes. Local preview serves the current index-BIKc8sEC.js. Three visibly labelled offline art studies were inspected; native browser/responsive/interaction/Canvas/WebGL/device performance checks remain **unverified** due browser URL policy. No indirect browser workaround or live user-save mutation. Detailed commands/evidence: [verification/forest-expansion/VERIFICATION.md](verification/forest-expansion/VERIFICATION.md). Older browser results below are historical.
+
+---
+
 # v0.4.8 reference forest validation — 2026-10-08
 **106/106 tests**, production build, pixel/source/runtime allowlist and whitespace audits pass. Connected routes/guards/saves/removal/material checks retain farming/City/day/sleep/jump/water/recovery rules. Offline Homewood/Deepwood/riverbank art studies were inspected and are explicitly labelled. Native browser interaction/responsive/performance QA is blocked by browser URL policy and remains unverified; previous browser results below are historical. Local 4175 responds with the updated production build. [Checks, reproduction and limits](verification/forest-reference/VERIFICATION.md). No live-save QA edits, push, publication or submission.
 

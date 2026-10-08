@@ -1,3 +1,8 @@
+# v0.4.9 extension provenance
+Eastern map layout, scalloped river geometry, variable sandy shores, dry placement and terrain-cache changes are original code authored with Codex assistance. Existing raster art retains documented external/project provenance and is unchanged. No screenshot pixels, commercial-game assets or map layout are extracted. Style reference is the user's river screenshot. No exclusive copyright or final human acceptance declaration is claimed.
+
+---
+
 # v0.4.7 animal source separation
 Animal silhouettes/poses are third-party art under documented CC0, attribution licences or creator game-use permissions. Coat edits, frame selection/ground-origin logic and integration are newly authored local code with Codex assistance. Native versus adapted species are identified explicitly; supplied Florida panther poses are not falsely described as original cheetah/leopard/jaguar pack art. Fifteen replacements plus retained Boar; six original species remain. No preview extraction or commercial-game copying. Records: assets/licenses/wildlife-sprites/SOURCE_RECORD.md. No exclusive-copyright or final human-acceptance claim.
 

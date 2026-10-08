@@ -1,3 +1,10 @@
+# v0.4.9 eastern extension and terrain cache
+forestExpansion.js defines twenty eastern region bounds and seven boar pairs; woodlandWildlife.js holds the transient native-species roster independently of forest.js to avoid import cycles. Existing data-driven map/growth/combat/save contracts remain. The shared riverRow function supplies separately scalloped left/right native-pixel banks to terrain masks, waterAt, waves, vegetation and the aspect-correct forty-region canvas map. Fruit IDs stay stable while wet points move to nearby clear dry banks before growth reservation.
+
+Terrain.js bakes one coherent source material/mask/distance field, then terrainTiles.js slices it into six cached textures, each at most 2048×2048 native pixels. Global fields preserve tile seams; the temporary canvas is never attached as a visible DOM surface or uploaded whole to WebGL. Original Home/Farm/City caching remains. No backend, runtime remote art, new dependency or schema bump.
+
+---
+
 # v0.4.8 roster/rendering follow-up
 Preserved pure systems, data-driven locations, Phaser world and separate fullscreen canvas UI. Only boars participate in saved combat; supplied quiet animals remain transient woodland views. Cache guards use existing territory/combat rules and saved stable boar IDs. Superseded extra animal rigs/credit data leave runtime. Original atlas canopy/palmetto/grass cells and cached deterministic forest-only soil/moss material extend existing rendering; no new backend/dependency or runtime source file. Schema 9 validation retains known progress and discards removed animal IDs. Historical architecture entries follow.
 

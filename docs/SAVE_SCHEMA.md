@@ -1,3 +1,8 @@
+# v0.4.9 eastward expansion, schema 9 unchanged
+Original twenty region IDs/coordinates, old forage/cache IDs, original sixteen boar IDs and all reward/currency/farm/City/day/sleep/recovery fields remain. Twenty new regions, one hundred additional fruit IDs and fourteen boar IDs extend known bounded collections. Missing new animals initialize safely; no eastern regions auto-discover. Forty-eight quiet animals remain transient. Fruit spots covered by wider rivers move to dry banks without changing their saved collection IDs. No schema-9 position translation; schemas 1–8 retain the same legacy +4096 Y migration. Unsafe positions use established nearest-safe repair. No save deletion.
+
+---
+
 ## v0.4.2 grounded jumps and added scenery
 Schema remains **9**; all prior valid progress migrates unchanged. Jump origin/destination/arc/cooldown and grass bending are transient. During flight, autosave/manual Save/pagehide write the grounded take-off point; pause freezes the same arc in memory, while refresh resumes standing. On ordinary saves, position is the current feet position. Animal damage interrupts flight and grounds safely before existing defeat/bag rules. New tree/ledge masks use the existing nearest-safe repair for legacy positions now inside scenery, preserving stocks/crops/currency/equipment. Water positions remain valid. No height/customisation/extra saved keys.
 
@@ -8,9 +13,9 @@ Schema stays **9**. A valid player or Stash Bag location inside water is now pre
 
 Storage key remains `simple-life.save.v1`; versions **1–9** are accepted. The previous farming/City/currency/care/fatigue/character fields remain unchanged. Six new fruit inventory keys default to zero. Original sale indices remain stable.
 
-`forest.animals` is a bounded record of the 16 current boar spawn IDs. Every record has known species/id, health clamped to that species' maximum, collision-safe territory position and defeatedDay. Unknown IDs are ignored. `forest.boar` aliases `animals['boar-original']` in memory for compatibility with the established survival API. JSON may contain the compatibility record; schema 9 restoration uses the authoritative animal record and reconstructs the alias. Charge headings/timers/cooldowns stay transient and start with entry grace/warnings.
+`forest.animals` is a bounded record of the 30 current boar spawn IDs. Every record has known species/id, health clamped to that species' maximum, collision-safe territory position and defeatedDay. Unknown IDs are ignored. `forest.boar` aliases `animals['boar-original']` in memory for compatibility with the established survival API. JSON may contain the compatibility record; schema 9 restoration uses the authoritative animal record and reconstructs the alias. Charge headings/timers/cooldowns stay transient and start with entry grace/warnings.
 
-`forest.explored` contains deduplicated known region IDs, always including entrance. `forest.treasures` contains deduplicated known collected cache IDs. Forage uses the established day/collected fields over 63 known IDs. Daily rollover refreshes forage and dead animals, while keeping discovery and caches.
+`forest.explored` contains deduplicated known region IDs, always including entrance. `forest.treasures` contains deduplicated known collected cache IDs. Forage uses the established day/collected fields over 163 known IDs. Daily rollover refreshes forage and dead animals, while keeping discovery and caches.
 
 For **schema 8 and earlier Forest saves**, add **4096 to Y** for player, original boar and forest Stash Bag before safe validation; this moves them with their retained southwest Homewood geometry. Old collected IDs, partial/dead boar health, bag amount, coins, inventory, farm expansion, care, day/time and price seed survive. Home/City/Farm/interior coordinates are not shifted. New boar cache guards initialize at their distinct safe homes. Removed species records are ignored; both original boar IDs and all region/cache/forage IDs stay stable. Invalid positions repair to nearby valid feet positions; an animal outside its territory falls back to its own safe home. No save is deleted to migrate.
 

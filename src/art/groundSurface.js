@@ -33,7 +33,7 @@ export function paintGround(pixels,w,h,biomes=[]){
  }
  // A narrow jagged turf edge separates bare earth from grass, with no ledge.
  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const p=y*w+x;if(!soil[p])continue;const above=!soil[p-w],side=!soil[p-1]||!soil[p+1],below=!soil[p+w];if(above||side||below){const c=above?[102,112,62]:below?[65,78,43]:[90,101,55];for(let k=0;k<3;k++)pixels[p*4+k]=c[k];}}
- return {broad,small,soil};
+ return {broad,small,soil,forest:biomes.length>0};
 }
 // Distance to the opposite material, in source pixels, for a continuous bank.
 // Two linear sweeps avoid repeatedly searching every river/pond for every pixel.
@@ -51,19 +51,19 @@ export function shoreDistance(water,w,h){
  return distance;
 }
 export function paintWater(pixels,water,distance,w,h,fields){
- const {broad,small}=fields;
+ const {broad,small,forest=false}=fields,reach=forest?24:12;
  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
-  const p=y*w+x,d=distance[p],i=p*4;if(!water[p]&&d>12)continue;
+  const p=y*w+x,d=distance[p],i=p*4;if(!water[p]&&d>reach)continue;
   const noise=Math.floor((small[p]-.5)*5)*2;
   let color;
   if(!water[p]){
    // Raised turf lip, exposed earth below it, and broken sandy bank pockets.
-   const sandWidth=3+Math.floor(small[p]*7);
+   const sandWidth=forest?4+Math.floor(small[p]*14)+Math.floor(broad[p]*5):3+Math.floor(small[p]*7);
    if(d<2)color=[100,91,61];
    else if(d<4)color=[141,118,75];
    else if(d<sandWidth)color=[196,168,113];
    else if(d<sandWidth+2)color=[109,124,77];
-   else {for(let c=0;c<3;c++)pixels[i+c]=Math.max(0,pixels[i+c]-Math.max(0,11-d)*2);continue;}
+   else {for(let c=0;c<3;c++)pixels[i+c]=Math.max(0,pixels[i+c]-(forest?Math.max(0,24-d):Math.max(0,11-d)*2));continue;}
   }else{
    // Shadows and warm submerged stones in the shallows; cooler deep channels.
    const depth=Math.min(1,(d+small[p]*5)/25),tones=Math.round(depth*6)/6;
@@ -89,7 +89,7 @@ export function paintWater(pixels,water,distance,w,h,fields){
  }
 }
 export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=null){
- const safe=(x,y,pad=3)=>x>=pad&&y>=pad&&x<w-pad&&y<h-pad&&!water[y*w+x]&&!path[y*w+x]&&!soil?.[y*w+x]&&distance[y*w+x]>12;
+ const safe=(x,y,pad=3)=>x>=pad&&y>=pad&&x<w-pad&&y<h-pad&&!water[y*w+x]&&!path[y*w+x]&&!soil?.[y*w+x]&&distance[y*w+x]>(biomes.length?24:12);
  const dot=(color,x,y,ww=1,hh=1)=>{ctx.fillStyle=color;ctx.fillRect(x,y,ww,hh);};
  const biomeAt=(x,y)=>biomes.find(r=>x*2>=r.x&&x*2<r.x+r.w&&y*2>=r.y&&y*2<r.y+r.h)?.biome||'wood';
  for(let yy=6;yy<h-8;yy+=13)for(let xx=6;xx<w-8;xx+=13){

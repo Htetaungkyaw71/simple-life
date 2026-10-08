@@ -1,4 +1,5 @@
-import {WOODLAND_WILDLIFE} from './wildlifeArt.js';
+import {WOODLAND_WILDLIFE} from './woodlandWildlife.js';
+import {EAST_BOARS} from './forestExpansion.js';
 import {waterAt,dryFootprint} from './water.js';
 export const forestTree=p=>p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree');
 // Reserve connected clearings while growing the forest; no raised assemblies.
@@ -6,10 +7,10 @@ function hash(n,salt=0){let v=Math.imul(n^salt,1597334677);v=Math.imul(v^(v>>>16
 export function growForest(map,regions,nodes,treasures){
  map.terraces=[];map.ledges=[];
  const nearRoad=(x,y,pad=24)=>map.paths.some(([a,b,w,h])=>x>a-pad&&x<a+w+pad&&y>b-pad&&y<b+h+pad);
- const protectedPlaces=[...nodes,...treasures,...WOODLAND_WILDLIFE,{x:936,y:4472},{x:1008,y:4432},...treasures.map(t=>({x:t.x-64,y:t.y-64}))];
+ const protectedPlaces=[...nodes,...treasures,...WOODLAND_WILDLIFE,...EAST_BOARS.map(a=>a.home),{x:936,y:4472},{x:1008,y:4432},...treasures.map(t=>({x:t.x-64,y:t.y-64}))];
  const protectedPlace=(x,y)=>protectedPlaces.some(p=>Math.hypot(p.x-x,p.y-y)<88);
  for(const [i,r]of regions.entries()){
-  const count=r.biome==='snow'?340:950;
+  const count=r.biome==='snow'?270:620;
   for(let n=0;n<count;n++){
    const x=r.x+40+hash(n,i+201)%1200,y=r.y+72+hash(n,i+887)%896;
    // Clear crossways and region seams connect the whole forest. Guard/forage
@@ -44,7 +45,7 @@ export function finishForest(map,regions){
   else if(biome==='savanna'&&n<3)p.name='palm-tree';
   else if(['pine','highland','stone'].includes(biome)&&n<4)p.name='broadleaf-tree';
  }
- map.props=map.props.filter(p=>!forestTree(p)||dryFootprint(map,{x:p.x+6,y:p.y+76,w:52,h:20}));
+ map.props=map.props.filter(p=>!forestTree(p)||dryFootprint(map,{x:p.x-8,y:p.y+64,w:80,h:40}));
  map.details=map.details.filter(p=>p.name!=='fern'&&dryFootprint(map,{x:p.x,y:p.y,w:64,h:48}));
  map.grass=map.grass.filter(g=>dryFootprint(map,{x:g.x-24,y:g.y-48,w:48,h:48}));
  // Road masks were only used to reserve passable gaps during placement.

@@ -2,8 +2,12 @@ import {pondRows,pondInset} from './geometry.js';
 // One shared surface definition for terrain, animated currents and wading.
 // Bridges cover water visually, while the water below remains connected.
 export function riverRow(r,y){
- const offset=Math.round((Math.sin((y-r.y)/230+r.phase)*20+Math.sin((y-r.y)/97+r.phase)*6)/2)*2;
- return [r.x+offset,y,r.w,2];
+ const t=y-r.y,phase=r.phase||0,bend=r.bend??20,detail=r.detail??6,widen=r.widen??0,shore=r.shore??0;
+ const offset=Math.round((Math.sin(t/230+phase)*bend+Math.sin(t/97+phase)*detail+Math.sin(t/43+phase*2)*4)/2)*2;
+ const variation=Math.round((Math.sin(t/173+phase+.7)*widen+Math.sin(t/61+phase)*widen*.24)/2)*2;
+ const left=Math.round((r.x+offset-variation/2+Math.sin(t/57+phase*3)*shore+Math.sin(t/29+.9+phase)*shore*.35)/2)*2;
+ const right=Math.round((r.x+offset+r.w+variation/2+Math.sin(t/69+phase+.8)*shore+Math.sin(t/37+phase*2)*shore*.3)/2)*2;
+ return [left,y,right-left,2];
 }
 export function bridgeAt(map,{x,y}){return (map.bridges||[]).some(b=>x>=b.x&&x<b.x+b.w&&y>=b.y&&y<b.y+b.h);}
 // Include vegetation tips so a dry root cannot place leaves over a bridge deck.

@@ -13,7 +13,7 @@ import {lineClear} from '../src/systems/forest.js';
 import {displace} from '../src/systems/combat.js';
 test('river water is continuous across all five regions and bridges cover connected water',()=>{
  for(const river of MAPS.forest.rivers)for(let y=river.y+16;y<river.y+river.h-16;y+=2){const [left,,w]=riverRow(river,y);assert.ok(waterAt(MAPS.forest,{x:left+w/2,y},false));}
- for(const bridge of MAPS.forest.bridges){const p={x:bridge.x+bridge.w/2,y:bridge.y+bridge.h/2};assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
+ for(const bridge of MAPS.forest.bridges){const y=bridge.y+bridge.h/2,[left,,w]=riverRow(MAPS.forest.rivers.find(r=>r.id===bridge.river),y),p={x:left+w/2,y};assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
 });
 test('player crosses water directly; removed falls leave no invisible side-bank obstacles',()=>{
  const s=newState();s.area='forest';s.selected='water';const [left]=riverRow(MAPS.forest.rivers[0],1900);s.position={x:left-16,y:1900};assert.equal(contextFor(s).type,'refill');
@@ -22,8 +22,9 @@ test('player crosses water directly; removed falls leave no invisible side-bank 
  assert.ok(walkable('forest',100,3344),'former west fall rock removed');assert.ok(walkable('forest',220,3344),'former east fall rock removed');
 });
 test('wet positions and coin bags round-trip without relocation or progress loss',()=>{
- for(const [area,p]of [['home',{x:1520,y:800}],['farm',{x:1856,y:744}],['forest',{x:2370,y:1900}]]){
-  assert.ok(waterAt(MAPS[area],p));assert.ok(walkable(area,p.x,p.y));const s=newState();s.area=area;s.position=p;s.money=317;s.inventory.mango=4;s.stash={area:'forest',x:2370,y:1900,coins:44};
+ const [left,,w]=riverRow(MAPS.forest.rivers[0],1900),wet={x:left+w/2,y:1900};
+ for(const [area,p]of [['home',{x:1520,y:800}],['farm',{x:1856,y:744}],['forest',wet]]){
+  assert.ok(waterAt(MAPS[area],p));assert.ok(walkable(area,p.x,p.y));const s=newState();s.area=area;s.position=p;s.money=317;s.inventory.mango=4;s.stash={area:'forest',...wet,coins:44};
   const loaded=validate(JSON.parse(JSON.stringify(s)));assert.deepEqual(loaded.position,p);assert.deepEqual(loaded.stash,s.stash);assert.equal(loaded.money,317);assert.equal(loaded.inventory.mango,4);
  }
  assert.ok(walkable('forest',FOREST_ENTRANCE.x,FOREST_ENTRANCE.y));

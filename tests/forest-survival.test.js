@@ -29,7 +29,7 @@ test('forest solid trees, rocks, log and landmark share collision and safe posit
 });
 test('each free forage node collects once per day, persists on reload/reentry and refreshes at midnight',()=>{
  const s=forest();for(const node of FORAGE_NODES){s.position={x:node.x,y:node.y+24};assert.match(collectForage(s,node.id),/Collected/);const count=s.inventory[node.item];collectForage(s,node.id);assert.equal(s.inventory[node.item],count);}
- let saved=validate(JSON.parse(JSON.stringify(s)));saved.area='home';saved.area='forest';refreshForest(saved);assert.equal(saved.forest.collected.length,63);
+ let saved=validate(JSON.parse(JSON.stringify(s)));saved.area='home';saved.area='forest';refreshForest(saved);assert.equal(saved.forest.collected.length,FORAGE_NODES.length);
  saved.minute=1439.9;tick(saved,100);assert.equal(saved.day,2);assert.deepEqual(saved.forest.collected,[]);assert.equal(saved.forest.forageDay,2);
  const node=FORAGE_NODES[0];saved.position={x:node.x,y:node.y+24};assert.match(collectForage(saved,node.id),/Collected/);
  const before=structuredClone(saved);saved.inventory[node.item]=9999;saved.day++;refreshForest(saved);assert.match(collectForage(saved,node.id),/full/);assert.equal(saved.forest.collected.length,0);assert.ok(before.inventory.wildBerry>0);

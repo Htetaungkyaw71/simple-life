@@ -1,0 +1,63 @@
+{
+  "baseline": "8275b7f",
+  "runtimeArtFiles": 8,
+  "productionFiles": 12,
+  "productionBytes": 2008179,
+  "atlasFrames": 474,
+  "unchangedArt": [
+    {
+      "file": "assets/pixel/font.png",
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/font.xml",
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/processed/boy.png",
+      "sha256": "b2f244d772547cb53f1d90868199245a8dddf1db3cc3d5c169c3fff31b160b8e",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/processed/girl.png",
+      "sha256": "de1cc4ac5fa32af7b7ef575c0d97dd15e1db8a19be152856f2c1378ce038f0e2",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/processed/town.json",
+      "sha256": "827d8dc004c6e6bba0354afc00be04075414489e3f199b7b76e140270bdde542",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/processed/town.png",
+      "sha256": "ce4c260d87a84a1451332478c305e93c3ba832ee4e0f766c02a34ecb13714443",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2",
+      "unchangedFrom": "8275b7f"
+    },
+    {
+      "file": "assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721",
+      "unchangedFrom": "8275b7f"
+    }
+  ],
+  "productionPaths": [
+    "assets/index-BIKc8sEC.js",
+    "assets/index-DuO74lxp.css",
+    "assets/phaser-0YPJO2g1.js",
+    "assets/pixel/font.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/processed/boy.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/world.json",
+    "assets/pixel/world.png",
+    "index.html"
+  ]
+}

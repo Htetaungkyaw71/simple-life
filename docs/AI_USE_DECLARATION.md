@@ -1,3 +1,8 @@
+# v0.4.9 follow-up disclosure
+Codex assisted original map/river/shore/placement/texture-cache code, added fruit/native wildlife groups, tests/audit and offline visual review. Existing raster art remains byte-identical; the reference screenshot is style guidance only. No new external image model or asset pack. 112 tests/build pass; browser/device performance and final human acceptance remain unverified due browser URL policy. Details: AI_USAGE.md and assets/licenses/forest-expansion.md.
+
+---
+
 # v0.4.8 follow-up disclosure
 Codex assisted original native forest canopies/palms/palmettos/grass and deterministic ground materials, supplied-only animal cleanup, guards/save/map integration, tests/audit and offline art review. References inform style only. New project sprites are code-generated with AI assistance, not human hand-drawn work. 106 tests/build pass; browser acceptance and final human review remain pending due URL-policy restriction. See AI_USAGE.md and assets/licenses/forest-reference.md. Historical disclosures follow.
 

@@ -1,3 +1,8 @@
+# v0.4.9 larger approved forest
+Retain the accepted olive canopy/palm/palmetto/grass and moss/red-soil pixels. Slightly thin tree placement (about 16.7% in the old half) while extending twenty connected habitats east at the existing scale. The river reference dated 2026-10-07 18:47:40 guides independently uneven banks, changing channel widths, jagged turf/earth edges and variable sandy pockets. Screenshots supply general style only, not pixels/shapes/layouts. Keep restrained scattered animated reflections, dry roots, clear grass-free decks and water walking. No new pack/pixel asset, road, waterfall, fern or artificial raised bank. Fruit and animal homes stay on dry banks; native Craftpix species only.
+
+---
+
 # v0.4.8 reference forest
 Use the five supplied images as visual reference for dense layered olive crowns, fuller palms, olive ink, irregular responsive grass clumps, crisp moss islands, small flowers and warm bare earth. Original native code-authored canopy/palmetto frames supplement retained licensed environment art. Reference assets/pixels/layouts are not extracted. Keep dry roots, clear grassy passages, walkable shores, free jumps and grass-free bridges. No raised banks, roads, waterfalls or teal ferns. Only the five Craftpix animal identities remain. Earlier entries below are historical.
 

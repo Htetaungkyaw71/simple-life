@@ -1,13 +1,22 @@
+import {terrainTiles} from './terrainTiles.js';
 import {MAP_SIZE} from '../data/mapLayouts.js';
 import {waterRows} from '../data/water.js';
 import {groundHash,paintGround,paintGroundDetails,shoreDistance,paintWater} from './groundSurface.js';
 // Bake static ground once per location. Pixel-space masks give paths/ponds
 // irregular, connected shores without thousands of individual display objects.
 export function terrain(scene,area,map){
- const key='ground-'+area;if(area==='forest'&&scene.textures.exists(key)){scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);return;}if(scene.textures.exists(key))scene.textures.remove(key);
- const size=map.size||MAP_SIZE,texture=scene.textures.createCanvas(key,size.width/2,size.height/2),ctx=texture.context;
+ const size=map.size||MAP_SIZE,key='ground-'+area,tiles=area==='forest'?terrainTiles(size):[];
+ const showTiles=()=>{for(const t of tiles)scene.add.image(t.x*2,t.y*2,t.key).setOrigin(0).setScale(2).setDepth(-2);};
+ if(tiles.length&&tiles.every(t=>scene.textures.exists(t.key))){showTiles();return;}
+ if(scene.textures.exists(key))scene.textures.remove(key);
+ // Bake coherent materials before slicing; tile edges share exactly the same
+ // world-space noise/water distances. Only small tiles enter the GPU cache.
+ const texture=area==='forest'?null:scene.textures.createCanvas(key,size.width/2,size.height/2);
+ const canvas=texture?.canvas||document.createElement('canvas');
+ if(!texture){canvas.width=size.width/2;canvas.height=size.height/2;}
+ const ctx=texture?.context||canvas.getContext('2d');
  ctx.imageSmoothingEnabled=false;
- const w=texture.width,h=texture.height,mask=new Uint8Array(w*h);
+ const w=canvas.width,h=canvas.height,mask=new Uint8Array(w*h);
  for(const [rx,ry,rw,rh]of map.paths){
   const x0=rx/2,y0=ry/2,ww=rw/2,hh=rh/2;
   for(let y=Math.max(0,y0-4);y<Math.min(h,y0+hh+4);y++)for(let x=Math.max(0,x0-4);x<Math.min(w,x0+ww+4);x++){
@@ -28,5 +37,6 @@ export function terrain(scene,area,map){
  const distance=shoreDistance(water,w,h);paintWater(pixels.data,water,distance,w,h,fields);
  ctx.putImageData(pixels,0,0);paintGroundDetails(ctx,w,h,mask,water,distance,map.biomes,fields.soil);
  if(area==='city')scene.add.tileSprite(-1024,-1024,size.width+2048,size.height+2048,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
- texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);
+ if(tiles.length){for(const t of tiles){if(scene.textures.exists(t.key))scene.textures.remove(t.key);const tile=scene.textures.createCanvas(t.key,t.w,t.h);tile.context.imageSmoothingEnabled=false;tile.context.drawImage(canvas,t.x,t.y,t.w,t.h,0,0,t.w,t.h);tile.refresh();}showTiles();}
+ else {texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);}
 }

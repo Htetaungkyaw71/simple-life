@@ -1,3 +1,8 @@
+# v0.4.9 unchanged art and original river geometry
+All eight runtime art files are byte-identical to baseline 8275b7f (474 town atlas frames). Craftpix/LimeZu/ToffeeCraft/Channeechan/Eris Esra licences and credits remain; no new art pack or pixel extraction. River bank/shore/material/placement/texture-cache code is original Codex-assisted project source. The supplied screenshot guides general appearance only. [Source and licence evidence](assets/licenses/forest-expansion.md). Existing public prize-entry rights uncertainty remains unresolved; no publication/submission.
+
+---
+
 # v0.4.8 current art sources — 2026-10-08
 Only the five supplied Craftpix Hunt animal species remain. Former extra-animal packs/placeholders are excluded from the runtime atlas; old licence records remain historical evidence. Seven new original code-authored canopy/palmetto cells and 27 revised grass cells are AI-assisted project work; five screenshots guide style without pixel/layout extraction. Existing Craftpix/LimeZu/ToffeeCraft/Channeechan/Eris Esra terms remain. [Source/modification/audit record](assets/licenses/forest-reference.md). No new download or publication; previous public prize-entry rights limitations remain unresolved.
 

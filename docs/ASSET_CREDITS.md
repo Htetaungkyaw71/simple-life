@@ -1,3 +1,8 @@
+# v0.4.9 retained forest and native wildlife credits
+The forest extension reuses the approved Craftpix Boar/Deer/Hare/Fox/Grouse, credited environment/farmers and original AI-assisted olive forest art. All eight runtime art files remain byte-identical. New shoreline/ground-placement code is project work with Codex assistance, guided by the user's reference without pixel extraction. No additional creator/pack/dependency. Evidence: assets/licenses/forest-expansion.md.
+
+---
+
 # v0.4.8 current forest/animal credits
 Craftpix Boar, Deer, Hare, Fox and Black Grouse: unchanged selected Hunt-pack pixels, Freebie Products terms; existing linked Craftpix credits retained. Former non-Craftpix animal credit pages retire with their art. Original olive crowns/palms/palmettos, revised grass and ground materials: Simple Life project source with OpenAI Codex assistance. Existing LimeZu/ToffeeCraft/Channeechan/Eris Esra attribution remains. [Evidence](assets/licenses/forest-reference.md). Earlier entries below describe historical versions.
 

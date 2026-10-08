@@ -1,3 +1,8 @@
+# v0.4.9 art allowlist audit
+All eight allowlisted production art files match baseline 8275b7f byte for byte; town atlas remains 474 entries. Production is twelve files / 2,008,179 bytes with no vendor archives, source manifests, QA images/scripts or unused packs. Evidence/fingerprints/paths: verification/forest-expansion/build-art-audit.json. No dependency or artwork licence change.
+
+---
+
 # v0.4.7 animal audit
 Fifteen newly curated combat species / 419 named animal frames; removed 60 superseded placeholders; total 914 atlas entries. Pixel comparison against c1efdfe verifies all 495 retained frame pixels and other six art files unchanged. Source hashes and exact cell provenance retained. Production: 12 files / 2,258,286 bytes with eight allowlisted art files; no source archives, manifest, generator, licence HTML or QA tooling. Supplied vermin ZIP and unused candidate art excluded. Audit tool: scripts/audit-wildlife-assets.py; result/contact sheets: verification/wildlife-sprites; licence evidence: assets/licenses/wildlife-sprites.
 
