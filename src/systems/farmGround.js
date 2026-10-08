@@ -8,6 +8,7 @@ import {plotAt} from './plots.js';
 import {usePlot} from './farming.js';
 import {CROPS} from '../data/crops.js';
 import {waterPeriod,missed} from './watering.js';
+import {FARM_ENERGY} from '../data/energy.js';
 export const WET_DURATION=180000,MAX_CUSTOM_BEDS=2048,MAX_WET_PATCHES=256;
 export function openGround(area,x,y,dig=false){
  const map=Object.hasOwn(MAPS,area)?MAPS[area]:null;if(!map||area==='interior'||!Number.isFinite(x)||!Number.isFinite(y))return false;
@@ -34,9 +35,9 @@ export function digGround(s,point){
  if(!openGround('farm',p.x,p.y,true)||!lineClear('farm',s.position,p))return {ok:false,message:'Choose clear grass'};
  if(visiblePlots(s).some(b=>Math.abs(b.x-p.x)<47&&Math.abs(b.y-p.y)<47))return {ok:false,message:'Already dug'};
  if(p.index==null&&FARM_PLOTS.some(b=>Math.abs(b.x-p.x)<48&&Math.abs(b.y-p.y)<48))return {ok:false,message:'Dig beside the existing bed'};
- if(s.energy<4)return {ok:false,message:'Too tired - eat or sleep'};
+ if(s.energy<FARM_ENERGY.dig)return {ok:false,message:'Too tired - eat or sleep'};
  if(p.index==null&&(s.customBeds||[]).length>=MAX_CUSTOM_BEDS)return {ok:false,message:'Farm beds full'};
- s.energy-=4;s.hasVisitedFarm=true;
+ s.energy-=FARM_ENERGY.dig;s.hasVisitedFarm=true;
  if(p.index!=null){s.dugPlots??=[];s.dugPlots.push(p.index);}
  else {s.customBeds??=[];s.customBeds.push({farm:s.currentFarm||0,x:p.x,y:p.y,plot:emptyPlot()});p.index=s.plots.length+s.customBeds.length-1;}
  return {ok:true,message:'Ready to plant',...p};
@@ -45,10 +46,10 @@ export const wetAt=(s,x,y,area=s.area,farm=s.currentFarm||0)=>(s.wetGround||[]).
 export function waterGround(s,point,index){
  if(Math.hypot(point.x-s.position.x,point.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
  if(!openGround(s.area,point.x,point.y)||!lineClear(s.area,s.position,point))return {ok:false,message:'Water on open ground'};
- if(s.energy<3)return {ok:false,message:'Too tired - eat or sleep'};
+ if(s.energy<FARM_ENERGY.water)return {ok:false,message:'Too tired - eat or sleep'};
  const p=index!=null&&plotOwned(s,index)?plotAt(s,index):null,period=waterPeriod(s);
  const care=p?.crop&&missed(p)<2&&p.growth<CROPS[p.crop].growthDays&&period&&!p[period];
- if(care)usePlot(s,index);else s.energy-=3;
+ if(care)usePlot(s,index);else s.energy-=FARM_ENERGY.water;
  s.wetGround??=[];const existing=s.wetGround.find(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))&&p.x===point.x&&p.y===point.y);
  if(existing)existing.remaining=WET_DURATION;else {if(s.wetGround.length>=MAX_WET_PATCHES)s.wetGround.shift();s.wetGround.push({area:s.area,farm:s.currentFarm||0,x:point.x,y:point.y,remaining:WET_DURATION});}
  return {...point,ok:true,message:care?'Watered':p?.crop&&!period?'Wet soil / care at 06-12 or 16-22':'Watered ground',cared:!!care};

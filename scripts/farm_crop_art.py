@@ -36,6 +36,16 @@ def add_farm_crop_art(assets):
      for x,y in ([(6,25),(18,27)] if vine else [(6,18),(17,22)]):fruit(d,c,x,y,small=True)
    assets[c+'-'+stage]=im
  shovel=Image.new('RGBA',(16,16));d=ImageDraw.Draw(shovel);d.line((4,2,11,10),fill='#504734',width=3);d.line((4,2,11,10),fill='#bb9363');d.polygon([(9,8),(13,7),(15,11),(12,15),(8,12)],fill='#444d43');d.polygon([(10,9),(13,8),(14,11),(12,13),(9,11)],fill='#b1b5a2');assets['shovel-item']=shovel
+ # Metal watering can: open handle, curved tank, long spout and perforated rose.
+ can=Image.new('RGBA',(16,16));d=ImageDraw.Draw(can)
+ d.rectangle((1,3,6,8),fill='#394c48');d.rectangle((2,4,5,7),fill=(0,0,0,0));d.line((2,3,5,3),fill='#b3bdb0')
+ d.polygon([(4,6),(10,6),(11,9),(10,13),(5,13),(3,10)],fill='#344a45')
+ d.polygon([(5,7),(9,7),(10,9),(9,12),(5,12),(4,10)],fill='#7c9991')
+ d.line((5,8,5,10),fill='#d1d4bb');d.line((6,12,9,12),fill='#526f67')
+ d.rectangle((5,5,9,6),fill='#3f5b54');d.line((6,5,8,5),fill='#bcc7b0')
+ d.polygon([(10,10),(12,8),(13,4),(15,4),(14,9),(11,12)],fill='#3c554e')
+ d.line((11,10,13,6),fill='#a3b8a4');d.rectangle((12,3,15,5),fill='#526d61');d.line((13,3,15,3),fill='#e0dabc');d.point((14,4),fill='#bdcabc')
+ assets['watering-can-item']=can
  # Original project crops adopt the garden's olive leaf palette.
  mapping={'#344b40':'#384329','#699458':'#829448','#3f8055':'#738b42','#8cbd69':'#b0bd6c','#66985a':'#829448','#a7c575':'#b0bd6c','#528b64':'#718644','#63975e':'#7a9046','#8dc06c':'#adbb64','#5b9167':'#708344','#82b572':'#9cae59'}
  from PIL import ImageColor

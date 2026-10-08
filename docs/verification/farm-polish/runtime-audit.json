@@ -1,0 +1,75 @@
+{
+  "version": "0.6.1",
+  "schema": 10,
+  "base_commit": "d8ec546",
+  "tests_passed": 144,
+  "runtime_file_count": 12,
+  "runtime_bytes": 2061066,
+  "runtime_art": [
+    {
+      "path": "public/assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721",
+      "unchanged_from_base": true,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2",
+      "unchanged_from_base": true,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/font.png",
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1",
+      "unchanged_from_base": true,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/font.xml",
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d",
+      "unchanged_from_base": true,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/town.png",
+      "sha256": "58c75e0b0519237b232fcc7e71f2af19620e89e502946cddcdd218dcb718a189",
+      "unchanged_from_base": false,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/town.json",
+      "sha256": "36980660f721c89310d9b60d7f6af08fc6ecbb430713697b625aee400eed52ff",
+      "unchanged_from_base": false,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/boy.png",
+      "sha256": "b2f244d772547cb53f1d90868199245a8dddf1db3cc3d5c169c3fff31b160b8e",
+      "unchanged_from_base": true,
+      "dist_identical": true
+    },
+    {
+      "path": "public/assets/pixel/processed/girl.png",
+      "sha256": "de1cc4ac5fa32af7b7ef575c0d97dd15e1db8a19be152856f2c1378ce038f0e2",
+      "unchanged_from_base": true,
+      "dist_identical": true
+    }
+  ],
+  "atlas": {
+    "previous_frames": 555,
+    "current_frames": 556,
+    "added_frames": [
+      "watering-can-item"
+    ],
+    "retained_pixels_and_coordinates_identical": 555
+  },
+  "preview": {
+    "url": "http://127.0.0.1:4175/",
+    "http_index_identical": true,
+    "bundle": "assets/index-DOCihIQS.js",
+    "http_bundle_identical": true,
+    "bundle_sha256": "12827a7b572720b24539f9da9b486a985fbecccba21b90b43374a11109738718"
+  },
+  "native_browser": "unverified: existing local-URL tool rejection",
+  "offline_studies": "3 actual FarmView/HeldWateringCan command approximations + 2 labelled detail crops"
+}

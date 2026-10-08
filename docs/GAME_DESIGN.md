@@ -1,3 +1,9 @@
+# v0.6.1 — comfortable work energy
+
+Current farming costs: plant 2, dig 2, water 1, harvest 2. Passive awake energy drain is one per 60 game minutes; walking remains free. Watering the same ground again still costs 1 energy and cannot add extra care/growth. A full 16-cell starter bed takes 32 energy to plant and 16 to water, leaving 52 from a full bar. Combat remains 5 energy per club swing; food/sleep restoration and all watering windows are unchanged. Water tool stays visible in hand and pours from the spout. Soil retains safe grid planting while presenting organic edges and varied red earth. Balance awaits human play review.
+
+---
+
 # v0.6.0 — free beds, watering and twelve crops
 
 The current user request supersedes paid land expansion: clear Farm ground becomes a planting bed when dug with the free Shovel. Starter cells remain; old purchased fields/farms and plants remain available. Soil connects naturally across adjoining tiles, with turf only on exposed edges. Shovel costs 4 energy; planting/watering/harvesting retain 5/3/4 energy. Roads, river/bridge footprints and structures remain protected. Farm board provides a short shovel guide, legacy farm travel and retained Tomato convenience trade.

@@ -1,3 +1,11 @@
+# v0.6.1 — held tool rendering and energy data
+
+PlayerView owns a HeldWateringCan instance; its update follows foot position/facing/character scale/jump height and selected Water state. Held tool pause/pose is transient. Atmosphere.pour reuses it and animates droplets from its nozzle to the existing action target. New local watering-can-item resolves in town for both HUD and world. data/energy.js supplies farming costs and fatigue interval to pure systems/save validation. Existing plot/ground/time architecture and schema-10 fields remain.
+
+FarmView soilPixels takes world native coordinates so broad noise patches are coherent across cells. Cached textures key exposed-side mask, wetness and native coordinate; grass fringe is restricted to exposed sides with rounded transparent corners. No new runtime file, backend, renderer or DOM HUD.
+
+---
+
 # v0.6.0 — dynamic planting ground
 
 Pure farmGround.js resolves safe nearby ground, free shovel digging, energy costs, cosmetic wet patches and expiry. plots.js provides base/custom plot access and replacement; existing farming/watering/recovery systems consume allPlots so custom beds receive the same daily care and growth. Original paid-field indices remain stable. Additional beds are independent {farm,x,y,plot} records, with individually dug original cells in dugPlots. Existing pure purchase functions remain for old progress compatibility, but no player-facing purchase flow remains.

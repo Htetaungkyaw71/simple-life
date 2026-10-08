@@ -21,7 +21,7 @@ test('all spawns are safe and obstacles block movement',()=>{for(const [key,v]of
 test('midnight advances naturally without sleep, teleport or free energy',()=>{
  const s=newState();s.area='farm';s.position={x:376,y:248};s.energy=17;s.minute=1438.9;s.plots[0]={...s.plots[0],crop:'tomato',morning:true,evening:true};
  const pos={...s.position};for(let i=0;i<100;i++)tick(s,60000);
- assert.ok(s.minute>0&&s.minute<60);assert.equal(s.day,2);assert.equal(s.area,'farm');assert.deepEqual(s.position,pos);assert.equal(s.energy,16);assert.equal(s.plots[0].growth,1);
+ assert.ok(s.minute>0&&s.minute<60);assert.equal(s.day,2);assert.equal(s.area,'farm');assert.deepEqual(s.position,pos);assert.equal(s.energy,17);assert.equal(s.plots[0].growth,1);
  const loaded=validate(s);assert.ok(loaded.minute<60);tick(loaded,100);assert.equal(loaded.day,2);assert.equal(loaded.plots[0].growth,1);
  nextDay(loaded);assert.equal(loaded.day,3);assert.equal(loaded.area,'interior');assert.equal(loaded.minute,360);assert.equal(loaded.energy,100);assert.equal(loaded.plots[0].growth,1);
  const fresh=newState();tick(fresh,60000);assert.ok(fresh.minute<361);

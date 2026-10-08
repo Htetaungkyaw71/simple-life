@@ -1,3 +1,15 @@
+# v0.6.1 — held watering can, gentler energy and natural soil, 2026-10-08
+
+Fixed the user-reported watering object: Atmosphere previously requested 'can' from the town atlas, where that frame does not exist. A new original 16×16 metal watering-can frame is used by the HUD and HeldWateringCan. It stays in the farmer's hand while Water is selected, follows four facings/movement/jumping/indoor scale, hides on tool change/transition and tilts during a pour. Droplets start at the held spout and land on the selected ground; no floating target can is spawned. Both supplied boy/girl sheets are unchanged.
+
+Farming is gentler: planting 5→2, digging 4→2, watering 3→1, harvesting 4→2 energy; passive fatigue 30→60 game minutes per energy. A full starter bed can be planted and watered with 52 energy left. Shared data/energy.js centralizes costs; combat, food, sleep, zero-energy gating and watering-window growth remain. Schema stays 10 with the same saved fields; fatigue validation now preserves partial hours up to 60 minutes and older progress still loads.
+
+Connected soil now uses world-coordinate earth/mottle/pebble variation, soft irregular grass fringes and rounded transparent corners rather than flat repeated square panels. Dry/wet material patterns stay aligned across neighbouring cells. Saved bed geometry and crop care labels remain. The user's screenshot guides broad material appearance only; no reference pixels extracted.
+
+Checks: 144/144 tests and production build pass, five new regressions for full-bed energy, saved fatigue, real held-can state/direction/pause/hide, pour origin and continuous organic soil; asset/runtime/HTTP audit and labelled offline farm/held-can studies reviewed. Production has 12 files / 2,061,066 bytes and the same eight art files, with all 555 previous atlas cells unchanged and one original can appended. Evidence: verification/farm-polish/README.md. Native browser interactions/rendering/animation/touch/performance remain unverified under the existing local-URL browser-tool rejection; no bypass or user save access. Existing preview serves the rebuilt game at http://127.0.0.1:4175/. No new dependency, external art, push or publication.
+
+---
+
 # v0.6.0 — free shovel beds and crop care, 2026-10-08
 
 Completed the user's farm follow-up: connected red-soil beds with olive turf edges, larger leafy crop sprites, cream water-drop/red !/harvest markers, a tilted-can pour and falling water, and wet ground that dries after three minutes of active play. Select Shovel (4) and USE or click nearby clear Farm grass to dig a free 48px planting cell; adjoining cells join existing beds. Roads, water, bridges and solid footprints cannot be dug. Land/farm purchase screens are replaced by a shovel guide; previously purchased farms and their crops remain visitable and saved. Starter beds remain available.

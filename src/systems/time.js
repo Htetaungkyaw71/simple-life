@@ -4,7 +4,9 @@ import {evaluateWatering} from './watering.js';
 import {ROOM} from '../data/interior.js';
 import {DAY_SECONDS} from '../config.js';
 import {growOvernight} from './farming.js';
-export const MORNING=360, NIGHT=1200, FATIGUE_MINUTES=30;
+import {FATIGUE_MINUTES} from '../data/energy.js';
+export {FATIGUE_MINUTES};
+export const MORNING=360, NIGHT=1200;
 export const isNight=s=>s.minute<MORNING||s.minute>=NIGHT;
 // Each crossed midnight settles care/growth once, awake or asleep.
 function advanceMinutes(s,minutes){

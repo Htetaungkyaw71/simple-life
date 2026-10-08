@@ -10,6 +10,7 @@ import {ROOM} from '../data/interior.js';
 import {completedWindow} from './watering.js';
 import { CROPS,INVENTORY_KEYS } from '../data/crops.js';
 import { SAVE_KEY, TOOLS } from '../config.js';
+import {FATIGUE_MINUTES} from '../data/energy.js';
 import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
@@ -38,7 +39,7 @@ export function validate(raw) {
   s.hasSoldProduce=raw.hasSoldProduce===true||raw.sold>0;
   s.lastRecoveryDay=number(raw.lastRecoveryDay,0,0,99999);
   for (const [key,min,max] of [['day',1,99999],['minute',0,1439],['money',0,9999999],['health',0,100],['energy',0,100],['sold',0,999999]]) s[key] = number(raw[key],s[key],min,max);
-  s.fatigueMinutes=Number.isFinite(raw.fatigueMinutes)?Math.max(0,Math.min(29.999999,raw.fatigueMinutes)):0;
+  s.fatigueMinutes=Number.isFinite(raw.fatigueMinutes)?Math.max(0,Math.min(FATIGUE_MINUTES-.000001,raw.fatigueMinutes)):0;
   s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
   for (const key of INVENTORY_KEYS) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
   if(raw.version>=10){

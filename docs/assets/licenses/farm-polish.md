@@ -1,0 +1,7 @@
+# v0.6.1 watering-can and soil provenance — 2026-10-08
+
+The original 16×16 watering-can-item is drawn in scripts/farm_crop_art.py and appended by extend-farm-art.py, with the same generator hook for full regeneration. It contains a loop handle, tank, spout and rose with a project olive/metal palette. No reference sprite pixels or external generation model. Existing atlas grows 555→556 cells with old coordinates/pixels unchanged; six other art files and supplied boy/girl character pixels remain byte-identical. The mistaken town/can effect no longer requests a missing frame.
+
+Native coordinate-based soil texture, soft jagged turf fringe, transparent rounded corners, held tool anchor/tilt and pouring droplets are original project source in FarmView.js, HeldWateringCan.js and Atmosphere.js. The supplied Plant Tales screenshot informs broad ground-material appearance, with no copied pixels, map arrangement or distinctive UI additions. Hand accessory overlays do not modify the supplied licensed character sheets. All earlier creator licences and credits remain.
+
+AI-assisted deterministic project work is disclosed in AI_USAGE.md; it is not claimed human hand-drawn art. No new external asset, dependency, image model, download, purchase or publication. Runtime allowlist remains eight files, including the same town PNG/JSON with one appended cell. Audit: ../../verification/farm-polish/runtime-audit.json. Native browser/human acceptance remains pending; previously recorded public-entry rights uncertainty remains unchanged.

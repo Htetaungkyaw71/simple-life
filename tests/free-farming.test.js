@@ -22,7 +22,7 @@ for(let y=72;y<1056;y+=48)for(let x=72;x<2160;x+=48)if(openGround('farm',x,y,tru
 function dig(s,p=free[0]){s.position={x:p.x,y:p.y+30};return digGround(s,p);}
 function uiApp(s,u){const app={state:s,ui:u,paused:false,input:{},sound(){},save(){},scene:{forestView:{energy(){}}},transact(fn){return fn(s);}};u.app=app;return app;}
 test('shovel creates free beds on safe Farm ground and rejects repeats, paths, water, far targets and exhaustion',()=>{
- assert.ok(free.length>100);const s=farm(),coins=s.money,r=dig(s);assert.ok(r.ok);assert.equal(s.money,coins);assert.equal(s.energy,96);assert.equal(visiblePlots(s).length,17);assert.equal(plotAt(s,r.index).crop,null);
+ assert.ok(free.length>100);const s=farm(),coins=s.money,r=dig(s);assert.ok(r.ok);assert.equal(s.money,coins);assert.equal(s.energy,98);assert.equal(visiblePlots(s).length,17);assert.equal(plotAt(s,r.index).crop,null);
  const before=structuredClone(s);assert.equal(digGround(s,r).ok,false);assert.deepEqual(s,before);
  for(const point of [{x:320,y:72},{x:1800,y:744},{x:2160,y:24},{x:free.at(-1).x,y:free.at(-1).y}])assert.equal(digGround(s,point).ok,false);
  s.area='forest';assert.equal(digGround(s,r).ok,false);s.area='farm';s.energy=0;const p=free.find(p=>p.x!==r.x||p.y!==r.y);s.position=p;assert.equal(digGround(s,p).ok,false);
@@ -38,7 +38,7 @@ test('custom beds complete planting, both watering windows, growth, harvest and 
  s.selected='harvest';assert.match(usePlot(s,r.index),/harvested/);assert.equal(s.inventory[id],3);assert.equal(plotAt(s,r.index).crop,null);assert.equal(s.customBeds.length,1,'bed remains after harvest');
 });
 test('watering anywhere wets open outdoor ground, dries after three active minutes and persists without inventing care',()=>{
- let s=farm();s.selected='water';s.position=free[0];s.minute=800;const r=waterGround(s,free[0]);assert.ok(r.ok);assert.equal(s.energy,97);assert.ok(wetAt(s,r.x,r.y));assert.equal(s.wetGround[0].remaining,WET_DURATION);s=validate(s);assert.ok(wetAt(s,r.x,r.y));
+ let s=farm();s.selected='water';s.position=free[0];s.minute=800;const r=waterGround(s,free[0]);assert.ok(r.ok);assert.equal(s.energy,99);assert.ok(wetAt(s,r.x,r.y));assert.equal(s.wetGround[0].remaining,WET_DURATION);s=validate(s);assert.ok(wetAt(s,r.x,r.y));
  for(let n=0;n<1799;n++)dryGround(s,100);assert.ok(wetAt(s,r.x,r.y));assert.equal(dryGround(s,100),true);assert.equal(s.wetGround.length,0);
  s.position=free[0];waterGround(s,free[0]);sleep(s);assert.equal(s.wetGround.length,0,'sleep time jump dries cosmetic soil');
  for(const area of ['home','city','forest']){s.area=area;const point=area==='forest'?{x:640,y:4800}:area==='city'?{x:600,y:500}:{x:480,y:600};s.position=point;if(openGround(area,point.x,point.y))assert.ok(waterGround(s,point).ok);}

@@ -11099,6 +11099,26 @@
         "w": 16,
         "h": 16
       }
+    },
+    "watering-can-item": {
+      "frame": {
+        "x": 0,
+        "y": 1040,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      }
     }
   },
   "meta": {

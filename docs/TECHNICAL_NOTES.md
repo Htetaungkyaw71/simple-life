@@ -1,3 +1,11 @@
+# v0.6.1 — watering object fix and soil polish
+
+The previous effect requested town/can, although can existed only in world; the tool now uses an original town/watering-can-item everywhere. The held can uses directional native hand anchors, flipped handle origin, depth/scale/jump offsets and a 650ms tilt; its timer pauses with gameplay. The stream starts at its nozzle. Tool switching/transition hides it. Original player sheets are unchanged. Pinned Phaser Canvas flip/origin source was inspected; tests and offline mirrored/rotated studies supplement browser acceptance only.
+
+Farming costs are 2/1/2/2 for plant/water/harvest/dig; fatigue one energy per game hour. Existing save fields/schema 10 remain; fatigue cap expands to the new interval. Soil textures use deterministic global native coordinates, smooth material patches, scattered clods and transparent rounded turf boundaries, cached per coordinate/mask/wetness. Runtime allowlist stays eight files. Native browser/Canvas/WebGL/touch/performance verification remains blocked by the existing local-URL policy; no workaround used.
+
+---
+
 # v0.6.0 — free farming implementation and limits
 
 A dig costs 4 energy and no coins; plant/water/harvest costs remain 5/3/4. A 48px square bed must have a clear footprint and line of approach within 72 world pixels. Nearby additions use the existing bed lattice; roads, solids, water and bridge footprints reject digging. The shovel is available on Farm/Home/City HUDs, with a Farm-only digging hint. Water works on outdoor clear ground within the same reach; valid crop-window care uses the established pure farming action. Repeated/out-of-window pours are cosmetic and still cost 3 energy. Runtime ground use is gated to 450ms. Dead crops require Harvest to clear.

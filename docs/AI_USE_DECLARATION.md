@@ -1,3 +1,9 @@
+# v0.6.1 repair disclosure
+
+Codex assisted original can/soil source, hand/pour rendering, energy balancing, compatible fatigue validation, tests and labelled offline review/documentation. No new external image model or asset source; retained creator artwork remains separately credited. 144 tests/build pass; browser/human acceptance remains pending under the existing localhost tool restriction. Full trace: AI_USAGE.md and assets/licenses/farm-polish.md. No signed human declaration is claimed.
+
+---
+
 # v0.6.0 follow-up disclosure
 
 Codex assisted original code-generated crop/shovel/soil/status art, palette edits, pouring effects, free digging and wet-ground rules, twelve crop/seed/food/UI definitions, save migration, tests and offline review/documentation. User references guide style only; no reference pixels copied or new external image model/asset used. Retained third-party pixels keep separate authorship. 139 tests/build pass; native browser and human acceptance remain pending under the existing local-URL restriction. Full evidence: AI_USAGE.md and assets/licenses/free-farming.md. This entry is not a signed human declaration.

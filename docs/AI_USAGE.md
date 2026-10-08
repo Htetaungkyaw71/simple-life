@@ -1,3 +1,11 @@
+# v0.6.1 — user-requested farm repair, 2026-10-08
+
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) diagnosed the missing town/can frame, authored original metal-can pixels, held-hand/directional/jump/pour integration and organic soil material code, reduced farming/passive energy costs through shared data, adjusted compatible fatigue validation and meaningful regressions, inspected pinned Phaser flip/origin source, ran tests/build/asset/HTTP/offline command-art checks and updated documentation. Original pixel source: farm_crop_art.py; rendering: HeldWateringCan.js/FarmView.js/Atmosphere.js. Supplied boy/girl sheets and all old atlas cells remain unchanged and retain their separate creator credits.
+
+The user's screenshot guides soil material/grass-border appearance only; no source pixels or arrangement copied. Master/four PDFs reviewed as reference requirements. No image model, new asset download/dependency, subagent, external messaging, purchase, live user-save access, push, publication or submission. 144 tests/build and labelled offline studies reviewed; native browser checks remain blocked by the existing local-URL rejection and human art/balance/rights acceptance is not claimed.
+
+---
+
 # v0.6.0 — free farming follow-up, 2026-10-08
 
 OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted reference interpretation, original deterministic crop/shovel art and olive palette edits, connected soil/status glyphs/pouring code, data-driven crops/food/shop/bag paging, safe digging/wet-ground pure systems, schema-10 migration, input/context integration, automated tests, offline pixel/draw-command studies, build/HTTP audit and documentation. Source art: scripts/farm_crop_art.py and extend-farm-art.py; source rendering: FarmView.js and Atmosphere.js. All external retained art remains credited to its creators; no claim of human hand-drawn authorship of code-generated additions.

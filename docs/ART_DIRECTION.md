@@ -1,3 +1,11 @@
+# v0.6.1 — natural soil and a recognizable held tool
+
+Original metal watering-can pixels show an open handle, shaded tank, long spout and perforated rose in the olive/grey palette. HeldWateringCan anchors its handle to the supplied farmer's hand in four facings, with depth behind the up-facing body, scale matching the character and a tilted pouring pose. The HUD uses the same can. Character sheets remain untouched.
+
+Farm soil has broad coordinate-continuous red/brown patches, small clods/pebbles and a soft broken turf fringe; transparent rounded outer corners expose real grass underneath. Neighbouring interiors do not repeat flat tiles or acquire turf seams. Wet soil preserves the same pattern at darker values. Original source in FarmView.js and farm_crop_art.py; user image is material guidance without copying pixels or arrangement. Labelled offline studies: verification/farm-polish; live browser and human acceptance remain pending.
+
+---
+
 # v0.6.0 — connected farm beds and care glyphs
 
 The two supplied Plant Tales screenshots inform red-brown soil, olive crop foliage, connected grass-rimmed beds and cream status bubbles. No screenshot pixels, exact map arrangement or external crop artwork are copied. Original 24×24 soil textures expose jagged turf only on the outer edges; native 24×32 crop poses retain integer 2× display. Wet beds use deeper brown. A blue water drop, red ! and olive basket replace verbose per-cell text. The retained local can sprite tilts above the target while droplets fall.

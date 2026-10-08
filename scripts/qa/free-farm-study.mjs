@@ -7,6 +7,7 @@ import {FARM_PLOTS} from '../../src/data/farms.js';
 import {drawFarmBeds,drawWetGround} from '../../src/art/FarmView.js';
 import {paintGround} from '../../src/art/groundSurface.js';
 import {MAPS} from '../../src/data/mapLayouts.js';
+import {HeldWateringCan} from '../../src/entities/HeldWateringCan.js';
 const out='/tmp/simplelife-free-farm';mkdirSync(out,{recursive:true});
 const floor=new Uint8ClampedArray(1120*576*4);paintGround(floor,1120,576);writeFileSync(out+'/floor.rgba',floor);
 for(const state of ['growing','watered']){
@@ -16,7 +17,12 @@ for(const state of ['growing','watered']){
  const u=recorder(1280,720);u.app={state:s};u.root.setScale(.5).setPosition(-140,-50);const soil=u.add.container(),wet=u.add.container();u.root.add([wet,soil]);drawFarmBeds(u,soil);drawWetGround(u,wet);
  // Retained map props and decorative pixels supply the same Farm context.
  for(const p of [...MAPS.farm.details,...MAPS.farm.props])if(!p.fence){const n=u.add.image(p.x,p.y,'town',p.name==='tree'?'tree0':p.name).setOrigin(0).setScale(2).setDepth(p.name==='tree'?p.y+90:0);u.root.add(n);}
- u.root.add(u.add.sprite(476,384,'boy',0).setOrigin(.5,1).setScale(2).setDepth(384));if(state==='watered')u.root.add(u.add.image(456,340,'town','can').setScale(2).setDepth(500));
+ u.root.add(u.add.sprite(476,384,'boy',0).setOrigin(.5,.94).setScale(2).setDepth(384));if(state==='watered'){s.selected='water';const held=new HeldWateringCan(u);held.pour();held.update({x:476,y:384},'down',2);u.root.add([held.can,held.hand]);}
  const r=recording(u);r.camera={x:280,y:100};writeFileSync(out+'/'+state+'.json',JSON.stringify(r));
 }
-console.log('2 offline Farm view command studies; not browser acceptance');
+const u=recorder(1280,720);u.app={state:{selected:'water'},paused:false};u.root.setScale(1);
+for(const [row,character]of ['boy','girl'].entries())for(const [col,direction]of ['down','up','left','right'].entries()){
+ const p={x:70+col*145,y:110+row*135};u.root.add(u.add.sprite(p.x,p.y,character,col*9).setOrigin(.5,.94).setScale(3).setDepth(p.y));const held=new HeldWateringCan(u);held.update(p,direction,3);u.root.add([held.can,held.hand]);
+}
+writeFileSync(out+'/hand-can.json',JSON.stringify(recording(u)));
+console.log('3 offline Farm/held-can command studies; not browser acceptance');

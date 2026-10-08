@@ -1,3 +1,9 @@
+# v0.6.1 farm repair credits
+
+Original native metal watering can, organic soil material/fringe code and held/pouring adaptation: Simple Life project, OpenAI Codex-assisted source. Supplied farmer sheets and all 555 earlier atlas cells remain unchanged and retain the credits below. The user screenshot is broad visual guidance only. Evidence: assets/licenses/farm-polish.md.
+
+---
+
 # v0.6.0 farm art credits
 
 Connected soil, care bubbles, original eight new crop state/item sets, shovel and olive edits to original crop art: Simple Life project source, OpenAI Codex-assisted deterministic pixels/code. Existing pouring-can sprite and all licensed environment/farmer/animal art retain the credits below. Plant Tales screenshots supplied by the user inform broad style/interaction only; no game pixels or exact map arrangement copied. The supplied lion ZIP is not integrated. Evidence: assets/licenses/free-farming.md.

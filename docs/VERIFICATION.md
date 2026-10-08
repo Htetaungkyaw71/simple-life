@@ -1,3 +1,11 @@
+# v0.6.1 — watering and ground repairs
+
+144/144 npm tests pass; production build succeeds. Five new tests verify enough energy to plant/water all starter cells, one-hour fatigue/reload/old remainder, actual HeldWateringCan local frame and four directions/jump/pause/hide, Atmosphere pour droplets starting at the held spout without a second object, and coordinate-overlap equality plus rounded transparent/mottled soil. Prior full farming/save/window/economy/forest/UI regressions remain.
+
+Three labelled offline Farm/held-can command studies generated and reviewed, with two marked close-up crops. Boy/girl hand positions and both directions of flipping were inspected; wet/dry soil/care markers retain correct appearance. These are approximate Pillow rendering, not browser screenshots or keyboard/pointer acceptance. Pixel audit verifies all 555 previous atlas cells/coordinates unchanged and one original can frame appended; six other art files unchanged. Production/HTTP identity: verification/farm-polish/runtime-audit.json. Browser interaction/animation/touch/renderer/performance checks remain unverified under the existing browser-tool URL rejection, with no bypass/live user storage access.
+
+---
+
 # v0.6.0 — free farming verification
 
 139/139 tests pass and npm run build succeeds. Fourteen new regressions cover free/repeated/unsafe/far/exhausted digging, individually dug locked-field planting, custom-bed care/growth/reload/harvest, old paid-farm migration, malformed/overlapping/unsafe ground records, outdoor wet-ground expiry/reload/sleep, care-window/repeated-water behavior, pointer/facing/nearby-door context, connected soil/markers, all twelve crop purchases and bag pages at seven sizes, edible farm fruit, extending existing beds, and actual FarmView draw commands. Existing farming, survival, City, night, font/Canvas-engine, saves and UI tests remain green.

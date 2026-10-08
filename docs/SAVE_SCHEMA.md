@@ -1,3 +1,9 @@
+# v0.6.1 — unchanged schema 10, partial-hour fatigue
+
+No new saved field or version migration. Existing plots/dug beds/wet patches/progress remain. fatigueMinutes now validates a finite remainder in [0,60), following the new 60-minute drain interval. Previous [0,30) values remain valid and are preserved rather than triggering an immediate charge/reset. Held can, pouring duration, hand/nozzle pose and soil caches are transient and reconstructed from existing selected tool/character/position. Regression covers partial-hour roundtrip and old schema-9 fatigue.
+
+---
+
 # Save schema 10 — free planting beds, v0.6.0
 
 Storage key stays simple-life.save.v1; versions 1–10 accepted. Versions 1–9 migrate to 10 with paid field/farm ownership, crop IDs/care, currency, character, daily prices, City flags, forest progress/equipment/treasure/Stash Bag intact. Existing legacy forest position translation still applies only to versions 1–8. New inventory crop seed/produce keys default to zero. selected additionally accepts shovel. The twelve crop definitions retain original inventory/market ordering and old crop values.

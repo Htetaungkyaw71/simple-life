@@ -1,3 +1,9 @@
+# v0.6.1 — original watering can and soil source
+
+One original 16×16 watering-can-item is appended to town; all 555 previous cells and their coordinates are unchanged. The new can, soft soil material/fringes and held/pouring geometry are deterministic project source with Codex assistance. Six other runtime art files, supplied farmer sheets and licensed atlas cells remain unchanged. No new external asset, font, dependency or licence. Existing creator credits and previous public-entry rights limitations remain. Source/evidence: assets/licenses/farm-polish.md and verification/farm-polish/runtime-audit.json.
+
+---
+
 # v0.6.0 — original farm additions
 
 81 original code-authored frames (eight crops × eight states plus produce/seed icons, and one shovel icon) are appended to the existing town atlas. 32 prior original crop frames receive olive palette edits; 442 other retained frames are pixel-identical and every old frame coordinate remains. Soil/marker/pouring render geometry is original project source using the retained can sprite. Existing creator licences and credits remain; no new third-party artwork or dependency. Six other runtime art files are byte-identical; the allowlist remains eight files.
