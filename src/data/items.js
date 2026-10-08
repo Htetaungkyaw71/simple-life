@@ -1,4 +1,4 @@
-// Forest food is inventory, never a field crop or a purchasable seed.
+// Forest forage keeps its existing roster; farm fruit can also be eaten.
 export const FOODS={
  wildBerry:{id:'wildBerry',name:'Wild Berry',sellPrice:6,energyRestored:12,icon:'wild-berry-item'},
  guava:{id:'guava',name:'Guava',sellPrice:12,energyRestored:20,icon:'guava-item'},
@@ -12,6 +12,8 @@ Object.assign(FOODS,{
  dragonFruit:{id:'dragonFruit',name:'Dragon Fruit',sellPrice:36,energyRestored:42,icon:'dragon-fruit-item'},
  pineapple:{id:'pineapple',name:'Pineapple',sellPrice:28,energyRestored:38,icon:'pineapple-item'},
 });
+const FOREST_FOOD_IDS=Object.keys(FOODS);
+export const FOREST_ITEMS={wildBerry:FOODS.wildBerry,guava:FOODS.guava,mango:FOODS.mango,wildHide:{id:'wildHide',name:'Wild Hide',sellPrice:18,energyRestored:0,icon:'wild-hide-item'},...Object.fromEntries(FOREST_FOOD_IDS.slice(3).map(id=>[id,FOODS[id]]))};
+Object.assign(FOODS,{watermelon:{id:'watermelon',name:'Watermelon',sellPrice:85,energyRestored:35,icon:'watermelon-item'},grape:{id:'grape',name:'Grape',sellPrice:42,energyRestored:20,icon:'grape-item'},blueberry:{id:'blueberry',name:'Blueberry',sellPrice:38,energyRestored:16,icon:'blueberry-item'}});
 export const FOOD_IDS=Object.keys(FOODS);
-export const FOREST_ITEMS={wildBerry:FOODS.wildBerry,guava:FOODS.guava,mango:FOODS.mango,wildHide:{id:'wildHide',name:'Wild Hide',sellPrice:18,energyRestored:0,icon:'wild-hide-item'},...Object.fromEntries(FOOD_IDS.slice(3).map(id=>[id,FOODS[id]]))};
 export const CLUB={id:'woodenClub',name:'Wooden Club',price:45,energy:5,cooldown:450,icon:'wooden-club-item'};

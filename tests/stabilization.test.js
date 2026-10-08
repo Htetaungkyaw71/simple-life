@@ -13,7 +13,7 @@ test('starter reward is exactly three, once across save/continue, fresh in a new
 });
 test('legacy crops expand without reordering and City saves migrate safely into the opened town',()=>{
  const old=newState('girl');old.version=1;old.area='city';old.money=217;old.plots=old.plots.slice(0,6);old.plots[5]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};delete old.starterSeedsClaimed;
- const s=validate(old);assert.equal(s.version,9);assert.equal(s.area,'city');assert.ok(walkable('city',s.position.x,s.position.y));assert.equal(s.money,217);for(const [key,value]of Object.entries(old.plots[5]))assert.deepEqual(s.plots[5][key],value);assert.equal(s.plots.length,64);assert.equal(s.plots[15].crop,null);assert.equal(s.starterSeedsClaimed,false);
+ const s=validate(old);assert.equal(s.version,10);assert.equal(s.area,'city');assert.ok(walkable('city',s.position.x,s.position.y));assert.equal(s.money,217);for(const [key,value]of Object.entries(old.plots[5]))assert.deepEqual(s.plots[5][key],value);assert.equal(s.plots.length,64);assert.equal(s.plots[15].crop,null);assert.equal(s.starterSeedsClaimed,false);
  old.area='home';old.position={x:370,y:350};assert.equal(validate(old).area,'interior');
 });
 test('house solids cover walls, corners, windows and rear; porch and door remain accessible',()=>{
@@ -24,7 +24,7 @@ test('house solids cover walls, corners, windows and rear; porch and door remain
 });
 test('active field has sixteen reachable cells and action-specific prompts',()=>{
  assert.equal(new Set(PLOTS.map(p=>p.x)).size,4);assert.equal(new Set(PLOTS.map(p=>p.y)).size,4);
- const s=newState();s.area='farm';for(const p of PLOTS)assert.ok(walkable('farm',p.x,p.y));s.position={...PLOTS[0]};assert.match(contextFor(s).label,/No seeds/);collectStarterSeeds(s);assert.equal(contextFor(s).label,'Plant seed');s.selected='water';assert.equal(contextFor(s).label,'Select a seed');s.plots[0].crop='tomato';assert.equal(contextFor(s).label,'Water');s.plots[0].morning=true;assert.equal(contextFor(s).label,'Already watered');s.plots[0].growth=3;s.selected='harvest';assert.equal(contextFor(s).label,'Harvest');s.position={x:800,y:520};assert.notEqual(contextFor(s)?.type,'plot');
+ const s=newState();s.area='farm';for(const p of PLOTS)assert.ok(walkable('farm',p.x,p.y));s.position={...PLOTS[0]};assert.match(contextFor(s).label,/No seeds/);collectStarterSeeds(s);assert.equal(contextFor(s).label,'Plant seed');s.selected='water';assert.equal(contextFor(s).label,'Water ground');s.plots[0].crop='tomato';assert.equal(contextFor(s).label,'Water');s.plots[0].morning=true;assert.equal(contextFor(s).label,'Already watered');s.plots[0].growth=3;s.selected='harvest';assert.equal(contextFor(s).label,'Harvest');s.position={x:800,y:520};assert.notEqual(contextFor(s)?.type,'plot');
  assert.ok(Object.hasOwn(LOCATIONS,'city'));assert.ok(!LOCATIONS.farm.interactions.some(p=>p.to==='city'));
 });
 test('pond surfaces are walkable, adjacent banks remain usable and cans refill on land',()=>{

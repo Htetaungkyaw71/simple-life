@@ -1,3 +1,11 @@
+# v0.6.0 — original farm additions
+
+81 original code-authored frames (eight crops × eight states plus produce/seed icons, and one shovel icon) are appended to the existing town atlas. 32 prior original crop frames receive olive palette edits; 442 other retained frames are pixel-identical and every old frame coordinate remains. Soil/marker/pouring render geometry is original project source using the retained can sprite. Existing creator licences and credits remain; no new third-party artwork or dependency. Six other runtime art files are byte-identical; the allowlist remains eight files.
+
+The supplied A_2D_pixel_art_sprite.zip was inspected and contains a lion sprite with AI prompt metadata; no pixels are integrated or packaged and no new rights claim is made. User screenshots guide style only. Original art assistance and reproducible sources are recorded in [free-farming provenance](assets/licenses/free-farming.md) and AI_USAGE.md; runtime/pixel audit in verification/free-farming. Previously recorded public prize-entry rights uncertainty remains unchanged.
+
+---
+
 # v0.5.2 font recovery provenance
 Only source lookup changes: the existing original font sheet is copied whole into cached in-memory colour variants. All eight allowlisted art files remain byte-identical to db8f98f; no new pack/font/dependency or licence. Source evidence: assets/licenses/font-recovery.md; audit: verification/font-recovery/runtime-audit.json.
 

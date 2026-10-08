@@ -39,14 +39,15 @@ export class TradePanel {
   text(u,u.root,tx,y+14,plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold);
   button(u,u.root,'X',right-22,y+8,22,22,()=>u.close(),{id:'trade-close'});
   if(plant)button(u,u.root,'FOOD',tx+76,y+8,44,22,()=>this.app.survivalPanel.open('food'),{id:'bag-food'});
-  if(selling)button(u,u.root,'PAGE '+(Math.floor(this.index/4)+1)+' >',tx+64,y+8,66,22,()=>this.selectCrop((Math.floor(this.index/4)*4+4)%this.ids.length),{id:'market-page'});
+  if(!plant)button(u,u.root,(Math.floor(this.index/4)+1)+' >',tx+40,y+8,22,22,()=>this.selectCrop((Math.floor(this.index/4)*4+4)%this.ids.length),{id:selling?'market-page':'seed-page'});
   if(!plant&&!selling){
-   const coins=text(u,u.root,right-30,y+14,String(s.money),8).setOrigin(1,0);
+   const moneyLabel=value=>pw<220&&value>=10000?Math.floor(value/1000)+'k':String(value);
+   const coins=text(u,u.root,right-30,y+14,moneyLabel(s.money),8).setOrigin(1,0);
    const purse=icon(u,u.root,'coin',right-46-coins.width,y+11,.75);
-   if(this.coinFrom!=null&&this.coinFrom!==s.money){u.tweens.addCounter({from:this.coinFrom,to:s.money,duration:250,onUpdate:t=>{if(coins.scene){coins.setText(String(Math.round(t.getValue())));purse.setX(right-46-coins.width);}}});this.coinFrom=null;}
+   if(this.coinFrom!=null&&this.coinFrom!==s.money){u.tweens.addCounter({from:this.coinFrom,to:s.money,duration:250,onUpdate:t=>{if(coins.scene){coins.setText(moneyLabel(Math.round(t.getValue())));purse.setX(right-46-coins.width);}}});this.coinFrom=null;}
   }
   const cw=Math.floor((pw-29)/4);
-  this.ids.slice(selling?Math.floor(this.index/4)*4:0,selling?Math.floor(this.index/4)*4+4:4).forEach((crop,i)=>{
+  this.ids.slice(Math.floor(this.index/4)*4,Math.floor(this.index/4)*4+4).forEach((crop,i)=>{
    const index=this.ids.indexOf(crop);
    const c=button(u,u.root,this.catalog[crop].name,tx+i*(cw+3),y+37-Math.min(4,lift),cw,28-Math.min(4,lift),()=>this.selectCrop(index),{id:'crop-'+crop,iconName:selling?this.catalog[crop].icon:CROPS[crop].seedIcon});
    if(index===this.index){c.box.setFillStyle(UI_COLORS.selected);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}

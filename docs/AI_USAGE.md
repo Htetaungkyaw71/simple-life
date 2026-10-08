@@ -1,3 +1,11 @@
+# v0.6.0 — free farming follow-up, 2026-10-08
+
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted reference interpretation, original deterministic crop/shovel art and olive palette edits, connected soil/status glyphs/pouring code, data-driven crops/food/shop/bag paging, safe digging/wet-ground pure systems, schema-10 migration, input/context integration, automated tests, offline pixel/draw-command studies, build/HTTP audit and documentation. Source art: scripts/farm_crop_art.py and extend-farm-art.py; source rendering: FarmView.js and Atmosphere.js. All external retained art remains credited to its creators; no claim of human hand-drawn authorship of code-generated additions.
+
+The two user screenshots supply broad style/interaction guidance; no pixels or exact layout extracted. The supplied ZIP was inspected as an unrelated lion sprite and not used. Competition PDFs/master were reference checks, not overriding user instructions. No image-generation model, external asset download, new dependency, subagent, purchase, creator contact, live user-save access, push, deployment, publication or submission. 139 tests/build and selected labelled offline studies pass; live browser checks remain blocked by the existing local-URL rejection. Human implementation/art/balance/rights acceptance and signed competition review are not claimed.
+
+---
+
 # v0.5.2 — Font lookup repair
 Codex (GPT-6 family; exact backend identifier unavailable) diagnosed the missing text using pinned Phaser loader/parser/texture source, corrected the full-sheet selection, strengthened the engine regression and offline adapter, and ran tests/build/asset/HTTP/pixel checks with documentation. The regression failed before the change and passed afterward. No generated or downloaded art, new dependency, subagent, external message, publication or push. Live browser QA remains blocked; offline studies are explicitly labelled.
 

@@ -1,3 +1,5 @@
+import {digGround,waterGround} from './systems/farmGround.js';
+import {plotAt} from './systems/plots.js';
 import {groundedPosition,cancelJump} from './systems/jump.js';
 import {WildernessMap} from './ui/WildernessMap.js';
 import {BagPanel} from './ui/BagPanel.js';
@@ -40,7 +42,12 @@ class Application {
   advance(delta){const window=waterPeriod(this.state),day=this.state.day,energy=this.state.energy;tick(this.state,delta);if(window!==waterPeriod(this.state)||day!==this.state.day)this.scene.renderCrops();if(energy>10&&this.state.energy<=10)this.ui.feedback('Low energy / rest at your bed');this.elapsed+=delta;if(this.elapsed>2500||day!==this.state.day){this.save();this.elapsed=0;}}
   use(){
     if(this.scene.jumping?.active)return;
-    if(this.paused||!this.state)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);
+    if(this.paused||!this.state||this.transitioning)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);
+    if(c.type==='dig'||c.type==='waterGround'||c.type==='plot'&&this.state.selected==='water'){
+      const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
+      const result=c.type==='dig'?digGround(this.state,c):waterGround(this.state,c,c.type==='plot'?c.index:undefined);
+      this.ui.feedback(result.message);if(result.ok){this.scene.renderCrops();this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',result.x,result.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();}return;
+    }
     if(c.type==='forage'){const before=this.state.inventory[c.item];this.ui.feedback(collectForage(this.state,c.id));if(this.state.inventory[c.item]>before){this.scene.forestView.collect(FORAGE_NODES.find(n=>n.id===c.id));this.sound('forest:collect');}this.save();return;}
     if(c.type==='treasure'){this.transact(s=>recoverTreasure(s,c.id));return;}
     if(c.type==='stash'){this.transact(recoverStash);return;}
@@ -54,8 +61,8 @@ class Application {
     if(c.type==='dialog'){this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.body,[['See you around',()=>this.ui.close()]]);return;}
     if(c.type==='hint'){this.ui.feedback(c.label);return;}
     if(c.type==='plot'){
-      const before={...this.state.plots[c.index]},fruit=before.crop?this.state.inventory[CROPS[before.crop].produceKey]:0;
-      const message=usePlot(this.state,c.index),after=this.state.plots[c.index];
+      const before={...plotAt(this.state,c.index)},fruit=before.crop?this.state.inventory[CROPS[before.crop].produceKey]:0;
+      const message=usePlot(this.state,c.index),after=plotAt(this.state,c.index);
       const action=!before.crop&&after.crop?'plant':before.crop&&this.state.inventory[CROPS[before.crop].produceKey]>fruit?'harvest':(!before.morning&&after.morning)||(!before.evening&&after.evening)?'water':null;
       this.scene.renderCrops();this.save();this.ui.feedback(message);
       if(action==='harvest'&&!this.state.hasVisitedCity)this.ui.showCityObjective();

@@ -31,8 +31,9 @@ export class BagPanel {
   const tabs=[['seeds',CROPS.tomato.seedIcon],['produce',CROPS.tomato.icon],['food',FOODS.wildBerry.icon],['gear',CLUB.icon]];
   tabs.forEach(([tab,key],i)=>{const c=button(u,u.root,tab,x+12+i*29,y+29,26,h<190?22:24,()=>this.open(tab),{id:'bag-tab-'+tab,iconName:key});if(tab===this.tab)c.box.setFillStyle(UI_COLORS.selected);});
   const gw=4*cell+3*gap,gx=Math.floor(x+(w-gw)/2),gy=y+(h<190?55:59);
-  for(let i=0;i<12;i++){
-   const sx=gx+(i%4)*(cell+gap),sy=gy+Math.floor(i/4)*(cell+gap),entry=items[i];
+  const page=Math.floor(this.index/12);if(items.length>12)button(u,u.root,(page+1)+' >',x+w-63,y+29,32,22,()=>{this.index=(page*12+12)%items.length;this.show();},{id:'bag-page'});
+  for(let slot=0;slot<12;slot++){const i=page*12+slot;
+   const sx=gx+(slot%4)*(cell+gap),sy=gy+Math.floor(slot/4)*(cell+gap),entry=items[i];
    const c=button(u,u.root,entry?.name||'',sx,sy,cell,cell,()=>{this.index=i;this.message='';this.show();},{id:'bag-item-'+(entry?.id||'empty-'+i),disabled:!entry,iconName:entry?.icon||null});
    if(entry){if(i===this.index)c.box.setFillStyle(UI_COLORS.selected);text(u,u.root,sx+cell-4,sy+cell-9,String(entry.count),7).setOrigin(1,0);}
   }

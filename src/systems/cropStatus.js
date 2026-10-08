@@ -1,12 +1,13 @@
+import {plotAt} from './plots.js';
 import {CROPS,WATER_WINDOWS} from '../data/crops.js';
 import {evaluateWatering,missed,waterPeriod} from './watering.js';
 
 // Presentation derives from the same window evaluator as ticks/rest/sleep. Never
 // mutate the inspected state or run a second countdown. Growth is earned at midnight.
 export function cropStatus(state,index){
- const original=state?.plots[index];if(!original?.crop)return null;
+ const original=state?plotAt(state,index):null;if(!original?.crop)return null;
  const def=CROPS[original.crop];if(!def)return null;
- const projected={...state,plots:[{...original}]};evaluateWatering(projected);
+ const projected={...state,plots:[{...original}],customBeds:[]};evaluateWatering(projected);
  const p=projected.plots[0],remaining=def.growthDays-p.growth;
  const dead=missed(p)>=2,ready=!dead&&remaining===0,wilted=!dead&&!ready&&missed(p)>0;
  const period=waterPeriod(state),window=(state.day-1)*2+(period==='evening'?1:0);

@@ -1,3 +1,11 @@
+# v0.6.0 — connected farm beds and care glyphs
+
+The two supplied Plant Tales screenshots inform red-brown soil, olive crop foliage, connected grass-rimmed beds and cream status bubbles. No screenshot pixels, exact map arrangement or external crop artwork are copied. Original 24×24 soil textures expose jagged turf only on the outer edges; native 24×32 crop poses retain integer 2× display. Wet beds use deeper brown. A blue water drop, red ! and olive basket replace verbose per-cell text. The retained local can sprite tilts above the target while droplets fall.
+
+Eight new original crops and the shovel join the existing local atlas. Original four crop leaf palettes are recoloured to olive; existing licensed scenery/player/animal/font pixels retain provenance and coordinates. No new atlas file, external model or runtime asset family. FarmView draw studies and six selected UI/Farm studies are supplemental, explicitly labelled offline approximations; browser/human acceptance remains pending. Evidence: assets/licenses/free-farming.md and verification/free-farming/README.md.
+
+---
+
 # v0.5.1 readability correction
 Cream panels must use actual dark/olive/gold font pixels, with high contrast independent of renderer tint. Intentional cream title/world text remains. Remove 1/2/3 tool-corner badges; preserve small stock counts and selected fills. The Forest-only Map action has a clear short label in the lower hotbar. Clock shows two whole-minute digits; no decimals. Existing shared theme/world art remains.
 

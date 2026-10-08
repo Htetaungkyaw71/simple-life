@@ -1,3 +1,4 @@
+import {allPlots} from './plots.js';
 import {WATER_WINDOWS,CROPS} from '../data/crops.js';
 export const waterPeriod=s=>WATER_WINDOWS.find(w=>s.minute>=w.start&&s.minute<w.end)?.id||null;
 export const completedWindow=s=>(s.day-1)*2+(s.minute>=1320?1:s.minute>=720?0:-1);
@@ -6,7 +7,7 @@ export const missed=p=>p.missedWindows??p.dryDays??0;
 // Cursor makes window expiry idempotent across ticks, sleeping, reloads and time skips.
 export function evaluateWatering(s,through=completedWindow(s)){
  let changed=false;
- for(const p of s.plots){
+ for(const p of allPlots(s)){
   if(!p.crop||p.growth>=CROPS[p.crop].growthDays||missed(p)>=2)continue;
   const start=p.lastEvaluatedWindow??(s.day-1)*2-1;
   for(let window=start+1;window<=through;window++){

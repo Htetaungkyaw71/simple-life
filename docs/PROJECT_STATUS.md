@@ -1,3 +1,15 @@
+# v0.6.0 — free shovel beds and crop care, 2026-10-08
+
+Completed the user's farm follow-up: connected red-soil beds with olive turf edges, larger leafy crop sprites, cream water-drop/red !/harvest markers, a tilted-can pour and falling water, and wet ground that dries after three minutes of active play. Select Shovel (4) and USE or click nearby clear Farm grass to dig a free 48px planting cell; adjoining cells join existing beds. Roads, water, bridges and solid footprints cannot be dug. Land/farm purchase screens are replaced by a shovel guide; previously purchased farms and their crops remain visitable and saved. Starter beds remain available.
+
+Twelve crops are available through paged City seed tabs and the bag: the original four plus Chili, Eggplant, Cucumber, Watermelon, Pumpkin, Grape, Blueberry and Sweet Potato. Watermelon/Grape/Blueberry also appear in Food. Outdoor Home/Farm/City/Forest open ground can be watered; plant care still uses AM 06–12 and PM 16–22. Cosmetic wetness neither grants extra growth nor bypasses care windows. Repeated watering costs energy, and menus/hidden tabs pause wet-time decay. Sleep/time skips dry patches. Schema 10 migrates versions 1–9 without resetting existing progress.
+
+Checks: 139/139 tests, production build, eight-file runtime art allowlist, 12 output files / 2,058,100 bytes, atlas/retained-pixel audit, HTTP identity of the current preview bundle. Two FarmView and 51 UI offline studies generated; six selected images retained and reviewed. These are labelled offline approximations. Native browser rendering, pouring/input/touch and device performance remain unverified because the browser tool previously rejected the local URL; no bypass or live user storage access. The preview was restarted at http://127.0.0.1:4175/. Evidence: verification/free-farming/README.md.
+
+The supplied A_2D_pixel_art_sprite.zip contains a lion sprite and was inspected but not integrated. All new crop/shovel/soil/marker art is original code-authored project work with Codex assistance; assets/licenses/free-farming.md records provenance and unchanged licensed cells. No dependency, runtime remote asset, push, publication or competition submission.
+
+---
+
 # v0.5.2 — Missing font recovery, 2026-10-08
 
 Corrected the disappearing UI text reported after v0.5.1. Phaser's XML bitmap-font loader adds individual glyph frames to the source texture, making SPACE the first frame. Passing the cached null frame to getFrame selected that transparent 3×7 glyph. The colour helper now explicitly selects __BASE for a null font frame, copying the complete 128×64 sheet and retaining all original glyph metrics/alpha and theme colours.

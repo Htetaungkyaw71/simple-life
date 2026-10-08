@@ -3,8 +3,8 @@ import {emptyPlot} from './state.js';
 
 export const newFarm=()=>({fields:[true,false,false,false]});
 export const ownedField=(s,field,farm=s.currentFarm||0)=>s.farms?.[farm]?.fields[field]===true;
-export const visiblePlots=s=>FARM_PLOTS.flatMap((p,local)=>ownedField(s,p.field)?[{...p,index:(s.currentFarm||0)*PLOTS_PER_FARM+local}]:[]);
-export const plotOwned=(s,index)=>Number.isInteger(index)&&index>=0&&index<s.plots.length&&ownedField(s,Math.floor(index%PLOTS_PER_FARM/16),Math.floor(index/PLOTS_PER_FARM));
+export const visiblePlots=s=>[...FARM_PLOTS.flatMap((p,local)=>{const index=(s.currentFarm||0)*PLOTS_PER_FARM+local;return ownedField(s,p.field)||(s.dugPlots||[]).includes(index)?[{...p,index}]:[];}),...(s.customBeds||[]).flatMap((b,i)=>b.farm===(s.currentFarm||0)?[{x:b.x,y:b.y,index:s.plots.length+i}]:[])];
+export const plotOwned=(s,index)=>Number.isInteger(index)&&index>=0&&(index<s.plots.length?(s.dugPlots||[]).includes(index)||ownedField(s,Math.floor(index%PLOTS_PER_FARM/16),Math.floor(index/PLOTS_PER_FARM)):!!s.customBeds?.[index-s.plots.length]);
 export const nextFarmPrice=s=>FARM_PRICE*s.farms.length;
 export const canExpandFarm=s=>s.farms.at(-1).fields.every(Boolean)&&s.farms.length<MAX_FARMS;
 

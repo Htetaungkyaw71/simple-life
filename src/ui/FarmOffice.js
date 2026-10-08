@@ -11,8 +11,8 @@ export class FarmOffice {
  get s(){return this.app.state;}
  modal(title,body,buttons){this.app.ui.modal('FARM '+(this.s.currentFarm+1),title,body,buttons);}
  open(){this.modal('Farm board',`Coins: ${this.s.money}`,[
-  ['Seeds and harvest',()=>this.trade()],['Buy planting land',()=>this.land()],
-  ['Visit / buy farms',()=>this.farms()],['Back to farming',()=>this.app.ui.close()],
+  ['Seeds and harvest',()=>this.trade()],['Dig planting beds',()=>this.land()],
+  ['Visit farms',()=>this.farms()],['Back to farming',()=>this.app.ui.close()],
  ]);}
  trade(){const price=marketPrice(this.s,'tomato').price;this.modal('Seeds and harvest',`Coins: ${this.s.money} / Seeds: ${this.s.inventory.seed}\nTomatoes: ${this.s.inventory.tomato} / Today: ${price}c each`,[
   [`Buy 1 seed / ${CROPS.tomato.seedPrice} coins`,()=>this.transaction(buySeed),this.s.money<CROPS.tomato.seedPrice||this.s.inventory.seed>=9999],
@@ -20,22 +20,12 @@ export class FarmOffice {
   ['Back',()=>this.open()],
  ]);}
  transaction(fn){if(this.app.transitioning||!this.gate.accept(this.app.ui.time.now))return;this.app.transact(fn);this.trade();}
- land(){this.modal('Planting land',`Coins: ${this.s.money} / Each field: 16 cells`,[
-  ...[1,2,3].map(field=>[ownedField(this.s,field)?`Field ${field+1} / owned`:`Field ${field+1} / ${FIELDS[field].price} coins`,()=>this.field(field),ownedField(this.s,field)]),
-  ['Back',()=>this.open()],
+ land(){this.modal('Free planting beds','Shovel / dig clear grass.\nSeeds / plant. Water / morning and evening.',[
+  ['Select Shovel',()=>{this.s.selected='shovel';this.app.save();this.app.ui.close();}],['Back',()=>this.open()],
  ]);}
- field(field){const f=FIELDS[field];this.modal(`Buy field ${field+1}?`,`Same 4 x 4 design as your first field.\nPrice: ${f.price} / Coins: ${this.s.money}`,[
-  [ownedField(this.s,field)?'Already owned':`Buy / ${f.price} coins`,()=>{this.app.transact(s=>buyField(s,field));this.app.scene.build();this.app.ui.close();},ownedField(this.s,field)||this.s.money<f.price],
-  ['Not now',()=>this.app.ui.close()],
- ]);}
- farms(){const s=this.s,price=nextFarmPrice(s),ready=canExpandFarm(s);this.modal(`Farm ${s.currentFarm+1} / ${s.farms.length}`,s.farms.length>=MAX_FARMS?'Farm collection full.':ready?`New farm: ${price} / Coins: ${s.money}`:'Unlock all 4 fields on your newest farm.',[
-  ['Previous farm',()=>this.visit(s.currentFarm-1),s.currentFarm===0],
-  ['Next farm',()=>this.visit(s.currentFarm+1),s.currentFarm===s.farms.length-1],
-  [`Buy farm / ${price} coins`,()=>this.confirmFarm(),!ready||s.money<price],
-  ['Back',()=>this.open()],
- ]);}
- confirmFarm(){const price=nextFarmPrice(this.s);this.modal('Buy another farm?',`Price: ${price} / Coins: ${this.s.money}\n4 matching fields. First one unlocked.`,[
-  ['Buy farm',()=>{this.app.transact(buyFarm);this.app.scene.build();this.farms();}],['Not now',()=>this.farms()],
+ field(){this.land();}
+ farms(){const s=this.s;this.modal(`Farm ${s.currentFarm+1} / ${s.farms.length}`,'Dig free beds on each farm.',[
+  ['Previous farm',()=>this.visit(s.currentFarm-1),s.currentFarm===0],['Next farm',()=>this.visit(s.currentFarm+1),s.currentFarm===s.farms.length-1],['Back',()=>this.open()],
  ]);}
  visit(index){if(visitFarm(this.s,index)){this.app.scene.build();this.app.save();}this.farms();}
 }

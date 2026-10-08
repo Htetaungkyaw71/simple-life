@@ -1,3 +1,9 @@
+# v0.6.0 follow-up disclosure
+
+Codex assisted original code-generated crop/shovel/soil/status art, palette edits, pouring effects, free digging and wet-ground rules, twelve crop/seed/food/UI definitions, save migration, tests and offline review/documentation. User references guide style only; no reference pixels copied or new external image model/asset used. Retained third-party pixels keep separate authorship. 139 tests/build pass; native browser and human acceptance remain pending under the existing local-URL restriction. Full evidence: AI_USAGE.md and assets/licenses/free-farming.md. This entry is not a signed human declaration.
+
+---
+
 # v0.4.9 follow-up disclosure
 Codex assisted original map/river/shore/placement/texture-cache code, added fruit/native wildlife groups, tests/audit and offline visual review. Existing raster art remains byte-identical; the reference screenshot is style guidance only. No new external image model or asset pack. 112 tests/build pass; browser/device performance and final human acceptance remain unverified due browser URL policy. Details: AI_USAGE.md and assets/licenses/forest-expansion.md.
 

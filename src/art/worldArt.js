@@ -1,3 +1,4 @@
+import {drawFarmBeds} from './FarmView.js';
 import {BRIDGES} from '../data/forest.js';
 import {shopOpen} from '../systems/market.js';
 import {pixelArrow} from '../ui/statusArt.js';
@@ -74,14 +75,6 @@ export function drawWorld(scene,area){
  }else if(area==='home'){
   label(scene,544,554,'STARTER SEEDS');const arrow=scene.add.graphics().setDepth(1);arrow.fillStyle(0xffe4a3,.8);arrow.fillRect(478,1090,4,12);arrow.fillRect(474,1098,12,4);arrow.fillRect(476,1102,8,2);arrow.fillRect(478,1104,4,2);image(scene,'post',416,1104,1136);image(scene,'post',528,1104,1136);
  }else if(area==='farm'){
-  for(const [index,field] of map.fields.entries())if(scene.app.state&&!ownedField(scene.app.state,index)){
-    for(let y=field.y+8;y<field.y+field.h;y+=32)for(let x=field.x+8;x<field.x+field.w;x+=40)image(scene,(x+y)%3?'grass-detail':'fern',x,y,1);
-    for(let i=0;i<3;i++)image(scene,'pebble',field.x+24+i*64,field.y+48+(i%2)*48,1);
-  }
-  for(const [index,field]of FIELDS.entries()){
-   if(scene.app.state&&!ownedField(scene.app.state,index)){label(scene,field.x+96,field.y+88,`FIELD ${index+1} / ${field.price} COINS`);continue;}
-   const border=scene.add.graphics().setDepth(1);border.fillStyle(0x66564a);border.fillRect(field.x-4,field.y-4,200,200);border.lineStyle(2,0xc2a17a);border.strokeRect(field.x-2,field.y-2,196,196);
-  }
   image(scene,'fence',832,220,252);image(scene,'fence',864,220,252);
  }else if(area==='city'){
   const [x,y,w,h]=map.plaza;tiled(scene,'town-paving',x,y,w,h,0);
@@ -96,13 +89,4 @@ export function drawWorld(scene,area){
  for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.kind||(npc.name==='Clara'?'seed':'sell'),normal:npc.sprite,idle:npc.idle});}
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
 }
-export function drawPlots(scene,plots,group){
- group.clear(true,true);
- const s=scene.app.state||{minute:360};
- for(const pos of scene.plotPositions){
-  const i=pos.index;
-  const p=plots?.[i],period=waterPeriod(s),wet=p&&(period?p[period]:s.minute<960?p.morning:p.evening);
-  group.add(image(scene,wet?'field-watered':'field-soil',pos.x-24,pos.y-24,2));
-  if(p?.crop){const visual=cropVisual(p,s),plant=scene.add.image(pos.x,pos.y+20,'town',CROPS[p.crop].sprites[visual]).setOrigin(.5,1).setScale(2).setDepth(pos.y+20);group.add(plant);}
- }
-}
+export function drawPlots(scene,plots,group){drawFarmBeds(scene,group);}

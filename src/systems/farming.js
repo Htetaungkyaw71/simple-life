@@ -1,13 +1,14 @@
+import {plotAt,allPlots,replacePlot} from './plots.js';
 import {plotOwned} from './expansion.js';
 import {CROPS} from '../data/crops.js';
 import {emptyPlot} from './state.js';
 import {waterPeriod,completedWindow,evaluateWatering,missed} from './watering.js';
 export {waterPeriod} from './watering.js';
 export function usePlot(s,index){
- if(!plotOwned(s,index))return 'Buy this field before planting.';
+ if(!plotOwned(s,index))return 'Dig with the shovel first.';
  evaluateWatering(s);
- const p=s.plots[index];if(!p)return 'Choose a farm plot';
- if(missed(p)>=2){s.plots[index]=emptyPlot();return 'Dead crop cleared';}
+ const p=plotAt(s,index);if(!p)return 'Choose a farm plot';
+ if(missed(p)>=2){replacePlot(s,index,emptyPlot());return 'Dead crop cleared';}
  const crop=Object.hasOwn(CROPS,s.selectedCrop)?s.selectedCrop:'tomato',def=CROPS[p.crop||crop];
  if(s.selected==='seed'){
   if(p.crop)return 'Already planted';if(!s.inventory[def.seedKey])return 'No seeds';if(s.energy<5)return 'Too tired - rest at home';
@@ -22,11 +23,11 @@ export function usePlot(s,index){
  }
  if(p.growth<def.growthDays)return missed(p)?'Wilted - needs water':'Still growing';
  if(s.energy<4)return 'Too tired - rest at home';if((s.inventory[def.produceKey]||0)>9999-def.harvestYield)return 'Produce bag full';
- s.energy-=4;s.inventory[def.produceKey]=(s.inventory[def.produceKey]||0)+def.harvestYield;s.hasHarvestedFirstCrop=true;s.plots[index]=emptyPlot();return def.name+' harvested';
+ s.energy-=4;s.inventory[def.produceKey]=(s.inventory[def.produceKey]||0)+def.harvestYield;s.hasHarvestedFirstCrop=true;replacePlot(s,index,emptyPlot());return def.name+' harvested';
 }
 export function growOvernight(s){
  evaluateWatering(s,(s.day-1)*2+1);
- for(const p of s.plots){
+ for(const p of allPlots(s)){
   if(!p.crop||missed(p)>=2||p.growth>=CROPS[p.crop].growthDays)continue;
   if(p.morning&&p.evening)p.growth++;
   p.morning=false;p.evening=false;

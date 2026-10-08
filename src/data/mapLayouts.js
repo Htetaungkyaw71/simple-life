@@ -28,7 +28,7 @@ const farm={
  water:[[1696,656,320,176]],
  fields:FIELDS,
  fences:[...FIELDS.map(f=>[f.x+16,f.y-48,160,'h']),[1600,96,512,'h'],[1600,504,512,'h']],
- signs:[{x:304,y:712,type:'field',field:3,label:'Buy field 4 / 240 coins'},{x:764,y:428,type:'farmOffice',label:'Farm board / trade and expand'},{x:1496,y:568,label:'Read orchard sign',title:'The quiet orchard',body:'Young trees, long shadows. Fruit growing is reserved for a later season.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water at 06:00-12:00 and 16:00-22:00. Three well-watered nights bring your first harvest.'}],
+ signs:[{x:304,y:712,type:'field',field:3,label:'Shovel / dig free beds'},{x:764,y:428,type:'farmOffice',label:'Farm board / trade and expand'},{x:1496,y:568,label:'Read orchard sign',title:'A growing garden',body:'Plant fruit and vegetable seeds from the City. Dig clear grass with your shovel to make free beds.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water at 06:00-12:00 and 16:00-22:00. Three well-watered nights bring your first harvest.'}],
  extras:[]
 };
 const city={

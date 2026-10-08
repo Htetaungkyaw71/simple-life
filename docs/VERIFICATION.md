@@ -1,3 +1,13 @@
+# v0.6.0 — free farming verification
+
+139/139 tests pass and npm run build succeeds. Fourteen new regressions cover free/repeated/unsafe/far/exhausted digging, individually dug locked-field planting, custom-bed care/growth/reload/harvest, old paid-farm migration, malformed/overlapping/unsafe ground records, outdoor wet-ground expiry/reload/sleep, care-window/repeated-water behavior, pointer/facing/nearby-door context, connected soil/markers, all twelve crop purchases and bag pages at seven sizes, edible farm fruit, extending existing beds, and actual FarmView draw commands. Existing farming, survival, City, night, font/Canvas-engine, saves and UI tests remain green.
+
+Two labelled FarmView studies and 51 labelled UI studies generated; six selected images reviewed and retained in verification/free-farming. Final shop/bag portrait pages, Farm HUD/shovel, joined dry/wet soil, new crop sprites and drop/red ! markers were inspected. The offline recorder's new shop-last/produce-last routing error was fixed before final image retention. These are approximations from real draw commands, not native browser captures or input acceptance.
+
+Runtime/pixel audits confirm eight allowlisted art files, 12 production files / 2,058,100 bytes, all old atlas coordinates unchanged, 81 appended original frames, 32 original crop frames recoloured, 442 other old frames pixel-identical, and six other art files byte-identical. The restarted preview serves the current index and byte-identical index-BhCnPkEd.js bundle over HTTP. Logs, hashes, images and commands: verification/free-farming/README.md. Native browser interaction/rendering, watering animation/input/touch, physical-device performance and human acceptance remain unverified because the browser tool previously rejected localhost access. No workaround or live user-save access.
+
+---
+
 # v0.5.2 font recovery
 125/125 tests and production build pass. The pinned-loader/texture/Canvas regression reproduces the previous invisible-text failure, then verifies the full sheet is copied. Original alpha audit: zero visible pixels in the former 3×7 SPACE crop, 1,024 in the complete 128×64 sheet. Eight runtime art files are unchanged; HTTP serves the current build. Logs, hashes, pixel audit and five selected labelled offline studies: verification/font-recovery. Forty-two studies generated; shop and portrait bag inspected. Browser acceptance remains unverified because of the existing local-URL policy rejection; no bypass or user save access.
 

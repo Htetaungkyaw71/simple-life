@@ -1,3 +1,11 @@
+# v0.6.0 — dynamic planting ground
+
+Pure farmGround.js resolves safe nearby ground, free shovel digging, energy costs, cosmetic wet patches and expiry. plots.js provides base/custom plot access and replacement; existing farming/watering/recovery systems consume allPlots so custom beds receive the same daily care and growth. Original paid-field indices remain stable. Additional beds are independent {farm,x,y,plot} records, with individually dug original cells in dugPlots. Existing pure purchase functions remain for old progress compatibility, but no player-facing purchase flow remains.
+
+WorldScene routes a nearby pointer ground target or facing context to Application.use; tools retain Seed/Water/Harvest and add Shovel. FarmView.js draws connected cached native soil, crop sprites and status markers; Atmosphere.pour renders the can and droplet tweens. Wet-ground drawing refreshes only when patch positions change, while AM/PM/day/action updates redraw crop care. Separate canvas UI, local saves and the eight-file allowlist remain. TradePanel pages four crops; BagPanel pages twelve entries. No new backend or renderer.
+
+---
+
 # v0.5.2 full font-frame selection
 The local bitmap-font cache has frame:null after XML loading. Glyph frames change the texture's firstFrame to SPACE, so getFrame(texture,null) cannot identify the full sheet. colouredFont now substitutes the explicit __BASE frame for null/undefined, retaining named-frame support, original metrics and cached nearest-filtered colour variants. No new rendering system or persistent state.
 

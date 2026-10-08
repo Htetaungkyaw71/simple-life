@@ -22,9 +22,16 @@ export class Atmosphere {
  }
  refill(position){for(let i=0;i<6;i++){const drop=this.scene.add.rectangle(position.x-12+i*4,position.y-12,2,4,0xade8ed).setDepth(position.y+1);this.scene.tweens.add({targets:drop,y:drop.y-18-(i%3)*4,alpha:0,duration:450+i*35,onComplete:()=>drop.destroy()});}}
  farming(action,x,y,crop='tomato'){
+  if(action==='water'){this.pour(x,y);return;}
   const color=action==='water'?0x9cdce2:action==='harvest'?0xe87651:0xd7b789;
   for(let i=0;i<7;i++){const bit=this.scene.add.rectangle(x-12+i*4,y+8,2,action==='water'?4:2,color).setDepth(y+30);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*3,y:y-10-(i%3)*5,alpha:0,duration:350+i*25,onComplete:()=>bit.destroy()});}
   if(action==='harvest'){const fruit=this.scene.add.image(x,y-12,'town',CROPS[crop].icon).setScale(2).setDepth(y+40);this.scene.tweens.add({targets:fruit,y:y-42,alpha:0,duration:600,onComplete:()=>fruit.destroy()});}
+ }
+ pour(x,y){
+  const s=this.scene,can=s.add.image(x-20,y-32,'town','can').setScale(2).setDepth(y+65).setRotation(-.35);
+  // A tilted can pours toward the ground; splashes settle rather than float upward.
+  for(let i=0;i<12;i++){const drop=s.add.rectangle(x-8+(i%3)*4,y-20,2,4,0xadc6c4).setDepth(y+66).setAlpha(0);s.tweens.add({targets:drop,x:x-10+(i%5)*5,y:y+10+(i%3)*3,alpha:{from:1,to:0},delay:i*35,duration:300,onComplete:()=>drop.destroy()});}
+  s.tweens.add({targets:can,rotation:-.65,alpha:0,delay:350,duration:300,onComplete:()=>can.destroy()});
  }
  coins(amount,position){const coin=this.scene.add.image(position.x,position.y-70,'world','coin').setScale(2).setDepth(3100);const caption=this.scene.add.bitmapText(position.x+20,position.y-76,'pixel',(amount>0?'+':'')+amount,8).setScale(2).setTint(0xffdd96).setDepth(3100);this.scene.tweens.add({targets:[coin,caption],y:'-=30',alpha:0,duration:1500,onComplete:()=>{coin.destroy();caption.destroy();}});}
  feedback(x,y){const spark=this.scene.add.image(x,y-48,'world','marker').setScale(2).setDepth(1900);this.scene.tweens.add({targets:spark,y:y-68,alpha:0,duration:240,onComplete:()=>spark.destroy()});}

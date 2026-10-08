@@ -19,10 +19,10 @@ export class Hud {
   panel(u,p,right-70,top+40,70,18,UI_COLORS.selected);this.money=text(u,p,right-35,top+45,'60c',8).setOrigin(.5,0);
   const layout=hudLayout(u,s.area==='forest',s.clubEquipped),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
-   const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'can',harvest:'sickle',attack:'wooden-club-item'},glyphs={bag:'bag',map:'map',pause:'menu'};
+   const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'can',harvest:'sickle',shovel:'shovel-item',attack:'wooden-club-item'},glyphs={bag:'bag',map:'map',pause:'menu'};
    const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():id==='attack'?this.app.attack():this.app.select(id);
-   const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]&&id!=='map'?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
-   if(i<3){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
+   const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest','shovel'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]&&id!=='map'?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
+   if(['seed','water','harvest','shovel'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
   }
   if(u.touch){
    const portrait=w<h,dx=left+3,dy=h-u.safe.bottom-(portrait?73:49),size=22;

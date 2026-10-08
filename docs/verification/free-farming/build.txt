@@ -1,0 +1,22 @@
+
+> simple-life@0.6.0 build
+> vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 78 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                            0.59 kB │ gzip:   0.36 kB
+dist/assets/pixel/font.png                 0.79 kB
+dist/assets/pixel/processed/boy.png        4.93 kB
+dist/assets/pixel/processed/girl.png       5.38 kB
+dist/assets/pixel/world.png                7.82 kB
+dist/assets/pixel/font.xml                10.28 kB │ gzip:   0.75 kB
+dist/assets/pixel/world.json              16.25 kB │ gzip:   0.85 kB
+dist/assets/pixel/processed/town.png     183.40 kB
+dist/assets/pixel/processed/town.json    188.59 kB │ gzip:   6.24 kB
+dist/assets/index-DuO74lxp.css             0.54 kB │ gzip:   0.29 kB
+dist/assets/index-BhCnPkEd.js            157.76 kB │ gzip:  57.62 kB
+dist/assets/phaser-0YPJO2g1.js         1,481.77 kB │ gzip: 337.86 kB
+✓ built in 6.24s

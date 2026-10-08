@@ -1,3 +1,5 @@
+import {openGround,MAX_CUSTOM_BEDS,MAX_WET_PATCHES,WET_DURATION} from './farmGround.js';
+import {FARM_PLOTS} from '../data/farms.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS} from '../data/forest.js';
 import {inTerritory,freshAnimal,safeStash} from './forest.js';
@@ -12,7 +14,7 @@ import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -39,16 +41,31 @@ export function validate(raw) {
   s.fatigueMinutes=Number.isFinite(raw.fatigueMinutes)?Math.max(0,Math.min(29.999999,raw.fatigueMinutes)):0;
   s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
   for (const key of INVENTORY_KEYS) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
-  s.plots = s.plots.map((_,i) => {
-    const p = raw.plots?.[i];
-    return plotOwned(s,i) && p && Object.hasOwn(CROPS,p.crop) ? { crop: p.crop, growth: number(p.growth,0,0,CROPS[p.crop].growthDays), morning: p.morning === true, evening: p.evening === true, dryDays: number(p.missedWindows??p.dryDays,0,0,2), missedWindows: number(p.missedWindows??p.dryDays,0,0,2), lastEvaluatedWindow: raw.version<3?completedWindow(s):number(p.lastEvaluatedWindow,(s.day-1)*2-1,(s.day-1)*2-1,completedWindow(s)) } : emptyPlot();
-  });
+  if(raw.version>=10){
+    s.dugPlots=[...new Set(Array.isArray(raw.dugPlots)?raw.dugPlots:[])].filter(i=>Number.isInteger(i)&&i>=0&&i<s.plots.length&&openGround('farm',FARM_PLOTS[i%PLOTS_PER_FARM].x,FARM_PLOTS[i%PLOTS_PER_FARM].y,true));
+    for(const b of (Array.isArray(raw.customBeds)?raw.customBeds:[]).slice(0,MAX_CUSTOM_BEDS)){
+      if(!Number.isInteger(b?.farm)||!s.farms[b.farm]||!Number.isInteger(b.x)||!Number.isInteger(b.y)||![8,24,40].includes(b.x%48)||![8,24].includes(b.y%48)||!openGround('farm',b.x,b.y,true))continue;
+      if(FARM_PLOTS.some(p=>Math.abs(p.x-b.x)<48&&Math.abs(p.y-b.y)<48)||s.customBeds.some(p=>p.farm===b.farm&&Math.abs(p.x-b.x)<48&&Math.abs(p.y-b.y)<48))continue;
+      s.customBeds.push({farm:b.farm,x:b.x,y:b.y,plot:b.plot});
+    }
+    const seen=new Set();
+    for(const p of (Array.isArray(raw.wetGround)?raw.wetGround:[]).slice(-MAX_WET_PATCHES)){
+      if(!p||!Number.isInteger(p.x)||!Number.isInteger(p.y)||!openGround(p.area,p.x,p.y)||!Number.isFinite(p.remaining)||p.remaining<=0||!Number.isInteger(p.farm)||!s.farms[p.farm])continue;
+      const key=p.area+':'+p.farm+':'+p.x+':'+p.y;if(seen.has(key))continue;seen.add(key);
+      s.wetGround.push({area:p.area,farm:p.farm,x:p.x,y:p.y,remaining:Math.min(WET_DURATION,p.remaining)});
+    }
+  }
+  const restorePlot=p=>{
+    if(!p||!Object.hasOwn(CROPS,p.crop))return emptyPlot();
+    const plot={crop:p.crop,growth:number(p.growth,0,0,CROPS[p.crop].growthDays),morning:p.morning===true,evening:p.evening===true,dryDays:number(p.missedWindows??p.dryDays,0,0,2),missedWindows:number(p.missedWindows??p.dryDays,0,0,2),lastEvaluatedWindow:raw.version<3?completedWindow(s):number(p.lastEvaluatedWindow,(s.day-1)*2-1,(s.day-1)*2-1,completedWindow(s))};
+    if(Number.isFinite(p.plantedDay))plot.plantedDay=number(p.plantedDay,1,1,s.day);
+    if(Number.isFinite(p.plantedMinute))plot.plantedMinute=number(p.plantedMinute,360,0,1439);
+    if(Number.isFinite(p.recoveredWindow))plot.recoveredWindow=number(p.recoveredWindow,-1,-1,(s.day-1)*2+1);
+    return plot;
+  };
+  s.plots=s.plots.map((_,i)=>plotOwned(s,i)?restorePlot(raw.plots?.[i]):emptyPlot());
+  s.customBeds.forEach(b=>{b.plot=restorePlot(b.plot);});
   s.hasVisitedFarm=inferFarmVisit(raw,s);
-  s.plots.forEach((p,i)=>{if(!p.crop)return;const old=raw.plots[i];
-    if(Number.isFinite(old.plantedDay))p.plantedDay=number(old.plantedDay,1,1,s.day);
-    if(Number.isFinite(old.plantedMinute))p.plantedMinute=number(old.plantedMinute,360,0,1439);
-    if(Number.isFinite(old.recoveredWindow))p.recoveredWindow=number(old.recoveredWindow,-1,-1,(s.day-1)*2+1);
-  });
   for(const key of ['forestTutorialComplete','nightWarningSeen','deathTutorialSeen','hasDied','ownsClub'])s[key]=raw[key]===true;
   s.clubEquipped=s.ownsClub&&raw.clubEquipped!==false;
   s.forest.forageDay=number(raw.forest?.forageDay,s.day,1,s.day);

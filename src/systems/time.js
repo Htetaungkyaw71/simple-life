@@ -1,3 +1,4 @@
+import {dryGround} from './farmGround.js';
 import {refreshForest} from './forest.js';
 import {evaluateWatering} from './watering.js';
 import {ROOM} from '../data/interior.js';
@@ -7,6 +8,7 @@ export const MORNING=360, NIGHT=1200, FATIGUE_MINUTES=30;
 export const isNight=s=>s.minute<MORNING||s.minute>=NIGHT;
 // Each crossed midnight settles care/growth once, awake or asleep.
 function advanceMinutes(s,minutes){
+ if(minutes>=15)s.wetGround=[];
  s.minute+=minutes;
  while(s.minute>=1440){growOvernight(s);s.day++;s.minute-=1440;refreshForest(s);}
  evaluateWatering(s);
@@ -18,6 +20,7 @@ export function sleep(s){const wake=wakeTime(s);advanceMinutes(s,(wake-s.minute+
 export function nextDay(s){advanceMinutes(s,1440-s.minute+MORNING);rested(s);}
 export function restUntilEvening(s){if(s.minute<960)advanceMinutes(s,960-s.minute);}
 export function tick(s,delta){
+ dryGround(s,delta);
  const minutes=Math.max(0,Math.min(delta,100))/1000*1080/DAY_SECONDS;
  s.fatigueMinutes=(s.fatigueMinutes||0)+minutes;
  const drain=Math.floor(s.fatigueMinutes/FATIGUE_MINUTES);

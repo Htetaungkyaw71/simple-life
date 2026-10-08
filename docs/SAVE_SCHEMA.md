@@ -1,3 +1,13 @@
+# Save schema 10 — free planting beds, v0.6.0
+
+Storage key stays simple-life.save.v1; versions 1–10 accepted. Versions 1–9 migrate to 10 with paid field/farm ownership, crop IDs/care, currency, character, daily prices, City flags, forest progress/equipment/treasure/Stash Bag intact. Existing legacy forest position translation still applies only to versions 1–8. New inventory crop seed/produce keys default to zero. selected additionally accepts shovel. The twelve crop definitions retain original inventory/market ordering and old crop values.
+
+Original s.plots remains the stable 64-cell-per-owned-farm array. New dugPlots is a deduplicated list of individually unlocked original-cell indices. New customBeds stores {farm,x,y,plot}; its plot record uses the existing crop/growth/morning/evening/missed-window/planted-time/recovered-window contract. allPlots and plotAt project both collections for growth/care/recovery/UI. Runtime custom indices are base plots length plus custom record offset. Validation rejects invalid farm IDs, noninteger/off-lattice/unsafe coordinates, road/water/solid footprints, overlaps with original/custom beds and unknown crops. At most 2,048 custom records are accepted. Existing farm indices remain stable; no legacy plants relocate.
+
+wetGround stores up to 256 recent {area,farm,x,y,remaining} patches. Outdoors only; known area, safe ground, integer coordinates, valid farm and finite positive remaining capped at 180,000ms. Duplicate patch keys are removed. Remaining time decreases only during active simulation, survives reload without offline progress and clears on sleep/long time skips. Wetness does not alter plant daily watering flags or growth by itself. Pour animation/cooldown, pointer target and soil texture cache are transient. Tests cover old progress plus valid/custom/malformed wet-bed migration. QA uses in-memory fixtures; user-origin storage was not read or edited.
+
+---
+
 # v0.5.0 UI-only compatibility
 Schema stays 9 and storage key remains `simple-life.save.v1`. Theme, hotbar, keyboard bindings, bag selection index, notebook canvas and facing indicator add no persistent fields or migration. Seed selection uses existing selectedCrop/selected fields; food and permanent club actions use existing inventory/energy/equipment fields. QA uses isolated in-memory states and never loads live user storage.
 

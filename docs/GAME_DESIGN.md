@@ -1,3 +1,13 @@
+# v0.6.0 — free beds, watering and twelve crops
+
+The current user request supersedes paid land expansion: clear Farm ground becomes a planting bed when dug with the free Shovel. Starter cells remain; old purchased fields/farms and plants remain available. Soil connects naturally across adjoining tiles, with turf only on exposed edges. Shovel costs 4 energy; planting/watering/harvesting retain 5/3/4 energy. Roads, river/bridge footprints and structures remain protected. Farm board provides a short shovel guide, legacy farm travel and retained Tomato convenience trade.
+
+Water can be poured on outdoor land, whether planted or empty. A can tilt and falling droplets accompany dark wet soil, which dries after three active minutes or sleep. Crop care still requires one morning and one evening watering per day; repeat pours and cosmetic wetness do not grant growth. A cream blue-drop bubble marks a plant needing water, a red ! marks missed care/death, and a basket marks harvest readiness. Plant selection remains Seed/Water/Harvest; Shovel adds ground creation.
+
+City shop/bag pages offer Tomato, Strawberry, Carrot, Corn, Chili, Eggplant, Cucumber, Watermelon, Pumpkin, Grape, Blueberry and Sweet Potato. Values live in src/data/crops.js. Watermelon/Grape/Blueberry restore 35/20/16 energy through Food. The original crop/forest market multipliers and sale salts remain. No crafting, new weapon, weather, relationship or unrelated system. New crop balance awaits human play review.
+
+---
+
 # v0.5.0 interface and controls
 Current theme: cream/olive leafy pixel panels, wooden parchment map and bottom icon hotbar. Space jumps in Forest; K attacks; B opens the four-tab bag; M opens the Forest-only map. Touch retains directional pad, tool slots, USE and club icon, with nearby ground double taps for Forest jumping. Upper action controls and the separate Jump button are removed. No map in Home, Farm, City or the interior. Map includes facing, discovered terrain/rivers and optional broad clues; no exact treasure coordinates. Bag grids show seed/produce/food/gear counts and reuse existing selection/eating/equipment rules. All gameplay values, world content, save key/schema and progression remain. Historical controls below are superseded by this entry.
 

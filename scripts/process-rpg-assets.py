@@ -178,6 +178,8 @@ for i in range(door.width//16):assets['door'+str(i)]=door.crop((i*16,0,i*16+16,d
 from crop_art import add_crop_art,add_city_crop_art,add_stall_art
 add_crop_art(assets)
 add_city_crop_art(assets)
+from farm_crop_art import add_farm_crop_art
+add_farm_crop_art(assets)
 add_stall_art(assets)
 from forest_art import add_forest_art
 add_forest_art(assets)

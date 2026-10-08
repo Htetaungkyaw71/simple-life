@@ -57,4 +57,4 @@ for p in sorted(Path('/tmp/simplelife-notebook-ui').glob('*.json')):
      d=glyphs[ch];art=font.crop((d['x'],d['y'],d['x']+d['width'],d['y']+d['height']));t=Image.new('RGBA',art.size,(*color(n['fontColor']),255));t.putalpha(art.getchannel('A'));sizeX=max(1,round(art.width*size/8*sx));sizeY=max(1,round(art.height*size/8*sy));patch(t.resize((sizeX,sizeY),Image.Resampling.NEAREST),xx+d['xoffset']*size/8*sx,y+(i*10+d['yoffset'])*size/8*sy,alpha);xx+=d['xadvance']*size/8*sx
   for child in n['children']:visit(child,x,y,sx,sy,alpha)
  visit(r['root']);label=Image.new('RGB',(w,h+24),'#263e38');label.paste(im.convert('RGB'),(0,24));ImageDraw.Draw(label).text((6,6),'OFFLINE UI STUDY / NOT A BROWSER CAPTURE',fill='#fff0c8');label.save(outdir/(p.stem+'.png'))
-print('42 labelled offline UI studies')
+print(str(len(list(Path('/tmp/simplelife-notebook-ui').glob('*.json'))))+' labelled offline UI studies')

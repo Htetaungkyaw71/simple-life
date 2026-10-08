@@ -40,7 +40,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Your farmer','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / forest jump\n1-3 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / double tap ground to jump':'Crate / 3 starter seeds\nPlant in the tilled field\nWater AM 06-12 and PM 16-22\nBed / restore energy\nMiss once / wilt\nMiss twice / dead';
+    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / forest jump\n1-4 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / double tap ground to jump':'Crate / 3 starter seeds\n4 / Shovel: dig free Farm beds\nWater AM 06-12 and PM 16-22\nBed / restore energy\nMiss once / wilt\nMiss twice / dead';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Farming >',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}

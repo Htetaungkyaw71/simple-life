@@ -1,3 +1,13 @@
+# v0.6.0 — free farming implementation and limits
+
+A dig costs 4 energy and no coins; plant/water/harvest costs remain 5/3/4. A 48px square bed must have a clear footprint and line of approach within 72 world pixels. Nearby additions use the existing bed lattice; roads, solids, water and bridge footprints reject digging. The shovel is available on Farm/Home/City HUDs, with a Farm-only digging hint. Water works on outdoor clear ground within the same reach; valid crop-window care uses the established pure farming action. Repeated/out-of-window pours are cosmetic and still cost 3 energy. Runtime ground use is gated to 450ms. Dead crops require Harvest to clear.
+
+Wet patches expire at 180,000 active milliseconds, pause with simulation, survive reload with remaining duration and clear on sleep/long time jumps. At most 2,048 custom beds and 256 recent wet patches are stored; validation bounds coordinates, farm IDs, footprints and overlaps. Original 64-cell farm indexing is retained. Cosmetic wet shade is independent of daily care and morning/evening growth.
+
+Twelve crop definitions supply seeds, sale items, eight native crop-state sprites and item icons. Existing daily sale salts retain their order; the new sale items append after the old four crops/forest fruit/hide. Watermelon, Grape and Blueberry add edible bag entries without changing the nine forest forage species. Schema 10 is accepted alongside 1–9. Production: 12 files, 2,058,100 bytes, eight art files. Native browser input/rendering/performance remains unverified under the existing URL-policy restriction; offline studies are supplemental.
+
+---
+
 # v0.5.2 missing-glyph regression
 Pinned Phaser 3.90 BitmapFontFile passes its texture into ParseXMLBitmapFont, which calls Texture.add for each glyph. Texture.add changes firstFrame from __BASE to SPACE; Texture.get(null) then selects SPACE. A new colour texture must copy the explicit base sheet. The strengthened existing test invokes the actual XML parser, Texture.add/get and Canvas renderer, asserting the full 128×64 copy and all five UI colours. It fails before the fix and passes after it. The earlier adapter always returned the full sheet and masked this bug; it now models the transparent SPACE default. Stub engine tests and offline pixel studies do not certify a live browser.
 

@@ -12,7 +12,7 @@ import {MAPS} from '../src/data/mapLayouts.js';
 
 test('coin purchases reject locked land, insufficient funds and duplicate purchases',()=>{
  const s=newState();s.inventory.seed=1;const before=structuredClone(s);
- assert.match(usePlot(s,16),/Buy/);assert.deepEqual(s,before);
+ assert.match(usePlot(s,16),/Dig/);assert.deepEqual(s,before);
  assert.match(buyField(s,1),/need 120/);assert.deepEqual(s,before);
  assert.match(buyFarm(s),/all four/);assert.deepEqual(s,before);
  s.money=120;assert.match(buyField(s,1),/ready/);assert.equal(s.money,0);assert.equal(visiblePlots(s).length,32);
@@ -49,7 +49,7 @@ test('watering and manual sleep settle crops on every owned farm exactly once',(
 test('version 1-4 migration preserves original crop indices and ignores forged expansion',()=>{
  for(const version of [1,2,3,4]){
   const raw=newState();raw.version=version;raw.plots=raw.plots.slice(0,16);raw.plots[5].crop='tomato';raw.plots[5].growth=2;raw.farms=[{fields:[true,true,true,true]}];raw.currentFarm=99;
-  const s=validate(raw);assert.equal(s.version,9);assert.equal(s.plots[5].growth,2);assert.deepEqual(s.farms,[{fields:[true,false,false,false]}]);assert.equal(s.currentFarm,0);assert.equal(s.plots.length,64);
+  const s=validate(raw);assert.equal(s.version,10);assert.equal(s.plots[5].growth,2);assert.deepEqual(s.farms,[{fields:[true,false,false,false]}]);assert.equal(s.currentFarm,0);assert.equal(s.plots.length,64);
  }
  const s=newState();s.currentFarm=999;s.farms=[null,{fields:[false,'yes',true,1]}];s.plots[16].crop='tomato';const v=validate(s);assert.equal(v.currentFarm,1);assert.deepEqual(v.farms[1].fields,[true,false,true,false]);assert.equal(v.plots[16].crop,null);
 });

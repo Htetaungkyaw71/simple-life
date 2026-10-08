@@ -1,3 +1,9 @@
+# v0.6.0 farm art credits
+
+Connected soil, care bubbles, original eight new crop state/item sets, shovel and olive edits to original crop art: Simple Life project source, OpenAI Codex-assisted deterministic pixels/code. Existing pouring-can sprite and all licensed environment/farmer/animal art retain the credits below. Plant Tales screenshots supplied by the user inform broad style/interaction only; no game pixels or exact map arrangement copied. The supplied lion ZIP is not integrated. Evidence: assets/licenses/free-farming.md.
+
+---
+
 # v0.5.0 interface credits
 Original UI frames/glyphs, notebook miniature and title geometry: Simple Life, Codex-assisted. Title trees/farmers/font reuse the credited local atlas/sheets/font below; no new third-party artwork is added. Plant Tales screenshots supplied by the user informed general cream/olive/wood style, without copying game pixels, logo, characters or exact layout. See `assets/licenses/notebook-ui.md`.
 

@@ -1,3 +1,4 @@
+import {allPlots} from './plots.js';
 import {EDGE_TRAVEL} from '../data/locations.js';
 export const farmObjective=state=>!!state?.starterSeedsClaimed&&!state.hasVisitedFarm;
 export function farmWaypoint(state,view){
@@ -9,7 +10,7 @@ export function farmWaypoint(state,view){
  return {target,dx,dy,direction:Math.round(Math.atan2(dy,dx)/(Math.PI/4)+8)%8};
 }
 export function inferFarmVisit(raw,state){
- return raw.hasVisitedFarm===true||['farm','city'].includes(raw.area)||state.plots.some(p=>p.crop)||state.inventory.tomato>0||state.sold>0;
+ return raw.hasVisitedFarm===true||['farm','city'].includes(raw.area)||allPlots(state).some(p=>p.crop)||state.inventory.tomato>0||state.sold>0;
 }
 
 export const cityObjective=s=>!!s?.hasHarvestedFirstCrop&&!s.hasVisitedCity;
