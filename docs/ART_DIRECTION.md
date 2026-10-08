@@ -1,3 +1,11 @@
+# v0.6.2 — readable seeds and hand tools
+
+Keep the approved forest, olive foliage, connected mottled soil and cream UI. Inventory seeds use larger cream packets with bold crop-fruit pictures; planted seeds use a short stake with the same emblem, then established growing plant poses. All twelve crop identities stay distinct. Original utility icons use restrained metal/wood/olive pixels. Water/Shovel/Axe attach to the existing four farmer hand anchors, behind the body when facing up, with pivoted pouring/swinging and integer source scale. Farmer sheets remain unchanged.
+
+Tree removal must remove crown, shadow, canopy motion and root mask together. Hand gathering removes the exact clump; planted grass uses the existing responsive native clump renderer and cannot cover water/bridges/roads/solid roots/crop beds. The utility hotbar icon opens themed Gear rather than adding a row of text buttons. See assets/licenses/garden-tools.md for original source provenance.
+
+---
+
 # v0.6.1 — natural soil and a recognizable held tool
 
 Original metal watering-can pixels show an open handle, shaded tank, long spout and perforated rose in the olive/grey palette. HeldWateringCan anchors its handle to the supplied farmer's hand in four facings, with depth behind the up-facing body, scale matching the character and a tilted pouring pose. The HUD uses the same can. Character sheets remain untouched.

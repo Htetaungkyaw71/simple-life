@@ -27,6 +27,11 @@ export class Atmosphere {
   for(let i=0;i<7;i++){const bit=this.scene.add.rectangle(x-12+i*4,y+8,2,action==='water'?4:2,color).setDepth(y+30);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*3,y:y-10-(i%3)*5,alpha:0,duration:350+i*25,onComplete:()=>bit.destroy()});}
   if(action==='harvest'){const fruit=this.scene.add.image(x,y-12,'town',CROPS[crop].icon).setScale(2).setDepth(y+40);this.scene.tweens.add({targets:fruit,y:y-42,alpha:0,duration:600,onComplete:()=>fruit.destroy()});}
  }
+ vegetation(action,x,y){
+  const color=action==='chop'?0xb48b55:0x97a75b;
+  for(let i=0;i<7;i++){const bit=this.scene.add.rectangle(x-12+i*4,y-8,4,2,color).setDepth(y+30);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*5,y:y-28-(i%3)*6,alpha:0,duration:400+i*25,onComplete:()=>bit.destroy()});}
+  if(action!=='placeGrass'){const item=this.scene.add.image(x,y-12,'town',action==='chop'?'wood-item':'grass-item').setScale(2).setDepth(y+40);this.scene.tweens.add({targets:item,y:y-48,alpha:0,duration:600,onComplete:()=>item.destroy()});}
+ }
  pour(x,y){
   const s=this.scene,player=s.player;if(!player)return;player.wateringCan.pour();player.wateringCan.update(player.anchor,player.direction,player.sprite.scaleX);
   // The stream starts at the held spout and lands on the selected soil.

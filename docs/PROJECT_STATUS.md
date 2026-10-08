@@ -1,3 +1,15 @@
+# v0.6.2 — held tools, wood and replantable grass, 2026-10-08
+
+Completed the user's follow-up. Shovel and Axe use the existing directional hand attachment and swing when used. Axe removes any authored tree in Home/Farm/City/Forest, its shadow/crown and root collision for 2 energy, awarding 3 wood once. Cutting a fruit tree also stops that tree's fruit. Gather grass with Hand for 1 energy; place collected grass on dry, clear ground for 1 energy. Original removals and new responsive clumps persist; farms keep separate vegetation records. Digging clears overlapping cover without awarding grass. Bamboo/large palmetto stands remain scenery rather than trees.
+
+The twelve crops now take one or two fully cared-for nights: Tomato, Chili, Cucumber and Sweet Potato take one; the others take two. AM/PM care, missed-care warnings/death, seed prices, yields and sales remain. Bigger original cream/olive packets show distinct fruit emblems in the bag, shop, hotbar and planted marker. Free utility tools live in Bag → Gear; keys 4/5/6/7 select Shovel/Axe/Hand/Grass, E/USE or a nearby click applies them. The compact utility slot previews the selected tool and opens Gear. Forest retains its map and separate club action.
+
+Schema 11 preserves versions 1–10, paid farms, crop care, inventory, currency, equipment, forest progress and Stash Bag. Known bounded cut/grass IDs and validated planted patches restore before position/collision/bed repair. Earned crop growth beyond the shorter duration becomes ripe. No new crafting/combat weapon, dependency or external art.
+
+Checks: 157/157 tests and production build pass. Native in-app browser inputs verified held tools, tree removal/+3 wood, hand gather/+1 grass, placement, reload persistence and traversing a cleared root, twelve seed packets, planting and one-night Tomato guidance at desktop 1280×720 and phone viewport 390×844. Final build reload/Continue and console checks are recorded in verification/garden-tools. Automated care-to-harvest covers all twelve crops; physical phones, other browser engines and final human balance/visual acceptance remain unverified. Eight runtime art files only; 560 atlas frames, 532 prior cells unchanged, 24 original seed cells improved and four original material/tool icons added. All six other art files are byte-identical. Current preview: http://127.0.0.1:4175/. No push/publication/submission.
+
+---
+
 # v0.6.1 — held watering can, gentler energy and natural soil, 2026-10-08
 
 Fixed the user-reported watering object: Atmosphere previously requested 'can' from the town atlas, where that frame does not exist. A new original 16×16 metal watering-can frame is used by the HUD and HeldWateringCan. It stays in the farmer's hand while Water is selected, follows four facings/movement/jumping/indoor scale, hides on tool change/transition and tilts during a pour. Droplets start at the held spout and land on the selected ground; no floating target can is spawned. Both supplied boy/girl sheets are unchanged.

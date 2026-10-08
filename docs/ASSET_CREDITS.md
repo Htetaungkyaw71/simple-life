@@ -1,3 +1,9 @@
+# v0.6.2 garden tools credits
+
+Original axe/hand/wood/grass icons, larger seed packets/staked crop markers and held utility integration: Simple Life project, Codex-assisted source. Existing farmer/environment/animal art remains separately credited below. No new external asset or screenshot pixels. Evidence: assets/licenses/garden-tools.md.
+
+---
+
 # v0.6.1 farm repair credits
 
 Original native metal watering can, organic soil material/fringe code and held/pouring adaptation: Simple Life project, OpenAI Codex-assisted source. Supplied farmer sheets and all 555 earlier atlas cells remain unchanged and retain the credits below. The user screenshot is broad visual guidance only. Evidence: assets/licenses/farm-polish.md.

@@ -25,13 +25,13 @@ test('an awake midnight settles every farm once; later early-morning sleep adds 
  for(const i of [0,64])assert.equal(s.plots[i].growth,1);
 });
 test('sleeping across expired windows cannot dodge missed care or earn twice in one day',()=>{
- const s=newState();s.inventory.seed=1;usePlot(s,0);s.selected='water';usePlot(s,0);sleep(s);assert.equal(s.minute,1200);assert.equal(s.plots[0].growth,0);usePlot(s,0);sleep(s);assert.equal(s.day,2);assert.equal(s.plots[0].growth,1);
+ const s=newState();s.selectedCrop='corn';s.inventory.cornSeed=1;usePlot(s,0);s.selected='water';usePlot(s,0);sleep(s);assert.equal(s.minute,1200);assert.equal(s.plots[0].growth,0);usePlot(s,0);sleep(s);assert.equal(s.day,2);assert.equal(s.plots[0].growth,1);
  sleep(s);assert.equal(s.day,2);assert.equal(s.plots[0].growth,1);sleep(s);assert.equal(s.day,3);assert.equal(s.plots[0].growth,1);assert.equal(s.plots[0].missedWindows,2);
 });
 test('awake fatigue persists fractionally through reload and bottoms at zero without movement changes',()=>{
  const s=newState();s.minute=10;s.energy=1;s.fatigueMinutes=59.8;s.area='farm';const p={...s.position};const v=validate(s);assert.equal(v.minute,10);assert.equal(v.fatigueMinutes,59.8);tick(v,100);assert.equal(v.energy,0);
  for(let n=0;n<100;n++)tick(v,100);assert.equal(v.energy,0);assert.equal(v.area,'farm');assert.deepEqual(v.position,validate(s).position);assert.deepEqual(s.position,p);
- const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,10);
+ const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,11);
  const bad=validate({...s,fatigueMinutes:Infinity});assert.equal(bad.fatigueMinutes,0);
 });
 test('midnight clock and phases remain correct; both shops close at night',()=>{

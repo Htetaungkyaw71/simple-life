@@ -1,3 +1,9 @@
+# v0.6.2 follow-up disclosure
+
+Codex assisted original utility/seed pixels, persistent cutting and grass rules, hand attachment, crop-duration data, save migration, tests, asset audit and native in-app browser review. No image generation model or new external art source. Retained creator pixels remain separately credited. 157 tests/build pass; physical devices and final human review are pending. Details: AI_USAGE.md and assets/licenses/garden-tools.md. This is not a signed human declaration.
+
+---
+
 # v0.6.1 repair disclosure
 
 Codex assisted original can/soil source, hand/pour rendering, energy balancing, compatible fatigue validation, tests and labelled offline review/documentation. No new external image model or asset source; retained creator artwork remains separately credited. 144 tests/build pass; browser/human acceptance remains pending under the existing localhost tool restriction. Full trace: AI_USAGE.md and assets/licenses/farm-polish.md. No signed human declaration is claimed.

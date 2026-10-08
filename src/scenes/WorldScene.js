@@ -1,3 +1,5 @@
+import {refreshVegetationVisuals} from '../art/VegetationView.js';
+import {VEGETATION} from '../data/vegetation.js';
 import {groundPoint} from '../systems/farmGround.js';
 import {drawWetGround} from '../art/FarmView.js';
 import {KEY_ACTIONS,keyboardAction,touchJumpTap} from '../data/controls.js';
@@ -34,17 +36,20 @@ export class WorldScene extends Phaser.Scene {
   }
   create(){
     for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,Q,K,M,J,SHIFT,B');
+    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,Q,K,M,J,SHIFT,B');
     for(const key of Object.keys(KEY_ACTIONS))this.keys[key].on('down',(_,event)=>{const action=keyboardAction(key,this.app.state?.area,{paused:this.app.paused,repeat:event?.repeat,transitioning:this.app.transitioning});if(action==='jump')this.jump();else if(action==='attack')this.app.attack();else if(action==='map')this.app.wildernessMap.open();else if(action==='bag')this.app.bagPanel.open('seeds');});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
     this.keys.ESC.on('down',()=>this.app.pause());
     this.keys.E.on('down',()=>this.app.use());
-    for(const [key,tool]of [['ONE','seed'],['TWO','water'],['THREE','harvest'],['FOUR','shovel']])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.select(tool);});
+    for(const [key,tool]of [['ONE','seed'],['TWO','water'],['THREE','harvest'],['FOUR','shovel'],['FIVE','axe'],['SIX','hand'],['SEVEN','grass']])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.select(tool);});
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
       const a=this.app;if(a.paused)return;
-      if(a.state?.area==='forest'&&p.wasTouch){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
+      if(a.state?.area==='forest'&&p.wasTouch&&!['axe','hand','grass'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
       const world=this.cameras.main.getWorldPoint(p.x,p.y);
+      if(['axe','hand','grass'].includes(a.state?.selected)){let target=world;
+        if(a.state.selected==='axe')for(const [id,sprites]of this.vegetationVisuals){const n=VEGETATION[a.state.area].byId.get(id),sprite=sprites.at(-1);if(id.startsWith('tree:')&&Math.hypot(n.x-a.state.position.x,n.y-a.state.position.y)<72&&sprite.getBounds().contains(world.x,world.y)){target=n;break;}}
+        this.targetGround=target;this.targetPlot=null;a.use();return;}
       if(['water','shovel'].includes(a.state?.selected)){
         const point=groundPoint(a.state,world);if(Math.hypot(point.x-a.state.position.x,point.y-a.state.position.y)>=72){a.ui.toast('Walk closer');return;}
         this.targetGround=point;this.targetPlot=null;a.use();return;
@@ -81,6 +86,10 @@ export class WorldScene extends Phaser.Scene {
     const light=daylight(s||{minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);
     if(s)this.atmosphere.update(0,false,s.position);
     this.resize();
+  }
+  refreshVegetation(chopped=false){
+    refreshVegetationVisuals(this);
+    if(chopped&&this.app.state.area!=='forest'){this.collisionWorld.destroy();this.collisionWorld=new CollisionWorld(this,this.app.state.area);}
   }
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state){this.plotPositions=visiblePlots(this.app.state||{farms:[{fields:[true,false,false,false]}]});drawPlots(this,this.app.state?.plots,this.plots);}this.renderWetGround();}
   renderWetGround(){const s=this.app.state;if(!s)return;const signature=(s.wetGround||[]).filter(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))).map(p=>p.x+','+p.y).join(';');if(signature!==this.wetSignature){this.wetSignature=signature;drawWetGround(this,this.wetPatches);if(s.area==='farm')drawPlots(this,s.plots,this.plots);}}

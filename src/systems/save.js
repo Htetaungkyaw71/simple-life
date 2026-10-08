@@ -1,3 +1,5 @@
+import {VEGETATION} from '../data/vegetation.js';
+import {grassGround,MAX_PLACED_GRASS} from './vegetation.js';
 import {openGround,MAX_CUSTOM_BEDS,MAX_WET_PATCHES,WET_DURATION} from './farmGround.js';
 import {FARM_PLOTS} from '../data/farms.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
@@ -15,7 +17,7 @@ import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -23,6 +25,11 @@ export function validate(raw) {
     s.farms=raw.farms.slice(0,MAX_FARMS).map(f=>({fields:[true,...[1,2,3].map(i=>f?.fields?.[i]===true)]}));
   }else s.farms=[newFarm()];
   s.currentFarm=number(raw.version>=5?raw.currentFarm:0,0,0,s.farms.length-1);
+  if(raw.version>=11&&raw.vegetation&&typeof raw.vegetation==='object')for(const area of ['home','city','forest','farm'])for(const farm of area==='farm'?s.farms.map((_,i)=>i):[0]){
+    const key=area==='farm'?'farm:'+farm:area,v=raw.vegetation[key];if(!v||typeof v!=='object')continue;
+    const known=VEGETATION[area].byId,ids=(value,tree)=>[...new Set(Array.isArray(value)?value.slice(0,known.size):[])].filter(id=>typeof id==='string'&&known.has(id)&&id.startsWith('tree:')===tree);
+    s.vegetation[key]={trees:ids(v.trees,true),grass:ids(v.grass,false),placed:[]};
+  }
   s.plots=Array.from({length:s.farms.length*PLOTS_PER_FARM},emptyPlot);
   s.expansionUnlocked=raw.expansionUnlocked===true;
   s.starterSeedsClaimed=raw.starterSeedsClaimed===true;
@@ -30,7 +37,7 @@ export function validate(raw) {
   const position=s.area==='interior'&&oldRoom?.width>0&&oldRoom?.height>0?{x:raw.position?.x*ROOM.width/oldRoom.width,y:raw.position?.y*ROOM.height/oldRoom.height}:raw.position;
   s.roomSize={width:ROOM.width,height:ROOM.height};
   const forestPosition=p=>raw.version<9&&p?{x:p.x,y:p.y+LEGACY_FOREST_OFFSET}:p;
-  s.position = nearestSafe(s.area,s.area==='forest'?forestPosition(position):position);
+  s.position = nearestSafe(s.area,s.area==='forest'?forestPosition(position):position,s);
   s.marketSeed=number(raw.marketSeed,1,0,4294967295);
   s.selectedCrop=Object.hasOwn(CROPS,raw.selectedCrop)?raw.selectedCrop:'tomato';
   s.hasVisitedCity=raw.hasVisitedCity===true||raw.area==='city';
@@ -43,15 +50,15 @@ export function validate(raw) {
   s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
   for (const key of INVENTORY_KEYS) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
   if(raw.version>=10){
-    s.dugPlots=[...new Set(Array.isArray(raw.dugPlots)?raw.dugPlots:[])].filter(i=>Number.isInteger(i)&&i>=0&&i<s.plots.length&&openGround('farm',FARM_PLOTS[i%PLOTS_PER_FARM].x,FARM_PLOTS[i%PLOTS_PER_FARM].y,true));
+    s.dugPlots=[...new Set(Array.isArray(raw.dugPlots)?raw.dugPlots:[])].filter(i=>Number.isInteger(i)&&i>=0&&i<s.plots.length&&openGround('farm',FARM_PLOTS[i%PLOTS_PER_FARM].x,FARM_PLOTS[i%PLOTS_PER_FARM].y,true,{...s,currentFarm:Math.floor(i/PLOTS_PER_FARM)}));
     for(const b of (Array.isArray(raw.customBeds)?raw.customBeds:[]).slice(0,MAX_CUSTOM_BEDS)){
-      if(!Number.isInteger(b?.farm)||!s.farms[b.farm]||!Number.isInteger(b.x)||!Number.isInteger(b.y)||![8,24,40].includes(b.x%48)||![8,24].includes(b.y%48)||!openGround('farm',b.x,b.y,true))continue;
+      if(!Number.isInteger(b?.farm)||!s.farms[b.farm]||!Number.isInteger(b.x)||!Number.isInteger(b.y)||![8,24,40].includes(b.x%48)||![8,24].includes(b.y%48)||!openGround('farm',b.x,b.y,true,{...s,currentFarm:b.farm}))continue;
       if(FARM_PLOTS.some(p=>Math.abs(p.x-b.x)<48&&Math.abs(p.y-b.y)<48)||s.customBeds.some(p=>p.farm===b.farm&&Math.abs(p.x-b.x)<48&&Math.abs(p.y-b.y)<48))continue;
       s.customBeds.push({farm:b.farm,x:b.x,y:b.y,plot:b.plot});
     }
     const seen=new Set();
     for(const p of (Array.isArray(raw.wetGround)?raw.wetGround:[]).slice(-MAX_WET_PATCHES)){
-      if(!p||!Number.isInteger(p.x)||!Number.isInteger(p.y)||!openGround(p.area,p.x,p.y)||!Number.isFinite(p.remaining)||p.remaining<=0||!Number.isInteger(p.farm)||!s.farms[p.farm])continue;
+      if(!p||!Number.isInteger(p.x)||!Number.isInteger(p.y)||!openGround(p.area,p.x,p.y,false,{...s,currentFarm:p.farm})||!Number.isFinite(p.remaining)||p.remaining<=0||!Number.isInteger(p.farm)||!s.farms[p.farm])continue;
       const key=p.area+':'+p.farm+':'+p.x+':'+p.y;if(seen.has(key))continue;seen.add(key);
       s.wetGround.push({area:p.area,farm:p.farm,x:p.x,y:p.y,remaining:Math.min(WET_DURATION,p.remaining)});
     }
@@ -66,6 +73,13 @@ export function validate(raw) {
   };
   s.plots=s.plots.map((_,i)=>plotOwned(s,i)?restorePlot(raw.plots?.[i]):emptyPlot());
   s.customBeds.forEach(b=>{b.plot=restorePlot(b.plot);});
+  for(const [key,v]of Object.entries(s.vegetation)){
+    const [area,farm]=key.split(':'),view={...s,area,currentFarm:area==='farm'?Number(farm):0};
+    for(const p of (Array.isArray(raw.vegetation[key]?.placed)?raw.vegetation[key].placed:[]).slice(0,MAX_PLACED_GRASS)){
+      if(!p||!Number.isInteger(p.x)||!Number.isInteger(p.y)||p.x%8||p.y%8||!grassGround(view,p)||v.placed.some(n=>Math.hypot(n.x-p.x,n.y-p.y)<28)||VEGETATION[area].grass.some(n=>!v.grass.includes(n.id)&&Math.hypot(n.x-p.x,n.y-p.y)<28))continue;
+      v.placed.push({id:`placed:${p.x}:${p.y}`,x:p.x,y:p.y,variant:Math.abs(p.x+p.y)%3});
+    }
+  }
   s.hasVisitedFarm=inferFarmVisit(raw,s);
   for(const key of ['forestTutorialComplete','nightWarningSeen','deathTutorialSeen','hasDied','ownsClub'])s[key]=raw[key]===true;
   s.clubEquipped=s.ownsClub&&raw.clubEquipped!==false;
@@ -78,15 +92,15 @@ export function validate(raw) {
     const restored=s.forest.animals[a.id],definition=SPECIES[a.species];
     restored.health=number(old.health,definition.health,0,definition.health);
     restored.defeatedDay=number(old.defeatedDay,s.day,0,s.day);
-    const p=nearestSafe('forest',raw.version<9?forestPosition(old.position):old.position);
-    restored.position=inTerritory(p,a.territory)&&walkable('forest',p.x,p.y,definition.body)?p:{...a.home};
+    const p=nearestSafe('forest',raw.version<9?forestPosition(old.position):old.position,s);
+    restored.position=inTerritory(p,a.territory)&&walkable('forest',p.x,p.y,definition.body,false,s)?p:{...a.home};
     if(!restored.health&&restored.defeatedDay<s.day)s.forest.animals[a.id]=freshAnimal(a);
   }
   s.forest.boar=s.forest.animals['boar-original'];
   s.forest.explored=REGIONS.filter(r=>r.id==='entrance'||Array.isArray(raw.forest?.explored)&&raw.forest.explored.includes(r.id)).map(r=>r.id);
   s.forest.treasures=TREASURES.filter(t=>Array.isArray(raw.forest?.treasures)&&raw.forest.treasures.includes(t.id)).map(t=>t.id);
   const coins=number(raw.stash?.coins,0,0,9999999);
-  if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(forestPosition(raw.stash)),coins};
+  if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(forestPosition(raw.stash),s),coins};
   return s;
 }
 export class SaveService {

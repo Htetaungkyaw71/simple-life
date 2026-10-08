@@ -1,3 +1,4 @@
+import {cutObstacle,VEGETATION,vegetationKey,vegetationState} from '../data/vegetation.js';
 import {lineClear} from './forest.js';
 import {MAPS,MAP_SIZE} from '../data/mapLayouts.js';
 import {waterAt} from '../data/water.js';
@@ -10,11 +11,11 @@ import {CROPS} from '../data/crops.js';
 import {waterPeriod,missed} from './watering.js';
 import {FARM_ENERGY} from '../data/energy.js';
 export const WET_DURATION=180000,MAX_CUSTOM_BEDS=2048,MAX_WET_PATCHES=256;
-export function openGround(area,x,y,dig=false){
+export function openGround(area,x,y,dig=false,state=null){
  const map=Object.hasOwn(MAPS,area)?MAPS[area]:null;if(!map||area==='interior'||!Number.isFinite(x)||!Number.isFinite(y))return false;
  const size=map.size||MAP_SIZE,r=dig?24:8;
  if(x-r<32||y-r<32||x+r>size.width-32||y+r>size.height-32)return false;
- if(map.obstacles.some(([bx,by,w,h])=>x+r>bx&&x-r<bx+w&&y+r>by&&y-r<by+h))return false;
+ if(map.obstacles.some(box=>{const [bx,by,w,h]=box;return !cutObstacle(state,area,box)&&x+r>bx&&x-r<bx+w&&y+r>by&&y-r<by+h;}))return false;
  if([[0,0],[-r,-r],[r,-r],[-r,r],[r,r]].some(([dx,dy])=>waterAt(map,{x:x+dx,y:y+dy},false)))return false;
  if(dig&&(area!=='farm'||map.paths.some(([bx,by,w,h])=>x+24>bx&&x-24<bx+w&&y+24>by&&y-24<by+h)))return false;
  return true;
@@ -32,12 +33,19 @@ export function digGround(s,point){
  if(s.area!=='farm')return {ok:false,message:'Dig on your Farm'};
  const p=groundPoint(s,point);
  if(Math.hypot(p.x-s.position.x,p.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
- if(!openGround('farm',p.x,p.y,true)||!lineClear('farm',s.position,p))return {ok:false,message:'Choose clear grass'};
+ if(!openGround('farm',p.x,p.y,true,s)||!lineClear('farm',s.position,p,0,s))return {ok:false,message:'Choose clear grass'};
  if(visiblePlots(s).some(b=>Math.abs(b.x-p.x)<47&&Math.abs(b.y-p.y)<47))return {ok:false,message:'Already dug'};
  if(p.index==null&&FARM_PLOTS.some(b=>Math.abs(b.x-p.x)<48&&Math.abs(b.y-p.y)<48))return {ok:false,message:'Dig beside the existing bed'};
  if(s.energy<FARM_ENERGY.dig)return {ok:false,message:'Too tired - eat or sleep'};
  if(p.index==null&&(s.customBeds||[]).length>=MAX_CUSTOM_BEDS)return {ok:false,message:'Farm beds full'};
  s.energy-=FARM_ENERGY.dig;s.hasVisitedFarm=true;
+ // Digging clears ground cover; gather it by hand first to keep the grass.
+ const grass=VEGETATION.farm.grass.filter(n=>Math.abs(n.x-p.x)<40&&Math.abs(n.y-p.y)<40),old=vegetationState(s);
+ if(grass.length||old?.placed.some(n=>Math.abs(n.x-p.x)<40&&Math.abs(n.y-p.y)<40)){
+  s.vegetation??={};const v=old|| (s.vegetation[vegetationKey(s)]={trees:[],grass:[],placed:[]});
+  v.grass=[...new Set([...v.grass,...grass.map(n=>n.id)])];v.placed=v.placed.filter(n=>Math.abs(n.x-p.x)>=40||Math.abs(n.y-p.y)>=40);
+ }
+
  if(p.index!=null){s.dugPlots??=[];s.dugPlots.push(p.index);}
  else {s.customBeds??=[];s.customBeds.push({farm:s.currentFarm||0,x:p.x,y:p.y,plot:emptyPlot()});p.index=s.plots.length+s.customBeds.length-1;}
  return {ok:true,message:'Ready to plant',...p};
@@ -45,7 +53,7 @@ export function digGround(s,point){
 export const wetAt=(s,x,y,area=s.area,farm=s.currentFarm||0)=>(s.wetGround||[]).some(p=>p.area===area&&(area!=='farm'||p.farm===farm)&&Math.abs(p.x-x)<24&&Math.abs(p.y-y)<24&&p.remaining>0);
 export function waterGround(s,point,index){
  if(Math.hypot(point.x-s.position.x,point.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
- if(!openGround(s.area,point.x,point.y)||!lineClear(s.area,s.position,point))return {ok:false,message:'Water on open ground'};
+ if(!openGround(s.area,point.x,point.y,false,s)||!lineClear(s.area,s.position,point,0,s))return {ok:false,message:'Water on open ground'};
  if(s.energy<FARM_ENERGY.water)return {ok:false,message:'Too tired - eat or sleep'};
  const p=index!=null&&plotOwned(s,index)?plotAt(s,index):null,period=waterPeriod(s);
  const care=p?.crop&&missed(p)<2&&p.growth<CROPS[p.crop].growthDays&&period&&!p[period];

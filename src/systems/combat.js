@@ -14,11 +14,11 @@ export function attackBox(p,direction){
  const [x,y,w,h]=boxes[direction]||boxes.down;return {x:p.x+x,y:p.y+y,w,h};
 }
 export function hitInside(box,p){return p.x+14>box.x&&p.x-14<box.x+box.w&&p.y>box.y&&p.y-24<box.y+box.h;}
-export function displace(area,p,dx,dy,territory=false,radius=territory?16:12){
+export function displace(area,p,dx,dy,territory=false,radius=territory?16:12,state=null){
  const steps=Math.max(1,Math.ceil(Math.hypot(dx,dy)/4));let moved=false;
  for(let i=0;i<steps;i++){
   const q={x:p.x+dx/steps,y:p.y+dy/steps};
-  if(!walkable(area,q.x,q.y,radius)||territory&&!inTerritory(q,Array.isArray(territory)?territory:undefined))break;
+  if(!walkable(area,q.x,q.y,radius,false,state)||territory&&!inTerritory(q,Array.isArray(territory)?territory:undefined))break;
   p.x=q.x;p.y=q.y;moved=true;
  }
  return moved;
@@ -30,11 +30,11 @@ export function attack(s,r,direction){
  s.energy-=CLUB.energy;r.nextAttack=r.now+CLUB.cooldown;
  const box=attackBox(s.position,direction),result={ok:true,box,hit:false,defeated:false};
  if(s.area==='forest'){
-  const target=Object.values(s.forest.animals).filter(a=>a.health>0&&hitInside(box,a.position)&&lineClear('forest',s.position,a.position)).sort((a,b)=>Math.hypot(a.position.x-s.position.x,a.position.y-s.position.y)-Math.hypot(b.position.x-s.position.x,b.position.y-s.position.y))[0];
+  const target=Object.values(s.forest.animals).filter(a=>a.health>0&&hitInside(box,a.position)&&lineClear('forest',s.position,a.position,0,s)).sort((a,b)=>Math.hypot(a.position.x-s.position.x,a.position.y-s.position.y)-Math.hypot(b.position.x-s.position.x,b.position.y-s.position.y))[0];
   if(target){
    const definition=ANIMAL_BY_ID[target.id],p=target.position,len=Math.hypot(p.x-s.position.x,p.y-s.position.y)||1;
    result.hit=true;result.animalId=target.id;result.species=target.species;target.health--;
-   displace('forest',p,(p.x-s.position.x)/len*18,(p.y-s.position.y)/len*18,definition.territory,SPECIES[target.species].body);
+   displace('forest',p,(p.x-s.position.x)/len*18,(p.y-s.position.y)/len*18,definition.territory,SPECIES[target.species].body,s);
    const runtime=animalRuntime(r,target.id);runtime.mode='recover';runtime.timer=600;
    if(!target.health){result.defeated=true;target.defeatedDay=s.day;s.inventory.wildHide=Math.min(9999,s.inventory.wildHide+1);}
   }
@@ -48,14 +48,14 @@ export function damagePlayer(s,r,damage=15){
 function stepAnimal(s,global,r,a,definition,ms){
  if(a.health<=0||Math.hypot(a.position.x-s.position.x,a.position.y-s.position.y)>960)return {};
  r.grace=Math.max(0,r.grace-ms);const d=SPECIES[a.species],p=a.position,player=s.position,night=isNight(s),distance=Math.hypot(player.x-p.x,player.y-p.y),awareness=d.awareness*(night?1.2:1),speed=night?1.15:1;
- const sees=inTerritory(player,definition.territory)&&distance<awareness&&lineClear('forest',p,player,12);r.timer-=ms;
+ const sees=inTerritory(player,definition.territory)&&distance<awareness&&lineClear('forest',p,player,12,s);r.timer-=ms;
  if(r.mode==='warning'){
   if(r.timer<=0){r.mode='charge';r.timer=650;return {charge:true};}
  }else if(r.mode==='charge'){
-  if(distance<34&&lineClear('forest',p,player)&&damagePlayer(s,global,d.damage)){
-   const len=distance||1;displace('forest',player,(player.x-p.x)/len*18,(player.y-p.y)/len*18);r.mode='recover';r.timer=d.recovery;return {hurt:true,damage:d.damage,dead:s.health===0,species:a.species};
+  if(distance<34&&lineClear('forest',p,player,0,s)&&damagePlayer(s,global,d.damage)){
+   const len=distance||1;displace('forest',player,(player.x-p.x)/len*18,(player.y-p.y)/len*18,false,12,s);r.mode='recover';r.timer=d.recovery;return {hurt:true,damage:d.damage,dead:s.health===0,species:a.species};
   }
-  const moved=displace('forest',p,r.heading.x*d.speed*speed*ms/1000,r.heading.y*d.speed*speed*ms/1000,definition.territory,d.body);
+  const moved=displace('forest',p,r.heading.x*d.speed*speed*ms/1000,r.heading.y*d.speed*speed*ms/1000,definition.territory,d.body,s);
   if(!moved||r.timer<=0){r.mode='recover';r.timer=d.recovery;}
  }else if(r.mode==='recover'){
   if(r.timer<=0){r.mode='wander';r.timer=0;}
@@ -65,7 +65,7 @@ function stepAnimal(s,global,r,a,definition,ms){
   if(r.timer<=0){r.wander++;r.timer=1400;const angle=r.wander*2.4+ANIMAL_SPAWNS.indexOf(definition);r.heading={x:Math.cos(angle),y:Math.sin(angle)};}
   const home=definition.home,homeDistance=Math.hypot(p.x-home.x,p.y-home.y);
   if(!sees&&homeDistance>110)r.heading={x:(home.x-p.x)/homeDistance,y:(home.y-p.y)/homeDistance};
-  if(!displace('forest',p,r.heading.x*32*speed*ms/1000,r.heading.y*32*speed*ms/1000,definition.territory,d.body))r.timer=0;
+  if(!displace('forest',p,r.heading.x*32*speed*ms/1000,r.heading.y*32*speed*ms/1000,definition.territory,d.body,s))r.timer=0;
  }
  return {};
 }

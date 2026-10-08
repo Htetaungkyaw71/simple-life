@@ -1,3 +1,13 @@
+# v0.6.2 — garden tools, 2026-10-08
+
+Evidence: verification/garden-tools. npm test passes 157/157; npm run build passes. Added regressions cover every authored tree registry/tree silhouette, one-time wood/collision removal and reload, independent farms/free digging, grass conservation/legal placement/cleanup, atomic energy/full-stock/forged-ID rejection, wall reach, cut-tree fruit refresh, schema migration, all twelve full-care harvest loops, actual held view pause/directions/switching, cleanup/buckets and Gear bounds at seven sizes. Existing economy/time/farming/forest/recovery tests remain.
+
+Native CUA in-app browser QA at 1280×720 and 390×844 used actual keyboard/pointer input on a fresh test origin at port 43862: held shovel/axe, tree cut/+3 wood, hand gather/+1 grass, replant, reload persistence, walk through cleared roots, twelve distinct packets, starter/travel/planting and one-night Tomato guidance. Gear/equip fits the phone viewport. Final production reload/Continue and warning/error log checks pass. These are browser viewport checks, not physical mobile certification. Full care-to-harvest for all twelve is automated; browser evidence documents only interactions actually observed.
+
+Reproduce: npm test; npm run build; Python with Pillow: python3 scripts/qa/garden-tools-audit.py. Audit compares f87c2cf, asserts stable old frame positions, 532 unchanged cells, only 24 original seed changes, four new icons, six byte-identical other art files and eight-file runtime allowlist. atlas-study.png is explicitly an offline source-pixel gallery; JPEG files are native browser captures. No user-origin storage mutation/reset, push or publication. Physical phones, Safari/Firefox/Edge, sustained performance and human acceptance remain unverified.
+
+---
+
 # v0.6.1 — watering and ground repairs
 
 144/144 npm tests pass; production build succeeds. Five new tests verify enough energy to plant/water all starter cells, one-hour fatigue/reload/old remainder, actual HeldWateringCan local frame and four directions/jump/pause/hide, Atmosphere pour droplets starting at the held spout without a second object, and coordinate-overlap equality plus rounded transparent/mottled soil. Prior full farming/save/window/economy/forest/UI regressions remain.

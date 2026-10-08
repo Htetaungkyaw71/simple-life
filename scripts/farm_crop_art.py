@@ -52,3 +52,7 @@ def add_farm_crop_art(assets):
  mapping={ImageColor.getrgb(k):ImageColor.getrgb(v) for k,v in mapping.items()}
  for key in [n for n in assets if any(n.startswith(c+'-') for c in ('tomato','strawberry','carrot','corn'))]:
   im=assets[key];im.putdata([(*mapping.get(p[:3],p[:3]),p[3]) for p in im.getdata()])
+
+ # Shared utility tools and larger crop emblems also cover the original four crops.
+ from garden_tools_art import add_garden_tools_art
+ add_garden_tools_art(assets)

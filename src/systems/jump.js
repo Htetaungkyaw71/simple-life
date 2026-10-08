@@ -2,11 +2,11 @@ import {walkable} from '../data/locations.js';
 export const JUMP_DURATION=600,JUMP_COOLDOWN=850,JUMP_DISTANCE=128;
 export function jumpRuntime(){return {active:null,cooldown:0};}
 export function beginJump(state,runtime,direction){
- if(state.area!=='forest'||!walkable('forest',state.position.x,state.position.y)||runtime.active||runtime.cooldown>0)return false;
+ if(state.area!=='forest'||!walkable('forest',state.position.x,state.position.y,12,false,state)||runtime.active||runtime.cooldown>0)return false;
  const len=Math.hypot(direction.x,direction.y),dx=len?direction.x/len:0,dy=len?direction.y/len:0,origin={...state.position};
  let destination={...origin};
  // Check the entire feet path. Only low ledges can be crossed; no solid tunnelling.
- for(let d=4;d<=JUMP_DISTANCE;d+=4){const x=origin.x+dx*d,y=origin.y+dy*d;if(!walkable('forest',x,y,12,true))break;if(walkable('forest',x,y))destination={x,y};}
+ for(let d=4;d<=JUMP_DISTANCE;d+=4){const x=origin.x+dx*d,y=origin.y+dy*d;if(!walkable('forest',x,y,12,true,state))break;if(walkable('forest',x,y,12,false,state))destination={x,y};}
  runtime.active={origin,destination,elapsed:0};runtime.cooldown=JUMP_COOLDOWN;return true;
 }
 export function stepJump(state,runtime,delta){

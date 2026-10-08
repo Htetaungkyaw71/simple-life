@@ -1,3 +1,9 @@
+# v0.6.2 utility scope clarification
+
+The latest user explicitly authorizes held Shovel, an Axe for trees/wood, hand grass gathering/replanting, faster crops and clearer seed art. This supersedes earlier utility exclusions; Axe is not an additional combat weapon and wood does not add crafting. Master/four competition PDFs remain reference requirements, not instructions overriding the user. Canvas/local runtime/allowlist, disclosure, existing asset rights and no-publication obligations remain. Native browser checks now work through the supported in-app browser; prior URL-policy limitations below are historical. Physical mobile/other-engine acceptance and final team/submission review remain separate.
+
+---
+
 # v0.5.0 interface scope clarification
 The user explicitly authorizes reference-inspired changes across all screens, fewer visible labels, Space jumping, no upper action/Jump button, and a Forest-only parchment map with facing. All four PDFs/master were reviewed as requirements evidence; they do not override the request. Original UI code and credited existing sprites preserve local runtime, canvas architecture and AI/licence disclosures. Mobile keyboard/touch paths remain, but final browser acceptance is still pending under the existing local-URL policy restriction. No submission, publication, external asset download or rights certification is performed.
 

@@ -1,3 +1,9 @@
+# v0.6.2 — original seed and utility pixels
+
+Four new original 16×16 icons (axe-item, hand-item, wood-item, grass-item) and twenty-four improved original seed cells (twelve inventory packets and twelve planted markers) are deterministic project source pixels with Codex assistance. Fruit emblems reuse the project's existing original crop-item art. No screenshot pixels, commercial-game art or new external pack is used. scripts/garden_tools_art.py is called by the established atlas generator. Among the 556 prior frames, 532 remain byte-identical with unchanged coordinates; the atlas now has 560 frames. Six other runtime art files, including both supplied farmers, remain byte-identical. Retained creator/licence obligations below are unchanged. Evidence: assets/licenses/garden-tools.md and verification/garden-tools/runtime-audit.json.
+
+---
+
 # v0.6.1 — original watering can and soil source
 
 One original 16×16 watering-can-item is appended to town; all 555 previous cells and their coordinates are unchanged. The new can, soft soil material/fringes and held/pouring geometry are deterministic project source with Codex assistance. Six other runtime art files, supplied farmer sheets and licensed atlas cells remain unchanged. No new external asset, font, dependency or licence. Existing creator credits and previous public-entry rights limitations remain. Source/evidence: assets/licenses/farm-polish.md and verification/farm-polish/runtime-audit.json.

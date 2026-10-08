@@ -11,13 +11,13 @@ import {MAPS} from '../src/data/mapLayouts.js';
 const plant=()=>{const s=newState();s.area='farm';s.inventory.seed=3;usePlot(s,0);s.selected='water';return s;};
 test('crop status is pure, stages follow earned nights and timer agrees through a complete harvest',()=>{
  const s=plant();const before=structuredClone(s);let info=cropStatus(s,0);
- assert.deepEqual(s,before);assert.equal(info.stage,1);assert.equal(info.stages,4);assert.equal(info.remaining,3);assert.equal(info.condition,'Newly planted');assert.equal(info.need,'Needs morning water');
+ assert.deepEqual(s,before);assert.equal(info.stage,1);assert.equal(info.stages,2);assert.equal(info.remaining,1);assert.equal(info.condition,'Newly planted');assert.equal(info.need,'Needs morning water');
  assert.equal(info.plantedDay,1);assert.equal(info.plantedMinute,360);assert.equal(cropStatus(s,1),null);
- for(let night=0;night<3;night++){
+ for(let night=0;night<1;night++){
   usePlot(s,0);assert.equal(cropStatus(s,0).care[0].label,'Watered');assert.equal(cropStatus(s,0).condition,'Watered for this window');
   restUntilEvening(s);assert.equal(cropStatus(s,0).need,'Needs evening water');usePlot(s,0);
-  info=cropStatus(s,0);assert.equal(info.condition,'Fully watered today');assert.equal(info.next,night===2?'Ready at midnight':'Next stage at midnight');
-  assert.deepEqual(cropStatus(validate(JSON.parse(JSON.stringify(s))),0),info);nextDay(s);s.area='farm';assert.equal(cropStatus(s,0).stage,night+2);assert.equal(cropStatus(s,0).remaining,2-night);
+  info=cropStatus(s,0);assert.equal(info.condition,'Fully watered today');assert.equal(info.next,night===0?'Ready at midnight':'Next stage at midnight');
+  assert.deepEqual(cropStatus(validate(JSON.parse(JSON.stringify(s))),0),info);nextDay(s);s.area='farm';assert.equal(cropStatus(s,0).stage,night+2);assert.equal(cropStatus(s,0).remaining,0-night);
  }
  info=cropStatus(s,0);assert.equal(info.timer,'Ready to harvest');assert.equal(info.progress,1);s.selected='harvest';usePlot(s,0);assert.equal(cropStatus(s,0),null);
 });

@@ -1,3 +1,4 @@
+import {vegetationContext} from './vegetation.js';
 import {groundPoint,openGround} from './farmGround.js';
 import {plotAt} from './plots.js';
 import {FORAGE_NODES,TREASURES} from '../data/forest.js';
@@ -20,22 +21,24 @@ export function plotPrompt(state,plot){
 }
 export function contextFor(state,targetPlot=null,direction='down',targetGround=null){
  if(!state)return null;
+ const vegetation=vegetationContext(state,direction,targetGround);if(vegetation)return vegetation;
  const {x,y}=state.position,location=LOCATIONS[state.area],dist=p=>Math.hypot(p.x-x,p.y-y);
  const nearby=location.interactions.filter(p=>dist(p)<(p.type==='starter'?52:72)&&(!p.approach||(x>=p.approach[0]&&x<=p.approach[0]+p.approach[2]&&y>=p.approach[1]&&y<=p.approach[1]+p.approach[3]))).sort((a,b)=>dist(a)-dist(b));
  const groundContext=()=>{if(state.selected==='shovel'||state.selected==='water'){
   const positions=visiblePlots(state),underfoot=state.area==='farm'&&state.selected==='water'?positions.find(b=>Math.abs(b.x-state.position.x)<24&&Math.abs(b.y-state.position.y)<24):null,point=groundPoint(state,targetGround||underfoot,direction),bed=state.area==='farm'?positions.find(b=>Math.abs(b.x-point.x)<24&&Math.abs(b.y-point.y)<24):null;
   const p=bed||point;
-  if(Math.hypot(p.x-state.position.x,p.y-state.position.y)<72&&openGround(state.area,p.x,p.y,state.selected==='shovel'))return state.selected==='shovel'?{type:'dig',...p,label:bed?'Already dug':'Dig ground'}:bed?{type:'plot',...bed,label:plotPrompt(state,plotAt(state,bed.index))}:{type:'waterGround',...p,label:'Water ground'};
+  if(Math.hypot(p.x-state.position.x,p.y-state.position.y)<72&&openGround(state.area,p.x,p.y,state.selected==='shovel',state))return state.selected==='shovel'?{type:'dig',...p,label:bed?'Already dug':'Dig ground'}:bed?{type:'plot',...bed,label:plotPrompt(state,plotAt(state,bed.index))}:{type:'waterGround',...p,label:'Water ground'};
  }return null;};
  if(targetGround){const ground=groundContext();if(ground)return ground;}
  if(state.area==='forest'){
-  const bag=state.stash;if(bag&&dist(bag)<64&&lineClear('forest',state.position,bag))return {type:'stash',...bag,label:'Recover '+bag.coins+' coins'};
-  const treasure=TREASURES.find(t=>dist(t)<64&&treasureAvailable(state,t)&&lineClear('forest',state.position,t));if(treasure)return {type:'treasure',...treasure,label:'Search ancient chest'};
-  const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n)).sort((a,b)=>dist(a)-dist(b))[0];
+  const bag=state.stash;if(bag&&dist(bag)<64&&lineClear('forest',state.position,bag,0,state))return {type:'stash',...bag,label:'Recover '+bag.coins+' coins'};
+  const treasure=TREASURES.find(t=>dist(t)<64&&treasureAvailable(state,t)&&lineClear('forest',state.position,t,0,state));if(treasure)return {type:'treasure',...treasure,label:'Search ancient chest'};
+  const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n,0,state)).sort((a,b)=>dist(a)-dist(b))[0];
   if(node)return {type:'forage',...node,label:'Gather '+FOODS[node.item].name};
  }
  if(nearby.length){const c=nearby[0];if(['seed','sell','outfitter'].includes(c.type)&&!shopOpen(state,c.type))return {...c,type:'hint',label:`Closed / ${SHOP_HOURS[c.type].label}`};if(c.type==='field'&&ownedField(state,c.field))return {...c,type:'hint',label:`Planting beds`};return c.type==='starter'&&state.starterSeedsClaimed?{...c,label:'Starter crate - empty'}:c;}
  const ground=groundContext();if(ground)return ground;
+ if(['axe','hand','grass'].includes(state.selected))return null;
  if(state.area==='farm'){
   const positions=visiblePlots(state),offset=(state.currentFarm||0)*PLOTS_PER_FARM;
   const pointed=targetPlot!=null?positions.find(p=>p.index===targetPlot)||FARM_PLOTS[targetPlot-offset]:null;

@@ -1,3 +1,13 @@
+# v0.6.2 — garden utility loop and faster harvests
+
+User-authorized Shovel/Axe/Hand/Grass are free and selectable in Gear or keys 4/5/6/7. Shovel remains free Farm-bed creation (2 energy); it now shows in hand and clears cover. Axe is a utility, not a combat weapon: approach an authored tree and E/USE/click to remove it permanently for 2 energy and +3 wood. Roots/crowns and tree fruit disappear. Wood is collected inventory only; no crafting, sale or progression is introduced. The existing Wooden Club remains separate.
+
+Hand gathers a grass clump for 1 energy and +1 grass. Grass places one collected clump on dry clear ground for 1 energy; no placement on water/bridge/path/solid/crop bed or another nearby clump. Planted clumps can be gathered again and bend on contact. Digging destroys overlapping grass unless gathered first. Removed vegetation persists across days/reloads, independently per owned farm. Axe cannot cut bamboo/palmetto scenery. Rewards and energy changes are atomic; repeated/unsafe/full-bag actions do not duplicate resources.
+
+Tomato, Chili, Cucumber and Sweet Potato mature after one fully cared-for night; Strawberry, Carrot, Corn, Eggplant, Watermelon, Pumpkin, Grape and Blueberry after two. Care at AM 06–12 and PM 16–22 remains necessary; missed-care wilt/death rules remain. Prices/yields stay unchanged. Old earned growth reaches the new ripe cap on load. Cream packets and larger fruit pictures make planting identity readable without extra UI copy. Existing farming/watering energy and passive fatigue costs remain.
+
+---
+
 # v0.6.1 — comfortable work energy
 
 Current farming costs: plant 2, dig 2, water 1, harvest 2. Passive awake energy drain is one per 60 game minutes; walking remains free. Watering the same ground again still costs 1 energy and cannot add extra care/growth. A full 16-cell starter bed takes 32 energy to plant and 16 to water, leaving 52 from a full bar. Combat remains 5 energy per club swing; food/sleep restoration and all watering windows are unchanged. Water tool stays visible in hand and pours from the spout. Soil retains safe grid planting while presenting organic edges and varied red earth. Balance awaits human play review.

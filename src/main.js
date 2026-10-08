@@ -1,3 +1,4 @@
+import {useVegetation} from './systems/vegetation.js';
 import {digGround,waterGround} from './systems/farmGround.js';
 import {plotAt} from './systems/plots.js';
 import {groundedPosition,cancelJump} from './systems/jump.js';
@@ -43,10 +44,15 @@ class Application {
   use(){
     if(this.scene.jumping?.active)return;
     if(this.paused||!this.state||this.transitioning)return;const c=this.scene.context();if(!c)return;this.scene.faceContext(c);
+    if(['chop','gatherGrass','placeGrass'].includes(c.type)){
+      const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
+      const result=useVegetation(this.state,c);this.ui.feedback(result.message);
+      if(result.ok){this.scene.refreshVegetation(c.type==='chop');if(c.type==='chop')this.scene.player.wateringCan.swing();this.scene.atmosphere.vegetation(c.type,c.x,c.y);this.sound('farming:'+c.type);this.save();}return;
+    }
     if(c.type==='dig'||c.type==='waterGround'||c.type==='plot'&&this.state.selected==='water'){
       const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
       const result=c.type==='dig'?digGround(this.state,c):waterGround(this.state,c,c.type==='plot'?c.index:undefined);
-      this.ui.feedback(result.message);if(result.ok){this.scene.renderCrops();this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',result.x,result.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();}return;
+      this.ui.feedback(result.message);if(result.ok){if(c.type==='dig'){this.scene.player.wateringCan.swing();this.scene.refreshVegetation();}this.scene.renderCrops();this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',result.x,result.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();}return;
     }
     if(c.type==='forage'){const before=this.state.inventory[c.item];this.ui.feedback(collectForage(this.state,c.id));if(this.state.inventory[c.item]>before){this.scene.forestView.collect(FORAGE_NODES.find(n=>n.id===c.id));this.sound('forest:collect');}this.save();return;}
     if(c.type==='treasure'){this.transact(s=>recoverTreasure(s,c.id));return;}

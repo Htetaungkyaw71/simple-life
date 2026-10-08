@@ -1,3 +1,11 @@
+# v0.6.2 — user-requested garden tools, 2026-10-08
+
+OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted original axe/hand/wood/grass pixels and larger fruit-labelled seed packets, held-tool integration, pure cutting/gathering/placement rules, stable vegetation identities, collision/render cleanup, schema-11 validation/migration, crop-duration data, responsive Gear/hotbar UI, regression tests, production/asset audits and native browser QA/documentation. Source: scripts/garden_tools_art.py, data/vegetation.js, systems/vegetation.js and art/VegetationView.js. The user authorized these mechanics; the Axe is a utility. Existing third-party artwork retains creator credits; supplied farmer sheets and six other art files are unchanged. Twenty-four existing original seed cells are improved, not third-party pixels.
+
+Reference screenshots guide style only; no pixels or layout were extracted. No image model, new asset download/dependency, subagent, external messaging, purchase, push, publication or submission. 157 tests/build pass. Native in-app browser QA used a separate fresh localhost origin and actual keyboard/pointer input; a pre-existing save on another candidate QA port was retained via its cancel option. The user's original tab was observed and refreshed only; no new game or direct user-storage access. Offline atlas study is labelled separately from browser screenshots. Physical devices, team human implementation/art/balance review and signed declarations are not claimed.
+
+---
+
 # v0.6.1 — user-requested farm repair, 2026-10-08
 
 OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) diagnosed the missing town/can frame, authored original metal-can pixels, held-hand/directional/jump/pour integration and organic soil material code, reduced farming/passive energy costs through shared data, adjusted compatible fatigue validation and meaningful regressions, inspected pinned Phaser flip/origin source, ran tests/build/asset/HTTP/offline command-art checks and updated documentation. Original pixel source: farm_crop_art.py; rendering: HeldWateringCan.js/FarmView.js/Atmosphere.js. Supplied boy/girl sheets and all old atlas cells remain unchanged and retain their separate creator credits.

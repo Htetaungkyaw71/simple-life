@@ -32,7 +32,7 @@ test('hotbar/bag/map layouts fit seven viewports with no upper or Jump buttons; 
 test('bag actions select seeds without stock mutations and eat through existing guarded food rules',()=>{
  const s=newState(),a=appFor(s),b=new BagPanel(a);a.bagPanel=b;b.open('seeds');b.index=1;const before={...s.inventory};b.perform();assert.equal(s.selectedCrop,'strawberry');assert.deepEqual(s.inventory,before);assert.equal(a.ui.closed,true);
  a.ui.time.now+=1000;s.energy=80;s.inventory.wildBerry=2;b.open('food');b.perform();assert.equal(s.energy,92);assert.equal(s.inventory.wildBerry,1);b.perform();assert.equal(s.energy,92,'rapid duplicate is gated');
- a.ui.time.now+=1000;s.energy=100;b.perform();assert.equal(s.inventory.wildBerry,1);s.ownsClub=true;b.open('gear');a.ui.time.now+=1000;b.perform();assert.equal(s.clubEquipped,true);
+ a.ui.time.now+=1000;s.energy=100;b.perform();assert.equal(s.inventory.wildBerry,1);s.ownsClub=true;b.open('gear');b.index=bagItems(s,'gear').findIndex(i=>i.id==='club');a.ui.time.now+=1000;b.perform();assert.equal(s.clubEquipped,true);
  assert.equal(bagItems(s,'produce').length,13);assert.equal(bagItems(s,'food').length,12);
 });
 test('bag controls stay in bounds at each viewport and all inventory categories are available',()=>{
@@ -68,7 +68,7 @@ test('themed button retains glyph/selected colour through hover, with bounded hi
 });
 
 test('compact crop inspection remains visible beside the player and plot at 640 x 360',async()=>{
- const {Hud}=await import('../src/ui/Hud.js'),{usePlot}=await import('../src/systems/farming.js'),{FARM_PLOTS}=await import('../src/data/farms.js');const s=newState();s.area='farm';s.inventory.seed=1;usePlot(s,0);const plot=FARM_PLOTS[0];s.position={x:plot.x,y:plot.y+40};const u=recorder(640,360),a=appFor(s,u);a.scene.cameras={main:{zoom:1,worldView:{x:s.position.x-320,y:s.position.y-180,width:640,height:360}}};u.showFarmObjective=()=>{};u.showCityObjective=()=>{};const hud=new Hud(u);hud.update(s,{...plot,type:'plot',index:0,label:'Water Tomato'});const crop=hud.cropInfo.snapshot();assert.ok(crop);assert.ok(crop.x>=0&&crop.y>=128&&crop.x+crop.w<=640&&crop.y+crop.h<=300);assert.equal(crop.remaining,3);for(const t of [hud.cropInfo.timer,hud.cropInfo.condition,hud.cropInfo.am,hud.cropInfo.pm])assert.ok(t.x+t.width<=hud.cropInfo.w-4,t.text);
+ const {Hud}=await import('../src/ui/Hud.js'),{usePlot}=await import('../src/systems/farming.js'),{FARM_PLOTS}=await import('../src/data/farms.js');const s=newState();s.area='farm';s.inventory.seed=1;usePlot(s,0);const plot=FARM_PLOTS[0];s.position={x:plot.x,y:plot.y+40};const u=recorder(640,360),a=appFor(s,u);a.scene.cameras={main:{zoom:1,worldView:{x:s.position.x-320,y:s.position.y-180,width:640,height:360}}};u.showFarmObjective=()=>{};u.showCityObjective=()=>{};const hud=new Hud(u);hud.update(s,{...plot,type:'plot',index:0,label:'Water Tomato'});const crop=hud.cropInfo.snapshot();assert.ok(crop);assert.ok(crop.x>=0&&crop.y>=128&&crop.x+crop.w<=640&&crop.y+crop.h<=300);assert.equal(crop.remaining,1);for(const t of [hud.cropInfo.timer,hud.cropInfo.condition,hud.cropInfo.am,hud.cropInfo.pm])assert.ok(t.x+t.width<=hud.cropInfo.w-4,t.text);
 });
 
 test('UI uses baked font colours that the pinned Canvas BitmapText renderer actually draws',async()=>{

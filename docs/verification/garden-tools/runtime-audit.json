@@ -1,0 +1,72 @@
+{
+  "baseCommit": "f87c2cf",
+  "oldFrames": 556,
+  "frames": 560,
+  "unchangedFrames": 532,
+  "changedFrames": [
+    "tomato-seed",
+    "strawberry-seed",
+    "carrot-seed",
+    "corn-seed",
+    "tomato-seed-item",
+    "strawberry-seed-item",
+    "carrot-seed-item",
+    "corn-seed-item",
+    "chili-seed-item",
+    "chili-seed",
+    "eggplant-seed-item",
+    "eggplant-seed",
+    "cucumber-seed-item",
+    "cucumber-seed",
+    "watermelon-seed-item",
+    "watermelon-seed",
+    "pumpkin-seed-item",
+    "pumpkin-seed",
+    "grape-seed-item",
+    "grape-seed",
+    "blueberry-seed-item",
+    "blueberry-seed",
+    "sweetPotato-seed-item",
+    "sweetPotato-seed"
+  ],
+  "addedFrames": [
+    "axe-item",
+    "hand-item",
+    "wood-item",
+    "grass-item"
+  ],
+  "unchangedArtFiles": [
+    "world.png",
+    "world.json",
+    "font.png",
+    "font.xml",
+    "processed/boy.png",
+    "processed/girl.png"
+  ],
+  "runtimeFiles": [
+    "assets/index-DuO74lxp.css",
+    "assets/index-h27QQ8Wl.js",
+    "assets/phaser-0YPJO2g1.js",
+    "assets/pixel/font.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/processed/boy.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/world.json",
+    "assets/pixel/world.png",
+    "index.html"
+  ],
+  "runtimeBytes": 2074102,
+  "artAllowlist": [
+    "font.png",
+    "font.xml",
+    "processed/boy.png",
+    "processed/girl.png",
+    "processed/town.json",
+    "processed/town.png",
+    "world.json",
+    "world.png"
+  ],
+  "atlasSha256": "a20a7ffdd7ae2d80849b60cdab0d3c6c9613426258f3cf19f353cfc572735d3a"
+}

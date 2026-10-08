@@ -1,3 +1,4 @@
+import {cutObstacle} from './vegetation.js';
 import {ledgeBlocked} from './forestGrowth.js';
 import {FOREST_ENTRANCE} from './forest.js';
 import {ROOM,configureRoom} from './interior.js';
@@ -44,7 +45,7 @@ function candidates(area,x,y,r){
  if(!index){index=new Map();for(const box of map.obstacles){const [a,b,w,h]=box;for(let cy=Math.floor(b/128);cy<=Math.floor((b+h)/128);cy++)for(let cx=Math.floor(a/128);cx<=Math.floor((a+w)/128);cx++){const k=cx+":"+cy;if(!index.has(k))index.set(k,[]);index.get(k).push(box);}}spatial.set(map.obstacles,index);}
  const found=new Set();for(let cy=Math.floor((y-r)/128);cy<=Math.floor(y/128);cy++)for(let cx=Math.floor((x-r)/128);cx<=Math.floor((x+r)/128);cx++)for(const b of index.get(cx+":"+cy)||[])found.add(b);return [...found];
 }
-export function walkable(area,x,y,r=area==='interior'?6:12,ignoreLedges=false){return (ignoreLedges||!ledgeBlocked(MAPS[area]?.ledges||[],x,y,r))&&inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(([ox,oy,ow,oh])=>x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh);}
+export function walkable(area,x,y,r=area==='interior'?6:12,ignoreLedges=false,state=null){return (ignoreLedges||!ledgeBlocked(MAPS[area]?.ledges||[],x,y,r))&&inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(box=>{const [ox,oy,ow,oh]=box;return !cutObstacle(state,area,box)&&x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh;});}
 
 export const EDGE_TRAVEL={
  home:{zone:[448,1120,64,32],to:'farm',spawn:{x:320,y:64},facing:'down'},
@@ -55,11 +56,11 @@ export const EDGE_TRAVEL={
  farm:{zone:[288,0,64,32],to:'home',spawn:{x:480,y:1088},facing:'up'}
 };
 export function edgeTravel(state){const edges=state.area==='home'?[EDGE_TRAVEL.home,EDGE_TRAVEL.homeCity,EDGE_TRAVEL.homeForest]:[EDGE_TRAVEL[state.area]];for(const edge of edges){if(!edge)continue;const [x,y,w,h]=edge.zone,p=state.position;if(p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h)return edge;}return null;}
-export function nearestSafe(area,position){
- if(walkable(area,position?.x,position?.y))return {x:position.x,y:position.y};
+export function nearestSafe(area,position,state=null){
+ if(walkable(area,position?.x,position?.y,undefined,false,state))return {x:position.x,y:position.y};
  if(Number.isFinite(position?.x)&&Number.isFinite(position?.y)){
   let best=null,dist=Infinity;
-  for(let r=2;r<=256&&r*r<=dist;r+=2)for(let d=-r;d<=r;d+=2)for(const [dx,dy]of [[d,-r],[d,r],[-r,d],[r,d]]){const x=position.x+dx,y=position.y+dy,v=dx*dx+dy*dy;if(v<dist&&walkable(area,x,y)){best={x,y};dist=v;}}
+  for(let r=2;r<=256&&r*r<=dist;r+=2)for(let d=-r;d<=r;d+=2)for(const [dx,dy]of [[d,-r],[d,r],[-r,d],[r,d]]){const x=position.x+dx,y=position.y+dy,v=dx*dx+dy*dy;if(v<dist&&walkable(area,x,y,undefined,false,state)){best={x,y};dist=v;}}
   if(best)return best;
  }
  return {...LOCATIONS[area].spawn};

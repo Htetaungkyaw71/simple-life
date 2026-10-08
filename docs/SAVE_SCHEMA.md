@@ -1,3 +1,11 @@
+# Save schema 11 — vegetation and shorter crop durations, v0.6.2
+
+Storage key remains simple-life.save.v1. Versions 1–11 are accepted; versions 1–10 migrate to 11 without resetting economy, inventory, care, farm ownership, equipment, discoveries, caches, animal progress or Stash Bag. New inventory.wood and inventory.grass default to zero and validate to 0–9999. selected additionally accepts axe, hand and grass. Earned growth is capped at each crop's new one/two-night duration; already-earned progress at the cap becomes ripe while watering/miss history remains.
+
+vegetation is keyed home/city/forest/farm:N for each owned farm. Each record has trees (stable known cut-tree IDs), grass (stable known removed original-clump IDs), and placed [{id,x,y,variant}]. Known IDs are bounded/deduplicated, unknown area/farm/IDs rejected. Placed patches validate integer grid-8 coordinates, a dry clear footprint, no path/solid/crop bed or clump overlap, up to 2,048 per area/farm. IDs/variants are reconstructed from coordinates. Cutting/root state restores before safe player/animal/Stash Bag and free-bed/wet-ground validation, so cleared positions remain legal after reload. Maps are not mutated. Held sprite/swing/grass bending/selection highlight are transient. No offline progress is added.
+
+---
+
 # v0.6.1 — unchanged schema 10, partial-hour fatigue
 
 No new saved field or version migration. Existing plots/dug beds/wet patches/progress remain. fatigueMinutes now validates a finite remainder in [0,60), following the new 60-minute drain interval. Previous [0,30) values remain valid and are preserved rather than triggering an immediate charge/reset. Held can, pouring duration, hand/nozzle pose and soil caches are transient and reconstructed from existing selected tool/character/position. Regression covers partial-hour roundtrip and old schema-9 fatigue.

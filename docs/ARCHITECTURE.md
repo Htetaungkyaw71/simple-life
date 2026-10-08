@@ -1,3 +1,11 @@
+# v0.6.2 — state-aware vegetation
+
+src/data/vegetation.js registers authored tree props/root masks and original grass under stable coordinate identities with spatial buckets. src/systems/vegetation.js owns pure nearby cutting/gathering/placement validation and atomic energy/inventory/removal updates. State stores removals/placed clumps separately from immutable map data, with farm-specific keys. Shared walkability/line-clear/save/jump/combat queries consume removed roots. Outside Forest, the existing static collision group is rebuilt only after cutting; Forest keeps shared pure queries.
+
+worldArt records exact sprites/shadows; VegetationView destroys removed visuals and filters canopy motion. GrassView refreshes data buckets while retaining its camera-local pool. Existing ForestView checks fruit availability against cut fruit trees. The prior HeldWateringCan hand attachment also hosts shovel/axe to preserve hand/pivot/direction contracts. WorldScene routes nearby pointer/keyboard use; Application applies pure results, feedback, effects and saves. Gear/hotbar remains in the separate Phaser UI canvas scene. No DOM HUD, architecture replacement, backend or runtime remote asset.
+
+---
+
 # v0.6.1 — held tool rendering and energy data
 
 PlayerView owns a HeldWateringCan instance; its update follows foot position/facing/character scale/jump height and selected Water state. Held tool pause/pose is transient. Atmosphere.pour reuses it and animates droplets from its nozzle to the existing action target. New local watering-can-item resolves in town for both HUD and world. data/energy.js supplies farming costs and fatigue interval to pure systems/save validation. Existing plot/ground/time architecture and schema-10 fields remain.

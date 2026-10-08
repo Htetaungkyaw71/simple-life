@@ -13,7 +13,7 @@ test('starter reward is exactly three, once across save/continue, fresh in a new
 });
 test('legacy crops expand without reordering and City saves migrate safely into the opened town',()=>{
  const old=newState('girl');old.version=1;old.area='city';old.money=217;old.plots=old.plots.slice(0,6);old.plots[5]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};delete old.starterSeedsClaimed;
- const s=validate(old);assert.equal(s.version,10);assert.equal(s.area,'city');assert.ok(walkable('city',s.position.x,s.position.y));assert.equal(s.money,217);for(const [key,value]of Object.entries(old.plots[5]))assert.deepEqual(s.plots[5][key],value);assert.equal(s.plots.length,64);assert.equal(s.plots[15].crop,null);assert.equal(s.starterSeedsClaimed,false);
+ const s=validate(old);assert.equal(s.version,11);assert.equal(s.area,'city');assert.ok(walkable('city',s.position.x,s.position.y));assert.equal(s.money,217);for(const [key,value]of Object.entries(old.plots[5]))assert.deepEqual(s.plots[5][key],key==='growth'?1:value);assert.equal(s.plots.length,64);assert.equal(s.plots[15].crop,null);assert.equal(s.starterSeedsClaimed,false);
  old.area='home';old.position={x:370,y:350};assert.equal(validate(old).area,'interior');
 });
 test('house solids cover walls, corners, windows and rear; porch and door remain accessible',()=>{
@@ -36,5 +36,5 @@ test('pond surfaces are walkable, adjacent banks remain usable and cans refill o
 test('all sixteen crop states round-trip and harvested cells remain empty',()=>{
  const s=newState();s.area='farm';s.position={...PLOTS[0]};s.starterSeedsClaimed=true;
  const variants=[{crop:null,growth:0,morning:false,evening:false,dryDays:0},{crop:'tomato',growth:0,morning:false,evening:false,dryDays:0},{crop:'tomato',growth:0,morning:true,evening:false,dryDays:0},{crop:'tomato',growth:1,morning:false,evening:false,dryDays:0},{crop:'tomato',growth:2,morning:true,evening:true,dryDays:0},{crop:'tomato',growth:3,morning:false,evening:false,dryDays:0},{crop:'tomato',growth:1,morning:false,evening:false,dryDays:1},{crop:'tomato',growth:1,morning:false,evening:false,dryDays:2}];
- s.plots=s.plots.map((p,i)=>i>=16?p:({...variants[i%variants.length],missedWindows:variants[i%variants.length].dryDays,lastEvaluatedWindow:-1}));const restored=validate(JSON.parse(JSON.stringify(s)));assert.deepEqual(restored.plots,s.plots);assert.equal(restored.starterSeedsClaimed,true);
+ s.plots=s.plots.map((p,i)=>i>=16?p:({...variants[i%variants.length],missedWindows:variants[i%variants.length].dryDays,lastEvaluatedWindow:-1}));const restored=validate(JSON.parse(JSON.stringify(s)));assert.deepEqual(restored.plots,s.plots.map(p=>({...p,growth:Math.min(p.growth,1)})));assert.equal(restored.starterSeedsClaimed,true);
 });
