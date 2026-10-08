@@ -1,0 +1,40 @@
+{
+  "source_size": [
+    128,
+    64
+  ],
+  "source_visible_pixels": 1024,
+  "old_space_crop_size": [
+    3,
+    7
+  ],
+  "old_space_visible_pixels": 0,
+  "colour_variants": [
+    {
+      "rgb": "#423a32",
+      "visible_pixels": 1024,
+      "alpha_unchanged": true
+    },
+    {
+      "rgb": "#35462e",
+      "visible_pixels": 1024,
+      "alpha_unchanged": true
+    },
+    {
+      "rgb": "#747154",
+      "visible_pixels": 1024,
+      "alpha_unchanged": true
+    },
+    {
+      "rgb": "#a37035",
+      "visible_pixels": 1024,
+      "alpha_unchanged": true
+    },
+    {
+      "rgb": "#fffbe5",
+      "visible_pixels": 1024,
+      "alpha_unchanged": true
+    }
+  ],
+  "method": "Offline Pillow alpha/composite check of original font.png; not a browser capture"
+}

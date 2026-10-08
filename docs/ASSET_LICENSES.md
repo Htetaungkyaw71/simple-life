@@ -1,3 +1,8 @@
+# v0.5.2 font recovery provenance
+Only source lookup changes: the existing original font sheet is copied whole into cached in-memory colour variants. All eight allowlisted art files remain byte-identical to db8f98f; no new pack/font/dependency or licence. Source evidence: assets/licenses/font-recovery.md; audit: verification/font-recovery/runtime-audit.json.
+
+---
+
 # v0.5.1 cached font colours
 Original local font pixels are recoloured into in-memory UI textures using their alpha mask and unchanged metrics. No new font/pack/file/dependency is downloaded or packaged; all eight allowlisted runtime art files remain byte-identical to aad0861. Original project art/code attribution and existing licensed title/world assets remain. Evidence: assets/licenses/ui-readability.md and verification/ui-fixes/runtime-audit.json.
 

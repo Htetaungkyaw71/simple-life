@@ -1,3 +1,8 @@
+# v0.5.2 missing-glyph regression
+Pinned Phaser 3.90 BitmapFontFile passes its texture into ParseXMLBitmapFont, which calls Texture.add for each glyph. Texture.add changes firstFrame from __BASE to SPACE; Texture.get(null) then selects SPACE. A new colour texture must copy the explicit base sheet. The strengthened existing test invokes the actual XML parser, Texture.add/get and Canvas renderer, asserting the full 128×64 copy and all five UI colours. It fails before the fix and passes after it. The earlier adapter always returned the full sheet and masked this bug; it now models the transparent SPACE default. Stub engine tests and offline pixel studies do not certify a live browser.
+
+---
+
 # v0.5.1 renderer regression
 Phaser 3.90's `BitmapTextCanvasRenderer.js` samples the font image without applying tint. Do not rely on BitmapText.setTint for Canvas UI contrast. Shared labels now select cached coloured font images with unchanged alpha/metrics; WebGL uses neutral white tint on the same coloured sources. A Node regression executes the pinned Canvas renderer with stub transforms/context and checks that it draws the coloured cached image. This supplements tests; actual browser acceptance remains pending. Clock formatting floors fractional gameplay minutes before modulo/12-hour conversion. Tool numeric overlays are removed while shortcuts/counts remain; Forest Map now has a text label.
 

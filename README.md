@@ -1,8 +1,8 @@
 # Simple Life — Leaf and parchment UI
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.5.1**, schema **9**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.5.2**, schema **9**.
 
-The v0.5.1 repair uses cached coloured font pixels for readable Canvas/WebGL text, whole-minute clock formatting and a clearly labelled Forest Map control; tool slots no longer show 1/2/3 badges. Keyboard shortcuts remain.
+The v0.5.2 repair restores missing UI text by copying the complete font sheet rather than the transparent SPACE glyph. The earlier whole-minute clock, labelled Forest Map control and removal of 1/2/3 tool badges remain. Font evidence: docs/verification/font-recovery.
 
 The current interface uses original cream/olive pixel frames, a scenic forest title, a heart meter, a compact clock/coin badge and a bottom icon hotbar. Bag, shops, pause, help, farming and confirmation screens share this theme. The bag has seed/produce/food/gear icon grids. The forest-only parchment map reveals explored terrain and rivers with a player-facing arrow; details are optional. Supplied screenshots guide style only.
 

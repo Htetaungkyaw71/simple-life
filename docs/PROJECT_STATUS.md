@@ -1,3 +1,13 @@
+# v0.5.2 — Missing font recovery, 2026-10-08
+
+Corrected the disappearing UI text reported after v0.5.1. Phaser's XML bitmap-font loader adds individual glyph frames to the source texture, making SPACE the first frame. Passing the cached null frame to getFrame selected that transparent 3×7 glyph. The colour helper now explicitly selects __BASE for a null font frame, copying the complete 128×64 sheet and retaining all original glyph metrics/alpha and theme colours.
+
+The strengthened regression executes the actual pinned XML parser and Texture.add/get before the Canvas renderer. It failed on the previous code (3×7 instead of 128×64) and passes after the correction. The offline adapter now models the blank default frame and rejects blank source text. Checks: 125/125 tests, production build and whitespace pass; eight runtime art files unchanged from db8f98f; 12 production files / 2,016,395 bytes. Read-only HTTP confirms preview 4175 serves index-CO_PAf13.js byte-identically to dist. Evidence: verification/font-recovery. Schema remains 9.
+
+Forty-two labelled offline UI studies were generated; five retained, shop and portrait bag visually inspected. A separate pixel audit confirms the former SPACE crop has zero visible pixels while the full sheet retains 1,024 visible pixels across colour variants. These are supplemental offline/engine checks. Live browser interaction/rendering QA remains blocked by the previously recorded local-URL policy rejection and is unverified. No live save access, publication or push.
+
+---
+
 # v0.5.1 — UI readability repairs, 2026-10-08
 
 Fixed the white UI text shown in the user's screenshots. Phaser 3.90 Canvas BitmapText draws its source texture and ignores tint; the v0.5.0 offline adapter incorrectly assumed tint would affect Canvas text. `coloredFont.js` now caches coloured local font textures using the original alpha mask/metrics. Every shared UI label/button uses those pixels directly, so dark olive, muted and gold text appears on cream panels in Canvas and WebGL. Light title/world labels retain their intentional cream colours.

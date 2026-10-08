@@ -48,7 +48,7 @@ for p in sorted(Path('/tmp/simplelife-notebook-ui').glob('*.json')):
    if n.get('tint') is not None:
     tinted=Image.new('RGBA',art.size,(*color(n['tint']),255));tinted.putalpha(art.getchannel('A'));art=tinted
    xx=x-n['ox']*art.width*sx;yy=y-n['oy']*art.height*sy;patch(art.resize((round(art.width*sx),round(art.height*sy)),Image.Resampling.NEAREST),xx,yy,alpha)
-  elif kind=='text':
+  elif kind=='text' and n.get('fontHasInk',True):
    size=n['size'];rows=lines(n['text'],size,n.get('maxWidth'));tw=max(advance(s,size) for s in rows);th=len(rows)*size/8*10;x-=tw*n['ox']*sx;y-=th*n['oy']*sy
    for i,line in enumerate(rows):
     xx=x+(tw-advance(line,size))*sx/2 if n.get('align')=='center' else x

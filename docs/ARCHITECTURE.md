@@ -1,3 +1,8 @@
+# v0.5.2 full font-frame selection
+The local bitmap-font cache has frame:null after XML loading. Glyph frames change the texture's firstFrame to SPACE, so getFrame(texture,null) cannot identify the full sheet. colouredFont now substitutes the explicit __BASE frame for null/undefined, retaining named-frame support, original metrics and cached nearest-filtered colour variants. No new rendering system or persistent state.
+
+---
+
 # v0.5.1 Canvas font colour repair
 `coloredFont.js` creates one nearest-filtered 128×64 local canvas texture/cache entry per UI colour, compositing the original font mask with source-in. It shares the original BitmapFont metrics, draws the coloured texture directly and avoids Canvas's ignored tint property. `pixelWidgets.text` selects that font key; no renderer switch, font download or saved field is needed. Whole-minute clock formatting and a labelled Forest Map action remove the remaining HUD ambiguity; numeric tool badges are gone.
 

@@ -1,3 +1,8 @@
+# v0.5.2 font recovery
+125/125 tests and production build pass. The pinned-loader/texture/Canvas regression reproduces the previous invisible-text failure, then verifies the full sheet is copied. Original alpha audit: zero visible pixels in the former 3×7 SPACE crop, 1,024 in the complete 128×64 sheet. Eight runtime art files are unchanged; HTTP serves the current build. Logs, hashes, pixel audit and five selected labelled offline studies: verification/font-recovery. Forty-two studies generated; shop and portrait bag inspected. Browser acceptance remains unverified because of the existing local-URL policy rejection; no bypass or user save access.
+
+---
+
 # v0.5.1 UI repairs
 125/125 tests pass; build succeeds. New coverage: real pinned Canvas BitmapText renderer source selection for four UI colours and font-cache reuse; fractional clock boundaries across the day; actual Forest HUD Map action/menu generation at all seven viewports. Numeric tool overlays are absent. Existing gameplay, bag, discovery, bounds and save tests remain green.
 

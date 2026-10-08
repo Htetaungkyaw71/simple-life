@@ -1,3 +1,8 @@
+# v0.5.2 — Font lookup repair
+Codex (GPT-6 family; exact backend identifier unavailable) diagnosed the missing text using pinned Phaser loader/parser/texture source, corrected the full-sheet selection, strengthened the engine regression and offline adapter, and ran tests/build/asset/HTTP/pixel checks with documentation. The regression failed before the change and passed afterward. No generated or downloaded art, new dependency, subagent, external message, publication or push. Live browser QA remains blocked; offline studies are explicitly labelled.
+
+---
+
 # v0.5.1 — UI bug repair
 Codex investigated user screenshots and pinned Phaser Canvas source, corrected an earlier offline tint assumption, implemented cached font colours/whole-minute clock formatting, removed numeric tool badges, clarified the Forest Map action, updated the test adapter and exercised the pinned renderer in a Node regression. AI-assisted code and documentation; no image model, external asset/dependency or reference-pixel extraction. 125 tests/build pass. Offline studies and stub-context engine tests do not certify browser acceptance, which remains blocked by URL policy.
 
