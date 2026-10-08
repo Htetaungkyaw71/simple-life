@@ -1,6 +1,7 @@
 // Forest-only olive foliage treatment; native silhouettes, bark and fruit stay.
 export const FOREST_LEAF_TONES=[[43,51,31],[58,69,36],[78,91,43],[103,116,53],[129,140,68],[154,164,88],[181,187,116],[207,211,155]];
 export function forestLeafColor(r,g,b){
+ if(r===52&&g===52&&b===79)return FOREST_LEAF_TONES[0];
  if(g<=r*1.03||g<b*.82||Math.max(r,g,b)-Math.min(r,g,b)<10)return [r,g,b];
  const light=.24*r+.60*g+.16*b,index=[44,65,87,110,137,165,195].filter(t=>light>=t).length;
  return FOREST_LEAF_TONES[index];

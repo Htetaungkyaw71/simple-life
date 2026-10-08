@@ -1,3 +1,8 @@
+# v0.4.8 roster/rendering follow-up
+Preserved pure systems, data-driven locations, Phaser world and separate fullscreen canvas UI. Only boars participate in saved combat; supplied quiet animals remain transient woodland views. Cache guards use existing territory/combat rules and saved stable boar IDs. Superseded extra animal rigs/credit data leave runtime. Original atlas canopy/palmetto/grass cells and cached deterministic forest-only soil/moss material extend existing rendering; no new backend/dependency or runtime source file. Schema 9 validation retains known progress and discards removed animal IDs. Historical architecture entries follow.
+
+---
+
 # v0.4.7 selected wildlife animation rigs
 The established Python atlas pipeline calls wildlife_sprites.py, curates only selected local cells and emits data-driven wildlifeSprites.js. Identical wildlife cell bytes share physical atlas rectangles with separate named aliases. Per-frame provenance remains in the source-only manifest. wildlifeArt.combatAnimalVisual is a pure selector for real frame counts/directions, source facing, idle fallback and per-direction origins. ForestView keeps existing combat/runtime/save inputs, rendering sprites/shadows and health/warning labels without changing gameplay systems. Flee art copies the current pose/origin. animalCredits.js supplies five linked Phaser UI pages; no DOM HUD or runtime asset request. Isolated tests/browser/wildlife-server.mjs prepares QA saves and read-only canvas telemetry, excluded from builds.
 

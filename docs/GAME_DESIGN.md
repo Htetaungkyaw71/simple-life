@@ -1,3 +1,8 @@
+# v0.4.8 animal roster and forest style
+Latest user request supersedes the 22-species roster. Only Craftpix Boar, Deer, Hare, Fox and Grouse remain. Sixteen saved boars use the unchanged 3-hit/15-damage survival rules: the original Homewood pair and one sparse guard per existing cache. Eight quiet animals retain transient wandering/flee behaviour, no combat or rewards. All 20 region IDs, 63 forage IDs and 14 cache IDs/rewards survive; displayed animal-specific place names become Deepwood Thicket, Oldgrowth Grove, Sunlit Meadows, High Canopy and Stone Hollow. Danger is 1/5 where boars live, 0/5 in quiet regions. Dense forest clearings are reserved around fruit, guards, landmarks and connected passages rather than removed animal arenas. Farm/City/day/sleep/club and 25%-coin recovery remain. Older entries below are historical.
+
+---
+
 # v0.4.7 animal visual upgrade
 Fifteen existing species receive external asset-based art, with recognisable coats and actual source animation capabilities. Existing Craftpix Boar remains; six combat species still use original art. This is presentation only: unchanged animal species/counts, territories, health/damage/awareness, attack warning/charge/recovery, club energy/cooldown, Hide reward and daily revival/saved defeat. See assets/licenses/wildlife-sprites/SOURCE_RECORD.md.
 

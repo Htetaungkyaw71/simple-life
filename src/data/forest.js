@@ -9,10 +9,10 @@ export const BOAR_HOME={x:936,y:4472};
 export const BOAR_TERRITORY=[736,4272,400,320];
 const names=[
  ['frost','Frost Lake','snow',5,'polarBear'],['highland','Cloud Highlands','highland',4,'gorilla'],['basalt','Basalt Caves','stone',4,'komodo'],['pride','Sunstone Savanna','savanna',5,'lion'],
- ['bamboo','Bamboo Sanctuary','bamboo',2,'panda'],['leopard','Dappled Glade','jungle',4,'leopard'],['tiger','Tiger Thicket','jungle',5,'tiger'],['cheetah','Windgrass Plain','savanna',4,'cheetah'],
- ['guava','Guava Valley','jungle',2,'chimpanzee'],['rhino','Hornstone Basin','savanna',4,'rhinoceros'],['elephant','Elephant Grove','savanna',4,'elephant'],['herds','Longneck Meadows','savanna',2,'giraffe'],
+ ['bamboo','Bamboo Sanctuary','bamboo',2,'panda'],['leopard','Dappled Glade','jungle',4,'leopard'],['tiger','Deepwood Thicket','jungle',5,'tiger'],['cheetah','Windgrass Plain','savanna',4,'cheetah'],
+ ['guava','Guava Valley','jungle',2,'chimpanzee'],['rhino','Hornstone Basin','savanna',4,'rhinoceros'],['elephant','Oldgrowth Grove','savanna',4,'elephant'],['herds','Sunlit Meadows','savanna',2,'giraffe'],
  ['jaguar','Emerald Banks','jungle',5,'jaguar'],['wolf','Whispering Pines','pine',3,'wolf'],['hyena','Broken Sun Ruins','stone',3,'hyena'],['brush','Redbrush Reach','savanna',2,'kangaroo'],
- ['entrance','Homewood','wood',1,'boar'],['river','Riverbend Marsh','marsh',4,'crocodile'],['canopy','Monkey Canopy','jungle',1,'monkey'],['snake','Serpent Hollow','stone',3,'snake'],
+ ['entrance','Homewood','wood',1,'boar'],['river','Riverbend Marsh','marsh',4,'crocodile'],['canopy','High Canopy','jungle',1,'monkey'],['snake','Stone Hollow','stone',3,'snake'],
 ];
 export const REGIONS=names.map(([id,name,biome,danger,species],i)=>({id,name,biome,danger,species,x:(i%4)*1280,y:Math.floor(i/4)*1024,w:1280,h:1024}));
 export function forestRegion(p){return REGIONS.find(r=>p.x>=r.x&&p.x<r.x+r.w&&p.y>=r.y&&p.y<r.y+r.h)||REGIONS[16];}
@@ -31,7 +31,7 @@ for(const [i,r] of REGIONS.entries()){
  map.paths.push([x,y+672,1280,96],[x+448,y,96,1024],[x+448,y+480,384,80],[x+752,y+480,80,272],[x+bend,y+240,80,480],[x+bend,y+240,432-bend,80]);
  const landmark=r.id==='hyena'?'cp-ruins-brown-gray-3':r.biome==='stone'?'cave-mouth':r.biome==='snow'?'ice-crystal':r.id==='bamboo'?'bamboo-gate':r.id==='hyena'?'ruin-pillar':r.id==='herds'?'camp-tent':r.id==='jaguar'?'cp-ruins-water-3':'shrine-stone';
  map.props.push(prop(landmark,x+250,y+368));
- map.signs.push({type:'dialog',x:x+282,y:y+446,label:'Explore '+r.name,title:r.name,body:r.biome==='snow'?'Cold water, old ice and bear tracks. This is the farthest edge of the woods.':r.biome==='stone'?'A hidden stone chamber. Listen for movement before searching the shadows.':r.id==='jaguar'?'Earth banks overlook the river. Watch for spotted hunters near the far bank.':'Fruit and animal tracks mark this place. The main crossroads leads homeward to the southwest.'});
+ map.signs.push({type:'dialog',x:x+282,y:y+446,label:'Explore '+r.name,title:r.name,body:r.biome==='snow'?'Cold water and old ice. This is the farthest edge of the woods.':r.biome==='stone'?'A hidden stone chamber. Listen for movement before searching the shadows.':r.id==='jaguar'?'Earth banks overlook the river. Look for quiet groves near the far bank.':'Fruit and animal tracks mark this place. The main crossroads leads homeward to the southwest.'});
  map.props.push(prop('road-sign',x+560,y+774,{text:'HOME',direction:i%4?4:2}));
  map.signs.push({type:'hint',x:x+590,y:y+830,label:'HOME / southwest through Homewood'});
  // Three connected groves; the deepest fruit sits inside each species territory.
@@ -80,6 +80,8 @@ for(let n=0;n<44;n++)for(const [x,y]of [[n*120-16,-32],[-44,n*120],[5064,n*120],
  map.props.push(prop('tree',x,y));
 }
 export const TREASURES=REGIONS.filter(r=>r.danger>=3&&r.id!=='entrance').map((r,i)=>({id:r.id+'-cache',region:r.id,x:r.x+(r.id==='snake'?282:r.x===1280?992:1056),y:r.y+(r.id==='snake'?280:392),coins:120+r.danger*45+i*13,clue:'Look beyond the '+(r.biome==='stone'?'cave mouth':r.biome==='snow'?'frozen lake':'animal tracks')+'.'}));
+// Stable region/cache IDs and rewards survive the animal roster change.
+for(const r of REGIONS){r.species=r.id==='entrance'||TREASURES.some(t=>t.region===r.id)?'boar':'woodland';r.danger=r.species==='boar'?1:0;}
 // Curated ruin fragments and colourful animated flora frame off-road landmarks.
 for(const r of REGIONS){
  if(r.id==='entrance')continue;

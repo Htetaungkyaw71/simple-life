@@ -1,3 +1,14 @@
+# Reference forest and supplied-only animals — 2026-10-08, v0.4.8 / schema 9
+Latest user scope keeps only Craftpix Boar/Deer/Hare/Fox/Grouse, removing all other animal definitions/spawns/atlas art and former extra-animal credit pages. Sixteen saved boars remain: the original Homewood pair plus one sparse guard per existing cache. Eight quiet animals retain native animation/flee behaviour. Original boar health/IDs, all region/cache/forage IDs/rewards, farming/City/day/sleep/club and 25%-coin recovery survive schema-9 validation; removed species records are ignored.
+
+Five supplied reference images guide denser layered olive crowns, fuller palms, low palmettos, irregular responsive grass, sharp moss islands, small flowers and warm bare soil. Seven original native canopy/palmetto frames and 27 revised grass cells are code-authored with Codex assistance; references are not sampled. Forest has **2,512 trees + 47 bamboo stands / 353 palmettos / 7,945 grass clumps**. Cleared passages/landmarks/fruit/guard homes stay navigable. Natural shores, dry roots, grass-free bridges, walkable water/free jumping remain; no raised banks/teal ferns/roads/waterfalls return. Forest-only olive outlines/colours leave other locations intact.
+
+Checks: **106/106 tests**, production build, whitespace, connected-route/save/material/animal checks and pixel/allowlist audit pass. Atlas: 474 frames, seven new / 447 removed / 27 modified, 440 retained cells and all 258 Craftpix cells pixel-identical; six other art files including farmers byte-identical. Production **12 files / eight art files / 2,004,320 bytes**. Local preview 4175 responds with the current build. Source/AI/evidence: assets/licenses/forest-reference.md and verification/forest-reference.
+
+**Limitation:** browser URL policy still blocks native interaction QA. Labelled offline art studies were inspected; they are not Phaser/browser acceptance. Current grass/jump/water/combat/map/save/responsive/performance checks in a browser, physical devices/other engines and final human acceptance remain unverified. Existing supplied-pack rights limitations remain. User save untouched by QA. No push/publication/submission.
+
+---
+
 # Licensed animal improvement — 2026-10-08, v0.4.7 / schema 9
 Fifteen combat species replace their geometric placeholders with licensed asset silhouettes/poses: lion, polar bear, tiger, panda, wolf, hyena, elephant, cheetah, leopard, jaguar, monkey, kangaroo, snake, zebra and crocodile. Existing animated Craftpix Boar remains; **16/22 combat species now use external asset bases**. Giraffe, hippo, rhino, chimpanzee, gorilla and Komodo retain original project art. Coat adaptations are identified honestly; side/idle-only sources are not claimed to contain four-direction walks. The supplied endangered sheet contributes five Florida panther poses; the supplied vermin ZIP is excluded as a poor species match.
 

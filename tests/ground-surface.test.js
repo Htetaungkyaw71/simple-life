@@ -17,9 +17,13 @@ test('bank distances follow the actual water union, including narrow bends and i
 test('neighbouring habitat colours blend at their shared boundary',()=>{
  const w=160,h=100,pixels=new Uint8ClampedArray(w*h*4);
  paintGround(pixels,w,h,[{x:0,y:0,w:160,h:200,biome:'jungle'},{x:160,y:0,w:160,h:200,biome:'savanna'}]);
- const rgb=(x,y)=>pixels.slice((y*w+x)*4,(y*w+x)*4+3);
- for(let y=0;y<h;y++)assert.ok(Math.max(...rgb(79,y).map((v,c)=>Math.abs(v-rgb(80,y)[c])))<=6,'no hard colour seam');
- assert.ok(rgb(145,50)[0]-rgb(15,50)[0]>30,'habitats keep distinct palettes');
+ const jungle=new Uint8ClampedArray(pixels.length),savanna=new Uint8ClampedArray(pixels.length);
+ paintGround(jungle,w,h,[{x:0,y:0,w:320,h:200,biome:'jungle'}]);paintGround(savanna,w,h,[{x:0,y:0,w:320,h:200,biome:'savanna'}]);
+ // Compare palette blending independently of the intentional sharp moss edges.
+ for(let y=0;y<h;y++)for(const x of [79,80])for(let c=0;c<3;c++){const i=(y*w+x)*4+c;assert.ok(Math.abs(pixels[i]-(jungle[i]+savanna[i])/2)<=1,'shared habitat edge blends the two palettes');}
+ const fields=paintGround(pixels,w,h,[{x:0,y:0,w:160,h:200,biome:'jungle'},{x:160,y:0,w:160,h:200,biome:'savanna'}]);
+ assert.ok(fields.soil.some(Boolean),'forest has exposed soil pockets');
+
 });
 test('deep channel is darker than shallow water, and distant land stays intact',()=>{
  const w=100,h=100,water=new Uint8Array(w*h),pixels=new Uint8ClampedArray(w*h*4),fields=paintGround(pixels,w,h),land=pixels.slice(0,4);

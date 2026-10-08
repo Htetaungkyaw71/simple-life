@@ -2,47 +2,20 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {SPECIES} from '../src/data/wildlife.js';
-import {combatAnimalVisual} from '../src/data/wildlifeArt.js';
-import {WILDLIFE_SPRITES} from '../src/data/wildlifeSprites.js';
-import {ANIMAL_CREDITS} from '../src/data/animalCredits.js';
+import {combatAnimalVisual,wildlifeFrame,WOODLAND_WILDLIFE} from '../src/data/wildlifeArt.js';
 const atlas=JSON.parse(readFileSync('public/assets/pixel/processed/town.json'));
 const manifest=JSON.parse(readFileSync('public/assets/pixel/processed/manifest.json'));
-test('all 22 combat species resolve real local frames for every direction and combat phase',()=>{
- assert.equal(Object.keys(SPECIES).length,22);
- for(const species of Object.keys(SPECIES))for(const direction of ['up','down','left','right'])for(const action of ['idle','walk','run','attack'])for(let now=0;now<2300;now+=85){
-  const pose=combatAnimalVisual(species,action,direction,now);
-  assert.ok(atlas.frames[pose.frame],pose.frame);
-  assert.ok(pose.originY>0&&pose.originY<=1,pose.frame);
- }
+test('the five supplied animal identities resolve native local directional animations',()=>{
+ assert.deepEqual(Object.keys(SPECIES),['boar']);assert.deepEqual([...new Set(WOODLAND_WILDLIFE.map(a=>a.species))].sort(),['deer','fox','grouse','hare']);
+ for(const species of ['boar','deer','hare','fox','grouse'])for(const direction of ['up','down','left','right'])for(const action of species==='boar'?['idle','walk','run','attack']:['idle','walk'])for(let now=0;now<2300;now+=85){const frame=wildlifeFrame(species,action,direction,now);assert.ok(atlas.frames[frame],frame);assert.ok(manifest.craftpixFrames[frame],frame);}
 });
-test('directional assets stay unmirrored; side assets face the movement and retain their last horizontal facing',()=>{
- for(const species of ['lion','polarBear','tiger','panda','elephant','crocodile'])for(const direction of ['up','down','left','right']){
-  const pose=combatAnimalVisual(species,'walk',direction,140);
-  assert.ok(pose.frame.includes('-'+direction+'-'));assert.equal(pose.flipX,false);
- }
- assert.equal(combatAnimalVisual('wolf','run','left',85).flipX,false);
- assert.equal(combatAnimalVisual('wolf','run','right',85).flipX,true);
- assert.equal(combatAnimalVisual('monkey','walk','right',140).flipX,false);
- assert.equal(combatAnimalVisual('monkey','walk','up',140,'left').flipX,true);
- assert.equal(combatAnimalVisual('cheetah','attack','right',0).frame,'wa-cheetah-idle-side-0');
- assert.equal(combatAnimalVisual('polarBear','attack','down',140).frame,'wa-polarBear-attack-down-1');
+test('retained boar poses use four real directions with stable feet and no mirroring',()=>{
+ for(const direction of ['up','down','left','right'])for(const action of ['idle','walk','run','attack']){const pose=combatAnimalVisual('boar',action,direction,140);assert.ok(pose.frame.startsWith('cp-boar-'+action+'-'+direction));assert.equal(pose.flipX,false);assert.equal(pose.originY,.9);}
 });
-test('15 curated species have stable integer source-pixel feet, complete provenance and no superseded placeholder cells',()=>{
- assert.equal(Object.keys(WILDLIFE_SPRITES).length,15);
- for(const [species,rig] of Object.entries(WILDLIFE_SPRITES)){
-  for(let i=0;i<4;i++)assert.ok(!atlas.frames[species+i]);
-  for(const origin of Object.values(rig.origins))assert.ok(Math.abs(origin*rig.height-Math.round(origin*rig.height))<1e-9);
-  const selected=Object.entries(manifest.wildlifeFrames).filter(([id])=>id.startsWith('wa-'+species+'-'));
-  assert.ok(selected.length);
-  for(const [id,p] of selected){
-   assert.ok(p.creator&&p.license&&p.source&&p.file);assert.equal(p.rectangle.length,4);assert.equal(p.commonTrim.length,4);
-   assert.ok(!manifest.originalAdditions.includes(id));
-   assert.equal(atlas.frames[id].frame.w,rig.width);assert.equal(atlas.frames[id].frame.h,rig.height);
-  }
- }
+test('the production atlas excludes all removed animal packs and geometric placeholders',()=>{
+ assert.deepEqual(manifest.wildlifeFrames,{});assert.ok(!Object.keys(atlas.frames).some(id=>id.startsWith('wa-')));
+ for(const name of ['boar','lion','tiger','cheetah','leopard','jaguar','wolf','hyena','elephant','giraffe','hippopotamus','zebra','rhinoceros','kangaroo','panda','polarBear','chimpanzee','gorilla','monkey','crocodile','komodo','snake'])for(let n=0;n<4;n++)assert.ok(!atlas.frames[name+n],name+n);
 });
-test('every selected creator is credited with a direct source and required licence links',()=>{
- const credits=JSON.stringify(ANIMAL_CREDITS);
- for(const p of Object.values(manifest.wildlifeFrames))assert.ok(credits.includes(p.source),p.source);
- for(const url of ['https://creativecommons.org/licenses/by/3.0/','https://static.opengameart.org/OGA-BY-3.0.txt'])assert.ok(credits.includes(url));
+test('selected animal frames retain the existing Craftpix provenance',()=>{
+ for(const [id,p] of Object.entries(manifest.craftpixFrames).filter(([id])=>/^cp-(boar|deer|hare|fox|grouse)-/.test(id))){assert.ok(atlas.frames[id]);assert.ok(p.file&&p.rectangle,JSON.stringify(p));assert.ok(!manifest.originalAdditions.includes(id));}
 });

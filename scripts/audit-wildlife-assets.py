@@ -2,6 +2,8 @@
 from pathlib import Path
 from PIL import Image,ImageDraw
 import hashlib,io,json,subprocess,zipfile
+if not Path('src/data/wildlifeSprites.js').exists():
+ raise SystemExit('Historical v0.4.7 audit: run from the v0.4.7 checkout. Current checks: docs/verification/forest-reference/VERIFICATION.md.')
 base=Path('public/assets/pixel');out=Path('docs/verification/wildlife-sprites');out.mkdir(exist_ok=True)
 atlas=Image.open(base/'processed/town.png').convert('RGBA');frames=json.loads((base/'processed/town.json').read_text())['frames']
 rigs=json.loads(Path('src/data/wildlifeSprites.js').read_text().split('=',1)[1].rstrip(';\n'))

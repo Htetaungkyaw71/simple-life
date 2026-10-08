@@ -1,3 +1,8 @@
+# v0.4.8 reference forest
+Use the five supplied images as visual reference for dense layered olive crowns, fuller palms, olive ink, irregular responsive grass clumps, crisp moss islands, small flowers and warm bare earth. Original native code-authored canopy/palmetto frames supplement retained licensed environment art. Reference assets/pixels/layouts are not extracted. Keep dry roots, clear grassy passages, walkable shores, free jumps and grass-free bridges. No raised banks, roads, waterfalls or teal ferns. Only the five Craftpix animal identities remain. Earlier entries below are historical.
+
+---
+
 # v0.4.7 recognisable asset-based wildlife
 Use selected licensed animal silhouettes with integer 2× display, native alpha and per-direction source-pixel ground anchors. Preserve actual pack capabilities: orthogonal walks where supplied; horizontal mirroring and remembered facing for side-only packs; idle loops where no authored walks exist. Retain species warning/health readability and add restrained ground shadows. Match coat identity through orange tiger stripes, ivory/charcoal panda and zebra, spotted tawny hyena, differing big-cat spots/rosettes and readable olive snake/crocodile scales. These are adaptations of credited animal art, not wholly original species illustrations. No change to approved forest/farmer pixels. Fifteen new replacements plus retained Craftpix Boar; six original species remain. Evidence: assets/licenses/wildlife-sprites/SOURCE_RECORD.md and verification/wildlife-sprites.
 

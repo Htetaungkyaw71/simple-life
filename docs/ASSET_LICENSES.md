@@ -1,3 +1,8 @@
+# v0.4.8 current art sources — 2026-10-08
+Only the five supplied Craftpix Hunt animal species remain. Former extra-animal packs/placeholders are excluded from the runtime atlas; old licence records remain historical evidence. Seven new original code-authored canopy/palmetto cells and 27 revised grass cells are AI-assisted project work; five screenshots guide style without pixel/layout extraction. Existing Craftpix/LimeZu/ToffeeCraft/Channeechan/Eris Esra terms remain. [Source/modification/audit record](assets/licenses/forest-reference.md). No new download or publication; previous public prize-entry rights limitations remain unresolved.
+
+---
+
 # v0.4.7 selected animal source licences — 2026-10-08
 Fifteen more combat species use selected licensed animal pixels: tapatilorenzo CC0 exception (non-Sevarihk lion/bears), ScratchIO CC0 wolf, lawnjelly + AntumDeluge CC BY 3.0 elephant, bleutailfly OGA-BY 3.0 crocodile, Ilaria Lazzarotto creator-permitted game/modification Florida panther poses, and Stojkea creator-permitted game/edit animal poses. Native versus adapted species, licence text/pages, fingerprints, rectangles and source restrictions: [full animal record](assets/licenses/wildlife-sprites/SOURCE_RECORD.md). In-game linked credits added. The creator-restricted standalone originals remain outside the repository; unrestricted vendor archives are excluded from production. The supplied basic vermin ZIP is unused. Existing asset/dependency records remain independently applicable.
 

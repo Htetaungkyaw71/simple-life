@@ -1,3 +1,4 @@
+# Historical v0.4.7 extractor; excluded from the active v0.4.8 art pipeline.
 """Curate licensed animal pixels, with explicit species adaptations.
 
 Only selected animation cells join the town atlas. No generative model,

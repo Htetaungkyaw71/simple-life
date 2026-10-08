@@ -1,3 +1,8 @@
+# v0.4.8 scope clarification
+The user explicitly removes all animals except the supplied Craftpix Hunt pack and requests the five-image forest style. This supersedes the former all-species requirement. All four reference PDFs/master prompt were checked as requirements evidence; reference art is visual guidance, not copied game pixels/layouts. Local runtime, original/credited art, AI disclosure and no-publication scope remain. Native browser QA is currently blocked by URL policy; offline art studies are not browser acceptance.
+
+---
+
 # v0.4.3 scope and licence clarification
 All four supplied reference PDFs and the master prompt were reread as requirements evidence. The user explicitly requests local noncommercial FreeEnvironment integration and a compatible Channeechan replacement for Mana Seed; this supersedes the earlier free-pack blanket exclusion/master-prompt noncommercial-asset preference. Competition participation alone is not commercial use. Channeechan/underlying Eris Esra game rights are recorded and credited. ToffeeCraft Standard Free personal-game terms are recorded, but public prize-entry scope is not expressly clarified; final submission rights are not certified and require resolving that issue before publication/submission. No creator contact, purchase, upload, publication or submission performed. All canvas/local runtime/allowlist/testing/AI disclosure requirements remain.
 

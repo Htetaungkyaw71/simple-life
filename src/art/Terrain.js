@@ -26,7 +26,7 @@ export function terrain(scene,area,map){
  const water=new Uint8Array(w*h);
  for(const [x,y,pw]of waterRows(map)){const yy=Math.floor(y/2);if(yy<0||yy>=h)continue;for(let xx=Math.max(0,x/2);xx<Math.min(w,(x+pw)/2);xx++)water[yy*w+xx]=1;}
  const distance=shoreDistance(water,w,h);paintWater(pixels.data,water,distance,w,h,fields);
- ctx.putImageData(pixels,0,0);paintGroundDetails(ctx,w,h,mask,water,distance,map.biomes);
+ ctx.putImageData(pixels,0,0);paintGroundDetails(ctx,w,h,mask,water,distance,map.biomes,fields.soil);
  if(area==='city')scene.add.tileSprite(-1024,-1024,size.width+2048,size.height+2048,'town','grass0').setOrigin(0).setTileScale(2).setDepth(-3);
  texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);
 }

@@ -1,3 +1,8 @@
+# v0.4.8 technical update
+Five Craftpix animal identities only; 16 boar records and eight transient quiet animals. Schema 9 remains, removed animal records ignored and progress preserved. Forest adds original layered canopy art, 7,945 camera-local responsive grass clumps and cached deterministic moss/soil materials. 106 tests/build and unchanged eight-file art allowlist pass. Native browser/responsive/interaction/device performance checks for this denser version remain unverified because browser URL policy blocks access. Offline art studies are not browser tests; earlier timings/results below are historical. Local preview remains on 4175.
+
+---
+
 # v0.4.7 wildlife assets
 914 named town frames (419 new animal keys, 60 superseded placeholders removed); shared wildlife images deduplicated within the retained 1024×2048 atlas. 495 retained frame pixels and six other art files remain unchanged. Native integer 2× display, source-order direction mapping and per-direction foot anchors prevent mirroring errors/ground drift. Sprite bounds do not alter authoritative combat body radii, hitboxes, territory, difficulty or save state. The user sheet and Stojkea originals remain external regeneration inputs; override paths through SIMPLE_LIFE_ENDANGERED_PNG / SIMPLE_LIFE_ANIMALS_ZIP. Runtime build/play requires only committed local assets. Same eight-art-file allowlist; 12 files / 2,258,286 bytes. 103 tests and affected browser checks pass; evidence: verification/wildlife-sprites.
 

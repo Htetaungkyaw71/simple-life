@@ -1,3 +1,8 @@
+# v0.4.8 follow-up disclosure
+Codex assisted original native forest canopies/palms/palmettos/grass and deterministic ground materials, supplied-only animal cleanup, guards/save/map integration, tests/audit and offline art review. References inform style only. New project sprites are code-generated with AI assistance, not human hand-drawn work. 106 tests/build pass; browser acceptance and final human review remain pending due URL-policy restriction. See AI_USAGE.md and assets/licenses/forest-reference.md. Historical disclosures follow.
+
+---
+
 # v0.4.7 assistance disclosure
 Codex assisted licensed animal research/curation, native sprite processing, coat adaptations, data-driven animation/ground anchors, attribution UI, tests and isolated browser QA. Fifteen replacement species use separately credited external artwork; six remain original project art. This disclosure does not claim exclusive authorship of external pixels or signed human review. Full trace: AI_USAGE.md and assets/licenses/wildlife-sprites/SOURCE_RECORD.md.
 

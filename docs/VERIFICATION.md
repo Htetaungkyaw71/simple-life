@@ -1,3 +1,8 @@
+# v0.4.8 reference forest validation — 2026-10-08
+**106/106 tests**, production build, pixel/source/runtime allowlist and whitespace audits pass. Connected routes/guards/saves/removal/material checks retain farming/City/day/sleep/jump/water/recovery rules. Offline Homewood/Deepwood/riverbank art studies were inspected and are explicitly labelled. Native browser interaction/responsive/performance QA is blocked by browser URL policy and remains unverified; previous browser results below are historical. Local 4175 responds with the updated production build. [Checks, reproduction and limits](verification/forest-reference/VERIFICATION.md). No live-save QA edits, push, publication or submission.
+
+---
+
 # v0.4.7 animal validation — 2026-10-08
 103/103 npm tests, production build and pixel/source allowlist audit pass. Added tests cover all 22 species across actions/directions/time, side/four-direction facing and real warning fallback, stable native-pixel foot origins, complete provenance/removal of placeholders and creator/licence credits. Native CUA Continue checks render all fifteen new species in their habitats. Native Right/Space hits an isolated prepared one-health wolf, awards one Hide and hides its art/shadow; reload/Continue retains defeat/reward. Five artist credit pages and the Craftpix entry fit desktop, short landscape and portrait screens. WebGL wolf idle/walk/warning/run frames and frozen pause timing are verified; portrait Monkey labels and controls fit. Evidence/logs: verification/wildlife-sprites; full source/limits: assets/licenses/wildlife-sprites/SOURCE_RECORD.md. No full farming replay, physical-device or final human acceptance claim.
 

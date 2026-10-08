@@ -4,6 +4,7 @@ export function groundHash(x,y,salt=0){
  let n=Math.imul(x^salt,374761393)^Math.imul(y,668265263);n=Math.imul(n^(n>>>13),1274126177);return (n^(n>>>16))>>>0;
 }
 export const GROUND_PALETTES={wood:[137,154,99],jungle:[108,140,87],savanna:[163,157,101],pine:[114,140,103],marsh:[115,143,101],bamboo:[132,158,102],highland:[138,157,115],stone:[140,148,119],snow:[182,203,193]};
+export const FOREST_GROUND_PALETTES={wood:[145,157,99],jungle:[134,149,91],savanna:[150,158,102],pine:[129,144,91],marsh:[132,149,95],bamboo:[141,155,96],highland:[140,153,101],stone:[140,150,99],snow:GROUND_PALETTES.snow};
 function field(w,h,step,salt){
  const cols=Math.ceil(w/step)+2,rows=Math.ceil(h/step)+2,grid=new Float32Array(cols*rows),out=new Float32Array(w*h);
  for(let y=0;y<rows;y++)for(let x=0;x<cols;x++)grid[y*cols+x]=(groundHash(x,y,salt)%1024)/1023;
@@ -16,19 +17,23 @@ function field(w,h,step,salt){
  return out;
 }
 export function paintGround(pixels,w,h,biomes=[]){
+ const palette=biomes.length?FOREST_GROUND_PALETTES:GROUND_PALETTES,soil=new Uint8Array(w*h);
  const broad=field(w,h,84,417),small=field(w,h,27,916),regions=biomes.length?biomes:[{x:0,y:0,w:w*2,h:h*2,biome:'wood'}];
- const paletteAt=(x,y)=>GROUND_PALETTES[regions.find(r=>x>=r.x/2&&x<(r.x+r.w)/2&&y>=r.y/2&&y<(r.y+r.h)/2)?.biome]||GROUND_PALETTES.wood;
- for(const r of regions){const base=GROUND_PALETTES[r.biome]||GROUND_PALETTES.wood;
+ const paletteAt=(x,y)=>palette[regions.find(r=>x>=r.x/2&&x<(r.x+r.w)/2&&y>=r.y/2&&y<(r.y+r.h)/2)?.biome]||GROUND_PALETTES.wood;
+ for(const r of regions){const base=palette[r.biome]||GROUND_PALETTES.wood;
   const left=paletteAt(r.x/2-1,(r.y+r.h/2)/2),right=paletteAt((r.x+r.w)/2,(r.y+r.h/2)/2),up=paletteAt((r.x+r.w/2)/2,r.y/2-1),down=paletteAt((r.x+r.w/2)/2,(r.y+r.h)/2);
   for(let y=Math.max(0,r.y/2);y<Math.min(h,(r.y+r.h)/2);y++)for(let x=Math.max(0,r.x/2);x<Math.min(w,(r.x+r.w)/2);x++){
-   const p=y*w+x,i=p*4,shade=Math.floor((broad[p]-.5)*7)*3+Math.floor((small[p]-.5)*5)*2;
+   const p=y*w+x,i=p*4,shade=biomes.length?(broad[p]<.32?-20:broad[p]<.47?-9:2)+Math.floor((small[p]-.5)*4)*2:Math.floor((broad[p]-.5)*7)*3+Math.floor((small[p]-.5)*5)*2;
+   if(biomes.length&&r.biome!=='snow'&&((broad[p]>.69&&small[p]>.38)||(broad[p]>.62&&small[p]>.72))){soil[p]=1;const tone=Math.floor((small[p]-.5)*5)*3,grain=groundHash(Math.floor(x/2),Math.floor(y/2),107)%11===0?-6:0;for(let c=0;c<3;c++)pixels[i+c]=[130,70,48][c]+tone+grain;pixels[i+3]=255;continue;}
    const dx=x-r.x/2,dy=y-r.y/2,rx=(r.x+r.w)/2-x,by=(r.y+r.h)/2-y;
    const tx=dx<32&&r.x>0?(32-dx)/64:rx<32&&r.x+r.w<w*2?(32-rx)/64:0,ty=dy<32&&r.y>0?(32-dy)/64:by<32&&r.y+r.h<h*2?(32-by)/64:0;
    const horizontal=dx<32?left:right,vertical=dy<32?up:down;
    for(let c=0;c<3;c++)pixels[i+c]=(base[c]*(1-tx)+horizontal[c]*tx)*(1-ty)+vertical[c]*ty+shade;pixels[i+3]=255;
   }
  }
- return {broad,small};
+ // A narrow jagged turf edge separates bare earth from grass, with no ledge.
+ for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const p=y*w+x;if(!soil[p])continue;const above=!soil[p-w],side=!soil[p-1]||!soil[p+1],below=!soil[p+w];if(above||side||below){const c=above?[102,112,62]:below?[65,78,43]:[90,101,55];for(let k=0;k<3;k++)pixels[p*4+k]=c[k];}}
+ return {broad,small,soil};
 }
 // Distance to the opposite material, in source pixels, for a continuous bank.
 // Two linear sweeps avoid repeatedly searching every river/pond for every pixel.
@@ -83,8 +88,8 @@ export function paintWater(pixels,water,distance,w,h,fields){
   }
  }
 }
-export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[]){
- const safe=(x,y,pad=3)=>x>=pad&&y>=pad&&x<w-pad&&y<h-pad&&!water[y*w+x]&&!path[y*w+x]&&distance[y*w+x]>12;
+export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=null){
+ const safe=(x,y,pad=3)=>x>=pad&&y>=pad&&x<w-pad&&y<h-pad&&!water[y*w+x]&&!path[y*w+x]&&!soil?.[y*w+x]&&distance[y*w+x]>12;
  const dot=(color,x,y,ww=1,hh=1)=>{ctx.fillStyle=color;ctx.fillRect(x,y,ww,hh);};
  const biomeAt=(x,y)=>biomes.find(r=>x*2>=r.x&&x*2<r.x+r.w&&y*2>=r.y&&y*2<r.y+r.h)?.biome||'wood';
  for(let yy=6;yy<h-8;yy+=13)for(let xx=6;xx<w-8;xx+=13){
@@ -94,7 +99,7 @@ export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[]){
    continue;
   }
   if(!safe(x,y)||seed%7===0)continue;
-  const biome=biomeAt(x,y),snow=biome==='snow',dry=biome==='savanna',base=GROUND_PALETTES[biome]||GROUND_PALETTES.wood;
+  const biome=biomeAt(x,y),snow=biome==='snow',dry=biome==='savanna',base=(biomes.length?FOREST_GROUND_PALETTES:GROUND_PALETTES)[biome]||GROUND_PALETTES.wood;
   const dark=`rgb(${base[0]-24},${base[1]-25},${base[2]-18})`,light=`rgb(${base[0]+13},${base[1]+12},${base[2]+8})`;
   if(seed%19===0&&!snow&&biome!=='stone'){
    for(let n=0;n<3+seed%5;n++){
