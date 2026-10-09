@@ -6,11 +6,13 @@ export class Interface extends Phaser.Scene {
   constructor(app){super('UI');this.app=app;this.controls=[];this.menu=null;this.notice=null;}
   create(){
     this.app.ui=this;this.input.addPointer(3);this.scale.on('resize',()=>this.layout());
-    this.input.on('pointerup',pointer=>{for(const c of this.controls)c.release?.(pointer);});this.input.on('gameout',()=>{this.app.input={};});
+    const release=pointer=>{for(const c of this.controls)c.release?.(pointer);};this.input.on('pointerup',release);this.input.on('pointerupoutside',release);this.input.on('pointermove',pointer=>{for(const c of this.controls)c.move?.(pointer);});this.input.on('gameout',()=>this.resetMovement());
     this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;if(this.menu.kind==='bag'&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code)){e.preventDefault();this.app.bagPanel.move({ArrowLeft:-1,ArrowRight:1,ArrowUp:-4,ArrowDown:4}[e.code]);return;}if(this.menu.kind==='trade'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.tradePanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='survival'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.survivalPanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='wilderness'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.wildernessMap.move(e.code==='ArrowLeft'?-1:1);return;}const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.highlight();});
     this.app.ready();
   }
+  resetMovement(){for(const c of this.controls)c.reset?.();this.app.input={};}
   layout(){
+    this.resetMovement();
     this.root?.destroy(true);this.controls=[];this.root=this.add.container().setScale(2);this.w=Math.floor(this.scale.width/2);this.h=Math.floor(this.scale.height/2);
     const css=getComputedStyle(document.querySelector('#app'));const inset=side=>Math.ceil((parseFloat(css.getPropertyValue('--safe-'+side))||0)/2);
     this.safe={top:inset('top'),bottom:inset('bottom'),left:inset('left'),right:inset('right')};this.touch=this.scale.width<1000||matchMedia('(pointer:coarse)').matches;
@@ -41,7 +43,7 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Your farmer','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / forest jump\n1-7 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / tap people or ground\nAxe / tap to swing\nDouble tap / forest jump':'Crate / 3 starter seeds\n4 shovel / 5 axe / 6 hand / 7 grass\nWater AM 06-12 and PM 16-22\nBed / restore energy\nMiss once / wilt\nMiss twice / dead';
+    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / outdoor jump\n1-7 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / circle to move\nJump / leap   Attack / swing\nTap people or ground / use':'Crate / 3 starter seeds\n4 shovel / 5 axe / 6 hand / 7 grass\nWater AM 06-12 and PM 16-22\nBed / restore energy\nMiss once / wilt\nMiss twice / dead';
     this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Farming >',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}

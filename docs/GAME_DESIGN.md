@@ -1,3 +1,9 @@
+# v0.11.0 — Home and mobile movement update
+
+All cottages share the user's front-facing roof/gable/double-door structure with different finishes. Home is a cozy furnished room with tiled floor, dining area, pottery/fireplace and working bed/exit. Eight-way movement retains equal diagonal speed and stable native facing. On mobile use the circular analog joystick, Jump and Attack; separate touches can move and act. Jump is free in every outdoor location, using existing collision/path/cooldown checks; interior jumping/attacking is disabled. Desktop retains WASD/arrows, outdoor Space/J/Shift jump and direct world tool/axe taps. K/M remain Forest-only. No new crafting, relationships, house upgrades or economy rules.
+
+---
+
 # v0.8.0 — gathering, hunting and eating
 
 Select Axe to cut trees or hunt Forest animals; K attacks in facing direction, E uses nearby context and direct animal taps face/attack the selected target. Meat drops directly into the bag once on defeat. Hand can gather loose stones or grass; nearby stones take priority. Every region has six daily stone piles. Meat can be eaten or sold at the existing City Market; Stone and Wood are stored in Gear.

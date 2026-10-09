@@ -1,3 +1,4 @@
+import {movementVector} from '../systems/movement.js';
 import {CityLights} from '../art/CityLights.js';
 import {ResidentView} from '../art/ResidentView.js';
 import {refreshVegetationVisuals} from '../art/VegetationView.js';
@@ -128,24 +129,22 @@ export class WorldScene extends Phaser.Scene {
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   jump(){
     const a=this.app;if(!a.state||a.paused||a.transitioning||document.hidden)return;
-    const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
-    const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
+    const {x,y}=movementVector(this.keys,a.input);
     const facing={down:{x:0,y:1},up:{x:0,y:-1},left:{x:-1,y:0},right:{x:1,y:0}};
     beginJump(a.state,this.jumping,x||y?{x,y}:facing[this.player.direction]);
   }
   update(_,delta){
-    const a=this.app,s=a.state;a.ambience.update(s,!a.paused&&!document.hidden&&!a.transitioning,delta);if(!s||a.transitioning)return;let dx=0,dy=0;
+    const a=this.app,s=a.state;a.ambience.update(s,!a.paused&&!document.hidden&&!a.transitioning,delta);if(!s||a.transitioning)return;let dx=0,dy=0,intent={x:0,y:0};
     if(!a.paused&&!document.hidden){
-      const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
-      const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
-      const len=Math.hypot(x,y)||1,step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
+      const {x,y}=movementVector(this.keys,a.input);intent={x,y};
+      const step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x*step,ny=s.position.y+y*step;
       const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
       else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=forestPortalTravel(s,this.time.now,this.travelReady||0)||readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
     if(!a.paused&&!document.hidden){a.resolveAttack(delta);const result=stepCombat(s,this.combat,delta);if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
     this.portal?.update(this.time.now);
-    this.player?.update(s.position,dx,dy,jumpPose(this.jumping));
+    this.player?.update(s.position,dx,dy,jumpPose(this.jumping),intent);
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);
     if(!a.paused)this.residents.update(Math.min(delta,50),s.position);

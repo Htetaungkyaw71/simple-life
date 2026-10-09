@@ -1,4 +1,4 @@
-"""Original native 120x96 three-quarter houses; no copied reference pixels."""
+"""Original native 120x96 front-facing cottages; reference structure, no copied pixels."""
 from PIL import Image,ImageDraw
 from pathlib import Path
 import json
@@ -6,9 +6,7 @@ INK='#493e33';WOOD='#9d7050';LEAF='#718347'
 def add_large_houses_art(assets):
  geometry={}
  for n in range(13):
-  im=dimensional_house(n);name=f'house-village-{n}';assets[name]=im
-  # Exact opaque rows through the foundation. Porch steps remain walkable.
-  boxes=[]
+  im=dimensional_house(n);name=f'house-village-{n}';assets[name]=im;boxes=[]
   for y in range(86):
    x=0
    while x<120:
@@ -18,54 +16,57 @@ def add_large_houses_art(assets):
     boxes.append([start,y,x-start,1])
   geometry[name]=boxes
  Path('src/data/largeHouseGeometry.js').write_text('// Generated from native house pixels by scripts/large_houses_art.py.\nexport const LARGE_HOUSE_SOLIDS='+json.dumps(geometry,separators=(',',':'))+';\n')
-
 def dimensional_house(n):
- """Original three-quarter cottages: a front gable and visible roof/wall return."""
  im=Image.new('RGBA',(120,96));d=ImageDraw.Draw(im)
- plaster=['#e7d8b6','#d8ccac','#e1c7ad','#d1d2b3','#dccdb1'][n%5]
- roof=['#a77558','#966851','#ae795c','#89725c','#a27564'][n%5]
- side=['#a7977a','#a49a7e','#aa947a','#9c9e80','#a69a7d'][n%5]
- peak=44+n%3*6;ridge=7+n%3*3
- d.polygon([(16,44),(84,44),(108,38),(108,77),(84,85),(16,85)],fill=INK)
- d.rectangle((18,46,83,82),fill=plaster)
- d.polygon([(84,46),(106,40),(106,75),(84,82)],fill=side)
- # The roof has a long sloping side plane receding behind the front gable.
- d.polygon([(8,47),(peak,ridge),(98,ridge+11),(114,42),(88,50)],fill=INK)
- d.polygon([(peak,ridge+3),(97,ridge+14),(109,41),(87,46)],fill=roof)
- for y in range(ridge+17,43,4):
-  left=peak+int((y-ridge)*.9);right=min(109,97+int((y-ridge-14)*.55))
-  d.line((left,y,right,y-2),fill='#74533f');d.line((left,y-1,right,y-3),fill='#bf9370')
-  for x in range(left+3,right,9):d.line((x,y-3,x+1,y-1),fill='#d0a47f')
- # Front gable: thick roof edge, light plaster, recessed arched attic window.
- d.polygon([(11,46),(peak,ridge+3),(87,46)],fill=INK)
- d.polygon([(18,43),(peak,ridge+10),(79,43)],fill=plaster)
- d.line((13,44,peak,ridge+5,84,44),fill=roof,width=4)
- d.line((15,41,peak,ridge+4),fill='#d4aa7e',width=2)
- d.line((peak,ridge+4,84,44),fill='#79513f',width=2)
- d.line((peak,ridge+3,97,ridge+14),fill='#ddb28b',width=2)
- d.rectangle((peak-5,29,peak+5,38),fill=INK);d.pieslice((peak-5,23,peak+5,33),180,360,fill=INK)
- d.rectangle((peak-3,29,peak+3,37),fill='#77908a');d.pieslice((peak-3,25,peak+3,32),180,360,fill='#77908a')
- d.line((peak,26,peak,37),fill='#d6d5b6');d.line((peak-3,32,peak+3,32),fill='#d6d5b6')
- d.line((14,48,86,48),fill='#574334',width=3);d.line((18,51,83,51),fill='#b8a185')
- d.line((18,52,18,79),fill='#f1e3c2');d.line((83,49,83,80),fill='#755c45',width=2)
- chimney=92 if n%2==0 else 27;d.rectangle((chimney,11,chimney+8,29),fill=INK);d.rectangle((chimney+2,12,chimney+6,27),fill='#b29478');d.rectangle((chimney-1,10,chimney+9,13),fill='#d2b797')
+ plaster=['#e9d4b9','#d5d6b7','#eed8c4','#dfcbb2','#d2d8c9'][n%5]
+ roof=['#b99a78','#9d7665','#ae8564','#8c9280','#ba8e78'][n%5]
+ trim=['#75523e','#645343','#835947','#685d4b','#6d554d'][n%5]
+ # All variants share one front elevation, including the roof and doorway.
+ d.rectangle((12,58,107,85),fill=INK);d.rectangle((15,61,104,82),fill=plaster)
+ d.rectangle((8,16,111,62),fill=INK);d.rectangle((10,18,109,60),fill=roof)
+ for y in range(20,58,4):
+  for x in range(12+(y%8),108,8):
+   off=(x*7+y*3+n*11)%3;d.line((x,y,x-2,y+2+off),fill='#c8ac89');d.point((x+2,y+2),fill='#94765c')
+ # Long raised central roof ends in a front gable; no side facade/return wall.
+ d.polygon([(32,0),(87,0),(89,49),(60,34),(30,49)],fill=INK)
+ d.polygon([(34,0),(58,0),(58,33),(32,46)],fill=roof)
+ d.polygon([(62,0),(85,0),(87,46),(62,33)],fill=roof)
+ for y in range(3,33,4):
+  for x in range(36,86,6):
+   if 58<=x<=62:continue
+   d.line((x,y,x-2 if x<60 else x+2,y+3),fill='#cbb18d')
+ d.rectangle((59,0,61,33),fill=trim);d.line((59,0,59,32),fill='#d3b595')
+ d.polygon([(31,50),(60,32),(88,50)],fill=INK);d.polygon([(36,49),(60,36),(83,49)],fill=plaster)
+ d.line((32,49,60,33,88,49),fill=trim,width=2)
+ d.line((46,43,46,49),fill=trim,width=2);d.line((74,43,74,49),fill=trim,width=2)
+ def window(x,y,w,h):
+  d.rectangle((x-2,y-2,x+w+1,y+h+2),fill=trim);d.rectangle((x,y,x+w-1,y+h-1),fill='#91a393')
+  for yy in range(y,y+h):
+   for xx in range(x,x+w):
+    if (xx-x+yy-y)%4==0 or (xx-x-yy+y)%4==0:d.point((xx,yy),fill='#d6d5b8')
+  d.line((x+w//2,y,x+w//2,y+h-1),fill=trim);d.line((x-3,y+h+3,x+w+2,y+h+3),fill='#b58a67')
+ window(54,41,12,8)
+ for x in [22,77,94]:window(x,67,10,10)
+ d.line((14,63,105,63),fill='#b19374');d.line((15,64,15,82),fill=trim,width=2);d.line((104,64,104,82),fill=trim,width=2)
+ if n%3==1:
+  for x in [39,71]:d.line((x,64,x,82),fill=trim,width=2)
  if n%3==2:
-  for y in range(55,80,5):
-   d.line((19,y,82,y),fill='#b8a589')
-   for x in range(20+(y%10),82,12):d.line((x,y,x,y+4),fill='#b8a589')
- else:
-  for x in [19,43,81]:d.line((x,52,x,79),fill='#95775a',width=2)
-  if n%3==1:d.line((20,54,40,68),fill='#95775a',width=2)
- # Main front window and narrow perspective window on the side wall.
- for x,y,w,h in [(24,56,15,13),(91,51,10,14)]:
-  d.rectangle((x-2,y-2,x+w+1,y+h+2),fill=INK);d.rectangle((x,y,x+w-1,y+h-1),fill='#6f8780')
-  d.line((x+1,y+1,x+3,y+h-3),fill='#aec3b5');d.line((x+w//2,y,x+w//2,y+h-1),fill='#e8d6b0');d.line((x,y+h//2,x+w-1,y+h//2),fill='#e8d6b0')
-  d.line((x-2,y-1,x+w+1,y-1),fill='#ead6b2');d.rectangle((x-3,y+h+2,x+w+2,y+h+5),fill=WOOD);d.line((x-3,y+h+5,x+w+2,y+h+5),fill='#5e4936')
-  for xx in range(x-2,x+w+2,3):d.rectangle((xx,y+h,xx+2,y+h+2),fill=LEAF);d.point((xx,y+h),fill=['#d59b83','#c6b36c','#b6a4c0'][n%3])
- d.rectangle((51,65,69,82),fill='#4d3b2d');d.pieslice((51,53,69,71),180,360,fill='#4d3b2d')
- d.rectangle((54,65,67,82),fill=WOOD);d.pieslice((54,56,67,70),180,360,fill=WOOD)
- d.line((53,66,53,81),fill='#cfad80');d.rectangle((57,60,64,65),fill='#829b8e');d.line((60,60,60,65),fill='#dcc8a1');d.rectangle((57,69,64,78),outline='#71513c');d.point((65,69),fill='#ecc477')
- d.line((18,81,50,81),fill='#736c58');d.line((70,81,83,81),fill='#736c58');d.line((18,83,83,83),fill='#bcab88')
- for y,x0,x1 in [(86,48,72),(89,46,74),(92,44,76)]:d.rectangle((x0,y,x1,y+2),fill='#817a65');d.line((x0,y,x1,y),fill='#d1c7a7')
- for x,y in [(19,50),(23,49),(28,49),(84,48),(87,48),(88,51),(88,55)]:d.rectangle((x,y,x+3,y+2),fill='#435735');d.rectangle((x,y,x+2,y+1),fill=LEAF)
+  for y in [64,69,74,79]:
+   for x in range(16+(y%2)*4,104,9):d.line((x,y,x+4,y),fill='#c0a68d')
+ d.rectangle((48,64,71,85),fill=INK);d.rectangle((50,66,69,84),fill=trim)
+ for x in [51,61]:
+  d.rectangle((x,67,x+7,74),fill='#8e9d8f')
+  for yy in range(67,75):
+   for xx in range(x,x+8):
+    if (xx+yy)%4==0:d.point((xx,yy),fill='#cfcbb3')
+  d.rectangle((x,77,x+7,82),outline='#b18a68')
+ d.line((60,66,60,84),fill=INK);d.point((58,76),fill='#e4c38a');d.point((62,76),fill='#e4c38a')
+ d.line((15,83,47,83),fill='#bca78a');d.line((72,83,104,83),fill='#bca78a')
+ # Planter boxes flank the door within the shared solid facade footprint.
+ for x,w in [(17,25),(78,24)]:
+  d.rectangle((x,80,x+w,85),fill=trim);d.line((x+1,82,x+w-1,82),fill='#bb956e')
+  for xx in range(x+1,x+w,3):
+   d.rectangle((xx,79,xx+2,81),fill=LEAF);d.point((xx,79),fill=['#d39b85','#cfb974','#b5a3b9'][n%3])
+ for y,x0,x1 in [(86,48,72),(89,46,74),(92,44,76)]:
+  d.rectangle((x0,y,x1,y+2),fill='#817a65');d.line((x0,y,x1,y),fill='#d1c7a7')
  return im

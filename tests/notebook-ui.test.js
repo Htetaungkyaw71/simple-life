@@ -10,8 +10,8 @@ import {newState} from '../src/systems/state.js';
 import {recorder} from './helpers/uiRecorder.js';
 const sizes=[[1440,900],[1280,720],[1024,768],[844,390],[390,844],[640,360],[360,640]];
 function appFor(s,u=recorder()){const a={state:s,ui:u,paused:false,input:{},saveCount:0,save(){this.saveCount++;},sound(){},scene:{player:{direction:'up'},forestView:{energy(){}},keys:{} }};u.app=a;return a;}
-test('Space jumps without attacking; forest-only actions and held/paused inputs are gated',()=>{
- for(const area of ['home','city','farm','interior'])for(const key of ['SPACE','M','K'])assert.equal(keyboardAction(key,area),null);
+test('Space jumps outdoors without attacking; forest-only map/attack actions and held/paused inputs are gated',()=>{
+ for(const area of ['home','city','farm','interior']){for(const key of ['M','K'])assert.equal(keyboardAction(key,area),null);assert.equal(keyboardAction('SPACE',area),area==='interior'?null:'jump');}
  assert.equal(keyboardAction('SPACE','forest'),'jump');assert.equal(keyboardAction('K','forest'),'attack');assert.equal(keyboardAction('M','forest'),'map');assert.equal(keyboardAction('B','home'),'bag');
  for(const key of ['SPACE','K','B','M'])for(const gate of [{paused:true},{repeat:true},{transitioning:true}])assert.equal(keyboardAction(key,'forest',gate),null);
 });
@@ -46,12 +46,12 @@ test('map cannot open outside Forest; parchment hides undiscovered terrain and m
  for(const [w,h]of sizes){const s=newState();s.area='forest';const u=recorder(w,h),a=appFor(s,u),map=new WildernessMap(a);map.open();assert.equal(a.paused,true);assert.equal(u.menu.kind,'wilderness');for(const c of u.controls)assert.ok(c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);}
 });
 
-test('actual HUD draws lower icon actions, forest-only map and touch movement without a Jump control',async()=>{
+test('actual HUD draws lower icon actions, forest-only map and mobile joystick and Jump/Attack controls',async()=>{
  const {Hud}=await import('../src/ui/Hud.js');
  for(const [w,h]of sizes)for(const area of ['home','city','farm','forest']){
   const s=newState();s.area=area;s.clubEquipped=true;const u=recorder(w,h),a=appFor(s,u);a.bagPanel={open(){}};a.wildernessMap={open(){}};new Hud(u);
-  assert.equal(u.controls.some(c=>c.id==='wilderness-map'),area==='forest');assert.equal(u.controls.some(c=>c.id==='attack'),false);assert.equal(u.controls.find(c=>c.id==='wilderness-map')?.label,area==='forest'?'Map':undefined);const allNodes=n=>[n,...n.list.flatMap(allNodes)];assert.ok(!allNodes(u.root).some(n=>n.type==='text'&&['1','2','3'].includes(n.text)));
-  for(const c of u.controls){assert.ok(c.y>u.h/2,c.id);assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);assert.ok(!/jump/i.test(c.id));}
+  assert.equal(u.controls.some(c=>c.id==='wilderness-map'),area==='forest');assert.equal(u.controls.some(c=>c.id==='attack'),u.touch);assert.equal(u.controls.some(c=>c.id==='jump'),u.touch);assert.equal(u.controls.some(c=>c.id==='move-stick'),u.touch);assert.ok(!u.controls.some(c=>/^move-(up|down|left|right)$/.test(c.id)));assert.equal(u.controls.find(c=>c.id==='wilderness-map')?.label,area==='forest'?'Map':undefined);const allNodes=n=>[n,...n.list.flatMap(allNodes)];assert.ok(!allNodes(u.root).some(n=>n.type==='text'&&['1','2','3'].includes(n.text)));
+  for(const c of u.controls){assert.ok(c.y>u.h/2,c.id);assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);}
  }
 });
 test('title, farmer choice, help, confirmation and pause fit desktop/mobile with complete actions',async()=>{

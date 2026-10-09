@@ -1,3 +1,13 @@
+# v0.11.0 — front-facing houses, cozy Home and mobile controls
+
+The latest explicit user reference supersedes v0.10.0's three-quarter side-wall structure. Every original 120×96 house uses the same broad roof, longitudinal raised central gable, attic lattice window, flat facade, centred double door, three front windows and flanking planter boxes. Thirteen warm roof/plaster/timber/brick/floral finishes differ without changing alpha/structure or door anchors. Remove house perspective cast polygons; retain restrained grounding shadows. No 3D scene/engine or copied screenshot pixels.
+
+Home uses original native cream/terracotta diamond tiles, framed arched windows, fireplace/log stack, pottery shelves/counter, patterned rugs, dining table/benches, bed and potted plants. Room sizing/cutaway walls remain; clear central passage connects spawn, bed and exit. Use supplied interior for mood, materials and furniture types, without copying commercial pixels or exact room layout.
+
+Mobile replaces arrows with a cream/olive circular analog joystick and lower Jump/Attack buttons. Portrait actions sit beside the joystick; landscape actions stack on the right outside the hotbar. Preserve separate fullscreen canvas UI and native farmer/NPC art. Outdoor jumping uses existing free arc/collision/cooldown; interior action buttons are disabled. Desktop has keyboard/direct world use without extra action controls.
+
+---
+
 # v0.10.0 — three-quarter depth and branching natural channels
 
 The latest explicit user request supersedes the old house silhouette/framing/parallel-river presentation. Independently author thirteen original native cottage cells with visible receding roof planes and side walls, detailed shingles/ridges, recessed windows/doors, varied warm materials, foundations/steps and cast shadows. Regenerate exact collision masks while retaining door anchors and clear roads. Use closer desktop outdoor camera framing at integer 3× source pixels; compact screens retain 2×. This remains the established two-dimensional pixel world, using the screenshots/Plant Tales only as style references without copying pixels or exact layouts.

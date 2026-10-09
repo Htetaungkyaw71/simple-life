@@ -1,0 +1,227 @@
+[
+  {
+    "frame": "home-floor",
+    "size": [
+      32,
+      32
+    ],
+    "pixelSha256": "6bb5bd00584048578e0f9a25ac3629ceb77914a93dff97293bb38a35bb997a00",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-wall",
+    "size": [
+      32,
+      32
+    ],
+    "pixelSha256": "83acc4aa9dcbd3b3f1e6482b91b1a14de17c5b2df70b9d39c7fc658554a3ca1e",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-window",
+    "size": [
+      32,
+      28
+    ],
+    "pixelSha256": "550b784f9d6f87d81aa348d3e4df57bffa438ebc030a092024ba029fc4b4255f",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-fireplace",
+    "size": [
+      40,
+      60
+    ],
+    "pixelSha256": "6a7ac783b31bb78db5069d56c52781a108e610e20aadad1dca585bcbc51699c4",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-logs",
+    "size": [
+      28,
+      24
+    ],
+    "pixelSha256": "9e1cf8c39ee188351d67ae95912edacbd9ac99107ace9e4a75821b71bc738fba",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-rug",
+    "size": [
+      96,
+      64
+    ],
+    "pixelSha256": "9837c47917943d875c0ac1a24ddebc50f8a9337785447b806440e4ce9618ceea",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-pottery",
+    "size": [
+      36,
+      36
+    ],
+    "pixelSha256": "bdd7d23507ee04b845db68ede6c573eee09bc79fa4acc9cd8acf39b46e0bdabf",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-counter",
+    "size": [
+      48,
+      24
+    ],
+    "pixelSha256": "f15d137b18ef7c20fe7968ea862a91701733a15d92d2cf3ffd31d9c7f8071528",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-table",
+    "size": [
+      64,
+      40
+    ],
+    "pixelSha256": "0cd987c77e94ad57dd50fd3f5dbdeb89b868d863f9de7c5ec2cdeea49998ba20",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-bench",
+    "size": [
+      32,
+      12
+    ],
+    "pixelSha256": "86bbea9b96b76ee0bb4924eea55aa255e849f459bea337c896d248daf9e1c879",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-bed",
+    "size": [
+      24,
+      40
+    ],
+    "pixelSha256": "308c6a70f0bd4302baeba72e6ea9db215500394b7f974b41acc601556594c541",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "home-pot",
+    "size": [
+      16,
+      24
+    ],
+    "pixelSha256": "210bf67e02cc51a2771a8d0414b551b0363c01239f6fedf5f8f9b89c1e7d6432",
+    "source": "Original scripts/home_interior_art.py; no imported image/reference pixels."
+  },
+  {
+    "frame": "house-village-0",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "51ad2a40270ccd7c62a85f1dc5807b2261349658752dfaf786e52452d26a506c",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-1",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "a1888719187e234377e3543873a3ea35a25749c4f18289be6a973b250ca2dbf3",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-2",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "1f7ebbba03ce6bb6140d0448d20bb7988baaa76439c081e1e0226c0e8dc2a5fc",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-3",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "aefad3bfbda9f00bc39357cea17e1f8d2b58f19f8d781186a47250dff4e6f63f",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-4",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "09ab2bb35a89a611a8cd35d36a1d1bd7c2e4bfbf599c5a3f803d57d06f32ae3c",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-5",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "d31dc2ba34b8ec4aaadab0cf9c0dc70a6dcfca4e18f2234d0a918a370d4f5fcb",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-6",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "9f10b3b76d7453f8194cfbe492e6d4b2acdf33c08dc9f92e828d25de38b574f2",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-7",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "a1785e4fe49ab48c97163fc6b6650b1642bb51592f7336375c17e61d44802d52",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-8",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "7ca2028c5cbd53a74adecc344c5eebe6cbb5eadb966d40799426494850cd2a0f",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-9",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "678fa4d42cebe158c5aa9948ae5d9bb4bd63c23a29209586b3490003f78abb84",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-10",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "b5fff9234f537a57aca89387b7cc8f25194cbc51838473029af5692fdcbd6be3",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-11",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "8a05c5acce9437bcd1af4a906e743ebd29c98868f155aa747cf3e822e82efccd",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  },
+  {
+    "frame": "house-village-12",
+    "size": [
+      120,
+      96
+    ],
+    "pixelSha256": "4f119640bb2c0c66b0b3d60ab2fcb86dc353f2a768089ea8308e6740f6d34ef8",
+    "source": "Original scripts/large_houses_art.py; reference structure, thirteen finishes, no imported image pixels."
+  }
+]

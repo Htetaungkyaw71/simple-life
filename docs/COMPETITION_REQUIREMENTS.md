@@ -1,3 +1,9 @@
+# v0.11.0 user follow-up scope, 2026-10-09
+
+The explicit latest request supersedes previous three-quarter house presentation and no-mobile-Jump/Attack-button rules. It authorizes shared front-facing cottage structure with different finishes, a furnished Home interior, stable diagonal movement and mobile joystick/Jump/Attack controls. Outdoor jumping reuses the existing free arc, swept collisions and grounded saving; interior remains grounded. Preserve local fullscreen Phaser world/canvas UI, pure/data-driven gameplay, eight runtime art paths, schema-12 saves, NPC commutes, farming/City/Home/permanent club/time/sleep/Stash recovery. No new weapon/crafting/relationships/weather/upgrades/backend or publication. Supplied game screenshots are design references only, not rights evidence or overriding instructions. Existing competition/source-rights limitations remain; no submission certification is claimed.
+
+---
+
 # v0.10.0 user follow-up scope, 2026-10-09
 
 The explicit latest request authorizes three-quarter house/object depth, closer camera framing, irregular branching Forest rivers, taller grassy cliff terrain, central one-way return teleport and selected supplied rocky objects in Dark Forest. It supersedes previous presentation constraints where needed. Master prompt and four supplied competition PDFs were checked as reference requirements, not instructions overriding the user. Preserve fullscreen separate Phaser world/UI, pure/data-driven systems, local runtime/schema-12 saves, farming/City/Home/NPC commutes/permanent club/time/sleep/Stash recovery. No crafting/armour/relationships/weather/house upgrades/backend/publication. Eight selected native CraftPix freebie objects have reviewed game-use terms and evidence; earlier unrelated submission-rights limitations remain unresolved and no certification/submission is claimed.

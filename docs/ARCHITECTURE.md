@@ -1,3 +1,11 @@
+# v0.11.0 — shared house structure, room furnishings and analog input
+
+Pure systems/movement.js clamps keyboard/analog vectors and applies directional hysteresis for the four native walk poses during eight-way motion. WorldScene uses intended input for facing, actual movement for walk animation/collision, and the existing swept jump system outdoors. MobileControls tracks one joystick pointer, ignores other fingers, clamps strength, preserves a dead zone and independently dispatches Jump/Attack (or nearby axe tree use). Interface forwards move/up/upoutside and resets input on layout/menu/gameout; main also resets on blur/background. No analog input is saved.
+
+scripts/large_houses_art.py generates thirteen identical front-elevation alpha masks with unique finishes; exact row solids retain existing door steps. home_interior_art.py generates twelve original cells appended through refresh-home-art.py into the existing town atlas. Room data defines furniture, feet collision, bed/exit approaches; worldArt composes the cutaway room. The full source atlas generator also includes the furnishings. Schema 12, normal saves, Forest generation, NPC schedules, shops and established systems remain.
+
+---
+
 # v0.10.0 — shared branching water and scene depth
 
 forestRivers.js owns thirteen immutable authored variable-width polylines and nine curated crossings. water.js rasterizes channel discs into cached merged crisp row spans; terrain, currents/reflection, shoreline refill, habitats/audio and WildernessMap use that shared geometry. Existing legacy City river/pond APIs remain. Bridges support both axes and share dry walkable coverage. Forest resources/animal starts stay dry; IDs remain independent of renderer placement.

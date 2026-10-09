@@ -91,7 +91,7 @@ test('food page two, healing at full energy and axe attack fit desktop/phone/com
   const s=forest(),u=recorder(w,h);s.energy=100;s.health=75;s.inventory.meat=1;
   const a={state:s,input:{},save(){},sound(){},scene:{forestView:{energy(){},health(){}},cameras:{main:{worldView:{x:0,y:0},zoom:1}}},ui:u};u.app=a;const b=new BagPanel(a);a.bagPanel=b;b.open('food');b.index=bagItems(s,'food').findIndex(i=>i.id==='meat');b.show();
   assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);b.perform();assert.equal(s.health,100);assert.equal(s.inventory.meat,0);
-  const hud=new Hud(u);assert.ok(!u.controls.some(c=>c.id==='attack'||c.id==='tool-axe'));assert.equal(hud.healthWidth,hud.energyWidth);
+  const hud=new Hud(u);assert.ok(!u.controls.some(c=>c.id==='tool-axe'));assert.equal(u.controls.some(c=>c.id==='attack'),u.touch);assert.equal(hud.healthWidth,hud.energyWidth);
   for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);
  }
 });

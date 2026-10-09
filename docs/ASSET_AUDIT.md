@@ -1,3 +1,9 @@
+# v0.11.0 — Home native cells and production allowlist
+
+scripts/qa/home-mobile-audit.py compares against 4db7b4a: 833 unchanged non-house cells, thirteen modified original houses, twelve appended original home frames (858 total); all earlier frame rectangles and six other runtime art files unchanged. All house alpha footprints are identical while thirteen pixel finishes differ. New cells match original generator output. Production contains exactly eight allowlisted art files and twelve total files, excluding source art, vendor archives, docs and QA. Evidence: verification/home-mobile/runtime-audit.json and assets/licenses/home-mobile/original-cells.json.
+
+---
+
 # v0.10.0 — selected rocky cells, house changes and runtime audit
 
 Exactly eight runtime art files remain allowlisted; town PNG/JSON add eight used native rocky cells and change thirteen original house cells. All 825 other earlier cells/frame rectangles and six other runtime files remain unchanged against ba601de. The atlas has 846 cells. Twelve dist files contain no archive/PSD/unused pack, QA/docs or remote runtime dependency. Provenance: assets/licenses/rocky-depth. Reproduce: scripts/qa/scene-depth-audit.py; report: verification/scene-depth/runtime-audit.json.

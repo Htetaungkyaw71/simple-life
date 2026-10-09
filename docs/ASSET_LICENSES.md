@@ -1,3 +1,11 @@
+# v0.11.0 — original front-facing houses and cozy interior
+
+Thirteen original 120×96 house cells are redrawn in-place with identical front-facing alpha/structure and different finishes. Twelve original native interior cells append to the existing town atlas. Original generator code and native RGBA hashes: [home/mobile provenance](assets/licenses/home-mobile/SOURCE_RECORD.md), [original cell records](assets/licenses/home-mobile/original-cells.json). Pixel joystick circles/buttons are original procedural HUD code. User screenshots guide structure and style; no pixels are copied or third-party assets added. These original additions do not change creator licences for the mixed-source atlas.
+
+Against 4db7b4a, all 846 earlier frame rectangles remain, 833 non-house cells (including supplied rocky art) and six other runtime art files are unchanged. Only thirteen original house cells change; twelve home cells append (858 total). Eight runtime art paths/twelve production files remain. No new dependency/vendor/archive/runtime remote asset. Earlier licence/submission qualifications remain; [audit](verification/home-mobile/runtime-audit.json).
+
+---
+
 # v0.10.0 — supplied rocky objects and original depth art
 
 Eight selected native CraftPix Free Rocky Area Objects cells are integrated into the allowlisted town atlas and used in Dark Forest. Official freebie game-use/modification/distribution terms checked 2026-10-09; exact supplied archive License.txt, archive/member hashes, native crops/sizes and reviewed terms: [source record](assets/licenses/rocky-depth/SOURCE_RECORD.md), [selected cells](assets/licenses/rocky-depth/selected-assets.json). Existing CraftPix credit remains. Source ZIP/PSD/unused pack files are excluded; no artwork export feature or AI/ML dataset use. Earlier unrelated public prize-entry/submission limitations remain.

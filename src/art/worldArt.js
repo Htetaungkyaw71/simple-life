@@ -41,7 +41,7 @@ function object(scene,p){
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
  const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')?90:name.startsWith('house-village')?172:name.startsWith('house')?110:name==='shed'?124:height);
- if(name.startsWith('house-village')||name==='shed'){const g=scene.add.graphics().setDepth(1);g.fillStyle(0x343a2a,.22);g.fillPoints([{x:p.x+28,y:foot-16},{x:p.x+212,y:foot-16},{x:p.x+246,y:foot+12},{x:p.x+54,y:foot+12}],true);}
+ if(name==='shed'){const g=scene.add.graphics().setDepth(1);g.fillStyle(0x343a2a,.22);g.fillPoints([{x:p.x+28,y:foot-16},{x:p.x+212,y:foot-16},{x:p.x+246,y:foot+12},{x:p.x+54,y:foot+12}],true);}
  if(!p.fence){const shadow=scene.add.ellipse(p.x+height*.28,p.y+height-5,Math.min(100,height*.72),12,0x253951,.18).setDepth(1);if(name.startsWith('tree'))shadow.setPosition(p.x+34,p.y+88).setSize(78,24);visuals.push(shadow);}
  const forestPlant=scene.app.state?.area==='forest'&&(name.startsWith('tree')||name.endsWith('-tree')||name==='bamboo-clump'||name.startsWith('forest-palmetto-'));
  const obj=forestPlant?scene.add.image(p.x,p.y,forestTexture(scene,name,forestHabitat({x:p.x+32,y:p.y+90}).id)).setOrigin(0).setScale(2).setDepth(foot):image(scene,name,p.x,p.y,foot);
@@ -76,10 +76,10 @@ export function drawWorld(scene,area){
  }
  if(area==='interior'){
   const w=ROOM.width,h=ROOM.height;
-  tiled(scene,'wall',-1024,-1024,3072,3072,-1);tiled(scene,'floor0',0,0,w,h,0);
-  tiled(scene,'wall',0,0,w,48,48);tiled(scene,'wall',0,48,16,h-48,h);tiled(scene,'wall',w-16,48,16,h-48,h);
-  tiled(scene,'wall',0,h-32,w/2-24,32,h);tiled(scene,'wall',w/2+24,h-32,w/2-24,32,h);
-  for(const [name,x,y]of FURNITURE)image(scene,name,x,y,name==='rug'?1:y+scene.textures.getFrame('town',name).height*2);
+  scene.add.rectangle(-1024,-1024,3072,3072,0x171518).setOrigin(0).setDepth(-1);tiled(scene,'home-floor',0,0,w,h,0);
+  tiled(scene,'home-wall',0,0,w,48,48);tiled(scene,'home-wall',0,48,16,h-48,h);tiled(scene,'home-wall',w-16,48,16,h-48,h);
+  tiled(scene,'home-wall',0,h-32,w/2-24,32,h);tiled(scene,'home-wall',w/2+24,h-32,w/2-24,32,h);
+  for(const [name,x,y]of FURNITURE)image(scene,name,x,y,name==='home-rug'?1:y+scene.textures.getFrame('town',name).height*2);
   scene.doors.push(image(scene,'door0',w/2-16,h-64,h));
  }else if(area==='home'){
   label(scene,544,554,'STARTER SEEDS');const arrow=scene.add.graphics().setDepth(1);arrow.fillStyle(0xffe4a3,.8);arrow.fillRect(478,1090,4,12);arrow.fillRect(474,1098,12,4);arrow.fillRect(476,1102,8,2);arrow.fillRect(478,1104,4,2);image(scene,'post',416,1104,1136);image(scene,'post',528,1104,1136);

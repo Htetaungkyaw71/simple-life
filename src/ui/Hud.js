@@ -1,10 +1,11 @@
+import {mobileControls} from './MobileControls.js';
 import {CROPS} from '../data/crops.js';
 import {CropInfo} from './CropInfo.js';
 import {FarmGuide} from './FarmGuide.js';
 import {wateringLabel} from '../systems/watering.js';
 import {panel,frame,text,button,UI_COLORS} from './pixelWidgets.js';
-import {pixels,pixelArrow} from './statusArt.js';
-import {hudLayout,displayClock,facingIndex} from './layouts.js';
+import {pixels} from './statusArt.js';
+import {hudLayout,displayClock} from './layouts.js';
 import {meterFrame,meterBadge,meterGlyph} from './vitalMeter.js';
 export class Hud {
  constructor(ui){this.ui=ui;this.app=ui.app;this.root=ui.add.container();ui.root.add(this.root);this.signature=this.key();this.create();}
@@ -28,13 +29,7 @@ export class Hud {
    const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest','shovel','axe','hand','grass'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]&&id!=='map'?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
    if(['seed','water','harvest','shovel','axe','hand','grass'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
   }
-  if(u.touch){
-   const portrait=w<h,dx=left+3,dy=h-u.safe.bottom-(portrait?73:49),size=22;
-   for(const [dir,label,col,row]of [['up','^',1,0],['left','<',0,1],['down','v',1,1],['right','>',2,1]]){
-    const b=button(u,p,label,dx+col*24,dy+row*24,size,size,pointer=>{this.app.input[dir]=true;b.box.setAlpha(1);b.pointer=pointer.id;},{id:'move-'+dir,glyph:(g,a,b,c)=>pixelArrow(g,facingIndex[dir],a+4,b+4,c)});
-    const release=pointer=>{if(b.pointer===pointer.id){this.app.input[dir]=false;b.pointer=null;b.box.setAlpha(.7);}};b.release=release;b.box.setAlpha(.7);b.box.on('pointerup',release);b.box.on('pointerout',release);
-   }
-  }
+  if(u.touch)mobileControls(u,p);
   this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
  }
  update(s,c){

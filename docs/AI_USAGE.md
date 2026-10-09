@@ -1,3 +1,11 @@
+# v0.11.0 — original Home art and mobile input, 2026-10-09
+
+OpenAI Codex assisted thirteen original front-facing house redraws, shared collision rows, twelve original native interior cells, furnished room layout/solids, stable diagonal facing and bounded analog movement, the circular joystick with pointer ownership/release/reset handling, mobile Jump/Attack dispatch and outdoor jump reuse. It authored focused movement/multi-touch/room connectivity regressions, native cell/allowlist audit and documentation. Screenshots guided structure/style; no reference/commercial pixels were extracted, image model used or external asset downloaded. Existing farmer/NPC/source art and licences remain.
+
+189 tests and production build (104 modules) pass. The verification skill guided native browser checks of house entry/sleep/exit, diagonal keys/joystick, mobile hunt/meat/energy, cliff jump, menus, rotation and saved landing on isolated port 43870. Actual simultaneous physical touch was not emulated; independent pointer ownership/action concurrency is covered by a focused unit test. Evidence/limitations: verification/home-mobile. User preview storage is not read/reset. No subagent, dependency/backend, external message, push or publication.
+
+---
+
 # v0.10.0 — user-authorized scene depth and Forest return, 2026-10-09
 
 OpenAI Codex assisted thirteen original native three-quarter house redraws and shared alpha collision generation, cast shadows, closer desktop camera, deterministic branching river polylines/shared surface rasterization, mixed bridge rendering, dry resource/animal placement, taller original pixel cliff faces, an animated central return gate using the existing travel/save/cooldown flow, and map discovery presentation. It integrated eight selected native cropped PNGs from the supplied CraftPix archive, checked official creator licence pages, recorded fingerprints/terms, and authored focused regressions/audit/docs. The PDF skill checked competition references. No screenshot/commercial-game pixels or exact layouts were copied; no image generator or AI/ML dataset use.

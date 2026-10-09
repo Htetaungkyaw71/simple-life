@@ -1,3 +1,9 @@
+# v0.11.0 — Home and mobile movement, 2026-10-09
+
+**189/189 tests and production build (104 modules) pass.** Focused regressions cover normalized diagonals/analog strength/stable facing, joystick pointer ownership plus separate actions, release/reset, shared house masks, six-size room BFS to bed/exit and outdoor jump collision/energy/interior gates. Native browser checks at desktop/portrait/landscape verify house entry/sleep/exit, keyboard/joystick diagonals, mobile Attack (+2 Meat/-1 EP), Jump across a Forest ledge, Pause/rotation reset and saved landing on Continue. Browser warnings/errors empty. Runtime native audit keeps eight art paths/twelve dist files, 833 unchanged old non-house cells, thirteen original house redraws and twelve original additions; see [evidence/limits](verification/home-mobile/README.md). Physical multi-touch is not claimed; independent pointer behavior is unit-tested.
+
+---
+
 # v0.10.0 — depth, rivers and return gate, 2026-10-09
 
 **184/184 tests and production build pass (102 modules).** Native input checks at 1280×720 and 360×640 cover revised Home door entry, closer/wider camera, dry vertical fork crossing, wading reflection, branching map, rocky landmark, cliff collision/free jump, keyboard/touch central gate entry, preserved coins/inventory/energy and arrival persistence on Continue. No browser warnings/errors. Eight runtime art paths/twelve dist files, 825 unchanged old non-house cells, thirteen original redraws and eight native licensed additions are audited against ba601de. See [scene depth evidence](verification/scene-depth/README.md), browser-checks.json/runtime-audit.json and source record assets/licenses/rocky-depth. Reproduce: npm test; npm run build; bundled Python scripts/qa/scene-depth-audit.py.

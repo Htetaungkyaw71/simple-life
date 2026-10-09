@@ -1,3 +1,15 @@
+# v0.11.0 — front-facing Home and mobile movement, 2026-10-09
+
+Completed the latest request. All thirteen houses now share the reference's broad roof, raised central gable, flat facade, lattice windows, double door and planter flanks; only finishes differ. Shared collision alpha/door anchors remain consistent and City routes stay clear. Home now has original cream/terracotta patterned tiles, arched windows, fireplace/logs, pottery shelves/counter, rugs, dining table/benches, bed and plants. Spawn/bed/exit connect at all supported room sizes; sleep/entry/exit remain working.
+
+Movement now uses bounded analog/keyboard vectors with stable native facing on diagonals; collision sliding retains intended facing. Mobile arrows are replaced by a circular joystick and Jump/Attack controls, fitting portrait/landscape without hotbar overlap. A joystick finger cannot be stolen/released by another action finger. Release/cancel outside, menus, layout/rotation, blur/background reset movement. Jump is free outdoors using the existing swept arc/cooldown/grounded-save rules; indoor actions are disabled. Mobile Attack reuses axe/club combat and nearby axe tree use. Desktop retains direct taps/keyboard.
+
+Checks: **189/189 tests**, production build (104 modules), whitespace, native art and eight-file runtime allowlist pass. Native browser inputs at 1280×720, 360×640 and 640×360 verify entry, walk to bed, sleep, exit, stable keyboard/joystick diagonals, release reset, mobile boar defeat (+2 Meat, -1 EP), Forest cliff Jump, Pause/rotation and saved landing on Continue. Browser warnings/errors are empty. Evidence: verification/home-mobile; source records: assets/licenses/home-mobile. Normal preview 4175 is restored/opened without resetting its save. QA tab/server and temporary viewport are cleaned up.
+
+Limits: Chromium viewport emulation; physical devices, other engines, sustained performance and human visual acceptance unverified. Simultaneous physical fingers are covered by pointer-event unit tests, not a real-device claim. Native character sheets remain four-facing sprites with stable animation during eight-way movement. Furnishings are decorative apart from bed/exit; no pottery/crafting system. Schema 12, Forest/city/farming/NPC schedules/economy/food/energy/club/time/recovery remain. No new external asset/dependency/backend, push or publication; earlier submission/licence qualifications remain.
+
+---
+
 # v0.10.0 — scene depth, branching Forest rivers and return gate, 2026-10-09
 
 Completed the latest Plant Tales-inspired follow-up. All thirteen original houses now show a receding tiled roof plane, side wall/window, recessed facade, foundations/steps and cast shadows. Shared collision masks derive from the revised opaque pixels; Home door/roads/commutes remain accessible. Outdoor desktop framing is closer (1.5 camera zoom, 3× native pixels at 1280×720); compact screens retain zoom 1 / 2× native pixels. This remains three-quarter two-dimensional pixel art.

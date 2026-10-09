@@ -1,3 +1,4 @@
+import {movementFacing} from '../systems/movement.js';
 import {HeldWateringCan} from './HeldWateringCan.js';
 const DIRECTIONS=['down','up','left','right'];
 export class PlayerView {
@@ -11,9 +12,9 @@ export class PlayerView {
       if(!scene.anims.exists(idle))scene.anims.create({key:idle,frames:[{key:character,frame:row*9,duration:2200},{key:character,frame:row*9+5,duration:130}],frameRate:1,repeat:-1});
     }
   }
-  face(dx,dy){if(Math.abs(dx)+Math.abs(dy)<1)return;this.direction=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');this.pose(false);}
+  face(dx,dy){if(Math.abs(dx)+Math.abs(dy)<1)return;this.direction=movementFacing(dx,dy,this.direction);this.pose(false);}
   pose(moving){this.sprite.play(`${this.character}-${this.direction}${moving?'':'-idle'}`,true);}
-  update(position,dx,dy,jump={height:0,frame:null}){if((dx||dy)&&!this.scene.app.pendingAttack&&!(this.scene.app.state?.selected==='axe'&&this.wateringCan.remaining>0))this.direction=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');if(jump.frame!==null)this.sprite.stop().setFrame(DIRECTIONS.indexOf(this.direction)*9+jump.frame);else this.pose(!!(dx||dy));this.anchor.setPosition(Math.round(position.x),Math.round(position.y));this.shadow.setPosition(this.anchor.x,this.anchor.y-3).setDepth(position.y-2).setVisible(jump.frame!==null);this.sprite.setPosition(this.anchor.x,this.anchor.y-jump.height).setDepth(Math.round(position.y));this.wateringCan.update(this.anchor,this.direction,this.sprite.scaleX,jump.height,!!(dx||dy));
+  update(position,dx,dy,jump={height:0,frame:null},intent={x:dx,y:dy}){if((dx||dy)&&!this.scene.app.pendingAttack&&!(this.scene.app.state?.selected==='axe'&&this.wateringCan.remaining>0))this.direction=movementFacing(intent.x,intent.y,this.direction);if(jump.frame!==null)this.sprite.stop().setFrame(DIRECTIONS.indexOf(this.direction)*9+jump.frame);else this.pose(!!(dx||dy));this.anchor.setPosition(Math.round(position.x),Math.round(position.y));this.shadow.setPosition(this.anchor.x,this.anchor.y-3).setDepth(position.y-2).setVisible(jump.frame!==null);this.sprite.setPosition(this.anchor.x,this.anchor.y-jump.height).setDepth(Math.round(position.y));this.wateringCan.update(this.anchor,this.direction,this.sprite.scaleX,jump.height,!!(dx||dy));
     if(this.scene.app.state?.selected==='axe'&&this.wateringCan.remaining>0){
       const t=1-this.wateringCan.remaining/420,lean=t>.26&&t<.65?2:0;
       const shift=['right','down'].includes(this.direction)?lean:-lean;

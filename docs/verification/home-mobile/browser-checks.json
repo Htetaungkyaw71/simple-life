@@ -1,0 +1,977 @@
+{
+  "desktop": {
+    "entry": true,
+    "sleepEnergy": 100,
+    "exit": {
+      "area": "home",
+      "position": {
+        "x": 480,
+        "y": 528
+      }
+    },
+    "diagonal": {
+      "before": {
+        "x": 308.40519999999816,
+        "y": 528
+      },
+      "after": {
+        "x": 225.71966854194724,
+        "y": 445.3144685419491
+      },
+      "facing": "left",
+      "samples": [
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 23,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 18,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 23,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        },
+        {
+          "position": {
+            "x": 225.71966854194724,
+            "y": 445.3144685419491
+          },
+          "player": {
+            "direction": "left",
+            "frame": 23,
+            "height": 96
+          },
+          "input": {},
+          "jump": {
+            "active": null,
+            "cooldown": 0
+          }
+        }
+      ]
+    }
+  },
+  "phone": {
+    "before": {
+      "x": 640,
+      "y": 600
+    },
+    "after": {
+      "x": 742.9884551361297,
+      "y": 525.6157305985746
+    },
+    "released": {
+      "stick": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "samples": [
+      {
+        "position": {
+          "x": 654.3029509757622,
+          "y": 585.6970490242378
+        },
+        "player": {
+          "direction": "up",
+          "frame": 10,
+          "height": 64
+        },
+        "input": {
+          "stick": {
+            "x": 0.6600833922099419,
+            "y": -0.6600833922099419
+          }
+        },
+        "jump": {
+          "active": null,
+          "cooldown": 0
+        }
+      },
+      {
+        "position": {
+          "x": 671.4771326909591,
+          "y": 568.5228673090409
+        },
+        "player": {
+          "direction": "up",
+          "frame": 11,
+          "height": 64
+        },
+        "input": {
+          "stick": {
+            "x": 0.6600833922099419,
+            "y": -0.6600833922099419
+          }
+        },
+        "jump": {
+          "active": null,
+          "cooldown": 0
+        }
+      },
+      {
+        "position": {
+          "x": 688.6427333220573,
+          "y": 551.3572666779427
+        },
+        "player": {
+          "direction": "up",
+          "frame": 12,
+          "height": 64
+        },
+        "input": {
+          "stick": {
+            "x": 0.6600833922099419,
+            "y": -0.6600833922099419
+          }
+        },
+        "jump": {
+          "active": null,
+          "cooldown": 0
+        }
+      },
+      {
+        "position": {
+          "x": 705.8031853026961,
+          "y": 534.1968146973039
+        },
+        "player": {
+          "direction": "up",
+          "frame": 12,
+          "height": 64
+        },
+        "input": {
+          "stick": {
+            "x": 0.6600833922099419,
+            "y": -0.6600833922099419
+          }
+        },
+        "jump": {
+          "active": null,
+          "cooldown": 0
+        }
+      },
+      {
+        "position": {
+          "x": 722.9653535001547,
+          "y": 525.6157305985746
+        },
+        "player": {
+          "direction": "up",
+          "frame": 13,
+          "height": 64
+        },
+        "input": {
+          "stick": {
+            "x": 0.6600833922099419,
+            "y": -0.6600833922099419
+          }
+        },
+        "jump": {
+          "active": null,
+          "cooldown": 0
+        }
+      },
+      {
+        "position": {
+          "x": 740.1275216976134,
+          "y": 525.6157305985746
+        },
+        "player": {
+          "direction": "up",
+          "frame": 10,
+          "height": 64
+        },
+        "input": {
+          "stick": {
+            "x": 0.6600833922099419,
+            "y": -0.6600833922099419
+          }
+        },
+        "jump": {
+          "active": null,
+          "cooldown": 0
+        }
+      }
+    ],
+    "jump": {
+      "active": {
+        "origin": {
+          "x": 742.9884551361297,
+          "y": 525.6157305985746
+        },
+        "destination": {
+          "x": 742.9884551361297,
+          "y": 525.6157305985746
+        },
+        "elapsed": 283.4100000000006
+      },
+      "cooldown": 566.5899999999993
+    },
+    "hunt": {
+      "boar": {
+        "id": "boar-original",
+        "species": "boar",
+        "position": {
+          "x": 934.9144373685459,
+          "y": 4526.226413874285
+        },
+        "health": 0,
+        "defeatedDay": 1
+      },
+      "energy": 99,
+      "meat": 2
+    },
+    "interior": {
+      "position": {
+        "x": 240,
+        "y": 192
+      },
+      "room": {
+        "width": 480,
+        "height": 304,
+        "spawn": {
+          "x": 240,
+          "y": 192
+        },
+        "bed": {
+          "x": 364,
+          "y": 188
+        },
+        "exit": {
+          "x": 240,
+          "y": 224
+        }
+      },
+      "controls": [
+        {
+          "id": "move-stick",
+          "label": "Move",
+          "x": 18,
+          "y": 502,
+          "w": 120,
+          "h": 120
+        },
+        {
+          "id": "jump",
+          "label": "JUMP",
+          "x": 202,
+          "y": 534,
+          "w": 56,
+          "h": 56,
+          "disabled": true
+        },
+        {
+          "id": "attack",
+          "label": "ATTACK",
+          "x": 282,
+          "y": 534,
+          "w": 56,
+          "h": 56,
+          "disabled": true
+        }
+      ]
+    }
+  },
+  "landscape": {
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 224,
+        "y": 280,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 292,
+        "y": 280,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 360,
+        "y": 280,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 428,
+        "y": 280,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "move-stick",
+        "label": "Move",
+        "x": 18,
+        "y": 222,
+        "w": 120,
+        "h": 120
+      },
+      {
+        "id": "jump",
+        "label": "",
+        "x": 562,
+        "y": 188,
+        "w": 56,
+        "h": 56,
+        "disabled": false
+      },
+      {
+        "id": "attack",
+        "label": "",
+        "x": 562,
+        "y": 282,
+        "w": 56,
+        "h": 56,
+        "disabled": false
+      }
+    ],
+    "input": {},
+    "cliff": {
+      "before": {
+        "x": 944,
+        "y": 3839.914519379845
+      },
+      "after": {
+        "x": 944,
+        "y": 3967.914519379845
+      },
+      "energy": 100
+    }
+  },
+  "saved": {
+    "area": "forest",
+    "position": {
+      "x": 944,
+      "y": 3967.914519379845
+    },
+    "energy": 100,
+    "selected": "axe",
+    "input": {}
+  },
+  "logs": []
+}
