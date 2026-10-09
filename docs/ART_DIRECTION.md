@@ -1,3 +1,11 @@
+# v0.7.2 — consistent human proportions and ground seeds
+
+The user's latest follow-up supersedes Pipoya's active NPC presentation and the planted packet stake. All active human NPCs/sellers share the Channeechan farmer's native body/face silhouette and scale, adapted only in hair/clothing palettes. Preserve 24×32 cells, 2× world scale, .94 foot origin and the farmer's four authored walk poses. Retain creator/template credit; legacy Pipoya cells remain credited in the atlas but are not active actors.
+
+Planted seed art belongs at soil level: small grains and a low mound, with no giant inventory packet/sign. Inventory packets still show fruit emblems, and crop inspection identifies the planting. Existing water/warning labels and growing foliage remain. Axe vertically flips the item art to put the grip above its blade, extends beside the hand clear of the body, draws in front in every facing and swings outward. Water/Shovel poses remain unchanged.
+
+---
+
 # v0.7.1 — larger houses and living water
 
 The latest user request supersedes the old fixed house silhouette requirement. Every active house uses a distinct original 120×96 native cell at 2× world scale, with warm shaded plaster/timber/brick, different tiled roof/gable/chimney combinations, arched door/window details, porch stones, ivy and flowerboxes. Shared collision follows each new alpha silhouette. Retain clear road/door approaches and the approved town palette. No screenshot pixels or exact building layouts are reused.

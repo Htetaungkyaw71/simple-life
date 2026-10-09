@@ -18,5 +18,9 @@ def add_garden_tools_art(assets):
   seed=Image.new('RGBA',(16,16));d=ImageDraw.Draw(seed)
   d.rectangle((1,0,14,15),fill='#3e4730');d.rectangle((2,1,13,14),fill='#e4d49d');d.line((2,1,13,1),fill='#fff1c3');d.rectangle((2,2,13,3),fill='#718644');d.line((2,14,13,14),fill='#bca36a')
   seed.alpha_composite(symbol,((16-symbol.width)//2,5+(10-symbol.height)//2));assets[c+'-seed-item']=seed
-  # A tiny planted marker carries the same crop emblem, above visible seed grains.
-  plant=Image.new('RGBA',(24,32));d=ImageDraw.Draw(plant);d.rectangle((11,17,12,28),fill='#665238');d.line((10,28,14,28),fill='#c9a76c');d.point((9,27),fill='#e1c991');plant.alpha_composite(seed,(4,8));assets[c+'-seed']=plant
+  # Seeds belong on the soil; inventory packets must not become giant field signs.
+  plant=Image.new('RGBA',(24,32));d=ImageDraw.Draw(plant)
+  d.ellipse((6,25,18,29),fill='#693d2c');d.line((7,29,17,29),fill='#a56941')
+  for x,y in [(9,27),(13,26),(16,28)]:
+   d.line((x,y,x+1,y),fill='#d9ba7c');d.point((x,y-1),fill='#f0d79a')
+  assets[c+'-seed']=plant

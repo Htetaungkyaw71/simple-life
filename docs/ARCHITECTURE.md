@@ -1,3 +1,11 @@
+# v0.7.2 — matched character and seed presentation
+
+matched_residents_art.py reads the existing processed farmer sheets and adapts eight hair/clothing palettes into town-person-* cells. The full atlas pipeline and idempotent extend-character-art.py integrate these cells without modifying the player sheets or previous frame rectangles. ResidentView selects idle/1–4 walk frames at the same 125ms cadence, 2× scale and .94 foot origin as PlayerView. Pure resident schedules/movement/commerce are unchanged.
+
+garden_tools_art.py authors planted seed grains/mounds separately from inventory packet art. FarmView continues choosing cropVisual/markers through established systems. HeldWateringCan vertically flips only Axe, uses an upper grip with outward side anchors and front depth in all facings, and extends the visible hand to that grip. Other tools keep established transforms. No persistent state/schema/backend/UI architecture changes.
+
+---
+
 # v0.7.1 — commuting and presentation
 
 `systems/commute.js` owns pure 16-unit dry-grid path search using existing walkability, full house clearance and bridge-aware water queries. Bounded cached routes and clock-derived poses give dawn departure and doorstep arrival by 20:00. `systems/residents.js` builds door/porch/work routes from data-driven house indices, preserves midday patrols, starts returning from the current patrol point, and reconstructs commuting on entry/reload. `ResidentView` now also renders the three merchant identities from the existing Pipoya sheets; WorldScene gates commerce on staff availability plus the existing shop hours. No saved fields/schema change or backend.

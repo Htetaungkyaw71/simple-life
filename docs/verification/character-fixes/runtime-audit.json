@@ -1,0 +1,43 @@
+{
+  "baseCommit": "c93f84c",
+  "previousFrames": 675,
+  "frames": 835,
+  "retainedUnchangedFrames": 663,
+  "changedOriginalSeeds": [
+    "tomato-seed",
+    "strawberry-seed",
+    "carrot-seed",
+    "corn-seed",
+    "chili-seed",
+    "eggplant-seed",
+    "cucumber-seed",
+    "watermelon-seed",
+    "pumpkin-seed",
+    "grape-seed",
+    "blueberry-seed",
+    "sweetPotato-seed"
+  ],
+  "matchedActorFrames": 160,
+  "nativeBodies": "24x32; alpha and facial pixels match the existing farmer cells",
+  "unchangedOtherArt": [
+    "font.png",
+    "font.xml",
+    "world.png",
+    "world.json",
+    "processed/boy.png",
+    "processed/girl.png"
+  ],
+  "runtimeArt": [
+    "font.png",
+    "font.xml",
+    "processed/boy.png",
+    "processed/girl.png",
+    "processed/town.json",
+    "processed/town.png",
+    "world.json",
+    "world.png"
+  ],
+  "buildFiles": 12,
+  "buildBytes": 2278525,
+  "atlasSha256": "f6793adb4a615d87c637cd8bbc493b4c586f782f6c20595fd449cf6f6992ef88"
+}

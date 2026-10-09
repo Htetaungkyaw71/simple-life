@@ -1,3 +1,15 @@
+# v0.7.2 — planted seeds, matching people and axe grip, 2026-10-09
+
+Completed the user's three visual repairs. Newly planted crops show small seed grains in a soil mound, replacing the oversized inventory-packet stake in all twelve crops. Inventory/shop packets retain their crop pictures; crop inspection and established water/warning/harvest labels remain. Growing crop stages, care and yields are unchanged.
+
+All City/Home residents and sellers now use adapted native Channeechan farmer bodies instead of the larger Pipoya proportions. Eight hair/clothing palettes distinguish people; native 24×32 silhouettes, facial pixels, 2× scale, .94 foot origin and four walking poses match PlayerView. Commutes, conversations and commerce remain. Axe is vertically flipped, grips above the blade, sits outside the torso with an extended hand, and renders in front for all four facings. Swing tilts outward; Water/Shovel retain their existing poses.
+
+Checks: **166/166 tests**, production build, whitespace and Python source compilation pass. Updated regressions check matched native cell sizes, all axe facings and blade clearance at idle/half/full swing. Browser checks used actual planting (seed count 3→2), four-direction axe movement, Home/City NPC comparison and direct phone NPC conversation; no console errors/warnings. Audit confirms 663 unchanged old cells, only twelve original planted-seed cells changed, 160 adapted farmer cells appended (835 total), unchanged farmer sheets/six other art files, and the same eight-file runtime allowlist. Build: **12 files / 2,278,525 bytes**. Evidence: [character repairs](verification/character-fixes/README.md); [source/licence record](assets/licenses/matched-characters.md). Preview refreshed at http://127.0.0.1:4175/; user-origin save retained.
+
+Limits: browser viewport emulation only; physical devices/other engines/human visual acceptance remain unverified. Earlier licence/submission limitations remain. No new dependency/backend, progression/save fields, push or publication.
+
+---
+
 # v0.7.1 — town, water and touch polish, 2026-10-09
 
 Completed the user's axe/fountain/houses/NPC/HUD/water/touch follow-up. All thirteen active houses now have distinct original 120×96 source art (240×192 world pixels), 50% larger in both dimensions, with varied roof/gable/chimney forms, shaded plaster/brick/timber, door/window details, flowerboxes and ivy. Shared collision masks derive from their exact alpha rows; Home entry stays at its established approach. Decorative cottages remain exterior scenery. The axe grips its lower handle with the blade pointing outward in all four facings.

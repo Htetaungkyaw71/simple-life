@@ -9,7 +9,7 @@ class Node {
  constructor(scene,type,x=0,y=0){this.scene=scene;this.type=type;this.x=x;this.y=y;this.scaleX=1;this.scaleY=1;this.alpha=1;this.visible=true;this.originX=0;this.originY=0;this.events={};this.list=[];this.commands=[];}
  add(n){for(const o of Array.isArray(n)?n:[n]){o.parent=this;this.list.push(o);}return this;}
  setOrigin(x,y=x){this.originX=x;this.originY=y;return this;}setScale(x,y=x){this.scaleX=x;this.scaleY=y;return this;}setPosition(x,y){this.x=x;this.y=y;return this;}setX(x){this.x=x;return this;}
- setAlpha(v){this.alpha=v;return this;}setVisible(v){this.visible=v;return this;}setDepth(v){this.depth=v;return this;}setRotation(v){this.rotation=v;return this;}setFlipX(v){this.flipX=v;return this;}setTint(v){this.tint=v;return this;}setCenterAlign(){this.align='center';return this;}
+ setAlpha(v){this.alpha=v;return this;}setVisible(v){this.visible=v;return this;}setDepth(v){this.depth=v;return this;}setRotation(v){this.rotation=v;return this;}setFlipX(v){this.flipX=v;return this;}setFlipY(v){this.flipY=v;return this;}setTint(v){this.tint=v;return this;}setCenterAlign(){this.align='center';return this;}
  setText(v){this.text=String(v);return this;}setFontSize(v){this.size=v;return this;}setMaxWidth(v){this.maxWidth=v;return this;}
  setTexture(key,frame){this.texture=key;this.frame=frame;return this;}setSize(w,h){this.w=w;this.h=h;return this;}
  get width(){return this.type==='text'?Math.max(...linesOf(this.text,this.size,this.maxWidth).map(l=>advance(l,this.size))):this.w||16;}

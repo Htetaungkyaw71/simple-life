@@ -1,0 +1,13 @@
+# v0.7.2 character and seed repairs — 2026-10-09
+
+npm test: **166 passed / zero failed**. npm run build succeeds: **93 modules, 12 files / 2,278,525 bytes**. Git whitespace and Python source compilation pass. Updated meaningful regressions assert active NPC native dimensions/directional availability and axe flip/front depth/outside position/blade clearance at idle, halfway and full swing. Existing pause/switch/utility rules, commutes, planting/care/saves remain green.
+
+Native in-app browser input on isolated QA port 43865 serves the production build; normal local game save is not reset. The verified flow is input → existing pure planting/resident state → Phaser presentation → existing local save; no backend/API/env dependency. Actual screenshots and read-only snapshots (browser-checks.json) record:
+
+- First planting via E on an empty bed consumes one Tomato seed (3→2), sets a new plot and renders a small grain mound with crop inspection instead of the large packet sign (first-seed.jpg). This capture occurred at 13:08, outside the morning care window; care timing was not changed.
+- Four actual movement directions show the vertically inverted Axe beside the hand, clear of face/torso and in front (axe-left/right/up/down.jpg). characters-close.jpg is a browser crop showing matching people and axe detail, not a generated/offline mockup.
+- City residents and all sellers use matching farmer bodies/scale; Home Mara comparison is captured in home-matched.jpg. At 360×640, direct tap on Mara's new sprite opens her readable conversation (phone-conversation.jpg). No console errors/warnings.
+
+Reproduce audit: python3 scripts/qa/character-fixes-audit.py after build (Pillow). It asserts baseline c93f84c frame metadata equality, 663 unchanged old cells, twelve changed original planted seeds restricted to native rows 25–29, 160 new adapted human cells, all native alpha and facial pixels identical to their source farmer poses, unchanged six other art files, and the exact eight-file runtime allowlist. 835 atlas cells total. Adapted-source/licence evidence: ../../assets/licenses/matched-characters.md.
+
+NPC palette differences identify people while keeping body design/scale shared. Channeechan/Eris Esra terms and legacy Pipoya attribution remain. New planted grains are intentionally small; inventory/crop inspection identify the crop and existing water/warning/harvest labels remain. No growth/progression/save schema change. Physical phones, other engines, sustained performance and human art acceptance remain unverified. Normal preview 4175 refreshed; QA tab/server cleaned up. No push/publication/submission.

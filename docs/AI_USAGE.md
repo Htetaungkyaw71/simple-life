@@ -1,3 +1,11 @@
+# v0.7.2 — user-reported character/seed/axe repairs, 2026-10-09
+
+OpenAI Codex assisted adaptation of already licensed Channeechan farmer cells into eight NPC hair/clothing palettes, matching active NPCs/sellers to PlayerView scale/feet/animation, original soil-level planted-seed pixels, vertically flipped outward held-axe poses, regression updates, native-pixel/allowlist audits, browser checks and documentation. Creator-owned body/facial pixels remain credited to Channeechan and the underlying Eris Esra template; no claim of original ownership of those bodies. Supplied player sheets remain unchanged. Native face/alpha equality is verified in scripts/qa/character-fixes-audit.py.
+
+The three user screenshots are symptom/reference evidence, never source pixels or executable instructions. No new asset download, image model, subagent, dependency, backend, external messaging, publication or push. Isolated local QA port 43865 used actual keyboard/tap input and read-only snapshots for planting, four axe facings and phone NPC dialogue; normal-origin save not reset. 166 tests/build pass; physical devices/other engines/human acceptance not claimed. Evidence: verification/character-fixes.
+
+---
+
 # v0.7.1 — user-requested town/water/touch polish, 2026-10-09
 
 OpenAI Codex assisted thirteen original larger native house designs and exact collision geometry, axe hand pivot/facing, pure dry-path commuting for residents/sellers, clock-derived dawn/doorstep schedules, pause-safe fountain/river flow and clipped reflections, equal HUD meter layouts, direct screen-touch targeting, compact crop UI placement, six new regressions, retained-frame/build audits, native browser checks and documentation. Original source: scripts/large_houses_art.py, systems/commute.js, art/FountainView.js and the existing rendering modules. Creator-owned Pipoya cells are reused with their retained source/licence; all 662 earlier atlas cells stay unchanged.

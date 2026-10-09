@@ -1,3 +1,11 @@
+# v0.7.2 — character/planting repairs, 2026-10-09
+
+166/166 tests/build pass. Native size/face/alpha audit confirms eight adapted farmer NPC palettes with identical native body proportions; twelve planted seed frames are the only changed old cells. Existing axe regressions now assert vertical inversion, front depth, outside-body idle position and blade clearance throughout the swing. Prior utility pause/switch, schedules and complete gameplay regressions stay green.
+
+Actual in-app browser inputs on isolated QA origin 43865: first planting consumes one seed (3→2) and renders grains rather than a packet; four axe facings show clear hand/torso separation; City/Home actors share farmer style/scale; 360×640 direct Mara tap opens the conversation. Errors/warnings empty. The same eight art-file allowlist remains, 12 production files / 2,278,525 bytes. Evidence/reproduction: [character repair record](verification/character-fixes/README.md). Physical phones/other engines/sustained performance remain unverified; no normal-origin reset, push or publication.
+
+---
+
 # v0.7.1 — town polish, 2026-10-09
 
 **166/166 tests and production build pass.** Six added regressions cover every resident/seller dry commute and doorstep timing, pause/reload poses, 13 unique larger house/collision silhouettes, axe grip/facings, matching HUD geometry/no USE control across six viewports, and broad bridge-safe City water motion. Existing 160 checks retain commerce/farming/Forest/time/saves/UI. Compact 640×360 crop guidance also passes the retained placement regression.

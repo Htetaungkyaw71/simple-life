@@ -1,3 +1,11 @@
+# v0.7.2 — farmer-derived NPCs and original planted grains
+
+Active NPCs and sellers now use 160 selected/adapted 24×32 Channeechan farmer cells (eight palettes × four directions × idle/four walk cells), from the already integrated licensed farmer sheets. Faces and native body alpha are retained; only hair/clothing colours change. Channeechan permits game use/modifications under the recorded terms, with underlying Eris Esra template credit retained. No source archive redistribution/new external download. In-game Town Residents credits identify this adaptation; old Pipoya atlas cells retain their legacy source attribution. See [source evidence](assets/licenses/matched-characters.md) and [existing supplied-art terms](assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md).
+
+Twelve original planted-seed cells replace packet stakes with soil-level grains. Inventory packets and all 663 other older cells remain unchanged; 835 atlas cells total. Existing player sheets and six other runtime art files remain unchanged. Eight-file allowlist retained. This does not relicense the mixed atlas or resolve earlier other-pack submission limitations.
+
+---
+
 # v0.7.1 — original large houses and reused actors
 
 Thirteen distinct 120×96 native house cells are original deterministic project artwork authored in scripts/large_houses_art.py with Codex assistance. They replace active house presentation without altering the 662 existing mixed-source atlas frames. No new download, image generation or screenshot pixel extraction. Merchant walking uses already integrated Pipoya directional cells under the recorded creator terms. Existing LimeZu/Pipoya/other attribution and source-specific restrictions remain. The mixed atlas is not offered as a standalone asset pack.
