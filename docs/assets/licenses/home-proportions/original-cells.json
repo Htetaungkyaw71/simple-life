@@ -1,0 +1,119 @@
+[
+  {
+    "frame": "house-village-0",
+    "size": [
+      180,
+      144
+    ],
+    "sha256": "0e4854dadbdbb87428d38dbf9a19b34d41ad54feed75a9008be2492fde6c826b",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-1",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "e2716e4d92e03ba646db8e0be43b3ab0f07f2449050ff01e8c238ef3246bf2f6",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-2",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "d3fd4c2b31b14e874287f835409841567cb7dd4321d0d04a82365531b934d34c",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-3",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "896ac9a61c9136225a9286363c57221f4aa3c2494046b51064ac15a1890bb985",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-4",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "d270ae6f2fde0d3147ed230e4261d7f293bebd8250f38d81b421137441ee7e1c",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-5",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "7608b5a40a9a867eab67114af8169df5751701b0df37964279c1c1ad26562bd6",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-6",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "7f412aafc2f060e0b0e4a0b1395ef4c1221806fbfaf94ef051196cedb60823bf",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-7",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "dd18f3c68e81b64ac532c569cf9b73be47bc0823a118b71c3e27245fb563c443",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-8",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "e18fe12965a6b9480a48f2f706d2b3cdfbeb55f8385ffa92c6bd7f9b58ac74fb",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-9",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "6f1f079797c31fc453c64e4d2e6010504f9e0e270b238aeaec7d8d0bfa8c28da",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-10",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "f6f4ebc413355e2d54e54087072bb5786a6906e6c97938126621ad85029caa72",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-11",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "e1c64e9d9074bf0821890ffd264319e778debd660191f773bbc6f7fe1dc5c1c4",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  },
+  {
+    "frame": "house-village-12",
+    "size": [
+      120,
+      96
+    ],
+    "sha256": "83a758e4f030547a1bb5d8c2b4121572b7f10e6359c6bd10a99bcfb3c41ce22f",
+    "source": "Original scripts/large_houses_art.py. Home drawn directly at 180x144; twelve other cottages at 120x96. No reference pixels or resampled sprites."
+  }
+]

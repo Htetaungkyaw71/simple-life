@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import {TESTING_COIN_GRANT} from '../systems/testingCredit.js';
 import {drawModal} from './MenuView.js';
 import {Hud} from './Hud.js';
 import {panel,text,icon,button,UI_COLORS} from './pixelWidgets.js';
@@ -32,6 +33,7 @@ export class Interface extends Phaser.Scene {
       ['Continue',()=>this.app.start(save),!save],
       ['Controls',()=>this.help(()=>this.title())],
       ['Credits',()=>this.credits()],
+      ...(this.app.testingCreditEnabled?[['Add 100,000 test coins',()=>this.app.grantTestingCoins(),!save||save.testingCoinGrant===TESTING_COIN_GRANT]]:[]),
     ],'title');
     if(this.app.saves.error)this.toast(this.app.saves.error);
   }

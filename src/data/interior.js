@@ -1,6 +1,5 @@
-// Authored 800×480 envelope; desktop layouts fit the full room at integer zoom 2.
-// Native-size indoor sprites keep the farmer's displayed height equal to outdoors.
-export const ROOM={width:624,height:304,zoom:2,spawn:{},bed:{},exit:{},bounds:[]};
+// Furnishings and farmer share 2× native world pixels. Camera framing matches outdoors.
+export const ROOM={width:624,height:304,zoom:1.5,spawn:{},bed:{},exit:{},bounds:[]};
 export const FURNITURE=[],ROOM_SOLIDS=[];
 export function configureRoom(viewWidth=1280,viewHeight=720){
  const w=Math.max(480,Math.min(800,Math.floor((viewWidth-32)/32)*16));

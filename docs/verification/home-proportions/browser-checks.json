@@ -1,0 +1,62 @@
+{
+  "version": "0.11.1",
+  "method": "Native CUA keyboard/pointer input; isolated 43863-origin fixtures and read-only canvas QA snapshots. Requested coin grant applied by native title button on normal 4175 origin.",
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "homeEntry": "passed",
+    "indoorPlayerHeight": 96,
+    "outdoorPlayerHeight": 96,
+    "bedDialog": "passed",
+    "fullRoofScreenshot": "home-exterior.png",
+    "desktopAnimalClick": {
+      "healthAfter": 0,
+      "meatAfter": 2,
+      "energyAfter": 99
+    }
+  },
+  "phone": {
+    "viewport": [
+      390,
+      844
+    ],
+    "indoorPlayerHeight": 64,
+    "outdoorPlayerHeight": 64,
+    "worldAnimalTap": {
+      "healthAfter": 1,
+      "meatAfter": 0,
+      "energyAfter": 100,
+      "pendingAttack": null
+    },
+    "worldGroundTap": {
+      "healthAfter": 1,
+      "pendingAttack": null,
+      "toolRotation": -3.141592653589793
+    },
+    "attackButton": {
+      "healthAfter": 0,
+      "meatAfter": 2,
+      "energyAfter": 99
+    },
+    "touchHomeEntry": "passed",
+    "indoorJumpAttackDisabled": true
+  },
+  "testingGift": {
+    "origin": "http://127.0.0.1:4175",
+    "added": 100000,
+    "balanceAfter": 100003,
+    "normalReloadBalance": 100003,
+    "normalTestingButtonHidden": true,
+    "grantButtonDisabledAfterClaim": true,
+    "leftPaused": true,
+    "replacedOtherProgress": false
+  },
+  "consoleWarningsOrErrors": [],
+  "limits": [
+    "Phone viewport/native pointer emulation; no physical touch phone or additional browser engine tested."
+  ],
+  "unitTests": 192,
+  "buildModules": 106
+}

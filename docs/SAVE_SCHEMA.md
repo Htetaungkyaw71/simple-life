@@ -1,3 +1,9 @@
+# v0.11.1 optional local testing marker (schema remains 12)
+
+The explicit user-authorized localhost testing gift adds 100,000 to existing `money` (capped at 9,999,999) and stores optional `testingCoinGrant: "home-proportions-2026-10-09"`. Validation retains only this recognized marker; missing markers do not alter normal state. The grant writes original raw fields plus balance/marker in one localStorage save, rejects unavailable storage/incompatible saves and does not replay after Continue/save/reload. The title action appears only with explicit `?testingCoins=100000` on loopback hosts. New-game initial money remains 60; no migration, default grant, remote debug action or other progress reset.
+
+---
+
 # Save schema 12 — hunting, stone and food healing, v0.8.0
 
 Storage key stays simple-life.save.v1. Schemas 1–12 validate; 1–11 migrate to 12 without resetting existing progression. inventory.stone and inventory.meat are bounded integers 0–9999, defaulting to zero. All existing crop, market, wood/grass, equipment, currency, time, farm, discovery and Stash Bag fields remain. Meat is appended after all existing sale IDs so old daily price salts do not move.

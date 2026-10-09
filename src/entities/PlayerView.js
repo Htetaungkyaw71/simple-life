@@ -4,7 +4,7 @@ const DIRECTIONS=['down','up','left','right'];
 export class PlayerView {
   constructor(scene,character){
     this.scene=scene;
-    this.sprite=scene.add.sprite(0,0,character,0).setOrigin(.5,.94).setScale(scene.app.state?.area==='interior'?1:2);this.anchor=scene.add.zone(0,0,1,1);this.shadow=scene.add.ellipse(0,0,28,10,0x253951,.25).setVisible(false);this.direction='down';this.character=character;
+    this.sprite=scene.add.sprite(0,0,character,0).setOrigin(.5,.94).setScale(2);this.anchor=scene.add.zone(0,0,1,1);this.shadow=scene.add.ellipse(0,0,28,10,0x253951,.25).setVisible(false);this.direction='down';this.character=character;
     this.wateringCan=new HeldWateringCan(scene);
     for(const [row,dir]of DIRECTIONS.entries()){
       const walk=`${character}-${dir}`,idle=`${character}-${dir}-idle`;

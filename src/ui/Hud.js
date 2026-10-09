@@ -14,11 +14,11 @@ export class Hud {
   const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6;
   const healthWidth=Math.min(140,w-96),barX=left+21,barW=healthWidth-21;
   const meters=u.add.graphics();p.add(meters);meterFrame(meters,barX,top+4,barW);meterFrame(meters,barX,top+36,barW);
-  this.health=u.add.rectangle(barX+4,top+8,barW-8,9,0xce4438).setOrigin(0);this.energy=u.add.rectangle(barX+4,top+40,barW-8,9,0xbe973e).setOrigin(0);p.add([this.health,this.energy]);this.healthWidth=this.energyWidth=barW-8;
-  this.healthShine=u.add.rectangle(barX+4,top+8,barW-8,2,0xee6950).setOrigin(0);this.energyShine=u.add.rectangle(barX+4,top+40,barW-8,2,0xe0c36e).setOrigin(0);p.add([this.healthShine,this.energyShine]);
+  this.health=u.add.rectangle(barX+4,top+8,barW-8,9,0xce4438).setOrigin(0);this.energy=u.add.rectangle(barX+4,top+40,barW-8,9,0xe6b642).setOrigin(0);p.add([this.health,this.energy]);this.healthWidth=this.energyWidth=barW-8;
+  this.healthShine=u.add.rectangle(barX+4,top+8,barW-8,2,0xee6950).setOrigin(0);this.energyShine=u.add.rectangle(barX+4,top+40,barW-8,2,0xffda68).setOrigin(0);p.add([this.healthShine,this.energyShine]);
   const badges=u.add.graphics();p.add(badges);meterBadge(badges,left,top);meterBadge(badges,left,top+32);
   const heart=u.add.graphics();p.add(heart);heart.setScale(2).setPosition(left+6,top+6);meterGlyph(heart,'heart',0xcf4939);
-  const leaf=u.add.graphics();p.add(leaf);leaf.setScale(2).setPosition(left+6,top+38);meterGlyph(leaf,'leaf',UI_COLORS.gold);
+  const bolt=u.add.graphics();p.add(bolt);bolt.setScale(2).setPosition(left+6,top+38);meterGlyph(bolt,'bolt',0xffd45a);
   this.waterWindow=text(u,p,left,top+64,'',6,UI_COLORS.cream);
   panel(u,p,right-76,top,76,37);this.clock=text(u,p,right-38,top+7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,p,right-38,top+23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
   panel(u,p,right-70,top+40,70,18,UI_COLORS.selected);this.money=text(u,p,right-35,top+45,'60c',8).setOrigin(.5,0);
@@ -42,7 +42,7 @@ export class Hud {
   this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;
   let hint=(feedback||c.label).replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Sleep');
   const farmDirection=hint==='FARM / SOUTH';if(farmDirection)hint='FARM';
-  this.promptText.setText((feedback||c.type==='hint'?'':this.ui.touch?'Tap / ':'E / ')+hint);
+  this.promptText.setText((feedback||c.type==='hint'?'':this.ui.touch?(['hunt','chop'].includes(c.type)?'Attack / ':'Tap / '):'E / ')+hint);
   const pw=Math.min(156,Math.ceil(this.promptText.width)+10+(farmDirection?9:0));this.promptWidth=pw;this.promptPanel.clear();frame(this.promptPanel,0,0,pw,15);
   this.promptArrow.clear();if(farmDirection){this.promptArrow.fillStyle(UI_COLORS.light).fillRect(pw-10,3,2,6).fillRect(pw-12,7,6,2).fillRect(pw-10,9,2,2);}
   const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)*cam.zoom/2,py=(s.position.y-cam.worldView.y)*cam.zoom/2;

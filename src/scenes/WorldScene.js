@@ -1,3 +1,4 @@
+import {screenAttackAllowed} from '../systems/screenAttack.js';
 import {movementVector} from '../systems/movement.js';
 import {CityLights} from '../art/CityLights.js';
 import {ResidentView} from '../art/ResidentView.js';
@@ -53,9 +54,10 @@ export class WorldScene extends Phaser.Scene {
     this.input.on('pointerdown',p=>{
       const a=this.app;if(a.paused||!a.state||a.transitioning)return;
       const world=this.cameras.main.getWorldPoint(p.x,p.y),context=this.touchContext(world);
-      if(context){this.lastGroundTap=null;a.use(context);return;}
+      if(context){this.lastGroundTap=null;if(screenAttackAllowed(a.ui.touch,context.type))a.use(context);return;}
       if(a.state.area==='forest'&&p.wasTouch&&['seed','harvest'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
       if(a.state.selected==='axe'){
+        if(!screenAttackAllowed(a.ui.touch,'attack'))return;
         // A tapped trunk still harvests wood; other world taps swing toward the pointer.
         for(const [id,sprites]of this.vegetationVisuals){const n=VEGETATION[a.state.area].byId.get(id),sprite=sprites.at(-1);
           if(id.startsWith('tree:')&&Math.hypot(n.x-a.state.position.x,n.y-a.state.position.y)<72&&sprite.getBounds().contains(world.x,world.y)){
@@ -82,7 +84,7 @@ export class WorldScene extends Phaser.Scene {
       if(syncInterior(this.scale.width,this.scale.height)){
         this.app.state.position=nearestSafe('interior',{x:p.x*ROOM.width/old.w,y:p.y*ROOM.height/old.h});this.build();return;
       }
-      cam.setZoom(2);const vw=this.scale.width/2,vh=this.scale.height/2;
+      const zoom=displayZoom(this.scale.width,this.scale.height);cam.setZoom(zoom);const vw=this.scale.width/zoom,vh=this.scale.height/zoom;
       cam.setBounds(-Math.max(8,(vw-ROOM.width)/2),-Math.max(24,(vh-ROOM.height)/2),Math.max(vw,ROOM.width+16),Math.max(vh,ROOM.height+48));
       if(this.scale.width>=1000&&this.scale.height>=600){cam.stopFollow();cam.centerOn(ROOM.width/2,ROOM.height/2);return;}
     }

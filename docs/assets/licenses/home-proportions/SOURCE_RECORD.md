@@ -1,0 +1,5 @@
+# Original Home correction, v0.11.1
+
+Source: scripts/large_houses_art.py, src/ui/statusArt.js and src/ui/vitalMeter.js. Thirteen original house redraws retain front-facing reference structure with corrected pitched caps and taller double doors. Home is drawn directly at 180×144 through integer drawing coordinates; twelve others remain 120×96. This is independently authored code-native art, not a resampled finished sprite or screenshot extraction. Original yellow lightning pixels replace the original gold leaf in the energy badge. No third-party new art, image model or downloaded asset. Existing licensed farmer/NPC/environment content retains its prior terms.
+
+original-cells.json records exact native house cell hashes. scripts/qa/home-proportions-audit.py compares c9f21ee, verifies 845 unchanged cells, six unchanged art files, one relocated Home frame and eight runtime art files. Runtime/visual evidence is under docs/verification/home-proportions. No publication or additional creator-permission claim.

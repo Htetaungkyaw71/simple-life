@@ -1,3 +1,11 @@
+# v0.11.1 — matched indoor scale, larger Home and yellow energy bolt
+
+The latest user correction requires indoor farmer/furniture at the same 2× world scale and camera framing consistent with outdoors. Home is 180×144 native pixels, its original doorway/porch retained; twelve other cottages are 120×96. Preserve the shared broad roof/raised central gable/flat facade/double door design. Replace the flat roof cap with a pitched ridge; doors must exceed native farmer height. Grounding shadows and exact alpha collision rows follow the larger house. Native cells are drawn directly, not resampled or copied from screenshots.
+
+Energy now has an original yellow lightning icon and bright gold fill, retaining equal health/energy frame dimensions. Mobile world taps do not attack; Attack owns hunting/chopping. Keep desktop screen attacks and ordinary mobile interactions.
+
+---
+
 # v0.11.0 — front-facing houses, cozy Home and mobile controls
 
 The latest explicit user reference supersedes v0.10.0's three-quarter side-wall structure. Every original 120×96 house uses the same broad roof, longitudinal raised central gable, attic lattice window, flat facade, centred double door, three front windows and flanking planter boxes. Thirteen warm roof/plaster/timber/brick/floral finishes differ without changing alpha/structure or door anchors. Remove house perspective cast polygons; retain restrained grounding shadows. No 3D scene/engine or copied screenshot pixels.

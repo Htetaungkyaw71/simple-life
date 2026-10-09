@@ -34,7 +34,7 @@ test('late-evening reload reconstructs travel and pauses keep the clock-derived 
 });
 test('all rendered houses are larger, unique, physically solid, and preserve the Home entry',()=>{
  const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames,names=[];
- for(const area of ['home','farm','city'])for(const b of MAPS[area].buildings.filter(b=>b.name.startsWith('house'))){names.push(b.name);const f=frames[b.name].frame;assert.equal(f.w,120);assert.equal(f.h,96);const boxes=houseSolids(b.x,b.y,b.name);assert.ok(boxes.length>40);assert.equal(walkable(area,b.x+120,b.y+140),false);assert.ok(walkable(area,b.x+120,b.y+234,8));}
+ for(const area of ['home','farm','city'])for(const b of MAPS[area].buildings.filter(b=>b.name.startsWith('house'))){names.push(b.name);const f=frames[b.name].frame;const home=b.name==='house-village-0';assert.equal(f.w,home?180:120);assert.equal(f.h,home?144:96);const boxes=houseSolids(b.x,b.y,b.name);assert.ok(boxes.length>40);assert.equal(walkable(area,b.x+120,b.y+140),false);assert.ok(home?walkable(area,HOUSE.door.x,HOUSE.door.y,8):walkable(area,b.x+120,b.y+234,8));}
  assert.equal(new Set(names).size,names.length);assert.ok(walkable('home',HOUSE.door.x,HOUSE.door.y));
 });
 test('axe uses the farmer hand without an added hand, points outward and layers front/back by facing',()=>{

@@ -1,3 +1,9 @@
+# v0.11.1 — original Home roof/proportion and energy correction
+
+Thirteen house cells are independently redrawn by scripts/large_houses_art.py, with a pitched roof cap and taller doors. Home is authored directly at 180×144; other cottages remain 120×96. The yellow bolt is original src/ui/statusArt.js / vitalMeter.js pixel code. No screenshot pixels, external image generation/download or sprite resampling. Indoor furnishings, Channeechan farmer/NPC sheets, font, world and other atlas cells preserve their existing source licences. Evidence and hashes: docs/assets/licenses/home-proportions. Runtime packaging remains the eight-file allowlist. No additional rights/publication claim.
+
+---
+
 # v0.11.0 — original front-facing houses and cozy interior
 
 Thirteen original 120×96 house cells are redrawn in-place with identical front-facing alpha/structure and different finishes. Twelve original native interior cells append to the existing town atlas. Original generator code and native RGBA hashes: [home/mobile provenance](assets/licenses/home-mobile/SOURCE_RECORD.md), [original cell records](assets/licenses/home-mobile/original-cells.json). Pixel joystick circles/buttons are original procedural HUD code. User screenshots guide structure and style; no pixels are copied or third-party assets added. These original additions do not change creator licences for the mixed-source atlas.

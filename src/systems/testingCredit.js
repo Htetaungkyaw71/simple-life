@@ -1,0 +1,11 @@
+// Explicit local testing gift requested by the user. Normal games never grant it.
+export const TESTING_COIN_GRANT='home-proportions-2026-10-09';
+export function testingCreditEnabled(url){
+ const parsed=new URL(url);
+ return ['127.0.0.1','localhost','[::1]'].includes(parsed.hostname)&&parsed.searchParams.get('testingCoins')==='100000';
+}
+export function testingCredit(raw){
+ if(raw.testingCoinGrant===TESTING_COIN_GRANT)return {state:raw,added:0};
+ const money=Math.min(9999999,raw.money+100000);
+ return {state:{...raw,money,testingCoinGrant:TESTING_COIN_GRANT},added:money-raw.money};
+}

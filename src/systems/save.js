@@ -1,4 +1,5 @@
 import {VEGETATION} from '../data/vegetation.js';
+import {testingCredit,TESTING_COIN_GRANT} from './testingCredit.js';
 import {grassGround,MAX_PLACED_GRASS} from './vegetation.js';
 import {openGround,MAX_CUSTOM_BEDS,MAX_WET_PATCHES,WET_DURATION} from './farmGround.js';
 import {FARM_PLOTS} from '../data/farms.js';
@@ -21,6 +22,7 @@ const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Mat
 export function validate(raw) {
   if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
+  if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
   if(raw.version>=5&&Array.isArray(raw.farms)&&raw.farms.length){
@@ -120,4 +122,13 @@ export class SaveService {
   constructor(storage) { this.storage = storage; this.error = ''; }
   load() { try { const text = this.storage.getItem(SAVE_KEY); if (!text) return null; const state = validate(JSON.parse(text)); this.error = state ? '' : 'This save is incompatible. Start a new life to replace it.'; return state; } catch { this.error = 'Save could not be read. Start a new life, or enable browser storage.'; return null; } }
   write(state) { try { this.storage.setItem(SAVE_KEY, JSON.stringify(state)); this.error = ''; return true; } catch { this.error = 'Saving unavailable. Enable browser storage to keep your progress.'; return false; } }
+  grantTestingCoins(){
+    try{
+      const raw=JSON.parse(this.storage.getItem(SAVE_KEY));
+      if(!raw||!validate(raw)||!Number.isInteger(raw.money)||raw.money<0||raw.money>9999999){this.error='Continue or start a game before adding testing coins.';return null;}
+      const result=testingCredit(raw);
+      if(result.state!==raw&&!this.write(result.state))return null;
+      return {added:result.added,balance:result.state.money};
+    }catch{this.error='Testing coins could not be saved. Enable browser storage.';return null;}
+  }
 }

@@ -1,0 +1,74 @@
+{
+  "baseline": "c9f21ee",
+  "atlasFrames": 858,
+  "unchangedCells": 845,
+  "changed": [
+    "house-village-0",
+    "house-village-1",
+    "house-village-10",
+    "house-village-11",
+    "house-village-12",
+    "house-village-2",
+    "house-village-3",
+    "house-village-4",
+    "house-village-5",
+    "house-village-6",
+    "house-village-7",
+    "house-village-8",
+    "house-village-9"
+  ],
+  "relocatedFrame": "house-village-0",
+  "newFrames": 0,
+  "runtimeArtFiles": [
+    {
+      "file": "world.png",
+      "bytes": 7819,
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721",
+      "unchanged": true
+    },
+    {
+      "file": "world.json",
+      "bytes": 16253,
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2",
+      "unchanged": true
+    },
+    {
+      "file": "font.png",
+      "bytes": 791,
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1",
+      "unchanged": true
+    },
+    {
+      "file": "font.xml",
+      "bytes": 10278,
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d",
+      "unchanged": true
+    },
+    {
+      "file": "processed/town.png",
+      "bytes": 305520,
+      "sha256": "abb11a6e55afca9ce23714af1d36980e3ef460e709c4edafc219d1335bb5c411",
+      "unchanged": false
+    },
+    {
+      "file": "processed/town.json",
+      "bytes": 292696,
+      "sha256": "09776e25170917af8c29d673843705bd851c28d061c055ef03d763815269afdc",
+      "unchanged": false
+    },
+    {
+      "file": "processed/boy.png",
+      "bytes": 4927,
+      "sha256": "b2f244d772547cb53f1d90868199245a8dddf1db3cc3d5c169c3fff31b160b8e",
+      "unchanged": true
+    },
+    {
+      "file": "processed/girl.png",
+      "bytes": 5382,
+      "sha256": "de1cc4ac5fa32af7b7ef575c0d97dd15e1db8a19be152856f2c1378ce038f0e2",
+      "unchanged": true
+    }
+  ],
+  "productionFiles": 12,
+  "productionBytes": 2356735
+}

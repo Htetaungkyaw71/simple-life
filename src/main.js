@@ -1,4 +1,5 @@
 import {ForestAmbience} from './audio/ForestAmbience.js';
+import {testingCreditEnabled} from './systems/testingCredit.js';
 import {useVegetation} from './systems/vegetation.js';
 import {digGround,waterGround} from './systems/farmGround.js';
 import {plotAt} from './systems/plots.js';
@@ -30,12 +31,18 @@ import {collectStarterSeeds} from './systems/starter.js';
 import {sleep,wakeTime,tick,clock} from './systems/time.js';
 class Application {
   constructor(){
+    this.testingCreditEnabled=testingCreditEnabled(location.href);
     syncInterior(innerWidth,innerHeight);this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
     try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
     this.ambience=new ForestAmbience({storage});this.ambience.bind();window.addEventListener('pagehide',()=>this.ambience.silence());
     this.bagPanel=new BagPanel(this);this.wildernessMap=new WildernessMap(this);this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){this.ui.title();}
+  grantTestingCoins(){
+    if(!this.testingCreditEnabled)return;
+    const receipt=this.saves.grantTestingCoins();this.ui.title();
+    this.ui.toast(receipt?(receipt.added?'Added '+receipt.added+' testing coins. ':'Testing coins already added. ')+'Saved balance / '+receipt.balance+'c.':this.saves.error);
+  }
   start(state){if(!state)return;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.save();}
   newGame(character){this.start(newState(character,crypto.getRandomValues(new Uint32Array(1))[0]));this.ui.toast('Crate / 3 seeds. Farm / south.');}
   sound(key){this.scene.game.events.emit('sound:request',{key,area:this.state?.area,day:this.state?.day});}

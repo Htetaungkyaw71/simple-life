@@ -38,8 +38,8 @@ test('compact field has contiguous sixteen reachable cells, with no paths or pro
 test('greenhouse complete foundation is blocked but the roof overhang is not the collider',()=>{
  for(const area of ['home','farm'])for(const shed of MAPS[area].buildings.filter(p=>p.name==='shed')){assert.equal(walkable(area,shed.x+84,shed.y+112),false);assert.equal(walkable(area,shed.x+48,shed.y+116),false);assert.ok(walkable(area,shed.x+48,shed.y+40));const loaded=validate({...newState(),area,position:{x:shed.x+84,y:shed.y+112}});assert.ok(walkable(area,loaded.position.x,loaded.position.y));}
 });
-test('interior fits desktop at zoom two, stays readable on mobile and keeps all anchors safe',()=>{
- for(const[w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){syncInterior(w,h);assert.equal(ROOM.zoom,2);if(w>=1000){assert.ok(ROOM.width*2<=w);assert.ok(ROOM.height*2<=h);}for(const p of [ROOM.spawn,ROOM.bed,ROOM.exit])assert.ok(walkable('interior',p.x,p.y));assert.equal(LOCATIONS.interior.bounds[2],ROOM.width-32);}
+test('interior fits desktop with the same framing as outdoors, stays readable on mobile and keeps all anchors safe',()=>{
+ for(const[w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){syncInterior(w,h);assert.equal(ROOM.zoom,1.5);if(w>=1000){assert.ok(ROOM.width*ROOM.zoom<=w);assert.ok(ROOM.height*ROOM.zoom<=h);}for(const p of [ROOM.spawn,ROOM.bed,ROOM.exit])assert.ok(walkable('interior',p.x,p.y));assert.equal(LOCATIONS.interior.bounds[2],ROOM.width-32);}
  syncInterior(1280,720);
 });
 test('road openings remove fence bodies while closed segments remain solid',()=>{

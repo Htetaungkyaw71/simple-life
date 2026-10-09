@@ -1,3 +1,9 @@
+# v0.11.1 — Home correction and explicit local testing gift
+
+OpenAI Codex assisted original house roof/door redraws and directly authored larger Home pixels, source collision regeneration, indoor player/camera proportion repair, original yellow lightning glyph, mobile-only world attack gating, and an explicit one-time localhost testing coin action. It wrote progress-preservation/storage failure/mobile gating tests, source/native/runtime audit, and docs. Native browser UI applied the user's authorized 100,000 gift to the normal save (100,003 after reload), without replacing other progress; isolated QA checked scale/entry/bed/combat. The verification skill guided the UI → pure gameplay/local save → canvas response check. No image model, downloaded asset/audio, backend, or copied reference pixels. 192 tests, build and affected native Chromium browser checks passed; physical phones/non-Chromium not claimed. No push/publication/submission.
+
+---
+
 # v0.11.0 — original Home art and mobile input, 2026-10-09
 
 OpenAI Codex assisted thirteen original front-facing house redraws, shared collision rows, twelve original native interior cells, furnished room layout/solids, stable diagonal facing and bounded analog movement, the circular joystick with pointer ownership/release/reset handling, mobile Jump/Attack dispatch and outdoor jump reuse. It authored focused movement/multi-touch/room connectivity regressions, native cell/allowlist audit and documentation. Screenshots guided structure/style; no reference/commercial pixels were extracted, image model used or external asset downloaded. Existing farmer/NPC/source art and licences remain.

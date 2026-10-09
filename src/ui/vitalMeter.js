@@ -30,7 +30,7 @@ export function meterBadge(g,x,y){
  return g;
 }
 export function meterGlyph(g,name,color){
- const mask=STATUS_PIXELS[name];g.fillStyle(name==='heart'?0x74382f:0x595238);
+ const mask=STATUS_PIXELS[name];g.fillStyle(name==='heart'?0x74382f:name==='bolt'?0x87662c:0x595238);
  for(let y=0;y<mask.length;y++)for(let x=0;x<mask[y].length;x++)if(mask[y][x]==='1')for(const [dx,dy]of [[-1,0],[1,0],[0,-1],[0,1]])g.fillRect(x+dx,y+dy,1,1);
  g.fillStyle(color);for(let y=0;y<mask.length;y++)for(let x=0;x<mask[y].length;x++)if(mask[y][x]==='1')g.fillRect(x,y,1,1);
  return g;

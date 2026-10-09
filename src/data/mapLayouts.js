@@ -12,7 +12,7 @@ const trees=(x,y,cols,rows,step=112)=>Array.from({length:cols*rows},(_,i)=>prop(
 const border=[...Array.from({length:21},(_,i)=>prop('tree',i*112-16,-30)),...Array.from({length:21},(_,i)=>prop('tree',i*112-16,1056)),...Array.from({length:8},(_,i)=>prop('tree',-48,96+i*120)),...Array.from({length:8},(_,i)=>prop('tree',2184,96+i*120))];
 const home={
  paths:[[448,448,64,704],[448,608,1792,64],[864,256,96,672],[1088,320,576,64],[1600,320,64,352],[896,896,832,64]],
- buildings:[prop('house-village-0',HOUSE.x-40,HOUSE.y-64),prop('shed',1088,224),prop('house-village-1',1624,96),prop('shed',1888,800)],
+ buildings:[prop('house-village-0',HOUSE.door.x-180,HOUSE.y-150),prop('shed',1088,224),prop('house-village-1',1624,96),prop('shed',1888,800)],
  props:[prop('crate',528,496),prop('farm-sign',384,568),prop('road-sign',2016,548,{text:'CITY',direction:0}),prop('road-sign',1056,548,{text:'CITY',direction:0}),prop('mailbox',816,572),prop('notice',936,576),prop('bench',960,824),prop('table',976,884),prop('bench',1064,916),prop('wheelbarrow',1056,326),prop('barrel',1200,290),prop('crate',1204,328),prop('well',1356,420),prop('bench',1760,344),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
  water:[[1376,736,288,128]],
  fences:[[256,1104,160,'h'],[544,1104,160,'h'],[832,176,416,'h'],[832,176,320,'v'],[832,704,480,'h'],[832,768,256,'v'],[832,1024,928,'h']],

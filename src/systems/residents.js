@@ -1,3 +1,4 @@
+import {HOUSE} from '../data/geometry.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {commutePath,commutePose,pathPose,pathLength} from './commute.js';
 import {RESIDENTS,MERCHANT_RESIDENTS} from '../data/residents.js';
@@ -6,7 +7,7 @@ export function residentsFor(area,state=null){
  const list=[...(RESIDENTS[area]||[]),...(state&&area==='city'?MERCHANT_RESIDENTS:[])];
  return list.map(def=>{
   const n={...def,position:{x:def.x,y:def.y},waypoint:1,direction:'down',elapsed:0,wait:1500,moving:false,visible:true,mode:'work'};
-  if(state){const b=MAPS[area].buildings[n.home],door={x:b.x+120,y:b.y+170},porch={x:b.x+120,y:b.y+234};n.commute=[door,...commutePath(area,porch,n.position)];Object.assign(n,commutePose(n,state.minute));}
+  if(state){const b=MAPS[area].buildings[n.home],door=b.name==='house-village-0'?{x:HOUSE.door.x,y:b.y+256}:{x:b.x+120,y:b.y+170},porch=b.name==='house-village-0'?{...HOUSE.porch}:{x:b.x+120,y:b.y+234};n.commute=[door,...commutePath(area,porch,n.position)];Object.assign(n,commutePose(n,state.minute));}
   return n;
  });
 }
