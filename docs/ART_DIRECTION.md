@@ -1,3 +1,11 @@
+# v0.7.0 — reference-inspired garden town
+
+The 2026-10-09 user request authorizes a larger City, redesigned houses and residents at City/Home. Use the seven supplied images for cream stepped sidewalks, muted stone streets, warm plaster/timber cottages with terracotta roofs/arched doors/flowerboxes/ivy, olive canopy borders, a tiered fountain, planted seating, street lamps, garden commons and a small tent/picnic corner. Layout and all original additions are independently authored; never copy screenshots, commercial-game pixels, logo or exact building plans.
+
+Preserve 2× native pixels, useful walking space, clear shop approaches and the original house alpha/collision geometry. Change every existing house alias and shed to the warm building family; City canopy presentation uses existing original olive trees. Eight selected native Pipoya characters provide human residents, modestly muted to fit the palette while preserving their faces and direction cells. Original farmers remain unchanged. Short conversations stay in the shared canvas theme. Restrained stepped warm City lamp filaments/pools at night supersede the earlier no-lamp-halo rule for City only; other locations and Forest lighting are unchanged. This is visual town content, not house upgrades or a relationship system.
+
+---
+
 # v0.6.2 — readable seeds and hand tools
 
 Keep the approved forest, olive foliage, connected mottled soil and cream UI. Inventory seeds use larger cream packets with bold crop-fruit pictures; planted seeds use a short stake with the same emblem, then established growing plant poses. All twelve crop identities stay distinct. Original utility icons use restrained metal/wood/olive pixels. Water/Shovel/Axe attach to the existing four farmer hand anchors, behind the body when facing up, with pivoted pouring/swinging and integer source scale. Farmer sheets remain unchanged.

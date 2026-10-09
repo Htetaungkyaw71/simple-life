@@ -254,7 +254,7 @@
     "snow-pine": "LimeZu tree0 with original snow palette",
     "acacia-tree": "LimeZu tree0 with original dry palette"
   },
-  "atlasComposition": "LimeZu CC BY 4.0 environment, Craftpix Freebie Products section 2, ToffeeCraft Standard Free personal-use scenery, original forest trees/undergrowth, and other original additions; licences apply per source.",
+  "atlasComposition": "LimeZu CC BY 4.0 environment, Pipoya custom game-use human residents, Craftpix Freebie Products section 2, ToffeeCraft Standard Free personal-use scenery, and original project additions; licences apply per source.",
   "suppliedEnvironment": {
     "env-pine-jade": [
       200,
@@ -3920,5 +3920,40 @@
       8
     ]
   },
-  "modifications": "Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture."
+  "modifications": "Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.",
+  "townResidents": {
+    "creator": "Pipoya",
+    "source": "https://pipoya.itch.io/pipoya-free-rpg-character-sprites-32x32",
+    "files": [
+      "Female 03-1.png",
+      "Female 17-1.png",
+      "Female 19-1.png",
+      "Male 02-1.png",
+      "Male 10-1.png",
+      "Male 12-1.png",
+      "Male 13-1.png",
+      "Male 01-1.png"
+    ],
+    "directions": [
+      "down",
+      "left",
+      "right",
+      "up"
+    ],
+    "cells": [
+      32,
+      32
+    ],
+    "modifications": "Selected human PNG cells repacked into game atlas; saturation reduced 28%, brightness 4%.",
+    "license": "Custom: commercial/personal game use and editing allowed; standalone redistribution/resale forbidden."
+  },
+  "cityAdaptations": "LimeZu houses: original roof cells muted terracotta, plaster/timber facades, arched windows, flowerboxes and ivy; alpha/geometry retained. Original fountain, lamp, planted bench, flowerpot and tent.",
+  "cityOriginalAdditions": [
+    "city-fountain0",
+    "city-fountain1",
+    "city-lamp",
+    "city-bench-garden",
+    "city-flowerpot",
+    "city-tent"
+  ]
 }

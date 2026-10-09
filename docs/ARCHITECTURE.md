@@ -1,3 +1,11 @@
+# v0.7.0 — City layout and ambient residents
+
+`data/city.js` supplies a fourfold 2560×1792 City, authored paths/sidewalks/squares/gardens, connected canal and two vertical timber crossings. `citySurface.js` bakes stepped curbs and quiet staggered masonry into the existing native terrain canvas; `cityBridge.js` draws opaque crossings from the shared water/bridge definitions. Existing Home/Farm geometry, City shop/gate coordinates, pure commerce and schema 11 remain. House atlas alpha masks stay byte-identical to the shared collision silhouettes. City tree rendering reuses existing original olive Forest canopies; Home/Farm/Forest foliage are unchanged. `CityLights` adds restrained stepped pools/filaments for City lamps only.
+
+`data/residents.js` authors eight City and two Home residents and short safe routes. Pure `systems/residents.js` owns transient walking/waits, facing, nearby conversation and soft player spacing; it does not add saved fields, schedules, relationships or rewards. `ResidentView` selects native Pipoya frames and foot depths; WorldScene gates movement/update while paused and routes E through existing canvas dialogs. Utilities/shops keep their context priority. Staffed merchants retain their established open/closed rules. QA snapshots add read-only resident positions/frame/facing. `city_art.py` extends the existing atlas pipeline; no new runtime file, backend, visible DOM HUD or dependency.
+
+---
+
 # v0.6.2 — state-aware vegetation
 
 src/data/vegetation.js registers authored tree props/root masks and original grass under stable coordinate identities with spatial buckets. src/systems/vegetation.js owns pure nearby cutting/gathering/placement validation and atomic energy/inventory/removal updates. State stores removals/placed clumps separately from immutable map data, with farm-specific keys. Shared walkability/line-clear/save/jump/combat queries consume removed roots. Outside Forest, the existing static collision group is rebuilt only after cutting; Forest keeps shared pure queries.

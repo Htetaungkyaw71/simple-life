@@ -1,3 +1,13 @@
+# v0.7.0 — City houses and licensed residents
+
+Free Serene Village revamped 1.9 by LimeZu (CC BY 4.0) provides the existing native building sources, adapted to terracotta/cream/timber with original windows/flowerboxes/ivy. Creator page and licence rechecked 2026-10-09; attribution/source/licence/change notice remain in the game. Six old cells change; all their alpha/positions/sizes and 554 other old frames are unchanged. Original fountain, street lamp, planted bench, pot and tent add six cells.
+
+Eight human PNG sheets from Pipoya's Free RPG Character Sprites 32x32 add 96 selected directional cells. Its **custom terms**, not CC0, allow commercial/personal games and editing while forbidding standalone pack redistribution/resale. Original pack and source sheets stay outside the repository and build. Separate in-game credit links to its source/terms. Source/hash/file/cell evidence and regeneration instructions: [City provenance](assets/licenses/city-redesign.md) and [Pipoya evidence](assets/licenses/pipoya/README.md). References supply style only. Existing third-party terms remain source-specific; no claim that the mixed atlas is an asset-library licence.
+
+Production still uses eight allowlisted art files and no runtime remote artwork/new dependency. Only town.png/json change; both supplied farmer sheets and six other runtime files remain byte-identical. Atlas has 662 cells; [runtime audit](verification/city-redesign/runtime-audit.json). Earlier prize-entry/other-pack rights limitations remain unchanged.
+
+---
+
 # v0.6.2 — original seed and utility pixels
 
 Four new original 16×16 icons (axe-item, hand-item, wood-item, grass-item) and twenty-four improved original seed cells (twelve inventory packets and twelve planted markers) are deterministic project source pixels with Codex assistance. Fruit emblems reuse the project's existing original crop-item art. No screenshot pixels, commercial-game art or new external pack is used. scripts/garden_tools_art.py is called by the established atlas generator. Among the 556 prior frames, 532 remain byte-identical with unchanged coordinates; the atlas now has 560 frames. Six other runtime art files, including both supplied farmers, remain byte-identical. Retained creator/licence obligations below are unchanged. Evidence: assets/licenses/garden-tools.md and verification/garden-tools/runtime-audit.json.

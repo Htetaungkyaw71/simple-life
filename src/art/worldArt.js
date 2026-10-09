@@ -1,3 +1,4 @@
+import {drawCityBridge} from './cityBridge.js';
 import {VEGETATION,removed} from '../data/vegetation.js';
 import {drawFarmBeds} from './FarmView.js';
 import {BRIDGES} from '../data/forest.js';
@@ -21,7 +22,7 @@ function object(scene,p){
  const visuals=[];const record=sprite=>{if(node){visuals.push(sprite);scene.vegetationVisuals.set(node.id,[...(scene.vegetationVisuals.get(node.id)||[]),...visuals]);}return sprite;};
  if(p.name==='road-sign')return roadSign(scene,p);
  if(p.name==='farm-sign')return farmSign(scene,p);
- if(scene.app.state?.area==='forest'){
+ if(['forest','city'].includes(scene.app.state?.area)){
   const tree=['tree','snow-pine','palm-tree','willow-tree','broadleaf-tree'].includes(p.name),variant=Math.abs(Math.floor(p.x/32+p.y/32));
   const replacement=tree?(p.name==='palm-tree'?'forest-palm-'+variant%2:p.name==='willow-tree'?p.name:p.name==='broadleaf-tree'?'forest-oak-'+variant%3:p.name==='snow-pine'?'env-pine-snow':(variant%5===0?'env-pine-olive':'forest-oak-'+variant%3)):p.name==='rock'?'env-boulder':p.name==='ice-crystal'?'env-ice':null;
   if(replacement){
@@ -41,7 +42,7 @@ function object(scene,p){
  const forestPlant=scene.app.state?.area==='forest'&&(name.startsWith('tree')||name.endsWith('-tree')||name==='bamboo-clump'||name.startsWith('forest-palmetto-'));
  const obj=forestPlant?scene.add.image(p.x,p.y,forestTexture(scene,name)).setOrigin(0).setScale(2).setDepth(foot):image(scene,name,p.x,p.y,foot);
  if(name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90,frame:name});
- if(p.animated==='fountain')scene.fountains.push(obj);
+ if(p.animated==='fountain')scene.fountains.push({sprite:obj,prefix:name.slice(0,-1)});
  if(p.animated==='plant')scene.plants.push({sprite:obj,prefix:name.slice(0,-1)});
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
  return record(obj);
@@ -81,11 +82,11 @@ export function drawWorld(scene,area){
  }else if(area==='farm'){
   image(scene,'fence',832,220,252);image(scene,'fence',864,220,252);
  }else if(area==='city'){
-  const [x,y,w,h]=map.plaza;tiled(scene,'town-paving',x,y,w,h,0);
+  for(const b of map.bridges)drawCityBridge(scene,b);
   for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE'],[336,'outfitter','OUTFITTER']]){
    const t=label(scene,cx,kind==='outfitter'?722:290,name);scene.shopLabels.push({text:t,kind,name});
   }
-  label(scene,704,608,'LANTERN SQUARE');label(scene,1080,626,'SEED AID');
+  label(scene,1080,626,'SEED AID');
  }
 
  if(area==='forest')for(const b of BRIDGES)drawBridge(scene,b);

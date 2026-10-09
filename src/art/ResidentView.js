@@ -1,0 +1,8 @@
+import {residentsFor,stepResident,residentContext,residentMoveAllowed} from '../systems/residents.js';
+export class ResidentView{
+ constructor(scene,area){this.scene=scene;this.area=area;this.people=residentsFor(area).map(n=>({...n,sprite:scene.add.image(n.x,n.y,'town',`resident-${n.art}-down-1`).setOrigin(.5,1).setScale(2).setDepth(n.y),shadow:scene.add.ellipse(n.x,n.y-3,28,8,0x3d4531,.22).setDepth(1)}));}
+ update(delta,player){for(const n of this.people){stepResident(n,this.area,delta,player);const frame=n.moving?[0,1,2,1][Math.floor(n.elapsed/150)%4]:1;n.sprite.setPosition(Math.round(n.position.x/2)*2,Math.round(n.position.y/2)*2).setDepth(n.position.y).setFrame(`resident-${n.art}-${n.direction}-${frame}`);n.shadow.setPosition(n.sprite.x,n.sprite.y-3);}}
+ canMove(from,to){return residentMoveAllowed(this.people,from,to);}
+ context(player){return residentContext(this.people,player);}
+ snapshot(){return this.people.map(n=>({id:n.id,name:n.name,x:n.position.x,y:n.position.y,direction:n.direction,moving:n.moving,frame:n.sprite.frame.name}));}
+}

@@ -1,0 +1,39 @@
+{
+  "seedPurchase": {
+    "money": 50,
+    "seeds": 1
+  },
+  "produceSale": {
+    "money": 81,
+    "tomato": 1
+  },
+  "dryBridge": {
+    "position": {
+      "x": 1800,
+      "y": 133.11439999999976
+    },
+    "water": {
+      "wading": false
+    }
+  },
+  "homeEntry": "interior",
+  "cityExit": "home",
+  "phone": {
+    "viewport": {
+      "width": 360,
+      "height": 640
+    },
+    "context": {
+      "type": "dialog",
+      "x": 560,
+      "y": 600,
+      "label": "Talk to June",
+      "title": "June",
+      "body": "Fresh seeds make a fresh start."
+    },
+    "menu": "dialog",
+    "paused": true
+  },
+  "residentsPaused": true,
+  "consoleWarningsErrors": []
+}

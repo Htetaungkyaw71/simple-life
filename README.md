@@ -1,6 +1,8 @@
 # Simple Life — Leaf and parchment UI
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.6.2**, schema **11**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.7.0**, schema **11**.
+
+The City is now **2560×1792**, four times its previous area, with a fountain market square, cream curbs and stone streets, a canal/two wooden bridges, cottage lanes, planted seating, garden commons and a tent/picnic corner. All house variants and sheds use warm plaster/timber and terracotta roofs. Eight City residents and two Home visitors use licensed native Pipoya art and short E conversations; some walk safe local routes. Existing shops, farming, house entry and saves remain. Sources/licences: docs/assets/licenses/city-redesign.md; browser evidence: docs/verification/city-redesign.
 
 The farm now has connected mottled red-soil beds with soft irregular turf edges, olive crop foliage, water-drop/red !/harvest markers, a proper can held in the farmer’s hand, pouring droplets and temporary wet ground. Dig free planting spaces with Shovel; City shops and the bag offer twelve crop seeds. Existing crops and purchased farms migrate without resetting progress. Shovel and Axe stay in hand. Axe cuts any authored tree for 3 wood; Hand gathers grass, which can be planted back on dry ground. Cuts and planted grass persist. Larger cream seed packets show the crop fruit, and plants mature in one or two fully watered nights. Evidence: docs/verification/garden-tools. The repaired readable UI text, whole-minute clock, Forest Map and badge-free tools remain.
 

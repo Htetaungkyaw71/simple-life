@@ -1,3 +1,5 @@
+import {CityLights} from '../art/CityLights.js';
+import {ResidentView} from '../art/ResidentView.js';
 import {refreshVegetationVisuals} from '../art/VegetationView.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {groundPoint} from '../systems/farmGround.js';
@@ -82,8 +84,10 @@ export class WorldScene extends Phaser.Scene {
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
     this.lastGroundTap=null;this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
     this.combat=combatRuntime();this.forestView=new ForestView(this);
+    this.residents=new ResidentView(this,s?.area||'farm');
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
     const light=daylight(s||{minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);
+    this.cityLights=new CityLights(this,s?.area||'farm');this.cityLights.update(light);
     if(s)this.atmosphere.update(0,false,s.position);
     this.resize();
   }
@@ -93,7 +97,7 @@ export class WorldScene extends Phaser.Scene {
   }
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state){this.plotPositions=visiblePlots(this.app.state||{farms:[{fields:[true,false,false,false]}]});drawPlots(this,this.app.state?.plots,this.plots);}this.renderWetGround();}
   renderWetGround(){const s=this.app.state;if(!s)return;const signature=(s.wetGround||[]).filter(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))).map(p=>p.x+','+p.y).join(';');if(signature!==this.wetSignature){this.wetSignature=signature;drawWetGround(this,this.wetPatches);if(s.area==='farm')drawPlots(this,s.plots,this.plots);}}
-  context(){return contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);}
+  context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);return c||this.residents?.context(this.app.state.position);}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   jump(){
     const a=this.app;if(!a.state||a.paused||a.transitioning||document.hidden)return;
@@ -110,14 +114,16 @@ export class WorldScene extends Phaser.Scene {
       const len=Math.hypot(x,y)||1,step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
       const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
-      else {if(this.collisionWorld.canMove(nx,s.position.y)){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
+      else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
     if(!a.paused&&!document.hidden){const result=stepCombat(s,this.combat,delta);if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
     this.player?.update(s.position,dx,dy,jumpPose(this.jumping));
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);
+    if(!a.paused)this.residents.update(Math.min(delta,50),s.position);
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);
     const light=daylight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
+    this.cityLights.update(light);
     this.renderWetGround();const c=this.context();this.plotOutline.clear();if(['plot','dig','waterGround'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }
