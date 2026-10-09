@@ -13239,6 +13239,266 @@
         "w": 32,
         "h": 32
       }
+    },
+    "house-village-0": {
+      "frame": {
+        "x": 0,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-1": {
+      "frame": {
+        "x": 122,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-2": {
+      "frame": {
+        "x": 244,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-3": {
+      "frame": {
+        "x": 366,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-4": {
+      "frame": {
+        "x": 488,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-5": {
+      "frame": {
+        "x": 610,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-6": {
+      "frame": {
+        "x": 732,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-7": {
+      "frame": {
+        "x": 854,
+        "y": 1268,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-8": {
+      "frame": {
+        "x": 0,
+        "y": 1366,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-9": {
+      "frame": {
+        "x": 122,
+        "y": 1366,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-10": {
+      "frame": {
+        "x": 244,
+        "y": 1366,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-11": {
+      "frame": {
+        "x": 366,
+        "y": 1366,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
+    },
+    "house-village-12": {
+      "frame": {
+        "x": 488,
+        "y": 1366,
+        "w": 120,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 96
+      }
     }
   },
   "meta": {

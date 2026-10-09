@@ -1,3 +1,13 @@
+# v0.7.1 — commuting and presentation
+
+`systems/commute.js` owns pure 16-unit dry-grid path search using existing walkability, full house clearance and bridge-aware water queries. Bounded cached routes and clock-derived poses give dawn departure and doorstep arrival by 20:00. `systems/residents.js` builds door/porch/work routes from data-driven house indices, preserves midday patrols, starts returning from the current patrol point, and reconstructs commuting on entry/reload. `ResidentView` now also renders the three merchant identities from the existing Pipoya sheets; WorldScene gates commerce on staff availability plus the existing shop hours. No saved fields/schema change or backend.
+
+`large_houses_art.py` independently authors native house cells and exports exact solid alpha runs to `data/largeHouseGeometry.js`; map definitions pass frame names into the shared geometry query. Legacy masks remain for legacy cells. `FountainView` and `WaterView` provide transient, pause-safe fountain flow and camera-local water/reflection presentation. Canvas mask alpha matches reflection alpha because the pinned Canvas geometry mask resets global alpha. Reflections are clipped to water and hidden over bridges/while jumping.
+
+WorldScene validates direct pointer targets for residents, sellers and existing location contexts before selected tool ground actions; distant people give a proximity hint. Application keeps pure action/state/save handling and existing restrictions. Separate Phaser UI owns matching meters, direct-touch hints and responsive crop placement; no DOM HUD or new runtime asset file.
+
+---
+
 # v0.7.0 — City layout and ambient residents
 
 `data/city.js` supplies a fourfold 2560×1792 City, authored paths/sidewalks/squares/gardens, connected canal and two vertical timber crossings. `citySurface.js` bakes stepped curbs and quiet staggered masonry into the existing native terrain canvas; `cityBridge.js` draws opaque crossings from the shared water/bridge definitions. Existing Home/Farm geometry, City shop/gate coordinates, pure commerce and schema 11 remain. House atlas alpha masks stay byte-identical to the shared collision silhouettes. City tree rendering reuses existing original olive Forest canopies; Home/Farm/Forest foliage are unchanged. `CityLights` adds restrained stepped pools/filaments for City lamps only.

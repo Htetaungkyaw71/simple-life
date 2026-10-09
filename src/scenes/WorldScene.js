@@ -12,6 +12,8 @@ import {ForestView,forestNight} from '../art/ForestView.js';
 import {combatRuntime,stepCombat} from '../systems/combat.js';
 import {daylight} from '../systems/time.js';
 import {ROOM} from '../data/interior.js';
+import {LOCATIONS} from '../data/locations.js';
+import {shopOpen} from '../systems/market.js';
 import {readyEdgeTravel,syncInterior,nearestSafe} from '../data/locations.js';
 import Phaser from 'phaser';
 import { CollisionWorld } from '../physics/CollisionWorld.js';
@@ -46,9 +48,10 @@ export class WorldScene extends Phaser.Scene {
     for(const [key,tool]of [['ONE','seed'],['TWO','water'],['THREE','harvest'],['FOUR','shovel'],['FIVE','axe'],['SIX','hand'],['SEVEN','grass']])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.select(tool);});
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
-      const a=this.app;if(a.paused)return;
-      if(a.state?.area==='forest'&&p.wasTouch&&!['axe','hand','grass'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
-      const world=this.cameras.main.getWorldPoint(p.x,p.y);
+      const a=this.app;if(a.paused||!a.state||a.transitioning)return;
+      const world=this.cameras.main.getWorldPoint(p.x,p.y),context=this.touchContext(world);
+      if(context){this.lastGroundTap=null;a.use(context);return;}
+      if(a.state.area==='forest'&&p.wasTouch&&['seed','harvest'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
       if(['axe','hand','grass'].includes(a.state?.selected)){let target=world;
         if(a.state.selected==='axe')for(const [id,sprites]of this.vegetationVisuals){const n=VEGETATION[a.state.area].byId.get(id),sprite=sprites.at(-1);if(id.startsWith('tree:')&&Math.hypot(n.x-a.state.position.x,n.y-a.state.position.y)<72&&sprite.getBounds().contains(world.x,world.y)){target=n;break;}}
         this.targetGround=target;this.targetPlot=null;a.use();return;}
@@ -97,7 +100,17 @@ export class WorldScene extends Phaser.Scene {
   }
   renderCrops(){if(this.app.state?.area==='farm'||!this.app.state){this.plotPositions=visiblePlots(this.app.state||{farms:[{fields:[true,false,false,false]}]});drawPlots(this,this.app.state?.plots,this.plots);}this.renderWetGround();}
   renderWetGround(){const s=this.app.state;if(!s)return;const signature=(s.wetGround||[]).filter(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))).map(p=>p.x+','+p.y).join(';');if(signature!==this.wetSignature){this.wetSignature=signature;drawWetGround(this,this.wetPatches);if(s.area==='farm')drawPlots(this,s.plots,this.plots);}}
-  context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);return c||this.residents?.context(this.app.state.position);}
+  touchContext(world){
+    const s=this.app.state;
+    for(const n of this.residents.people){if(!n.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
+      if(Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)>=72)return {...n.position,type:'hint',label:'Walk closer'};
+      if(n.kind){const c=LOCATIONS[s.area].interactions.find(c=>c.type===n.kind);if(c.approach){const [x,y,w,h]=c.approach;if(s.position.x<x||s.position.x>x+w||s.position.y<y||s.position.y>y+h)return {...n.position,type:'hint',label:'Walk closer'};}return n.mode==='work'&&shopOpen(s,n.kind)?c:{...n.position,type:'hint',label:'Shop closed'};}
+      return {...n.position,type:'dialog',label:'Talk to '+n.name,title:n.name,body:n.body};
+    }
+    const c=this.context();if(c&&!['plot','dig','waterGround','chop','gatherGrass','placeGrass'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
+    return null;
+  }
+  context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell','outfitter'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||this.residents?.context(this.app.state.position);}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   jump(){
     const a=this.app;if(!a.state||a.paused||a.transitioning||document.hidden)return;
@@ -121,7 +134,7 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);
     if(!a.paused)this.residents.update(Math.min(delta,50),s.position);
-    if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position);
+    if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position,Math.min(delta,50));
     const light=daylight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
     this.cityLights.update(light);
     this.renderWetGround();const c=this.context();this.plotOutline.clear();if(['plot','dig','waterGround'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);

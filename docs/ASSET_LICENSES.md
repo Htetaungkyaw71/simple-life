@@ -1,3 +1,11 @@
+# v0.7.1 — original large houses and reused actors
+
+Thirteen distinct 120×96 native house cells are original deterministic project artwork authored in scripts/large_houses_art.py with Codex assistance. They replace active house presentation without altering the 662 existing mixed-source atlas frames. No new download, image generation or screenshot pixel extraction. Merchant walking uses already integrated Pipoya directional cells under the recorded creator terms. Existing LimeZu/Pipoya/other attribution and source-specific restrictions remain. The mixed atlas is not offered as a standalone asset pack.
+
+Fountain/ripple/reflection/HUD changes are original rendering code, not additional external assets. Production retains the eight-file allowlist and excludes vendor archives, source packs and unused files. [Provenance](assets/licenses/town-polish.md); [retained-frame/runtime audit](verification/town-polish/runtime-audit.json).
+
+---
+
 # v0.7.0 — City houses and licensed residents
 
 Free Serene Village revamped 1.9 by LimeZu (CC BY 4.0) provides the existing native building sources, adapted to terracotta/cream/timber with original windows/flowerboxes/ivy. Creator page and licence rechecked 2026-10-09; attribution/source/licence/change notice remain in the game. Six old cells change; all their alpha/positions/sizes and 554 other old frames are unchanged. Original fountain, street lamp, planted bench, pot and tent add six cells.

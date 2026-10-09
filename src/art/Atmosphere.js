@@ -1,18 +1,19 @@
+import {FountainView} from './FountainView.js';
 import {shopOpen} from '../systems/market.js';
 import {CROPS} from '../data/crops.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {WaterView} from './WaterView.js';
 export class Atmosphere {
  constructor(scene,area){
-  this.waterView=new WaterView(scene,area);
+  this.waterView=new WaterView(scene,area);this.fountainView=new FountainView(scene);this.elapsed=0;
   this.scene=scene;this.area=area;this.lastStep=0;this.frame=-1;
   this.butterflies=MAPS[area].details.filter(p=>p.name.startsWith('flowers')).slice(0,8).map((p,i)=>({x:p.x,y:p.y,i,sprite:scene.add.image(p.x,p.y,'town','butterfly0').setScale(2).setDepth(1800)}));
  }
- update(time,moving,position){
+ update(time,moving,position,delta=0){
+  this.elapsed+=delta;time=this.elapsed;this.fountainView.update(time);
   this.waterView.update(time,moving,position);
   for(const p of this.scene.plants||[])p.sprite.setFrame(p.prefix+Math.floor(time/260)%4);
-  for(const n of this.scene.merchants||[]){n.sprite.setVisible(shopOpen(this.scene.app.state,n.kind));if(n.idle)n.sprite.setFrame(time%4300<160?n.idle:n.normal);}
-  for(const l of this.scene.shopLabels||[])l.text.setText(shopOpen(this.scene.app.state,l.kind)?l.name:l.name+' / CLOSED');
+  for(const l of this.scene.shopLabels||[])l.text.setText(shopOpen(this.scene.app.state,l.kind)&&this.scene.residents.available(l.kind)?l.name:l.name+' / CLOSED');
   const frame=Math.floor(time/600)%2;
   if(frame!==this.frame){this.frame=frame;for(const water of this.scene.water)water.setFrame('water'+frame);for(const fountain of this.scene.fountains)fountain.sprite.setFrame(fountain.prefix+frame);}
   for(const c of this.scene.canopies){const near=Math.abs(position.x-c.x)<(c.width?c.width/2+12:42)&&position.y<c.y&&position.y>c.y-(c.height||80);c.sprite.setAlpha(near?.5:1);c.sprite.setX((c.baseX??c.x-32)+(Math.sin(time/1800+c.x)>.94?2:0));}

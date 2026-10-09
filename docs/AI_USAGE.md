@@ -1,3 +1,11 @@
+# v0.7.1 — user-requested town/water/touch polish, 2026-10-09
+
+OpenAI Codex assisted thirteen original larger native house designs and exact collision geometry, axe hand pivot/facing, pure dry-path commuting for residents/sellers, clock-derived dawn/doorstep schedules, pause-safe fountain/river flow and clipped reflections, equal HUD meter layouts, direct screen-touch targeting, compact crop UI placement, six new regressions, retained-frame/build audits, native browser checks and documentation. Original source: scripts/large_houses_art.py, systems/commute.js, art/FountainView.js and the existing rendering modules. Creator-owned Pipoya cells are reused with their retained source/licence; all 662 earlier atlas cells stay unchanged.
+
+Three supplied references guide the requested axe, fountain and USE-control repairs. No image model, screenshot pixels, new asset download/dependency, subagent, external messaging, backend, publication or push. Browser QA used actual keyboard/pointer inputs on isolated port 43864 with read-only telemetry, preserving the user's normal localhost save. All 166 tests/build pass. Evidence: verification/town-polish. Physical devices, other engines, sustained performance, human acceptance and competition declarations are not claimed.
+
+---
+
 # v0.7.0 — user-requested City and houses, 2026-10-09
 
 OpenAI Codex (GPT-6 family session identity; exact backend identifier unavailable) assisted licence/source research and evidence, original City layout/masonry/curbs/canal/crossings/garden/camp composition, licensed LimeZu house palette/facade adaptations, original native fountain/lamps/planted seating/pots/tents, selected Pipoya character recolouring/repacking, transient collision-safe residents/short dialogs/spacing, pure regressions, runtime/alpha audits, browser QA and documentation. Original rendering/pixel sources: scripts/city_art.py, art/citySurface.js, art/cityBridge.js and art/CityLights.js. Real creators retain their separate credits/licences.

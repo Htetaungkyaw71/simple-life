@@ -1,0 +1,41 @@
+{
+  "baseCommit": "51701a6",
+  "previousFrames": 662,
+  "currentFrames": 675,
+  "unchangedExistingFrames": 662,
+  "newOriginalHouses": {
+    "house-village-0": "db4cc958f0e0d207abd956884be5c1e238498bc47670113d6133cff9f3d77f8b",
+    "house-village-1": "55f3964acb088f1be81c2ca6a15d76eb186f574cb84abdf4ded84049abbe91b5",
+    "house-village-10": "57afb616feef2a6ccd9f4d335c252fc289a0811edcde65f4ac5656770b1e1fbc",
+    "house-village-11": "fccf6132df8dd0698b9b6b2852087b3ff926552f494bff243df262c62c88d751",
+    "house-village-12": "139f441c47c6d1b9e5f1bf3c9e1a9b354de7f3cb746ec09c99e3a7263c3a60c5",
+    "house-village-2": "57cd9a721dcb472f26e5d9000e0bc5a64f35897741acdee18403b97ff564fb92",
+    "house-village-3": "f908dfc97cfd236a684c03f50252561cd6a7978c3ae2b10a3fb152da5a08f832",
+    "house-village-4": "88a1c9d2f06487a50aa68ac0269e7073e050f97a6aa730670941bf8a1938f218",
+    "house-village-5": "8d44bd9fb7bc1037f91bfe26acfa59b9f8de0a300ba3dc36623a35b17a3fb631",
+    "house-village-6": "b54bf7d41739c859689596d2f5e39c609d90f9879a6fc62305ea8ab5b2134452",
+    "house-village-7": "ceecae4992f0b28cac0edcb7226a580bb4a4aec48a8e3bafb6865ecd80b3d4eb",
+    "house-village-8": "c878f773df5644af902241160be3667f704d1a8bb9c5390d40d78f0f3e3185ad",
+    "house-village-9": "ae6ece594b011b9e340274d212a16f687d692dabf9a299c4959c3cd3a949f642"
+  },
+  "unchangedOtherArt": [
+    "font.png",
+    "font.xml",
+    "world.png",
+    "world.json",
+    "processed/boy.png",
+    "processed/girl.png"
+  ],
+  "runtimeArt": [
+    "assets/pixel/font.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/processed/boy.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/world.json",
+    "assets/pixel/world.png"
+  ],
+  "buildFiles": 12,
+  "buildBytes": 2196525
+}

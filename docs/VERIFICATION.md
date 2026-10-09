@@ -1,3 +1,11 @@
+# v0.7.1 — town polish, 2026-10-09
+
+**166/166 tests and production build pass.** Six added regressions cover every resident/seller dry commute and doorstep timing, pause/reload poses, 13 unique larger house/collision silhouettes, axe grip/facings, matching HUD geometry/no USE control across six viewports, and broad bridge-safe City water motion. Existing 160 checks retain commerce/farming/Forest/time/saves/UI. Compact 640×360 crop guidance also passes the retained placement regression.
+
+Native browser verification: City/Forest wading reflection and moving water; dry bridges; axe in four directions; dawn/return/hidden night residents and sellers; nearby conversation taps, portrait seed purchase (60→50 coins), Home door tap, produce selling (60→81 coins), crop watering with evening care, and readable desktop/portrait/compact HUD. Errors/warnings empty. Eight runtime art files; 675 atlas cells with every prior 662 cell/metadata unchanged. See [full record](verification/town-polish/README.md) and browser screenshots/read-only snapshots. Chromium viewport emulation only; physical devices, other engines and sustained performance remain unverified. No normal-origin save reset, push or publication.
+
+---
+
 # v0.6.2 — garden tools, 2026-10-08
 
 Evidence: verification/garden-tools. npm test passes 157/157; npm run build passes. Added regressions cover every authored tree registry/tree silhouette, one-time wood/collision removal and reload, independent farms/free digging, grass conservation/legal placement/cleanup, atomic energy/full-stock/forged-ID rejection, wall reach, cut-tree fruit refresh, schema migration, all twelve full-care harvest loops, actual held view pause/directions/switching, cleanup/buckets and Gear bounds at seven sizes. Existing economy/time/farming/forest/recovery tests remain.

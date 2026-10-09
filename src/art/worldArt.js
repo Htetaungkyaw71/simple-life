@@ -37,7 +37,7 @@ function object(scene,p){
  let name=p.name;
  if(name==='tree')name=['tree0','tree1','tree2','tree3','tree-tall'][Math.abs(Math.floor(p.x/32+p.y/32))%5];
  const height=scene.textures.getFrame(scene.textures.get('town').has(name)?'town':'world',name).height*2;
- const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')?90:name.startsWith('house')?110:name==='shed'?124:height);
+ const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')?90:name.startsWith('house-village')?172:name.startsWith('house')?110:name==='shed'?124:height);
  if(!p.fence){const shadow=scene.add.ellipse(p.x+height*.28,p.y+height-5,Math.min(100,height*.72),12,0x253951,.18).setDepth(1);if(name.startsWith('tree'))shadow.setPosition(p.x+34,p.y+88).setSize(78,24);visuals.push(shadow);}
  const forestPlant=scene.app.state?.area==='forest'&&(name.startsWith('tree')||name.endsWith('-tree')||name==='bamboo-clump'||name.startsWith('forest-palmetto-'));
  const obj=forestPlant?scene.add.image(p.x,p.y,forestTexture(scene,name)).setOrigin(0).setScale(2).setDepth(foot):image(scene,name,p.x,p.y,foot);
@@ -84,14 +84,14 @@ export function drawWorld(scene,area){
  }else if(area==='city'){
   for(const b of map.bridges)drawCityBridge(scene,b);
   for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE'],[336,'outfitter','OUTFITTER']]){
-   const t=label(scene,cx,kind==='outfitter'?722:290,name);scene.shopLabels.push({text:t,kind,name});
+   const t=label(scene,cx,kind==='outfitter'?610:178,name);t.setDepth(1001);scene.shopLabels.push({text:t,kind,name});
   }
   label(scene,1080,626,'SEED AID');
  }
 
  if(area==='forest')for(const b of BRIDGES)drawBridge(scene,b);
  for(const p of [...map.buildings,...map.props])object(scene,p);
- for(const npc of map.npcs||[]){const sprite=image(scene,npc.sprite,npc.x-24,npc.y-60,npc.y);scene.merchants.push({sprite,kind:npc.kind||(npc.name==='Clara'?'seed':'sell'),normal:npc.sprite,idle:npc.idle});}
+
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
 }
 export function drawPlots(scene,plots,group){drawFarmBeds(scene,group);}

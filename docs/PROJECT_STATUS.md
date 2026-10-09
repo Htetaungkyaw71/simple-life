@@ -1,3 +1,17 @@
+# v0.7.1 — town, water and touch polish, 2026-10-09
+
+Completed the user's axe/fountain/houses/NPC/HUD/water/touch follow-up. All thirteen active houses now have distinct original 120×96 source art (240×192 world pixels), 50% larger in both dimensions, with varied roof/gable/chimney forms, shaded plaster/brick/timber, door/window details, flowerboxes and ivy. Shared collision masks derive from their exact alpha rows; Home entry stays at its established approach. Decorative cottages remain exterior scenery. The axe grips its lower handle with the blade pointing outward in all four facings.
+
+Residents and all three sellers emerge from actual home doors at 06:00 and follow shared dry, collision-safe paths to their daily places. They begin returning early enough to reach their doors by 20:00, then hide until dawn. Departing patrols start from their current position. Sellers serve only while at work and within the retained 07:00–20:00 business window. Home visitors share the schedule; no relationship/progression/save fields are added. Existing commerce, farming, permanent club, Forest, sleep and recovery remain.
+
+Fountains have moving falling streams, spray and spreading basin rings. City/Forest water has denser independently phased flow; wading draws a subtle inverted, water-clipped farmer reflection and ankle ripples. Bridges/dry ground/jumping suppress it. Health/energy have matching panel, fill and badge geometry. The touch USE control is removed: tap nearby people/shops/doors/ground directly. E remains available. Crop guidance fits below the enlarged meters, including 640×360.
+
+Checks: **166/166 tests**, production build, Python source compilation and git whitespace pass. Native browser inputs verify four axe facings, City/Forest wading and dry bridges, dawn/return/night NPC states, direct conversation/seed purchase/Home entry taps, crop watering, produce selling, and desktop/portrait/compact landscape UI. No browser warnings/errors. Preview: http://127.0.0.1:4175/. Evidence: [town verification](verification/town-polish/README.md). Production: **12 files / 2,196,525 bytes**, unchanged eight-file art allowlist; all 662 old atlas cells/metadata remain unchanged, with 13 original houses appended (675 total). Sources: [town art evidence](assets/licenses/town-polish.md).
+
+Limits: browser checks use Chromium viewport emulation; physical phones, other engines and sustained performance remain unverified. Decorative cottages add no interiors; schedules are cosmetic clock-derived runtime poses. Existing third-party terms and submission limits remain. User-origin saved game was not reset; no push/publication/submission.
+
+---
+
 # v0.7.0 — larger reference-inspired City, 2026-10-09
 
 Completed the user's City/houses/NPC request. City is **2560×1792**, exactly four times 1280×896, with a market fountain square, connected cream-curbed stone avenues, a canal/two opaque wooden crossings, cottage streets, planted seating/lamps, three ornamental community beds and a tent/picnic corner. City foliage reuses original olive Forest canopies. Every old house variant/shop alias and shed uses muted terracotta roofs and cream/timber details, arched doors/windows, ivy/flowerboxes. Native source dimensions and alpha/collision masks are unchanged. Home/Farm/Forest routes, farming, utilities, permanent club, shop interactions/hours/prices, daily time/sleep, local saves and Stash Bag remain; no persistent NPC progression or unrelated system.

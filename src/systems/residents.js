@@ -1,9 +1,28 @@
-import {RESIDENTS} from '../data/residents.js';
+import {MAPS} from '../data/mapLayouts.js';
+import {commutePath,commutePose,pathPose,pathLength} from './commute.js';
+import {RESIDENTS,MERCHANT_RESIDENTS} from '../data/residents.js';
 import {walkable} from '../data/locations.js';
-export function residentsFor(area){return (RESIDENTS[area]||[]).map(n=>({...n,position:{x:n.x,y:n.y},waypoint:1,direction:'down',elapsed:0,wait:1500,moving:false}));}
+export function residentsFor(area,state=null){
+ const list=[...(RESIDENTS[area]||[]),...(state&&area==='city'?MERCHANT_RESIDENTS:[])];
+ return list.map(def=>{
+  const n={...def,position:{x:def.x,y:def.y},waypoint:1,direction:'down',elapsed:0,wait:1500,moving:false,visible:true,mode:'work'};
+  if(state){const b=MAPS[area].buildings[n.home],door={x:b.x+120,y:b.y+170},porch={x:b.x+120,y:b.y+234};n.commute=[door,...commutePath(area,porch,n.position)];Object.assign(n,commutePose(n,state.minute));}
+  return n;
+ });
+}
 // Ambient movement is transient and follows short authored, tested safe routes.
-export function stepResident(n,area,delta,player){
+export function stepResident(n,area,delta,player,state=null){
  n.elapsed+=delta;n.moving=false;
+ if(state){
+  let pose=commutePose(n,state.minute);
+  if(pose.mode==='toHome'){
+   if(n.mode==='work'){const porch=n.commute[1];n.returnRoute=[...commutePath(area,n.position,porch),n.commute[0]];}
+   const route=n.returnRoute||[...n.commute].reverse();pose={...pose,...pathPose(route,(state.minute-pose.leave)/(1200-pose.leave)*pathLength(route))};
+  }else if(pose.mode!=='home')n.returnRoute=null;
+  if(n.mode!=='work'&&pose.mode==='work')n.position={x:n.x,y:n.y};
+  Object.assign(n,pose);if(n.mode!=='work')return;
+ }
+ if(n.kind)return;
  if(Math.hypot(player.x-n.position.x,player.y-n.position.y)<84){const dx=player.x-n.position.x,dy=player.y-n.position.y;if(Math.hypot(dx,dy)>10)n.direction=Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up';return;}
  if(n.route.length<2)return;
  if(n.wait>0){n.wait=Math.max(0,n.wait-delta);return;}
@@ -14,8 +33,8 @@ export function stepResident(n,area,delta,player){
  n.direction=Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up';n.position=p;n.moving=true;
 }
 export function residentContext(residents,player){
- const n=residents.filter(n=>Math.hypot(player.x-n.position.x,player.y-n.position.y)<58).sort((a,b)=>Math.hypot(player.x-a.position.x,player.y-a.position.y)-Math.hypot(player.x-b.position.x,player.y-b.position.y))[0];
+ const n=residents.filter(n=>n.visible!==false&&!n.kind&&Math.hypot(player.x-n.position.x,player.y-n.position.y)<58).sort((a,b)=>Math.hypot(player.x-a.position.x,player.y-a.position.y)-Math.hypot(player.x-b.position.x,player.y-b.position.y))[0];
  return n?{type:'dialog',...n.position,label:'Talk to '+n.name,title:n.name,body:n.body}:null;
 }
 
-export function residentMoveAllowed(people,from,to){return people.every(n=>{const p=n.position,next=Math.hypot(to.x-p.x,to.y-p.y);return next>=24||next>=Math.hypot(from.x-p.x,from.y-p.y);});}
+export function residentMoveAllowed(people,from,to){return people.filter(n=>n.visible!==false).every(n=>{const p=n.position,next=Math.hypot(to.x-p.x,to.y-p.y);return next>=24||next>=Math.hypot(from.x-p.x,from.y-p.y);});}

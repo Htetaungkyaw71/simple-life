@@ -19,7 +19,8 @@ export class HeldWateringCan {
   this.can.setVisible(visible);this.hand.setVisible(visible);if(!visible){this.remaining=0;return;}
   const bob=moving&&!this.remaining?Math.floor(now/125)%2:0,p=wateringCanPose(position,direction,scale,height,this.remaining>0,bob);
   if(tool!=='water'){p.originX=p.flip?12/16:4/16;p.rotation=(p.flip?-1:1)*(this.remaining?(.9*this.remaining/420):0);}
-  this.can.setTexture('town',tool==='water'?'watering-can-item':tool+'-item').setOrigin(p.originX,tool==='water'?5/16:3/16).setScale(scale).setFlipX(p.flip).setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth);
+  if(tool==='axe'){p.originX=p.flip?4/16:12/16;p.rotation=(p.flip?-1:1)*(-.25+(this.remaining ? .9*this.remaining/420 : 0));}
+  this.can.setTexture('town',tool==='water'?'watering-can-item':tool+'-item').setOrigin(p.originX,tool==='water'?5/16:tool==='axe'?13/16:3/16).setScale(scale).setFlipX(p.flip).setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth);
   this.hand.setScale(scale).setPosition(p.x,p.y).setDepth(p.depth+1);
  }
  nozzle(){const sign=this.can.flipX?-1:1,scale=this.can.scaleX;return {x:this.can.x+sign*10*scale,y:this.can.y+(this.remaining?4:-1)*scale};}

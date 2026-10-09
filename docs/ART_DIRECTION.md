@@ -1,3 +1,11 @@
+# v0.7.1 — larger houses and living water
+
+The latest user request supersedes the old fixed house silhouette requirement. Every active house uses a distinct original 120×96 native cell at 2× world scale, with warm shaded plaster/timber/brick, different tiled roof/gable/chimney combinations, arched door/window details, porch stones, ivy and flowerboxes. Shared collision follows each new alpha silhouette. Retain clear road/door approaches and the approved town palette. No screenshot pixels or exact building layouts are reused.
+
+Hold Axe at its lower handle, blade outward, mirroring hand anchors naturally. Fountain streams fall with foam/spray and spreading stepped basin ripples; river highlights drift in independently phased clusters. Wading reflections remain subdued, inverted and fragmented by the water surface, clipped to water and absent on dry bridge decks or airborne poses. Health and energy use the same cream/olive dimensions and badge design, retaining red/gold fill identities. Direct taps replace the USE control; keep readable sparse hints and crop details clear of the taller meters.
+
+---
+
 # v0.7.0 — reference-inspired garden town
 
 The 2026-10-09 user request authorizes a larger City, redesigned houses and residents at City/Home. Use the seven supplied images for cream stepped sidewalks, muted stone streets, warm plaster/timber cottages with terracotta roofs/arched doors/flowerboxes/ivy, olive canopy borders, a tiered fountain, planted seating, street lamps, garden commons and a small tent/picnic corner. Layout and all original additions are independently authored; never copy screenshots, commercial-game pixels, logo or exact building plans.

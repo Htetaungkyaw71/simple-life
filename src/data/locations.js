@@ -28,7 +28,7 @@ export const LOCATIONS = {
 };
 for(const [area,location]of Object.entries(LOCATIONS)){
  location.bounds=area==='interior'?ROOM.bounds:[0,0,(MAPS[area].size||MAP_SIZE).width,(MAPS[area].size||MAP_SIZE).height];location.obstacles=MAPS[area].obstacles;
- location.houseSolids=MAPS[area].buildings.filter(p=>p.name.startsWith('house')).flatMap(p=>houseSolids(p.x,p.y));
+ location.houseSolids=MAPS[area].buildings.filter(p=>p.name.startsWith('house')).flatMap(p=>houseSolids(p.x,p.y,p.name));
  location.interactions.push(...MAPS[area].signs.map(p=>({type:'dialog',...p})));
  location.shoreline=MAPS[area].water.flatMap(pond=>{const rows=pondRows(pond),[x,y,w,h]=pond;return [{x:x+w/2,y:y-16},{x:x+w/2,y:y+h+16},...rows.filter((_,i)=>i%8===0).flatMap(([x,y,w])=>[{x:x-16,y:y+1},{x:x+w+16,y:y+1}])];});
  // Preserve river-bank refill approaches after replacing segmented pond geometry.

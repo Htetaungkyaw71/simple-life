@@ -72,4 +72,6 @@ def add_city_art(assets):
     h,s,v=colorsys.rgb_to_hsv(r/255,g/255,b/255);rr,gg,bb=colorsys.hsv_to_rgb(h,s*.72,v*.96);sheet.putpixel((x,y),(round(rr*255),round(gg*255),round(bb*255),a))
   for row,direction in enumerate(['down','left','right','up']):
    for f in range(3):assets[f'resident-{i}-{direction}-{f}']=sheet.crop((f*32,row*32,f*32+32,row*32+32))
+ from large_houses_art import add_large_houses_art
+ add_large_houses_art(assets)
  return {'creator':'Pipoya','source':'https://pipoya.itch.io/pipoya-free-rpg-character-sprites-32x32','files':[f+'.png' for f in PIPOYA_FILES],'directions':['down','left','right','up'],'cells':[32,32],'modifications':'Selected human PNG cells repacked into game atlas; saturation reduced 28%, brightness 4%.','license':'Custom: commercial/personal game use and editing allowed; standalone redistribution/resale forbidden.'}

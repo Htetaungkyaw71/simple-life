@@ -12,7 +12,7 @@ const trees=(x,y,cols,rows,step=112)=>Array.from({length:cols*rows},(_,i)=>prop(
 const border=[...Array.from({length:21},(_,i)=>prop('tree',i*112-16,-30)),...Array.from({length:21},(_,i)=>prop('tree',i*112-16,1056)),...Array.from({length:8},(_,i)=>prop('tree',-48,96+i*120)),...Array.from({length:8},(_,i)=>prop('tree',2184,96+i*120))];
 const home={
  paths:[[448,448,64,704],[448,608,1792,64],[864,256,96,672],[1088,320,576,64],[1600,320,64,352],[896,896,832,64]],
- buildings:[prop('house',HOUSE.x,HOUSE.y),prop('shed',1088,224),prop('house-blue',1664,160),prop('shed',1888,800)],
+ buildings:[prop('house-village-0',HOUSE.x-40,HOUSE.y-64),prop('shed',1088,224),prop('house-village-1',1624,96),prop('shed',1888,800)],
  props:[prop('crate',528,496),prop('farm-sign',384,568),prop('road-sign',2016,548,{text:'CITY',direction:0}),prop('road-sign',1056,548,{text:'CITY',direction:0}),prop('mailbox',816,572),prop('notice',936,576),prop('bench',960,824),prop('table',976,884),prop('bench',1064,916),prop('wheelbarrow',1056,326),prop('barrel',1200,290),prop('crate',1204,328),prop('well',1356,420),prop('bench',1760,344),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
  water:[[1376,736,288,128]],
  fences:[[256,1104,160,'h'],[544,1104,160,'h'],[832,176,416,'h'],[832,176,320,'v'],[832,704,480,'h'],[832,768,256,'v'],[832,1024,928,'h']],
@@ -24,7 +24,7 @@ home.props.push(prop('road-sign',768,136,{text:'FOREST',direction:6}));
 home.signs.push({type:'hint',x:800,y:192,label:'FOREST / follow the north road'});
 const farm={
  paths:[[288,0,64,336],[192,272,144,64],[128,528,832,64],[832,256,64,192],[160,224,64,416],[192,432,1024,64],[640,288,64,640],[640,896,1376,64],[960,448,64,448],[960,576,928,64],[1472,256,64,672],[1024,352,800,64]],
- buildings:[prop('house',96,96),prop('shed',848,624)],
+ buildings:[prop('house-village-2',56,32),prop('shed',848,624)],
  props:[...FIELDS.flatMap(f=>[prop('scarecrow',f.x+216,f.y-48),prop('barrel',f.x+216,f.y+96),prop('pebble',f.x+216,f.y+152),prop('flowers2',f.x+200,f.y+32),prop('flowers1',f.x-48,f.y+160)]),prop('sign',288,672),prop('notice',736,384),prop('wheelbarrow',796,688),prop('barrel',1016,688),prop('crate',1016,738),prop('well',1456,472),prop('bench',1888,864),prop('sign',828,236),...trees(1648,128,4,3,120),...trees(96,608,2,3),...trees(1168,944,6,1)],
  water:[[1696,656,320,176]],
  fields:FIELDS,
@@ -51,13 +51,13 @@ for(const [area,map]of Object.entries(MAPS)){
  if(area==='home'||area==='farm'){const cx=area==='home'?480:320;const nearEdge=p=>Math.abs(p.x+32-cx)<88&&(area==='home'?p.y>1000:p.y<48);map.props=map.props.filter(p=>!nearEdge(p));map.details=map.details.filter(p=>!nearEdge(p));}
  // Cut 2–3 tile openings where a fence intersects a road; collision uses this filtered list.
  map.props=map.props.filter(p=>!p.fence||!map.paths.some(([x,y,w,h])=>p.x+24>x&&p.x+8<x+w&&p.y+28>y&&p.y+12<y+h));
- map.obstacles=[...map.buildings,...map.props].flatMap(p=>{if(p.name.startsWith('house'))return houseSolids(p.x,p.y);if(p.name==='shed')return shedSolids(p.x,p.y);const f=footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
+ map.obstacles=[...map.buildings,...map.props].flatMap(p=>{if(p.name.startsWith('house'))return houseSolids(p.x,p.y,p.name);if(p.name==='shed')return shedSolids(p.x,p.y);const f=footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
  // Water is walkable; only scenery contributes physical footprints.
 }
 interior.obstacles=ROOM_SOLIDS;
 // Staffed stall posts/back shelves/counters and fountain column share actual art geometry.
 for(const p of city.props.filter(p=>p.name.endsWith('-stall')))city.obstacles.push([p.x+6,p.y+40,8,88],[p.x+146,p.y+40,8,88],[p.x+8,p.y+40,144,14]);
-city.obstacles.push([696,358,16,66],...city.npcs.map(n=>[n.x-10,n.y-12,20,12]));
+city.obstacles.push([696,358,16,66]);
 
 FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{if(p.name.startsWith('cp-plant-'))return [];if(p.name.startsWith('cp-ruins-')){const n=Number(p.name.at(-1));return n===3?[[p.x+8,p.y+40,28,32],[p.x+84,p.y+40,28,32]]:n===4?[[p.x+10,p.y+42,70,38]]:[];}if(p.name==='cave-mouth')return [[p.x+4,p.y+28,26,56],[p.x+96,p.y+28,28,56]];if(p.name==='bamboo-gate')return [[p.x,p.y,16,84],[p.x+80,p.y,16,84]];const f=footprints[p.name]||({'palm-tree':[22,76,20,16],'willow-tree':[22,76,20,16],'broadleaf-tree':[22,76,20,16],'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],rock:[6,28,50,28],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26],'bamboo-clump':[20,48,20,16],'snow-pine':[22,76,20,16],'acacia-tree':[22,76,20,16],'cave-mouth':[8,56,112,24],'ice-crystal':[6,34,40,22],'bamboo-gate':[0,0,8,84],'ruin-pillar':[8,40,24,24],'camp-tent':[8,48,72,24],'waterfall-stone':[8,32,40,24]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
 // Solid rock side banks leave the waterfall's flowing centre open.
