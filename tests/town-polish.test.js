@@ -37,9 +37,13 @@ test('all rendered houses are larger, unique, physically solid, and preserve the
  for(const area of ['home','farm','city'])for(const b of MAPS[area].buildings.filter(b=>b.name.startsWith('house'))){names.push(b.name);const f=frames[b.name].frame;assert.equal(f.w,120);assert.equal(f.h,96);const boxes=houseSolids(b.x,b.y,b.name);assert.ok(boxes.length>40);assert.equal(walkable(area,b.x+120,b.y+140),false);assert.ok(walkable(area,b.x+120,b.y+234,8));}
  assert.equal(new Set(names).size,names.length);assert.ok(walkable('home',HOUSE.door.x,HOUSE.door.y));
 });
-test('axe is vertically flipped around its grip, outside and in front of every farmer facing',()=>{
+test('axe uses the farmer hand without an added hand, points outward and layers front/back by facing',()=>{
  const u=recorder(),s=newState();u.app={state:s,paused:false};s.selected='axe';const held=new HeldWateringCan(u);
- for(const dir of ['left','right','up','down']){held.update({x:100,y:100},dir,2);assert.equal(held.can.originY,2/16);assert.equal(held.can.originX,held.can.flipX?4/16:12/16);assert.equal(held.can.flipY,true);assert.equal(Math.abs(held.can.rotation),0);assert.equal(held.can.depth,101);assert.equal(Math.abs(held.can.x-100),28);for(const remaining of [0,210,420]){held.remaining=remaining;held.update({x:100,y:100},dir,2);for(const [x,y]of [[7,3],[15,3],[7,11],[15,11]]){const px=(held.can.flipX?16-x:x)-held.can.originX*16,py=16-y-held.can.originY*16,worldX=held.can.x+(px*Math.cos(held.can.rotation)-py*Math.sin(held.can.rotation))*2;assert.ok(held.can.flipX?worldX>=120:worldX<=80,'blade clear of torso during swing');}}held.remaining=0;}
+ for(const dir of ['left','right','up','down']){
+  held.update({x:100,y:100},dir,2);assert.equal(held.can.originY,13/16);assert.equal(held.can.originX,held.can.flipX?4/16:12/16);assert.equal(held.can.flipY,false);assert.equal(held.hand.visible,false);assert.equal(held.can.depth,dir==='up'?99:101);assert.ok(Math.hypot(held.can.x-100,held.can.y-100)<32);
+  for(const remaining of [0,210,420]){held.remaining=remaining;held.update({x:100,y:100},dir,2);const bladeX=held.can.flipX?5:11,bladeY=7;const dx=bladeX-held.can.originX*16,dy=bladeY-held.can.originY*16;const worldX=held.can.x+(dx*Math.cos(held.can.rotation)-dy*Math.sin(held.can.rotation))*2;assert.ok(held.can.flipX?worldX>110:worldX<90,'blade faces away from body');}held.remaining=0;
+ }
+ s.selected='water';held.update({x:100,y:100},'right',2);assert.equal(held.hand.visible,true);assert.equal(held.can.flipY,false);
 });
 test('phone and desktop HUD has equal framed meter fills and no USE button',()=>{
  for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844],[360,640]]){

@@ -1,3 +1,11 @@
+# v0.7.3 — outward axe, garden parcels and round vital meters
+
+This user follow-up supersedes the v0.7.2 axe pose. Grip the native lower wood handle with the farmer's existing hand; remove the added skin rectangle for Axe. Mirror/rotate the blade outward, behind the up-facing body and in front for down/left/right. Keep Water/Shovel poses. Place enlarged cottages and sunflower pots fully off paved roads, with a clear central doorway and garden flanks.
+
+Both vital meters use the supplied reference's broad structure: round cream badge, grey/cream beveled track, dark outline and highlighted fill. Retain red heart for health and gold leaf for energy, equal dimensions and current responsive placement. Shapes are independently authored procedural pixel graphics; do not copy reference pixels. All existing source art remains unchanged.
+
+---
+
 # v0.7.2 — consistent human proportions and ground seeds
 
 The user's latest follow-up supersedes Pipoya's active NPC presentation and the planted packet stake. All active human NPCs/sellers share the Channeechan farmer's native body/face silhouette and scale, adapted only in hair/clothing palettes. Preserve 24×32 cells, 2× world scale, .94 foot origin and the farmer's four authored walk poses. Retain creator/template credit; legacy Pipoya cells remain credited in the atlas but are not active actors.

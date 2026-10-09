@@ -1,3 +1,15 @@
+# v0.7.3 — axe facing, clear cottage roads and reference meters, 2026-10-09
+
+Completed the user's three repairs. Axe now grips the lower wooden end at the farmer's native hand, rotates the blade outward and mirrors with facing. It renders behind the up-facing farmer and in front for the other facings; the added hand rectangle is hidden for Axe. Water/Shovel keep their established poses. Four enlarged cottages move onto dry parcels; two northern road spurs stop below the cottages. All twenty sunflower pots sit within front gardens beside clear doorways. Every City house silhouette and complete sunflower footprint is clear of all paved roads.
+
+Health and energy share original round cream badges, grey/cream beveled tracks, outlined heart/leaf glyphs and highlighted red/gold fills inspired by the supplied reference. Their dimensions remain equal and fit the established responsive HUD. Farming, tools, commerce, commuting, Home entry, Forest, time and schema-11 local saves remain.
+
+Checks: **167/167 tests**, production build (**94 modules, 12 files / 2,280,176 bytes**), whitespace and runtime-art audit pass. Regressions cover all roads/house silhouettes/pots and all axe directions at idle/half/full swing, native grip, no extra hand and front/back depth. Native browser checks verify four axe facings, walking the corrected lane and desktop/360×640/640×360 meters; no warnings/errors. All eight art files are byte-identical to ef08d42; 835 atlas frames remain. Evidence: [street/HUD verification](verification/street-hud/README.md), [source record](assets/licenses/street-hud.md). Normal preview refreshed at http://127.0.0.1:4175/ without resetting its save; isolated QA tab/server cleaned up.
+
+Limits: viewport emulation only; physical devices, other engines, sustained performance and human visual acceptance remain unverified. Existing licence/submission limitations remain. No new dependency, download, runtime art, saved fields, push or publication.
+
+---
+
 # v0.7.2 — planted seeds, matching people and axe grip, 2026-10-09
 
 Completed the user's three visual repairs. Newly planted crops show small seed grains in a soil mound, replacing the oversized inventory-packet stake in all twelve crops. Inventory/shop packets retain their crop pictures; crop inspection and established water/warning/harvest labels remain. Growing crop stages, care and yields are unchanged.

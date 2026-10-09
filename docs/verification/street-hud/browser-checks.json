@@ -1,0 +1,709 @@
+{
+  "origin": "http://127.0.0.1:43866",
+  "inputs": "Actual keyboard selection 5 and WASD; read-only DOM snapshots.",
+  "checks": [
+    {
+      "check": "road is clear of the cottage and both sunflower pots; new matching meter frames",
+      "position": {
+        "x": 648,
+        "y": 1232
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 96,
+      "player": {
+        "direction": "down",
+        "frame": 0,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.25,
+        "originY": 0.8125,
+        "rotation": 1.5707963267948966,
+        "flip": true,
+        "flipY": false,
+        "depth": 1233,
+        "x": 658,
+        "y": 1214,
+        "visible": true
+      },
+      "camera": {
+        "x": 8,
+        "y": 872,
+        "width": 1280,
+        "height": 720,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 438,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 506,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 574,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 642,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 710,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 778,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "check": "up-facing axe uses back depth without added hand",
+      "position": {
+        "x": 648,
+        "y": 1188.6632000000004
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 96,
+      "player": {
+        "direction": "up",
+        "frame": 9,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.75,
+        "originY": 0.8125,
+        "rotation": -1.5707963267948966,
+        "flip": false,
+        "flipY": false,
+        "depth": 1188,
+        "x": 636,
+        "y": 1163,
+        "visible": true
+      },
+      "camera": {
+        "x": 8,
+        "y": 829,
+        "width": 1280,
+        "height": 720,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 438,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 506,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 574,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 642,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 710,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 778,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "check": "right-facing axe at native grip",
+      "position": {
+        "x": 703.0056000000011,
+        "y": 1188.6632000000004
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 76,
+      "player": {
+        "direction": "right",
+        "frame": 27,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.25,
+        "originY": 0.8125,
+        "rotation": 1.5707963267948966,
+        "flip": true,
+        "flipY": false,
+        "depth": 1190,
+        "x": 719,
+        "y": 1167,
+        "visible": true
+      },
+      "camera": {
+        "x": 63,
+        "y": 829,
+        "width": 1280,
+        "height": 720,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 438,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 506,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 574,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 642,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 710,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 778,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "check": "left-facing axe outward",
+      "position": {
+        "x": 655.306,
+        "y": 1188.6632000000004
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 73,
+      "player": {
+        "direction": "left",
+        "frame": 18,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.75,
+        "originY": 0.8125,
+        "rotation": -1.5707963267948966,
+        "flip": false,
+        "flipY": false,
+        "depth": 1190,
+        "x": 639,
+        "y": 1167,
+        "visible": true
+      },
+      "camera": {
+        "x": 15,
+        "y": 829,
+        "width": 1280,
+        "height": 720,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 438,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 506,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 574,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 642,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 710,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 778,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "check": "front-facing axe, road remains walkable",
+      "position": {
+        "x": 655.306,
+        "y": 1232.0468000000026
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 73,
+      "player": {
+        "direction": "down",
+        "frame": 0,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.25,
+        "originY": 0.8125,
+        "rotation": 1.5707963267948966,
+        "flip": true,
+        "flipY": false,
+        "depth": 1233,
+        "x": 665,
+        "y": 1214,
+        "visible": true
+      },
+      "camera": {
+        "x": 15,
+        "y": 872,
+        "width": 1280,
+        "height": 720,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 438,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 506,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 574,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 642,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 710,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 778,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "check": "360x640 matching circular meters and clear hotbar",
+      "position": {
+        "x": 655.306,
+        "y": 1232.0468000000026
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 68,
+      "player": {
+        "direction": "down",
+        "frame": 0,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.25,
+        "originY": 0.8125,
+        "rotation": 1.5707963267948966,
+        "flip": true,
+        "flipY": false,
+        "depth": 1233,
+        "x": 665,
+        "y": 1214,
+        "visible": true
+      },
+      "camera": {
+        "x": 475,
+        "y": 912,
+        "width": 360,
+        "height": 640,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 14,
+          "y": 408,
+          "w": 52,
+          "h": 52,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 70,
+          "y": 408,
+          "w": 52,
+          "h": 52,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 126,
+          "y": 408,
+          "w": 52,
+          "h": 52,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 182,
+          "y": 408,
+          "w": 52,
+          "h": 52,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 238,
+          "y": 408,
+          "w": 52,
+          "h": 52,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 294,
+          "y": 408,
+          "w": 52,
+          "h": 52,
+          "disabled": false
+        },
+        {
+          "id": "move-up",
+          "label": "^",
+          "x": 66,
+          "y": 494,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        },
+        {
+          "id": "move-left",
+          "label": "<",
+          "x": 18,
+          "y": 542,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        },
+        {
+          "id": "move-down",
+          "label": "v",
+          "x": 66,
+          "y": 542,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        },
+        {
+          "id": "move-right",
+          "label": ">",
+          "x": 114,
+          "y": 542,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "check": "640x360 matching meter layout",
+      "position": {
+        "x": 655.306,
+        "y": 1232.0468000000026
+      },
+      "selected": "axe",
+      "health": 100,
+      "energy": 62,
+      "player": {
+        "direction": "down",
+        "frame": 0,
+        "height": 64
+      },
+      "heldTool": {
+        "frame": "axe-item",
+        "originX": 0.25,
+        "originY": 0.8125,
+        "rotation": 1.5707963267948966,
+        "flip": true,
+        "flipY": false,
+        "depth": 1233,
+        "x": 665,
+        "y": 1214,
+        "visible": true
+      },
+      "camera": {
+        "x": 335,
+        "y": 1052,
+        "width": 640,
+        "height": 360,
+        "zoom": 1
+      },
+      "controls": [
+        {
+          "id": "tool-seed",
+          "label": "seed",
+          "x": 168,
+          "y": 284,
+          "w": 60,
+          "h": 60,
+          "disabled": false
+        },
+        {
+          "id": "tool-water",
+          "label": "water",
+          "x": 232,
+          "y": 284,
+          "w": 60,
+          "h": 60,
+          "disabled": false
+        },
+        {
+          "id": "tool-harvest",
+          "label": "harvest",
+          "x": 296,
+          "y": 284,
+          "w": 60,
+          "h": 60,
+          "disabled": false
+        },
+        {
+          "id": "tool-axe",
+          "label": "axe",
+          "x": 360,
+          "y": 284,
+          "w": 60,
+          "h": 60,
+          "disabled": false
+        },
+        {
+          "id": "choose-seeds",
+          "label": "bag",
+          "x": 424,
+          "y": 284,
+          "w": 60,
+          "h": 60,
+          "disabled": false
+        },
+        {
+          "id": "pause",
+          "label": "pause",
+          "x": 488,
+          "y": 284,
+          "w": 60,
+          "h": 60,
+          "disabled": false
+        },
+        {
+          "id": "move-up",
+          "label": "^",
+          "x": 66,
+          "y": 262,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        },
+        {
+          "id": "move-left",
+          "label": "<",
+          "x": 18,
+          "y": 310,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        },
+        {
+          "id": "move-down",
+          "label": "v",
+          "x": 66,
+          "y": 310,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        },
+        {
+          "id": "move-right",
+          "label": ">",
+          "x": 114,
+          "y": 310,
+          "w": 44,
+          "h": 44,
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "logs": []
+}

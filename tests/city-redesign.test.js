@@ -8,6 +8,14 @@ import {walkable,EDGE_TRAVEL} from '../src/data/locations.js';
 import {waterAt} from '../src/data/water.js';
 import {newState} from '../src/systems/state.js';
 import {validate} from '../src/systems/save.js';
+import {houseSolids} from '../src/data/geometry.js';
+
+test('larger cottages and sunflower pots stay clear of every paved City road',()=>{
+ const m=MAPS.city,roads=[...m.paths,...m.paving,...m.squares.map(([x,y,w,h])=>[x+12,y+12,w-24,h-24])];
+ const hit=(a,b)=>a[0]<b[0]+b[2]&&a[0]+a[2]>b[0]&&a[1]<b[1]+b[3]&&a[1]+a[3]>b[1];
+ for(const b of m.buildings)for(const r of roads)assert.ok(!houseSolids(b.x,b.y,b.name).some(s=>hit(s,r)),b.name+' overlaps street');
+ for(const p of m.props.filter(p=>p.name==='city-flowerpot'))for(const r of roads)assert.ok(!hit([p.x,p.y,40,64],r),'flowerpot overlaps street');
+});
 
 test('fourfold City has connected bridge landings, service approaches and new districts',()=>{
  const m=MAPS.city;assert.equal(m.size.width*m.size.height,1280*896*4);assert.equal(m.bridges.length,2);assert.equal(m.gardens.length,3);

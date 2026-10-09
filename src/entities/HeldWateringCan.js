@@ -16,17 +16,18 @@ export class HeldWateringCan {
   if(!this.scene.app.paused)this.remaining=Math.max(0,this.remaining-delta);
   const tool=this.scene.app.state?.selected,visible=['water','shovel','axe'].includes(tool)&&!this.scene.app.transitioning;
   if(this.lastTool!==tool){this.remaining=0;this.lastTool=tool;}
-  this.can.setVisible(visible);this.hand.setVisible(visible);if(!visible){this.remaining=0;return;}
+  this.can.setVisible(visible);this.hand.setVisible(visible&&tool!=='axe');if(!visible){this.remaining=0;return;}
   const bob=moving&&!this.remaining?Math.floor(now/125)%2:0,p=wateringCanPose(position,direction,scale,height,this.remaining>0,bob);
   if(tool!=='water'){p.originX=p.flip?12/16:4/16;p.rotation=(p.flip?-1:1)*(this.remaining?(.9*this.remaining/420):0);}
   if(tool==='axe'){
-   // Invert the icon vertically: grip above the blade, outside the body.
+   // Grip the wooden end with the farmer's own hand; blade faces away.
    p.flip=direction==='right'||direction==='down';const side=p.flip?1:-1;
-   p.x=Math.round(position.x+side*14*scale);p.originX=p.flip?4/16:12/16;
-   p.rotation=-side*(this.remaining ? .65*this.remaining/420 : 0);p.depth=Math.round(position.y)+1;
+   p.originX=p.flip?4/16:12/16;
+   p.rotation=side*(Math.PI/2-(this.remaining ? .45*this.remaining/420 : 0));
+   p.depth=Math.round(position.y)+(direction==='up'?-1:1);
   }
-  this.can.setTexture('town',tool==='water'?'watering-can-item':tool+'-item').setOrigin(p.originX,tool==='water'?5/16:tool==='axe'?2/16:3/16).setScale(scale).setFlipX(p.flip).setFlipY(tool==='axe').setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth);
-  this.hand.setSize(tool==='axe'?7:2,2).setScale(scale).setPosition(p.x+(tool==='axe'?(p.flip?-3:3)*scale:0),p.y).setDepth(p.depth+1);
+  this.can.setTexture('town',tool==='water'?'watering-can-item':tool+'-item').setOrigin(p.originX,tool==='water'?5/16:tool==='axe'?13/16:3/16).setScale(scale).setFlipX(p.flip).setFlipY(false).setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth);
+  this.hand.setSize(2,2).setScale(scale).setPosition(p.x,p.y).setDepth(p.depth+1);
  }
  nozzle(){const sign=this.can.flipX?-1:1,scale=this.can.scaleX;return {x:this.can.x+sign*10*scale,y:this.can.y+(this.remaining?4:-1)*scale};}
 }

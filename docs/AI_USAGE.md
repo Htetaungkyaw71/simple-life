@@ -1,3 +1,11 @@
+# v0.7.3 — user-requested axe, road and meter repairs, 2026-10-09
+
+OpenAI Codex assisted native-hand outward axe transforms and front/back depth, removal of the added Axe hand, dry cottage parcels/clear sunflower placement, original procedural round meter badges/bevels/glyph outlines/highlighted fills, regressions, native browser QA, runtime audit and documentation. The three supplied images are bug/style evidence; no screenshot pixels were extracted. Existing creator credits remain.
+
+167 tests and production build pass. Actual keyboard inputs on isolated port 43866 verify four axe facings and the corrected lane; desktop/phone/compact viewport captures verify meters. Read-only QA snapshots and empty browser warnings/errors are recorded in verification/street-hud. Normal localhost preview refreshed without resetting its save; isolated QA cleaned up. No image model, external art/dependency, subagent, external messaging, backend, push or publication. Physical devices/other engines/human acceptance are not claimed.
+
+---
+
 # v0.7.2 — user-reported character/seed/axe repairs, 2026-10-09
 
 OpenAI Codex assisted adaptation of already licensed Channeechan farmer cells into eight NPC hair/clothing palettes, matching active NPCs/sellers to PlayerView scale/feet/animation, original soil-level planted-seed pixels, vertically flipped outward held-axe poses, regression updates, native-pixel/allowlist audits, browser checks and documentation. Creator-owned body/facial pixels remain credited to Channeechan and the underlying Eris Esra template; no claim of original ownership of those bodies. Supplied player sheets remain unchanged. Native face/alpha equality is verified in scripts/qa/character-fixes-audit.py.

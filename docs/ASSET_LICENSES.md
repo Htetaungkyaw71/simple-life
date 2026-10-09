@@ -1,3 +1,9 @@
+# v0.7.3 — unchanged art and original procedural meters
+
+All eight runtime art files, including the 835-frame mixed-source atlas and both farmer sheets, are byte-identical to ef08d42. This pass changes placements/transforms and adds original code-authored meter shapes in src/ui/vitalMeter.js. No new pack, screenshot pixels, dependency or runtime asset. Source-specific creator credits/terms and existing submission limitations remain. [Source evidence](assets/licenses/street-hud.md); [runtime audit](verification/street-hud/runtime-audit.json).
+
+---
+
 # v0.7.2 — farmer-derived NPCs and original planted grains
 
 Active NPCs and sellers now use 160 selected/adapted 24×32 Channeechan farmer cells (eight palettes × four directions × idle/four walk cells), from the already integrated licensed farmer sheets. Faces and native body alpha are retained; only hair/clothing colours change. Channeechan permits game use/modifications under the recorded terms, with underlying Eris Esra template credit retained. No source archive redistribution/new external download. In-game Town Residents credits identify this adaptation; old Pipoya atlas cells retain their legacy source attribution. See [source evidence](assets/licenses/matched-characters.md) and [existing supplied-art terms](assets/licenses/supplied-farmer-environment/SOURCE_RECORD.md).

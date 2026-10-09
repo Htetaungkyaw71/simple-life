@@ -5,15 +5,19 @@ import {wateringLabel} from '../systems/watering.js';
 import {panel,frame,text,button,UI_COLORS} from './pixelWidgets.js';
 import {pixels,pixelArrow} from './statusArt.js';
 import {hudLayout,displayClock,facingIndex} from './layouts.js';
+import {meterFrame,meterBadge,meterGlyph} from './vitalMeter.js';
 export class Hud {
  constructor(ui){this.ui=ui;this.app=ui.app;this.root=ui.add.container();ui.root.add(this.root);this.signature=this.key();this.create();}
  key(){return this.app.state.area+':'+this.app.state.clubEquipped+':'+this.app.state.selectedCrop+':'+(['shovel','axe','hand','grass'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
  create(){
   const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6;
   const healthWidth=Math.min(140,w-96),barX=left+21,barW=healthWidth-21;
-  panel(u,p,barX,top+4,barW,18);this.health=u.add.rectangle(barX+4,top+8,barW-8,9,0xd4513e).setOrigin(0);p.add(this.health);this.healthWidth=barW-8;
-  panel(u,p,left,top,28,28,UI_COLORS.panel,'badge');const heart=u.add.graphics();p.add(heart);heart.setScale(2).setPosition(left+6,top+6);pixels(heart,'heart',0,0,0xcf4939);
-  panel(u,p,barX,top+36,barW,18);this.energy=u.add.rectangle(barX+4,top+40,barW-8,9,0xc5993e).setOrigin(0);p.add(this.energy);this.energyWidth=barW-8;panel(u,p,left,top+32,28,28,UI_COLORS.panel,'badge');const leaf=u.add.graphics();p.add(leaf);leaf.setScale(2).setPosition(left+6,top+38);pixels(leaf,'leaf',0,0,UI_COLORS.gold);
+  const meters=u.add.graphics();p.add(meters);meterFrame(meters,barX,top+4,barW);meterFrame(meters,barX,top+36,barW);
+  this.health=u.add.rectangle(barX+4,top+8,barW-8,9,0xce4438).setOrigin(0);this.energy=u.add.rectangle(barX+4,top+40,barW-8,9,0xbe973e).setOrigin(0);p.add([this.health,this.energy]);this.healthWidth=this.energyWidth=barW-8;
+  this.healthShine=u.add.rectangle(barX+4,top+8,barW-8,2,0xee6950).setOrigin(0);this.energyShine=u.add.rectangle(barX+4,top+40,barW-8,2,0xe0c36e).setOrigin(0);p.add([this.healthShine,this.energyShine]);
+  const badges=u.add.graphics();p.add(badges);meterBadge(badges,left,top);meterBadge(badges,left,top+32);
+  const heart=u.add.graphics();p.add(heart);heart.setScale(2).setPosition(left+6,top+6);meterGlyph(heart,'heart',0xcf4939);
+  const leaf=u.add.graphics();p.add(leaf);leaf.setScale(2).setPosition(left+6,top+38);meterGlyph(leaf,'leaf',UI_COLORS.gold);
   this.waterWindow=text(u,p,left,top+64,'',6,UI_COLORS.cream);
   panel(u,p,right-76,top,76,37);this.clock=text(u,p,right-38,top+7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,p,right-38,top+23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
   panel(u,p,right-70,top+40,70,18,UI_COLORS.selected);this.money=text(u,p,right-35,top+45,'60c',8).setOrigin(.5,0);
@@ -36,7 +40,8 @@ export class Hud {
  update(s,c){
   if(this.signature!==this.key()){this.ui.layout();return;}
   this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setVisible(!(this.cropInfo.root.visible&&this.ui.touch&&this.ui.w>this.ui.h));this.waterWindow.setText(s.area==='farm'?wateringLabel(s):'');this.clock.setText(displayClock(s.minute));this.day.setText('Day '+s.day);this.money.setText(s.money+'c');
-  this.health.setSize(Math.max(0,Math.floor(this.healthWidth*s.health/100)),9);this.energy.setSize(Math.max(0,Math.floor(this.energyWidth*s.energy/100)),9);
+  const health=Math.max(0,Math.floor(this.healthWidth*s.health/100)),energy=Math.max(0,Math.floor(this.energyWidth*s.energy/100));
+  this.health.setSize(health,9);this.energy.setSize(energy,9);this.healthShine.setSize(health,2);this.energyShine.setSize(energy,2);
   for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?UI_COLORS.selected:UI_COLORS.cream);slot.box.setStrokeStyle(s.selected===tool?2:1,UI_COLORS.edge);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):'');}
   const feedback=this.ui.feedbackState?.until>this.ui.time.now?this.ui.feedbackState.text:null;
   this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;

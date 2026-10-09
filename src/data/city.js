@@ -16,6 +16,10 @@ export const CITY={
  extras:[]
 };
 for(const [x,y]of [[360,366],[992,366],[552,630],[752,630],[1280,376],[1656,376],[1920,376],[2400,376],[1312,586],[1656,586],[1912,586],[2376,586],[572,1104],[716,1480],[1712,944],[1848,1216],[1712,1552]])CITY.props.push(p('city-lamp',x,y));
-for(const [i,b]of CITY.buildings.entries()){b.name='house-village-'+(i+3);b.x-=40;b.y=Math.max(168,b.y-64);for(const dx of [-24,232])CITY.props.push(p('city-flowerpot',b.x+dx,b.y+154));}
+for(const [i,b]of CITY.buildings.entries()){b.name='house-village-'+(i+3);b.x-=40;b.y=Math.max(168,b.y-64);}
+// Larger cottages need real dry parcels, clear of the circulation streets.
+for(const [i,x,y]of [[3,832,752],[4,736,1056],[6,320,752],[7,2288,1088]])Object.assign(CITY.buildings[i],{x,y});
+for(const collection of [CITY.paths,CITY.paving])for(const r of collection)if(r[1]===320&&(r[0]===192||r[0]===1088)){r[1]+=80;r[3]-=80;}
+for(const b of CITY.buildings)for(const dx of [24,176])CITY.props.push(p('city-flowerpot',b.x+dx,b.y+158));
 for(const [x,y]of [[288,112],[992,112],[1380,112],[2240,112],[64,576],[1184,568],[1304,608],[2264,600],[2080,608],[1520,608],[64,1000],[432,888],[1200,1080],[2288,1008],[1216,1464],[1896,1408],[1960,1568],[416,1344],[864,1360],[2240,1352]])CITY.props.push(p('tree',x,y));
 for(const [x,y,w,h]of CITY.gardens)for(let dx=28;dx<w-28;dx+=56)for(let dy=28;dy<h-24;dy+=52){const k=(dx+dy)/4;if(k%4===0)CITY.props.push(p('flowers2',x+dx,y+dy));else CITY.grass.push({id:`city:commons:${x+dx}:${y+dy}`,x:x+dx+16,y:y+dy+32,variant:k%3,dry:false});}

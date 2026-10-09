@@ -1,3 +1,13 @@
+# v0.7.3 — presentation repairs without saved-state changes
+
+HeldWateringCan anchors Axe at the existing directional farmer hand, grips native wood-end row 13, rotates/mirrors the blade outward, chooses behind/front depth by facing and hides its supplemental hand rectangle for Axe. Water/Shovel retain their existing transforms and hand rendering. Pure harvesting and saved utility state remain unchanged.
+
+City data relocates four cottages, shortens two north circulation spurs and places sunflower props inside each front parcel. Shared house silhouette geometry still drives collision; resident routes derive from current house indices and positions. The road regression uses exact house masks and complete pot footprints. No tree identities change.
+
+Separate canvas UI composes original procedural vitalMeter frames/badges/glyphs with health/energy fill rectangles and highlight strips. Meter dimensions and responsive layout remain shared; fill/shine widths update together. No DOM HUD, saved fields, schema change, backend or runtime-art addition.
+
+---
+
 # v0.7.2 — matched character and seed presentation
 
 matched_residents_art.py reads the existing processed farmer sheets and adapts eight hair/clothing palettes into town-person-* cells. The full atlas pipeline and idempotent extend-character-art.py integrate these cells without modifying the player sheets or previous frame rectangles. ResidentView selects idle/1–4 walk frames at the same 125ms cadence, 2× scale and .94 foot origin as PlayerView. Pure resident schedules/movement/commerce are unchanged.

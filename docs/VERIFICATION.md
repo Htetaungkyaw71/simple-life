@@ -1,3 +1,11 @@
+# v0.7.3 — axe/road/HUD repairs, 2026-10-09
+
+**167/167 tests and production build pass.** Road regression checks every enlarged City house silhouette and all twenty sunflower pots against all paved circulation. Axe regressions check native-hand grip, hidden extra hand, outward blade at idle/half/full swing, all four facings and behind-up/front-other depth. Existing matched people, dry commuting, farming, commerce, saves, water and compact HUD regressions remain green.
+
+Native in-app browser checks on isolated origin 43866 use actual key 5 and WASD: four axe facings, clear walkable cottage lane, matching round meters at 1280×720, 360×640 and 640×360. Empty warning/error logs. Normal preview 4175 refreshed without resetting its save. **94 build modules, 12 files / 2,280,176 bytes**, exactly eight byte-identical art files and 835 atlas frames. Reproduce: npm test; npm run build; python3 scripts/qa/street-hud-audit.py. [Evidence and limitations](verification/street-hud/README.md). Physical phones/other engines/sustained performance/human acceptance remain unverified. No push/publication.
+
+---
+
 # v0.7.2 — character/planting repairs, 2026-10-09
 
 166/166 tests/build pass. Native size/face/alpha audit confirms eight adapted farmer NPC palettes with identical native body proportions; twelve planted seed frames are the only changed old cells. Existing axe regressions now assert vertical inversion, front depth, outside-body idle position and blade clearance throughout the swing. Prior utility pause/switch, schedules and complete gameplay regressions stay green.
