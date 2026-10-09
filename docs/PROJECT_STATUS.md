@@ -1,3 +1,17 @@
+# v0.8.0 — reference axe, hunting, stones and healing, 2026-10-09
+
+Completed the user's requested axe orientation and gameplay additions. Blade sits above/outside the native grip with wood sloping down, mirrors by facing, behind up/in front otherwise, without an extra hand. Selected free Axe can hunt existing Forest animals with K/E/direct tap for 2 energy per swing and a 500ms cooldown. Boars/deer give 2 Meat, foxes/hares/grouse 1; boars retain their Hide. Quiet wildlife remains nonhostile but now saves partial health/death and pure movement. Defeated animals return only on a later day. Full loot stock rejects lethal attacks atomically.
+
+Added **240 daily stone piles**, six per 40 regions, dry/walkable and without altering map collisions. Hand/E/direct taps gather 2 Stone for 1 energy; collected IDs persist through travel/reload and reset next day. Hand stone pickup takes priority over grass after a browser-discovered conflict. Stone appears in Gear; Meat in Produce/Food page 2 and existing City Market, appended to preserve old prices. Food restores both health and energy: Meat 25 HP / 20 EP, fruit HP rounded 40% of retained EP. Eating works at full energy while hurt and refuses waste when both stats are full. Health/energy cap 100, zero-health recovery remains established.
+
+Schema **12** migrates 1–11, preserving farms/crops/economy/vegetation/club/time/discovery/recovery. Added bounded known stone/quiet-animal records and zero-default stone/meat inventory. Three original local cells append to existing atlas; all 835 old cells/metadata and six other art files remain unchanged. No new asset pack/dependency/backend/crafting system. Suggested later wood fences, stone paths and campfire meals remain proposals.
+
+Checks: **175/175 tests**, production build (**96 modules, 12 files / 2,287,312 bytes**), whitespace and eight-file runtime-art audit pass. Native browser inputs at 1280×720/360×640 verify four axe facings, hunting/drop/eating, healing at full EP, Hand/E and direct stone pickup, and saved removal after fixture-free reload. Compact 640×360 layout tests pass. Empty warning/error logs. Evidence: [hunting/resources](verification/hunting-resources/README.md); [provenance](assets/licenses/hunting-resources.md). Normal preview 4175 refreshed without resetting its save; QA tab/server closed and viewport restored.
+
+Limits: isolated fixtures/current browser and emulated sizes; physical devices, other engines, sustained performance and human visual acceptance unverified. Initial Forest construction remains heavy; recorded QA input timeout handled by observing state before continuing. Existing source/licence/submission limitations remain. No push/publication.
+
+---
+
 # v0.7.3 — axe facing, clear cottage roads and reference meters, 2026-10-09
 
 Completed the user's three repairs. Axe now grips the lower wooden end at the farmer's native hand, rotates the blade outward and mirrors with facing. It renders behind the up-facing farmer and in front for the other facings; the added hand rectangle is hidden for Axe. Water/Shovel keep their established poses. Four enlarged cottages move onto dry parcels; two northern road spurs stop below the cottages. All twenty sunflower pots sit within front gardens beside clear doorways. Every City house silhouette and complete sunflower footprint is clear of all paved roads.

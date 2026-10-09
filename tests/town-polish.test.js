@@ -40,8 +40,8 @@ test('all rendered houses are larger, unique, physically solid, and preserve the
 test('axe uses the farmer hand without an added hand, points outward and layers front/back by facing',()=>{
  const u=recorder(),s=newState();u.app={state:s,paused:false};s.selected='axe';const held=new HeldWateringCan(u);
  for(const dir of ['left','right','up','down']){
-  held.update({x:100,y:100},dir,2);assert.equal(held.can.originY,13/16);assert.equal(held.can.originX,held.can.flipX?4/16:12/16);assert.equal(held.can.flipY,false);assert.equal(held.hand.visible,false);assert.equal(held.can.depth,dir==='up'?99:101);assert.ok(Math.hypot(held.can.x-100,held.can.y-100)<32);
-  for(const remaining of [0,210,420]){held.remaining=remaining;held.update({x:100,y:100},dir,2);const bladeX=held.can.flipX?5:11,bladeY=7;const dx=bladeX-held.can.originX*16,dy=bladeY-held.can.originY*16;const worldX=held.can.x+(dx*Math.cos(held.can.rotation)-dy*Math.sin(held.can.rotation))*2;assert.ok(held.can.flipX?worldX>110:worldX<90,'blade faces away from body');}held.remaining=0;
+  held.update({x:100,y:100},dir,2);assert.equal(held.can.originY,2/16);assert.equal(held.can.originX,held.can.flipX?13/16:3/16);assert.equal(held.can.flipY,false);assert.equal(held.hand.visible,false);assert.equal(held.can.depth,dir==='up'?99:101);assert.ok(Math.hypot(held.can.x-100,held.can.y-100)<32);
+  for(const remaining of [0,210,420]){held.remaining=remaining;held.update({x:100,y:100},dir,2);const bladeX=held.can.flipX?5:11,bladeY=7;const dx=bladeX-held.can.originX*16,dy=bladeY-held.can.originY*16;const worldX=held.can.x+(dx*Math.cos(held.can.rotation)-dy*Math.sin(held.can.rotation))*2;assert.ok(held.can.flipX?worldX>110:worldX<90,'blade faces away from body');const worldY=held.can.y+(dx*Math.sin(held.can.rotation)+dy*Math.cos(held.can.rotation))*2;assert.ok(worldY<held.can.y,'blade stays above grip, handle slopes downward');}held.remaining=0;
  }
  s.selected='water';held.update({x:100,y:100},'right',2);assert.equal(held.hand.visible,true);assert.equal(held.can.flipY,false);
 });

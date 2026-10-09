@@ -201,6 +201,8 @@ from city_art import add_city_art
 town_residents=add_city_art(assets)
 from matched_residents_art import add_matched_residents_art
 matched_residents=add_matched_residents_art(assets,OUT)
+from hunting_resources_art import add_hunting_resources_art
+add_hunting_resources_art(assets)
 for n in range(4):assets.pop('boar'+str(n),None)
 atlas=Image.new('RGBA',(1024,2048));frames={};x=y=rowh=0;wildlife_cells={}
 for name,im in assets.items():

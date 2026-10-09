@@ -1,3 +1,13 @@
+# v0.8.0 — gathering, hunting and eating
+
+Select Axe to cut trees or hunt Forest animals; K attacks in facing direction, E uses nearby context and direct animal taps face/attack the selected target. Meat drops directly into the bag once on defeat. Hand can gather loose stones or grass; nearby stones take priority. Every region has six daily stone piles. Meat can be eaten or sold at the existing City Market; Stone and Wood are stored in Gear.
+
+Bag → Food → Eat restores health and energy separately, including healing while energy is full. The menu pauses simulation so choosing a meal is safe. Existing fruit energy values remain; Meat provides 25 health / 20 energy. Full stats do not consume food. Defeat still invokes the established Home/25%-coin Stash Bag recovery.
+
+Future ideas only: wood fences, stone paths and a campfire that uses wood/stone to cook higher-value meat meals. No crafting added in this pass.
+
+---
+
 # v0.6.2 — garden utility loop and faster harvests
 
 User-authorized Shovel/Axe/Hand/Grass are free and selectable in Gear or keys 4/5/6/7. Shovel remains free Farm-bed creation (2 energy); it now shows in hand and clears cover. Axe is a utility, not a combat weapon: approach an authored tree and E/USE/click to remove it permanently for 2 energy and +3 wood. Roots/crowns and tree fruit disappear. Wood is collected inventory only; no crafting, sale or progression is introduced. The existing Wooden Club remains separate.

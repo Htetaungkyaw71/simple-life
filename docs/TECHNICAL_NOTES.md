@@ -1,3 +1,11 @@
+# v0.8.0 — hunting/resources details
+
+Axe: 2 energy / 500ms / one damage; Club remains 5 / 450ms. Wild Boar and Deer give 2 Meat; Fox/Hare/Grouse give 1, with Boar's existing Hide retained. Quiet animals remain nonhostile and do not guard caches. Dead animals/picked stones return on a later day, never reentry/reload. Stone piles: 240 (six in each of 40 regions), +2 Stone / 1 energy, dry/walkable footprints, unchanged scenery/collision map. Meat: +25 HP / +20 EP / base sale 16; existing fruit EP and market salts remain. Fruit HP is rounded 40% of its EP value.
+
+The context regression includes Hand-versus-grass priority following a real browser failure. Existing 167 regressions remain; eight new tests cover hunting, caps/cooldowns/blockers, pure motion, resources, healing, schema migration and responsive controls. Runtime retains exactly eight art files with three original atlas cells appended. Forest first construction remains relatively heavy; no performance benchmark or physical-device result is claimed.
+
+---
+
 # v0.6.1 — watering object fix and soil polish
 
 The previous effect requested town/can, although can existed only in world; the tool now uses an original town/watering-can-item everywhere. The held can uses directional native hand anchors, flipped handle origin, depth/scale/jump offsets and a 650ms tilt; its timer pauses with gameplay. The stream starts at its nozzle. Tool switching/transition hides it. Original player sheets are unchanged. Pinned Phaser Canvas flip/origin source was inspected; tests and offline mirrored/rotated studies supplement browser acceptance only.

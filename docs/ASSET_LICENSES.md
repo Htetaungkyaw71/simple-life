@@ -1,3 +1,9 @@
+# v0.8.0 — original meat and stone cells
+
+The meat-item, stone-item and loose-stones cells are original deterministic project artwork authored in scripts/hunting_resources_art.py with Codex assistance. No external source, downloaded asset, image generation or screenshot pixels were used. This addition does not change the licences of the mixed-source atlas. All 835 earlier cells/metadata, both farmer sheets and the six other runtime files remain unchanged. Three cells append (838 total) within the existing town atlas; production retains the eight-file allowlist. Existing source credits, terms and competition-submission limitations remain. [Provenance](assets/licenses/hunting-resources.md); [audit](verification/hunting-resources/runtime-audit.json).
+
+---
+
 # v0.7.3 — unchanged art and original procedural meters
 
 All eight runtime art files, including the 835-frame mixed-source atlas and both farmer sheets, are byte-identical to ef08d42. This pass changes placements/transforms and adds original code-authored meter shapes in src/ui/vitalMeter.js. No new pack, screenshot pixels, dependency or runtime asset. Source-specific creator credits/terms and existing submission limitations remain. [Source evidence](assets/licenses/street-hud.md); [runtime audit](verification/street-hud/runtime-audit.json).

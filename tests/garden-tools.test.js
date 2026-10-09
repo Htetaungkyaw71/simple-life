@@ -59,7 +59,7 @@ test('grass refuses water, bridges, solid roots, farm beds and occupied patches 
 });
 test('schema 10 migration retains progress; schema 11 rejects unsafe and forged vegetation',()=>{
  const old=newState('girl');old.version=10;old.money=765;old.inventory.tomato=7;old.plots[0]={...old.plots[0],crop:'tomato',growth:2,morning:true};delete old.vegetation;delete old.inventory.wood;delete old.inventory.grass;
- const s=validate(old);assert.equal(s.version,11);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,1);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
+ const s=validate(old);assert.equal(s.version,12);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,1);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
  const t=VEGETATION.home.trees[0];s.vegetation={home:{trees:[t.id,t.id,'bad'],grass:['bad'],placed:[{x:NaN,y:32},{x:t.x,y:t.y}]},'farm:999':{trees:[t.id]}};const fixed=validate(s);assert.deepEqual(fixed.vegetation.home,{trees:[t.id],grass:[],placed:[]});assert.equal(fixed.vegetation['farm:999'],undefined);
 });
 test('all twelve crop identities mature in one or two full care nights; missed care still prevents growth',()=>{

@@ -1,3 +1,9 @@
+# v0.8.0 user follow-up scope, 2026-10-09
+
+The user's explicit request to hunt animals with the existing Axe, receive Meat, collect more Forest Stone and restore health through food supersedes the earlier axe-utility-only/no-other-weapon restriction for this feature. Keep the permanent Wooden Club and all established farming/time/recovery requirements. Reuse the current 30 boars/48 quiet animals; no new weapon/armour, relationship, weather, house upgrade, backend or crafting system is introduced. Suggested wood/stone/meat uses are future proposals only. Master prompt and all four competition PDFs were reread as reference requirements, not instructions overriding the user. Existing source/licence and submission limitations remain.
+
+---
+
 # v0.6.2 utility scope clarification
 
 The latest user explicitly authorizes held Shovel, an Axe for trees/wood, hand grass gathering/replanting, faster crops and clearer seed art. This supersedes earlier utility exclusions; Axe is not an additional combat weapon and wood does not add crafting. Master/four competition PDFs remain reference requirements, not instructions overriding the user. Canvas/local runtime/allowlist, disclosure, existing asset rights and no-publication obligations remain. Native browser checks now work through the supported in-app browser; prior URL-policy limitations below are historical. Physical mobile/other-engine acceptance and final team/submission review remain separate.

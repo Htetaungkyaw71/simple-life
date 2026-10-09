@@ -1,3 +1,11 @@
+# v0.8.0 — hunting, stones and healing, 2026-10-09
+
+**175/175 tests and production build pass.** New regressions cover free-axe/retained-club damage/cooldown/energy, all quiet species and one-time loot, saved animal death/daily revival, collision/target rejection/full-loot atomicity, pure movement, 240 dry stone nodes in 40 regions, daily collection/reload, health/energy caps and no wasted food, schemas1–11 migration, preserved sale ordering and phone/compact UI. Axe tests require blade above/outside native grip throughout swing and no added hand.
+
+Actual desktop/phone inputs verify axe pose, keyboard/tap hunting, Meat page 2/eating, fruit healing at full energy, stone pickup and fixture-free reload persistence. A discovered grass-priority bug was fixed and retested. Empty warnings/errors. Normal preview refreshed without resetting storage; QA cleaned up. **96 modules, 12 files / 2,287,312 bytes**, eight-file art allowlist; 835 retained cells and three original appended cells. [Evidence/limits](verification/hunting-resources/README.md). Reproduce: npm test; npm run build; python3 scripts/qa/hunting-resources-audit.py. Physical devices, other engines and sustained performance are unverified; no push/publication.
+
+---
+
 # v0.7.3 — axe/road/HUD repairs, 2026-10-09
 
 **167/167 tests and production build pass.** Road regression checks every enlarged City house silhouette and all twenty sunflower pots against all paved circulation. Axe regressions check native-hand grip, hidden extra hand, outward blade at idle/half/full swing, all four facings and behind-up/front-other depth. Existing matched people, dry commuting, farming, commerce, saves, water and compact HUD regressions remain green.

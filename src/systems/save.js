@@ -15,9 +15,11 @@ import { SAVE_KEY, TOOLS } from '../config.js';
 import {FATIGUE_MINUTES} from '../data/energy.js';
 import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
 import { newState, emptyPlot } from './state.js';
+import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
+import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -97,6 +99,17 @@ export function validate(raw) {
     if(!restored.health&&restored.defeatedDay<s.day)s.forest.animals[a.id]=freshAnimal(a);
   }
   s.forest.boar=s.forest.animals['boar-original'];
+  if(raw.version>=12){
+    const known=forestStones();s.forest.stones=[...new Set(Array.isArray(raw.forest?.stones)?raw.forest.stones.slice(0,known.length):[])].filter(id=>known.some(n=>n.id===id));
+    if(raw.forest?.forageDay<s.day)s.forest.stones=[];
+    for(const a of WOODLAND_WILDLIFE){
+      const old=raw.forest?.woodland?.[a.id],restored=s.forest.woodland[a.id];if(!old)continue;
+      restored.health=number(old.health,WOODLAND_SPECIES[a.species].health,0,WOODLAND_SPECIES[a.species].health);
+      restored.defeatedDay=number(old.defeatedDay,s.day,0,s.day);
+      if(Math.hypot(old.position?.x-a.x,old.position?.y-a.y)<=180&&walkable('forest',old.position.x,old.position.y,8,false,s))restored.position={x:old.position.x,y:old.position.y};
+      if(!restored.health&&restored.defeatedDay<s.day){restored.health=WOODLAND_SPECIES[a.species].health;restored.defeatedDay=0;}
+    }
+  }
   s.forest.explored=REGIONS.filter(r=>r.id==='entrance'||Array.isArray(raw.forest?.explored)&&raw.forest.explored.includes(r.id)).map(r=>r.id);
   s.forest.treasures=TREASURES.filter(t=>Array.isArray(raw.forest?.treasures)&&raw.forest.treasures.includes(t.id)).map(t=>t.id);
   const coins=number(raw.stash?.coins,0,0,9999999);

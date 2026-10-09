@@ -1,4 +1,4 @@
-import {FOREST_ITEMS} from './items.js';
+import {FOREST_ITEMS,MEAT} from './items.js';
 export const WATER_WINDOWS=[{id:'morning',start:360,end:720,label:'AM 06-12'},{id:'evening',start:960,end:1320,label:'PM 16-22'}];
 const crop=(id,name,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,description)=>({
  id,name,category:'field',seedKey:id==='tomato'?'seed':id+'Seed',produceKey:id,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,regrow:false,unlock:null,description,
@@ -20,12 +20,12 @@ export const CROPS={
  sweetPotato:crop('sweetPotato','Sweet Potato',24,38,1,2,24,'A warm root under broad leaves.'),
 };
 export const CROP_IDS=Object.keys(CROPS);
-export const INVENTORY_KEYS=[...CROP_IDS.flatMap(id=>[CROPS[id].seedKey,id]),...Object.keys(FOREST_ITEMS),'wood','grass'];
+export const INVENTORY_KEYS=[...CROP_IDS.flatMap(id=>[CROPS[id].seedKey,id]),...Object.keys(FOREST_ITEMS),'wood','grass','stone','meat'];
 export const FIELD={x:352,y:224,cell:48,cols:4,rows:4};
 // Preserve the original six save indices, then the later expansion to sixteen.
 const cells=[[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[3,0],[3,1],...Array.from({length:8},(_,i)=>[i%4,2+Math.floor(i/4)])];
 export const PLOTS=cells.map(([col,row])=>({x:FIELD.x+24+col*48,y:FIELD.y+24+row*48,col,row}));
 
 // Keep the original market salts stable when expanding the catalogue.
-export const SALE_ITEMS={...Object.fromEntries(['tomato','strawberry','carrot','corn'].map(id=>[id,CROPS[id]])),...FOREST_ITEMS,...Object.fromEntries(CROP_IDS.slice(4).map(id=>[id,CROPS[id]]))};
+export const SALE_ITEMS={...Object.fromEntries(['tomato','strawberry','carrot','corn'].map(id=>[id,CROPS[id]])),...FOREST_ITEMS,...Object.fromEntries(CROP_IDS.slice(4).map(id=>[id,CROPS[id]])),meat:MEAT};
 export const SALE_IDS=Object.keys(SALE_ITEMS);

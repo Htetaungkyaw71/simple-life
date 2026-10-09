@@ -9,5 +9,5 @@ export function wildlifeFrame(species,action,direction,now){
 }
 export function combatAnimalVisual(species,action,direction,now){return {frame:wildlifeFrame(species,action,direction,now),flipX:false,originY:.9};}
 // Quiet woodland species use the supplied pack's actual identity. These animals
-// flee from the farmer, have no combat/drop/save state and do not guard treasure.
+// flee from the farmer, have saved hunting health/drops and do not guard treasure.
 export {WOODLAND_WILDLIFE} from './woodlandWildlife.js';

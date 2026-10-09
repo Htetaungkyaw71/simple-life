@@ -1,3 +1,11 @@
+# v0.8.0 — user-authorized hunting, stones and healing, 2026-10-09
+
+OpenAI Codex assisted the requested upper-blade/downward-handle axe transform, free-axe combat reuse, saved quiet-animal movement/defeat, atomic meat drops, 240 daily Forest stone pickups, health/energy food effects, schema-12 migration, bag/touch presentation, three original procedural art cells, regressions, browser verification and documentation. The two screenshots guide orientation only; no image pixels were extracted. Existing creator-owned wildlife/farmer/scenery remain credited under their recorded terms.
+
+175 tests and production build pass. Actual input checks on isolated local port 43867 verify four axe facings, keyboard and phone animal taps, meat eating, fruit healing at full energy, stone pickup and saved removal after reload. An observed grass-priority pickup conflict was repaired and retested. Read-only canvas QA snapshots/evidence are in verification/hunting-resources. Normal user-origin storage was not read or reset. No image model, external asset/dependency, subagent, external message, backend, push or publication. Physical devices, other engines and sustained performance are not claimed.
+
+---
+
 # v0.7.3 — user-requested axe, road and meter repairs, 2026-10-09
 
 OpenAI Codex assisted native-hand outward axe transforms and front/back depth, removal of the added Axe hand, dry cottage parcels/clear sunflower placement, original procedural round meter badges/bevels/glyph outlines/highlighted fills, regressions, native browser QA, runtime audit and documentation. The three supplied images are bug/style evidence; no screenshot pixels were extracted. Existing creator credits remain.

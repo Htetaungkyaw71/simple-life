@@ -1,4 +1,6 @@
 import {vegetationContext} from './vegetation.js';
+import {huntContext} from './combat.js';
+import {stoneContext} from './resources.js';
 import {groundPoint,openGround} from './farmGround.js';
 import {plotAt} from './plots.js';
 import {FORAGE_NODES,TREASURES} from '../data/forest.js';
@@ -21,6 +23,8 @@ export function plotPrompt(state,plot){
 }
 export function contextFor(state,targetPlot=null,direction='down',targetGround=null){
  if(!state)return null;
+ const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
+ if(state.area==='forest'&&(state.selected==='hand'||targetGround)){const stone=stoneContext(state,targetGround);if(stone)return stone;}
  const vegetation=vegetationContext(state,direction,targetGround);if(vegetation)return vegetation;
  const {x,y}=state.position,location=LOCATIONS[state.area],dist=p=>Math.hypot(p.x-x,p.y-y);
  const nearby=location.interactions.filter(p=>dist(p)<(p.type==='starter'?52:72)&&(!p.approach||(x>=p.approach[0]&&x<=p.approach[0]+p.approach[2]&&y>=p.approach[1]&&y<=p.approach[1]+p.approach[3]))).sort((a,b)=>dist(a)-dist(b));
@@ -31,6 +35,7 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
  }return null;};
  if(targetGround){const ground=groundContext();if(ground)return ground;}
  if(state.area==='forest'){
+  const stone=stoneContext(state,targetGround);if(stone)return stone;
   const bag=state.stash;if(bag&&dist(bag)<64&&lineClear('forest',state.position,bag,0,state))return {type:'stash',...bag,label:'Recover '+bag.coins+' coins'};
   const treasure=TREASURES.find(t=>dist(t)<64&&treasureAvailable(state,t)&&lineClear('forest',state.position,t,0,state));if(treasure)return {type:'treasure',...treasure,label:'Search ancient chest'};
   const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n,0,state)).sort((a,b)=>dist(a)-dist(b))[0];

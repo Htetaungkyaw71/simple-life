@@ -3890,7 +3890,10 @@
     "forest-palm-0",
     "forest-palm-1",
     "forest-palmetto-0",
-    "forest-palmetto-1"
+    "forest-palmetto-1",
+    "meat-item",
+    "stone-item",
+    "loose-stones"
   ],
   "characterFrames": {
     "size": [
@@ -3982,5 +3985,6 @@
     "variants": 8,
     "modifications": "Existing farmer idle/walk cells adapted with eight hair/clothing palettes; native silhouette, faces and body proportions retained."
   },
-  "plantedSeeds": "Original ground-level seed grains and soil mound; inventory packets stay in menus."
+  "plantedSeeds": "Original ground-level seed grains and soil mound; inventory packets stay in menus.",
+  "huntingResources": "Original meat meal, stone inventory and loose-stone cells; scripts/hunting_resources_art.py"
 }

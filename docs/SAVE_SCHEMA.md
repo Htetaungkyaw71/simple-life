@@ -1,3 +1,15 @@
+# Save schema 12 — hunting, stone and food healing, v0.8.0
+
+Storage key stays simple-life.save.v1. Schemas 1–12 validate; 1–11 migrate to 12 without resetting existing progression. inventory.stone and inventory.meat are bounded integers 0–9999, defaulting to zero. All existing crop, market, wood/grass, equipment, currency, time, farm, discovery and Stash Bag fields remain. Meat is appended after all existing sale IDs so old daily price salts do not move.
+
+forest.stones contains deduplicated known IDs from 240 deterministic dry-ground piles, at most the known roster length. Unknown IDs are rejected. Availability uses forest.forageDay and resets only on a later game day; reentry/reload do not refresh piles.
+
+forest.woodland contains exactly the 48 known quiet-animal IDs, each with authored id/species, bounded health, defeatedDay and position. Deer have 3 health, Fox 2, Hare/Grouse 1. Positions must be collision-safe within 180 units of authored home; unsafe/distant coordinates repair to their safe homes. Schemas 1–11 initialize these previously transient animals healthy. Same-day partial health/death survives travel/reload; a later day respawns dead animals. Renderer positions now project pure saved movement. Existing 30 boar records/compatibility alias remain unchanged.
+
+Attack cooldown, swing, invulnerability, labels and effects remain transient. Defeat records and loot mutate together, are saved immediately and cannot pay twice. Lethal attacks reject full loot inventory before consuming energy or changing health. Eating consumes one only when a positive capped health or energy gain exists; zero-health states use established defeat/recovery instead. No offline progress.
+
+---
+
 # Save schema 11 — vegetation and shorter crop durations, v0.6.2
 
 Storage key remains simple-life.save.v1. Versions 1–11 are accepted; versions 1–10 migrate to 11 without resetting economy, inventory, care, farm ownership, equipment, discoveries, caches, animal progress or Stash Bag. New inventory.wood and inventory.grass default to zero and validate to 0–9999. selected additionally accepts axe, hand and grass. Earned growth is capped at each crop's new one/two-night duration; already-earned progress at the cap becomes ripe while watering/miss history remains.

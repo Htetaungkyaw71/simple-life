@@ -7,6 +7,7 @@ import {BagPanel} from './ui/BagPanel.js';
 import {SurvivalPanel} from './ui/SurvivalPanel.js';
 import {FORAGE_NODES,FOREST_GUIDANCE} from './data/forest.js';
 import {collectForage,recoverStash,recoverTreasure} from './systems/forest.js';
+import {collectStone} from './systems/resources.js';
 import {attack} from './systems/combat.js';
 import {defeat} from './systems/defeat.js';
 import {isNight} from './systems/time.js';
@@ -44,6 +45,8 @@ class Application {
   use(pointed=null){
     if(this.scene.jumping?.active)return;
     if(this.paused||!this.state||this.transitioning)return;const c=pointed||this.scene.context();if(!c)return;this.scene.faceContext(c);
+    if(c.type==='hunt'){this.attack(c.id);return;}
+    if(c.type==='stone'){const before=this.state.inventory.stone;this.ui.feedback(collectStone(this.state,c.id));if(this.state.inventory.stone>before){this.scene.forestView.bits(c.x,c.y-12,0xc1bcac);this.sound('forest:collect');}this.save();return;}
     if(['chop','gatherGrass','placeGrass'].includes(c.type)){
       const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
       const result=useVegetation(this.state,c);this.ui.feedback(result.message);
@@ -83,11 +86,11 @@ class Application {
       ]);return;
     }
   }
-  attack(){
+  attack(targetId=null){
     if(this.scene.jumping?.active)return;
-    if(this.paused||!this.state)return;const result=attack(this.state,this.scene.combat,this.scene.player.direction);
+    if(this.paused||!this.state||this.transitioning)return;const result=attack(this.state,this.scene.combat,this.scene.player.direction,targetId);
     if(result.message)this.ui.feedback(result.message);
-    if(result.ok){this.scene.forestView.attack(this.scene.player.direction,result);this.sound('combat:swing');this.save();}
+    if(result.ok){if(result.weapon==='axe')this.scene.player.wateringCan.swing();this.scene.forestView.attack(this.scene.player.direction,result);this.sound('combat:swing');this.save();}
   }
   forestGuidance(){
     if(this.state.area!=='forest'||this.paused)return;

@@ -1,3 +1,11 @@
+# v0.8.0 — reference axe and readable resources
+
+The new user reference supersedes v0.7.3's axe slope. Place the blade above/outside the native hand and slope the wooden handle downward/inward; mirror with facing. The original item is rotated by half a turn around its wooden endpoint (origin Y 2/16), keeping it off the torso, behind the up-facing farmer and in front otherwise. Axe has no added hand rectangle. Water/Shovel keep their established poses.
+
+Three original local pixel cells depict a stylized meat meal with a cream bone, a stone inventory pile and irregular grey loose Forest stones. Use existing warm outlines/cream highlights; retain all 835 earlier atlas cells and all other runtime art. Hunting uses restrained flash/particles and fade without blood. Bag food details show short HP/EP gains; no new DOM HUD or USE button.
+
+---
+
 # v0.7.3 — outward axe, garden parcels and round vital meters
 
 This user follow-up supersedes the v0.7.2 axe pose. Grip the native lower wood handle with the farmer's existing hand; remove the added skin rectangle for Axe. Mirror/rotate the blade outward, behind the up-facing body and in front for down/left/right. Keep Water/Shovel poses. Place enlarged cottages and sunflower pots fully off paved roads, with a clear central doorway and garden flanks.

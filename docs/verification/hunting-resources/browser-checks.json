@@ -1,0 +1,102 @@
+[
+  {
+    "check": "keyboard-axe-hare",
+    "health": 0,
+    "meat": 1,
+    "energy": 98,
+    "result": "passed"
+  },
+  {
+    "check": "eat-hunted-meat",
+    "health": 80,
+    "energy": 100,
+    "meat": 0,
+    "result": "passed"
+  },
+  {
+    "check": "stone-keyboard",
+    "stone": 0,
+    "collected": [],
+    "energy": 99,
+    "result": "superseded",
+    "reason": "Nearby grass took priority; repaired and verified by stone-keyboard-fixed."
+  },
+  {
+    "check": "stone-keyboard-fixed",
+    "stone": 2,
+    "collected": [
+      "entrance-stone-5"
+    ],
+    "energy": 99,
+    "result": "passed"
+  },
+  {
+    "check": "berry-heal-full-energy",
+    "health": 55,
+    "energy": 100,
+    "berries": 0,
+    "result": "passed"
+  },
+  {
+    "check": "axe-left",
+    "pose": {
+      "frame": "axe-item",
+      "originX": 0.1875,
+      "originY": 0.125,
+      "rotation": -3.141592653589793,
+      "flip": false,
+      "flipY": false,
+      "depth": 601,
+      "x": 611,
+      "y": 578,
+      "visible": true
+    },
+    "result": "passed"
+  },
+  {
+    "check": "phone-direct-animal-tap",
+    "meat": 1,
+    "energy": 98,
+    "dead": [
+      "woodland-hare-520-4896"
+    ],
+    "result": "passed"
+  },
+  {
+    "check": "phone-eat-meat",
+    "health": 80,
+    "energy": 100,
+    "meat": 0,
+    "result": "passed"
+  },
+  {
+    "check": "phone-stone-tap",
+    "stone": 0,
+    "collected": [],
+    "result": "superseded",
+    "reason": "Tap used wrong world-to-screen Y; corrected from observed camera, then pickup/persistence verified."
+  },
+  {
+    "check": "stone-reload-persistence",
+    "stone": 0,
+    "collected": [],
+    "result": "superseded",
+    "reason": "Tap used wrong world-to-screen Y; corrected from observed camera, then pickup/persistence verified."
+  },
+  {
+    "check": "phone-stone-tap-correct-position",
+    "stone": 2,
+    "collected": [
+      "entrance-stone-5"
+    ],
+    "result": "passed"
+  },
+  {
+    "check": "stone-reload-persistence-confirmed",
+    "stone": 2,
+    "collected": [
+      "entrance-stone-5"
+    ],
+    "result": "passed"
+  }
+]

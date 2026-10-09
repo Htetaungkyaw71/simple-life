@@ -102,12 +102,17 @@ export class WorldScene extends Phaser.Scene {
   renderWetGround(){const s=this.app.state;if(!s)return;const signature=(s.wetGround||[]).filter(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))).map(p=>p.x+','+p.y).join(';');if(signature!==this.wetSignature){this.wetSignature=signature;drawWetGround(this,this.wetPatches);if(s.area==='farm')drawPlots(this,s.plots,this.plots);}}
   touchContext(world){
     const s=this.app.state;
+    if(s.area==='forest'&&s.selected==='axe')for(const n of [...this.forestView.animals,...this.forestView.woodland.animals]){
+      if(!n.sprite.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
+      const id=n.definition?.id||n.id,animal=s.forest.animals[id]||s.forest.woodland[id];
+      return Math.hypot(animal.position.x-s.position.x,animal.position.y-s.position.y)<80?{type:'hunt',id,...animal.position}:{...animal.position,type:'hint',label:'Walk closer'};
+    }
     for(const n of this.residents.people){if(!n.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
       if(Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)>=72)return {...n.position,type:'hint',label:'Walk closer'};
       if(n.kind){const c=LOCATIONS[s.area].interactions.find(c=>c.type===n.kind);if(c.approach){const [x,y,w,h]=c.approach;if(s.position.x<x||s.position.x>x+w||s.position.y<y||s.position.y>y+h)return {...n.position,type:'hint',label:'Walk closer'};}return n.mode==='work'&&shopOpen(s,n.kind)?c:{...n.position,type:'hint',label:'Shop closed'};}
       return {...n.position,type:'dialog',label:'Talk to '+n.name,title:n.name,body:n.body};
     }
-    const c=this.context();if(c&&!['plot','dig','waterGround','chop','gatherGrass','placeGrass'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
+    const c=this.context();if(c&&!['plot','dig','waterGround','chop','gatherGrass','placeGrass','hunt'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
     return null;
   }
   context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell','outfitter'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||this.residents?.context(this.app.state.position);}

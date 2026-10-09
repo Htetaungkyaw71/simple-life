@@ -1,3 +1,11 @@
+# v0.8.0 — resource and hunting flow
+
+forestResources.js lazily resolves 240 stable candidates against shared collision/water geometry after module initialization. resources.js owns pure availability, target selection, bounded collection and daily-persistence rules. contextFor prioritizes a selected Hand's stone pickup over nearby grass, while Axe prioritizes animals before tree work; targeted ground taps can choose a stone directly. WorldScene translates pointer animal bounds into exact IDs and native facing; main routes pure attack/collection, renderer feedback and local save.
+
+combat.js reuses directional hitboxes/line-of-sight/cooldown with selected free AXE or existing permanent CLUB. Quiet woodland motion moved from WoodlandView into pure stepWoodland; WoodlandView projects saved position/health and hides defeated actors. Existing hostile-boar motion and guards remain. Atomic lethal loot checks protect bounded inventory. BagPanel displays Meat on Food page two and Stone in Gear. eatFood independently caps health/energy and refuses waste; UI emits both effects. No backend, runtime remote assets, crafting or new scene architecture.
+
+---
+
 # v0.7.3 — presentation repairs without saved-state changes
 
 HeldWateringCan anchors Axe at the existing directional farmer hand, grips native wood-end row 13, rotates/mirrors the blade outward, chooses behind/front depth by facing and hides its supplemental hand rectangle for Axe. Water/Shovel retain their existing transforms and hand rendering. Pure harvesting and saved utility state remain unchanged.

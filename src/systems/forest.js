@@ -1,6 +1,7 @@
 import {VEGETATION} from '../data/vegetation.js';
 import {FORAGE_NODES,BOAR_HOME,BOAR_TERRITORY,TREASURES} from '../data/forest.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
+import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {FOODS,CLUB} from '../data/items.js';
 import {walkable,nearestSafe} from '../data/locations.js';
 import {shopOpen} from './market.js';
@@ -8,11 +9,13 @@ import {INVENTORY_LIMIT} from './economy.js';
 
 export const freshBoar=()=>({position:{...BOAR_HOME},health:3,defeatedDay:0});
 export const freshAnimal=a=>({id:a.id,species:a.species,position:{...a.home},health:SPECIES[a.species].health,defeatedDay:0});
-export const freshForest=()=>{const animals=Object.fromEntries(ANIMAL_SPAWNS.map(a=>[a.id,freshAnimal(a)]));return {forageDay:1,collected:[],animals,boar:animals['boar-original'],explored:['entrance'],treasures:[]};};
+export const freshWoodland=a=>({id:a.id,species:a.species,position:nearestSafe('forest',a),health:WOODLAND_SPECIES[a.species].health,defeatedDay:0});
+export const freshForest=()=>{const animals=Object.fromEntries(ANIMAL_SPAWNS.map(a=>[a.id,freshAnimal(a)]));return {forageDay:1,collected:[],stones:[],woodland:Object.fromEntries(WOODLAND_WILDLIFE.map(a=>[a.id,freshWoodland(a)])),animals,boar:animals['boar-original'],explored:['entrance'],treasures:[]};};
 export function refreshForest(s){
- if(s.forest.forageDay<s.day){s.forest.forageDay=s.day;s.forest.collected=[];}
+ if(s.forest.forageDay<s.day){s.forest.forageDay=s.day;s.forest.collected=[];s.forest.stones=[];}
  for(const a of ANIMAL_SPAWNS){const old=s.forest.animals[a.id];if(old.health===0&&old.defeatedDay<s.day)s.forest.animals[a.id]=freshAnimal(a);}
  s.forest.boar=s.forest.animals['boar-original'];
+ for(const a of WOODLAND_WILDLIFE){const old=s.forest.woodland[a.id];if(old.health===0&&old.defeatedDay<s.day)s.forest.woodland[a.id]=freshWoodland(a);}
 }
 export function inTerritory(p,territory=BOAR_TERRITORY){const [x,y,w,h]=territory;return p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h;}
 export function lineClear(area,a,b,r=0,state=null){
@@ -31,10 +34,12 @@ export function collectForage(s,id){
  return 'Collected '+FOODS[node.item].name+'.';
 }
 export function eatFood(s,id){
- const food=FOODS[id];if(!food||!s.inventory[id])return 'No fruit in your bag.';
- if(s.energy>=100)return 'Energy is already full.';
- const gain=Math.min(food.energyRestored,100-s.energy);s.inventory[id]--;s.energy+=gain;
- return '+'+gain+' energy / '+food.name;
+ const food=Object.hasOwn(FOODS,id)?FOODS[id]:null;if(!food||!Number.isInteger(s.inventory[id])||s.inventory[id]<=0)return 'No food in your bag.';
+ if(s.health<=0)return 'Rest at home first.';
+ const energy=Math.min(food.energyRestored,100-s.energy),health=Math.min(food.healthRestored,100-s.health);
+ if(!energy&&!health)return 'Health and energy are already full.';
+ s.inventory[id]--;s.energy+=energy;s.health+=health;
+ return [health?'+'+health+' health':'',energy?'+'+energy+' energy':''].filter(Boolean).join(' / ');
 }
 export function buyClub(s){
  if(!shopOpen(s,'outfitter'))return 'Closed / 07:00-20:00';
