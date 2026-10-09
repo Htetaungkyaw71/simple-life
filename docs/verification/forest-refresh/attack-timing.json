@@ -1,0 +1,120 @@
+[
+  {
+    "time": 6476.099999964237,
+    "pending": {
+      "targetId": "boar-original",
+      "direction": "up",
+      "weapon": "axe",
+      "remaining": 70.38666666666691
+    },
+    "tool": {
+      "frame": "axe-item",
+      "originX": 0.1875,
+      "originY": 0.125,
+      "rotation": -2.7838880606416847,
+      "flip": false,
+      "flipY": false,
+      "depth": 4515,
+      "x": 924,
+      "y": 4490,
+      "visible": true
+    },
+    "energy": 100,
+    "boar": {
+      "id": "boar-original",
+      "species": "boar",
+      "position": {
+        "x": 936,
+        "y": 4472
+      },
+      "health": 1,
+      "defeatedDay": 1
+    }
+  },
+  {
+    "time": 6546.699999988079,
+    "pending": {
+      "targetId": "boar-original",
+      "direction": "up",
+      "weapon": "axe",
+      "remaining": 20.686666666667183
+    },
+    "tool": {
+      "frame": "axe-item",
+      "originX": 0.1875,
+      "originY": 0.125,
+      "rotation": -2.716718065325588,
+      "flip": false,
+      "flipY": false,
+      "depth": 4515,
+      "x": 922,
+      "y": 4490,
+      "visible": true
+    },
+    "energy": 100,
+    "boar": {
+      "id": "boar-original",
+      "species": "boar",
+      "position": {
+        "x": 936,
+        "y": 4472
+      },
+      "health": 1,
+      "defeatedDay": 1
+    }
+  },
+  {
+    "time": 6653.299999952316,
+    "pending": null,
+    "tool": {
+      "frame": "axe-item",
+      "originX": 0.1875,
+      "originY": 0.125,
+      "rotation": 2.11906724461668,
+      "flip": false,
+      "flipY": false,
+      "depth": 4515,
+      "x": 922,
+      "y": 4490,
+      "visible": true
+    },
+    "energy": 99,
+    "boar": {
+      "id": "boar-original",
+      "species": "boar",
+      "position": {
+        "x": 936,
+        "y": 4453.999999999998
+      },
+      "health": 0,
+      "defeatedDay": 1
+    }
+  },
+  {
+    "time": 6756.899999976158,
+    "pending": null,
+    "tool": {
+      "frame": "axe-item",
+      "originX": 0.1875,
+      "originY": 0.125,
+      "rotation": 2.7278195054416443,
+      "flip": false,
+      "flipY": false,
+      "depth": 4515,
+      "x": 924,
+      "y": 4490,
+      "visible": true
+    },
+    "energy": 99,
+    "boar": {
+      "id": "boar-original",
+      "species": "boar",
+      "position": {
+        "x": 936,
+        "y": 4453.999999999998
+      },
+      "health": 0,
+      "defeatedDay": 1
+    }
+  }
+]

@@ -24,9 +24,8 @@ export function restUntilEvening(s){if(s.minute<960)advanceMinutes(s,960-s.minut
 export function tick(s,delta){
  dryGround(s,delta);
  const minutes=Math.max(0,Math.min(delta,100))/1000*1080/DAY_SECONDS;
- s.fatigueMinutes=(s.fatigueMinutes||0)+minutes;
- const drain=Math.floor(s.fatigueMinutes/FATIGUE_MINUTES);
- s.energy=Math.max(0,s.energy-drain);s.fatigueMinutes-=drain*FATIGUE_MINUTES;
+ // Legacy saves retain this field, but elapsed time never spends energy.
+ s.fatigueMinutes=0;
  advanceMinutes(s,minutes);
 }
 export function phase(s){return isNight(s)?'Night':s.minute<720?'Morning':s.minute<1080?'Afternoon':'Evening';}

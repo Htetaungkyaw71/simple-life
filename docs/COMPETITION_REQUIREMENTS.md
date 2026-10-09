@@ -50,3 +50,5 @@ Scope resolution: the latest user request supersedes the larger master prompt an
 
 
 2026-10-07 user-authorized large-wilderness follow-up supersedes the one-small-map/one-enemy cap: exactly 20-fold area, distinct stylized habitats with all listed species plus snakes in groups, more fruit, river/bridges/pixel waterfalls, walkable cave chambers and finite guarded treasure. Preserve crisp native pixels, existing farmer faces/canvas shell, local-only runtime, license/AI disclosures, farming/City/sleep/recovery and no-publication obligations. No real-world ecosystem accuracy is claimed for the mixed-climate game map.
+
+2026-10-09 latest user request explicitly authorizes seven broad Forest habitat shapes, low stepped terrain, more existing-species animals/fruit, direct screen attacks, no time-based energy drain, lower work costs and location-sensitive ambience. This supersedes historical no-terrace/no-audio/passive-fatigue constraints while preserving local-only runtime, disclosure/licence evidence, responsive canvas controls and no publishing/submission authorization.

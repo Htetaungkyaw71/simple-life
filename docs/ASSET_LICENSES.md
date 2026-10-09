@@ -1,3 +1,9 @@
+# v0.9.0 — unchanged art, retained cliff cell and original local synthesis
+
+All eight runtime art files / 838 atlas cells are byte-identical to v0.8.0 (2484fba). New shelves display the already credited LimeZu Serene Village Revamped cliff-face cell, CC BY 4.0, with original placement/grass lips, opaque earth backing and cached face-earth/foliage palette adaptations. Habitat ground/maps and ambient sound are original code; no recording/download/remote asset or new dependency. All existing creator-specific licences and release qualifications remain. [Source evidence](assets/licenses/forest-refresh.md); [runtime/progress audit](verification/forest-refresh/runtime-audit.json).
+
+---
+
 # v0.8.0 — original meat and stone cells
 
 The meat-item, stone-item and loose-stones cells are original deterministic project artwork authored in scripts/hunting_resources_art.py with Codex assistance. No external source, downloaded asset, image generation or screenshot pixels were used. This addition does not change the licences of the mixed-source atlas. All 835 earlier cells/metadata, both farmer sheets and the six other runtime files remain unchanged. Three cells append (838 total) within the existing town atlas; production retains the eight-file allowlist. Existing source credits, terms and competition-submission limitations remain. [Provenance](assets/licenses/hunting-resources.md); [audit](verification/hunting-resources/runtime-audit.json).

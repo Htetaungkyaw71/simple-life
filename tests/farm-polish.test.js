@@ -15,14 +15,14 @@ import {recorder} from './helpers/uiRecorder.js';
 test('a full starter bed can be planted and watered with over half the energy left',()=>{
  const s=newState();s.area='farm';s.inventory.seed=16;
  for(let i=0;i<16;i++)assert.match(usePlot(s,i),/planted/);
- assert.equal(s.energy,68);s.selected='water';
+ assert.equal(s.energy,84);s.selected='water';
  for(let i=0;i<16;i++){s.position=FARM_PLOTS[i];assert.ok(waterGround(s,FARM_PLOTS[i],i).cared);}
- assert.equal(s.energy,52);assert.deepEqual(FARM_ENERGY,{plant:2,water:1,harvest:2,dig:2});
+ assert.equal(s.energy,68);assert.deepEqual(FARM_ENERGY,{plant:1,water:1,harvest:1,dig:1});
  s.energy=0;assert.equal(waterGround(s,FARM_PLOTS[15],15).ok,false);
 });
-test('fatigue drains once an hour and retains a partly accumulated hour through reload',()=>{
+test('legacy partial fatigue cannot drain energy after reloading',()=>{
  const s=newState();assert.equal(FATIGUE_MINUTES,60);s.fatigueMinutes=59.5;
- const loaded=validate(s);assert.equal(loaded.fatigueMinutes,59.5);tick(loaded,100);assert.equal(loaded.energy,100);tick(loaded,100);assert.equal(loaded.energy,99);assert.ok(loaded.fatigueMinutes<1);
+ const loaded=validate(s);assert.equal(loaded.fatigueMinutes,59.5);tick(loaded,100);assert.equal(loaded.energy,100);tick(loaded,100);assert.equal(loaded.energy,100);assert.ok(loaded.fatigueMinutes<1);
  const old=validate({...s,version:9,fatigueMinutes:29.5});assert.equal(old.fatigueMinutes,29.5);
 });
 test('the actual held can uses an existing native frame, follows every facing and hides on tool changes',()=>{

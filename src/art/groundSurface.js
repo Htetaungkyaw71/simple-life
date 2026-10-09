@@ -1,3 +1,4 @@
+import {forestHabitat,habitatColor} from '../data/forestHabitats.js';
 // Original code-native pixel materials. Screenshots inform texture density only;
 // no reference pixels, tiles or layouts are sampled. All coordinates are native.
 export function groundHash(x,y,salt=0){
@@ -16,9 +17,10 @@ function field(w,h,step,salt){
  }
  return out;
 }
-export function paintGround(pixels,w,h,biomes=[]){
+export function paintGround(pixels,w,h,biomes=[],habitats=false){
  const palette=biomes.length?FOREST_GROUND_PALETTES:GROUND_PALETTES,soil=new Uint8Array(w*h);
  const broad=field(w,h,84,417),small=field(w,h,27,916),regions=biomes.length?biomes:[{x:0,y:0,w:w*2,h:h*2,biome:'wood'}];
+ if(habitats){paintHabitats(pixels,w,h,broad,small,soil);return {broad,small,soil,forest:true};}
  const paletteAt=(x,y)=>palette[regions.find(r=>x>=r.x/2&&x<(r.x+r.w)/2&&y>=r.y/2&&y<(r.y+r.h)/2)?.biome]||GROUND_PALETTES.wood;
  for(const r of regions){const base=palette[r.biome]||GROUND_PALETTES.wood;
   const left=paletteAt(r.x/2-1,(r.y+r.h/2)/2),right=paletteAt((r.x+r.w)/2,(r.y+r.h/2)/2),up=paletteAt((r.x+r.w/2)/2,r.y/2-1),down=paletteAt((r.x+r.w/2)/2,(r.y+r.h)/2);
@@ -37,6 +39,18 @@ export function paintGround(pixels,w,h,biomes=[]){
 }
 // Distance to the opposite material, in source pixels, for a continuous bank.
 // Two linear sweeps avoid repeatedly searching every river/pond for every pixel.
+function paintHabitats(pixels,w,h,broad,small,soil){
+ const step=16,cols=Math.ceil(w/step),rows=Math.ceil(h/step),colors=[],kinds=[];
+ for(let gy=0;gy<rows;gy++)for(let gx=0;gx<cols;gx++){const p={x:gx*step*2+step,y:gy*step*2+step};colors.push(habitatColor(p));kinds.push(forestHabitat(p).id);}
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+  const p=y*w+x,i=p*4,cell=Math.floor(y/step)*cols+Math.floor(x/step),base=colors[cell],kind=kinds[cell];
+  const bare=!['snow','desert'].includes(kind)&&broad[p]>.70&&small[p]>.43;
+  const grain=groundHash(Math.floor(x/2),Math.floor(y/2),107)%13===0?-5:0;
+  const shade=(broad[p]<.30?-14:broad[p]<.47?-6:2)+Math.floor((small[p]-.5)*4)*2+grain;
+  const color=bare?[130,74,49]:base;soil[p]=bare?1:0;
+  for(let c=0;c<3;c++)pixels[i+c]=color[c]+shade;pixels[i+3]=255;
+ }
+}
 export function shoreDistance(water,w,h){
  const distance=new Uint16Array(w*h);distance.fill(65535);
  for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=y*w+x,v=water[i];
@@ -88,10 +102,10 @@ export function paintWater(pixels,water,distance,w,h,fields){
   }
  }
 }
-export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=null){
+export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=null,habitats=false){
  const safe=(x,y,pad=3)=>x>=pad&&y>=pad&&x<w-pad&&y<h-pad&&!water[y*w+x]&&!path[y*w+x]&&!soil?.[y*w+x]&&distance[y*w+x]>(biomes.length?24:12);
  const dot=(color,x,y,ww=1,hh=1)=>{ctx.fillStyle=color;ctx.fillRect(x,y,ww,hh);};
- const biomeAt=(x,y)=>biomes.find(r=>x*2>=r.x&&x*2<r.x+r.w&&y*2>=r.y&&y*2<r.y+r.h)?.biome||'wood';
+ const biomeAt=(x,y)=>habitats?forestHabitat({x:x*2,y:y*2}).id:biomes.find(r=>x*2>=r.x&&x*2<r.x+r.w&&y*2>=r.y&&y*2<r.y+r.h)?.biome||'wood';
  for(let yy=6;yy<h-8;yy+=13)for(let xx=6;xx<w-8;xx+=13){
   const seed=groundHash(xx,yy,671),x=xx+(seed%9)-4,y=yy+((seed>>>4)%9)-4;
   if(path[y*w+x]&&!water[y*w+x]&&distance[y*w+x]>12){
@@ -99,7 +113,7 @@ export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=nu
    continue;
   }
   if(!safe(x,y)||seed%7===0)continue;
-  const biome=biomeAt(x,y),snow=biome==='snow',dry=biome==='savanna',base=(biomes.length?FOREST_GROUND_PALETTES:GROUND_PALETTES)[biome]||GROUND_PALETTES.wood;
+  const biome=biomeAt(x,y),snow=biome==='snow',dry=['savanna','desert','shrubland'].includes(biome),base=habitats?habitatColor({x:x*2,y:y*2}):(biomes.length?FOREST_GROUND_PALETTES:GROUND_PALETTES)[biome]||GROUND_PALETTES.wood;
   const dark=`rgb(${base[0]-24},${base[1]-25},${base[2]-18})`,light=`rgb(${base[0]+13},${base[1]+12},${base[2]+8})`;
   if(seed%19===0&&!snow&&biome!=='stone'){
    for(let n=0;n<3+seed%5;n++){

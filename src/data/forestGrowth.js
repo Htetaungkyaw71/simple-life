@@ -7,7 +7,7 @@ function hash(n,salt=0){let v=Math.imul(n^salt,1597334677);v=Math.imul(v^(v>>>16
 export function growForest(map,regions,nodes,treasures){
  map.terraces=[];map.ledges=[];
  const nearRoad=(x,y,pad=24)=>map.paths.some(([a,b,w,h])=>x>a-pad&&x<a+w+pad&&y>b-pad&&y<b+h+pad);
- const protectedPlaces=[...nodes,...treasures,...WOODLAND_WILDLIFE,...EAST_BOARS.map(a=>a.home),{x:936,y:4472},{x:1008,y:4432},...treasures.map(t=>({x:t.x-64,y:t.y-64}))];
+ const protectedPlaces=[...nodes,...treasures,...WOODLAND_WILDLIFE.slice(0,48),...EAST_BOARS.map(a=>a.home),{x:936,y:4472},{x:1008,y:4432},...treasures.map(t=>({x:t.x-64,y:t.y-64}))];
  const protectedPlace=(x,y)=>protectedPlaces.some(p=>Math.hypot(p.x-x,p.y-y)<88);
  for(const [i,r]of regions.entries()){
   const count=r.biome==='snow'?270:620;

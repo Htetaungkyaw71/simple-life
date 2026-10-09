@@ -50,7 +50,7 @@ test('actual HUD draws lower icon actions, forest-only map and touch movement wi
  const {Hud}=await import('../src/ui/Hud.js');
  for(const [w,h]of sizes)for(const area of ['home','city','farm','forest']){
   const s=newState();s.area=area;s.clubEquipped=true;const u=recorder(w,h),a=appFor(s,u);a.bagPanel={open(){}};a.wildernessMap={open(){}};new Hud(u);
-  assert.equal(u.controls.some(c=>c.id==='wilderness-map'),area==='forest');assert.equal(u.controls.some(c=>c.id==='attack'),area==='forest');assert.equal(u.controls.find(c=>c.id==='wilderness-map')?.label,area==='forest'?'Map':undefined);const allNodes=n=>[n,...n.list.flatMap(allNodes)];assert.ok(!allNodes(u.root).some(n=>n.type==='text'&&['1','2','3'].includes(n.text)));
+  assert.equal(u.controls.some(c=>c.id==='wilderness-map'),area==='forest');assert.equal(u.controls.some(c=>c.id==='attack'),false);assert.equal(u.controls.find(c=>c.id==='wilderness-map')?.label,area==='forest'?'Map':undefined);const allNodes=n=>[n,...n.list.flatMap(allNodes)];assert.ok(!allNodes(u.root).some(n=>n.type==='text'&&['1','2','3'].includes(n.text)));
   for(const c of u.controls){assert.ok(c.y>u.h/2,c.id);assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);assert.ok(!/jump/i.test(c.id));}
  }
 });

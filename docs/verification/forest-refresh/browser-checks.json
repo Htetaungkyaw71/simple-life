@@ -1,0 +1,1785 @@
+[
+  {
+    "label": "phone hunt before tap",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 602.1234150000007,
+    "energy": 100,
+    "health": 55,
+    "meat": 0,
+    "boarHealth": 1,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 46,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 114,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 182,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 250,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 471.87000000001126
+    }
+  },
+  {
+    "label": "phone boar tap after wind-up",
+    "position": {
+      "x": 112,
+      "y": 176
+    },
+    "minute": 360,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 1,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "Continue",
+        "label": "Continue",
+        "x": 40,
+        "y": 383,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": false,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 22,
+      "y": 8,
+      "width": 180,
+      "height": 320,
+      "zoom": 2
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 0
+    }
+  },
+  {
+    "label": "isolated phone hunt before tap",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 601.1221500000004,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 1,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 46,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 114,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 182,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 250,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 249.36666666666616
+    }
+  },
+  {
+    "label": "isolated phone hunt after tap",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 603.5044650000009,
+    "energy": 99,
+    "health": 100,
+    "meat": 2,
+    "boarHealth": 0,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 46,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 114,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 182,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 250,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 778.7699999999999
+    }
+  },
+  {
+    "label": "phone empty swing costs zero",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 860.6547750000817,
+    "energy": 99,
+    "health": 100,
+    "meat": 2,
+    "boarHealth": 0,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 46,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 114,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 182,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 250,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 57923.28333333337
+    }
+  },
+  {
+    "label": "phone pause sound controls",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 862.4517150000823,
+    "energy": 99,
+    "health": 100,
+    "meat": 2,
+    "boarHealth": 0,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "Resume",
+        "label": "Resume",
+        "x": 40,
+        "y": 212,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Save",
+        "label": "Save",
+        "x": 40,
+        "y": 268,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Forest sound / ON",
+        "label": "Forest sound / ON",
+        "x": 40,
+        "y": 324,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Controls",
+        "label": "Controls",
+        "x": 40,
+        "y": 380,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Return to title",
+        "label": "Return to title",
+        "x": 40,
+        "y": 436,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": false,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 58322.60333333337
+    }
+  },
+  {
+    "label": "phone sound muted",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 862.4517150000823,
+    "energy": 99,
+    "health": 100,
+    "meat": 2,
+    "boarHealth": 0,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "Resume",
+        "label": "Resume",
+        "x": 40,
+        "y": 212,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Save",
+        "label": "Save",
+        "x": 40,
+        "y": 268,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Forest sound / OFF",
+        "label": "Forest sound / OFF",
+        "x": 40,
+        "y": 324,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Controls",
+        "label": "Controls",
+        "x": 40,
+        "y": 380,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Return to title",
+        "label": "Return to title",
+        "x": 40,
+        "y": 436,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": true,
+      "active": false,
+      "context": "running",
+      "profile": {
+        "habitat": "easyRainforest",
+        "night": false,
+        "wind": 0.021,
+        "filter": 1200,
+        "insects": 0.003,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 58322.60333333337
+    }
+  },
+  {
+    "label": "mute persists after reload",
+    "position": {
+      "x": 936,
+      "y": 4516
+    },
+    "minute": 601.0375500000001,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 1,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 46,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 114,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 182,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 250,
+        "y": 408,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": true,
+      "active": false,
+      "context": "locked",
+      "profile": null,
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 756,
+      "y": 4196,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 230.56666666666734
+    }
+  },
+  {
+    "label": "phone watering before",
+    "position": {
+      "x": 376,
+      "y": 248
+    },
+    "minute": 601.2218849999998,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "water",
+    "controls": [
+      {
+        "id": "tool-seed",
+        "label": "seed",
+        "x": 14,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 70,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-harvest",
+        "label": "harvest",
+        "x": 126,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-shovel",
+        "label": "shovel",
+        "x": 182,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 238,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 294,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": false,
+      "context": "running",
+      "profile": null,
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 196,
+      "y": 0,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 271.5299999999996
+    }
+  },
+  {
+    "label": "phone watering costs one EP",
+    "position": {
+      "x": 376,
+      "y": 248
+    },
+    "minute": 867.6747150000267,
+    "energy": 99,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "water",
+    "controls": [
+      {
+        "id": "tool-seed",
+        "label": "seed",
+        "x": 14,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 70,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-harvest",
+        "label": "harvest",
+        "x": 126,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-shovel",
+        "label": "shovel",
+        "x": 182,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 238,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 294,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "move-up",
+        "label": "^",
+        "x": 66,
+        "y": 494,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-left",
+        "label": "<",
+        "x": 18,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-down",
+        "label": "v",
+        "x": 66,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "move-right",
+        "label": ">",
+        "x": 114,
+        "y": 542,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": false,
+      "context": "running",
+      "profile": null,
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 196,
+      "y": 0,
+      "width": 360,
+      "height": 640,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 59483.269999997705
+    }
+  },
+  {
+    "label": "final shelf before walking",
+    "position": {
+      "x": 944,
+      "y": 3824
+    },
+    "minute": 601.1260800000003,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 506,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 574,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 642,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 710,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": false,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.0018,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 304,
+      "y": 3464,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 250.24000000000672
+    }
+  },
+  {
+    "label": "shelf walking stops at face",
+    "position": {
+      "x": 944,
+      "y": 3839.550600000001
+    },
+    "minute": 1408.9476749997434,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 506,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 574,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 642,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 710,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": true,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.006,
+        "river": 0,
+        "birds": false
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 304,
+      "y": 3480,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 179766.14999999935
+    }
+  },
+  {
+    "label": "free jump crosses shelf",
+    "position": {
+      "x": 944,
+      "y": 3917.7799333333355
+    },
+    "minute": 1411.0321199997418,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 506,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 574,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 642,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 710,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": true,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.006,
+        "river": 0,
+        "birds": false
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 304,
+      "y": 3558,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 180229.3599999993
+    }
+  },
+  {
+    "label": "river ambience and wading",
+    "position": {
+      "x": 2370,
+      "y": 3200
+    },
+    "minute": 601.5514800000002,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "seed",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 472,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "tool-shovel",
+        "label": "shovel",
+        "x": 540,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 608,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 676,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 744,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": false,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.0018,
+        "river": 0.048,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 1730,
+      "y": 2840,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": true,
+      "reflection": true,
+      "phase": 344.7733333333343
+    }
+  },
+  {
+    "label": "Desert world and ambience",
+    "position": {
+      "x": 9500,
+      "y": 1820
+    },
+    "minute": 601.7741100000005,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "seed",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 472,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "tool-shovel",
+        "label": "shovel",
+        "x": 540,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 608,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 676,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 744,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "desert",
+        "night": false,
+        "wind": 0.045,
+        "filter": 600,
+        "insects": 0,
+        "river": 0,
+        "birds": false
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 8860,
+      "y": 1460,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 394.2466666666669
+    }
+  },
+  {
+    "label": "final-shelf-start",
+    "position": {
+      "x": 944,
+      "y": 3824
+    },
+    "minute": 601.2705750000003,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 506,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 574,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 642,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 710,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": false,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.0018,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 304,
+      "y": 3464,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 282.349999999992
+    }
+  },
+  {
+    "label": "final-shelf-walking-blocked",
+    "position": {
+      "x": 944,
+      "y": 3835.2631999999994
+    },
+    "minute": 782.1400200000459,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 506,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 574,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 642,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 710,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": false,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.0018,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 304,
+      "y": 3475,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 40475.56000000034
+    }
+  },
+  {
+    "label": "final-shelf-jump-crossing",
+    "position": {
+      "x": 944,
+      "y": 3886.106933333333
+    },
+    "minute": 783.9625650000465,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 506,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 574,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-map",
+        "label": "Map",
+        "x": 642,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 710,
+        "y": 640,
+        "w": 64,
+        "h": 64,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": true,
+      "context": "running",
+      "profile": {
+        "habitat": "meadow",
+        "night": false,
+        "wind": 0.02,
+        "filter": 1000,
+        "insects": 0.0018,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 1,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 304,
+      "y": 3526,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 40880.570000000334
+    }
+  },
+  {
+    "label": "final-habitat-map",
+    "position": {
+      "x": 4800,
+      "y": 2500
+    },
+    "minute": 601.1151000000006,
+    "energy": 100,
+    "health": 100,
+    "meat": 0,
+    "boarHealth": 3,
+    "selected": "axe",
+    "controls": [
+      {
+        "id": "wilderness-close",
+        "label": "X",
+        "x": 1100,
+        "y": 68,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-locate",
+        "label": "Here",
+        "x": 1100,
+        "y": 128,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-info",
+        "label": "?",
+        "x": 1100,
+        "y": 184,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-prev",
+        "label": "<",
+        "x": 144,
+        "y": 606,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "wilderness-next",
+        "label": ">",
+        "x": 1092,
+        "y": 606,
+        "w": 44,
+        "h": 44,
+        "disabled": false
+      }
+    ],
+    "ambience": {
+      "muted": false,
+      "active": false,
+      "context": "running",
+      "profile": {
+        "habitat": "rainforest",
+        "night": false,
+        "wind": 0.023,
+        "filter": 1400,
+        "insects": 0.0051,
+        "river": 0,
+        "birds": true
+      },
+      "voices": 0,
+      "unavailable": false
+    },
+    "camera": {
+      "x": 4160,
+      "y": 2140,
+      "width": 1280,
+      "height": 720,
+      "zoom": 1
+    },
+    "water": {
+      "wading": false,
+      "reflection": false,
+      "phase": 247.7999999999991
+    }
+  }
+]

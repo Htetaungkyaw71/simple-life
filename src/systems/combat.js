@@ -38,10 +38,10 @@ export function attack(s,r,direction,targetId=null){
  const axe=s.selected==='axe',weapon=axe?AXE:CLUB;
  if(!axe&&(!s.ownsClub||!s.clubEquipped))return {ok:false,message:'Select Axe or buy a club at the City Outfitter.'};
  if(r.now<r.nextAttack)return {ok:false};
- if(s.energy<weapon.energy)return {ok:false,message:'Too tired / eat food or sleep.'};
  const target=attackTarget(s,direction,targetId),meat=target?.species==='boar'?2:WOODLAND_SPECIES[target?.species]?.meat||0;
+ if(target&&s.energy<weapon.energy)return {ok:false,message:'Too tired / eat food or sleep.'};
  if(target?.health===1&&(s.inventory.meat+meat>9999||target.species==='boar'&&s.inventory.wildHide>=9999))return {ok:false,message:'Bag full / make room for the drop.'};
- s.energy-=weapon.energy;r.nextAttack=r.now+weapon.cooldown;
+ s.energy-=target?weapon.energy:0;r.nextAttack=r.now+weapon.cooldown;
  const box=attackBox(s.position,direction),result={ok:true,weapon:axe?'axe':'club',box,hit:false,defeated:false};
  if(s.area==='forest'){
   if(target){

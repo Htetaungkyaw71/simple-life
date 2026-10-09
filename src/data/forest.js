@@ -1,3 +1,6 @@
+import {forestHabitat} from './forestHabitats.js';
+import {addForestTerrain} from './forestTerrain.js';
+import {WOODLAND_WILDLIFE} from './woodlandWildlife.js';
 import {EAST_REGIONS,EAST_BOARS} from './forestExpansion.js';
 import {dryFootprint,riverRow} from './water.js';
 import {growForest,finishForest} from './forestGrowth.js';
@@ -120,4 +123,31 @@ for(const r of REGIONS){
 }
 growForest(map,REGIONS,FORAGE_NODES,TREASURES);
 finishForest(map,REGIONS);
+// Add fruit along the already open grassy crossways; all earlier IDs stay intact.
+for(const [i,r]of REGIONS.entries())for(let n=0;n<4;n++){
+ const node={id:r.id+'-grove-fruit-'+n,item:foodCycle[(i+n*2)%foodCycle.length],x:r.x+400+n*112,y:r.y+694+(n%2)*32};
+ if(!dryFootprint(map,{x:node.x-16,y:node.y-24,w:32,h:24})){
+  const old=node.x;
+  outer:for(let d=16;d<=480;d+=16)for(const sign of [-1,1]){const x=old+sign*d;if(x<r.x+48||x>r.x+r.w-48||!dryFootprint(map,{x:x-16,y:node.y-24,w:32,h:24}))continue;node.x=x;break outer;}
+ }
+ FORAGE_NODES.push(node);
+}
+for(const animal of WOODLAND_WILDLIFE.slice(48)){
+ if(dryFootprint(map,{x:animal.x-16,y:animal.y-24,w:32,h:32}))continue;
+ const old=animal.x,r=forestRegion(animal);
+ outer:for(let d=16;d<=480;d+=16)for(const sign of [-1,1]){const x=old+sign*d;if(x<r.x+48||x>r.x+r.w-48||!dryFootprint(map,{x:x-16,y:animal.y-24,w:32,h:32}))continue;animal.x=x;break outer;}
+}
+// A modest thinning opens sightlines while preserving remaining cut-tree IDs.
+const places=[...FORAGE_NODES,...WOODLAND_WILDLIFE.slice(48)];
+map.props=map.props.filter(p=>{
+ if(!(p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree')))return true;
+ if(p.x<0||p.y<0||p.x>FOREST_SIZE.width-80||p.y>FOREST_SIZE.height-140)return true;
+ const h=(Math.imul(Math.round(p.x),374761393)^Math.imul(Math.round(p.y),668265263))>>>0;
+ const habitat=forestHabitat({x:p.x+32,y:p.y+90}).id,opening=Math.sin(p.x/377)*.45+Math.sin(p.y/283)*.35+Math.sin((p.x+p.y)/631)*.2;
+ const limit={meadow:.25,shrubland:.40,desert:-.15}[habitat];
+ return (limit===undefined?h%100>=2:opening<limit)&&!places.some(n=>Math.hypot(n.x-p.x-32,n.y-p.y-90)<32);
+});
+for(const g of map.grass){const habitat=forestHabitat(g).id;g.snow=habitat==='snow';g.dry=habitat==='desert'||habitat==='shrubland';}
+map.habitats=true;
+addForestTerrain(map,REGIONS,[...FORAGE_NODES,...TREASURES,...WOODLAND_WILDLIFE,...EAST_BOARS.map(a=>a.home),BOAR_HOME,{x:1008,y:4432},FOREST_ENTRANCE],[BOAR_TERRITORY]);
 export const FOREST_MAP=map;

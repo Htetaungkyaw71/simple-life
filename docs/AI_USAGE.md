@@ -1,3 +1,11 @@
+# v0.9.0 — user-authorized Forest and attack update, 2026-10-09
+
+OpenAI Codex assisted screen-tap attack dispatch, delayed impact/staged axe motion, removal of Axe/Attack controls, lower action costs and removal of time-based energy drain. It authored seven irregular habitat fields, dry low shelves/gaps, climate-aware tree clearings, additional existing-species wildlife/fruit placements, and original local Web Audio wind/water/insects/bird synthesis with a mute preference. Screenshots were style/bug references; no pixels/layouts were extracted. Existing farmer/wildlife/scenery creator credits remain.
+
+182 tests and production build pass. Source-ID and eight-file art comparisons against 2484fba, native input browser checks and limitations are recorded in verification/forest-refresh. No new asset/dependency, subagent, external message, backend, push or publication. Browser QA uses an isolated localhost origin and read-only snapshots; normal save storage is neither read nor reset. Physical audio quality/devices/other browser engines remain unverified.
+
+---
+
 # v0.8.0 — user-authorized hunting, stones and healing, 2026-10-09
 
 OpenAI Codex assisted the requested upper-blade/downward-handle axe transform, free-axe combat reuse, saved quiet-animal movement/defeat, atomic meat drops, 240 daily Forest stone pickups, health/energy food effects, schema-12 migration, bag/touch presentation, three original procedural art cells, regressions, browser verification and documentation. The two screenshots guide orientation only; no image pixels were extracted. Existing creator-owned wildlife/farmer/scenery remain credited under their recorded terms.

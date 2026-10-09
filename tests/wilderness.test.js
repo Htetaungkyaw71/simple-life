@@ -22,7 +22,7 @@ test('one navigable world reaches every region, fruit and hidden chest without c
 test('species health and damage work through directional combat with shared pack invulnerability',()=>{
  for(const key of ['boar']){
   const s=forest(),r=combatRuntime(),a=ANIMAL_SPAWNS.find(a=>a.species===key),target=s.forest.animals[a.id];
-  s.position={x:a.home.x,y:a.home.y+42};const hit=attack(s,r,'up');assert.equal(hit.animalId,a.id);assert.equal(target.health,SPECIES[key].health-1);assert.equal(s.energy,95);
+  s.position={x:a.home.x,y:a.home.y+42};const hit=attack(s,r,'up');assert.equal(hit.animalId,a.id);assert.equal(target.health,SPECIES[key].health-1);assert.equal(s.energy,98);
   // A locked charge right beside the player gives exactly this species' damage.
   target.position={x:s.position.x,y:s.position.y-24};const runtime=animalRuntime(r,a.id);runtime.mode='charge';runtime.timer=600;runtime.heading={x:0,y:1};const result=stepCombat(s,r,50);assert.equal(result.hurt,true);assert.equal(s.health,100-SPECIES[key].damage);
   const health=s.health;stepCombat(s,r,50);assert.equal(s.health,health);

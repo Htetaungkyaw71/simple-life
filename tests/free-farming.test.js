@@ -22,7 +22,7 @@ for(let y=72;y<1056;y+=48)for(let x=72;x<2160;x+=48)if(openGround('farm',x,y,tru
 function dig(s,p=free[0]){s.position={x:p.x,y:p.y+30};return digGround(s,p);}
 function uiApp(s,u){const app={state:s,ui:u,paused:false,input:{},sound(){},save(){},scene:{forestView:{energy(){}}},transact(fn){return fn(s);}};u.app=app;return app;}
 test('shovel creates free beds on safe Farm ground and rejects repeats, paths, water, far targets and exhaustion',()=>{
- assert.ok(free.length>100);const s=farm(),coins=s.money,r=dig(s);assert.ok(r.ok);assert.equal(s.money,coins);assert.equal(s.energy,98);assert.equal(visiblePlots(s).length,17);assert.equal(plotAt(s,r.index).crop,null);
+ assert.ok(free.length>100);const s=farm(),coins=s.money,r=dig(s);assert.ok(r.ok);assert.equal(s.money,coins);assert.equal(s.energy,99);assert.equal(visiblePlots(s).length,17);assert.equal(plotAt(s,r.index).crop,null);
  const before=structuredClone(s);assert.equal(digGround(s,r).ok,false);assert.deepEqual(s,before);
  for(const point of [{x:320,y:72},{x:1800,y:744},{x:2160,y:24},{x:free.at(-1).x,y:free.at(-1).y}])assert.equal(digGround(s,point).ok,false);
  s.area='forest';assert.equal(digGround(s,r).ok,false);s.area='farm';s.energy=0;const p=free.find(p=>p.x!==r.x||p.y!==r.y);s.position=p;assert.equal(digGround(s,p).ok,false);

@@ -1,3 +1,11 @@
+# v0.9.0 — Forest update verification, 2026-10-09
+
+**182/182 tests and production build pass (99 modules).** Regressions cover seven independent climate fields, dry shelf geometry, walking gaps/jump crossing, old resource/cut/animal/cache/discovery IDs, free misses/cooldowns, reduced work costs, awake midnight without fatigue, food/crop/sleep/City rules, and synthesized sound profiles/muting/local preference/storage failures. Existing complete-region/resource reachability and all farming/economy/save tests remain green.
+
+Native browser checks use isolated port 43868, actual input and read-only DOM snapshots. Desktop/phone-size rendering, screen attacks/impact timing, idle/action EP, ledge stop/jump, habitat map/profiles, watering and Pause sound persistence are documented with screenshots. Runtime: 12 files, exactly eight unchanged art files, 838 retained atlas frames; no source packs/QA/audio downloads. Reproduce: npm test; npm run build; bundled Python scripts/qa/forest-refresh-audit.py; QA_PORT=43868 node tests/browser/city-redesign-server.mjs. [Evidence and limits](verification/forest-refresh/README.md). Physical devices, other engines, sustained load and audible sound quality remain unverified; no push/publication.
+
+---
+
 # v0.8.0 — hunting, stones and healing, 2026-10-09
 
 **175/175 tests and production build pass.** New regressions cover free-axe/retained-club damage/cooldown/energy, all quiet species and one-time loot, saved animal death/daily revival, collision/target rejection/full-loot atomicity, pure movement, 240 dry stone nodes in 40 regions, daily collection/reload, health/energy caps and no wasted food, schemas1–11 migration, preserved sale ordering and phone/compact UI. Axe tests require blade above/outside native grip throughout swing and no added hand.

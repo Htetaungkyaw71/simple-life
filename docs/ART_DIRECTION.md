@@ -1,3 +1,13 @@
+# v0.9.0 — broad habitats, dry shelves and staged axe motion
+
+Use the latest references for seven organic climate areas: Snowy west, Dark Forest north, Rainforest centre, Meadow southwest, Easy Rainforest south/entrance, Shrubland southeast and Desert east. Keep 40 discovery/cache identities beneath the visible climate boundaries. Coherent world-coordinate texture and restrained local foliage shifts replace rectangular climate seams. Open grassy clearings in Meadow and tree clusters in dry habitats; retain denser forests, native silhouettes, crisp pixels, dry roots and grass-free bridges.
+
+The latest explicit terrain request supersedes v0.4.6's no-terrace rule. Low brown earth shelves use retained native LimeZu face art and original stepped placement, an opaque earth backing, restrained brown face palette, local grass lips and shadows. Overlapping segments form continuous ridges rather than pale boulder rows. Keep wide walking breaks, dry footprints, protected resources/animal homes and free jumps. Old artificial river banks, teal ferns and waterfalls stay removed.
+
+Remove all on-screen Axe/Attack buttons. Select Axe in Bag / Gear or key 5; tap the world to face/swing, with a slow wind-up, rapid cut, impact and recovery. Keep the reference idle blade slope, native hand attachment and no added skin rectangle; render behind up-facing/in front otherwise. Local synthesized habitat ambience is soft, reacts to day/night/water, and mutes in menus/background; Pause supplies a persistent sound switch. No new raster/audio asset or reference extraction.
+
+---
+
 # v0.8.0 — reference axe and readable resources
 
 The new user reference supersedes v0.7.3's axe slope. Place the blade above/outside the native hand and slope the wooden handle downward/inward; mirror with facing. The original item is rotated by half a turn around its wooden endpoint (origin Y 2/16), keeping it off the torso, behind the up-facing farmer and in front otherwise. Axe has no added hand rectangle. Water/Shovel keep their established poses.

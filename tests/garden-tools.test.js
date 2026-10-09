@@ -27,7 +27,7 @@ test('every authored tree is registered and each outdoor area cuts roots only on
  for(const area of ['home','farm','city','forest']){
   assert.equal(VEGETATION[area].trees.length,MAPS[area].props.filter(isTree).length);
   const {s,n,c}=cuttable(area),before=MAPS[area].obstacles.map(b=>[...b]);
-  assert.equal(walkable(area,n.x,n.y,0,false,s),false);assert.equal(useVegetation(s,c).ok,true);assert.equal(s.inventory.wood,3);assert.equal(s.energy,98);
+  assert.equal(walkable(area,n.x,n.y,0,false,s),false);assert.equal(useVegetation(s,c).ok,true);assert.equal(s.inventory.wood,3);assert.equal(s.energy,99);
   assert.ok(walkable(area,n.x,n.y,0,false,s));const saved=structuredClone(s);assert.equal(useVegetation(s,c).ok,false);assert.deepEqual(s,saved);
   if(walkable(area,n.x,n.y,12,false,s))s.position={x:n.x,y:n.y};const loaded=validate(JSON.parse(JSON.stringify(s)));assert.deepEqual(loaded.position,s.position);assert.equal(loaded.inventory.wood,3);assert.deepEqual(loaded.vegetation,s.vegetation);assert.ok(walkable(area,n.x,n.y,0,false,loaded));assert.deepEqual(MAPS[area].obstacles,before);
  }

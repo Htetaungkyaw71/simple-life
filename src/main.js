@@ -1,3 +1,4 @@
+import {ForestAmbience} from './audio/ForestAmbience.js';
 import {useVegetation} from './systems/vegetation.js';
 import {digGround,waterGround} from './systems/farmGround.js';
 import {plotAt} from './systems/plots.js';
@@ -31,6 +32,7 @@ class Application {
   constructor(){
     syncInterior(innerWidth,innerHeight);this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
     try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
+    this.ambience=new ForestAmbience({storage});this.ambience.bind();window.addEventListener('pagehide',()=>this.ambience.silence());
     this.bagPanel=new BagPanel(this);this.wildernessMap=new WildernessMap(this);this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){this.ui.title();}
@@ -38,7 +40,7 @@ class Application {
   newGame(character){this.start(newState(character,crypto.getRandomValues(new Uint32Array(1))[0]));this.ui.toast('Crate / 3 seeds. Farm / south.');}
   sound(key){this.scene.game.events.emit('sound:request',{key,area:this.state?.area,day:this.state?.day});}
   cycleCrop(){if(this.paused||!this.state)return;this.state.selectedCrop=CROP_IDS[(CROP_IDS.indexOf(this.state.selectedCrop)+1)%CROP_IDS.length];this.state.selected='seed';this.save();this.ui.feedback(CROPS[this.state.selectedCrop].name+' seeds selected.');}
-  select(tool){if(!this.state||this.paused)return;this.state.selected=tool;this.save();}
+  select(tool){if(!this.state||this.paused)return;this.pendingAttack=null;this.state.selected=tool;this.save();}
   save(show=false){if(!this.state)return;this.state.roomSize={width:ROOM.width,height:ROOM.height};const ok=this.saves.write({...this.state,position:groundedPosition(this.state,this.scene.jumping)});if(show||(!ok&&!this.storageWarned))this.ui.toast(ok?'Your farm is saved.':this.saves.error);this.storageWarned=!ok;}
   transact(fn){const money=this.state.money;const message=fn(this.state);if(this.state.money!==money)this.scene.atmosphere.coins(this.state.money-money,this.state.position);this.scene.renderCrops();this.save();if(message)this.ui.toast(message);return message;}
   advance(delta){const window=waterPeriod(this.state),day=this.state.day,energy=this.state.energy;tick(this.state,delta);if(window!==waterPeriod(this.state)||day!==this.state.day)this.scene.renderCrops();if(energy>10&&this.state.energy<=10)this.ui.feedback('Low energy / rest at your bed');this.elapsed+=delta;if(this.elapsed>2500||day!==this.state.day){this.save();this.elapsed=0;}}
@@ -88,10 +90,24 @@ class Application {
   }
   attack(targetId=null){
     if(this.scene.jumping?.active)return;
-    if(this.paused||!this.state||this.transitioning)return;const result=attack(this.state,this.scene.combat,this.scene.player.direction,targetId);
-    if(result.message)this.ui.feedback(result.message);
-    if(result.ok){if(result.weapon==='axe')this.scene.player.wateringCan.swing();this.scene.forestView.attack(this.scene.player.direction,result);this.sound('combat:swing');this.save();}
+    if(this.paused||!this.state||this.transitioning||this.pendingAttack||this.scene.combat.now<this.scene.combat.nextAttack)return;
+    const weapon=this.state.selected==='axe'?'axe':'club';
+    if(weapon==='club'&&(!this.state.ownsClub||!this.state.clubEquipped))return;
+    const direction=this.scene.player.direction;
+    this.pendingAttack={targetId,direction,weapon,remaining:120};
+    if(weapon==='axe')this.scene.player.wateringCan.swing();
+    this.scene.forestView.beginSwing(direction,weapon);
   }
+  resolveAttack(delta){
+    const pending=this.pendingAttack;if(!pending)return;
+    pending.remaining-=Math.min(Math.max(delta,0),50);if(pending.remaining>0)return;
+    this.pendingAttack=null;
+    if((this.state.selected==='axe'?'axe':'club')!==pending.weapon||this.scene.jumping?.active)return;
+    const result=attack(this.state,this.scene.combat,pending.direction,pending.targetId);
+    if(result.message)this.ui.feedback(result.message);
+    if(result.ok){this.scene.forestView.attack(pending.direction,result);this.sound('combat:swing');this.save();}
+  }
+
   forestGuidance(){
     if(this.state.area!=='forest'||this.paused)return;
     if(!this.state.forestTutorialComplete){this.forestTutorial(0);return;}
@@ -120,7 +136,7 @@ class Application {
       this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;this.sound('travel:enter');if(firstCity)this.ui.toast('Welcome to Lantern Square. Clara sells seeds; Niko buys your harvest.');
     });
   }
-  pause(){if(this.transitioning||!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
+  pause(){if(this.transitioning||!this.state)return;if(this.paused){this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','',[['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Forest sound / '+(this.ambience.muted?'OFF':'ON'),()=>{this.ambience.toggle();this.pauseMenu();}],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.state=null;this.scene.build();this.ui.title();}]]);}
   pauseMenu(){this.paused=false;this.pause();}
 }
 const app=new Application();
@@ -130,5 +146,5 @@ window.addEventListener('blur',()=>{app.input={};if(app.scene.keys)Object.values
 document.addEventListener('visibilitychange',()=>{if(document.hidden){app.input={};app.save();}});
 // Read-only observability for automated canvas tests; no gameplay mutation hooks.
 if(import.meta.env.DEV||new URLSearchParams(location.search).has('qa'))window.__simpleLife=Object.freeze({snapshot:()=>{
-  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,jump:app.scene.jumping?structuredClone(app.scene.jumping):null,grass:app.scene.grass?.snapshot()||null,canopies:(app.scene.canopies||[]).map(c=>({frame:c.frame??c.sprite.frame.name,texture:c.sprite.texture.key,x:c.x,y:c.y,alpha:c.sprite.alpha,baseX:c.baseX,width:c.width,height:c.height})),combat:app.scene.combat?structuredClone(app.scene.combat):null,travelReady:app.scene.travelReady,water:app.scene.atmosphere?.waterView?{wading:app.scene.atmosphere.waterView.wading,reflection:app.scene.atmosphere.waterView.reflection.visible,phase:app.scene.atmosphere.elapsed}:null,wildlife:app.scene.forestView?.animals?.map(a=>({id:a.definition.id,frame:a.sprite.frame.name,visible:a.sprite.visible,texture:a.sprite.texture.key,originY:a.sprite.originY,flipX:a.sprite.flipX,x:a.sprite.x,y:a.sprite.y,width:a.sprite.displayWidth,height:a.sprite.displayHeight,shadow:a.shadow.visible}))||[],woodland:app.scene.forestView?.woodland?.animals.map(a=>({species:a.species,frame:a.sprite.frame.name,visible:a.sprite.visible,x:a.p.x,y:a.p.y}))||[],forestNodes:app.scene.forestView?.nodes.map(n=>({id:n.node.id,visible:n.sprite.visible}))||[],menu:app.ui.menu?.kind||null,trade:app.ui.menu?.kind==='trade'?{type:app.tradePanel.type,crop:app.tradePanel.ids[app.tradePanel.index],priceLabel:app.tradePanel.priceText?.text,quantity:app.tradePanel.quantity,details:app.tradePanel.details,textBounds:app.ui.root.list.filter(c=>c.type==='BitmapText'&&c.visible).map(c=>({text:c.text,...(({x,y,width,height})=>({x,y,w:width,h:height}))(c.getBounds())}))}:null,lighting:{alpha:app.scene.night?.alpha,color:app.scene.night?.fillColor},residents:app.scene.residents?.snapshot()||[],merchants:(app.scene.merchants||[]).map(n=>({kind:n.kind,visible:n.sprite.visible})),menuBounds:app.ui.menu?app.ui.menuBounds:null,roadSigns:(app.scene.roadSigns||[]).map(({board,text})=>({board:{...board},text:{x:text.x,y:text.y,w:text.displayWidth,h:text.displayHeight}})),farmSigns:(app.scene.farmSigns||[]).map(({board,text})=>({board:{...board},text:{x:text.x-text.displayWidth/2,y:text.y,w:text.displayWidth,h:text.displayHeight}})),controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,heldTool:app.scene.player?{frame:app.scene.player.wateringCan.can.frame.name,originX:app.scene.player.wateringCan.can.originX,originY:app.scene.player.wateringCan.can.originY,rotation:app.scene.player.wateringCan.can.rotation,flip:app.scene.player.wateringCan.can.flipX,flipY:app.scene.player.wateringCan.can.flipY,depth:app.scene.player.wateringCan.can.depth,x:app.scene.player.wateringCan.can.x,y:app.scene.player.wateringCan.can.y,visible:app.scene.player.wateringCan.can.visible}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name,height:app.scene.player.sprite.displayHeight*cam.zoom}:null,context:app.scene.context(),prompt:app.ui.hud?.prompt.visible?{x:app.ui.hud.prompt.x*2,y:app.ui.hud.prompt.y*2,w:app.ui.hud.promptWidth*2,h:28}:null,room:{width:ROOM.width,height:ROOM.height,spawn:{...ROOM.spawn},bed:{...ROOM.bed},exit:{...ROOM.exit}},cropInfo:app.ui.hud?.cropInfo.snapshot()||null,farmGuide:app.ui.hud?.farmGuide.snapshot()||null,collisionDebug:!!app.scene.collisionWorld?.debug};
+  const cam=app.scene.cameras.main;return {state:app.state?structuredClone(app.state):null,paused:app.paused,ambience:app.ambience.snapshot(),pendingAttack:app.pendingAttack?{...app.pendingAttack}:null,jump:app.scene.jumping?structuredClone(app.scene.jumping):null,grass:app.scene.grass?.snapshot()||null,canopies:(app.scene.canopies||[]).map(c=>({frame:c.frame??c.sprite.frame.name,texture:c.sprite.texture.key,x:c.x,y:c.y,alpha:c.sprite.alpha,baseX:c.baseX,width:c.width,height:c.height})),combat:app.scene.combat?structuredClone(app.scene.combat):null,travelReady:app.scene.travelReady,water:app.scene.atmosphere?.waterView?{wading:app.scene.atmosphere.waterView.wading,reflection:app.scene.atmosphere.waterView.reflection.visible,phase:app.scene.atmosphere.elapsed}:null,wildlife:app.scene.forestView?.animals?.map(a=>({id:a.definition.id,frame:a.sprite.frame.name,visible:a.sprite.visible,texture:a.sprite.texture.key,originY:a.sprite.originY,flipX:a.sprite.flipX,x:a.sprite.x,y:a.sprite.y,width:a.sprite.displayWidth,height:a.sprite.displayHeight,shadow:a.shadow.visible}))||[],woodland:app.scene.forestView?.woodland?.animals.map(a=>({species:a.species,frame:a.sprite.frame.name,visible:a.sprite.visible,x:a.p.x,y:a.p.y}))||[],forestNodes:app.scene.forestView?.nodes.map(n=>({id:n.node.id,visible:n.sprite.visible}))||[],menu:app.ui.menu?.kind||null,trade:app.ui.menu?.kind==='trade'?{type:app.tradePanel.type,crop:app.tradePanel.ids[app.tradePanel.index],priceLabel:app.tradePanel.priceText?.text,quantity:app.tradePanel.quantity,details:app.tradePanel.details,textBounds:app.ui.root.list.filter(c=>c.type==='BitmapText'&&c.visible).map(c=>({text:c.text,...(({x,y,width,height})=>({x,y,w:width,h:height}))(c.getBounds())}))}:null,lighting:{alpha:app.scene.night?.alpha,color:app.scene.night?.fillColor},residents:app.scene.residents?.snapshot()||[],merchants:(app.scene.merchants||[]).map(n=>({kind:n.kind,visible:n.sprite.visible})),menuBounds:app.ui.menu?app.ui.menuBounds:null,roadSigns:(app.scene.roadSigns||[]).map(({board,text})=>({board:{...board},text:{x:text.x,y:text.y,w:text.displayWidth,h:text.displayHeight}})),farmSigns:(app.scene.farmSigns||[]).map(({board,text})=>({board:{...board},text:{x:text.x-text.displayWidth/2,y:text.y,w:text.displayWidth,h:text.displayHeight}})),controls:app.ui.controlSnapshot(),camera:cam?{x:cam.worldView.x,y:cam.worldView.y,width:cam.worldView.width,height:cam.worldView.height,zoom:cam.zoom}:null,heldTool:app.scene.player?{frame:app.scene.player.wateringCan.can.frame.name,originX:app.scene.player.wateringCan.can.originX,originY:app.scene.player.wateringCan.can.originY,rotation:app.scene.player.wateringCan.can.rotation,flip:app.scene.player.wateringCan.can.flipX,flipY:app.scene.player.wateringCan.can.flipY,depth:app.scene.player.wateringCan.can.depth,x:app.scene.player.wateringCan.can.x,y:app.scene.player.wateringCan.can.y,visible:app.scene.player.wateringCan.can.visible}:null,player:app.scene.player?{direction:app.scene.player.direction,frame:app.scene.player.sprite.frame.name,height:app.scene.player.sprite.displayHeight*cam.zoom}:null,context:app.scene.context(),prompt:app.ui.hud?.prompt.visible?{x:app.ui.hud.prompt.x*2,y:app.ui.hud.prompt.y*2,w:app.ui.hud.promptWidth*2,h:28}:null,room:{width:ROOM.width,height:ROOM.height,spawn:{...ROOM.spawn},bed:{...ROOM.bed},exit:{...ROOM.exit}},cropInfo:app.ui.hud?.cropInfo.snapshot()||null,farmGuide:app.ui.hud?.farmGuide.snapshot()||null,collisionDebug:!!app.scene.collisionWorld?.debug};
 }});

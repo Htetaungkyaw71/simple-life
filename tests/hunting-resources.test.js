@@ -27,11 +27,11 @@ test('free axe defeats a boar, awards meat/hide once, gates cooldown and keeps c
   const result=attack(s,r,'up');assert.equal(result.hit,true);assert.equal(result.weapon,'axe');assert.equal(result.defeated,i===2);
   const copy=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,copy);
  }
- assert.equal(s.energy,94);assert.equal(s.inventory.meat,2);assert.equal(s.inventory.wildHide,1);
+ assert.equal(s.energy,97);assert.equal(s.inventory.meat,2);assert.equal(s.inventory.wildHide,1);
  let loaded=validate(JSON.parse(JSON.stringify(s)));assert.equal(loaded.forest.boar.health,0);assert.equal(loaded.inventory.meat,2);
  r.now=1500;attack(loaded,r,'up');assert.equal(loaded.inventory.meat,2);
  loaded.day++;refreshForest(loaded);assert.equal(loaded.forest.boar.health,3);
- const club=forest();club.selected='seed';club.ownsClub=club.clubEquipped=true;club.forest.boar.position={x:936,y:4478};assert.equal(attack(club,combatRuntime(),'up').weapon,'club');assert.equal(club.energy,95);
+ const club=forest();club.selected='seed';club.ownsClub=club.clubEquipped=true;club.forest.boar.position={x:936,y:4478};assert.equal(attack(club,combatRuntime(),'up').weapon,'club');assert.equal(club.energy,98);
 });
 test('all four quiet species can be hunted and saved without becoming hostile or guarding caches',()=>{
  for(const species of Object.keys(WOODLAND_SPECIES)){
@@ -47,7 +47,7 @@ test('all four quiet species can be hunted and saved without becoming hostile or
 });
 test('hunt rejects wrong facing, blockers, insufficient energy and a lethal drop without bag space atomically',()=>{
  const s=forest(),r=combatRuntime();s.forest.boar.position={x:936,y:4478};assert.equal(attack(s,r,'down').hit,false);
- r.now=500;s.energy=1;const before=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,before);
+ r.now=500;s.energy=0;const before=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,before);
  s.energy=50;s.forest.boar.health=1;s.inventory.meat=9998;const full=structuredClone(s);assert.match(attack(s,r,'up').message,/Bag full/);assert.deepEqual(s,full);
  s.inventory.meat=0;s.position={x:724,y:4802};s.forest.boar.position={x:724,y:4770};assert.equal(attack(s,r,'up').hit,false);
 });
@@ -79,10 +79,10 @@ test('food heals at full energy, caps both stats and never wastes a full/dead/in
 test('schema 1–11 migrates safely; new bounded records reject forged IDs and preserve market salts',()=>{
  for(let version=1;version<=11;version++){
   const raw=newState('girl');raw.version=version;raw.money=123;raw.inventory.wood=6;delete raw.inventory.stone;delete raw.inventory.meat;delete raw.forest.woodland;delete raw.forest.stones;
-  const s=validate(raw);assert.equal(s.version,12);assert.equal(s.money,123);assert.equal(s.inventory.wood,6);assert.equal(s.inventory.stone,0);assert.equal(s.inventory.meat,0);assert.equal(Object.keys(s.forest.woodland).length,48);
+  const s=validate(raw);assert.equal(s.version,12);assert.equal(s.money,123);assert.equal(s.inventory.wood,6);assert.equal(s.inventory.stone,0);assert.equal(s.inventory.meat,0);assert.equal(Object.keys(s.forest.woodland).length,128);
  }
  const raw=forest(),n=WOODLAND_WILDLIFE[0];raw.inventory.meat=Infinity;raw.inventory.stone=-2;raw.forest.stones=['forged',forestStones()[0].id,forestStones()[0].id];raw.forest.woodland[n.id].position={x:-1000,y:NaN};raw.forest.woodland.forged={health:999};
- const s=validate(raw);assert.equal(s.inventory.meat,0);assert.equal(s.inventory.stone,0);assert.equal(Object.keys(s.forest.woodland).length,48);assert.equal(s.forest.stones.length,1);assert.ok(walkable('forest',s.forest.woodland[n.id].position.x,s.forest.woodland[n.id].position.y));
+ const s=validate(raw);assert.equal(s.inventory.meat,0);assert.equal(s.inventory.stone,0);assert.equal(Object.keys(s.forest.woodland).length,128);assert.equal(s.forest.stones.length,1);assert.ok(walkable('forest',s.forest.woodland[n.id].position.x,s.forest.woodland[n.id].position.y));
  const originalSales=['tomato','strawberry','carrot','corn','wildBerry','guava','mango','wildHide','banana','orange','papaya','coconut','dragonFruit','pineapple','chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato'];
  assert.deepEqual(SALE_IDS,[...originalSales,'meat']);for(const id of originalSales)assert.deepEqual(marketPrice(s,id),marketPrice({...s,version:11},id));
 });
@@ -91,7 +91,7 @@ test('food page two, healing at full energy and axe attack fit desktop/phone/com
   const s=forest(),u=recorder(w,h);s.energy=100;s.health=75;s.inventory.meat=1;
   const a={state:s,input:{},save(){},sound(){},scene:{forestView:{energy(){},health(){}},cameras:{main:{worldView:{x:0,y:0},zoom:1}}},ui:u};u.app=a;const b=new BagPanel(a);a.bagPanel=b;b.open('food');b.index=bagItems(s,'food').findIndex(i=>i.id==='meat');b.show();
   assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);b.perform();assert.equal(s.health,100);assert.equal(s.inventory.meat,0);
-  const hud=new Hud(u);assert.ok(u.controls.some(c=>c.id==='attack'));assert.equal(hud.healthWidth,hud.energyWidth);
+  const hud=new Hud(u);assert.ok(!u.controls.some(c=>c.id==='attack'||c.id==='tool-axe'));assert.equal(hud.healthWidth,hud.energyWidth);
   for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);
  }
 });

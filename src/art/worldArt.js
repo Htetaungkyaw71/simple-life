@@ -1,3 +1,4 @@
+import {forestHabitat} from '../data/forestHabitats.js';
 import {drawCityBridge} from './cityBridge.js';
 import {VEGETATION,removed} from '../data/vegetation.js';
 import {drawFarmBeds} from './FarmView.js';
@@ -24,11 +25,12 @@ function object(scene,p){
  if(p.name==='farm-sign')return farmSign(scene,p);
  if(['forest','city'].includes(scene.app.state?.area)){
   const tree=['tree','snow-pine','palm-tree','willow-tree','broadleaf-tree'].includes(p.name),variant=Math.abs(Math.floor(p.x/32+p.y/32));
-  const replacement=tree?(p.name==='palm-tree'?'forest-palm-'+variant%2:p.name==='willow-tree'?p.name:p.name==='broadleaf-tree'?'forest-oak-'+variant%3:p.name==='snow-pine'?'env-pine-snow':(variant%5===0?'env-pine-olive':'forest-oak-'+variant%3)):p.name==='rock'?'env-boulder':p.name==='ice-crystal'?'env-ice':null;
+  const habitat=scene.worldArea==='forest'?forestHabitat({x:p.x+32,y:p.y+90}).id:'';
+  const replacement=tree?(habitat==='snow'?'env-pine-snow':(p.name==='palm-tree'?'forest-palm-'+variant%2:p.name==='willow-tree'?p.name:p.name==='broadleaf-tree'?'forest-oak-'+variant%3:p.name==='snow-pine'?'env-pine-olive':(variant%5===0?'env-pine-olive':'forest-oak-'+variant%3))):p.name==='rock'?'env-boulder':p.name==='ice-crystal'?'env-ice':null;
   if(replacement){
    const frame=scene.textures.getFrame('town',replacement),scale=tree?2:1;
    const foot=p.y+(tree?90:p.name==='rock'?64:104),cx=p.x+32;
-   const obj=scene.add.image(cx,foot,tree?forestTexture(scene,replacement):'town',tree?undefined:replacement).setOrigin(.5,1).setScale(scale).setDepth(foot);
+   const obj=scene.add.image(cx,foot,tree?forestTexture(scene,replacement,habitat):'town',tree?undefined:replacement).setOrigin(.5,1).setScale(scale).setDepth(foot);
    visuals.push(scene.add.ellipse(cx,foot-3,tree?48:40,12,0x38422b,.22).setDepth(1));
    if(tree)scene.canopies.push({sprite:obj,x:cx,y:foot,baseX:cx,width:frame.width*scale,height:frame.height*scale,frame:replacement});
    return record(obj);
@@ -40,7 +42,7 @@ function object(scene,p){
  const foot=p.y+((name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')?90:name.startsWith('house-village')?172:name.startsWith('house')?110:name==='shed'?124:height);
  if(!p.fence){const shadow=scene.add.ellipse(p.x+height*.28,p.y+height-5,Math.min(100,height*.72),12,0x253951,.18).setDepth(1);if(name.startsWith('tree'))shadow.setPosition(p.x+34,p.y+88).setSize(78,24);visuals.push(shadow);}
  const forestPlant=scene.app.state?.area==='forest'&&(name.startsWith('tree')||name.endsWith('-tree')||name==='bamboo-clump'||name.startsWith('forest-palmetto-'));
- const obj=forestPlant?scene.add.image(p.x,p.y,forestTexture(scene,name)).setOrigin(0).setScale(2).setDepth(foot):image(scene,name,p.x,p.y,foot);
+ const obj=forestPlant?scene.add.image(p.x,p.y,forestTexture(scene,name,forestHabitat({x:p.x+32,y:p.y+90}).id)).setOrigin(0).setScale(2).setDepth(foot):image(scene,name,p.x,p.y,foot);
  if(name.startsWith('tree')||name.endsWith('-tree')||name==='snow-pine')scene.canopies.push({sprite:obj,x:p.x+32,y:p.y+90,frame:name});
  if(p.animated==='fountain')scene.fountains.push({sprite:obj,prefix:name.slice(0,-1)});
  if(p.animated==='plant')scene.plants.push({sprite:obj,prefix:name.slice(0,-1)});

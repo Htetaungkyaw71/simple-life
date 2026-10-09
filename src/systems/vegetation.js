@@ -28,7 +28,7 @@ export function useVegetation(s,c){
  const view=c.type==='chop'?{...s,vegetation:{...s.vegetation,[vegetationKey(s)]:{...v,trees:[...(v?.trees||[]),c.id]}}}:s;
  const size=MAPS[s.area].size||MAP_SIZE,end=c.type==='chop'?{x:Math.max(0,Math.min(size.width,c.x)),y:Math.max(0,Math.min(size.height,c.y))}:c;
  if(!lineClear(s.area,s.position,end,0,view))return {ok:false,message:'Choose a clear approach'};
- const cost=c.type==='chop'?2:1,key=c.type==='chop'?'wood':'grass',amount=c.type==='chop'?3:1;
+ const cost=1,key=c.type==='chop'?'wood':'grass',amount=c.type==='chop'?3:1;
  if(s.energy<cost)return {ok:false,message:'Too tired / eat or sleep'};
  if(c.type==='placeGrass'){
   if(!s.inventory.grass)return {ok:false,message:'No grass / gather by hand'};

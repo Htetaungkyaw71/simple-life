@@ -52,9 +52,16 @@ export class WorldScene extends Phaser.Scene {
       const world=this.cameras.main.getWorldPoint(p.x,p.y),context=this.touchContext(world);
       if(context){this.lastGroundTap=null;a.use(context);return;}
       if(a.state.area==='forest'&&p.wasTouch&&['seed','harvest'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
-      if(['axe','hand','grass'].includes(a.state?.selected)){let target=world;
-        if(a.state.selected==='axe')for(const [id,sprites]of this.vegetationVisuals){const n=VEGETATION[a.state.area].byId.get(id),sprite=sprites.at(-1);if(id.startsWith('tree:')&&Math.hypot(n.x-a.state.position.x,n.y-a.state.position.y)<72&&sprite.getBounds().contains(world.x,world.y)){target=n;break;}}
-        this.targetGround=target;this.targetPlot=null;a.use();return;}
+      if(a.state.selected==='axe'){
+        // A tapped trunk still harvests wood; other world taps swing toward the pointer.
+        for(const [id,sprites]of this.vegetationVisuals){const n=VEGETATION[a.state.area].byId.get(id),sprite=sprites.at(-1);
+          if(id.startsWith('tree:')&&Math.hypot(n.x-a.state.position.x,n.y-a.state.position.y)<72&&sprite.getBounds().contains(world.x,world.y)){
+            this.targetGround=n;this.targetPlot=null;a.use({...n,type:'chop'});return;
+          }
+        }
+        this.targetGround=null;this.targetPlot=null;this.player.face(world.x-a.state.position.x,world.y-a.state.position.y);a.attack();return;
+      }
+      if(['hand','grass'].includes(a.state.selected)){this.targetGround=world;this.targetPlot=null;a.use();return;}
       if(['water','shovel'].includes(a.state?.selected)){
         const point=groundPoint(a.state,world);if(Math.hypot(point.x-a.state.position.x,point.y-a.state.position.y)>=72){a.ui.toast('Walk closer');return;}
         this.targetGround=point;this.targetPlot=null;a.use();return;
@@ -80,7 +87,7 @@ export class WorldScene extends Phaser.Scene {
     else cam.centerOn(448,290);
   }
   build(){
-    this.collisionWorld?.destroy();this.collisionWorld=null;this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;
+    this.app.pendingAttack=null;this.collisionWorld?.destroy();this.collisionWorld=null;this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;
     const s=this.app.state;this.targetPlot=null;this.targetGround=null;this.plotPositions=visiblePlots(s||{farms:[{fields:[true,false,false,false]}]});drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.wetPatches=this.add.group();this.wetSignature='';this.renderCrops();
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
@@ -125,7 +132,7 @@ export class WorldScene extends Phaser.Scene {
     beginJump(a.state,this.jumping,x||y?{x,y}:facing[this.player.direction]);
   }
   update(_,delta){
-    const a=this.app,s=a.state;if(!s||a.transitioning)return;let dx=0,dy=0;
+    const a=this.app,s=a.state;a.ambience.update(s,!a.paused&&!document.hidden&&!a.transitioning,delta);if(!s||a.transitioning)return;let dx=0,dy=0;
     if(!a.paused&&!document.hidden){
       const x=(this.keys.D.isDown||this.keys.RIGHT.isDown||a.input.right?1:0)-(this.keys.A.isDown||this.keys.LEFT.isDown||a.input.left?1:0);
       const y=(this.keys.S.isDown||this.keys.DOWN.isDown||a.input.down?1:0)-(this.keys.W.isDown||this.keys.UP.isDown||a.input.up?1:0);
@@ -134,7 +141,7 @@ export class WorldScene extends Phaser.Scene {
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
       else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
-    if(!a.paused&&!document.hidden){const result=stepCombat(s,this.combat,delta);if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
+    if(!a.paused&&!document.hidden){a.resolveAttack(delta);const result=stepCombat(s,this.combat,delta);if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
     this.player?.update(s.position,dx,dy,jumpPose(this.jumping));
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);

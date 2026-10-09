@@ -19,10 +19,10 @@ test('eastern extension doubles area while preserving the original region and en
 });
 test('approved forest trees are moderately thinned while new habitats retain dense ground cover',()=>{
  const west=FOREST_MAP.props.filter(p=>forestTree(p)&&p.x<5120).length;
- assert.ok(west>2512*.75&&west<2512*.9,`${west} western trees`);
- assert.ok(FOREST_MAP.props.filter(p=>forestTree(p)&&p.x>=5120).length>1800);
+ assert.ok(west>2092*.80&&west<2092*.95,`${west} western trees`);
+ assert.ok(FOREST_MAP.props.filter(p=>forestTree(p)&&p.x>=5120).length>1300);
  assert.ok(FOREST_MAP.grass.filter(g=>g.x>=5120).length>6000);
- assert.equal(FOREST_MAP.paths.length,0);assert.equal(FOREST_MAP.falls.length,0);assert.equal(FOREST_MAP.ledges.length,0);
+ assert.equal(FOREST_MAP.paths.length,0);assert.equal(FOREST_MAP.falls.length,0);assert.ok(FOREST_MAP.ledges.length>500);
 });
 test('both river banks meander independently in width on the same crisp water surface used by walking',()=>{
  assert.equal(FOREST_MAP.rivers.filter(r=>r.h===5120).length,4);
@@ -48,13 +48,13 @@ test('forest terrain covers the doubled map with GPU-safe adjacent tiles and no 
  }
 });
 test('more daily fruit and small native animal groups occupy every eastern region without adding species or caches',()=>{
- assert.equal(FORAGE_NODES.length,163);assert.equal(TREASURES.length,14);
+ assert.equal(FORAGE_NODES.length,323);assert.equal(TREASURES.length,14);
  for(const node of FORAGE_NODES)assert.ok(dryFootprint(FOREST_MAP,{x:node.x-16,y:node.y-24,w:32,h:24}),node.id);
- assert.equal(ANIMAL_SPAWNS.length,30);assert.equal(WOODLAND_WILDLIFE.length,48);
+ assert.equal(ANIMAL_SPAWNS.length,30);assert.equal(WOODLAND_WILDLIFE.length,128);
  assert.deepEqual([...new Set(WOODLAND_WILDLIFE.map(a=>a.species))].sort(),['deer','fox','grouse','hare']);
  for(const r of REGIONS.slice(20)){
   assert.equal(FORAGE_NODES.filter(n=>n.id.startsWith(r.id+'-fruit-')).length,4);
-  assert.equal(WOODLAND_WILDLIFE.filter(a=>a.x>=r.x&&a.x<r.x+r.w&&a.y>=r.y&&a.y<r.y+r.h).length,2);
+  assert.equal(WOODLAND_WILDLIFE.filter(a=>a.x>=r.x&&a.x<r.x+r.w&&a.y>=r.y&&a.y<r.y+r.h).length,4);
   const group=ANIMAL_SPAWNS.filter(a=>a.region===r.id);assert.ok(group.length===0||group.length===2);
   for(const a of group)assert.ok(dryFootprint(FOREST_MAP,{x:a.home.x-16,y:a.home.y-16,w:32,h:32}),a.id);
  }

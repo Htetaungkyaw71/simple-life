@@ -1,3 +1,15 @@
+# v0.9.0 — Forest habitats, direct attacks and lighter energy, 2026-10-09
+
+Completed the latest user follow-up. Both dedicated Attack and selected-Axe hotbar controls are removed; select Axe in Bag / Gear or key 5 and click/tap the world to face/swing. Trunk taps still award wood; animal taps target that animal. A 120ms wind-up precedes gameplay impact, followed by a 420ms total cut/recovery pose with native-hand grip and no added skin rectangle. Cooldowns, line-of-sight, loot caps, jump/pause gates and the permanent club remain. Empty swings are free; Axe hits and all ordinary farm/vegetation/stone work cost 1 EP, club hits 2 EP. Time never drains EP; sleep/food/crop care/daily rollover remain.
+
+The 10240×5120 Forest has seven broad, organic habitats arranged from the supplied concept, retaining the 40 underlying discovery IDs and 14 caches. Meadow/dry habitats gain clustered clearings; 3,195 trees remain (about 22% fewer than 4,070), with 323 daily fruit spots and 158 animals (30 boars + 128 quiet animals from the existing four species). All older resource/animal IDs and every remaining cut-tree ID survive. Eighty low stepped shelf bands / 970 face segments have grassy walking gaps, dry surfaces and jump crossing; old river banks/ferns/waterfalls remain removed.
+
+Original local ambient wind, bird tones, insects and nearby-water noise respond to habitat/day/night and crossfade. Autoplay unlocks on user input; menus/background/non-Forest play are silent. Pause has a local persistent sound preference, independent of schema-12 game saves. No new asset/dependency or backend. This request supersedes older no-terrace/no-audio/passive-fatigue constraints.
+
+Checks: 182 tests, production build (99 modules), eight-file/838-cell byte comparison and resource-ID audit. Native browser inputs at desktop and phone-sized viewports cover screen attacks, energy, ledge walking/jumping, habitat map/rendering, watering and sound mute/reload; detailed evidence/limits in verification/forest-refresh. Normal preview 4175 refreshed with its saved Continue option intact; QA tab/server closed and viewport override reset. Physical devices, other engines, long sessions and audible output quality are not claimed. No push/publication.
+
+---
+
 # v0.8.0 — reference axe, hunting, stones and healing, 2026-10-09
 
 Completed the user's requested axe orientation and gameplay additions. Blade sits above/outside the native grip with wood sloping down, mirrors by facing, behind up/in front otherwise, without an extra hand. Selected free Axe can hunt existing Forest animals with K/E/direct tap for 2 energy per swing and a 500ms cooldown. Boars/deer give 2 Meat, foxes/hares/grouse 1; boars retain their Hide. Quiet wildlife remains nonhostile but now saves partial health/death and pure movement. Defeated animals return only on a later day. Full loot stock rejects lethal attacks atomically.

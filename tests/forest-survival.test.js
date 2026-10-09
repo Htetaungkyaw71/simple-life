@@ -45,10 +45,10 @@ test('one permanent auto-equipped club purchase and Outfitter hours match both m
  const s=newState();for(const m of [0,419,1200,1439]){s.minute=m;assert.equal(shopOpen(s,'outfitter'),false);assert.match(buyClub(s),/Closed/);assert.equal(s.money,60);}
  s.minute=420;s.money=44;assert.match(buyClub(s),/45/);assert.equal(s.ownsClub,false);s.money=60;buyClub(s);assert.equal(s.money,15);assert.equal(s.ownsClub,true);assert.equal(s.clubEquipped,true);buyClub(s);assert.equal(s.money,15);assert.ok(shopOpen({...s,minute:1199},'outfitter'));
 });
-test('directional melee only hits in front, spends five energy and enforces 450ms cooldown',()=>{
+test('directional melee only hits in front, spends two energy on a hit and enforces 450ms cooldown',()=>{
  const s=forest();s.ownsClub=s.clubEquipped=true;s.position={x:936,y:4496};
  for(const [dir,front,back]of [['up',{x:936,y:4448},{x:936,y:4550}],['down',{x:936,y:4542},{x:936,y:4442}],['left',{x:886,y:4484},{x:990,y:4484}],['right',{x:986,y:4484},{x:882,y:4484}]]){assert.ok(hitInside(attackBox(s.position,dir),front));assert.equal(hitInside(attackBox(s.position,dir),back),false);}
- const r=combatRuntime();s.forest.boar.position={x:936,y:4448};assert.equal(attack(s,r,'up').hit,true);assert.equal(s.energy,95);assert.equal(s.forest.boar.health,2);const before=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,before);r.now=449;assert.equal(attack(s,r,'up').ok,false);r.now=450;assert.equal(attack(s,r,'up').ok,true);s.energy=4;r.now=900;assert.match(attack(s,r,'up').message,/Too tired/);assert.equal(s.energy,4);
+ const r=combatRuntime();s.forest.boar.position={x:936,y:4448};assert.equal(attack(s,r,'up').hit,true);assert.equal(s.energy,98);assert.equal(s.forest.boar.health,2);const before=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,before);r.now=449;assert.equal(attack(s,r,'up').ok,false);r.now=450;assert.equal(attack(s,r,'up').ok,true);s.forest.boar.position={x:936,y:4448};s.energy=1;r.now=900;assert.match(attack(s,r,'up').message,/Too tired/);assert.equal(s.energy,1);
 });
 test('boar telegraphs, locks a charge, damages once, recovers and returns to wandering',()=>{
  const s=forest(),r=combatRuntime();s.position={x:936,y:4534};r.grace=0;r.timer=0;

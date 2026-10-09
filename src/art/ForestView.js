@@ -56,16 +56,23 @@ export class ForestView {
    const bag=s.stash;this.bag.setVisible(!!bag);if(bag)this.bag.setPosition(bag.x,bag.y).setDepth(bag.y);
   }
   if(this.swingLeft>0){
-   this.swingLeft-=delta;const phase=this.swingLeft>170?0:this.swingLeft>85?1:2,p=s.position,box=attackBox(p,this.swingDirection),center={x:box.x+box.w/2,y:box.y+box.h/2};
-   const angle={up:-Math.PI/2,down:Math.PI/2,left:Math.PI,right:0}[this.swingDirection]+(phase-1)*Math.PI/4;
+   this.swingLeft-=delta;const t=1-this.swingLeft/420,p=s.position,box=attackBox(p,this.swingDirection),center={x:box.x+box.w/2,y:box.y+box.h/2};
+   const angle={up:-Math.PI/2,down:Math.PI/2,left:Math.PI,right:0}[this.swingDirection]+(t-.45)*2;
    this.swing.setVisible(this.swingLeft>0&&this.swingWeapon!=='axe').setPosition(center.x,center.y+12).setRotation(angle+Math.PI/4).setDepth(p.y+50);
-   this.arc.clear().setDepth(p.y+49);this.arc.fillStyle(0xffedcc,.55);
-   for(let i=0;i<4;i++){const a=angle+(i-2)*.20;this.arc.fillRect(Math.round((p.x+Math.cos(a)*54)/2)*2,Math.round((p.y-16+Math.sin(a)*54)/2)*2,4,4);}
+   this.arc.clear().setDepth(p.y+(this.swingDirection==='up'?-2:3));
+   if(t>.26&&t<.66){
+    const can=this.scene.player.wateringCan.can;
+    // Follow the actual blade rather than an unrelated circle around the feet.
+    const dx=(can.flipX?5:11)-can.originX*16,dy=7-can.originY*16;
+    const blade={x:can.x+(dx*Math.cos(can.rotation)-dy*Math.sin(can.rotation))*2,y:can.y+(dx*Math.sin(can.rotation)+dy*Math.cos(can.rotation))*2};
+    this.arc.fillStyle(0xffedcc,.55);
+    for(let i=0;i<3;i++)this.arc.fillRect(Math.round((blade.x-i*4*Math.cos(angle))/2)*2,Math.round((blade.y-i*4*Math.sin(angle))/2)*2,4,2);
+   }
   }else{this.swing.setVisible(false);this.arc.clear();}
   this.scene.player?.sprite.setAlpha(r.now<r.invulnerableUntil&&Math.floor(r.now/90)%2?.42:1);
  }
+ beginSwing(direction,weapon){this.swingDirection=direction;this.swingLeft=420;this.swingWeapon=weapon;}
  attack(direction,result){
-  this.swingDirection=direction;this.swingLeft=260;this.swingWeapon=result.weapon;
   const s=this.scene.app.state,animal=s.forest.animals[result.animalId]||s.forest.woodland[result.animalId],entry=this.animals?.find(a=>a.definition.id===result.animalId)||this.woodland?.animals.find(a=>a.id===result.animalId);
   if(result.hit){const p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());this.scene.cameras.main.shake(80,.0012);}
   if(result.defeated){const b=animal.position;const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast('+'+result.meat+' Meat'+(result.species==='boar'?' / +1 Wild Hide':''));}
