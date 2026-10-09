@@ -1,3 +1,11 @@
+# v0.10.0 — supplied rocky objects and original depth art
+
+Eight selected native CraftPix Free Rocky Area Objects cells are integrated into the allowlisted town atlas and used in Dark Forest. Official freebie game-use/modification/distribution terms checked 2026-10-09; exact supplied archive License.txt, archive/member hashes, native crops/sizes and reviewed terms: [source record](assets/licenses/rocky-depth/SOURCE_RECORD.md), [selected cells](assets/licenses/rocky-depth/selected-assets.json). Existing CraftPix credit remains. Source ZIP/PSD/unused pack files are excluded; no artwork export feature or AI/ML dataset use. Earlier unrelated public prize-entry/submission limitations remain.
+
+Thirteen existing native house cells are independently redrawn by original Python code for three-quarter roof/wall depth; shared alpha collisions regenerate. River/portal/cliff/shadow art is original procedural project work. User screenshots/Plant Tales guide style only, without copied pixels/layouts. Eight runtime file paths remain; 825 old non-house cells, all earlier frame rectangles and six other art files are unchanged against ba601de. Audit: verification/scene-depth/runtime-audit.json. No new dependency/remote runtime asset.
+
+---
+
 # v0.9.0 — unchanged art, retained cliff cell and original local synthesis
 
 All eight runtime art files / 838 atlas cells are byte-identical to v0.8.0 (2484fba). New shelves display the already credited LimeZu Serene Village Revamped cliff-face cell, CC BY 4.0, with original placement/grass lips, opaque earth backing and cached face-earth/foliage palette adaptations. Habitat ground/maps and ambient sound are original code; no recording/download/remote asset or new dependency. All existing creator-specific licences and release qualifications remain. [Source evidence](assets/licenses/forest-refresh.md); [runtime/progress audit](verification/forest-refresh/runtime-audit.json).

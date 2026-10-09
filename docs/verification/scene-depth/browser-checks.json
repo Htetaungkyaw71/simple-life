@@ -1,0 +1,107 @@
+{
+  "checks": [
+    {
+      "check": "desktop home framing",
+      "camera": {
+        "x": 54,
+        "y": 260,
+        "width": 853,
+        "height": 480,
+        "zoom": 1.5
+      }
+    },
+    {
+      "check": "direct home doorway tap",
+      "area": "interior"
+    },
+    {
+      "check": "walk into ring returns to open Forest entrance",
+      "before": {
+        "x": 5120,
+        "y": 2780
+      },
+      "after": {
+        "x": 640,
+        "y": 4848
+      },
+      "moneyUnchanged": true,
+      "energyUnchanged": true,
+      "inventoryUnchanged": true
+    },
+    {
+      "check": "vertical bridge over fork remains dry",
+      "water": {
+        "wading": false,
+        "reflection": false,
+        "phase": 86570.46000000014
+      }
+    },
+    {
+      "check": "walk off bridge into fork shows water-clipped reflection",
+      "position": {
+        "x": 2166.230200000001,
+        "y": 1060
+      },
+      "water": {
+        "wading": true,
+        "reflection": true,
+        "phase": 87302.34000000016
+      }
+    },
+    {
+      "check": "Dark Forest native rocky objects render without foliage covering skeleton",
+      "position": {
+        "x": 7920.139,
+        "y": 478
+      }
+    },
+    {
+      "check": "shelf blocks ordinary walking and permits free jumping",
+      "before": {
+        "x": 944,
+        "y": 3824
+      },
+      "blocked": {
+        "x": 944,
+        "y": 3836.1238
+      },
+      "afterJump": {
+        "x": 944,
+        "y": 3964.1238
+      }
+    },
+    {
+      "check": "phone tap-and-hold movement enters gate",
+      "position": {
+        "x": 640,
+        "y": 4848
+      },
+      "camera": {
+        "x": 460,
+        "y": 4480,
+        "width": 360,
+        "height": 640,
+        "zoom": 1
+      }
+    },
+    {
+      "check": "return arrival survives Continue on same QA origin",
+      "area": "forest",
+      "position": {
+        "x": 640,
+        "y": 4848
+      }
+    },
+    {
+      "check": "phone home framing",
+      "camera": {
+        "x": 300,
+        "y": 180,
+        "width": 360,
+        "height": 640,
+        "zoom": 1
+      }
+    }
+  ],
+  "warningsAndErrors": []
+}

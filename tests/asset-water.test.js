@@ -12,12 +12,12 @@ import {validate} from '../src/systems/save.js';
 import {lineClear} from '../src/systems/forest.js';
 import {displace} from '../src/systems/combat.js';
 test('river water is continuous across all five regions and bridges cover connected water',()=>{
- for(const river of MAPS.forest.rivers)for(let y=river.y+16;y<river.y+river.h-16;y+=2){const [left,,w]=riverRow(river,y);assert.ok(waterAt(MAPS.forest,{x:left+w/2,y},false));}
- for(const bridge of MAPS.forest.bridges){const y=bridge.y+bridge.h/2,[left,,w]=riverRow(MAPS.forest.rivers.find(r=>r.id===bridge.river),y),p={x:left+w/2,y};assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
+ for(const r of MAPS.forest.rivers)for(const [x,y]of r.points)assert.ok(waterAt(MAPS.forest,{x,y},false));
+ for(const b of MAPS.forest.bridges){const p=waterRows(MAPS.forest).map(([x,y,w])=>({x:x+w/2,y})).find(p=>p.x>b.x&&p.x<b.x+b.w&&p.y>b.y&&p.y<b.y+b.h);assert.ok(p,b.river);assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
 });
 test('player crosses water directly; removed falls leave no invisible side-bank obstacles',()=>{
- const s=newState();s.area='forest';s.selected='water';const [left]=riverRow(MAPS.forest.rivers[0],1900);s.position={x:left-16,y:1900};assert.equal(contextFor(s).type,'refill');
- const p={x:2240,y:1900};displace('forest',p,280,0);assert.deepEqual(p,{x:2520,y:1900});assert.ok(lineClear('forest',{x:2240,y:1900},p));
+ const s=newState();s.area='forest';s.selected='water';s.position={x:1504,y:4912};assert.ok(walkable('forest',s.position.x,s.position.y));assert.equal(contextFor(s).type,'refill');
+ const p={x:112,y:4544};assert.ok(waterAt(MAPS.forest,{x:208,y:4544}));displace('forest',p,192,0);assert.deepEqual(p,{x:304,y:4544});assert.ok(lineClear('forest',{x:112,y:4544},p));
  assert.deepEqual(WATERFALLS,[]);assert.deepEqual(MAPS.forest.falls,[]);
  assert.ok(walkable('forest',100,3344),'former west fall rock removed');assert.ok(walkable('forest',220,3344),'former east fall rock removed');
 });

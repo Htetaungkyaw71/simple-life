@@ -1,3 +1,11 @@
+# v0.10.0 — depth, rivers and return gate, 2026-10-09
+
+**184/184 tests and production build pass (102 modules).** Native input checks at 1280×720 and 360×640 cover revised Home door entry, closer/wider camera, dry vertical fork crossing, wading reflection, branching map, rocky landmark, cliff collision/free jump, keyboard/touch central gate entry, preserved coins/inventory/energy and arrival persistence on Continue. No browser warnings/errors. Eight runtime art paths/twelve dist files, 825 unchanged old non-house cells, thirteen original redraws and eight native licensed additions are audited against ba601de. See [scene depth evidence](verification/scene-depth/README.md), browser-checks.json/runtime-audit.json and source record assets/licenses/rocky-depth. Reproduce: npm test; npm run build; bundled Python scripts/qa/scene-depth-audit.py.
+
+Updated normal preview opened without reading/resetting saved storage; temporary QA/tab/viewport cleaned up. Physical devices, other engines, sustained performance/human acceptance remain unverified. Cliffs are visual height/blocking faces, not full elevation; rocky objects are scenery. Earlier unrelated licence/submission limitations remain; no push/publication.
+
+---
+
 # v0.9.0 — Forest update verification, 2026-10-09
 
 **182/182 tests and production build pass (99 modules).** Regressions cover seven independent climate fields, dry shelf geometry, walking gaps/jump crossing, old resource/cut/animal/cache/discovery IDs, free misses/cooldowns, reduced work costs, awake midnight without fatigue, food/crop/sleep/City rules, and synthesized sound profiles/muting/local preference/storage failures. Existing complete-region/resource reachability and all farming/economy/save tests remain green.

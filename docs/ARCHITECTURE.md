@@ -1,3 +1,11 @@
+# v0.10.0 — shared branching water and scene depth
+
+forestRivers.js owns thirteen immutable authored variable-width polylines and nine curated crossings. water.js rasterizes channel discs into cached merged crisp row spans; terrain, currents/reflection, shoreline refill, habitats/audio and WildernessMap use that shared geometry. Existing legacy City river/pond APIs remain. Bridges support both axes and share dry walkable coverage. Forest resources/animal starts stay dry; IDs remain independent of renderer placement.
+
+forestLandmarks.js supplies a pure ground-entry/cooldown return descriptor and curated dry Dark Forest scenery protected from crossings/resources/cliffs. ForestPortalView renders transient stone/light/motes. WorldScene uses the established application travel/fade/rebuild/save path before edge travel; entry is suppressed while paused/jumping. Gate has no saved progression or extra HUD action. Large native houses and exact opaque masks share the existing generator/geometry architecture. displayScale.js chooses integer source-pixel desktop/compact framing; separate Phaser UI and interior framing remain independent. Terrain uses original stepped cliff strata/shadows/grass lips with the existing pure ledge collision and jump system. No backend/remote asset/3D engine.
+
+---
+
 # v0.8.0 — resource and hunting flow
 
 forestResources.js lazily resolves 240 stable candidates against shared collision/water geometry after module initialization. resources.js owns pure availability, target selection, bounded collection and daily-persistence rules. contextFor prioritizes a selected Hand's stone pickup over nearby grass, while Axe prioritizes animals before tree work; targeted ground taps can choose a stone directly. WorldScene translates pointer animal bounds into exact IDs and native facing; main routes pure attack/collection, renderer feedback and local save.

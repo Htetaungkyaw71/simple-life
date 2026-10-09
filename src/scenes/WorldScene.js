@@ -20,6 +20,8 @@ import { CollisionWorld } from '../physics/CollisionWorld.js';
 import { contextFor } from '../systems/context.js';
 import { MAP_SIZE,MAPS } from '../data/mapLayouts.js';
 import { displayZoom } from './displayScale.js';
+import {forestPortalTravel} from '../data/forestLandmarks.js';
+import {ForestPortalView} from '../art/ForestPortalView.js';
 import { Atmosphere } from '../art/Atmosphere.js';
 import { WORLD } from '../config.js';
 
@@ -88,7 +90,7 @@ export class WorldScene extends Phaser.Scene {
   }
   build(){
     this.app.pendingAttack=null;this.collisionWorld?.destroy();this.collisionWorld=null;this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;
-    const s=this.app.state;this.targetPlot=null;this.targetGround=null;this.plotPositions=visiblePlots(s||{farms:[{fields:[true,false,false,false]}]});drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.wetPatches=this.add.group();this.wetSignature='';this.renderCrops();
+    const s=this.app.state;this.targetPlot=null;this.targetGround=null;this.plotPositions=visiblePlots(s||{farms:[{fields:[true,false,false,false]}]});drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.wetPatches=this.add.group();this.wetSignature='';this.renderCrops();this.portal=s?.area==='forest'?new ForestPortalView(this):null;
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
@@ -139,9 +141,10 @@ export class WorldScene extends Phaser.Scene {
       const len=Math.hypot(x,y)||1,step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x/len*step,ny=s.position.y+y/len*step;
       const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
-      else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
+      else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=forestPortalTravel(s,this.time.now,this.travelReady||0)||readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
     if(!a.paused&&!document.hidden){a.resolveAttack(delta);const result=stepCombat(s,this.combat,delta);if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
+    this.portal?.update(this.time.now);
     this.player?.update(s.position,dx,dy,jumpPose(this.jumping));
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
     if(!a.paused)this.forestView.update(Math.min(delta,50),this.combat);

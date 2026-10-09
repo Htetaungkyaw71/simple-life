@@ -1,4 +1,3 @@
-import {forestTexture} from './forestPalette.js';
 import {habitatColor} from '../data/forestHabitats.js';
 import {paintCity} from './citySurface.js';
 import {terrainTiles} from './terrainTiles.js';
@@ -46,30 +45,22 @@ export function terrain(scene,area,map){
  else {texture.refresh();scene.add.image(0,0,key).setOrigin(0).setScale(2).setDepth(-2);}
 }
 
-// The face art is retained licensed scenery; shelf placement/shading is original.
+// Original pixel cliff strata, grassy lips and world-coordinate shelf shading.
 function paintShelves(ctx,scene,map){
  for(const band of map.terraces)for(const l of band.segments){
   const x=l.x/2,y=l.y/2;
-  ctx.fillStyle='rgba(48,54,35,.12)';ctx.fillRect(x,y-48,16,48);
-  ctx.fillStyle='rgba(34,35,28,.22)';ctx.fillRect(x,y+16,16,3);
-  ctx.fillStyle='#614739';ctx.fillRect(x,y,16,16);
-  const f=scene.textures.getFrame(shelfTexture(scene,band.habitat));
-  ctx.drawImage(f.source.image,f.cutX,f.cutY,f.cutWidth,f.cutHeight,x,y,16,16);
+  // A shallow upper lip and a shaded vertical earth face, not a rectangular bank.
+  const color=habitatColor({x:l.x,y:l.y});
+  for(let n=0;n<6;n++){ctx.fillStyle='rgba(36,42,28,'+(.10-n*.014)+')';ctx.fillRect(x,y-6+n,16,1);}
+  ctx.fillStyle='rgba(34,35,28,.24)';ctx.fillRect(x,y+l.h/2,16,4);
+  ctx.fillStyle='#887064';ctx.fillRect(x,y,16,l.h/2);
+  ctx.fillStyle='#ad907b';ctx.fillRect(x,y+1,16,2);ctx.fillStyle='#745b52';ctx.fillRect(x,y+16,16,8);
+  // Fine irregular rock strata and crevices, rather than repeating wide blocks.
+  const seed=Math.floor(l.x/2);
+  for(let n=0;n<16;n++){const low=(seed+n*7)%11;ctx.fillStyle=n%3?'#957b6c':'#6d554e';ctx.fillRect(x+n,y+4+low,1,3+(n%4));if(n%5===0){ctx.fillStyle='#59473f';ctx.fillRect(x+n,y+2,1,7);ctx.fillRect(x+n+1,y+8,1,4);}if(n%4===0){ctx.fillStyle='#b69a83';ctx.fillRect(x+n,y+5+(seed+n)%8,2,1);}}
+  ctx.fillStyle='#51443d';ctx.fillRect(x,y+l.h/2-2,16,2);
   // Jagged grassy lip in the local habitat palette instead of a flat straight rim.
-  const color=habitatColor({x:l.x,y:l.y});ctx.fillStyle='rgb('+color.join(',')+')';
-  for(let n=0;n<16;n+=2)ctx.fillRect(x+n,y-1,2,n%6===0?3:2);
+  ctx.fillStyle='rgb('+color.join(',')+')';
+  for(let n=0;n<16;n+=2)ctx.fillRect(x+n,y-2,2,n%6===0?4:3);
  }
-}
-
-function shelfTexture(scene,habitat){
- const key='shelf-face-'+habitat;if(scene.textures.exists(key))return key;
- const source=scene.textures.getFrame(forestTexture(scene,'cliff-face',habitat)),texture=scene.textures.createCanvas(key,16,16),ctx=texture.context;
- ctx.drawImage(source.source.image,source.cutX,source.cutY,16,16,0,0,16,16);
- const pixels=ctx.getImageData(0,0,16,16);
- for(let y=3;y<16;y++)for(let x=0;x<16;x++){
-  const i=(y*16+x)*4;if(!pixels.data[i+3])continue;
-  const shade=Math.round((pixels.data[i]+pixels.data[i+1]+pixels.data[i+2])/3/16)*2;
-  pixels.data[i]=78+shade;pixels.data[i+1]=55+shade;pixels.data[i+2]=43+shade;
- }
- ctx.putImageData(pixels,0,0);texture.refresh();return key;
 }

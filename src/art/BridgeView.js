@@ -1,6 +1,8 @@
 // Opaque horizontal timber crossing with native planks and edge rails.
 export function drawBridge(scene,b){
- const g=scene.add.graphics().setDepth(0),{x,y,w,h}=b;
+ const g=scene.add.graphics().setDepth(0);
+ if(b.axis==='vertical'){const {x,y,w,h}=b;g.fillStyle(0x494332).fillRect(x,y,w,h);for(let dy=4;dy<h-4;dy+=12){g.fillStyle(dy%24?0x9b8055:0xa68a5d).fillRect(x+6,y+dy,w-12,10);g.fillStyle(0xc1a574).fillRect(x+6,y+dy,w-12,2);}for(const xx of [x,x+w-8]){g.fillStyle(0x554735).fillRect(xx,y,8,h);g.fillStyle(0xb69a69).fillRect(xx+2,y+2,2,h-4);}return g;}
+ const {x,y,w,h}=b;
  g.fillStyle(0x494332).fillRect(x,y,w,h);
  for(let dx=4;dx<w-4;dx+=12){
   const width=Math.min(10,w-4-dx);g.fillStyle(dx%24?0x9b8055:0xa68a5d).fillRect(x+dx,y+6,width,h-12);

@@ -1,3 +1,9 @@
+# v0.10.0 user follow-up scope, 2026-10-09
+
+The explicit latest request authorizes three-quarter house/object depth, closer camera framing, irregular branching Forest rivers, taller grassy cliff terrain, central one-way return teleport and selected supplied rocky objects in Dark Forest. It supersedes previous presentation constraints where needed. Master prompt and four supplied competition PDFs were checked as reference requirements, not instructions overriding the user. Preserve fullscreen separate Phaser world/UI, pure/data-driven systems, local runtime/schema-12 saves, farming/City/Home/NPC commutes/permanent club/time/sleep/Stash recovery. No crafting/armour/relationships/weather/house upgrades/backend/publication. Eight selected native CraftPix freebie objects have reviewed game-use terms and evidence; earlier unrelated submission-rights limitations remain unresolved and no certification/submission is claimed.
+
+---
+
 # v0.8.0 user follow-up scope, 2026-10-09
 
 The user's explicit request to hunt animals with the existing Axe, receive Meat, collect more Forest Stone and restore health through food supersedes the earlier axe-utility-only/no-other-weapon restriction for this feature. Keep the permanent Wooden Club and all established farming/time/recovery requirements. Reuse the current 30 boars/48 quiet animals; no new weapon/armour, relationship, weather, house upgrade, backend or crafting system is introduced. Suggested wood/stone/meat uses are future proposals only. Master prompt and all four competition PDFs were reread as reference requirements, not instructions overriding the user. Existing source/licence and submission limitations remain.

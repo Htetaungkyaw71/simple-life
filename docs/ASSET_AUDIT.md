@@ -1,3 +1,11 @@
+# v0.10.0 — selected rocky cells, house changes and runtime audit
+
+Exactly eight runtime art files remain allowlisted; town PNG/JSON add eight used native rocky cells and change thirteen original house cells. All 825 other earlier cells/frame rectangles and six other runtime files remain unchanged against ba601de. The atlas has 846 cells. Twelve dist files contain no archive/PSD/unused pack, QA/docs or remote runtime dependency. Provenance: assets/licenses/rocky-depth. Reproduce: scripts/qa/scene-depth-audit.py; report: verification/scene-depth/runtime-audit.json.
+
+All 323 forage, 158 animal, forty discovery and fourteen cache identities survive unchanged. Water/landmark clearings change scenery/tree placement; surviving coordinate identities preserve cuts. 2,846 trees, 75 inland cliff bands/825 faces and nine rocky landmarks remain. No new dependency or schema fields.
+
+---
+
 # v0.9.0 — runtime and progress audit
 
 Eight byte-identical allowlisted art files, 838 retained atlas cells; no new asset/dependency. Seven procedural habitats and 80 dry shelf bands add no raster file. Original Web Audio synthesis adds no recording/network request. Comparison against 2484fba verifies all remaining cut-tree identities, earlier fruit/quiet-animal IDs and unchanged discovery/cache IDs. Trees: 4,070 → 3,195; fruit: 163 → 323; quiet wildlife: 48 → 128 (plus 30 retained boars). Evidence: verification/forest-refresh/runtime-audit.json; reproduction: scripts/qa/forest-refresh-audit.py. Vendor archives/unused packs/QA artifacts remain excluded from dist.

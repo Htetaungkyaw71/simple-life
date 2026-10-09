@@ -7,10 +7,10 @@ export function addForestTerrain(map,regions,protectedPlaces,clearings=[]){
  for(const [i,r]of regions.entries())for(let row=0;row<2;row++){
   const band={id:r.id+'-shelf-'+row,segments:[],habitat:forestHabitat({x:r.x+640,y:r.y+400}).id};
   for(let n=0;n<30;n++){
-   const x=r.x+96+n*32,y=r.y+192+row*576+Math.round((Math.sin(n/4+i*.7)+Math.sin(n/7-i*.4))*1.3)*16;
+   const x=r.x+96+n*32,y=r.y+192+row*576+Math.round(Math.sin(n/7+i*.7)*4+Math.sin(n/12-i*.4)*2+n*.10)*16;
    // Existing crossways, caches, food, animal homes and water stay accessible.
    if(clearings.some(([cx,cy,cw,ch])=>x+32>cx&&x<cx+cw&&y+32>=cy&&y<=cy+ch)||Math.abs(x+16-(r.x+480))<88||n>=22&&n<=25||blocked(x+16,y)||!dryFootprint(map,{x:x-24,y:y-144,w:80,h:224}))continue;
-   const face={x,y,w:32,h:32,terrace:band.id};band.segments.push(face);map.ledges.push(face);
+   const face={x,y,w:32,h:48,terrace:band.id};band.segments.push(face);map.ledges.push(face);
   }
   if(band.segments.length)map.terraces.push(band);
  }

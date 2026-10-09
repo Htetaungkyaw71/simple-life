@@ -1,3 +1,11 @@
+# v0.10.0 — user-authorized scene depth and Forest return, 2026-10-09
+
+OpenAI Codex assisted thirteen original native three-quarter house redraws and shared alpha collision generation, cast shadows, closer desktop camera, deterministic branching river polylines/shared surface rasterization, mixed bridge rendering, dry resource/animal placement, taller original pixel cliff faces, an animated central return gate using the existing travel/save/cooldown flow, and map discovery presentation. It integrated eight selected native cropped PNGs from the supplied CraftPix archive, checked official creator licence pages, recorded fingerprints/terms, and authored focused regressions/audit/docs. The PDF skill checked competition references. No screenshot/commercial-game pixels or exact layouts were copied; no image generator or AI/ML dataset use.
+
+184 tests/build and native browser inputs on an isolated local origin pass; checks/evidence/limitations are in verification/scene-depth. Normal saved-game storage was not read/reset. Six other runtime art files and 825 earlier non-house atlas cells remain unchanged; thirteen original house cells change and eight licensed cells append. No subagent, external message, new dependency/backend, push or publication. Physical devices, other engines, long performance and human visual acceptance remain unverified; creator/submission limitations remain recorded separately.
+
+---
+
 # v0.9.0 — user-authorized Forest and attack update, 2026-10-09
 
 OpenAI Codex assisted screen-tap attack dispatch, delayed impact/staged axe motion, removal of Axe/Attack controls, lower action costs and removal of time-based energy drain. It authored seven irregular habitat fields, dry low shelves/gaps, climate-aware tree clearings, additional existing-species wildlife/fruit placements, and original local Web Audio wind/water/insects/bird synthesis with a mute preference. Screenshots were style/bug references; no pixels/layouts were extracted. Existing farmer/wildlife/scenery creator credits remain.

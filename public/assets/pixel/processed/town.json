@@ -16759,6 +16759,166 @@
         "w": 24,
         "h": 16
       }
+    },
+    "rocky-cave": {
+      "frame": {
+        "x": 0,
+        "y": 1652,
+        "w": 82,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 82,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 82,
+        "h": 96
+      }
+    },
+    "rocky-bones": {
+      "frame": {
+        "x": 84,
+        "y": 1652,
+        "w": 216,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 216,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 176
+      }
+    },
+    "rocky-deer": {
+      "frame": {
+        "x": 302,
+        "y": 1652,
+        "w": 97,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 120
+      }
+    },
+    "rocky-fox": {
+      "frame": {
+        "x": 401,
+        "y": 1652,
+        "w": 41,
+        "h": 61
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 41,
+        "h": 61
+      },
+      "sourceSize": {
+        "w": 41,
+        "h": 61
+      }
+    },
+    "rocky-rock": {
+      "frame": {
+        "x": 444,
+        "y": 1652,
+        "w": 77,
+        "h": 54
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 77,
+        "h": 54
+      },
+      "sourceSize": {
+        "w": 77,
+        "h": 54
+      }
+    },
+    "rocky-mushroom": {
+      "frame": {
+        "x": 523,
+        "y": 1652,
+        "w": 44,
+        "h": 50
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 44,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 50
+      }
+    },
+    "rocky-orange": {
+      "frame": {
+        "x": 569,
+        "y": 1652,
+        "w": 27,
+        "h": 29
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 27,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 27,
+        "h": 29
+      }
+    },
+    "rocky-cairn": {
+      "frame": {
+        "x": 598,
+        "y": 1652,
+        "w": 31,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 31,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 31,
+        "h": 32
+      }
     }
   },
   "meta": {

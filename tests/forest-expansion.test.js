@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {FOREST_MAP,FOREST_SIZE,REGIONS,FORAGE_NODES,TREASURES,FOREST_ENTRANCE} from '../src/data/forest.js';
 import {forestTree} from '../src/data/forestGrowth.js';
-import {riverRow,waterAt,dryFootprint} from '../src/data/water.js';
+import {riverRow,waterAt,dryFootprint,channelRows} from '../src/data/water.js';
 import {ANIMAL_SPAWNS} from '../src/data/wildlife.js';
 import {WOODLAND_WILDLIFE} from '../src/data/woodlandWildlife.js';
 import {terrainTiles} from '../src/art/terrainTiles.js';
@@ -19,22 +19,18 @@ test('eastern extension doubles area while preserving the original region and en
 });
 test('approved forest trees are moderately thinned while new habitats retain dense ground cover',()=>{
  const west=FOREST_MAP.props.filter(p=>forestTree(p)&&p.x<5120).length;
- assert.ok(west>2092*.80&&west<2092*.95,`${west} western trees`);
- assert.ok(FOREST_MAP.props.filter(p=>forestTree(p)&&p.x>=5120).length>1300);
+ assert.ok(west>2092*.70&&west<2092*.95,`${west} western trees`);
+ assert.ok(FOREST_MAP.props.filter(p=>forestTree(p)&&p.x>=5120).length>1200,'dense eastern groves remain around river and rocky clearings');
  assert.ok(FOREST_MAP.grass.filter(g=>g.x>=5120).length>6000);
  assert.equal(FOREST_MAP.paths.length,0);assert.equal(FOREST_MAP.falls.length,0);assert.ok(FOREST_MAP.ledges.length>500);
 });
-test('both river banks meander independently in width on the same crisp water surface used by walking',()=>{
- assert.equal(FOREST_MAP.rivers.filter(r=>r.h===5120).length,4);
+test('branching river banks have crisp varying spans and connected polyline joints',()=>{
+ assert.equal(FOREST_MAP.rivers.length,13);
  for(const r of FOREST_MAP.rivers){
-  const rows=Array.from({length:Math.floor(r.h/16)},(_,i)=>riverRow(r,r.y+i*16));
-  assert.ok(new Set(rows.map(row=>row[0])).size>(r.h>1000?15:5),r.id);
-  assert.ok(new Set(rows.map(row=>row[2])).size>8,r.id);
-  for(const [left,y,w]of rows){
-   assert.equal(left%2,0);assert.equal(w%2,0);assert.ok(left>=0&&left+w<=FOREST_SIZE.width);
-   assert.ok(waterAt(FOREST_MAP,{x:left+w/2,y},false));
-   if(r.h>1000&&y>r.y+128&&y<r.y+r.h-128)assert.equal(waterAt(FOREST_MAP,{x:left-2,y},false),false);
-  }
+  const rows=[...channelRows(r)].flatMap(([y,spans])=>spans.map(([x,z])=>[x,y,z-x]));
+  assert.ok(new Set(rows.map(row=>row[0])).size>15,r.id);assert.ok(new Set(rows.map(row=>row[2])).size>8,r.id);
+  for(const [left,y,w]of rows){assert.equal(left%2,0);assert.equal(w%2,0);assert.ok(left>=0&&left+w<=FOREST_SIZE.width);assert.ok(waterAt(FOREST_MAP,{x:left+w/2,y},false));}
+  for(const [x,y]of r.points)assert.ok(waterAt(FOREST_MAP,{x,y},false),r.id+' connected joint');
  }
 });
 test('forest terrain covers the doubled map with GPU-safe adjacent tiles and no missing or overlapping area',()=>{

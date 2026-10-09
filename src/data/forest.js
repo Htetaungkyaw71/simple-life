@@ -1,3 +1,5 @@
+import {FOREST_PORTAL,addDarkLandmarks} from './forestLandmarks.js';
+import {FOREST_RIVERS,FOREST_BRIDGES} from './forestRivers.js';
 import {forestHabitat} from './forestHabitats.js';
 import {addForestTerrain} from './forestTerrain.js';
 import {WOODLAND_WILDLIFE} from './woodlandWildlife.js';
@@ -63,29 +65,11 @@ for(const [i,r] of REGIONS.entries()){
 // Winding, independently scalloped banks share one water/vegetation definition.
 export const WATERFALLS=[];
 map.falls=WATERFALLS;
-map.rivers=[
- {id:'home-river',x:2304,y:0,w:144,h:5120,phase:0,bend:50,detail:12,widen:24,shore:20},
- {id:'west-pool',x:96,y:3112,w:128,h:352,phase:1,bend:20,detail:6,widen:12,shore:8},
- {id:'west-tributary',x:1136,y:896,w:104,h:2304,phase:1.4,bend:32,detail:8,widen:16,shore:12},
- {id:'east-creek',x:5760,y:0,w:128,h:5120,phase:1.8,bend:74,detail:12,widen:32,shore:22},
- {id:'riversong',x:7424,y:0,w:176,h:5120,phase:.7,bend:82,detail:14,widen:36,shore:24},
- {id:'willow-river',x:9088,y:0,w:144,h:5120,phase:2.6,bend:68,detail:12,widen:28,shore:20},
-];
-export const BRIDGES=[];
-for(const r of map.rivers)if(r.h>1000)for(let row=0;row<5;row++){
- const y=row*1024+684;if(y<r.y||y+72>r.y+r.h)continue;
- const w=Math.ceil((r.w+2*(r.bend+r.detail+r.shore*1.35+6)+r.widen+96)/16)*16;
- BRIDGES.push({river:r.id,x:r.x-(w-r.w)/2,y,w,h:72});
-}
+map.rivers=FOREST_RIVERS;
+export const BRIDGES=FOREST_BRIDGES;
 map.bridges=BRIDGES;
 // Local pools, lake and marsh banks remain navigable and visually distinct.
 map.water.push([48,96,352,144],[1472,4896,224,144],[2864,288,224,128],[48,3328,224,128],[5248,144,352,224],[6656,3360,320,176],[9600,4576,352,240]);
-// The short creek ends in rounded source pools instead of straight-cut caps.
-const creek=map.rivers.find(r=>r.id==='west-tributary');
-for(const y of [creek.y,creek.y+creek.h-2]){
- const [left,,w]=riverRow(creek,y),pw=Math.ceil((w+64)/2)*2;
- map.water.push([Math.round((left+w/2-pw/2)/2)*2,y-96,pw,192]);
-}
 map.details=map.details.filter(p=>!map.water.some(([x,y,w,h])=>p.x>x-24&&p.x<x+w&&p.y>y-24&&p.y<y+h));
 map.props=map.props.filter(p=>!map.water.some(([x,y,w,h])=>p.x+32>x-8&&p.x+32<x+w+8&&p.y+90>y-8&&p.y+90<y+h+8));
 // Widened channels may cover old grove points. Keep their stable IDs/stocks,
@@ -102,9 +86,6 @@ for(const node of FORAGE_NODES){
  }
 }
 // Keep tree trunks and ground vegetation out of flowing channels and fall faces.
-const flowing=(x,y,pad=0)=>[...map.rivers,...WATERFALLS].some(r=>x>r.x-28-pad&&x<r.x+r.w+28+pad&&y>r.y-pad&&y<r.y+r.h+pad);
-map.props=map.props.filter(p=>!flowing(p.x+32,p.y+76,12));
-map.details=map.details.filter(p=>!flowing(p.x+16,p.y+16,16));
 // Move the perimeter east; the old seam is now an open forest connection.
 for(let n=0;n<Math.ceil(FOREST_SIZE.width/120);n++)for(const y of [-32,5030]){
  const x=n*120-16;if(y>5000&&Math.abs(x+32-640)<100)continue;map.props.push(prop('tree',x,y));
@@ -132,7 +113,7 @@ for(const [i,r]of REGIONS.entries())for(let n=0;n<4;n++){
  }
  FORAGE_NODES.push(node);
 }
-for(const animal of WOODLAND_WILDLIFE.slice(48)){
+for(const animal of WOODLAND_WILDLIFE){
  if(dryFootprint(map,{x:animal.x-16,y:animal.y-24,w:32,h:32}))continue;
  const old=animal.x,r=forestRegion(animal);
  outer:for(let d=16;d<=480;d+=16)for(const sign of [-1,1]){const x=old+sign*d;if(x<r.x+48||x>r.x+r.w-48||!dryFootprint(map,{x:x-16,y:animal.y-24,w:32,h:32}))continue;animal.x=x;break outer;}
@@ -149,5 +130,19 @@ map.props=map.props.filter(p=>{
 });
 for(const g of map.grass){const habitat=forestHabitat(g).id;g.snow=habitat==='snow';g.dry=habitat==='desert'||habitat==='shrubland';}
 map.habitats=true;
-addForestTerrain(map,REGIONS,[...FORAGE_NODES,...TREASURES,...WOODLAND_WILDLIFE,...EAST_BOARS.map(a=>a.home),BOAR_HOME,{x:1008,y:4432},FOREST_ENTRANCE],[BOAR_TERRITORY]);
+const protectedPlaces=[...FORAGE_NODES,...TREASURES,...WOODLAND_WILDLIFE,...EAST_BOARS.map(a=>a.home),BOAR_HOME,{x:1008,y:4432},FOREST_ENTRANCE,FOREST_PORTAL];
+addForestTerrain(map,REGIONS,protectedPlaces,[BOAR_TERRITORY]);
+addDarkLandmarks(map,protectedPlaces);
+// Landing rails and dry approaches must be free of every scenery footprint.
+map.props=map.props.filter(p=>!BRIDGES.some(b=>p.x+128>b.x-24&&p.x-16<b.x+b.w+24&&p.y+128>b.y-24&&p.y<b.y+b.h+24));
+// Clear the return gate approach; surviving saved tree identities stay intact.
+map.props=map.props.filter(p=>{
+ const x=p.x+32,y=p.y+90,tree=p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree');
+ // Clear the whole canopy silhouette, including trees rooted below the gate.
+ const coversRing=tree&&x+96>FOREST_PORTAL.x-112&&x-96<FOREST_PORTAL.x+112&&y>FOREST_PORTAL.y-140&&y-256<FOREST_PORTAL.y+120;
+ return !coversRing&&Math.hypot(x-FOREST_PORTAL.x,y-FOREST_PORTAL.y)>FOREST_PORTAL.clearing;
+});
+map.grass=map.grass.filter(p=>Math.hypot(p.x-FOREST_PORTAL.x,p.y-FOREST_PORTAL.y)>FOREST_PORTAL.clearing);
+map.ledges=map.ledges.filter(l=>Math.hypot(l.x+16-FOREST_PORTAL.x,l.y+16-FOREST_PORTAL.y)>FOREST_PORTAL.clearing);
+for(const b of map.terraces)b.segments=b.segments.filter(l=>map.ledges.includes(l));
 export const FOREST_MAP=map;

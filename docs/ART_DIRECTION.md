@@ -1,3 +1,11 @@
+# v0.10.0 — three-quarter depth and branching natural channels
+
+The latest explicit user request supersedes the old house silhouette/framing/parallel-river presentation. Independently author thirteen original native cottage cells with visible receding roof planes and side walls, detailed shingles/ridges, recessed windows/doors, varied warm materials, foundations/steps and cast shadows. Regenerate exact collision masks while retaining door anchors and clear roads. Use closer desktop outdoor camera framing at integer 3× source pixels; compact screens retain 2×. This remains the established two-dimensional pixel world, using the screenshots/Plant Tales only as style references without copying pixels or exact layouts.
+
+Forest rivers form a deterministic irregular branching network with round joins/caps, crisp varying banks, mixed-axis bridges, shared animated reflection surface and map contours. Taller dry inland cliffs use independently authored rose/brown pixel strata, fine crevices, broken local grass lips and shallow shadows; avoid old artificial river banks and preserve walking/jump gaps. The central return ring has understated stone, inner light and rising motes with a cleared silhouette/approach. Selected native supplied CraftPix rocky objects enrich Dark Forest; preserve original source pixels and creator terms. No new road, weather, 3D engine, cave interior or DOM HUD.
+
+---
+
 # v0.9.0 — broad habitats, dry shelves and staged axe motion
 
 Use the latest references for seven organic climate areas: Snowy west, Dark Forest north, Rainforest centre, Meadow southwest, Easy Rainforest south/entrance, Shrubland southeast and Desert east. Keep 40 discovery/cache identities beneath the visible climate boundaries. Coherent world-coordinate texture and restrained local foliage shifts replace rectangular climate seams. Open grassy clearings in Meadow and tree clusters in dry habitats; retain denser forests, native silhouettes, crisp pixels, dry roots and grass-free bridges.

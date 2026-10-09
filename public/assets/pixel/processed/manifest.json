@@ -3986,5 +3986,142 @@
     "modifications": "Existing farmer idle/walk cells adapted with eight hair/clothing palettes; native silhouette, faces and body proportions retained."
   },
   "plantedSeeds": "Original ground-level seed grains and soil mound; inventory packets stay in menus.",
-  "huntingResources": "Original meat meal, stone inventory and loose-stone cells; scripts/hunting_resources_art.py"
+  "huntingResources": "Original meat meal, stone inventory and loose-stone cells; scripts/hunting_resources_art.py",
+  "rockyObjects": {
+    "archiveSha256": "6daa59f90266c61e4343f7d299a968cc1ac5e559c52c6179482bf47ba47172f5",
+    "creator": "CraftPix",
+    "source": "https://craftpix.net/freebies/free-rocky-area-objects-pixel-art/",
+    "license": "CraftPix Freebie Products section 2",
+    "selected": [
+      {
+        "frame": "rocky-cave",
+        "member": "PNG/Objects_separately/Cave_entrance1_grass_shadow.png",
+        "sha256": "4b7dc44c7584d305469d1bf34ec33845fb5ad26ce860093a11c4bd2febe977e1",
+        "crop": [
+          23,
+          16,
+          105,
+          112
+        ],
+        "size": [
+          82,
+          96
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-bones",
+        "member": "PNG/Objects_separately/Dragon_bones_full_grass_shadow.png",
+        "sha256": "f61fc5d7cf5e1b52867780305848b6023ac43271e425f218aed5202238664ff6",
+        "crop": [
+          20,
+          40,
+          236,
+          216
+        ],
+        "size": [
+          216,
+          176
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-deer",
+        "member": "PNG/Objects_separately/Rock_statue_deer_grass_shadow.png",
+        "sha256": "79af63681a17de39c07861814f216c2ea712c7d82eff11864d69f3e79d1e0c3c",
+        "crop": [
+          15,
+          4,
+          112,
+          124
+        ],
+        "size": [
+          97,
+          120
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-fox",
+        "member": "PNG/Objects_separately/Rock_statue_fox_grass_shadow.png",
+        "sha256": "ce4a89d2d5675aa2fed2015d6c028ae1ef71d5225e98f7e74cbb120b6ea30db2",
+        "crop": [
+          11,
+          1,
+          52,
+          62
+        ],
+        "size": [
+          41,
+          61
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-rock",
+        "member": "PNG/Objects_separately/Oval_rock1_grass_shadow.png",
+        "sha256": "dba68097b24bca6efacab6ea46f1559b855009fd52848bc0c39020de5532d3f1",
+        "crop": [
+          25,
+          37,
+          102,
+          91
+        ],
+        "size": [
+          77,
+          54
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-mushroom",
+        "member": "PNG/Objects_separately/Black_mushrooms1_grass_shadow.png",
+        "sha256": "24fbfe5033326c7d4119b1488bd23e6165705a35a0153246dc0a32ef7aab81b1",
+        "crop": [
+          10,
+          7,
+          54,
+          57
+        ],
+        "size": [
+          44,
+          50
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-orange",
+        "member": "PNG/Objects_separately/Orange_mushrooms1_grass_shadow.png",
+        "sha256": "00cea6794dac9b31d6fee29eefd9cc26357fc44befc281fcb4d66f53f95e38e7",
+        "crop": [
+          2,
+          1,
+          29,
+          30
+        ],
+        "size": [
+          27,
+          29
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      },
+      {
+        "frame": "rocky-cairn",
+        "member": "PNG/Objects_separately/Stone_pyramid1_grass_shadow.png",
+        "sha256": "8167f2f638d7fa62d372ff56267206e9e75855b0e8a151b4b6aa95701f669f5e",
+        "crop": [
+          0,
+          0,
+          31,
+          32
+        ],
+        "size": [
+          31,
+          32
+        ],
+        "changes": "Transparent margins cropped; native pixels and alpha retained."
+      }
+    ]
+  },
+  "houseDepth": "Original three-quarter roof and wall silhouettes, recessed windows/doors, return-wall windows, tiled roof planes and masonry relief; shared opaque collision rows regenerated, established door approaches retained."
 }

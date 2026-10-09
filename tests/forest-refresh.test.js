@@ -15,7 +15,7 @@ import {WOODLAND_WILDLIFE} from '../src/data/woodlandWildlife.js';
 import {ForestAmbience,ambienceProfile} from '../src/audio/ForestAmbience.js';
 
 test('seven broad reference habitats use irregular boundaries independent of discovery boxes',()=>{
- const count=FOREST_MAP.props.filter(forestTree).length;assert.ok(count>4070*.75&&count<4070*.85,'about a fifth fewer trees, with dense groves retained');
+ const count=FOREST_MAP.props.filter(forestTree).length;assert.ok(count>4070*.65&&count<4070*.85,'open river/landmark clearings with dense groves retained');
  assert.equal(HABITATS.length,7);assert.equal(REGIONS.length,40);
  for(const h of HABITATS){assert.equal(forestHabitat(h).id,h.id);assert.equal(habitatColor(h).length,3);}
  assert.equal(forestHabitat({x:640,y:4848}).id,'easyRainforest');
@@ -24,10 +24,10 @@ test('seven broad reference habitats use irregular boundaries independent of dis
  assert.equal(forestHabitat({x:1280-2,y:2600}).id,forestHabitat({x:1280+2,y:2600}).id);
 });
 test('earth shelves keep dry faces, safe approaches, crossway gaps and working jumps',()=>{
- assert.equal(FOREST_MAP.terraces.length,80);
+ assert.ok(FOREST_MAP.terraces.length>=65);
  const [bx,by,bw,bh]=BOAR_TERRITORY;assert.ok(!FOREST_MAP.ledges.some(l=>l.x+l.w>bx&&l.x<bx+bw&&l.y+l.h>=by&&l.y<=by+bh),'the original tutorial boar clearing stays open');
- for(const b of FOREST_MAP.terraces)for(let i=1;i<b.segments.length;i++){const a=b.segments[i-1],c=b.segments[i];if(c.x-a.x===32)assert.ok(Math.abs(c.y-a.y)<=16,'adjacent stepped faces overlap into continuous ridges');}
- for(const l of FOREST_MAP.ledges){assert.equal(l.h,32);assert.ok(dryFootprint(FOREST_MAP,{x:l.x-24,y:l.y-144,w:80,h:224}),l.terrace);}
+ for(const b of FOREST_MAP.terraces)for(let i=1;i<b.segments.length;i++){const a=b.segments[i-1],c=b.segments[i];if(c.x-a.x===32)assert.ok(Math.abs(c.y-a.y)<=32,'adjacent stepped faces overlap into continuous ridges');}
+ for(const l of FOREST_MAP.ledges){assert.equal(l.h,48);assert.ok(dryFootprint(FOREST_MAP,{x:l.x-24,y:l.y-144,w:80,h:224}),l.terrace);}
  const l=FOREST_MAP.ledges.find(l=>walkable('forest',l.x+16,l.y-16)&&walkable('forest',l.x+16,l.y+64)&&!walkable('forest',l.x+16,l.y+16));assert.ok(l);
  const s=Object.assign(newState(),{area:'forest',position:{x:l.x+16,y:l.y-16}}),r=jumpRuntime();
  assert.equal(beginJump(s,r,{x:0,y:1}),true);for(let i=0;i<12;i++)stepJump(s,r,50);
