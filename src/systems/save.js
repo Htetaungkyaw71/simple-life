@@ -21,7 +21,7 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
@@ -34,6 +34,10 @@ export function validate(raw) {
     const key=area==='farm'?'farm:'+farm:area,v=raw.vegetation[key];if(!v||typeof v!=='object')continue;
     const known=VEGETATION[area].byId,ids=(value,tree)=>[...new Set(Array.isArray(value)?value.slice(0,known.size):[])].filter(id=>typeof id==='string'&&known.has(id)&&id.startsWith('tree:')===tree);
     s.vegetation[key]={trees:ids(v.trees,true),grass:ids(v.grass,false),placed:[]};
+    const hits=v.treeHits;if(raw.version>=15&&hits&&typeof hits==='object'&&!Array.isArray(hits)){
+      const partial={};for(const n of VEGETATION[area].trees)if(Number.isInteger(hits[n.id])&&hits[n.id]>=1&&hits[n.id]<3&&!s.vegetation[key].trees.includes(n.id))partial[n.id]=hits[n.id];
+      if(Object.keys(partial).length)s.vegetation[key].treeHits=partial;
+    }
   }
   s.plots=Array.from({length:s.farms.length*PLOTS_PER_FARM},emptyPlot);
   s.expansionUnlocked=raw.expansionUnlocked===true;

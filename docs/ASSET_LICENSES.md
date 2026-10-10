@@ -1,3 +1,9 @@
+# v0.14.0 — original reading glyphs and resource previews
+
+No external asset/font/dependency is added. New lowercase pixel glyph patterns, nearest-neighbour stronger headings, tree meter, recipe layout and paving/pan previews are original Codex-assisted code in readingGlyphs.js, coloredFont.js, TreeProgressView.js, ResourceView.js and resourcePreviews.js. Existing bench/home-fireplace/material cells are original project art; planter/fence/flowers retain LimeZu Serene Village CC BY 4.0 attribution. The Plant Tales screenshot supplies style guidance only, with no extracted pixels or font. All eight runtime art files remain byte-identical. Source record: docs/assets/licenses/chopping-ui.md; runtime proof: docs/verification/chopping-ui/runtime-audit.json. Existing broader creator/submission qualifications remain unchanged.
+
+---
+
 # v0.13.0 — reused local resource art and original pixel graphics
 
 Town/Farm furniture and flowers reuse the current credited local town atlas (bench, planter, fence, post, flowers2). Grilled Meat reuses the existing original meat-item icon; stove pan and paving are original Phaser pixel graphics in src/art/SettlementView.js. No download, image generation, dependency or atlas change. The existing eight-file runtime asset allowlist is unchanged; archives/QA evidence remain excluded. Existing creator terms and competition/publication qualifications remain unchanged. Evidence: [resource source record](assets/licenses/resource-projects.md).

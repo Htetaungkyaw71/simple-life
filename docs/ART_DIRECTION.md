@@ -1,3 +1,11 @@
+# v0.14.0 — readable pixel text and illustrated resource pages
+
+Use the supplied Pending Orders image as style guidance for dark olive readable mixed-case pixel text, stronger headings, cream/olive frames, pictured rows and clear action buttons. Original lowercase glyph patterns stay in the existing 8px font cells; heading widening preserves counters rather than overprinting them. Actual colored raster glyphs support both Canvas and WebGL; no external font or reference pixels are used.
+
+Recipe cards show finished bench/flower planter/fence/paving art, labelled picture tabs, material need/stock and clear Build/Place. Town requests picture the object being helped and coin/seed rewards; projects show the actual completed arrangement. Home hearth shows its original stove and meal benefits. Match Bag/Gear thumbnails to the recipe image. Use a compact two-column landscape layout and stacked portrait card with at least 44px action targets. Tree chopping uses a modest cream/olive three-segment world meter above foliage/night shading and a short Tree n/3 label, then +3 Wood. Reuse existing licensed local cells; preserve eight runtime art paths and the fullscreen separate canvas UI.
+
+---
+
 # v0.13.0 — resource scenery
 
 Reuse existing local pixel benches, fence pieces, flower planters, post markers and native flower frames for communal projects/Farm furniture. Stone paving uses original warm-grey 3x3 pixel stones with light top rims and darker seams; the installed hearth receives an original dark pan and warm cooked-meat pixels. The original source is src/art/SettlementView.js. Keep native nearest-neighbour scaling, foot-based depth and open streets. Suppress underlying grass where new scenery sits. The cooked food reuses the existing meat icon with a clear Grilled Meat label and restoration details in the bag. No screenshot pixels, new vendor download, new texture file or runtime remote media.

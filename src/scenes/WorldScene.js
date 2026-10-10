@@ -1,3 +1,4 @@
+import {TreeProgressView} from '../art/TreeProgressView.js';
 import {screenAttackAllowed} from '../systems/screenAttack.js';
 import {movementVector} from '../systems/movement.js';
 import {CityLights} from '../art/CityLights.js';
@@ -97,6 +98,7 @@ export class WorldScene extends Phaser.Scene {
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
+    this.treeProgress=new TreeProgressView(this);
     this.lastGroundTap=null;this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
     this.combat=combatRuntime();this.forestView=new ForestView(this);
     this.residents=new ResidentView(this,s?.area||'farm');
@@ -153,6 +155,6 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position,Math.min(delta,50));
     const light=daylight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
     this.cityLights.update(light);
-    this.renderWetGround();const c=this.context();this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
+    this.renderWetGround();const c=this.context();this.treeProgress.update(c);this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

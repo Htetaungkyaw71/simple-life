@@ -1,43 +1,26 @@
 import {CROPS,CROP_IDS} from '../data/crops.js';
 import {PROJECTS,DECORATIONS,STOVE_COST,GRILL_COST} from '../data/settlement.js';
-import {dailyOrders,orderComplete,orderQuote,deliverOrder,projectQuote,completeProject,materials,materialLabel,craftDecoration,buildStove,grillMeat} from '../systems/settlement.js';
+import {dailyOrders,orderComplete,orderQuote,deliverOrder,projectQuote,completeProject,materials,craftDecoration,buildStove,grillMeat} from '../systems/settlement.js';
 import {inputGate} from '../systems/inputGate.js';
-const seedName=key=>CROPS[CROP_IDS.find(id=>CROPS[id].seedKey===key)].name;
-// Small paused pages reuse the existing canvas modal and keyboard/touch controls.
+import {drawResourcePage} from './ResourceView.js';
+import {decorationThumb} from './resourcePreviews.js';
+const seedCrop=key=>CROPS[CROP_IDS.find(id=>CROPS[id].seedKey===key)];
+const descriptions={bench:'A quiet seat for your farm.',planter:'A wooden box filled with flowers.',fence:'Wooden fencing for your garden.',path:'Stone paving you can walk over.'};
+const orderPreviews={'rowan-timber':'bench','june-stones':'planter','bea-planters':'planter','tomas-paving':'path','ira-fencing':'fence','sol-garden':'planter'};
 export class ResourcePanel {
- constructor(app){this.app=app;this.gate=inputGate();this.index=0;}
+ constructor(app){this.app=app;this.gate=inputGate();}
  get s(){return this.app.state;}
- modal(title,body,buttons){this.app.ui.modal('WOOD & STONE',title,body,buttons);}
- stock(){return 'Wood '+this.s.inventory.wood+' / Stone '+this.s.inventory.stone;}
+ show(page){const u=this.app.ui;this.app.paused=true;this.app.input={};u.notice=null;u.menu={kind:'resources',title:page.title,body:page.note,page,draw:()=>drawResourcePage(u,page)};u.focus=0;u.layout();const active=u.controls.filter(c=>!c.disabled);const primary=active.findIndex(c=>c.id==='resource-action-0');u.focus=primary>=0?primary:Math.max(0,active.findIndex(c=>c.id.startsWith('resource-action-')||page.home?.some(row=>row.id===c.id)));u.highlight();}
+ cost(cost){return Object.entries(cost).map(([name,need])=>({name:name[0].toUpperCase()+name.slice(1),need,have:this.s.inventory[name],icon:name==='meat'?'meat-item':name+'-item'}));}
  run(fn,redraw,rebuild=false){if(this.app.transitioning||!this.gate.accept(this.app.ui.time.now))return;this.app.transact(fn);if(rebuild)this.app.scene.build();redraw();}
- open(){if(this.s.area==='farm'){this.decorations();return;}if(this.s.area==='interior'){this.cooking();return;}if(this.s.area!=='city'){this.modal('Use your materials','Town board / orders and projects\nFarm board / build decorations\nHome hearth / cook meals',[['Close',()=>this.app.ui.close()]]);return;}
-  this.modal('Town board',this.stock()+'\nHelp your neighbours. Improve the town.',[['Daily requests',()=>this.orders()],['Town projects',()=>this.projects()],['Close',()=>this.app.ui.close()]]);
+ open(){if(this.s.area==='farm'){this.decorations();return;}if(this.s.area==='interior'){this.cooking();return;}const city=this.s.area==='city';this.show({kicker:'Wood & Stone',title:city?'Town board':'Material uses',note:city?'New requests every day.':'Visit the Farm, City or Home hearth.',home:city?[
+  {label:'Daily requests',id:'resource-orders',preview:decorationThumb('bench'),action:()=>this.orders()},
+  {label:'Town projects',id:'resource-projects',preview:decorationThumb('planter'),action:()=>this.projects()},
+ ]:[{label:'Farm decor',id:'resource-guide-farm',preview:decorationThumb('bench'),action:()=>this.decorations()},{label:'Town projects',id:'resource-guide-city',preview:decorationThumb('planter'),action:()=>this.projects()},{label:'Home cooking',id:'resource-guide-home',preview:decorationThumb('stove'),action:()=>this.cooking()}]});}
+ orders(resident=null,index=0){const list=dailyOrders(this.s).filter(d=>!resident||d.resident===resident),d=list[index%Math.max(1,list.length)];if(!d){this.show({kicker:'Daily requests',title:'No request today',note:'Three neighbours ask for help each day.',home:[{label:'Town board',id:'resource-back',preview:decorationThumb('bench'),action:()=>this.open()}]});return;}
+  const done=orderComplete(this.s,d.id),q=orderQuote(this.s,d.id);this.show({kicker:'Daily requests',title:d.name+' needs help',preview:orderPreviews[d.id],description:d.purpose,materials:this.cost(d.cost),reward:{coins:d.coins,seeds:d.seeds,seedIcon:seedCrop(d.seed).seedIcon},note:done?'Delivered! Come back tomorrow.':q.ok?'Give materials to collect your reward.':this.s.area!=='city'?'Visit the City town board.':!materials(this.s,d.cost)?'Gather the materials shown above.':'Make room for coins and seeds.',status:done?'Delivered today':q.ok?'Ready to deliver':'Need materials',tabs:list.map((o,i)=>({label:o.name,caption:o.name,id:'request-'+o.id,preview:decorationThumb(orderPreviews[o.id]),selected:o.id===d.id,action:()=>this.orders(resident,i)})),actions:[[done?'Delivered':'Deliver',()=>this.run(s=>deliverOrder(s,d.id),()=>this.orders(resident,index)),!q.ok],['Back',()=>this.open()]]});
  }
- orders(resident=null,index=0){
-  const list=dailyOrders(this.s).filter(d=>!resident||d.resident===resident),d=list[index%Math.max(1,list.length)];
-  if(!d){this.modal('Daily requests','No request from this neighbour today.\nThe town board has three daily requests.',[['Town board',()=>this.open()],['Close',()=>this.app.ui.close()]]);return;}
-  const done=orderComplete(this.s,d.id),q=orderQuote(this.s,d.id);
-  this.modal(d.name+' / request',materialLabel(d.cost)+' / '+this.stock()+'\n'+d.purpose+'\nReward '+d.coins+'c + '+d.seeds+' '+seedName(d.seed)+' seeds',[
-   [done?'Delivered today':'Deliver materials',()=>this.run(s=>deliverOrder(s,d.id),()=>this.orders(resident,index)),!q.ok],
-   ...(list.length>1?[['Next request',()=>this.orders(resident,(index+1)%list.length)]]:[]),['Town board',()=>this.open()],['Close',()=>this.app.ui.close()],
-  ]);
- }
- projects(index=0){const d=PROJECTS[index],done=this.s.settlement.projects.includes(d.id),q=projectQuote(this.s,d.id);
-  this.modal(d.name,materialLabel(d.cost)+' / '+this.stock()+'\n'+d.description+'\nReward '+d.coins+'c + '+d.seeds+' '+seedName(d.seed)+' seeds',[
-   [done?'Project complete':'Build project',()=>this.run(s=>completeProject(s,d.id),()=>this.projects(index),true),!q.ok],['Next project',()=>this.projects((index+1)%PROJECTS.length)],['Town board',()=>this.open()],['Close',()=>this.app.ui.close()],
-  ]);
- }
- decorations(index=0){const ids=Object.keys(DECORATIONS),id=ids[index],d=DECORATIONS[id];
-  this.modal(d.name,materialLabel(d.cost)+' / '+this.stock()+'\nBuilt '+this.s.inventory[d.item]+' / place on clear Farm grass\nHand packs it up for moving.',[
-   ['Build decoration',()=>this.run(s=>craftDecoration(s,id),()=>this.decorations(index)),this.s.area!=='farm'||!materials(this.s,d.cost)||this.s.inventory[d.item]>=9999],
-   ['Place '+d.name,()=>{this.s.selected='decorate';this.s.selectedDecoration=id;this.app.save();this.app.ui.close();this.app.ui.toast('Tap clear Farm grass nearby / E places in front');},this.s.area!=='farm'||!this.s.inventory[d.item]],
-   ['Next decoration',()=>this.decorations((index+1)%ids.length)],['Close',()=>this.app.ui.close()],
-  ]);
- }
- cooking(){const built=this.s.settlement.stove;
-  this.modal(built?'Cooking station':'Build cooking station',built?materialLabel(GRILL_COST)+' / Meat '+this.s.inventory.meat+' / Wood '+this.s.inventory.wood+'\nGrilled Meat / +50 HP / +35 EP\nEat from Bag / Food.':materialLabel(STOVE_COST)+' / '+this.stock()+'\nBuild a stone stove at your Home hearth.\nCook stronger healing meals with wood.',[
-   [built?'Cook Grilled Meat':'Build cooking station',()=>this.run(built?grillMeat:buildStove,()=>this.cooking(),!built),this.s.area!=='interior'||!materials(this.s,built?GRILL_COST:STOVE_COST)||built&&this.s.inventory.grilledMeat>=9999],
-   ...(built?[['Open food bag',()=>this.app.bagPanel.open('food')]]:[]),['Close',()=>this.app.ui.close()],
-  ]);
- }
+ projects(index=0){const d=PROJECTS[index],done=this.s.settlement.projects.includes(d.id),q=projectQuote(this.s,d.id);this.show({kicker:'Town projects',title:d.name,project:d.id,description:d.description,materials:this.cost(d.cost),reward:{coins:d.coins,seeds:d.seeds,seedIcon:seedCrop(d.seed).seedIcon},note:done?'Complete! Visit the garden to see it.':q.ok?'Build this garden and collect a reward.':this.s.area!=='city'?'Visit the City town board.':!materials(this.s,d.cost)?'Gather the materials shown above.':'Make room for coins and seeds.',status:done?'Complete':q.ok?'Ready to build':'Need materials',tabs:PROJECTS.map((p,i)=>({label:p.name,caption:['Seats','Flowers','Picnic'][i],id:'project-'+p.id,selected:p.id===d.id,preview:decorationThumb(i===1?'planter':'bench'),action:()=>this.projects(i)})),actions:[[done?'Complete':'Build',()=>this.run(s=>completeProject(s,d.id),()=>this.projects(index),true),!q.ok],['Back',()=>this.open()]]});}
+ decorations(index=0){const ids=Object.keys(DECORATIONS),id=ids[index],d=DECORATIONS[id],count=this.s.inventory[d.item],here=this.s.area==='farm',enough=materials(this.s,d.cost);this.show({kicker:'Farm workshop',title:d.name,preview:id,description:descriptions[id],materials:this.cost(d.cost),note:!here?'Build and place this at the Farm board.':!enough?'Need materials. Hand packs placed pieces.':'Built: '+count+'. Place on grass. Hand packs it.',status:'Built: '+count,tabs:ids.map((type,i)=>({label:DECORATIONS[type].name,caption:['Bench','Plant','Fence','Path'][i],id:'decoration-'+type,selected:type===id,preview:decorationThumb(type),action:()=>this.decorations(i)})),actions:[['Build',()=>this.run(s=>craftDecoration(s,id),()=>this.decorations(index)),!here||!enough||count>=9999],['Place',()=>{this.s.selected='decorate';this.s.selectedDecoration=id;this.app.save();this.app.ui.close();this.app.ui.toast('Tap nearby clear Farm grass to place. Select Hand to pack it up.');},!here||!count]]});}
+ cooking(){const built=this.s.settlement.stove,here=this.s.area==='interior',cost=built?GRILL_COST:STOVE_COST,enough=materials(this.s,cost);this.show({kicker:built?'Cooking':'Wood & Stone',title:'Home hearth',preview:'stove',description:built?'Grilled Meat / +50 health / +35 energy':'Build a stone stove to cook meals.',materials:this.cost(cost),note:!here?'Visit your Home hearth to build or cook.':!enough?'Gather the ingredients shown above.':built?'Cooked: '+this.s.inventory.grilledMeat+'. Eat from Bag / Food.':'Build once. Cook Meat with Wood fuel.',status:built?'Cooked: '+this.s.inventory.grilledMeat:'Build once',food:built?'meat-item':null,actions:[[built?'Cook':'Build stove',()=>this.run(built?grillMeat:buildStove,()=>this.cooking(),!built),!here||!enough||built&&this.s.inventory.grilledMeat>=9999],...(built?[['Eat / Bag',()=>this.app.bagPanel.open('food','grilledMeat')]]:[])]});}
 }

@@ -16,6 +16,7 @@ import {MAPS} from '../src/data/mapLayouts.js';
 import {overlaps} from '../src/systems/settlementGeometry.js';
 import {settlementRects} from '../src/art/SettlementView.js';
 import {ResourcePanel} from '../src/ui/ResourcePanel.js';
+import {BagPanel,bagItems} from '../src/ui/BagPanel.js';
 import {drawModal} from '../src/ui/MenuView.js';
 import {recorder} from './helpers/uiRecorder.js';
 const stocked=area=>{const s=newState();s.area=area;s.position={...LOCATIONS[area].spawn};s.hasVisitedCity=area==='city';s.hasVisitedFarm=['city','farm'].includes(area);s.inventory.wood=100;s.inventory.stone=100;s.inventory.meat=3;return s;};
@@ -67,4 +68,23 @@ test('resource pages, farm board and decoration tools remain bounded on desktop 
  for(const [w,h]of [[1280,720],[360,640],[640,360]]){const u=recorder(w,h),s=stocked('city');const a={state:s,ui:u,scene:{build(){}},save(){},transact(fn){return fn(s);}};u.app=a;u.modal=(kicker,title,body,buttons)=>{u.root=u.add.container();u.controls=[];u.menu={kicker,title,body,buttons};drawModal(u);};const r=new ResourcePanel(a);a.resourcePanel=r;
   const check=()=>{const b=u.menuBounds;assert.ok(b.y+b.h<=h,u.menu.title+' '+w+'x'+h);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.label);};r.open();check();for(let i=0;i<3;i++){r.orders(null,i);check();r.projects(i);check();}s.area='farm';new FarmOffice(a).open();check();for(let i=0;i<4;i++){r.decorations(i);check();}s.area='interior';r.cooking();check();s.settlement.stove=true;r.cooking();check();s.area='farm';s.selected='decorate';u.controls=[];new Hud(u);for(const c of u.controls)assert.ok(c.x>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);
  }
+});
+test('visual crafting pages show real object art, live material counts and guarded build/place actions',()=>{
+ const u=recorder(360,640),s=stocked('farm'),a={state:s,ui:u,scene:{build(){}},save(){},transact(fn){return fn(s);}};u.app=a;u.toast=()=>{};const r=new ResourcePanel(a);
+ for(const [i,id]of Object.keys(DECORATIONS).entries()){r.decorations(i);const d=DECORATIONS[id];assert.equal(u.menu.page.preview,id);assert.equal(u.menu.page.materials[0].have,100);assert.equal(u.controls.find(c=>c.label==='Place').disabled,true);const before=s.inventory[d.item];u.controls.find(c=>c.label==='Build').action();u.time.now+=1000;assert.equal(s.inventory[d.item],before+1);assert.equal(u.controls.find(c=>c.label==='Place').disabled,false);if(d.frame)assert.ok(u.root.list.some(n=>n.type==='image'&&n.frame===d.frame));else assert.ok(u.root.list.some(n=>n.type==='graphics'&&n.commands.some(c=>c.color===0x756f61)));s.inventory.wood=100;s.inventory.stone=100;}
+ s.inventory.wood=0;s.inventory.stone=0;r.decorations();const build=u.controls.find(c=>c.label==='Build');assert.equal(build.disabled,true);assert.equal(build.box.input,undefined);assert.match(u.menu.page.note,/Need materials/);
+});
+test('resource text, material/reward rows and actions remain legible and separate in seven viewports',()=>{
+ for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844],[640,360],[360,640]]){const u=recorder(w,h),s=stocked('city'),a={state:s,ui:u};u.app=a;const r=new ResourcePanel(a);
+  for(const show of [()=>r.open(),()=>r.orders(),()=>r.projects(2),()=>{s.area='farm';r.decorations(1);},()=>{s.area='interior';s.settlement.stove=true;r.cooking();}]){show();const b=u.menuBounds,primary=u.controls.find(c=>c.id==='resource-action-0');for(const t of u.root.list.filter(n=>n.type==='text')){const left=t.x-t.width*t.originX,right=left+t.width;assert.ok(left>=b.x/2&&right<=(b.x+b.w)/2,t.text+' / '+w+'x'+h);assert.ok(t.y+t.height<(b.y+b.h)/2,t.text);if(primary&&t.y<primary.y)assert.ok(t.y+t.height<=primary.y,t.text+' overlaps actions');}for(const c of u.controls)assert.ok(c.h>=22,c.label+' touch size');}
+ }
+});
+test('cooking opens the edible grilled meal directly, including its second bag page',()=>{
+ const u=recorder(360,640),s=stocked('interior'),a={state:s,ui:u,scene:{forestView:{energy(){},health(){}}},save(){},sound(){}};u.app=a;s.settlement.stove=true;s.health=40;s.energy=50;s.inventory.grilledMeat=1;a.bagPanel=new BagPanel(a);const r=new ResourcePanel(a);r.cooking();u.controls.find(c=>c.label==='Eat / Bag').action();assert.equal(bagItems(s,'food')[a.bagPanel.index].id,'grilledMeat');assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);assert.ok(u.controls.find(c=>c.id==='bag-item-grilledMeat'));a.bagPanel.perform();assert.equal(s.health,90);assert.equal(s.energy,85);assert.equal(s.inventory.grilledMeat,0);assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,true);
+});
+test('bag pagination never covers any category tab on desktop or phones',()=>{
+ for(const [w,h]of [[1280,720],[360,640],[640,360],[390,844],[844,390]]){const u=recorder(w,h),s=stocked('interior'),a={state:s,ui:u};u.app=a;new BagPanel(a).open('food','grilledMeat');const p=u.controls.find(c=>c.id==='bag-page');assert.ok(p);for(const t of u.controls.filter(c=>c.id.startsWith('bag-tab-')))assert.equal(overlaps(p,t),false,t.id+' covered at '+w+'x'+h);}
+});
+test('resource keyboard focus chooses an available useful action before Close',()=>{
+ const u=recorder(),s=stocked('city'),a={state:s,ui:u};u.app=a;const r=new ResourcePanel(a),focused=()=>u.controls.filter(c=>!c.disabled)[u.focus];r.open();assert.equal(focused().id,'resource-orders');s.area='farm';s.inventory.wood=0;s.inventory.stone=0;s.inventory.benchDecor=1;r.decorations();assert.equal(focused().label,'Place');s.area='city';s.settlement.projects=['commons'];r.projects();assert.equal(focused().label,'Back');
 });

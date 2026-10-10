@@ -1,3 +1,9 @@
+# v0.14.0 — unchanged runtime art, 2026-10-10
+
+All eight allowlisted art files are byte-identical to baseline 585ae48. Original lowercase glyphs, heading variants and progress/preview graphics are generated in memory; no new art file or vendor pack enters production. The build contains twelve files / 2,378,165 bytes. Audit and screenshots: verification/chopping-ui; provenance: assets/licenses/chopping-ui.md.
+
+---
+
 # v0.11.0 — Home native cells and production allowlist
 
 scripts/qa/home-mobile-audit.py compares against 4db7b4a: 833 unchanged non-house cells, thirteen modified original houses, twelve appended original home frames (858 total); all earlier frame rectangles and six other runtime art files unchanged. All house alpha footprints are identical while thirteen pixel finishes differ. New cells match original generator output. Production contains exactly eight allowlisted art files and twelve total files, excluding source art, vendor archives, docs and QA. Evidence: verification/home-mobile/runtime-audit.json and assets/licenses/home-mobile/original-cells.json.

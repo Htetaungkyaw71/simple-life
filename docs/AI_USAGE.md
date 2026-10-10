@@ -1,3 +1,11 @@
+# v0.14.0 — tree progress and visual resources, 2026-10-10
+
+OpenAI Codex assisted three-hit tree transactions, schema-15 bounded partial-damage migration, the original world progress meter, blocked-facing correction, original lowercase glyph patterns/readable widened font rasterization, illustrated responsive recipe/request/project/cooking pages, finished-object bag thumbnails, direct cooked-meal selection, separated bag pagination, regressions, native browser QA and documentation. The supplied Plant Tales screenshot informed cream/olive text hierarchy and readability only; no screenshot pixels, font or layout were extracted.
+
+Existing licensed town/farmer/scenery art retains separate creator attribution. New previews reuse existing frames plus original paving/pan graphics; eight runtime art files remain unchanged. No image-generation service, external font/asset, dependency, subagent, external messaging, backend, publication or push. 215 tests and production build pass; actual desktop/phone-size pointer/keyboard flows and screenshots are in verification/chopping-ui. Isolated QA never replaces the normal save. Physical mobile/other engines and competition rights certification remain unclaimed.
+
+---
+
 # v0.13.0 — crop care and explicitly authorized resource proposals
 
 OpenAI Codex assisted 3–6-watered-day crop definitions/stage descriptions, schema-14 maturity/progress migration, original costs/requests/project definitions, pure material/reward/construction/cooking/placement transactions, native canvas menus/bag/NPC/board/hearth integration, collision/grass cover, original procedural paving/hearth pan, documentation and regression tests. No image model, new download or dependency. Existing licensed atlas art is reused and credited separately. The verification skill guided controls -> pure gameplay/local save -> visible canvas checks on an isolated QA origin, leaving normal user progress untouched by fixtures. Testing covers atomic rewards, duplicates/overflow, multi-day care, drought preservation, furniture placement/packing and per-farm restore, cooking/healing and responsive bounds. No publishing, push or submission.

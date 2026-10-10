@@ -1,3 +1,11 @@
+# v0.14.0 — chopping feedback and clear resource choices
+
+Each authored tree requires three valid Axe hits. Hits one and two show saved progress without Wood/removal; hit three gives 3 Wood and clears the tree. Each hit costs 1 energy, empty/invalid work costs none, and elapsed time never drains energy. Damage persists across areas/farms/days/reloads. Earlier fully cut trees remain cut. Desktop uses tree clicks/E; mobile uses Attack and its circular movement control.
+
+The existing resource loop now presents finished-object previews and ingredient/reward pictures: craft and place Farm furniture, deliver daily City material requests, complete communal garden projects, and cook/eat Grilled Meat at Home. This is presentation/accessibility polish of authorized systems, not additional recipes or progression. Hand still packs furniture for moving. Other farming, species, coins, care, three-farm cap, recovery and save rules remain.
+
+---
+
 # v0.13.0 — care over several days and uses for materials
 
 Water once per calendar day. New crops need 3–6 watered days, earning one stage at midnight after each cared-for day; repeated same-day watering never accelerates growth or spends more energy. Three days: Tomato, Carrot, Chili, Cucumber, Sweet Potato. Four: Strawberry, Corn, Eggplant, Blueberry. Five: Watermelon, Grape. Six: Pumpkin. Existing yield/prices remain. Missing one/two days pauses growth; the third missed day offers Recovering and rescue; the fourth kills the crop. Already-ripe old crops remain harvestable on migration.

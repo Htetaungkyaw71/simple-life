@@ -1,3 +1,15 @@
+# v0.14.0 — three-hit trees and illustrated resource UI, 2026-10-10
+
+Complete: every authored tree takes three valid Axe hits, costing 1 EP each; Wood/crown/root removal happen only on hit three and cannot repeat. The cream world meter shows Tree 0/3, 1/3, 2/3 and +3 Wood, above foliage/night shading. Schema 15 saves bounded known treeHits (1–2) per outdoor area/owned farm. Days/travel/reload preserve partial damage; earlier completed cuts and all crop/economy/farm/Forest/Stash/testing-gift records remain. Full inventory, invalid range/approach/tool/ID or no energy leaves the action atomic. Blocked movement now turns from input intent without interrupting an active swing.
+
+Original lowercase pixel glyphs and widened headings improve the shared canvas text. Rich resource pages show real finished-object previews, labelled tabs, pictured materials/current stock/rewards, clear disabled states and Build/Place/Deliver/Cook actions. Farm decorations and Bag/Gear share matching pictures; projects show their actual furniture arrangement. Cooking shows stove/meal benefits and selects Grilled Meat directly in Food. Inline refreshed stock/completion information avoids popups over phone titles; bag pagination is separate from category tabs. Enter focuses an available action before Close. Existing native keyboard, desktop world click and mobile Attack-only chopping remain.
+
+Checks: npm test **215/215**; npm run build succeeds (**115 modules**); git diff --check clean. Native Chromium at 1280×720, 360×640 and 640×360 verified first/second/third hits, partial reload/new-day persistence, keyboard and desktop clicks, mobile joystick/Attack and world-tap suppression, all four recipes, placement/Hand packing, once-only request/project rewards, stove/cooking/direct food selection and +50 HP/+35 EP. No isolated browser warn/error logs. Eight runtime art files are byte-identical to baseline; build has twelve files / 2,378,165 bytes. Evidence: docs/verification/chopping-ui; provenance: docs/assets/licenses/chopping-ui.md.
+
+Normal 4175 game refreshed with its existing save, continued and paused; QA stays on an isolated origin. Physical phones/notches and other browser engines remain unverified; current licence/submission qualifications remain. No dependency/download, backend, remote runtime asset, push/publication/submission or save reset.
+
+---
+
 # v0.13.0 — longer crop care and resource proposals completed, 2026-10-10
 
 New planting requires 3–6 watered calendar days; repeated same-day watering earns no extra growth/EP cost. Tomato/Carrot/Chili/Cucumber/Sweet Potato 3; Strawberry/Corn/Eggplant/Blueberry 4; Watermelon/Grape 5; Pumpkin 6. Existing missed-day/recovery/death rules stay; old ripe saves remain harvestable, still-growing plants retain care earned. Schema 14 preserves previous economy/farms/Forest/vegetation/testing gift and adds bounded project/order/stove/decor progress.

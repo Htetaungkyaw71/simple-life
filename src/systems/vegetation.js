@@ -1,5 +1,5 @@
 import {lineClear} from './forest.js';
-import {VEGETATION,vegetationKey,vegetationState,nearbyVegetation,removed} from '../data/vegetation.js';
+import {VEGETATION,vegetationKey,vegetationState,nearbyVegetation,removed,TREE_HITS,treeHits} from '../data/vegetation.js';
 import {MAPS,MAP_SIZE} from '../data/mapLayouts.js';
 import {waterAt,dryFootprint} from '../data/water.js';
 import {walkable} from '../data/locations.js';
@@ -16,7 +16,7 @@ export function vegetationContext(s,direction='down',target=null){
  const [dx,dy]=face[direction]||face.down,p=target||{x:s.position.x+dx*36,y:s.position.y+dy*36};
  if(s.selected==='grass'){const q={x:Math.round(p.x/8)*8,y:Math.round(p.y/8)*8};return {...q,type:'placeGrass',label:s.inventory.grass?'Plant grass':'No grass / gather by hand'};}
  const tree=s.selected==='axe';const nodes=nearbyVegetation(s,s.position,72).filter(n=>n.id.startsWith('tree:')===tree).filter(n=>target?Math.hypot(n.x-target.x,n.y-target.y)<56:(n.x-s.position.x)*dx+(n.y-s.position.y)*dy>=-16).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y));
- const n=nodes[0];return n?{...n,type:tree?'chop':'gatherGrass',label:tree?'Chop tree':'Gather grass'}:null;
+ const n=nodes[0];return n?{...n,type:tree?'chop':'gatherGrass',label:tree?'Chop tree / '+treeHits(s,n.id)+' of '+TREE_HITS+' hits':'Gather grass'}:null;
 }
 export function useVegetation(s,c){
  if(!c||!['chop','gatherGrass','placeGrass'].includes(c.type)||Math.hypot(c.x-s.position.x,c.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
@@ -37,8 +37,9 @@ export function useVegetation(s,c){
   if((v?.placed.length||0)>=MAX_PLACED_GRASS)return {ok:false,message:'Grass garden full'};
  }else if(s.inventory[key]+amount>9999)return {ok:false,message:'Bag full'};
  s.vegetation??={};v??=s.vegetation[vegetationKey(s)]={trees:[],grass:[],placed:[]};s.energy-=cost;
- if(c.type==='chop'){v.trees.push(c.id);s.inventory.wood+=amount;}
+ let hits=0,felled=false;
+ if(c.type==='chop'){hits=treeHits(s,c.id)+1;felled=hits===TREE_HITS;v.treeHits??={};if(felled){delete v.treeHits[c.id];if(!Object.keys(v.treeHits).length)delete v.treeHits;v.trees.push(c.id);s.inventory.wood+=amount;}else v.treeHits[c.id]=hits;}
  else if(c.type==='gatherGrass'){if(c.id.startsWith('placed:'))v.placed=v.placed.filter(n=>n.id!==c.id);else v.grass.push(c.id);s.inventory.grass++;}
  else {s.inventory.grass--;v.placed.push({id:`placed:${c.x}:${c.y}`,x:c.x,y:c.y,variant:Math.abs(c.x+c.y)%3});}
- return {...c,ok:true,message:c.type==='chop'?'+3 Wood':c.type==='gatherGrass'?'+1 Grass':'Grass planted'};
+ return {...c,ok:true,hits,felled,message:c.type==='chop'?(felled?'+3 Wood / tree felled':'Tree / '+hits+' of '+TREE_HITS+' hits'):c.type==='gatherGrass'?'+1 Grass':'Grass planted'};
 }

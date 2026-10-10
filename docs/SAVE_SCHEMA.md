@@ -1,3 +1,11 @@
+# Save schema 15 — partial tree chopping, v0.14.0
+
+Storage key stays simple-life.save.v1. Accept versions 1–15. Each existing vegetation record optionally adds treeHits, an object mapping known stable authored tree IDs to integer hit counts 1–2. Only the record's outdoor area/owned farm IDs are accepted; unknown IDs, arrays, nonintegers, counts outside 1–2 and damage on already removed trees are rejected. Empty partial records are omitted. Older schemas initialize with no partial damage; completed trees arrays remain removed. No position translation, refund or crop maturity reinterpretation is introduced. The schema-14 crop-duration boundary remains unchanged: version 14/15 growing crops never receive legacy ripe promotion.
+
+Valid hits deduct 1 EP and increment partial damage; the third deletes its partial entry, records the completed cut and awards 3 Wood once. Capacity/tool/range/line-of-approach/energy checks precede mutation. Existing cut-root collision and canopy removal happen only after completion. Partial damage persists across midnight, sleep, travel and reload. UI meter, swing/facing, feedback timer and keyboard intent remain transient. All earlier project/order/stove/decorations, crop/care/farms, economy, Forest/loot/discovery/Stash and testing gift fields retain migration. No offline simulation or remote storage.
+
+---
+
 # Save schema 14 — longer crop care and resource progression, v0.13.0
 
 Storage key remains simple-life.save.v1. Accept schemas 1–14. New crop durations are 3–6 watered calendar days. A schema 1–13 plot already at its former one/two-day maturity remains ripe at the new duration; a still-growing plot keeps its actually earned care days and now needs the remaining new days. Death/care history remains under schema-13 daily rules. Schema-14 reload never promotes a growing plant early. Old inventory, economy, fields/farms, custom beds, vegetation, Forest/animal/treasure/discovery/Stash Bag progress and testing-gift marker retain established migration. Club refunds remain restricted to source schemas below 13, never replaying in 13/14.

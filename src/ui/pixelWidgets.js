@@ -13,14 +13,15 @@ export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLOR
  return g;
 }
 export function panel(scene,parent,x,y,w,h,color=UI_COLORS.panel,style='leaf'){const g=scene.add.graphics();parent.add(g);return frame(g,x,y,w,h,color,style);}
-export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width){const t=scene.add.bitmapText(Math.round(x),Math.round(y),coloredFont(scene,tint),value,size);if(width)t.setMaxWidth(width);parent.add(t);return t;}
+export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width,bold=false){const t=scene.add.bitmapText(Math.round(x),Math.round(y),coloredFont(scene,tint,bold),value,size);if(width)t.setMaxWidth(width);parent.add(t);return t;}
 export function icon(scene,parent,name,x,y,scale=1){const i=scene.add.image(x,y,scene.textures.get('town').has(name)?'town':'world',name).setOrigin(0).setScale(scale);parent.add(i);return i;}
-export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null,glyph=null}={}){
+export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null,glyph=null,preview=null,bold=false,fontSize=8}={}){
  const box=scene.add.graphics();parent.add(box);let fill=disabled?0xd7d2b4:UI_COLORS.cream,edge=UI_COLORS.edge,stroke=1,base=fill;
  const paint=()=>{box.clear();frame(box,x,y,w,h,fill,'leaf',edge,stroke);if(glyph)glyph(box,Math.round(x+w/2-4),Math.round(y+h/2-4),disabled?UI_COLORS.muted:UI_COLORS.light);};
  box.setFillStyle=c=>{base=fill=c;paint();return box;};box.setStrokeStyle=(size,c)=>{stroke=size;edge=c;paint();return box;};paint();
  if(iconName)icon(scene,parent,iconName,Math.round(x+(w-16)/2),Math.round(y+(h-16)/2));
- const t=iconName||glyph?null:text(scene,parent,x+w/2,y+(h-8)/2,label,8,disabled?UI_COLORS.muted:UI_COLORS.light);t?.setOrigin(.5,0);
+ if(preview)preview(scene,parent,x+w/2,y+h/2,w-8,h-8);
+ const t=iconName||glyph||preview?null:text(scene,parent,x+w/2,y+(h-fontSize)/2,label,fontSize,disabled?UI_COLORS.muted:UI_COLORS.light,undefined,bold);t?.setOrigin(.5,0);
  const control={id,label,x,y,w,h,disabled,action,box,text:t};scene.controls.push(control);
  if(!disabled){box.setInteractive({useHandCursor:true,hitArea:{x,y,width:w,height:h},hitAreaCallback:(a,px,py)=>px>=a.x&&py>=a.y&&px<a.x+a.width&&py<a.y+a.height});box.on('pointerdown',(p,lx,ly,event)=>{event.stopPropagation();action(p);});box.on('pointerover',()=>{fill=UI_COLORS.selected;paint();});box.on('pointerout',()=>{fill=base;paint();});}
  return control;

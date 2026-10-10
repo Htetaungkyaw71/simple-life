@@ -15,6 +15,7 @@ import {usePlot} from '../src/systems/farming.js';
 import {nextDay} from '../src/systems/time.js';
 import {digGround,openGround} from '../src/systems/farmGround.js';
 import {HeldWateringCan} from '../src/entities/HeldWateringCan.js';
+import {PlayerView} from '../src/entities/PlayerView.js';
 import {refreshVegetationVisuals} from '../src/art/VegetationView.js';
 import {GrassView} from '../src/art/GrassView.js';
 import {BagPanel,bagItems} from '../src/ui/BagPanel.js';
@@ -22,12 +23,14 @@ import {Hud} from '../src/ui/Hud.js';
 import {recorder} from './helpers/uiRecorder.js';
 const approach=(s,n)=>{for(const distance of [32,48,60])for(const [dx,dy]of [[0,1],[-1,0],[1,0],[0,-1]]){const p={x:n.x+dx*distance,y:n.y+dy*distance};if(walkable(s.area,p.x,p.y,12,false,s)){s.position=p;return true;}}return false;};
 function cuttable(area='farm',name){const s=newState();s.area=area;s.selected='axe';for(const n of VEGETATION[area].trees){if(name&&n.prop.name!==name||!approach(s,n))continue;const c=vegetationContext(s,'up',n),trial=structuredClone(s);if(c?.id===n.id&&useVegetation(trial,c).ok)return {s,n,c};}throw Error('No reachable '+area+' '+name);}
+const fell=(s,c)=>{useVegetation(s,c);useVegetation(s,c);return useVegetation(s,c);};
 function patch(s){for(let y=96;y<1000;y+=8)for(let x=96;x<2100;x+=8){const p={x,y};if(grassGround(s,p)&&!nearbyVegetation(s,p,28).some(n=>!n.id.startsWith('tree:'))&&walkable(s.area,x,y+32,12,false,s)){s.position={x,y:y+32};return p;}}throw Error('No grass placement');}
 test('every authored tree is registered and each outdoor area cuts roots only once, keeps rewards after reload',()=>{
  for(const area of ['home','farm','city','forest']){
   assert.equal(VEGETATION[area].trees.length,MAPS[area].props.filter(isTree).length);
   const {s,n,c}=cuttable(area),before=MAPS[area].obstacles.map(b=>[...b]);
-  assert.equal(walkable(area,n.x,n.y,0,false,s),false);assert.equal(useVegetation(s,c).ok,true);assert.equal(s.inventory.wood,3);assert.equal(s.energy,99);
+  assert.equal(walkable(area,n.x,n.y,0,false,s),false);for(let hit=1;hit<3;hit++){const r=useVegetation(s,c);assert.equal(r.ok,true);assert.equal(r.hits,hit);assert.equal(r.felled,false);assert.equal(s.inventory.wood,0);assert.equal(s.energy,100-hit);assert.equal(walkable(area,n.x,n.y,0,false,s),false);Object.assign(s,validate(s));assert.equal(s.vegetation[vegetationKey(s)].treeHits[n.id],hit);}
+  assert.equal(useVegetation(s,c).felled,true);assert.equal(s.inventory.wood,3);assert.equal(s.energy,97);
   assert.ok(walkable(area,n.x,n.y,0,false,s));const saved=structuredClone(s);assert.equal(useVegetation(s,c).ok,false);assert.deepEqual(s,saved);
   if(walkable(area,n.x,n.y,12,false,s))s.position={x:n.x,y:n.y};const loaded=validate(JSON.parse(JSON.stringify(s)));assert.deepEqual(loaded.position,s.position);assert.equal(loaded.inventory.wood,3);assert.deepEqual(loaded.vegetation,s.vegetation);assert.ok(walkable(area,n.x,n.y,0,false,loaded));assert.deepEqual(MAPS[area].obstacles,before);
  }
@@ -39,10 +42,10 @@ test('all forest tree silhouettes can be cut; utility use is atomic at zero ener
 });
 test('cut trees are separate on purchased farms and allow free digging on the cleared footprint',()=>{
  const {s,n,c}=cuttable();s.farms.push({fields:[true,false,false,false]});s.plots.push(...Array.from({length:64},()=>({crop:null,growth:0,morning:false,evening:false,dryDays:0,missedWindows:0,lastEvaluatedWindow:-1})));s.currentFarm=1;
- assert.ok(useVegetation(s,c).ok);assert.ok(walkable('farm',n.x,n.y,0,false,s));s.currentFarm=0;assert.equal(walkable('farm',n.x,n.y,0,false,s),false);
+ assert.ok(fell(s,c).ok);assert.ok(walkable('farm',n.x,n.y,0,false,s));s.currentFarm=0;assert.equal(walkable('farm',n.x,n.y,0,false,s),false);
  s.currentFarm=1;const loaded=validate(s);assert.ok(walkable('farm',n.x,n.y,0,false,loaded));assert.ok(loaded.vegetation['farm:1']);assert.equal(loaded.vegetation['farm:0'],undefined);
  // Clear the nearby companion too, then dig a bed where the old root blocked it.
- for(const t of VEGETATION.farm.trees.filter(t=>Math.hypot(t.x-n.x,t.y-n.y)<60&&t.id!==n.id))assert.ok(useVegetation(s,{...t,type:'chop'}).ok);
+ for(const t of VEGETATION.farm.trees.filter(t=>Math.hypot(t.x-n.x,t.y-n.y)<60&&t.id!==n.id))assert.ok(fell(s,{...t,type:'chop'}).ok);
  s.selected='shovel';const bed=digGround(s,{x:1704,y:216});assert.ok(bed.ok);assert.equal(validate(s).customBeds[0].x,1704);
 });
 test('hand gathering, planting and regathering conserves grass and persists a placed patch',()=>{
@@ -59,7 +62,7 @@ test('grass refuses water, bridges, solid roots, farm beds and occupied patches 
 });
 test('schema 10 migration retains progress; schema 11 rejects unsafe and forged vegetation',()=>{
  const old=newState('girl');old.version=10;old.money=765;old.inventory.tomato=7;old.plots[0]={...old.plots[0],crop:'tomato',growth:2,morning:true};delete old.vegetation;delete old.inventory.wood;delete old.inventory.grass;
- const s=validate(old);assert.equal(s.version,14);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,3);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
+ const s=validate(old);assert.equal(s.version,15);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,3);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
  const t=VEGETATION.home.trees[0];s.vegetation={home:{trees:[t.id,t.id,'bad'],grass:['bad'],placed:[{x:NaN,y:32},{x:t.x,y:t.y}]},'farm:999':{trees:[t.id]}};const fixed=validate(s);assert.deepEqual(fixed.vegetation.home,{trees:[t.id],grass:[],placed:[]});assert.equal(fixed.vegetation['farm:999'],undefined);
 });
 test('all twelve crop identities mature in three to six watered days; missed care still prevents growth',()=>{
@@ -72,7 +75,7 @@ test('actual held utility sprites follow four farmer hand anchors, swing, switch
  s.selected='hand';held.update({x:100,y:100},'right',2);assert.equal(held.can.visible,false);
 });
 test('actual cleanup removes cut crown and shadow, and grass buckets filter removed/placed clumps',()=>{
- const {s,n,c}=cuttable('forest');useVegetation(s,c);let destroyed=0,refreshed=0;const crown={active:true,destroy(){this.active=false;destroyed++;}},shadow={destroy(){destroyed++;}},keep={active:true};const scene={app:{state:s},vegetationVisuals:new Map([[n.id,[shadow,crown]],['keep',[keep]]]),canopies:[{sprite:crown},{sprite:keep}],grass:{refresh(){refreshed++;}}};refreshVegetationVisuals(scene);assert.equal(destroyed,2);assert.equal(scene.canopies.length,1);assert.equal(refreshed,1);
+ const {s,n,c}=cuttable('forest');fell(s,c);let destroyed=0,refreshed=0;const crown={active:true,destroy(){this.active=false;destroyed++;}},shadow={destroy(){destroyed++;}},keep={active:true};const scene={app:{state:s},vegetationVisuals:new Map([[n.id,[shadow,crown]],['keep',[keep]]]),canopies:[{sprite:crown},{sprite:keep}],grass:{refresh(){refreshed++;}}};refreshVegetationVisuals(scene);assert.equal(destroyed,2);assert.equal(scene.canopies.length,1);assert.equal(refreshed,1);
  const g=MAPS.forest.grass[0];s.vegetation.forest.grass=[g.id];s.vegetation.forest.placed=[{id:'placed:100:100',x:100,y:100,variant:1}];const view=new GrassView({app:{state:s}},MAPS.forest);assert.equal(view.total,MAPS.forest.grass.length);assert.ok(![...view.buckets.values()].flat().some(n=>n.id===g.id));assert.ok([...view.buckets.values()].flat().some(n=>n.id==='placed:100:100'));
 });
 test('bag utility selection and materials work in the same canvas theme across seven viewports',()=>{
@@ -85,11 +88,22 @@ test('bag utility selection and materials work in the same canvas theme across s
 test('cutting a forage tree removes its fruit permanently while loose fruit keeps daily refresh',()=>{
  const s=newState();s.area='forest';s.selected='axe';let found;
  for(const f of FORAGE_NODES){const n=VEGETATION.forest.trees.find(t=>t.prop.x===f.x-56&&t.prop.y===f.y-120);if(n&&approach(s,n)&&useVegetation(structuredClone(s),{...n,type:'chop'}).ok){found={f,n};break;}}
- assert.ok(found);assert.ok(forageAvailable(s,found.f));assert.ok(useVegetation(s,{...found.n,type:'chop'}).ok);assert.equal(forageAvailable(s,found.f),false);s.day++;refreshForest(s);assert.equal(forageAvailable(s,found.f),false);assert.equal(forageAvailable(validate(s),found.f),false);
+ assert.ok(found);assert.ok(forageAvailable(s,found.f));assert.ok(fell(s,{...found.n,type:'chop'}).ok);assert.equal(forageAvailable(s,found.f),false);s.day++;refreshForest(s);assert.equal(forageAvailable(s,found.f),false);assert.equal(forageAvailable(validate(s),found.f),false);
 });
 test('shovel digging clears planted ground cover immediately and keeps the free bed after reload',()=>{
  const s=newState();s.area='farm';s.selected='grass';s.inventory.grass=1;s.position={x:696,y:152};const p={x:696,y:120};assert.ok(useVegetation(s,{...p,type:'placeGrass'}).ok);s.selected='shovel';const r=digGround(s,p);assert.ok(r.ok);assert.equal(s.vegetation['farm:0'].placed.length,0);assert.equal(s.inventory.grass,0);assert.equal(validate(s).customBeds[0].x,696);
 });
 test('utility actions cannot reach through a solid well',()=>{
  const s=newState();s.area='farm';s.selected='grass';s.inventory.grass=1;s.position={x:1432,y:496};assert.ok(walkable('farm',1432,496));const before=structuredClone(s);const r=useVegetation(s,{type:'placeGrass',x:1496,y:496});assert.equal(r.ok,false);assert.equal(r.message,'Choose a clear approach');assert.deepEqual(s,before);
+});
+test('partial chopping survives days/travel, stays per farm and rejects forged progress on reload',()=>{
+ const {s,n,c}=cuttable();useVegetation(s,c);s.day++;refreshForest(s);s.area='home';s.area='farm';assert.equal(s.vegetation['farm:0'].treeHits[n.id],1);assert.equal(s.inventory.wood,0);
+ s.farms.push({fields:[true,false,false,false]});s.currentFarm=1;useVegetation(s,c);useVegetation(s,c);assert.equal(s.vegetation['farm:0'].treeHits[n.id],1);assert.equal(s.vegetation['farm:1'].treeHits[n.id],2);
+ s.inventory.wood=9998;const before=structuredClone(s);assert.equal(useVegetation(s,c).ok,false);assert.deepEqual(s,before);s.inventory.wood=0;assert.equal(useVegetation(s,c).felled,true);assert.equal(s.inventory.wood,3);s.currentFarm=0;assert.equal(walkable('farm',n.x,n.y,0,false,s),false);
+ const raw=structuredClone(s),other=VEGETATION.farm.trees.find(t=>t.id!==n.id);raw.vegetation['farm:0'].treeHits={...raw.vegetation['farm:0'].treeHits,forged:2,[other.id]:3};raw.vegetation['farm:1'].treeHits={[n.id]:2};const v=validate(raw);assert.deepEqual(v.vegetation['farm:0'].treeHits,{[n.id]:1});assert.equal(v.vegetation['farm:1'].treeHits,undefined);assert.deepEqual(validate(v),v);
+ raw.version=14;assert.equal(validate(raw).vegetation['farm:0'].treeHits,undefined);assert.deepEqual(validate(raw).vegetation['farm:1'].trees,[n.id]);
+});
+test('blocked movement still turns toward a trunk, while an active axe swing retains its facing',()=>{
+ const u=recorder(),sprite=u.add.sprite(0,0,'boy',0);sprite.play=()=>sprite;const p={scene:{app:{state:{selected:'axe'},pendingAttack:null}},direction:'down',sprite,anchor:u.add.container(),shadow:u.add.container(),wateringCan:{remaining:0,update(){}} ,pose(){}};
+ PlayerView.prototype.update.call(p,{x:100,y:100},0,0,{height:0,frame:null},{x:0,y:-1});assert.equal(p.direction,'up');assert.equal(p.anchor.x,100);p.scene.app.pendingAttack={};PlayerView.prototype.update.call(p,{x:100,y:100},0,0,{height:0,frame:null},{x:1,y:0});assert.equal(p.direction,'up');
 });

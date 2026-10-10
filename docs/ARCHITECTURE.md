@@ -1,3 +1,11 @@
+# v0.14.0 — tree damage and visual resource pages
+
+vegetation.js retains pure transactions and coordinate identities, adding bounded partial treeHits until the third hit completes the existing removal/reward path. save.js accepts schema 15 and validates known per-area/farm damage separately from completed trees. TreeProgressView is transient world-space presentation; main saves each valid hit and only rebuilds root collision on a completed cut. PlayerView turns from movement intent even when blocked, retaining active-swing/pending-attack facing guards.
+
+ResourcePanel still owns paused input-gated actions; ResourceView renders image-first cards with responsive canvas layout and keyboard focus. resourcePreviews shares native object thumbnails/composite project pictures with BagPanel. readingGlyphs/coloredFont generate cached actual colored lowercase/strong-heading pixels with retained font cells/metrics and nearest-neighbour sampling. The pinned Canvas renderer needs colored source pixels, not tint. Bag's optional selected ID makes the cooking shortcut open the correct page. No architecture rewrite, DOM HUD, dependency, backend or remote asset.
+
+---
+
 # v0.13.0 — data-driven resource systems
 
 src/data/settlement.js holds original request/project/recipe definitions and default progress. src/systems/settlement.js performs pure atomic material/reward, build/cook/place/pack transactions; settlementGeometry.js shares per-farm furniture footprints with walkability, collision and ground placement. save.js migrates crop maturity separately from care and validates bounded resource records. time.js resets daily completion at midnight.

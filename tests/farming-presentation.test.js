@@ -35,7 +35,7 @@ test('short-season crop poses cover readable seeds, sprouts, maturity, drought a
 });
 
 test('v1/v2 saves migrate individual crops and preserve economy, reward and locked expansion',()=>{
- for(const version of [1,2]){const s=newState('girl');s.version=version;s.money=123;s.day=7;s.minute=1020;s.starterSeedsClaimed=true;delete s.expansionUnlocked;s.plots[3]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:1};const v=validate(s);assert.equal(v.version,14);assert.equal(v.money,123);assert.equal(v.starterSeedsClaimed,true);assert.equal(v.expansionUnlocked,false);assert.equal(v.plots[3].missedDays,0);assert.equal(v.plots[3].growth,3);assert.equal(v.plots[3].wateredDay,7);assert.deepEqual(validate(v),v);}
+ for(const version of [1,2]){const s=newState('girl');s.version=version;s.money=123;s.day=7;s.minute=1020;s.starterSeedsClaimed=true;delete s.expansionUnlocked;s.plots[3]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:1};const v=validate(s);assert.equal(v.version,15);assert.equal(v.money,123);assert.equal(v.starterSeedsClaimed,true);assert.equal(v.expansionUnlocked,false);assert.equal(v.plots[3].missedDays,0);assert.equal(v.plots[3].growth,3);assert.equal(v.plots[3].wateredDay,7);assert.deepEqual(validate(v),v);}
 });
 test('compact field has contiguous sixteen reachable cells, with no paths or props crossing them',()=>{
  assert.equal(PLOTS.length,16);assert.equal(new Set(PLOTS.map(p=>p.x)).size,4);assert.equal(FIELD.cell,48);

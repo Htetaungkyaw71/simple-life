@@ -1,3 +1,11 @@
+# v0.14.0 — three-hit trees and illustrated resources
+
+215 tests pass; production build succeeds (115 modules, twelve files, eight unchanged art files). Pure regressions verify no early Wood/removal, per-farm partial damage, reload/day retention, invalid/full-bag atomicity, known bounded schema-15 restoration, older cuts/crops, blocked-facing swing guards, recipe preview/count/actions, seven viewport text/control bounds, direct cooked-food eating and nonoverlapping bag pagination.
+
+Native Chromium inputs at desktop 1280×720, portrait 360×640 and landscape 640×360 verify trees' 1/2/3 progress and final loot, desktop clicks/E, partial fixture-free reload/new day, phone joystick/Attack with world taps suppressed, all recipes, placing/Hand packing, once-only orders/projects, stove/cooking/meal shortcut/healing and visible cards. No isolated warning/error logs. See verification/chopping-ui/README.md, browser-checks.json and screenshots. Phone-sized Chromium pointer input is not physical touch/Safari/Firefox acceptance. Normal 4175 save is preserved; no publication/submission.
+
+---
+
 # v0.13.0 — crop care and resource progression
 
 npm test: **208 passed**. npm run build: success. Native Chromium desktop/portrait/landscape verified controls -> gameplay -> local save -> visible scene/stat/inventory response, using an isolated fixture origin and read-only QA DOM attributes. Orders/projects reject repeat rewards and show saved changes; Farm decorations craft/place/block/pack, stone paving reloads; hearth build/cook/food eat yields capped gains and persists. First watering leaves Tomato unripe next day; third care midnight ripens it; world harvest yields two fruit; Pumpkin shows six-day duration. Existing daily/drought/farm/save/forest/movement rules remain covered by regression. No browser warnings/errors. Evidence/actual checks and screenshots: docs/verification/resource-projects. Normal save was refreshed/continued/paused, QA origin/tab/server removed, viewport reset. Physical mobile/non-Chromium not tested.

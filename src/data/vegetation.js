@@ -11,6 +11,8 @@ export const VEGETATION=Object.fromEntries(Object.entries(MAPS).map(([area,map])
 }));
 export const vegetationKey=s=>s.area==='farm'?'farm:'+s.currentFarm:s.area;
 export const vegetationState=s=>s?.vegetation?.[vegetationKey(s)];
+export const TREE_HITS=3;
+export const treeHits=(s,id)=>vegetationState(s)?.treeHits?.[id]||0;
 export function removed(s,id){const v=vegetationState(s);return !!v&&(id.startsWith('tree:')?v.trees:v.grass).includes(id);}
 export function cutObstacle(s,area,box){const key=area==='farm'?'farm:'+(s?.currentFarm||0):area,trees=s?.vegetation?.[key]?.trees;if(!trees?.length)return false;const id=VEGETATION[area]?.boxes.get(box.join(','));if(!id)return false;return trees.includes(id);}
 export function nearbyVegetation(s,p,r=80){const data=VEGETATION[s.area],found=[];if(!data)return found;

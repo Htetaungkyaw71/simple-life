@@ -25,7 +25,7 @@ export class Interface extends Phaser.Scene {
   }
   close(){if(this.menu?.kind==='trade')this.app.sound('shop:close');this.menu=null;this.app.paused=false;this.app.input={};Object.values(this.app.scene.keys).forEach(k=>k.reset());this.layout();}
   highlight(){const choices=this.controls.filter(c=>!c.disabled);choices.forEach((c,i)=>c.box.setStrokeStyle(i===this.focus?2:1,i===this.focus?UI_COLORS.gold:UI_COLORS.edge));}
-  drawMenu(){if(['trade','wilderness','bag'].includes(this.menu.kind)){this.menu.draw();return;}drawModal(this);}
+  drawMenu(){if(['trade','wilderness','bag','resources'].includes(this.menu.kind)){this.menu.draw();return;}drawModal(this);}
   title(){
     const save=this.app.saves.load();this.notice=null;
     this.modal('A TROPICAL FARMING ADVENTURE','Simple Life','',[
