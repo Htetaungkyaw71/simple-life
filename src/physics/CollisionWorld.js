@@ -1,11 +1,12 @@
 import {cutObstacle} from '../data/vegetation.js';
+import {decorationBoxes} from '../systems/settlementGeometry.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {inBounds,houseClearance,LOCATIONS,walkable} from '../data/locations.js';
 // Physics queries and pure save validation consume the same small solid masks.
 export class CollisionWorld {
  constructor(scene,area){
   this.scene=scene;this.area=area;this.group=scene.physics.add.staticGroup();
-  for(const [x,y,w,h]of (area==='forest'?[]:LOCATIONS[area].obstacles.filter(box=>!cutObstacle(scene.app.state,area,box)))){const zone=scene.add.zone(x,y,w,h).setOrigin(0);scene.physics.add.existing(zone,true);this.group.add(zone);}
+  for(const [x,y,w,h]of (area==='forest'?[]:[...LOCATIONS[area].obstacles.filter(box=>!cutObstacle(scene.app.state,area,box)),...decorationBoxes(scene.app.state,area)])){const zone=scene.add.zone(x,y,w,h).setOrigin(0);scene.physics.add.existing(zone,true);this.group.add(zone);}
   this.halfHeight=area==='interior'?3:6;this.probe=scene.add.zone(0,0,this.halfHeight*4,this.halfHeight*2);scene.physics.add.existing(this.probe);this.probe.body.setAllowGravity(false);this.probe.body.moves=false;
   if(import.meta.env.DEV&&new URLSearchParams(location.search).has('collisions')){
    this.debug=scene.add.graphics().setDepth(area==='forest'?10003:4000);this.debug.lineStyle(1,0xff5d96,.9);

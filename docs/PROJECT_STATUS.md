@@ -1,3 +1,23 @@
+# v0.13.0 — longer crop care and resource proposals completed, 2026-10-10
+
+New planting requires 3–6 watered calendar days; repeated same-day watering earns no extra growth/EP cost. Tomato/Carrot/Chili/Cucumber/Sweet Potato 3; Strawberry/Corn/Eggplant/Blueberry 4; Watermelon/Grape 5; Pumpkin 6. Existing missed-day/recovery/death rules stay; old ripe saves remain harvestable, still-growing plants retain care earned. Schema 14 preserves previous economy/farms/Forest/vegetation/testing gift and adds bounded project/order/stove/decor progress.
+
+Completed the four user-authorized proposals: three rotating daily resident material requests with coin/seed rewards; three permanent visible Town projects; four movable Farm decorations crafted from Wood/Stone; Home stove plus Wood-fuelled Grilled Meat (+50 HP/+35 EP). Entry points: City Garden town board/NPC Daily request; Farm board / Build decorations; Bag / Gear / Wood or Stone / Uses; Home hearth. Existing local-only canvas architecture, three-farm cap, retired club, input/commutes/energy/forest entrance/recovery and eight-art allowlist remain. Original code/graphics plus reused credited sprites; no new image, dependency or remote runtime.
+
+Checks: npm test **208 passed**; npm run build succeeded; desktop 1280x720, portrait 360x640 and landscape 640x360 native-browser flows passed, including reward idempotence, visible scenery, crafting/placement/collision/packing, stove/cooking/eating, maturity/harvest and fixture-free persistence. Runtime 12 files/8 art files. Evidence: docs/verification/resource-projects. Normal localhost4175 refreshed and existing save continued/paused without fixture replacement. Physical phones/non-Chromium are unverified; projects complete in one build rather than partial donations. Existing licensing/submission qualifications remain. No push/publication/submission.
+
+---
+
+# v0.12.1 — bottom-centre Forest entrance, 2026-10-10
+
+Complete: Home's north edge enters Forest at (5120, 4848), the full 10240-wide map's centre. The Home exit occupies x=5072–5168 on the bottom boundary. The central Return Gate shares the new spawn instead of a separate southwest coordinate. Natural grassy approach masks join the eastern crossway, and full tree canopies/scenery/cliff faces stay clear. The old southwest edge no longer travels. HOME signs/clues point toward the new southern centre, and the Forest map labels its Home exit even before full exploration. The phone label sits below the map to avoid habitat text.
+
+Checks: npm test 199/199; npm run build (106 modules); git diff --check clean. Native Chromium at 1280×720: Home → centre-bottom Forest, south exit → Home, central Return Gate → new entrance, full/explored map marker, fixture-free save/Continue after returning Home. At 360×640: map bounds/buttons and Home label remain visible. No isolated browser warning/error logs. Eight allowlisted art files and twelve total dist files; no new art/dependencies/downloads. The final local game on 4175 was refreshed and the user's existing save continued, then paused; no fixtures or repeated test gift touched that origin.
+
+Evidence/reproduction: docs/verification/forest-entrance/README.md. Version 0.12.1 keeps schema 13, legacy safe positions, discovery/resource/cache IDs, farming/time/loot/recovery and local saves. There are now 2,832 trees after opening the approach; 240 stone piles remain. Wood/stone uses are proposals only, with no crafting/projects/upgrades implemented. Physical phones and other browser engines remain unverified. No push/publication/submission.
+
+---
+
 # v0.12.0 — daily watering, three farms and club removal, 2026-10-10
 
 Complete: one watering at any hour per calendar day, repeat watering without extra EP, daily midnight growth across farms/custom beds, alive after two misses, Recovering after three (revivable), dead after four. Farm Board → Buy / visit farms buys second/third farms for 600/1,200 coins without field prerequisites and stops at three. Wooden Club bag/shop/combat/stall are removed; Rowan stays a resident. Schema 13 accepts schemas 1–12, translates old watering, preserves purchased land/crops and returns old club value once. Prior owned farms beyond three are retained, with no further purchases. Existing gift marker, Forest species/loot/resources, food, sleep, local saves and Stash recovery remain.

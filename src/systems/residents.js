@@ -35,7 +35,7 @@ export function stepResident(n,area,delta,player,state=null){
 }
 export function residentContext(residents,player){
  const n=residents.filter(n=>n.visible!==false&&!n.kind&&Math.hypot(player.x-n.position.x,player.y-n.position.y)<58).sort((a,b)=>Math.hypot(player.x-a.position.x,player.y-a.position.y)-Math.hypot(player.x-b.position.x,player.y-b.position.y))[0];
- return n?{type:'dialog',...n.position,label:'Talk to '+n.name,title:n.name,body:n.body}:null;
+ return n?{type:'dialog',...n.position,residentId:n.id,label:'Talk to '+n.name,title:n.name,body:n.body}:null;
 }
 
 export function residentMoveAllowed(people,from,to){return people.filter(n=>n.visible!==false).every(n=>{const p=n.position,next=Math.hypot(to.x-p.x,to.y-p.y);return next>=24||next>=Math.hypot(from.x-p.x,from.y-p.y);});}

@@ -1,0 +1,431 @@
+[
+  {
+    "check": "daily order",
+    "money": 140,
+    "wood": 88,
+    "seed": 2,
+    "progress": {
+      "day": 1,
+      "completed": [
+        "rowan-timber"
+      ]
+    },
+    "disabled": true
+  },
+  {
+    "check": "town project",
+    "money": 320,
+    "wood": 64,
+    "stone": 88,
+    "progress": [
+      "commons"
+    ],
+    "disabled": true
+  },
+  {
+    "check": "resource progress after fixture-free reload",
+    "money": 320,
+    "orders": {
+      "day": 1,
+      "completed": [
+        "rowan-timber"
+      ]
+    },
+    "projects": [
+      "commons"
+    ]
+  },
+  {
+    "check": "NPC request entry",
+    "menu": {
+      "title": "Daily requests",
+      "body": "No request from this neighbour today.\nThe town board has three daily requests."
+    }
+  },
+  {
+    "check": "craft bench",
+    "wood": 92,
+    "stone": 98,
+    "bench": 2
+  },
+  {
+    "check": "decoration placement and collision",
+    "decor": [
+      {
+        "type": "bench",
+        "farm": 0,
+        "x": 1152,
+        "y": 800
+      }
+    ],
+    "bench": 1,
+    "position": {
+      "x": 1152,
+      "y": 812.6085999999999
+    }
+  },
+  {
+    "check": "pack decoration",
+    "decor": [],
+    "bench": 2
+  },
+  {
+    "check": "build stove and cook",
+    "stove": true,
+    "wood": 79,
+    "stone": 84,
+    "meat": 2,
+    "grilled": 1
+  },
+  {
+    "check": "eat cooked meal",
+    "health": 90,
+    "energy": 85,
+    "grilled": 0
+  },
+  {
+    "check": "cooking reload",
+    "stove": true,
+    "health": 90,
+    "energy": 85,
+    "meat": 2,
+    "wood": 79
+  },
+  {
+    "check": "first daily watering",
+    "day": 1,
+    "growth": 0,
+    "watered": 1,
+    "remaining": 3,
+    "energy": 49
+  },
+  {
+    "check": "repeat watering",
+    "day": 1,
+    "energy": 49,
+    "watered": 1
+  },
+  {
+    "check": "after one watered day at midnight",
+    "day": 2,
+    "growth": 1,
+    "ripe": false,
+    "remaining": 2,
+    "energy": 49
+  },
+  {
+    "check": "third watering before rollover",
+    "day": 3,
+    "growth": 2,
+    "watered": 3,
+    "remaining": 1
+  },
+  {
+    "check": "third day midnight harvest",
+    "day": 4,
+    "growth": 3,
+    "ready": true,
+    "remaining": 0
+  },
+  {
+    "check": "Pumpkin longer care",
+    "remaining": 6,
+    "stages": 7,
+    "timer": "Harvest: 6 watered days"
+  },
+  {
+    "check": "Tomato harvest by world click",
+    "tomatoes": 2,
+    "crop": null,
+    "selected": "harvest"
+  },
+  {
+    "check": "portrait request menu",
+    "bounds": {
+      "x": 16,
+      "y": 138,
+      "w": 328,
+      "h": 362.5
+    },
+    "controls": [
+      {
+        "id": "Deliver materials",
+        "label": "Deliver materials",
+        "x": 40,
+        "y": 272.5,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Next request",
+        "label": "Next request",
+        "x": 40,
+        "y": 328.5,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Town board",
+        "label": "Town board",
+        "x": 40,
+        "y": 384.5,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "Close",
+        "label": "Close",
+        "x": 40,
+        "y": 440.5,
+        "w": 280,
+        "h": 52,
+        "disabled": false
+      }
+    ],
+    "menu": {
+      "title": "Rowan / request",
+      "body": "12 Wood / Wood 100 / Stone 100\nTimber for a garden bench\nReward 80c + 2 Tomato seeds"
+    }
+  },
+  {
+    "check": "portrait order and project native taps",
+    "money": 320,
+    "completed": {
+      "projects": [
+        "commons"
+      ],
+      "orders": {
+        "day": 1,
+        "completed": [
+          "rowan-timber"
+        ]
+      },
+      "stove": false,
+      "decorations": []
+    }
+  },
+  {
+    "check": "portrait Farm crafting and world placement",
+    "bench": 1,
+    "placed": [
+      {
+        "type": "bench",
+        "farm": 0,
+        "x": 1152,
+        "y": 800
+      }
+    ],
+    "controls": [
+      {
+        "id": "tool-seed",
+        "label": "seed",
+        "x": 14,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-water",
+        "label": "water",
+        "x": 70,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-harvest",
+        "label": "harvest",
+        "x": 126,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "tool-decorate",
+        "label": "decorate",
+        "x": 182,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "choose-seeds",
+        "label": "bag",
+        "x": 238,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "pause",
+        "label": "pause",
+        "x": 294,
+        "y": 408,
+        "w": 52,
+        "h": 52,
+        "disabled": false
+      },
+      {
+        "id": "move-stick",
+        "label": "Move",
+        "x": 18,
+        "y": 502,
+        "w": 120,
+        "h": 120
+      },
+      {
+        "id": "jump",
+        "label": "JUMP",
+        "x": 202,
+        "y": 534,
+        "w": 56,
+        "h": 56,
+        "disabled": false
+      },
+      {
+        "id": "attack",
+        "label": "ATTACK",
+        "x": 282,
+        "y": 534,
+        "w": 56,
+        "h": 56,
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "check": "portrait Hand packs bench",
+    "bench": 2,
+    "placed": []
+  },
+  {
+    "check": "portrait hearth cooking and eating",
+    "health": 90,
+    "energy": 85,
+    "stove": true,
+    "meat": 2,
+    "grilled": 0
+  },
+  {
+    "check": "landscape daily request bounds",
+    "bounds": {
+      "x": 20,
+      "y": 18,
+      "w": 600,
+      "h": 323
+    },
+    "controls": [
+      {
+        "id": "Deliver materials",
+        "label": "Deliver materials",
+        "x": 44,
+        "y": 145,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "Next request",
+        "label": "Next request",
+        "x": 44,
+        "y": 193,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "Town board",
+        "label": "Town board",
+        "x": 44,
+        "y": 241,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "Close",
+        "label": "Close",
+        "x": 44,
+        "y": 289,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "check": "landscape project bounds",
+    "bounds": {
+      "x": 20,
+      "y": 18,
+      "w": 600,
+      "h": 323
+    },
+    "controls": [
+      {
+        "id": "Build project",
+        "label": "Build project",
+        "x": 44,
+        "y": 145,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "Next project",
+        "label": "Next project",
+        "x": 44,
+        "y": 193,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "Town board",
+        "label": "Town board",
+        "x": 44,
+        "y": 241,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      },
+      {
+        "id": "Close",
+        "label": "Close",
+        "x": 44,
+        "y": 289,
+        "w": 552,
+        "h": 44,
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "check": "landscape project native transaction",
+    "money": 240,
+    "projects": [
+      "commons"
+    ]
+  },
+  {
+    "check": "landscape stone paving craft/place and saved reload",
+    "stone": 98,
+    "path": 0,
+    "placed": [
+      {
+        "type": "path",
+        "farm": 0,
+        "x": 1152,
+        "y": 800
+      }
+    ]
+  }
+]

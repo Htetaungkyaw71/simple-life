@@ -40,7 +40,7 @@ test('four identical reachable fields unlock another independent farm and save a
 test('watering and manual sleep settle crops on every owned farm exactly once',()=>{
  const s=newState();s.money=2000;for(const i of [1,2,3])buyField(s,i);s.inventory.seed=2;
  usePlot(s,0);buyFarm(s);usePlot(s,64);s.selected='water';
- for(let day=0;day<1;day++){
+ for(let day=0;day<3;day++){
   usePlot(s,0);usePlot(s,64);restUntilEvening(s);usePlot(s,0);usePlot(s,64);nextDay(s);
   assert.equal(s.plots[0].growth,day+1);assert.equal(s.plots[64].growth,day+1);
  }
@@ -49,7 +49,7 @@ test('watering and manual sleep settle crops on every owned farm exactly once',(
 test('version 1-4 migration preserves original crop indices and ignores forged expansion',()=>{
  for(const version of [1,2,3,4]){
   const raw=newState();raw.version=version;raw.plots=raw.plots.slice(0,16);raw.plots[5].crop='tomato';raw.plots[5].growth=2;raw.farms=[{fields:[true,true,true,true]}];raw.currentFarm=99;
-  const s=validate(raw);assert.equal(s.version,13);assert.equal(s.plots[5].growth,1);assert.deepEqual(s.farms,[{fields:[true,false,false,false]}]);assert.equal(s.currentFarm,0);assert.equal(s.plots.length,64);
+  const s=validate(raw);assert.equal(s.version,14);assert.equal(s.plots[5].growth,3);assert.deepEqual(s.farms,[{fields:[true,false,false,false]}]);assert.equal(s.currentFarm,0);assert.equal(s.plots.length,64);
  }
  const s=newState();s.currentFarm=999;s.farms=[null,{fields:[false,'yes',true,1]}];s.plots[16].crop='tomato';const v=validate(s);assert.equal(v.currentFarm,1);assert.deepEqual(v.farms[1].fields,[true,false,true,false]);assert.equal(v.plots[16].crop,null);
 });

@@ -61,7 +61,7 @@ export class TradePanel {
   button(u,u.root,this.details?'<':'?',right-22,y+77-lift,22,22,()=>{this.details=!this.details;this.show('trade-info');},{id:'trade-info'});
   if(this.details){
    panel(u,u.root,tx,y+111-lift,pw-20,60);
-   text(u,u.root,tx+7,y+117-lift,selling?`Today: ${price.label}`:`${d.growthDays} nights / yield ${d.harvestYield}`,7,UI_COLORS.gold);
+   text(u,u.root,tx+7,y+117-lift,selling?`Today: ${price.label}`:`${d.growthDays} days / yield ${d.harvestYield}`,7,UI_COLORS.gold);
    text(u,u.root,tx+7,y+133-lift,selling?'Price changes at midnight.':'Water once each day.',7,UI_COLORS.muted,pw-34);
    text(u,u.root,tx+7,y+150-lift,plant?d.description:SHOP_HOURS[this.type].label,7,UI_COLORS.muted,pw-34);
    if(selling&&price.label!=='Normal'){const arrow=u.add.graphics();u.root.add(arrow);pixelArrow(arrow,price.label==='Low'?2:6,right-14,y+121-lift,UI_COLORS.gold);}

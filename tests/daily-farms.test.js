@@ -17,6 +17,7 @@ test('one daily watering survives reload and earns growth exactly once at midnig
  let s=growing();s.minute=800;usePlot(s,0);const e=s.energy;s=validate(s);s.minute=1439;assert.match(usePlot(s,0),/Already watered today/);assert.equal(s.energy,e);
  growOvernight(s);assert.equal(s.plots[0].growth,1);growOvernight(s);assert.equal(s.plots[0].growth,1);
  s.day++;s.minute=0;s=validate(s);assert.equal(cropStatus(s,0).need,'Needs water');usePlot(s,0);advanceMinutes(s,1440);assert.equal(s.plots[0].growth,2);
+ for(let i=0;i<2;i++){usePlot(s,0);advanceMinutes(s,1440);}
  advanceMinutes(s,1440*7);assert.equal(s.plots[0].missedDays,0,'ripe crops await harvesting without expiring');
 });
 test('sleeping through multiple days counts whole missed days only, and the third-day crop can recover',()=>{
@@ -27,7 +28,7 @@ test('sleeping through multiple days counts whole missed days only, and the thir
 test('schema 1–12 grants either old watering credit, preserves dead crops and migrates once',()=>{
  for(let version=1;version<=12;version++)for(const period of ['morning','evening']){
   const raw=newState('girl');Object.assign(raw,{version,day:7,minute:1000,money:327,ownsClub:version===12,clubEquipped:true});raw.plots[0]={crop:'corn',growth:1,[period]:true,missedWindows:1};
-  const s=validate(raw);assert.equal(s.version,13);assert.equal(s.plots[0].wateredDay,7);assert.equal(s.plots[0].missedDays,0);assert.equal(s.plots[0].lastEvaluatedDay,6);assert.equal(s.money,version===12?372:327);assert.deepEqual(validate(s),s);
+  const s=validate(raw);assert.equal(s.version,14);assert.equal(s.plots[0].wateredDay,7);assert.equal(s.plots[0].missedDays,0);assert.equal(s.plots[0].lastEvaluatedDay,6);assert.equal(s.money,version===12?372:327);assert.deepEqual(validate(s),s);
   raw.plots[0].missedWindows=2;assert.equal(validate(raw).plots[0].missedDays,4);
  }
 });

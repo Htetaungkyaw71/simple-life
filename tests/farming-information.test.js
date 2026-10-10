@@ -11,10 +11,11 @@ import {MAPS} from '../src/data/mapLayouts.js';
 const plant=()=>{const s=newState();s.area='farm';s.inventory.seed=3;usePlot(s,0);s.selected='water';return s;};
 test('crop status is pure and its one daily care row agrees with growth and harvest',()=>{
  const s=plant(),before=structuredClone(s);let info=cropStatus(s,0);
- assert.deepEqual(s,before);assert.equal(info.stage,1);assert.equal(info.stages,2);assert.equal(info.remaining,1);assert.equal(info.condition,'Newly planted');assert.equal(info.need,'Needs water');
+ assert.deepEqual(s,before);assert.equal(info.stage,1);assert.equal(info.stages,4);assert.equal(info.remaining,3);assert.equal(info.condition,'Newly planted');assert.equal(info.need,'Needs water');
  assert.equal(info.plantedDay,1);assert.equal(info.plantedMinute,360);assert.equal(cropStatus(s,1),null);
- usePlot(s,0);info=cropStatus(s,0);assert.equal(info.care.length,1);assert.equal(info.care[0].label,'Watered today');assert.equal(info.condition,'Watered today');assert.equal(info.next,'Ready at midnight');
+ usePlot(s,0);info=cropStatus(s,0);assert.equal(info.care.length,1);assert.equal(info.care[0].label,'Watered today');assert.equal(info.condition,'Watered today');assert.equal(info.next,'Next stage at midnight');
  restUntilEvening(s);assert.equal(cropStatus(s,0).need,'');assert.deepEqual(cropStatus(validate(s),0),info);nextDay(s);
+ info=cropStatus(s,0);assert.equal(info.remaining,2);assert.equal(info.ready,false);for(let n=0;n<2;n++){usePlot(s,0);nextDay(s);}
  info=cropStatus(s,0);assert.equal(info.timer,'Ready to harvest');assert.equal(info.progress,1);s.selected='harvest';usePlot(s,0);assert.equal(cropStatus(s,0),null);
 });
 

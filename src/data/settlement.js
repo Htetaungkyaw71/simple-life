@@ -1,0 +1,24 @@
+// Original recipes, requests and communal projects. Existing local art is reused.
+export const ORDERS=[
+ {id:'rowan-timber',resident:'rowan',name:'Rowan',purpose:'Timber for a garden bench',cost:{wood:12},coins:80,seed:'seed',seeds:2},
+ {id:'june-stones',resident:'city-june',name:'June',purpose:'Stones for a flower border',cost:{stone:8},coins:90,seed:'carrotSeed',seeds:2},
+ {id:'bea-planters',resident:'city-bea',name:'Bea',purpose:'Materials for new planters',cost:{wood:8,stone:6},coins:120,seed:'strawberrySeed',seeds:2},
+ {id:'tomas-paving',resident:'city-tomas',name:'Tomas',purpose:'Repair the garden paving',cost:{stone:12},coins:110,seed:'cucumberSeed',seeds:2},
+ {id:'ira-fencing',resident:'city-ira',name:'Ira',purpose:'Wood for flowerbed fencing',cost:{wood:16},coins:100,seed:'chiliSeed',seeds:3},
+ {id:'sol-garden',resident:'city-sol',name:'Sol',purpose:'Restore a quiet garden corner',cost:{wood:10,stone:10},coins:150,seed:'blueberrySeed',seeds:2},
+];
+export const PROJECTS=[
+ {id:'commons',name:'Commons seating',description:'Build a leafy bench corner in the garden commons.',cost:{wood:24,stone:12},coins:180,seed:'grapeSeed',seeds:2,x:1440,y:880,props:[['bench',1408,816],['planter',1352,836],['planter',1496,836],['flowers2',1352,820],['flowers2',1496,820]]},
+ {id:'flowerCourt',name:'Flower court',description:'Plant a welcoming flower court east of the square.',cost:{wood:18,stone:24},coins:220,seed:'watermelonSeed',seeds:2,x:2056,y:880,props:[['planter',1984,800],['planter',2080,800],['flowers2',1984,784],['flowers2',2080,784],['bench',2024,864]]},
+ {id:'picnic',name:'Picnic garden',description:'Add seating and flowers beside the picnic camp.',cost:{wood:36,stone:16},coins:250,seed:'pumpkinSeed',seeds:2,x:1440,y:1208,props:[['bench',1376,1184],['bench',1488,1184],['planter',1448,1148],['flowers2',1448,1132]]},
+];
+export const DECORATIONS={
+ bench:{name:'Garden bench',item:'benchDecor',icon:'wood-item',frame:'bench',w:64,h:40,box:[-32,-18,64,18],cost:{wood:8,stone:2}},
+ planter:{name:'Flower planter',item:'planterDecor',icon:'grass-item',frame:'planter',w:32,h:32,box:[-12,-14,24,14],cost:{wood:4,stone:2}},
+ fence:{name:'Wood fence',item:'fenceDecor',icon:'wood-item',frame:'fence',w:32,h:32,box:[-8,-20,16,20],cost:{wood:3}},
+ path:{name:'Stone path',item:'pathDecor',icon:'stone-item',frame:null,w:48,h:48,box:null,cost:{stone:2}},
+};
+export const STOVE_COST={wood:20,stone:16};
+export const GRILL_COST={meat:1,wood:1};
+export const MAX_DECORATIONS=96;
+export const freshSettlement=()=>({projects:[],orders:{day:1,completed:[]},stove:false,decorations:[]});

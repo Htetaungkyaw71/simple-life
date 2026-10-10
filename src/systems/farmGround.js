@@ -10,12 +10,14 @@ import {usePlot} from './farming.js';
 import {CROPS} from '../data/crops.js';
 import {wateredToday,evaluateWatering,missed} from './watering.js';
 import {FARM_ENERGY} from '../data/energy.js';
+import {decorationBoxes,farmDecorations,decorationRect,overlaps} from './settlementGeometry.js';
 export const WET_DURATION=180000,MAX_CUSTOM_BEDS=2048,MAX_WET_PATCHES=256;
 export function openGround(area,x,y,dig=false,state=null){
  const map=Object.hasOwn(MAPS,area)?MAPS[area]:null;if(!map||area==='interior'||!Number.isFinite(x)||!Number.isFinite(y))return false;
  const size=map.size||MAP_SIZE,r=dig?24:8;
  if(x-r<32||y-r<32||x+r>size.width-32||y+r>size.height-32)return false;
- if(map.obstacles.some(box=>{const [bx,by,w,h]=box;return !cutObstacle(state,area,box)&&x+r>bx&&x-r<bx+w&&y+r>by&&y-r<by+h;}))return false;
+ if(area==='farm'&&farmDecorations(state||{}).some(d=>overlaps({x:x-r,y:y-r,w:r*2,h:r*2},decorationRect(d))))return false;
+ if([...map.obstacles,...decorationBoxes(state,area)].some(box=>{const [bx,by,w,h]=box;return !cutObstacle(state,area,box)&&x+r>bx&&x-r<bx+w&&y+r>by&&y-r<by+h;}))return false;
  if([[0,0],[-r,-r],[r,-r],[-r,r],[r,r]].some(([dx,dy])=>waterAt(map,{x:x+dx,y:y+dy},false)))return false;
  if(dig&&(area!=='farm'||map.paths.some(([bx,by,w,h])=>x+24>bx&&x-24<bx+w&&y+24>by&&y-24<by+h)))return false;
  return true;

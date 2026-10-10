@@ -12,7 +12,7 @@ export const CITY={
  buildings:[p('house',96,168),p('house-blue',1120,168),p('house-blue',96,816),p('house',928,816),p('house-blue',704,1120),p('house-green',256,1184),p('house',1376,304),p('house-green',2080,304),p('house-blue',2016,1152),p('house',2144,1488)],
  props:[p('seed-stall',352,160),p('produce-stall',816,160),p('city-fountain0',624,348,{animated:'fountain'}),p('road-sign',96,368,{text:'HOME',direction:4}),p('notice',1048,544),p('city-bench-garden',420,542),p('city-bench-garden',840,542),p('city-bench-garden',1460,544),p('city-bench-garden',2040,544),p('city-bench-garden',1456,1456),p('city-bench-garden',2008,1024),p('barrel',304,248),p('crate',304,288),p('crate',1000,248),p('barrel',1000,288),p('planter',328,304),p('planter',520,304),p('planter',792,304),p('planter',984,304),p('city-tent',1312,1384),p('city-tent',1520,1392),p('table',1488,1304),p('bench',1432,1296),p('bench',1560,1328),p('barrel',1352,1304),p('well',1664,788),p('notice',1680,1008)],
  fences:[[32,168,512,'h'],[720,168,512,'h'],[1280,168,384,'h'],[1872,168,608,'h']],
- signs:[{type:'aid',x:1080,y:608,label:'Read seed-aid board'},{x:1688,y:1064,label:'Read garden board',title:'Garden commons',body:'A little green space for everyone. Your farm is south of Home.'}],
+ signs:[{type:'aid',x:1080,y:608,label:'Read seed-aid board'},{type:'settlement',x:1688,y:1064,label:'Town board / orders and projects'}],
  extras:[]
 };
 for(const [x,y]of [[360,366],[992,366],[552,630],[752,630],[1280,376],[1656,376],[1920,376],[2400,376],[1312,586],[1656,586],[1912,586],[2376,586],[572,1104],[716,1480],[1712,944],[1848,1216],[1712,1552]])CITY.props.push(p('city-lamp',x,y));

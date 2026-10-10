@@ -1,10 +1,11 @@
 import {vegetationState} from '../data/vegetation.js';
+import {settlementCovers} from './SettlementView.js';
 // Only nearby grass owns Phaser sprites. Distant patches remain data, not display objects.
 export class GrassView {
  constructor(scene,map){this.scene=scene;this.active=new Map();this.pool=[];this.buckets=new Map();this.map=map;this.refresh();
  }
  refresh(){const map=this.map,v=vegetationState(this.scene.app.state);this.buckets.clear();this.total=(map.grass||[]).filter(g=>!v?.grass.includes(g.id)).length+(v?.placed.length||0);
-  for(const g of [...(map.grass||[]).filter(g=>!v?.grass.includes(g.id)),...(v?.placed||[])]){const k=Math.floor(g.x/256)+':'+Math.floor(g.y/256);if(!this.buckets.has(k))this.buckets.set(k,[]);this.buckets.get(k).push(g);}
+  for(const g of [...(map.grass||[]).filter(g=>!v?.grass.includes(g.id)),...(v?.placed||[])]){if(settlementCovers(this.scene.app.state,this.scene.worldArea,g.x,g.y))continue;const k=Math.floor(g.x/256)+':'+Math.floor(g.y/256);if(!this.buckets.has(k))this.buckets.set(k,[]);this.buckets.get(k).push(g);}
  }
  update(delta,p,airborne=false){
   const v=this.scene.cameras.main.worldView,wanted=new Map();

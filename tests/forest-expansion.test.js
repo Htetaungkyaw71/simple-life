@@ -9,10 +9,10 @@ import {terrainTiles} from '../src/art/terrainTiles.js';
 import {newState} from '../src/systems/state.js';
 import {validate} from '../src/systems/save.js';
 
-test('eastern extension doubles area while preserving the original region and entrance coordinates',()=>{
+test('eastern extension doubles area, preserves region coordinates and centres the entrance',()=>{
  assert.deepEqual(FOREST_SIZE,{width:10240,height:5120});
  assert.equal(FOREST_SIZE.width*FOREST_SIZE.height,2*5120*5120);
- assert.deepEqual(FOREST_ENTRANCE,{x:640,y:4848});
+ assert.deepEqual(FOREST_ENTRANCE,{x:FOREST_SIZE.width/2,y:4848});
  const original=['frost','highland','basalt','pride','bamboo','leopard','tiger','cheetah','guava','rhino','elephant','herds','jaguar','wolf','hyena','brush','entrance','river','canopy','snake'];
  original.forEach((id,i)=>assert.deepEqual([REGIONS[i].id,REGIONS[i].x,REGIONS[i].y],[id,(i%4)*1280,Math.floor(i/4)*1024]));
  for(let y=512;y<5120;y+=1024)for(let x=640;x<10240;x+=1280)assert.equal(REGIONS.filter(r=>x>=r.x&&x<r.x+r.w&&y>=r.y&&y<r.y+r.h).length,1);

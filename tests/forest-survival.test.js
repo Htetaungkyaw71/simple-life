@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {newState} from '../src/systems/state.js';
 import {validate,SaveService} from '../src/systems/save.js';
 import {LOCATIONS,EDGE_TRAVEL,edgeTravel,readyEdgeTravel,walkable,nearestSafe} from '../src/data/locations.js';
-import {FORAGE_NODES,BOAR_HOME} from '../src/data/forest.js';
+import {FORAGE_NODES,BOAR_HOME,FOREST_ENTRANCE,FOREST_SIZE,FOREST_MAP} from '../src/data/forest.js';
+import {waterAt} from '../src/data/water.js';
 import {FOODS,FOOD_IDS} from '../src/data/items.js';
 import {MAPS} from '../src/data/mapLayouts.js';
 import {collectForage,eatFood,recoverStash,refreshForest,lineClear,inTerritory} from '../src/systems/forest.js';
@@ -21,6 +22,19 @@ test('forest edges cover the whole north/south road, with safe inward spawns and
   assert.ok(walkable(edge.to,edge.spawn.x,edge.spawn.y));assert.equal(edgeTravel({area:edge.to,position:edge.spawn}),null);
  }
  const old=newState();old.position={x:720,y:80};assert.equal(edgeTravel(old),null);
+});
+test('Forest entrance, exit opening and grassy approach share the bottom-centre route',()=>{
+ const edge=EDGE_TRAVEL.forest;
+ assert.equal(edge.zone[0]+edge.zone[2]/2,FOREST_SIZE.width/2);
+ assert.equal(edge.zone[1]+edge.zone[3],FOREST_SIZE.height);
+ assert.deepEqual(LOCATIONS.forest.spawn,FOREST_ENTRANCE);
+ assert.deepEqual(EDGE_TRAVEL.homeForest.spawn,FOREST_ENTRANCE);
+ // Walk the entire gate width and its junction with the eastern crossway.
+ for(let y=4720;y<=5104;y+=16)for(let dx=-32;dx<=32;dx+=16){const p={x:FOREST_ENTRANCE.x+dx,y};assert.ok(walkable('forest',p.x,p.y),JSON.stringify(p));assert.equal(waterAt(FOREST_MAP,p),false);}
+ for(let x=FOREST_ENTRANCE.x;x<=5584;x+=16)assert.ok(walkable('forest',x,4752),String(x));
+ assert.equal(edgeTravel({area:'forest',position:{x:640,y:5104}}),null,'old southwest edge no longer travels');
+ const legacy=Object.assign(newState(),{area:'forest',position:{x:640,y:4848},money:317});legacy.inventory.wood=12;legacy.inventory.stone=8;
+ const saved=validate(legacy);assert.deepEqual(saved.position,legacy.position);assert.equal(saved.money,317);assert.equal(saved.inventory.wood,12);assert.equal(saved.inventory.stone,8);
 });
 test('forest solid trees, rocks, log and landmark share collision and safe position repair',()=>{
  for(const [x,y,w,h]of MAPS.forest.obstacles)assert.equal(walkable('forest',x+w/2,y+h/2,0),false);
@@ -87,6 +101,6 @@ test('stash survives sleep, day rollover, save/reload; recovery is atomic and se
  s.area='forest';s.money=0;defeat(s);assert.equal(s.stash,null);
 });
 test('schema 1–7 migration preserves existing progress and schema 9 repairs malformed forest fields',()=>{
- for(let version=1;version<=7;version++){const raw=newState('girl');Object.assign(raw,{version,day:8,minute:version<7?960:120,money:432,health:63,energy:44,marketSeed:9831,selectedCrop:'corn',hasVisitedCity:true});raw.inventory.tomato=5;raw.plots[0]={...raw.plots[0],crop:'tomato',growth:2,morning:true};delete raw.forest;delete raw.ownsClub;const s=validate(raw);assert.equal(s.version,13);for(const k of ['character','day','minute','money','health','energy','marketSeed','selectedCrop','hasVisitedCity'])assert.deepEqual(s[k],raw[k]);assert.equal(s.inventory.tomato,5);assert.equal(s.plots[0].growth,1);assert.ok(!Object.hasOwn(s,'ownsClub'));assert.equal(s.stash,null);assert.deepEqual(s.forest.collected,[]);}
+ for(let version=1;version<=7;version++){const raw=newState('girl');Object.assign(raw,{version,day:8,minute:version<7?960:120,money:432,health:63,energy:44,marketSeed:9831,selectedCrop:'corn',hasVisitedCity:true});raw.inventory.tomato=5;raw.plots[0]={...raw.plots[0],crop:'tomato',growth:2,morning:true};delete raw.forest;delete raw.ownsClub;const s=validate(raw);assert.equal(s.version,14);for(const k of ['character','day','minute','money','health','energy','marketSeed','selectedCrop','hasVisitedCity'])assert.deepEqual(s[k],raw[k]);assert.equal(s.inventory.tomato,5);assert.equal(s.plots[0].growth,3);assert.ok(!Object.hasOwn(s,'ownsClub'));assert.equal(s.stash,null);assert.deepEqual(s.forest.collected,[]);}
  const raw=forest();raw.ownsClub=true;raw.clubEquipped=true;raw.inventory.mango=2;raw.forest.boar.health=1;raw.stash={area:'forest',x:150,y:4596,coins:42};const loaded=validate(raw);assert.equal(loaded.inventory.mango,2);assert.ok(!Object.hasOwn(loaded,'clubEquipped'));assert.equal(loaded.forest.boar.health,1);assert.ok(walkable('forest',loaded.stash.x,loaded.stash.y));raw.stash.coins=-4;assert.equal(validate(raw).stash,null);
 });

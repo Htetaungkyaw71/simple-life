@@ -26,5 +26,5 @@ test('new scenery only relocates unsafe legacy positions, preserving progress',a
  assert.equal(walkable('farm',160,190),false);const loaded=validate(legacy);assert.ok(walkable(loaded.area,loaded.position.x,loaded.position.y));assert.ok(Math.hypot(loaded.position.x-160,loaded.position.y-190)<96);
  for(const key of ['character','day','money','energy','sold'])assert.deepEqual(loaded[key],legacy[key]);
  for(const [key,value]of Object.entries(legacy.inventory))assert.equal(loaded.inventory[key],value);
- assert.equal(loaded.plots[0].crop,'tomato');assert.equal(loaded.plots[0].growth,1);assert.equal(loaded.plots[0].wateredDay,8);
+ assert.equal(loaded.plots[0].crop,'tomato');assert.equal(loaded.plots[0].growth,3);assert.equal(loaded.plots[0].wateredDay,8);
 });

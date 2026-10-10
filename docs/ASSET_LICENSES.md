@@ -1,3 +1,9 @@
+# v0.13.0 — reused local resource art and original pixel graphics
+
+Town/Farm furniture and flowers reuse the current credited local town atlas (bench, planter, fence, post, flowers2). Grilled Meat reuses the existing original meat-item icon; stove pan and paving are original Phaser pixel graphics in src/art/SettlementView.js. No download, image generation, dependency or atlas change. The existing eight-file runtime asset allowlist is unchanged; archives/QA evidence remain excluded. Existing creator terms and competition/publication qualifications remain unchanged. Evidence: [resource source record](assets/licenses/resource-projects.md).
+
+---
+
 # v0.12.0 — no new assets
 
 Daily-care/farm/club changes use original gameplay/UI code and existing credited sprites. No download, asset regeneration, sprite transformation or new dependency. Club/stall cells remain unused in the existing atlas for source reproducibility; no club or club stall is rendered or selectable. The eight-file runtime allowlist remains unchanged; vendor archives and QA images are excluded from dist. Existing creator/licence evidence and publication limitations remain.

@@ -1,3 +1,15 @@
+# v0.13.0 — care over several days and uses for materials
+
+Water once per calendar day. New crops need 3–6 watered days, earning one stage at midnight after each cared-for day; repeated same-day watering never accelerates growth or spends more energy. Three days: Tomato, Carrot, Chili, Cucumber, Sweet Potato. Four: Strawberry, Corn, Eggplant, Blueberry. Five: Watermelon, Grape. Six: Pumpkin. Existing yield/prices remain. Missing one/two days pauses growth; the third missed day offers Recovering and rescue; the fourth kills the crop. Already-ripe old crops remain harvestable on migration.
+
+Town board (Garden noticeboard) offers three deterministic requests per day from six residents. Deliver 8–16 Wood/Stone or mixed bundles for 80–150 coins and 2–3 seeds. Only active requests complete, once each day. Requesting residents also expose a Daily request conversation choice. The three one-time communal projects cost Wood/Stone, add benches/flower planters visibly in existing gardens, and grant 180–250 coins plus two seeds. Roads and NPC routes remain open.
+
+Farm board / Build decorations or Bag / Gear / Wood or Stone / Uses opens four recipes: bench 8 Wood+2 Stone; flower planter 4 Wood+2 Stone; fence 3 Wood; stone paving 2 Stone. Build -> Place -> tap clear Farm grass nearby (E places in front). Bag / Gear also selects a built decoration. Buildings, roads, water, beds and existing furniture are protected. Hand packs up furniture/paving for free moving, retaining the item in the bag. Up to 96 placed pieces across owned farms. Construction and placement consume no elapsed energy; ordinary farming costs remain 1 EP.
+
+Home hearth / E or tap opens cooking. Build a stove for 20 Wood+16 Stone once. Each Grilled Meat uses 1 Meat+1 Wood. Eat through Bag / Food: +50 HP, +35 EP capped at 100 independently, consume only when something can restore. Cooked food can also sell through the existing City market. This creates a loop from forest materials -> useful rewards/furniture -> food for longer exploration without adding unrelated systems.
+
+---
+
 # v0.12.0 — daily crop care, three farms and Axe-only combat
 
 Water a growing plant once at any hour of each calendar day. One watering earns its growth at midnight, and repeated watering of the same plant that day consumes neither energy nor additional care. Empty ground can still be wetted for 1 EP; cosmetic moisture remains separate and dries after three active minutes or sleep. One or two fully missed days leave a dry, living plant with paused growth. Three missed days show Recovering and a water-to-recover warning. Water resets the missed-day streak immediately and permits growth at the next midnight. Four consecutive missed days kill the crop; clear it with Harvest. Ripe crops retain the established harvest-waiting exemption.

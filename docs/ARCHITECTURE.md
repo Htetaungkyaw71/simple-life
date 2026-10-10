@@ -1,3 +1,17 @@
+# v0.13.0 — data-driven resource systems
+
+src/data/settlement.js holds original request/project/recipe definitions and default progress. src/systems/settlement.js performs pure atomic material/reward, build/cook/place/pack transactions; settlementGeometry.js shares per-farm furniture footprints with walkability, collision and ground placement. save.js migrates crop maturity separately from care and validates bounded resource records. time.js resets daily completion at midnight.
+
+ResourcePanel uses the established paused Phaser modal, input gate, keyboard focus and touch buttons with small pages. Town noticeboard/NPC conversations, FarmOffice and Bag route to it; Home hearth anchors update with responsive interiors. main.js saves each transaction and rebuilds scenery/collision after visible changes. SettlementView reuses existing atlas objects plus original procedural paving and hearth pan; GrassView/world details suppress cover beneath added scenery without mutating map/grass records. No DOM HUD, backend, remote asset or extra renderer/dependency. Tests cover transactions, maturity, migration, geometry, per-farm collision and compact menu bounds.
+
+---
+
+# v0.12.1 — shared Forest entrance data
+
+forestBounds.js owns size, bottom-centre entrance, southern exit zone and approach reservation rectangles. forest.js reexports the established size/entrance names and uses those reservations during foliage/terrain placement; locations.js and forestLandmarks.js consume the same definitions for Home edge travel and central teleport. WildernessMap marks the Home exit at the southern centre. Existing world rendering, pure systems, schema 13 and local resource/discovery identities remain.
+
+---
+
 # v0.12.0 — calendar-day care and retired club
 
 watering.js uses wateredDay, missedDays and lastEvaluatedDay; its evaluator settles completed days and never the current incomplete day. farming.js records one watering and grows only plots whose current day has not already settled, including all custom beds. time.js still owns midnight, sleep and daily Forest/market refresh. cropStatus derives a read-only projection, and FarmView/CropInfo/context/help share daily labels and the three/four-day thresholds. farmGround rejects repeat plant watering before energy/soil mutation while retaining cosmetic watering elsewhere.

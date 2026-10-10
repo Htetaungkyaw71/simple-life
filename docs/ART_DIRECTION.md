@@ -1,3 +1,9 @@
+# v0.13.0 — resource scenery
+
+Reuse existing local pixel benches, fence pieces, flower planters, post markers and native flower frames for communal projects/Farm furniture. Stone paving uses original warm-grey 3x3 pixel stones with light top rims and darker seams; the installed hearth receives an original dark pan and warm cooked-meat pixels. The original source is src/art/SettlementView.js. Keep native nearest-neighbour scaling, foot-based depth and open streets. Suppress underlying grass where new scenery sits. The cooked food reuses the existing meat icon with a clear Grilled Meat label and restoration details in the bag. No screenshot pixels, new vendor download, new texture file or runtime remote media.
+
+---
+
 # v0.12.0 — daily care UI and retired item
 
 Retain the cream/olive canvas theme, native scale and existing crop art. Care information has one Daily row, water-drop markers for uncared living crops, red warnings for third-day Recovering/dead crops and harvest markers for ripe plants. Compact layouts retain readable contextual recovery/water labels; the larger crop detail card hides when it would overlap the farmer/plant. Gear uses the existing Axe icon and omits the club. Remove the club stall from City composition; Rowan and his home remain. No new or regenerated artwork is introduced.

@@ -1,3 +1,15 @@
+# Save schema 14 — longer crop care and resource progression, v0.13.0
+
+Storage key remains simple-life.save.v1. Accept schemas 1–14. New crop durations are 3–6 watered calendar days. A schema 1–13 plot already at its former one/two-day maturity remains ripe at the new duration; a still-growing plot keeps its actually earned care days and now needs the remaining new days. Death/care history remains under schema-13 daily rules. Schema-14 reload never promotes a growing plant early. Old inventory, economy, fields/farms, custom beds, vegetation, Forest/animal/treasure/discovery/Stash Bag progress and testing-gift marker retain established migration. Club refunds remain restricted to source schemas below 13, never replaying in 13/14.
+
+New inventory keys grilledMeat, benchDecor, planterDecor, fenceDecor, pathDecor use the existing 0–9999 integer limits. Grilled Meat appends after all old sale IDs, retaining old market salts. selected accepts decorate; selectedDecoration is a known bench/planter/fence/path ID (default bench).
+
+settlement stores projects (unique known completed IDs), stove (strict boolean), orders {day,completed} (unique known active request IDs for the current day), and decorations [{type,farm,x,y}] (at most 96 total, known type/owned farm, integer grid-8 coordinates, legal full footprint). Midnight resets current daily request completion once; returning/reloading cannot replay current rewards. Old-day/future/unknown requests are dropped. Requests and projects verify materials and reward capacity before any atomic stock/reward mutation; repeated completion is refused.
+
+Decoration restore follows vegetation and beds, checks bounds, dry ground, roads, solids and bed/decoration spacing, and reconstructs only bounded known fields. Physical furniture blocks movement/digging/grass placement; paving stays walkable but cannot be dug or replanted over. Per-farm layout/collision follows currentFarm. Hand packing returns one built item with capacity validation and removes its record atomically. Final safe-position repair avoids restored furniture trapping the farmer. Stove build and cooking use the same immediate local save flow. No offline growth or new remote storage.
+
+---
+
 # Save schema 13 — daily watering and retired Wooden Club, v0.12.0
 
 Storage key remains simple-life.save.v1. Growing plots persist crop/growth plus wateredDay (0 or the last cared-for day), missedDays (0–4), lastEvaluatedDay (the last completed day), optional plantedDay/plantedMinute and recoveredDay. No morning/evening flags, missedWindows, lastEvaluatedWindow or recoveredWindow enter new plot records. New planting sets lastEvaluatedDay=day-1; midnight evaluates the current finishing day before incrementing day. Cursors prevent duplicate missed days and growth. Save validation bounds day tags and never evaluates an unfinished day. No offline simulation.

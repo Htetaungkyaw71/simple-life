@@ -1,6 +1,6 @@
 // Pure native-pixel layouts shared by the canvas renderer and bounds checks.
 export function hudLayout(u,forest,armed,selected='shovel'){
- const utility=['shovel','axe','hand','grass'].includes(selected)?selected:'shovel';
+ const utility=['shovel','axe','hand','grass','decorate'].includes(selected)?selected:'shovel';
  const ids=[...(forest?['water',...(utility==='axe'?[]:[utility])]:['seed','water','harvest',...(utility==='axe'?[]:[utility])]),'bag',...(forest?['map']:[]),'pause'];
  const short=u.touch&&u.w>u.h,left=(u.safe.left||0)+(short?84:6),right=u.w-(u.safe.right||0)-(short?46:6),gap=2;
  const cell=Math.min(32,Math.floor((right-left-gap*(ids.length-1))/ids.length));

@@ -1,4 +1,5 @@
 import {vegetationContext} from './vegetation.js';
+import {decorationContext} from './settlement.js';
 import {huntContext} from './combat.js';
 import {stoneContext} from './resources.js';
 import {groundPoint,openGround} from './farmGround.js';
@@ -23,6 +24,7 @@ export function plotPrompt(state,plot){
 }
 export function contextFor(state,targetPlot=null,direction='down',targetGround=null){
  if(!state)return null;
+ const decoration=decorationContext(state,targetGround,direction);if(decoration)return decoration;
  const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
  if(state.area==='forest'&&(state.selected==='hand'||targetGround)){const stone=stoneContext(state,targetGround);if(stone)return stone;}
  const vegetation=vegetationContext(state,direction,targetGround);if(vegetation)return vegetation;

@@ -14,6 +14,7 @@ import {MAPS} from '../data/mapLayouts.js';
 import {terrain} from './Terrain.js';
 import {forestTexture} from './forestPalette.js';
 import {drawBridge} from './BridgeView.js';
+import {drawSettlement,settlementCovers} from './SettlementView.js';
 const SCALE=2;
 export function image(scene,name,x,y,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.image(Math.round(x),Math.round(y),atlas,name).setOrigin(0).setScale(scene.artScale||SCALE).setDepth(depth);}
 function tiled(scene,name,x,y,w,h,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.tileSprite(x,y,w,h,atlas,name).setOrigin(0).setTileScale(scene.artScale||SCALE).setDepth(depth);}
@@ -69,6 +70,7 @@ export function drawWorld(scene,area){
  scene.worldArea=area;scene.vegetationVisuals=new Map();scene.roadSigns=[];scene.merchants=[];scene.shopLabels=[];scene.farmSigns=[];scene.artScale=2;const map=MAPS[area];scene.water=[];scene.fountains=[];scene.plants=[];scene.canopies=[];scene.doors=[];
  if(area!=='interior')terrain(scene,area,map);
  for(const p of map.details){
+  if(settlementCovers(scene.app.state,area,p.x+16,p.y+32))continue;
   const node=VEGETATION[area].byProp.get(p);if(node&&removed(scene.app.state,node.id))continue;
   if(area==='forest'&&p.name==='dry-grass'&&Math.floor(p.x+p.y)%5===0){
    const sprite=scene.add.image(p.x+16,p.y+32,'town',Math.floor(p.x)%2?'env-agave':'env-dry-plant').setOrigin(.5,1).setScale(1).setDepth(0);if(node)scene.vegetationVisuals.set(node.id,[sprite]);
@@ -95,6 +97,7 @@ export function drawWorld(scene,area){
 
  if(area==='forest')for(const b of BRIDGES)drawBridge(scene,b);
  for(const p of [...map.buildings,...map.props])object(scene,p);
+ drawSettlement(scene,area);
 
  for(const sign of map.signs)if(sign.type!=='aid'&&!map.props.some(p=>Math.hypot(p.x-sign.x,p.y-sign.y)<70))image(scene,'sign',sign.x-16,sign.y-40,sign.y);
 }

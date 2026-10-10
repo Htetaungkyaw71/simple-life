@@ -1,3 +1,19 @@
+# v0.13.0 — crop care and resource progression
+
+npm test: **208 passed**. npm run build: success. Native Chromium desktop/portrait/landscape verified controls -> gameplay -> local save -> visible scene/stat/inventory response, using an isolated fixture origin and read-only QA DOM attributes. Orders/projects reject repeat rewards and show saved changes; Farm decorations craft/place/block/pack, stone paving reloads; hearth build/cook/food eat yields capped gains and persists. First watering leaves Tomato unripe next day; third care midnight ripens it; world harvest yields two fruit; Pumpkin shows six-day duration. Existing daily/drought/farm/save/forest/movement rules remain covered by regression. No browser warnings/errors. Evidence/actual checks and screenshots: docs/verification/resource-projects. Normal save was refreshed/continued/paused, QA origin/tab/server removed, viewport reset. Physical mobile/non-Chromium not tested.
+
+---
+
+# v0.12.1 — bottom-centre Forest entrance, 2026-10-10
+
+Complete: Home's north edge enters Forest at (5120, 4848), the full 10240-wide map's centre. The Home exit occupies x=5072–5168 on the bottom boundary. The central Return Gate shares the new spawn instead of a separate southwest coordinate. Natural grassy approach masks join the eastern crossway, and full tree canopies/scenery/cliff faces stay clear. The old southwest edge no longer travels. HOME signs/clues point toward the new southern centre, and the Forest map labels its Home exit even before full exploration. The phone label sits below the map to avoid habitat text.
+
+Checks: npm test 199/199; npm run build (106 modules); git diff --check clean. Native Chromium at 1280×720: Home → centre-bottom Forest, south exit → Home, central Return Gate → new entrance, full/explored map marker, fixture-free save/Continue after returning Home. At 360×640: map bounds/buttons and Home label remain visible. No isolated browser warning/error logs. Eight allowlisted art files and twelve total dist files; no new art/dependencies/downloads. The final local game on 4175 was refreshed and the user's existing save continued, then paused; no fixtures or repeated test gift touched that origin.
+
+Evidence/reproduction: docs/verification/forest-entrance/README.md. Version 0.12.1 keeps schema 13, legacy safe positions, discovery/resource/cache IDs, farming/time/loot/recovery and local saves. There are now 2,832 trees after opening the approach; 240 stone piles remain. Wood/stone uses are proposals only, with no crafting/projects/upgrades implemented. Physical phones and other browser engines remain unverified. No push/publication/submission.
+
+---
+
 # v0.12.0 — daily watering, three farms and club removal, 2026-10-10
 
 Complete: one watering at any hour per calendar day, repeat watering without extra EP, daily midnight growth across farms/custom beds, alive after two misses, Recovering after three (revivable), dead after four. Farm Board → Buy / visit farms buys second/third farms for 600/1,200 coins without field prerequisites and stops at three. Wooden Club bag/shop/combat/stall are removed; Rowan stays a resident. Schema 13 accepts schemas 1–12, translates old watering, preserves purchased land/crops and returns old club value once. Prior owned farms beyond three are retained, with no further purchases. Existing gift marker, Forest species/loot/resources, food, sleep, local saves and Stash recovery remain.

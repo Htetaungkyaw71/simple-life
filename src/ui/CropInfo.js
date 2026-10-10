@@ -14,7 +14,7 @@ export class CropInfo {
  update(s,c){
   const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(!!info);if(!info)return;
   this.crop.setTexture('town',info.icon);this.name.setText(info.name);this.stage.setText(`${info.stageName} / ${info.stage}/${info.stages}`);
-  const narrow=this.w<=130,timer=narrow?(info.dead?'Dead / clear':info.ready?'Ready to harvest':info.paused?'Paused / water':`Harvest / ${info.remaining} care nights`):info.timer;
+  const narrow=this.w<=130,timer=narrow?(info.dead?'Dead / clear':info.ready?'Ready to harvest':info.paused?'Paused / water':`Harvest / ${info.remaining} watered days`):info.timer;
   this.timer.setFontSize(7).setText(timer);if(this.timer.width>this.w-25)this.timer.setFontSize(6);
   const condition=info.recovering?'Recovering / water':narrow&&info.condition==='Newly planted'?'New / water':info.condition;this.condition.setText(condition);
   this.am.setText('Daily / '+info.care[0].label);this.pm.setText('');

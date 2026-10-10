@@ -1,6 +1,6 @@
 import {FOREST_PORTAL} from '../data/forestLandmarks.js';
 import {HABITATS,forestHabitat} from '../data/forestHabitats.js';
-import {REGIONS,forestRegion,TREASURES,FOREST_SIZE,FOREST_MAP} from '../data/forest.js';
+import {REGIONS,forestRegion,TREASURES,FOREST_SIZE,FOREST_MAP,FOREST_ENTRANCE} from '../data/forest.js';
 import {forestMapPixels,mapPoint} from './forestMapArt.js';
 import {facingIndex,mapLayout} from './layouts.js';
 import {pixels,pixelArrow} from './statusArt.js';
@@ -30,6 +30,8 @@ export class WildernessMap {
    text(u,u.root,p.x,p.y,habitat.name,5,UI_COLORS.ink,Math.max(36,mw/4)).setOrigin(.5,.5);
   }
   if(this.app.state.forest.explored.includes(forestRegion(FOREST_PORTAL).id)){const p=mapPoint(FOREST_PORTAL,rect,FOREST_SIZE);g.lineStyle(1,0x4f7d6c).strokeRect(p.x-3,p.y-3,6,6);text(u,u.root,p.x,p.y+5,'Gate',5,UI_COLORS.ink).setOrigin(.5,0);}
+  const exit=mapPoint({x:FOREST_ENTRANCE.x,y:FOREST_SIZE.height},rect,FOREST_SIZE);
+  pixelArrow(g,2,exit.x,exit.y-7,UI_COLORS.wood);text(u,u.root,exit.x+9,exit.y+3,'Home',5,UI_COLORS.ink);
   const player=mapPoint(this.app.state.position,rect,FOREST_SIZE),facing=this.app.scene.player?.direction||'down';
   pixelArrow(g,facingIndex[facing],player.x+1,player.y+1,UI_COLORS.ink);pixelArrow(g,facingIndex[facing],player.x,player.y,0xfff5cc);
   text(u,u.root,rect.x+mw-9,rect.y+5,'N',6,UI_COLORS.wood);pixelArrow(g,6,rect.x+mw-8,rect.y+17,UI_COLORS.wood);

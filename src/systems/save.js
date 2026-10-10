@@ -10,7 +10,9 @@ import {SAVE_FARM_LIMIT,PLOTS_PER_FARM} from '../data/farms.js';
 import {newFarm,plotOwned} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
 import {ROOM} from '../data/interior.js';
-import { CROPS,INVENTORY_KEYS } from '../data/crops.js';
+import { CROPS,INVENTORY_KEYS,LEGACY_GROWTH_DAYS } from '../data/crops.js';
+import {PROJECTS,DECORATIONS,MAX_DECORATIONS} from '../data/settlement.js';
+import {validDecoration,dailyOrders} from './settlement.js';
 import { SAVE_KEY, TOOLS } from '../config.js';
 import {FATIGUE_MINUTES} from '../data/energy.js';
 import { LOCATIONS, nearestSafe, walkable } from '../data/locations.js';
@@ -19,7 +21,7 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
@@ -49,8 +51,10 @@ export function validate(raw) {
   s.hasSoldProduce=raw.hasSoldProduce===true||raw.sold>0;
   s.lastRecoveryDay=number(raw.lastRecoveryDay,0,0,99999);
   for (const [key,min,max] of [['day',1,99999],['minute',0,1439],['money',0,9999999],['health',0,100],['energy',0,100],['sold',0,999999]]) s[key] = number(raw[key],s[key],min,max);
+  s.settlement.orders.day=s.day;
   s.fatigueMinutes=Number.isFinite(raw.fatigueMinutes)?Math.max(0,Math.min(FATIGUE_MINUTES-.000001,raw.fatigueMinutes)):0;
   s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
+  s.selectedDecoration=Object.hasOwn(DECORATIONS,raw.selectedDecoration)?raw.selectedDecoration:'bench';
   for (const key of INVENTORY_KEYS) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
   if(raw.version>=10){
     s.dugPlots=[...new Set(Array.isArray(raw.dugPlots)?raw.dugPlots:[])].filter(i=>Number.isInteger(i)&&i>=0&&i<s.plots.length&&openGround('farm',FARM_PLOTS[i%PLOTS_PER_FARM].x,FARM_PLOTS[i%PLOTS_PER_FARM].y,true,{...s,currentFarm:Math.floor(i/PLOTS_PER_FARM)}));
@@ -69,7 +73,9 @@ export function validate(raw) {
   const restorePlot=p=>{
     if(!p||!Object.hasOwn(CROPS,p.crop))return emptyPlot();
     const legacy=raw.version<13,oldMisses=number(p.missedWindows??p.dryDays,0,0,2);
-    const plot={crop:p.crop,growth:number(p.growth,0,0,CROPS[p.crop].growthDays),
+    // Honour already ripe legacy crops; growing plants retain their earned care days.
+    const growth=raw.version<14&&Number.isFinite(p.growth)&&p.growth>=LEGACY_GROWTH_DAYS[p.crop]?CROPS[p.crop].growthDays:number(p.growth,0,0,raw.version<14?LEGACY_GROWTH_DAYS[p.crop]:CROPS[p.crop].growthDays);
+    const plot={crop:p.crop,growth,
       wateredDay:legacy?(p.morning===true||p.evening===true?s.day:0):number(p.wateredDay,0,0,s.day),
       missedDays:legacy?(oldMisses>=2?4:p.morning===true||p.evening===true?0:oldMisses):number(p.missedDays,0,0,4),
       lastEvaluatedDay:legacy?s.day-1:number(p.lastEvaluatedDay,s.day-1,0,s.day-1)};
@@ -120,6 +126,14 @@ export function validate(raw) {
   s.forest.treasures=TREASURES.filter(t=>Array.isArray(raw.forest?.treasures)&&raw.forest.treasures.includes(t.id)).map(t=>t.id);
   const coins=number(raw.stash?.coins,0,0,9999999);
   if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(forestPosition(raw.stash),s),coins};
+  if(raw.version>=14&&raw.settlement&&typeof raw.settlement==='object'){
+    const progress=raw.settlement;s.settlement.orders={day:s.day,completed:[]};
+    s.settlement.projects=PROJECTS.filter(d=>Array.isArray(progress.projects)&&progress.projects.includes(d.id)).map(d=>d.id);
+    s.settlement.stove=progress.stove===true;
+    if(progress.orders?.day===s.day)s.settlement.orders={day:s.day,completed:dailyOrders(s).filter(d=>Array.isArray(progress.orders.completed)&&progress.orders.completed.includes(d.id)).map(d=>d.id)};
+    for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS))if(validDecoration(s,d))s.settlement.decorations.push({type:d.type,farm:d.farm,x:d.x,y:d.y});
+    s.position=nearestSafe(s.area,s.position,s);
+  }
   return s;
 }
 export class SaveService {

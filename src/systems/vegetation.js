@@ -4,9 +4,10 @@ import {MAPS,MAP_SIZE} from '../data/mapLayouts.js';
 import {waterAt,dryFootprint} from '../data/water.js';
 import {walkable} from '../data/locations.js';
 import {visiblePlots} from './expansion.js';
+import {farmDecorations,decorationRect,overlaps} from './settlementGeometry.js';
 export const MAX_PLACED_GRASS=2048;
 const face={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
-export function grassGround(s,p){const map=MAPS[s.area];if(!map||s.area==='interior'||!walkable(s.area,p.x,p.y,24,false,s)||waterAt(map,p,false)||!dryFootprint(map,{x:p.x-24,y:p.y-48,w:48,h:48}))return false;
+export function grassGround(s,p){if(s.area==='farm'&&farmDecorations(s).some(d=>overlaps({x:p.x-24,y:p.y-48,w:48,h:48},decorationRect(d),4)))return false;const map=MAPS[s.area];if(!map||s.area==='interior'||!walkable(s.area,p.x,p.y,24,false,s)||waterAt(map,p,false)||!dryFootprint(map,{x:p.x-24,y:p.y-48,w:48,h:48}))return false;
  if(map.paths.some(([x,y,w,h])=>p.x+16>x&&p.x-16<x+w&&p.y>y&&p.y-16<y+h))return false;
  return s.area!=='farm'||!visiblePlots(s).some(b=>Math.abs(b.x-p.x)<40&&Math.abs(b.y-p.y)<40);
 }

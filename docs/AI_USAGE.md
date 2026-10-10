@@ -1,3 +1,15 @@
+# v0.13.0 — crop care and explicitly authorized resource proposals
+
+OpenAI Codex assisted 3–6-watered-day crop definitions/stage descriptions, schema-14 maturity/progress migration, original costs/requests/project definitions, pure material/reward/construction/cooking/placement transactions, native canvas menus/bag/NPC/board/hearth integration, collision/grass cover, original procedural paving/hearth pan, documentation and regression tests. No image model, new download or dependency. Existing licensed atlas art is reused and credited separately. The verification skill guided controls -> pure gameplay/local save -> visible canvas checks on an isolated QA origin, leaving normal user progress untouched by fixtures. Testing covers atomic rewards, duplicates/overflow, multi-day care, drought preservation, furniture placement/packing and per-farm restore, cooking/healing and responsive bounds. No publishing, push or submission.
+
+---
+
+# v0.12.1 — Forest entry route correction
+
+OpenAI Codex assisted shared Forest bounds/entrance/exit data, centre-bottom placement masks, natural approach clearing, corrected HOME signage/map marker, and return-portal spawn reuse. It added route/old-exit/save-preservation checks and used native browser inputs plus read-only QA snapshots on an isolated local origin. 199 tests and build passed; evidence: docs/verification/forest-entrance. No new art, image generation, downloaded asset, remote runtime, dependency, crafting or resource progression. Wood/stone ideas remain proposals requiring separate implementation authorization. Physical devices/non-Chromium remain unverified. No push/publication/submission.
+
+---
+
 # v0.12.0 — daily care, farm purchases and club retirement
 
 OpenAI Codex assisted pure daily-care/growth logic, schema-13 progress migration, one-time retired purchase refund, three-farm coin purchase flow, bag/combat/shop removal, Rowan resident preservation and daily crop/UI/help labels. It updated relevant historical tests to the explicit new rules and added missed-day/recovery/idempotence/migration/purchase/cap/legacy-farm/commute tests. The verification skill guided native browser UI → pure gameplay/local save → canvas checks on an isolated origin; normal user progress was not replaced by fixtures. Existing source art is unchanged; no image model, external download, backend, remote runtime service, crafting or publication. 198 tests and production build passed; browser evidence is under docs/verification/daily-farms. Physical mobile and non-Chromium engines remain unverified.

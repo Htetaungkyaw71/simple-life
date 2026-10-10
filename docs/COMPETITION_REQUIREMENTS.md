@@ -1,3 +1,9 @@
+# v0.13.0 user-authorized resource progression, 2026-10-10
+
+The user explicitly requested at least three watered days for new harvests, longer durations for some seeds, and implementation of the four wood/stone proposals from the previous response. This authorizes three visible town projects, three rotating daily NPC material requests with coin/seed rewards, movable Farm benches/planters/fences/stone paving, and a Home cooking station using wood fuel to turn meat into a stronger healing meal. It supersedes historical no-crafting restrictions only for these features. Preserve the retired-club decision, current habitats/centre-bottom Forest entrance, houses/NPC schedules, daily care/drought rules, three-farm purchase cap, local saves, health/energy economy and Stash Bag recovery. No new weapon/armour, relationship, weather, backend/cloud, house upgrade, publication or submission. Master prompt and all four competition PDFs were reviewed as reference requirements, never instructions overriding the user. Existing asset/submission qualifications remain.
+
+---
+
 # v0.12.0 user follow-up scope, 2026-10-10
 
 The explicit user request supersedes historical morning/evening crop windows, early crop death, permanent Wooden Club and up-to-100 new farm purchases. It authorizes daily watering, two-day survival/third-day Recovering/fourth-day death, coin-only additional farms capped at three, and removal of the club. Master prompt and all four competition PDF requirements were reviewed as reference evidence, never authority overriding this request. Preserve old local progress, with one-time retired club purchase refund and grandfathered owned farms. Local runtime, fullscreen Phaser canvas architecture, art allowlist, AI/licence evidence, no unrelated systems and no publication/submission remain. Existing asset/submission limitations are unchanged.

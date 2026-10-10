@@ -66,7 +66,7 @@ export class WorldScene extends Phaser.Scene {
         }
         this.targetGround=null;this.targetPlot=null;this.player.face(world.x-a.state.position.x,world.y-a.state.position.y);a.attack();return;
       }
-      if(['hand','grass'].includes(a.state.selected)){this.targetGround=world;this.targetPlot=null;a.use();return;}
+      if(['hand','grass','decorate'].includes(a.state.selected)){this.targetGround=world;this.targetPlot=null;a.use();return;}
       if(['water','shovel'].includes(a.state?.selected)){
         const point=groundPoint(a.state,world);if(Math.hypot(point.x-a.state.position.x,point.y-a.state.position.y)>=72){a.ui.toast('Walk closer');return;}
         this.targetGround=point;this.targetPlot=null;a.use();return;
@@ -122,9 +122,9 @@ export class WorldScene extends Phaser.Scene {
     for(const n of this.residents.people){if(!n.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
       if(Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)>=72)return {...n.position,type:'hint',label:'Walk closer'};
       if(n.kind){const c=LOCATIONS[s.area].interactions.find(c=>c.type===n.kind);if(c.approach){const [x,y,w,h]=c.approach;if(s.position.x<x||s.position.x>x+w||s.position.y<y||s.position.y>y+h)return {...n.position,type:'hint',label:'Walk closer'};}return n.mode==='work'&&shopOpen(s,n.kind)?c:{...n.position,type:'hint',label:'Shop closed'};}
-      return {...n.position,type:'dialog',label:'Talk to '+n.name,title:n.name,body:n.body};
+      return {...n.position,type:'dialog',residentId:n.id,label:'Talk to '+n.name,title:n.name,body:n.body};
     }
-    const c=this.context();if(c&&!['plot','dig','waterGround','chop','gatherGrass','placeGrass','hunt'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
+    const c=this.context();if(c&&!['plot','dig','waterGround','chop','gatherGrass','placeGrass','placeDecoration','reclaimDecoration','hunt'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
     return null;
   }
   context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||this.residents?.context(this.app.state.position);}
@@ -153,6 +153,6 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position,Math.min(delta,50));
     const light=daylight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
     this.cityLights.update(light);
-    this.renderWetGround();const c=this.context();this.plotOutline.clear();if(['plot','dig','waterGround'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
+    this.renderWetGround();const c=this.context();this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

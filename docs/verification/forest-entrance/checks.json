@@ -1,0 +1,26 @@
+{
+  "version": "0.12.1",
+  "tests": 199,
+  "buildModules": 106,
+  "distFiles": 12,
+  "distBytes": 2352537,
+  "runtimeArt": [
+    "assets/pixel/world.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/font.png",
+    "assets/pixel/world.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/boy.png"
+  ],
+  "browserChecks": [
+    "Home to Forest x5120",
+    "Forest bottom-centre exit to Home",
+    "central return portal to x5120 y4848",
+    "desktop and phone Home map marker",
+    "fixture-free save/Continue"
+  ],
+  "isolatedWarningsErrors": [],
+  "physicalDeviceTested": false
+}

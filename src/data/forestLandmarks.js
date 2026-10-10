@@ -1,11 +1,12 @@
 import {forestHabitat} from './forestHabitats.js';
 import {dryFootprint} from './water.js';
+import {FOREST_ENTRANCE} from './forestBounds.js';
 export const FOREST_PORTAL={x:5120,y:2704,radius:30,clearing:156};
 // One-way return gate: walking into the central ring returns to the entrance.
 export function forestPortalTravel(state,now,ready){
  if(state?.area!=='forest'||now<ready)return null;
  return Math.hypot(state.position.x-FOREST_PORTAL.x,state.position.y-FOREST_PORTAL.y)<=FOREST_PORTAL.radius?
- {to:'forest',spawn:{x:640,y:4848},facing:'down',portal:true}:null;
+ {to:'forest',spawn:{...FOREST_ENTRANCE},facing:'down',portal:true}:null;
 }
 const objects=[['rocky-cave',164,192],['rocky-deer',194,240],['rocky-fox',82,122],['rocky-rock',154,108],['rocky-mushroom',88,100],['rocky-orange',54,58],['rocky-cairn',62,64]];
 export function addDarkLandmarks(map,protectedPlaces){

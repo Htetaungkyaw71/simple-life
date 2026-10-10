@@ -19,4 +19,6 @@ export const FOOD_IDS=Object.keys(FOODS);
 for(const food of Object.values(FOODS))food.healthRestored=Math.round(food.energyRestored*.4);
 export const MEAT={id:'meat',name:'Meat',sellPrice:16,energyRestored:20,healthRestored:25,icon:'meat-item'};
 FOODS.meat=MEAT;FOOD_IDS.push('meat');
+export const GRILLED_MEAT={id:'grilledMeat',name:'Grilled Meat',sellPrice:32,energyRestored:35,healthRestored:50,icon:'meat-item'};
+FOODS.grilledMeat=GRILLED_MEAT;FOOD_IDS.push('grilledMeat');
 export const AXE={energy:1,cooldown:500};

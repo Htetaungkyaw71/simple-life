@@ -1,6 +1,8 @@
 import {cutObstacle} from './vegetation.js';
 import {ledgeBlocked} from './forestGrowth.js';
 import {FOREST_ENTRANCE} from './forest.js';
+import {FOREST_EXIT} from './forestBounds.js';
+import {decorationBlocked} from '../systems/settlementGeometry.js';
 import {ROOM,configureRoom} from './interior.js';
 import {MAPS,MAP_SIZE} from './mapLayouts.js';
 import {HOUSE,houseSolids,pondRows} from './geometry.js';
@@ -15,6 +17,7 @@ export const LOCATIONS = {
  interior:{name:'Home',subtitle:'Inside the house',spawn:{...ROOM.spawn},interactions:[
   {type:'bed',...ROOM.bed,label:'Rest at the bed'},
   {type:'travel',...ROOM.exit,label:'Exit house',to:'home',spawn:{...HOUSE.exit},approach:[ROOM.width/2-24,ROOM.height-104,48,48]},
+  {type:'cooking',x:ROOM.width/2-64,y:144,label:'Cooking station / Home hearth'},
  ]},
  farm:{name:'Farm',subtitle:'The active field',spawn:{x:320,y:64},interactions:[
 
@@ -44,12 +47,12 @@ function candidates(area,x,y,r){
  if(!index){index=new Map();for(const box of map.obstacles){const [a,b,w,h]=box;for(let cy=Math.floor(b/128);cy<=Math.floor((b+h)/128);cy++)for(let cx=Math.floor(a/128);cx<=Math.floor((a+w)/128);cx++){const k=cx+":"+cy;if(!index.has(k))index.set(k,[]);index.get(k).push(box);}}spatial.set(map.obstacles,index);}
  const found=new Set();for(let cy=Math.floor((y-r)/128);cy<=Math.floor(y/128);cy++)for(let cx=Math.floor((x-r)/128);cx<=Math.floor((x+r)/128);cx++)for(const b of index.get(cx+":"+cy)||[])found.add(b);return [...found];
 }
-export function walkable(area,x,y,r=area==='interior'?6:12,ignoreLedges=false,state=null){return (ignoreLedges||!ledgeBlocked(MAPS[area]?.ledges||[],x,y,r))&&inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(box=>{const [ox,oy,ow,oh]=box;return !cutObstacle(state,area,box)&&x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh;});}
+export function walkable(area,x,y,r=area==='interior'?6:12,ignoreLedges=false,state=null){return !decorationBlocked(state,area,x,y,r)&&(ignoreLedges||!ledgeBlocked(MAPS[area]?.ledges||[],x,y,r))&&inBounds(area,x,y,r)&&(r===0||houseClearance(area,x,y))&&!candidates(area,x,y,r).some(box=>{const [ox,oy,ow,oh]=box;return !cutObstacle(state,area,box)&&x+r>ox&&x-r<ox+ow&&y>oy&&y-r<oy+oh;});}
 
 export const EDGE_TRAVEL={
  home:{zone:[448,1120,64,32],to:'farm',spawn:{x:320,y:64},facing:'down'},
  homeForest:{zone:[672,0,96,32],to:'forest',spawn:{...FOREST_ENTRANCE},facing:'up'},
- forest:{zone:[592,5088,96,32],to:'home',spawn:{x:720,y:64},facing:'down'},
+ forest:{zone:[...FOREST_EXIT],to:'home',spawn:{x:720,y:64},facing:'down'},
  homeCity:{zone:[2208,608,32,64],to:'city',spawn:{x:64,y:488},facing:'right'},
  city:{zone:[0,448,32,80],to:'home',spawn:{x:2176,y:640},facing:'left'},
  farm:{zone:[288,0,64,32],to:'home',spawn:{x:480,y:1088},facing:'up'}
@@ -69,6 +72,7 @@ export function syncInterior(width,height){
  const changed=configureRoom(width,height),room=LOCATIONS.interior;
  room.bounds=ROOM.bounds;room.spawn={...ROOM.spawn};
  Object.assign(room.interactions[0],ROOM.bed);Object.assign(room.interactions[1],ROOM.exit,{approach:[ROOM.width/2-24,ROOM.height-104,48,48]});
+  Object.assign(room.interactions[2],{x:ROOM.width/2-64,y:144});
  LOCATIONS.home.interactions[0].spawn={...ROOM.spawn};return changed;
 }
 
