@@ -1,3 +1,4 @@
+import {recordStory} from './story.js';
 import {CROPS,SALE_ITEMS} from '../data/crops.js';
 import {marketPrice} from './market.js';
 export const INVENTORY_LIMIT=9999,COIN_LIMIT=9999999;
@@ -20,7 +21,7 @@ export function buySeeds(s,id='tomato',quantity=1){
 }
 export function sellCrop(s,id='tomato',quantity='all'){
  const q=quote(s,'sell',id,quantity);if(!q.ok)return q.reason;
- s.inventory[id]-=q.quantity;s.money+=q.total;s.sold+=q.quantity;s.hasSoldProduce=true;
+ s.inventory[id]-=q.quantity;s.money+=q.total;s.sold+=q.quantity;s.hasSoldProduce=true;if(Object.hasOwn(CROPS,id)){recordStory(s,'sell');if(s.story)s.story.stats.sales+=q.quantity;}
  return `Sold ${q.quantity} ${SALE_ITEMS[id].name} for ${q.total} coins.`;
 }
 // Existing Farm board entry points continue to share the same safe transactions/prices.

@@ -1,3 +1,13 @@
+# v0.16.0 — story, original audio and targeted licence replacement (2026-10-10)
+
+Tool: OpenAI Codex (GPT-6-family coding agent; exact backend identifier unavailable). Purpose: implement the user's story/audio/competition-readiness milestone in the existing Phaser/Vite project. Material assistance covers data/pure story and schema-17 migration, original narrative/intro/Keepsake pixels, centralized Web Audio graph/preferences/crossfades/effect wiring, original MIDI phrases/finite-harmonic synthesis and six generated WAVs, eight independently drawn environment cells, night/BAG/mobile polish, tests, browser QA, licence research and documentation. Source: src/audio, src/data/story.js, src/systems/story.js, src/ui/{StoryPanel,AudioPanel,KeepsakeArt,readingGlyphs}.js, src/art/{HomeKeepsake,worldLight}.js, affected gameplay/UI modules, scripts/{generate-audio,audit-audio,original_environment_art,replace-uncertain-art}, tests/audio.test.js, tests/story.test.js and tests/browser. No image/audio generation service, external recording, commercial-game tune or screenshot-pixel extraction. Retained third-party creator artwork is separately credited; it was not fed into a model-training or generative-image pipeline.
+
+Agent code review, automated regression/waveform checks, isolated browser screenshots/input/audio lifecycle checks and natural fresh-save playthrough are documented in verification/story-audio. No subagent/cross-team collaboration. **Human listening, physical-device/non-Chromium review and final signed team declarations are pending**, not represented by automated tests or agent inspection. Competition requirements are references, not authorization to publish/submit. One requested local commit; no push/deploy/submission, no normal 4175 save access.
+
+The successful fresh browser benchmark used only keyboard/mouse inputs and read-only observations; navigation-driver failures were corrected and excluded from the final timing. The final 20:12 run used no recovery, save editing, state injection, teleport, grant or crop-growth shortcut. Numeric waveforms, headless transport and screenshots are disclosed as automated checks; human listening/device approval remains pending.
+
+---
+
 # v0.15.0 — adjustable placement and additional furniture, 2026-10-10
 
 OpenAI Codex assisted pure placement drafts/quotes, axis-aware geometry, original side/back furniture/picnic graphics, existing barrel/lamp reuse, confirmed-direction save migration, recipe paging, canvas ghost/actions, input routing and full-item Hand recovery targeting. No image-generation model, new external art/font/dependency, subagent or external messaging. Existing third-party pixels retain creator attribution separately.

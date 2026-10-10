@@ -1,3 +1,17 @@
+# v0.16.0 — story, original audio and competition audit
+
+Baseline ce6903a: 220 tests/build passed before edits. Final: **245 passing tests, zero failures**, **128 build modules**, **18 production files / 21,930,569 bytes**, git diff --check. Only eight uncertain atlas cells changed; 850 others, outside pixels, metadata and seven other art files are unchanged. Runtime MIT notices, eight art files and six local WAVs are audited; no archive/unused source pack/remote media enters production.
+
+Six scores, 55 synthesized effects/calls and three shared textures pass source waveform/DC/peak/RMS/frequency/silence/boundary checks; zero clipping. Canvas and WebGL retain one actual AudioContext through repeated Pause/Title/Continue, focus suspend/resume and settings reload. Canvas Title transport ran 120 seconds with one loop/no ambience. Actual touch Jump/Attack and audio controls passed. Separate denied-storage/unavailable-audio and both legacy mute fixtures survive without console errors. This is technical transport verification, not human listening.
+
+Chrome 154 at all seven required sizes (1440×900, 1280×720, 1024×768, 844×390, 640×360, 390×844, 360×640): intro, Journal, Audio, BAG, Pause and ending/statistics/Credits/Continue controls fit. Native screenshot review covers small landscape, portrait and night City/Forest. Production localhost/query cannot enable the gift; fresh starts with 60 coins. A schema-16 fixture retains 100,060 coins without inferring completion. All contexts are isolated on 4186; normal 4175 save untouched.
+
+Fresh natural story passed in **1,211.727 seconds / 20:12 wall time**, **1,197 seconds / 19:57 active**, day 4, one harvest/two Tomatoes sold/Commons/one boar/one key/zero deaths. Keyboard/mouse only with read-only observations; no injected/edited save, fixture, grant, teleport or growth skip. Three daily waterings used natural awake midnights; standard bed sleep can finish sooner. Placement, ending, continued world and reload persisted. Failed driver attempts are excluded; the successful run needed no recovery. Errors/warnings: none.
+
+Evidence/reproduction/limits: [verification/story-audio](verification/story-audio/README.md), including source waveform plots, runtime hashes, exact checks, browser records and final isolated natural save. Human two-minute Title/all-location/rapid-action/combat/ending listening and visual acceptance, physical mobile audio/touch/interruptions, other browser engines, slow-network load and final competition/rights/language review remain pending. No subjective audio approval or blanket eligibility certification is claimed.
+
+---
+
 # v0.15.0 — adjustable placement and furniture recovery
 
 220 tests pass; production build succeeds (120 modules, twelve files, eight unchanged art files). New regressions exercise all seven pieces in four directions, preview purity/no early stock spend, exact geometry, invalid/stale/cross-farm atomicity, cancellation, oriented collision/save restoration, legacy inventory/furniture, full-bag recovery and second workshop page/action sizes in seven viewports.

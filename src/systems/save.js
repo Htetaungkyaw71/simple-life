@@ -1,3 +1,4 @@
+import {restoreStory} from './story.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {testingCredit,TESTING_COIN_GRANT} from './testingCredit.js';
 import {grassGround,MAX_PLACED_GRASS} from './vegetation.js';
@@ -21,7 +22,7 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
@@ -138,13 +139,15 @@ export function validate(raw) {
     for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS)){if(!d||typeof d!=='object')continue;const restored={type:d.type,farm:d.farm,x:d.x,y:d.y,...(raw.version>=16&&d.direction!==undefined&&d.direction!=='down'?{direction:d.direction}:{})};if(validDecoration(s,restored))s.settlement.decorations.push(restored);}
     s.position=nearestSafe(s.area,s.position,s);
   }
+  restoreStory(raw,s);
   return s;
 }
 export class SaveService {
   constructor(storage) { this.storage = storage; this.error = ''; }
   load() { try { const text = this.storage.getItem(SAVE_KEY); if (!text) return null; const state = validate(JSON.parse(text)); this.error = state ? '' : 'This save is incompatible. Start a new life to replace it.'; return state; } catch { this.error = 'Save could not be read. Start a new life, or enable browser storage.'; return null; } }
   write(state) { try { this.storage.setItem(SAVE_KEY, JSON.stringify(state)); this.error = ''; return true; } catch { this.error = 'Saving unavailable. Enable browser storage to keep your progress.'; return false; } }
-  grantTestingCoins(){
+  grantTestingCoins(development=import.meta.env?.DEV===true){
+    if(!development)return null;
     try{
       const raw=JSON.parse(this.storage.getItem(SAVE_KEY));
       if(!raw||!validate(raw)||!Number.isInteger(raw.money)||raw.money<0||raw.money>9999999){this.error='Continue or start a game before adding testing coins.';return null;}

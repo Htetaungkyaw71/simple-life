@@ -12,7 +12,6 @@ import {attack,combatRuntime} from '../src/systems/combat.js';
 import {jumpRuntime,beginJump,stepJump} from '../src/systems/jump.js';
 import {axeSwingPose} from '../src/entities/HeldWateringCan.js';
 import {WOODLAND_WILDLIFE} from '../src/data/woodlandWildlife.js';
-import {ForestAmbience,ambienceProfile} from '../src/audio/ForestAmbience.js';
 
 test('seven broad reference habitats use irregular boundaries independent of discovery boxes',()=>{
  const count=FOREST_MAP.props.filter(forestTree).length;assert.ok(count>4070*.65&&count<4070*.85,'open river/landmark clearings with dense groves retained');
@@ -53,25 +52,4 @@ test('axe lifts slowly, cuts quickly and recovers into the mirrored reference po
   assert.ok(Math.abs(recover.rotation-idle.rotation)<Math.abs(cut.rotation-idle.rotation));assert.ok(cut.reach>0);
  }
  assert.equal(axeSwingPose('left',200).rotation-Math.PI,-(axeSwingPose('right',200).rotation-Math.PI));
-});
-function fakeContext(){
- const param=()=>({value:0,cancelScheduledValues(){},setTargetAtTime(v){this.value=v;},setValueAtTime(v){this.value=v;},linearRampToValueAtTime(v){this.value=v;},exponentialRampToValueAtTime(v){this.value=v;}});
- const node=()=>({connect(){},disconnect(){},start(){},stop(){this.stopped=true;},gain:param(),frequency:param()});
- return {state:'suspended',currentTime:0,sampleRate:128,destination:{},createBuffer(){return {getChannelData(){return new Float32Array(256);}};},createGain:node,createBufferSource:node,createBiquadFilter:node,createOscillator:node,resume(){this.state='running';return Promise.resolve();},close(){this.state='closed';}};
-}
-test('ambient synthesis changes with habitat, nearby water and night, and mutes outside active play',async()=>{
- const state={area:'forest',position:HABITATS[2],minute:600};
- assert.equal(ambienceProfile({...state,area:'home'}),null);assert.ok(ambienceProfile(state,true).river>ambienceProfile(state,false).river);
- assert.notDeepEqual(ambienceProfile(state),ambienceProfile({...state,position:HABITATS[0]}));assert.equal(ambienceProfile({...state,minute:1320}).birds,false);
- const context=fakeContext(),audio=new ForestAmbience({contextFactory:()=>context,random:()=>.5});
- audio.update(state,true,16);assert.equal(audio.snapshot().context,'locked');await audio.resume();audio.update(state,true,16);assert.equal(context.state,'running');assert.ok(audio.master.gain.value>0);
- audio.update(state,false,16);assert.equal(audio.master.gain.value,0);assert.equal(audio.active,false);audio.update(state,true,16);assert.ok(audio.master.gain.value>0);
- audio.toggle();audio.update(state,true,16);assert.equal(audio.master.gain.value,0);assert.equal(audio.snapshot().muted,true);audio.toggle();await audio.resume();audio.update({...state,area:'home'},true,16);assert.equal(audio.master.gain.value,0);
- audio.destroy();assert.equal(context.state,'closed');assert.ok(audio.wind.source.stopped);
-});
-
-test('Forest sound preference persists locally and unavailable storage cannot break the game',()=>{
- const stored=new Map([['simple-life.audio-muted.v1','true']]),storage={getItem:k=>stored.get(k),setItem:(k,v)=>stored.set(k,v)};
- const audio=new ForestAmbience({storage,contextFactory:fakeContext});assert.equal(audio.muted,true);audio.toggle();assert.equal(stored.get('simple-life.audio-muted.v1'),'false');audio.toggle();assert.equal(new ForestAmbience({storage}).muted,true);audio.destroy();
- const unavailable={getItem(){throw Error();},setItem(){throw Error();}};const safe=new ForestAmbience({storage:unavailable,contextFactory:fakeContext});assert.equal(safe.muted,false);assert.doesNotThrow(()=>safe.toggle());
 });

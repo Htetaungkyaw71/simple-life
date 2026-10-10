@@ -14,6 +14,6 @@ export function mobileControls(ui,parent){
  const right=ui.w-ui.safe.right,actions=portrait?[[right-79,cy-14],[right-39,cy-14]]:[[right-39,ui.h-ui.safe.bottom-86],[right-39,ui.h-ui.safe.bottom-39]];
  const jump=button(ui,parent,'',...actions[0],28,28,()=>app.scene.jump(),{id:'jump',disabled:app.state.area==='interior'});
  const attack=button(ui,parent,'',...actions[1],28,28,()=>{const c=app.scene.context();if(app.state.selected==='axe'&&c?.type==='chop')app.use();else app.attack();},{id:'attack',disabled:app.state.area==='interior'});
- for(const [b,label]of [[jump,'JUMP'],[attack,'ATTACK']]){b.label=label;text(ui,parent,b.x+b.w/2,b.y+11,label,6,b.disabled?UI_COLORS.muted:UI_COLORS.light).setOrigin(.5,0);}
+ for(const [b,label]of [[jump,'JUMP'],[attack,'ATTACK']]){b.label=label;text(ui,parent,Math.min(ui.w-ui.safe.right-19,b.x+b.w/2),b.y+11,label,6,b.disabled?UI_COLORS.muted:UI_COLORS.light).setOrigin(.5,0);}
  return control;
 }

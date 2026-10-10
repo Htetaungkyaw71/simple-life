@@ -64,7 +64,7 @@ test('themed button retains glyph/selected colour through hover, with bounded hi
  const c=button(u,u.root,'Bag',10,20,32,32,()=>calls++,{glyph:(g,x,y,color)=>pixels(g,'bag',x,y,color)}),hit=c.box.input.config;
  assert.equal(hit.hitAreaCallback(hit.hitArea,10,20),true);assert.equal(hit.hitAreaCallback(hit.hitArea,42,52),false);assert.equal(hit.hitAreaCallback(hit.hitArea,9,30),false);
  c.box.setFillStyle(UI_COLORS.selected);const before=structuredClone(c.box.commands);c.box.events.pointerover();c.box.events.pointerout();assert.deepEqual(c.box.commands,before);c.box.events.pointerdown({},0,0,{stopPropagation(){}});assert.equal(calls,1);
- const disabled=button(u,u.root,'Locked',10,60,32,32,()=>calls++,{disabled:true});assert.equal(disabled.box.input,undefined);assert.equal(disabled.box.events.pointerdown,undefined);
+ const cues=[];u.app={sound:key=>cues.push(key)};const disabled=button(u,u.root,'Locked',10,60,32,32,()=>calls++,{disabled:true});disabled.box.events.pointerdown({},0,0,{stopPropagation(){}});disabled.action();assert.equal(calls,1);assert.deepEqual(cues,['ui:disabled','ui:disabled']);
 });
 
 test('compact crop inspection remains visible beside the player and plot at 640 x 360',async()=>{

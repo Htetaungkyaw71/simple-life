@@ -1,3 +1,5 @@
+import {recordStory,keepsakeAvailable,awardKeepsake,canCollectKeepsake} from './story.js';
+import {STORY_CACHE} from '../data/story.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {FORAGE_NODES,BOAR_HOME,BOAR_TERRITORY,TREASURES} from '../data/forest.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
@@ -30,7 +32,7 @@ export function collectForage(s,id){
  if(!node||s.area!=='forest'||Math.hypot(s.position.x-node.x,s.position.y-node.y)>64||!lineClear('forest',s.position,node,0,s))return 'Walk closer to the fruit.';
  if(!forageAvailable(s,node))return 'More fruit tomorrow.';
  if(s.inventory[node.item]>=INVENTORY_LIMIT)return 'Bag is full.';
- s.inventory[node.item]++;s.forest.collected.push(id);
+ s.inventory[node.item]++;recordStory(s,'fruit');s.forest.collected.push(id);
  return 'Collected '+FOODS[node.item].name+'.';
 }
 export function eatFood(s,id){
@@ -38,7 +40,7 @@ export function eatFood(s,id){
  if(s.health<=0)return 'Rest at home first.';
  const energy=Math.min(food.energyRestored,100-s.energy),health=Math.min(food.healthRestored,100-s.health);
  if(!energy&&!health)return 'Health and energy are already full.';
- s.inventory[id]--;s.energy+=energy;s.health+=health;
+ if(['wildBerry','guava','mango','banana','orange','papaya','coconut','dragonFruit','pineapple'].includes(id))recordStory(s,'eatFruit');s.inventory[id]--;s.energy+=energy;s.health+=health;
  return [health?'+'+health+' health':'',energy?'+'+energy+' energy':''].filter(Boolean).join(' / ');
 }
 export function recoverStash(s){
@@ -48,13 +50,16 @@ export function recoverStash(s){
 }
 export function safeStash(position,state=null){const p=nearestSafe('forest',position,state);return {area:'forest',...p};}
 
-export function treasureAvailable(s,t){return !s.forest.treasures.includes(t.id);}
+export function treasureAvailable(s,t){return !s.forest.treasures.includes(t.id)||keepsakeAvailable(s,t.id);}
 export function recoverTreasure(s,id){
  const t=TREASURES.find(t=>t.id===id);
  if(!t||s.area!=='forest'||Math.hypot(s.position.x-t.x,s.position.y-t.y)>64||!lineClear('forest',s.position,t,0,s))return 'Search closer to the chest.';
  if(!treasureAvailable(s,t))return 'This treasure has been recovered.';
  const guard=Object.values(s.forest.animals).find(a=>a.health>0&&Math.hypot(a.position.x-t.x,a.position.y-t.y)<240);
  if(guard)return 'Danger nearby / drive the animals away first.';
- if(s.money+t.coins>9999999)return 'Coin purse full.';
- s.money+=t.coins;s.forest.treasures.push(id);return 'Treasure recovered / '+t.coins+' coins!';
+ if(id===STORY_CACHE&&s.story?.keepsake==='hidden'&&!canCollectKeepsake(s))return 'Defeat the cache guard before taking the Keepsake.';
+ const keepsake=awardKeepsake(s,id);
+ if(s.forest.treasures.includes(id))return keepsake?"Grandfather's Keepsake / safe in BAG / Gear":'This treasure has been recovered.';
+ if(s.money+t.coins>9999999)return keepsake?"Keepsake recovered / coin purse full / chest coins remain":'Coin purse full.';
+ s.money+=t.coins;s.forest.treasures.push(id);return (keepsake?'Keepsake recovered / ':'Treasure recovered / ')+t.coins+' coins!';
 }

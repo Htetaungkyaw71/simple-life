@@ -42,19 +42,7 @@ def write_supplied_farmers(out):
     return records
 
 def add_supplied_environment(assets):
-    archive = Path(os.environ.get('SIMPLE_LIFE_ENV_ZIP', str(Path.home() / 'Downloads/FreeEnvironment.zip')))
-    with zipfile.ZipFile(archive) as z:
-        source = Image.open(io.BytesIO(z.read('FreeEnvironment/FreePack.png'))).convert('RGBA')
-    boxes = {
-        'env-pine-jade': [200,270,252,384],
-        'env-pine-olive': [104,270,156,384],
-        'env-pine-snow': [4,270,64,384],
-        'env-fir': [4,136,96,256],
-        'env-agave': [130,46,224,128],
-        'env-dry-plant': [226,58,318,128],
-        'env-boulder': [398,170,502,242],
-        'env-ice': [388,270,510,374],
-    }
-    for name, box in boxes.items():
-        assets[name] = source.crop(box)
-    return boxes
+    # Keep API/frame names for established map composition, now original project art.
+    from original_environment_art import original_environment
+    assets.update(original_environment())
+    return {}

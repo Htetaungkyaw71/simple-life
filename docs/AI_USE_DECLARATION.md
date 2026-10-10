@@ -1,3 +1,9 @@
+# v0.16.0 — current material assistance
+
+OpenAI Codex assisted story/narrative/schema-17 integration, original MIDI scores/synthesized effects/ambience, original source-generated replacement scenery/intro/Keepsake pixels, visual fixes, tests/browser QA and documentation. Full source/purpose/verification disclosure: AI_USAGE.md and assets/licenses/story-audio/SOURCE_RECORD.md. External creator pixels retain distinct credits. Agent checks do not constitute human listening or signed team review; those remain pending.
+
+---
+
 # v0.6.2 follow-up disclosure
 
 Codex assisted original utility/seed pixels, persistent cutting and grass rules, hand attachment, crop-duration data, save migration, tests, asset audit and native in-app browser review. No image generation model or new external art source. Retained creator pixels remain separately credited. 157 tests/build pass; physical devices and final human review are pending. Details: AI_USAGE.md and assets/licenses/garden-tools.md. This is not a signed human declaration.

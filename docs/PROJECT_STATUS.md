@@ -1,3 +1,19 @@
+# v0.16.0 — Grandfather's last request and original audio, 2026-10-10
+
+Implemented the authorized story/audio milestone: four original introduction panels; five persistent Journal chapters using existing farming, market/resident, fixed Commons seating, Forest fruit/boar/cache and Home shelf; durable original Keepsake; placement animation, final letter, frozen statistics, once-only cue, Credits and Continue Playing. No extra crops, locations, animals, equipment, furniture, projects, relationships, weather, backend or cloud saves.
+
+One gesture-unlocked AudioManager manages Master/Music/Ambience/Effects, local original scores (64/96/80/96/96 seconds and an 11-second ending), quiet shared textures/calls and 49 gameplay effects. Home/Farm transport is shared; region/water, night, Pause and focus transitions are smooth and bounded. Settings persist separately, retain legacy mute, and survive denied storage/audio. Retired Forest noise nodes/timers are removed. Missing scores fail once per session. Settlements have minimum night moonlight; Forest distance remains dark; BAG/glyphs and short-landscape Jump/Attack are clarified. Production gift activation is DEV-only.
+
+Schema 17 retains valid schema 1–16 world progress and coin balances, skips legacy intros and derives only supported Journal evidence; money never completes the story. Guarded one-time key recovery remains available for old looted caches, and death/sleep/save cannot remove the key. Normal 4175 storage was untouched; all QA used disposable contexts on 4186.
+
+Eight uncertain ToffeeCraft cells were replaced independently, preserving 850 other cells, atlas metadata, collision/anchors and seven other art files. Runtime: 18 files / 21,930,569 bytes; explicit eight-art/six-WAV allowlist excludes archives and unused packs. Retained creator licences, dependency evidence and original/AI assistance are documented; full runtime MIT notices are preserved. No blanket rights certification or signed human declaration.
+
+Checks: **245/245 tests**, successful **128-module production build**, git diff --check, all 64 source-audio measurements unclipped and within documented DC/frequency/boundary limits. Seven required Chrome desktop/phone-size layouts, Canvas/WebGL audio lifecycle, actual keyboard/mouse/touch, schema-16 migration, storage denial, legacy mute, one context, bounded sources, settings reload and clean consoles pass. Fresh ordinary-input awake-calendar story: **20:12 wall time**, **19:57 active**, day 4, one harvest/two produce sold/one boar/zero deaths; ending/Continue/reload passed. Bed sleep can produce a faster route. [Complete report](verification/story-audio/README.md), [inventory](AUDIO_SOURCES.md), [provenance](assets/licenses/story-audio/SOURCE_RECORD.md).
+
+Remaining: final human listening and visual approval; physical Android/iOS touch/audio/interruption/latency; Safari/Firefox/Edge/other engines; slow-network load; original-language competition/ownership declarations and organizer review. Headless transport/waveforms do not prove pleasant or non-tiring audio. No push, publication, deployment or submission; one local milestone commit only.
+
+---
+
 # v0.15.0 — adjustable placement and recoverable furniture, 2026-10-10
 
 Complete: placement is a transient world ghost, with ground click/tap/drag, eight-pixel nudges, four directions, explicit confirm/cancel, green/red footprint and arrow. No stock is spent before a valid confirmation. Movement/jumping are suspended while positioning; Cancel keeps stock and restores walking. Desktop arrows/R/E/Escape and mobile controls work. Hand is automatically selected after confirmation and retrieves the whole piece into Bag. Targeting follows the full turned silhouette; approach checks ignore the piece’s own solid while retaining other blockers and inventory capacity.

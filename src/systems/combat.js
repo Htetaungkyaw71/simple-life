@@ -1,3 +1,4 @@
+import {recordStory} from './story.js';
 import {AXE} from '../data/items.js';
 import {WOODLAND_WILDLIFE,WOODLAND_BY_ID,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {ANIMAL_SPAWNS,ANIMAL_BY_ID,SPECIES} from '../data/wildlife.js';
@@ -49,7 +50,7 @@ export function attack(s,r,direction,targetId=null){
    result.hit=true;result.animalId=target.id;result.species=target.species;target.health--;
    displace('forest',p,(p.x-s.position.x)/len*18,(p.y-s.position.y)/len*18,definition?.territory||false,SPECIES[target.species]?.body||8,s);
    if(definition){const runtime=animalRuntime(r,target.id);runtime.mode='recover';runtime.timer=600;}
-   if(!target.health){result.defeated=true;target.defeatedDay=s.day;s.inventory.meat+=meat;result.meat=meat;if(target.species==='boar')s.inventory.wildHide++;}
+   if(!target.health){result.defeated=true;target.defeatedDay=s.day;if(target.species==='boar'){recordStory(s,'boar');if(s.story)s.story.stats.boars++;}s.inventory.meat+=meat;result.meat=meat;if(target.species==='boar')s.inventory.wildHide++;}
   }
  }
  return result;

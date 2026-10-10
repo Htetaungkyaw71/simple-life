@@ -7,7 +7,7 @@ import {pixels,pixelArrow} from './statusArt.js';
 import {panel,text,button,UI_COLORS} from './pixelWidgets.js';
 export class WildernessMap {
  constructor(app){this.app=app;this.index=16;this.details=false;}
- open(){if(this.app.transitioning||this.app.paused||this.app.state?.area!=='forest')return;this.index=REGIONS.indexOf(forestRegion(this.app.state.position));this.details=false;this.show();}
+ open(){this.app.sound?.('ui:open');if(this.app.transitioning||this.app.paused||this.app.state?.area!=='forest')return;this.index=REGIONS.indexOf(forestRegion(this.app.state.position));this.details=false;this.show();}
  show(){const u=this.app.ui;u.notice=null;this.app.paused=true;this.app.input={};u.menu={kind:'wilderness',draw:()=>this.draw(u)};u.focus=0;u.layout();u.highlight();}
  move(step){this.index=(this.index+step+REGIONS.length)%REGIONS.length;this.show();}
  draw(u){

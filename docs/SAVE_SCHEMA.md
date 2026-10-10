@@ -1,3 +1,11 @@
+# v0.16.0 — schema 17 story and separate audio preferences
+
+Schema 17 preserves every schema-16 gameplay field and adds `story`: `intro` (pending/seen/skipped), ordered allowlisted flags, `keepsake` (hidden/carried/placed), completed/endingSeen/cuePlayed, activeSeconds, stats (harvests/sales/boars/deaths), and a frozen completion snapshot (day/seconds/stats). Validation bounds values and rejects completion without every chapter flag and a placed key. An interrupted fresh introduction resumes; old saves mark it seen. Migration uses retained starter/living-crop/watering/harvest/sale/resources/cut-tree/Forest evidence and completed Commons project, not money. Missing legacy conversation/eating evidence remains an objective. An already-looted old story chest yields the key after its guard dies, without duplicating coins. The story key is outside inventory and Stash Bag; death and daily resets leave it intact. Saves are migrated on normal write, never deleted.
+
+Audio is stored separately in `simple-life.audio.v2`: independent 0–1 master/music/ambience/effects and muted. `simple-life.audio-muted.v1` migrates mute; malformed preferences and denied storage fail safely. Audio buffers/nodes are transient and never serialized. Production grant code requires DEV at both UI and save-service boundaries; query/localhost cannot enable it. Existing testing balances survive migration.
+
+---
+
 # Schema 16 — placed furniture directions and new objects
 
 Version 0.15.0 accepts schemas 1–16 under the existing localStorage key. Optional settlement.decorations[].direction accepts only left/up/right/down; missing/down restores the original south-facing form and is omitted from normalized storage. Unknown/null/non-string directions in schema 16 are rejected. Earlier schemas preserve their original footprints. Turned widths/heights/solids are shared with placement and rendering; malformed coordinates, overlaps, roads/beds/water/structures still reject. Existing per-farm/max-96 rules and safe player repair remain.

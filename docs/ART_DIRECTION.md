@@ -1,3 +1,9 @@
+# v0.16.0 — restrained original story art and readable night
+
+Retain native pixel art, cream/olive canvas panels and fullscreen world. Four small original geometric intro illustrations and a 16-pixel sun medallion match the established palette; no reference-game pixels/font extraction. Night settlement overlay caps at 0.52 while Forest retains 0.78 distance darkness and existing local bands. Uppercase BAG avoids the g/9 ambiguity; original lowercase g/q/y patterns now have clear stems/descenders. Short landscape action captions sit inside the viewport with hotbar spacing. Eight uncertain environment cells are independently redrawn in their existing dimensions/anchors, with no map/collision redesign. Source/hashes: assets/licenses/story-audio.
+
+---
+
 # v0.15.0 — honest furniture previews and directional views
 
 The cream/olive placement strip has readable object/facing labels, arrow adjustments, Turn, Place and Cancel, replacing ordinary controls only while positioning. A translucent actual-object ghost uses green/red native footprint strokes and a cream facing arrow above foliage/night. Every control remains at least 44 physical pixels in tested layouts; compact portrait uses two action rows.

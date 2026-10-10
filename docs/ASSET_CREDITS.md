@@ -1,3 +1,9 @@
+# v0.16.0 — current credits
+
+Original scenery replacements, six music scores, 55 synthesized effects/calls, three subtle textures, introduction, Journal/Keepsake/ending and revised source glyphs: Simple Life, authored with OpenAI Codex assistance. Reproducible source, no external recording/image sample, no exclusive copyright claim. Retained art: LimeZu Serene Village (CC BY 4.0; palette/atlas/fruit adaptations), Channeechan farmers/residents (Eris Esra template; native crops/jump/clothing adaptations), Pipoya legacy residents (custom game terms), CraftPix wildlife/ruins/plants/rocky objects (Freebie terms; native repack). Source/licence links remain in Title/ending Credits. ToffeeCraft no longer contributes runtime pixels; earlier credits below are historical. Phaser and EventEmitter3 MIT; Vite/build tool licences and optional Pillow HPND are under docs/licenses. [Current inventory](assets/licenses/story-audio/SOURCE_RECORD.md), [audio inventory](AUDIO_SOURCES.md).
+
+---
+
 # v0.6.2 garden tools credits
 
 Original axe/hand/wood/grass icons, larger seed packets/staked crop markers and held utility integration: Simple Life project, Codex-assisted source. Existing farmer/environment/animal art remains separately credited below. No new external asset or screenshot pixels. Evidence: assets/licenses/garden-tools.md.

@@ -1,3 +1,4 @@
+import {ROOM} from '../data/interior.js';
 import {vegetationContext} from './vegetation.js';
 import {decorationContext} from './settlement.js';
 import {huntContext} from './combat.js';
@@ -24,6 +25,7 @@ export function plotPrompt(state,plot){
 }
 export function contextFor(state,targetPlot=null,direction='down',targetGround=null){
  if(!state)return null;
+ if(state.area==='interior'&&state.story?.keepsake==='carried'&&Math.hypot(state.position.x-(ROOM.width-120),state.position.y-158)<72)return {type:'keepsakePlace',x:ROOM.width-120,y:158,label:"Place Grandfather's Keepsake"};
  const decoration=decorationContext(state,targetGround,direction);if(decoration)return decoration;
  const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
  if(state.area==='forest'&&(state.selected==='hand'||targetGround)){const stone=stoneContext(state,targetGround);if(stone)return stone;}

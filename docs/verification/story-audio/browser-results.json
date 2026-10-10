@@ -1,0 +1,125 @@
+{
+  "result": "PASS",
+  "startup": {
+    "interactiveMs": 1476.5,
+    "encodedResourceBytes": 750935
+  },
+  "layouts": [
+    {
+      "width": 1440,
+      "height": 900,
+      "controlsInBounds": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "controlsInBounds": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "controlsInBounds": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "controlsInBounds": true
+    },
+    {
+      "width": 640,
+      "height": 360,
+      "controlsInBounds": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "controlsInBounds": true
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "controlsInBounds": true
+    }
+  ],
+  "endings": [
+    {
+      "width": 1440,
+      "height": 900,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    },
+    {
+      "width": 640,
+      "height": 360,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "letterStatsCreditsContinue": true,
+      "cuePersisted": true
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "localOnly": true,
+  "audio": {
+    "muted": false,
+    "preferences": {
+      "master": 0.5,
+      "music": 0.5,
+      "ambience": 0,
+      "effects": 1,
+      "muted": false
+    },
+    "context": "running",
+    "unlocked": true,
+    "focused": true,
+    "profile": {
+      "music": {
+        "title": 1
+      },
+      "layers": {},
+      "flavour": "title",
+      "night": 0
+    },
+    "loops": [
+      {
+        "key": "music:title",
+        "gain": 1,
+        "retiring": false
+      }
+    ],
+    "voices": 0,
+    "pending": 0,
+    "buffers": 10,
+    "failures": [],
+    "unavailable": false
+  },
+  "startupFinalBuild": true
+}

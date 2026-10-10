@@ -1,3 +1,11 @@
+# v0.16.0 — audio and story verification scope
+
+Production is a local static bundle with eight art files and six explicit local WAVs; initial loading does not fetch audio. Web Audio unlocks after a user gesture; unavailable audio/storage fail safely. Phaser Canvas default and ?renderer=webgl share the audio owner. No runtime external API/network, authentication, analytics, backend or new dependency. Credit links open only on deliberate user activation. Run offline using a local static server and bundled assets; this is not a service-worker installation or file:// support claim.
+
+Testing gift is DEV-only at both boundaries, including on loopback production. QA uses independent disposable contexts on port 4186 and ?qa read-only snapshots; normal 4175 save untouched. All seven requested sizes are checked. Actual hardware latency/output, headphone comfort, Safari/iOS interruption policies, Firefox/Edge and Android/iOS gameplay still require human/device checks. Automated waveform checks cannot certify pleasantness. Milestone results: verification/story-audio/README.md.
+
+---
+
 # v0.8.0 — hunting/resources details
 
 Axe: 2 energy / 500ms / one damage; Club remains 5 / 450ms. Wild Boar and Deer give 2 Meat; Fox/Hare/Grouse give 1, with Boar's existing Hide retained. Quiet animals remain nonhostile and do not guard caches. Dead animals/picked stones return on a later day, never reentry/reload. Stone piles: 240 (six in each of 40 regions), +2 Stone / 1 energy, dry/walkable footprints, unchanged scenery/collision map. Meat: +25 HP / +20 EP / base sale 16; existing fruit EP and market salts remain. Fruit HP is rounded 40% of its EP value.

@@ -1,3 +1,11 @@
+# v0.16.0 — pure story and one audio owner
+
+`data/story.js` defines chapters/intro and fixed existing cache/guard/project. `systems/story.js` owns pure persistent transitions and migration, invoked only by successful existing gameplay actions. `StoryPanel` and `AudioPanel` render in the separate Phaser UI canvas; HomeKeepsake uses world Graphics. No DOM HUD, quest-marker subsystem, backend or remote assets.
+
+One `AudioManager` owns one lazily unlocked AudioContext, Master plus independent Music/Ambience/Effects gain buses, a focus gate and safety compressor. Keyed buffer-source loops, pending-load deduplication and retired-source cleanup prevent stacking. Crossfades retain the Home/Farm/interior source, separate habitat ambience, gradually blend day/night, duck paused world audio, serialize focus suspend/resume and stop world voices on Title. Starting a world clears old effects/cues without making another context. All nodes disconnect on completion/retirement/destruction; no per-tree emitter, oscillator timer or interval. Six local PCM scores load only after interaction; 55 finite effects/calls and three ambience buffers synthesize once per key. Rate limits: 85 ms/event, two starts/audio frame, six active effects; one additional finite completion cue. Important feedback may wait up to 250 ms in a four-entry queue when a UI frame is busy; the same limits still apply, and world reset/Title/destruction clears it.
+
+---
+
 # v0.15.0 — transient placement and shared orientation geometry
 
 systems/placement.js owns pure snapped draft/turn/quote helpers. PlacementController owns transient positioning and input-gated confirmation; existing pure settlement transactions still own inventory/placement/reclaim. WorldScene routes placement pointer drags and arrow/R/E/Escape input before ordinary interaction, holds movement/jump during positioning and draws PlacementView above night shading. PlacementControls replaces the hotbar/movement controls only while placing, with responsive accessible actions. HUD/QA observability guard omitted crop/prompt helpers in this mode.

@@ -1,3 +1,7 @@
+## v0.16.0 runtime notices
+
+The production JavaScript includes full Phaser and EventEmitter3 MIT copyright/permission notices in the Phaser chunk banner, and the Vite core MIT notice in the application chunk for its preload helper. `vite.config.js` reads the unchanged installed licence evidence below; the banner uses a preserved legal comment. No dependency version changed or additional runtime file was introduced.
+
 # Installed dependency licence evidence
 
 Captured from npm-installed packages on 2026-10-03. package-lock.json records exact package sources and integrity. Dev/build platform packages are not shipped as game art.

@@ -1,3 +1,9 @@
+# v0.16.0 — current source record
+
+Six scores and original synthesis, story text/illustrations/key icon and eight replacement environment cells are newly authored project source with disclosed Codex assistance. No commercial-game melody/arrangement, external recording or screenshot pixels were intentionally copied. Retained reusable third-party pixels retain documented creator/licence evidence. No exclusive copyright or signed human acceptance is claimed; team must review the final originality/rights declaration. Known ToffeeCraft runtime ambiguity is resolved by replacement. No publication/submission.
+
+---
+
 # v0.4.9 extension provenance
 Eastern map layout, scalloped river geometry, variable sandy shores, dry placement and terrain-cache changes are original code authored with Codex assistance. Existing raster art retains documented external/project provenance and is unchanged. No screenshot pixels, commercial-game assets or map layout are extracted. Style reference is the user's river screenshot. No exclusive copyright or final human acceptance declaration is claimed.
 

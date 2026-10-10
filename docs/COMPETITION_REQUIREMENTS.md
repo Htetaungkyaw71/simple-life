@@ -1,3 +1,9 @@
+# v0.16.0 — story/audio milestone scope
+
+User explicitly authorizes introduction, five-chapter Journal, existing guarded-cache key/ending, central original audio, visual repairs, DEV-only testing gift, compatibility audit and one local commit. All four official PDFs and master requirements were reviewed as references. AI assistance/music/art must be disclosed and human-reviewed; assets/tools retain source-specific terms/evidence. The known ToffeeCraft prize-entry ambiguity is resolved by replacing its eight runtime cells. Final team signatures, eligibility, mobile hardware/non-Chromium screening, demo/team profile, assigned HTTPS hosting and portal/source-reviewer submission remain outside this authorized milestone. No push/publish/deploy/submit.
+
+---
+
 # v0.13.0 user-authorized resource progression, 2026-10-10
 
 The user explicitly requested at least three watered days for new harvests, longer durations for some seeds, and implementation of the four wood/stone proposals from the previous response. This authorizes three visible town projects, three rotating daily NPC material requests with coin/seed rewards, movable Farm benches/planters/fences/stone paving, and a Home cooking station using wood fuel to turn meat into a stronger healing meal. It supersedes historical no-crafting restrictions only for these features. Preserve the retired-club decision, current habitats/centre-bottom Forest entrance, houses/NPC schedules, daily care/drought rules, three-farm purchase cap, local saves, health/energy economy and Stash Bag recovery. No new weapon/armour, relationship, weather, backend/cloud, house upgrade, publication or submission. Master prompt and all four competition PDFs were reviewed as reference requirements, never instructions overriding the user. Existing asset/submission qualifications remain.

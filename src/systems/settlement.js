@@ -1,3 +1,4 @@
+import {recordStory,syncStory} from './story.js';
 import {ORDERS,PROJECTS,DECORATIONS,DECORATION_DIRECTIONS,STOVE_COST,GRILL_COST,MAX_DECORATIONS} from '../data/settlement.js';
 import {MAPS,MAP_SIZE} from '../data/mapLayouts.js';
 import {CROPS} from '../data/crops.js';
@@ -16,9 +17,9 @@ export const orderComplete=(s,id)=>s.settlement.orders.day===s.day&&s.settlement
 const rewardRoom=(s,d)=>s.money+d.coins<=9999999&&(s.inventory[d.seed]||0)+d.seeds<=9999;
 const reward=(s,d)=>{s.money+=d.coins;s.inventory[d.seed]+=d.seeds;};
 export function orderQuote(s,id){const d=dailyOrders(s).find(o=>o.id===id);return {ok:!!d&&s.area==='city'&&!orderComplete(s,id)&&materials(s,d.cost)&&rewardRoom(s,d),definition:d};}
-export function deliverOrder(s,id){const {ok,definition:d}=orderQuote(s,id);if(!ok)return 'Order unavailable / check materials and bag space';spend(s,d.cost);reward(s,d);if(s.settlement.orders.day!==s.day)s.settlement.orders={day:s.day,completed:[]};s.settlement.orders.completed.push(id);return d.name+' thanks you / +'+d.coins+'c / +'+d.seeds+' '+CROPS[Object.keys(CROPS).find(k=>CROPS[k].seedKey===d.seed)].name+' seeds';}
+export function deliverOrder(s,id){const {ok,definition:d}=orderQuote(s,id);if(!ok)return 'Order unavailable / check materials and bag space';spend(s,d.cost);reward(s,d);if(s.settlement.orders.day!==s.day)s.settlement.orders={day:s.day,completed:[]};s.settlement.orders.completed.push(id);syncStory(s);return d.name+' thanks you / +'+d.coins+'c / +'+d.seeds+' '+CROPS[Object.keys(CROPS).find(k=>CROPS[k].seedKey===d.seed)].name+' seeds';}
 export function projectQuote(s,id){const d=PROJECTS.find(o=>o.id===id);return {ok:!!d&&s.area==='city'&&!s.settlement.projects.includes(id)&&materials(s,d.cost)&&rewardRoom(s,d),definition:d};}
-export function completeProject(s,id){const {ok,definition:d}=projectQuote(s,id);if(!ok)return 'Project unavailable / check materials and bag space';spend(s,d.cost);reward(s,d);s.settlement.projects.push(id);return d.name+' completed / +'+d.coins+'c / +'+d.seeds+' seeds';}
+export function completeProject(s,id){const {ok,definition:d}=projectQuote(s,id);if(!ok)return 'Project unavailable / check materials and bag space';spend(s,d.cost);reward(s,d);s.settlement.projects.push(id);recordStory(s,'wood');recordStory(s,'stone');syncStory(s);return d.name+' completed / +'+d.coins+'c / +'+d.seeds+' seeds';}
 export function craftDecoration(s,id){const d=validId(DECORATIONS,id);if(!d||s.area!=='farm'||!materials(s,d.cost)||s.inventory[d.item]>=9999)return 'Build on your Farm / check materials and bag space';spend(s,d.cost);s.inventory[d.item]++;return d.name+' built / select it in Bag / Gear';}
 export function buildStove(s){if(s.area!=='interior'||s.settlement.stove||!materials(s,STOVE_COST))return 'Build at the Home hearth / check materials';spend(s,STOVE_COST);s.settlement.stove=true;return 'Cooking station built / Meat + Wood makes Grilled Meat';}
 export function grillMeat(s){if(s.area!=='interior'||!s.settlement.stove||!materials(s,GRILL_COST)||s.inventory.grilledMeat>=9999)return 'Use your cooking station / need 1 Meat and 1 Wood';spend(s,GRILL_COST);s.inventory.grilledMeat++;return '+1 Grilled Meat / eat from Bag / Food';}

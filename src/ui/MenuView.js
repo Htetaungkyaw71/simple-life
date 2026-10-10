@@ -22,7 +22,7 @@ export function drawModal(u){
  const pw=Math.min(isTitle?210:300,w-u.safe.left-u.safe.right-16),x=Math.floor((w-pw)/2),size=isTitle?h<240?16:Math.min(40,Math.floor((pw-20)/4)):12;
  const tm=text(u,u.root,0,0,isTitle?'SIMPLE\nLIFE':title,size,UI_COLORS.light,pw-24,!isTitle),th=tm.height;tm.destroy();
  const bm=text(u,u.root,0,0,body,h<200?6:7,UI_COLORS.muted,pw-24),bh=body?bm.height:0;bm.destroy();
- const choose=kind==='choose'?48:0,step=h<200?24:28,total=14+th+(isTitle?12:6)+bh+(bh?6:0)+choose+buttons.length*step+2;
+ const grid=title==='Paused'&&buttons.length===6,choose=kind==='choose'?48:0,step=h<200?24:28,total=14+th+(isTitle?12:6)+bh+(bh?6:0)+choose+(grid?3:buttons.length)*step+2;
  const y=Math.max(u.safe.top+5,Math.floor((h-total)/2));u.menuBounds={x:x*2,y:y*2,w:pw*2,h:total*2};
  if(!isTitle)panel(u,u.root,x,y,pw,total);
  if(isTitle){text(u,u.root,w/2+2,y+11,'SIMPLE\nLIFE',size,UI_COLORS.ink).setOrigin(.5,0).setCenterAlign();text(u,u.root,w/2,y+9,'SIMPLE\nLIFE',size,UI_COLORS.cream).setOrigin(.5,0).setCenterAlign();const leaf=u.add.graphics();u.root.add(leaf);pixels(leaf,'leaf',Math.round(w/2-pw/3),y+8,UI_COLORS.edge);}
@@ -30,5 +30,5 @@ export function drawModal(u){
  let cy=y+14+th+(isTitle?12:6);
  if(choose){for(const [i,char]of ['boy','girl'].entries()){const sx=w/2+(i?35:-35);u.root.add(u.add.sprite(sx,cy+17,char,0));text(u,u.root,sx,cy+35,char,7).setOrigin(.5,0);}cy+=choose;}
  if(body){text(u,u.root,x+12,cy,body,h<200?6:7,UI_COLORS.muted,pw-24);cy+=bh+6;}
- buttons.forEach(([label,fn,disabled=false],i)=>button(u,u.root,label,x+12,cy+i*step,pw-24,step-2,fn,{disabled,id:label}));u.highlight();
+ buttons.forEach(([label,fn,disabled=false],i)=>button(u,u.root,label,x+12+(grid?i%2*Math.floor((pw-20)/2):0),cy+(grid?Math.floor(i/2):i)*step,grid?Math.floor((pw-28)/2):pw-24,step-2,fn,{disabled,id:label}));u.highlight();
 }

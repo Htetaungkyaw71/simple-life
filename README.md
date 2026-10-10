@@ -1,3 +1,17 @@
+# v0.16.0 — Grandfather's last request
+
+A four-panel New Game introduction and **Pause → JOURNAL** guide five chapters: your first crop, City sale/resident, fixed Commons seating (24 Wood / 12 Stone), Forest fruit/boar/Keepsake, and returning it to the Home pottery shelf. The existing snake-cache at **4122 / 4376**, west/north of the southern Forest entrance, holds the original sun medallion after its guard is defeated. It stays safe through sleep, saves and death, and cannot be sold/eaten/dropped. Completion presents a letter, statistics, Credits and Continue Playing; the sandbox remains playable.
+
+Original local music now covers Title (64 s), Home/Farm/interior (96 s shared), City (80 s), Forest (96 s), night (96 s) and completion (11 s once). **Pause → Audio** controls Master/Music/Ambience/Effects in 25-point steps plus Mute; Tab/Up/Down/Enter and Left/Right, mouse and touch work. A first click/tap/key unlocks audio. Preferences use `simple-life.audio.v2`, independently of gameplay; legacy Forest mute is retained. Quiet shared ambience replaces the former noise bed. No remote audio, voices or new dependency. [Complete audio inventory and waveform checks](docs/AUDIO_SOURCES.md). **Final human listening approval is required**, including a two-minute Title listen, every location, rapid actions, combat and ending.
+
+Night Home/Farm/City keep minimum moonlight; Forest keeps dark distance and readable nearby ground. The heading is **BAG**. JUMP/ATTACK stay inside short landscape screens. Production disables the testing gift even on localhost and with query parameters; a fresh game still starts at 60 coins. Existing balances remain unchanged. Gameplay save **schema 17** accepts schemas 1–16; older saves skip introduction and gain only evidence-backed Journal flags, never completion from money.
+
+Eight uncertain ToffeeCraft cells are replaced by original project art in their existing atlas rectangles. Other 850 cells, metadata and seven other art files are unchanged. Retained LimeZu CC BY 4.0, Channeechan/Eris Esra, Pipoya and CraftPix terms and source links remain credited. [Current complete asset/permission record](docs/assets/licenses/story-audio/SOURCE_RECORD.md). Eight art files plus six explicit WAV files are allowlisted; source archives and unused packs are excluded. No blanket legal certification or signed human declaration is claimed.
+
+Verification and the measured natural story time are recorded in [the milestone report](docs/verification/story-audio/README.md). Local QA uses disposable storage on 4186; the normal 4175 save was not touched. Recommended landscape desktop 1280×720; portrait and landscape touch layouts down to 360×640/640×360 are supported. Physical Android/iOS, Safari/Firefox/Edge, device audio and final human visual/listening acceptance remain pending. No push, publication, deployment or submission.
+
+---
+
 # v0.15.0 — adjust, turn and recover Farm furniture
 
 Choose Place in the workshop or Bag / Gear to see a ghost before spending the item. Tap or drag nearby ground; arrows or the small arrow buttons adjust by eight world pixels. **R / Turn** changes direction; **E / Place** confirms; **Escape / Cancel** keeps the item. Green means the spot is clear; red explains blocked or distant ground. The farmer stays still while positioning. Cancel to walk elsewhere. After placing, Hand is selected: tap the object or press E beside it to pack the whole item into Bag, then place it again.

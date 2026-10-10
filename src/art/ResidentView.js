@@ -5,5 +5,5 @@ export class ResidentView{
  canMove(from,to){return residentMoveAllowed(this.people,from,to);}
  context(player){return residentContext(this.people,player);}
  available(kind){return this.people.some(n=>n.kind===kind&&n.mode==='work'&&n.visible);}
- snapshot(){return this.people.map(n=>({id:n.id,name:n.name,x:n.position.x,y:n.position.y,direction:n.direction,moving:n.moving,visible:n.visible,mode:n.mode,home:n.home,frame:n.sprite.frame.name}));}
+ snapshot(){return this.people.map(n=>({id:n.id,name:n.name,kind:n.kind,x:n.position.x,y:n.position.y,direction:n.direction,moving:n.moving,visible:n.visible,mode:n.mode,home:n.home,frame:n.sprite.frame.name}));}
 }

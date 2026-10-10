@@ -1,3 +1,11 @@
+# v0.16.0 — finite story over the existing sandbox
+
+Grandfather's last request connects existing farming, sale/conversation, fixed Commons seating, Forest fruit/three-hit Axe boar and guarded cache to a Home ending. No new crop, map, animal, weapon, furniture, project, weather or unrelated system. Journal has five chapter pages/checkmarks, active objective/hint and optional intro replay. Success notifications are brief; no permanent quest panel. The Keepsake is a durable key item and never part of selling/eating/dropping/coin recovery. Place it by the Home pottery shelf only when all pre-ending steps are complete. One-time cue, letter, frozen statistics and continued play follow.
+
+Fresh progression is three Tomato seeds/60 coins, three watered midnights, 24 Wood/12 Stone for the smallest fixed Town project, fruit/eating and a normal nearby boar guard. Ordinary bed sleep remains available; no balance change to established farming. The benchmark report explicitly distinguishes wall-clock and active time and records its natural awake-calendar method; completion duration varies with sleep and exploration.
+
+---
+
 # v0.15.0 — furniture placement and recovery
 
 Craft seven movable Farm pieces: existing bench, flower planter, fence and stone path, plus picnic table (12 Wood/4 Stone), barrel (5 Wood) and lantern post (6 Wood/4 Stone). New pieces are decorative; they do not add storage, food or upgrades. The illustrated workshop has a More page. Build consumes the shown materials once; position/turn/cancel is free. Confirm consumes one built item only on valid nearby dry Farm ground, protecting roads, beds, structures and the farmer. Maximum 96 placed pieces across owned farms remains.

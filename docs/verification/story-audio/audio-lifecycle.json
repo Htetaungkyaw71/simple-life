@@ -1,0 +1,223 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "renderer": "canvas",
+      "contextCount": 1,
+      "titleSeconds": 120,
+      "pauseCycles": 12,
+      "titleContinueCycles": 12,
+      "focusSuspendResume": true,
+      "touchJumpAttack": true,
+      "preferencesPersist": true,
+      "before": {
+        "muted": false,
+        "preferences": {
+          "master": 0.5,
+          "music": 0.5,
+          "ambience": 0.25,
+          "effects": 0.75,
+          "muted": false
+        },
+        "context": "running",
+        "unlocked": true,
+        "focused": true,
+        "profile": {
+          "music": {
+            "farm": 0.7124896250000214,
+            "night": 0.28751037499997856
+          },
+          "layers": {
+            "wind": 0.28,
+            "water": 0
+          },
+          "flavour": "home",
+          "night": 0.28751037499997856,
+          "fire": 0
+        },
+        "loops": [
+          {
+            "key": "ambience:wind",
+            "gain": 0.28,
+            "retiring": false
+          },
+          {
+            "key": "music:farm",
+            "gain": 0.7056143750000208,
+            "retiring": false
+          },
+          {
+            "key": "music:night",
+            "gain": 0.2943856249999792,
+            "retiring": false
+          }
+        ],
+        "voices": 0,
+        "pending": 0,
+        "buffers": 10,
+        "failures": [],
+        "unavailable": false
+      },
+      "after": {
+        "muted": false,
+        "preferences": {
+          "master": 0.5,
+          "music": 0.5,
+          "ambience": 0.25,
+          "effects": 0.75,
+          "muted": false
+        },
+        "context": "running",
+        "unlocked": true,
+        "focused": true,
+        "profile": {
+          "music": {
+            "farm": 1,
+            "night": 0
+          },
+          "layers": {
+            "wind": 0.28,
+            "water": 0
+          },
+          "flavour": "home",
+          "night": 0,
+          "fire": 0
+        },
+        "loops": [
+          {
+            "key": "music:farm",
+            "gain": 0.9916666666666667,
+            "retiring": false
+          },
+          {
+            "key": "music:night",
+            "gain": 0.008333333333333333,
+            "retiring": false
+          },
+          {
+            "key": "ambience:wind",
+            "gain": 0.28,
+            "retiring": false
+          }
+        ],
+        "voices": 0,
+        "pending": 0,
+        "buffers": 11,
+        "failures": [],
+        "unavailable": false
+      },
+      "errors": [],
+      "warnings": [],
+      "localOnly": true
+    },
+    {
+      "renderer": "webgl",
+      "contextCount": 1,
+      "titleSeconds": 1,
+      "pauseCycles": 12,
+      "titleContinueCycles": 12,
+      "focusSuspendResume": true,
+      "touchJumpAttack": true,
+      "preferencesPersist": true,
+      "before": {
+        "muted": false,
+        "preferences": {
+          "master": 0.5,
+          "music": 0.5,
+          "ambience": 0.25,
+          "effects": 0.75,
+          "muted": false
+        },
+        "context": "running",
+        "unlocked": true,
+        "focused": true,
+        "profile": {
+          "music": {
+            "farm": 0.709368500000022,
+            "night": 0.2906314999999779
+          },
+          "layers": {
+            "wind": 0.28,
+            "water": 0
+          },
+          "flavour": "home",
+          "night": 0.2906314999999779,
+          "fire": 0
+        },
+        "loops": [
+          {
+            "key": "ambience:wind",
+            "gain": 0.28,
+            "retiring": false
+          },
+          {
+            "key": "music:farm",
+            "gain": 0.7024943750000214,
+            "retiring": false
+          },
+          {
+            "key": "music:night",
+            "gain": 0.2975056249999786,
+            "retiring": false
+          }
+        ],
+        "voices": 0,
+        "pending": 0,
+        "buffers": 10,
+        "failures": [],
+        "unavailable": false
+      },
+      "after": {
+        "muted": false,
+        "preferences": {
+          "master": 0.5,
+          "music": 0.5,
+          "ambience": 0.25,
+          "effects": 0.75,
+          "muted": false
+        },
+        "context": "running",
+        "unlocked": true,
+        "focused": true,
+        "profile": {
+          "music": {
+            "farm": 1,
+            "night": 0
+          },
+          "layers": {
+            "wind": 0.28,
+            "water": 0
+          },
+          "flavour": "home",
+          "night": 0,
+          "fire": 0
+        },
+        "loops": [
+          {
+            "key": "music:farm",
+            "gain": 0.9916666666666667,
+            "retiring": false
+          },
+          {
+            "key": "music:night",
+            "gain": 0.008333333333333333,
+            "retiring": false
+          },
+          {
+            "key": "ambience:wind",
+            "gain": 0.28,
+            "retiring": false
+          }
+        ],
+        "voices": 0,
+        "pending": 0,
+        "buffers": 11,
+        "failures": [],
+        "unavailable": false
+      },
+      "errors": [],
+      "warnings": [],
+      "localOnly": true
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+# v0.16.0 — eight targeted replacements and six explicit WAVs
+
+Audit against ce6903a: 858 atlas cells, exactly eight original scenery replacements, 850 untouched cells, unchanged town metadata and seven other art files; pixels outside replaced rectangles unchanged. Eighteen production files, only eight established art paths/six WAV paths plus four shell/bundle files; no archive, source pack, unused file or QA evidence. Reproduce with scripts/qa/story-audio-audit.py; hashes/bytes: verification/story-audio/runtime-audit.json. Audio source and waveform inventory: AUDIO_SOURCES.md. Source-specific permission review: assets/licenses/story-audio/SOURCE_RECORD.md.
+
+---
+
 # v0.15.0 — unchanged runtime art, 2026-10-10
 
 All eight allowlisted art files are byte-identical to local baseline 5681815. New native directional furniture/table/preview graphics are drawn from original source in memory; no atlas, archive or unused file is added. Production contains twelve files / 2,386,453 bytes. Evidence: verification/placement/runtime-audit.json; provenance: assets/licenses/placement.md.

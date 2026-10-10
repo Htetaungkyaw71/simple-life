@@ -1,0 +1,39 @@
+import {STORY_FLAGS,CHAPTERS,STORY_GUARD,STORY_CACHE,STORY_PROJECT} from '../data/story.js';
+import {allPlots} from './plots.js';
+export const freshStory=()=>({intro:'pending',flags:[],keepsake:'hidden',completed:false,endingSeen:false,cuePlayed:false,activeSeconds:0,stats:{harvests:0,sales:0,boars:0,deaths:0},completion:null});
+export function recordStory(s,event){
+ if(!s.story)return false;const q=s.story;if(!STORY_FLAGS.includes(event)||q.flags.includes(event))return false;
+ q.flags=STORY_FLAGS.filter(id=>q.flags.includes(id)||id===event);return true;
+}
+export function storyObjective(s){const q=s.story||freshStory();const chapter=CHAPTERS.findIndex(c=>c.steps.some(([id])=>!q.flags.includes(id)));const index=chapter<0?4:chapter,c=CHAPTERS[index],step=c.steps.find(([id])=>!q.flags.includes(id))||c.steps.at(-1);return {chapter:index,title:c.title,step:step[1],hint:step[2],done:c.steps.filter(([id])=>q.flags.includes(id)).length,total:c.steps.length};}
+export function syncStory(s){
+ if(!s.story)return;const q=s.story;
+ if(s.hasVisitedCity||s.area==='city')recordStory(s,'city');if(s.area==='forest')recordStory(s,'forest');
+ if(s.settlement.projects.includes(STORY_PROJECT))recordStory(s,'help');
+ if(q.keepsake!=='hidden'){recordStory(s,'keepsake');if(['home','interior'].includes(s.area))recordStory(s,'home');}
+}
+export function restoreStory(raw,s){
+ const q=freshStory(),old=raw.version>=17&&raw.story&&typeof raw.story==='object'?raw.story:null;
+ const bounded=(v,max)=>Number.isFinite(v)?Math.max(0,Math.min(max,Math.floor(v))):0;
+ if(old){q.intro=['seen','skipped'].includes(old.intro)?old.intro:'pending';q.flags=STORY_FLAGS.filter(id=>Array.isArray(old.flags)&&old.flags.includes(id));q.keepsake=['carried','placed'].includes(old.keepsake)?old.keepsake:'hidden';q.activeSeconds=Number.isFinite(old.activeSeconds)?Math.max(0,Math.min(9999999,old.activeSeconds)):0;for(const id of Object.keys(q.stats))q.stats[id]=bounded(old.stats?.[id],999999);
+  const all=q.keepsake==='placed'&&STORY_FLAGS.every(id=>q.flags.includes(id));q.completed=old.completed===true&&all;q.endingSeen=q.completed&&old.endingSeen===true;q.cuePlayed=q.completed&&old.cuePlayed===true;
+  if(q.completed)q.completion={day:Math.max(1,bounded(old.completion?.day,s.day)),seconds:bounded(old.completion?.seconds,q.activeSeconds),...Object.fromEntries(Object.keys(q.stats).map(id=>[id,bounded(old.completion?.[id],999999)]))};
+  if(!q.completed){q.flags=q.flags.filter(id=>!['placed','complete'].includes(id));if(q.keepsake==='placed')q.keepsake='carried';}
+  if(q.keepsake==='hidden')q.flags=q.flags.filter(id=>!['keepsake','home'].includes(id));
+ }else{
+  q.intro='seen';if(s.starterSeedsClaimed)q.flags.push('starter');if(s.hasHarvestedFirstCrop)q.flags.push('plant','water','harvest');if(s.hasSoldProduce)q.flags.push('sell');if(s.inventory.wood>0)q.flags.push('wood');if(s.inventory.stone>0)q.flags.push('stone');
+  if(allPlots(s).some(p=>p.crop))q.flags.push('plant');if(allPlots(s).some(p=>p.crop&&(p.wateredDay>0||p.growth>0)))q.flags.push('water');
+  if(Object.values(s.vegetation||{}).some(v=>v.trees?.length))q.flags.push('wood');
+  if(s.forest.collected.length)q.flags.push('fruit');if(s.area==='forest'||s.forest.explored.length>1)q.flags.push('forest');if(Object.values(s.forest.animals).some(a=>a.species==='boar'&&a.health===0))q.flags.push('boar');
+  if(s.settlement.projects.includes(STORY_PROJECT))q.flags.push('wood','stone');
+ }
+ s.story=q;syncStory(s);q.flags=STORY_FLAGS.filter(id=>q.flags.includes(id));return q;
+}
+export function canCollectKeepsake(s){return s.area==='forest'&&s.story?.keepsake==='hidden'&&s.forest.animals[STORY_GUARD]?.health===0;}
+export function awardKeepsake(s,id){if(id!==STORY_CACHE||!canCollectKeepsake(s))return false;s.story.keepsake='carried';recordStory(s,'keepsake');return true;}
+export function keepsakeAvailable(s,id){return id===STORY_CACHE&&s.story?.keepsake==='hidden';}
+export function finishIntroduction(s,skipped=false){if(!s.story)return;s.story.intro=skipped?'skipped':'seen';}
+export function completeStory(s){
+ syncStory(s);const q=s.story;if(!q||q.completed||s.area!=='interior'||q.keepsake!=='carried'||!STORY_FLAGS.filter(id=>!['placed','complete'].includes(id)).every(id=>q.flags.includes(id)))return false;
+ q.keepsake='placed';recordStory(s,'placed');recordStory(s,'complete');q.completed=true;q.completion={day:s.day,seconds:Math.floor(q.activeSeconds),...q.stats};return true;
+}

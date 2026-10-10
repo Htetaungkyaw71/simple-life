@@ -22,7 +22,7 @@ export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=labe
  if(iconName)icon(scene,parent,iconName,Math.round(x+(w-16)/2),Math.round(y+(h-16)/2));
  if(preview)preview(scene,parent,x+w/2,y+h/2,w-8,h-8);
  const t=iconName||glyph||preview?null:text(scene,parent,x+w/2,y+(h-fontSize)/2,label,fontSize,disabled?UI_COLORS.muted:UI_COLORS.light,undefined,bold);t?.setOrigin(.5,0);
- const control={id,label,x,y,w,h,disabled,action,box,text:t};scene.controls.push(control);
- if(!disabled){box.setInteractive({useHandCursor:true,hitArea:{x,y,width:w,height:h},hitAreaCallback:(a,px,py)=>px>=a.x&&py>=a.y&&px<a.x+a.width&&py<a.y+a.height});box.on('pointerdown',(p,lx,ly,event)=>{event.stopPropagation();action(p);});box.on('pointerover',()=>{fill=UI_COLORS.selected;paint();});box.on('pointerout',()=>{fill=base;paint();});}
+ const invoke=(...args)=>{scene.app?.sound?.(disabled?'ui:disabled':/^(Cancel|Skip|Not yet|Keep my farm)$/i.test(label)?'ui:cancel':'ui:confirm');if(!disabled)return action(...args);};const control={id,label,x,y,w,h,disabled,action:invoke,box,text:t};scene.controls.push(control);
+ box.setInteractive({useHandCursor:!disabled,hitArea:{x,y,width:w,height:h},hitAreaCallback:(a,px,py)=>px>=a.x&&py>=a.y&&px<a.x+a.width&&py<a.y+a.height});box.on('pointerdown',(p,lx,ly,event)=>{event.stopPropagation();invoke(p);});if(!disabled){box.on('pointerover',()=>{fill=UI_COLORS.selected;paint();});box.on('pointerout',()=>{fill=base;paint();});}
  return control;
 }
