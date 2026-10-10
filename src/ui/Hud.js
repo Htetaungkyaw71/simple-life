@@ -9,7 +9,7 @@ import {hudLayout,displayClock} from './layouts.js';
 import {meterFrame,meterBadge,meterGlyph} from './vitalMeter.js';
 export class Hud {
  constructor(ui){this.ui=ui;this.app=ui.app;this.root=ui.add.container();ui.root.add(this.root);this.signature=this.key();this.create();}
- key(){return this.app.state.area+':'+this.app.state.clubEquipped+':'+this.app.state.selectedCrop+':'+(['shovel','axe','hand','grass'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
+ key(){return this.app.state.area+':'+this.app.state.selectedCrop+':'+(['shovel','axe','hand','grass'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
  create(){
   const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6;
   const healthWidth=Math.min(140,w-96),barX=left+21,barW=healthWidth-21;
@@ -22,7 +22,7 @@ export class Hud {
   this.waterWindow=text(u,p,left,top+64,'',6,UI_COLORS.cream);
   panel(u,p,right-76,top,76,37);this.clock=text(u,p,right-38,top+7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,p,right-38,top+23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
   panel(u,p,right-70,top+40,70,18,UI_COLORS.selected);this.money=text(u,p,right-35,top+45,'60c',8).setOrigin(.5,0);
-  const layout=hudLayout(u,s.area==='forest',s.clubEquipped||s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
+  const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
     const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'watering-can-item',harvest:'sickle',shovel:'shovel-item',axe:'axe-item',hand:'hand-item',grass:'grass-item'},glyphs={bag:'bag',map:'map',pause:'menu'};
    const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():['shovel','axe','hand','grass'].includes(id)?this.app.bagPanel.open('gear'):this.app.select(id);

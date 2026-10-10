@@ -20,4 +20,3 @@ for(const food of Object.values(FOODS))food.healthRestored=Math.round(food.energ
 export const MEAT={id:'meat',name:'Meat',sellPrice:16,energyRestored:20,healthRestored:25,icon:'meat-item'};
 FOODS.meat=MEAT;FOOD_IDS.push('meat');
 export const AXE={energy:1,cooldown:500};
-export const CLUB={id:'woodenClub',name:'Wooden Club',price:45,energy:2,cooldown:450,icon:'wooden-club-item'};

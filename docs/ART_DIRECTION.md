@@ -1,3 +1,9 @@
+# v0.12.0 — daily care UI and retired item
+
+Retain the cream/olive canvas theme, native scale and existing crop art. Care information has one Daily row, water-drop markers for uncared living crops, red warnings for third-day Recovering/dead crops and harvest markers for ripe plants. Compact layouts retain readable contextual recovery/water labels; the larger crop detail card hides when it would overlap the farmer/plant. Gear uses the existing Axe icon and omits the club. Remove the club stall from City composition; Rowan and his home remain. No new or regenerated artwork is introduced.
+
+---
+
 # v0.11.1 — matched indoor scale, larger Home and yellow energy bolt
 
 The latest user correction requires indoor farmer/furniture at the same 2× world scale and camera framing consistent with outdoors. Home is 180×144 native pixels, its original doorway/porch retained; twelve other cottages are 120×96. Preserve the shared broad roof/raised central gable/flat facade/double door design. Replace the flat roof cap with a pitched ridge; doors must exceed native farmer height. Grounding shadows and exact alpha collision rows follow the larger house. Native cells are drawn directly, not resampled or copied from screenshots.

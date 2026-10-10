@@ -1,3 +1,13 @@
+# v0.12.0 — daily crop care, three farms and Axe-only combat
+
+Water a growing plant once at any hour of each calendar day. One watering earns its growth at midnight, and repeated watering of the same plant that day consumes neither energy nor additional care. Empty ground can still be wetted for 1 EP; cosmetic moisture remains separate and dries after three active minutes or sleep. One or two fully missed days leave a dry, living plant with paused growth. Three missed days show Recovering and a water-to-recover warning. Water resets the missed-day streak immediately and permits growth at the next midnight. Four consecutive missed days kill the crop; clear it with Harvest. Ripe crops retain the established harvest-waiting exemption.
+
+Farm Board → Buy / visit farms sells Farm 2 for 600 coins, Farm 3 for 1,200, with no field-unlock prerequisite. Three total farms is the new purchase limit. Each begins with its original first field; free shovel beds and old bought fields remain. Previously bought farms beyond the cap survive migration and cannot expand further. Crop care settles across every owned farm and custom bed.
+
+Wooden Club purchase, equipment, bag slot, combat and City stall are removed. Rowan remains a daily commuting resident, offering the free Axe tip. Existing club ownership migrates to a one-time 45-coin refund (purse cap retained). Axe hunting, tree cutting, food, stone, sleep and 25% Stash recovery retain their rules. This explicit request supersedes historical two-window/club/100-farm policies below.
+
+---
+
 # v0.11.0 — Home and mobile movement update
 
 All cottages share the user's front-facing roof/gable/double-door structure with different finishes. Home is a cozy furnished room with tiled floor, dining area, pottery/fireplace and working bed/exit. Eight-way movement retains equal diagonal speed and stable native facing. On mobile use the circular analog joystick, Jump and Attack; separate touches can move and act. Jump is free in every outdoor location, using existing collision/path/cooldown checks; interior jumping/attacking is disabled. Desktop retains WASD/arrows, outdoor Space/J/Shift jump and direct world tool/axe taps. K/M remain Forest-only. No new crafting, relationships, house upgrades or economy rules.

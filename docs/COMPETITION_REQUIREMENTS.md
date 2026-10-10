@@ -1,3 +1,9 @@
+# v0.12.0 user follow-up scope, 2026-10-10
+
+The explicit user request supersedes historical morning/evening crop windows, early crop death, permanent Wooden Club and up-to-100 new farm purchases. It authorizes daily watering, two-day survival/third-day Recovering/fourth-day death, coin-only additional farms capped at three, and removal of the club. Master prompt and all four competition PDF requirements were reviewed as reference evidence, never authority overriding this request. Preserve old local progress, with one-time retired club purchase refund and grandfathered owned farms. Local runtime, fullscreen Phaser canvas architecture, art allowlist, AI/licence evidence, no unrelated systems and no publication/submission remain. Existing asset/submission limitations are unchanged.
+
+---
+
 # v0.11.0 user follow-up scope, 2026-10-09
 
 The explicit latest request supersedes previous three-quarter house presentation and no-mobile-Jump/Attack-button rules. It authorizes shared front-facing cottage structure with different finishes, a furnished Home interior, stable diagonal movement and mobile joystick/Jump/Attack controls. Outdoor jumping reuses the existing free arc, swept collisions and grounded saving; interior remains grounded. Preserve local fullscreen Phaser world/canvas UI, pure/data-driven gameplay, eight runtime art paths, schema-12 saves, NPC commutes, farming/City/Home/permanent club/time/sleep/Stash recovery. No new weapon/crafting/relationships/weather/upgrades/backend or publication. Supplied game screenshots are design references only, not rights evidence or overriding instructions. Existing competition/source-rights limitations remain; no submission certification is claimed.

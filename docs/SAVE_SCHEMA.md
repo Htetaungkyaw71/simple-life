@@ -1,3 +1,13 @@
+# Save schema 13 — daily watering and retired Wooden Club, v0.12.0
+
+Storage key remains simple-life.save.v1. Growing plots persist crop/growth plus wateredDay (0 or the last cared-for day), missedDays (0–4), lastEvaluatedDay (the last completed day), optional plantedDay/plantedMinute and recoveredDay. No morning/evening flags, missedWindows, lastEvaluatedWindow or recoveredWindow enter new plot records. New planting sets lastEvaluatedDay=day-1; midnight evaluates the current finishing day before incrementing day. Cursors prevent duplicate missed days and growth. Save validation bounds day tags and never evaluates an unfinished day. No offline simulation.
+
+Schemas 1–12: either strictly true morning/evening flag gives wateredDay=current day; a living credited plot resets its misses. Old missedWindows/dryDays=1 becomes one missed day when unwatered; old value=2 stays dead via missedDays=4. lastEvaluatedDay=day-1 avoids retroactive penalties. Existing earned growth clamps to the current crop duration as before. Old club ownership returns exactly 45 coins, capped at 9,999,999, only when source schema<13. Schema 13 has no ownership/equipment flags, so reload cannot repeat the refund. Character, money beyond this refund, inventories, fields/farms/custom beds, cuts, grass, animals, discoveries, caches, stash and testing-gift marker keep existing migration rules.
+
+New farm purchases cap at 3, independent of fields. Validation still bounds all historical farms at 100 so previously bought farmland/crops do not vanish. The higher legacy validation bound does not enable native purchases past three. Optional testingCoinGrant remains unchanged and does not replay.
+
+---
+
 # v0.11.1 optional local testing marker (schema remains 12)
 
 The explicit user-authorized localhost testing gift adds 100,000 to existing `money` (capped at 9,999,999) and stores optional `testingCoinGrant: "home-proportions-2026-10-09"`. Validation retains only this recognized marker; missing markers do not alter normal state. The grant writes original raw fields plus balance/marker in one localStorage save, rejects unavailable storage/incompatible saves and does not replay after Continue/save/reload. The title action appears only with explicit `?testingCoins=100000` on loopback hosts. New-game initial money remains 60; no migration, default grant, remote debug action or other progress reset.

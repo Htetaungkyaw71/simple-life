@@ -29,7 +29,7 @@ const farm={
  water:[[1696,656,320,176]],
  fields:FIELDS,
  fences:[...FIELDS.map(f=>[f.x+16,f.y-48,160,'h']),[1600,96,512,'h'],[1600,504,512,'h']],
- signs:[{x:304,y:712,type:'field',field:3,label:'Shovel / dig free beds'},{x:764,y:428,type:'farmOffice',label:'Farm board / trade and expand'},{x:1496,y:568,label:'Read orchard sign',title:'A growing garden',body:'Plant fruit and vegetable seeds from the City. Dig clear grass with your shovel to make free beds.'},{x:1088,y:568,label:'Read irrigation note',title:'Water twice each day',body:'Water at 06:00-12:00 and 16:00-22:00. One well-watered night brings your first Tomato harvest.'}],
+ signs:[{x:304,y:712,type:'field',field:3,label:'Shovel / dig free beds'},{x:764,y:428,type:'farmOffice',label:'Farm board / trade and expand'},{x:1496,y:568,label:'Read orchard sign',title:'A growing garden',body:'Plant fruit and vegetable seeds from the City. Dig clear grass with your shovel to make free beds.'},{x:1088,y:568,label:'Read irrigation note',title:'Water once each day',body:'Water any time, once a day. Two missed days pause growth; day three needs recovery water, and day four kills the crop. One watered night brings your first Tomato harvest.'}],
  extras:[]
 };
 const city=CITY;

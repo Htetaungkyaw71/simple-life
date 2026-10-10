@@ -59,12 +59,12 @@ test('grass refuses water, bridges, solid roots, farm beds and occupied patches 
 });
 test('schema 10 migration retains progress; schema 11 rejects unsafe and forged vegetation',()=>{
  const old=newState('girl');old.version=10;old.money=765;old.inventory.tomato=7;old.plots[0]={...old.plots[0],crop:'tomato',growth:2,morning:true};delete old.vegetation;delete old.inventory.wood;delete old.inventory.grass;
- const s=validate(old);assert.equal(s.version,12);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,1);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
+ const s=validate(old);assert.equal(s.version,13);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,1);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
  const t=VEGETATION.home.trees[0];s.vegetation={home:{trees:[t.id,t.id,'bad'],grass:['bad'],placed:[{x:NaN,y:32},{x:t.x,y:t.y}]},'farm:999':{trees:[t.id]}};const fixed=validate(s);assert.deepEqual(fixed.vegetation.home,{trees:[t.id],grass:[],placed:[]});assert.equal(fixed.vegetation['farm:999'],undefined);
 });
 test('all twelve crop identities mature in one or two full care nights; missed care still prevents growth',()=>{
  for(const id of CROP_IDS){const s=newState(),d=CROPS[id];s.inventory[d.seedKey]=1;s.selectedCrop=id;usePlot(s,0);s.selected='water';assert.ok(d.growthDays>=1&&d.growthDays<=2);for(let n=0;n<d.growthDays;n++){s.minute=360;usePlot(s,0);s.minute=960;usePlot(s,0);nextDay(s);}assert.equal(s.plots[0].growth,d.growthDays);s.selected='harvest';usePlot(s,0);assert.equal(s.inventory[id],d.harvestYield);}
- const s=newState();s.inventory.seed=1;usePlot(s,0);s.selected='water';usePlot(s,0);nextDay(s);assert.equal(s.plots[0].growth,0);
+ const s=newState();s.inventory.seed=1;usePlot(s,0);nextDay(s);assert.equal(s.plots[0].growth,0);
 });
 test('actual held utility sprites follow four farmer hand anchors, swing, switch and pause',()=>{
  const u=recorder(),s=newState();u.app={state:s,paused:false};const held=new HeldWateringCan(u);

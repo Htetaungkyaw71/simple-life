@@ -21,7 +21,6 @@ export const LOCATIONS = {
   {type:'hint',x:865,y:275,label:'CITY / return Home, then follow the east road'},
  ]},
  city:{name:'City',subtitle:'Lantern Market',spawn:{x:64,y:488},interactions:[
-  {type:'outfitter',x:336,y:738,label:'Browse Outfitter',approach:[276,720,120,56]},
   {type:'seed',x:432,y:306,label:'Browse seeds',approach:[372,288,120,56]},
   {type:'sell',x:896,y:306,label:'Sell produce',approach:[836,288,120,56]},
  ]},

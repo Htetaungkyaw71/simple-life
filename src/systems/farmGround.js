@@ -8,7 +8,7 @@ import {emptyPlot} from './state.js';
 import {plotAt} from './plots.js';
 import {usePlot} from './farming.js';
 import {CROPS} from '../data/crops.js';
-import {waterPeriod,missed} from './watering.js';
+import {wateredToday,evaluateWatering,missed} from './watering.js';
 import {FARM_ENERGY} from '../data/energy.js';
 export const WET_DURATION=180000,MAX_CUSTOM_BEDS=2048,MAX_WET_PATCHES=256;
 export function openGround(area,x,y,dig=false,state=null){
@@ -54,12 +54,18 @@ export const wetAt=(s,x,y,area=s.area,farm=s.currentFarm||0)=>(s.wetGround||[]).
 export function waterGround(s,point,index){
  if(Math.hypot(point.x-s.position.x,point.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
  if(!openGround(s.area,point.x,point.y,false,s)||!lineClear(s.area,s.position,point,0,s))return {ok:false,message:'Water on open ground'};
+ evaluateWatering(s);
+ const p=index!=null&&plotOwned(s,index)?plotAt(s,index):null;
+ if(p?.crop){
+  if(missed(p)>=4)return {ok:false,message:'Dead / select Harvest'};
+  if(p.growth>=CROPS[p.crop].growthDays)return {ok:false,message:'Ready to harvest'};
+  if(wateredToday(s,p))return {ok:false,message:'Already watered today'};
+ }
  if(s.energy<FARM_ENERGY.water)return {ok:false,message:'Too tired - eat or sleep'};
- const p=index!=null&&plotOwned(s,index)?plotAt(s,index):null,period=waterPeriod(s);
- const care=p?.crop&&missed(p)<2&&p.growth<CROPS[p.crop].growthDays&&period&&!p[period];
+ const care=!!p?.crop;
  if(care)usePlot(s,index);else s.energy-=FARM_ENERGY.water;
  s.wetGround??=[];const existing=s.wetGround.find(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))&&p.x===point.x&&p.y===point.y);
  if(existing)existing.remaining=WET_DURATION;else {if(s.wetGround.length>=MAX_WET_PATCHES)s.wetGround.shift();s.wetGround.push({area:s.area,farm:s.currentFarm||0,x:point.x,y:point.y,remaining:WET_DURATION});}
- return {...point,ok:true,message:care?'Watered':p?.crop&&!period?'Wet soil / care at 06-12 or 16-22':'Watered ground',cared:!!care};
+ return {...point,ok:true,message:care?'Watered':'Watered ground',cared:!!care};
 }
 export function dryGround(s,delta){let changed=false;for(const p of s.wetGround||[]){p.remaining-=Math.max(0,Math.min(delta,100));if(p.remaining<=0)changed=true;}if(changed)s.wetGround=s.wetGround.filter(p=>p.remaining>0);return changed;}

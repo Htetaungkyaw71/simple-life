@@ -22,9 +22,9 @@ test('expanded areas connect every interaction and decorative district',()=>{
 
 test('new scenery only relocates unsafe legacy positions, preserving progress',async()=>{
  const {validate}=await import('../src/systems/save.js');const {newState}=await import('../src/systems/state.js');
- const legacy=newState('girl');Object.assign(legacy,{area:'farm',position:{x:160,y:190},day:8,money:172,energy:62,sold:6});legacy.inventory={seed:3,tomato:4};legacy.plots[0]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};
+ const legacy=newState('girl');Object.assign(legacy,{version:12,area:'farm',position:{x:160,y:190},day:8,money:172,energy:62,sold:6});legacy.inventory={seed:3,tomato:4};legacy.plots[0]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:0};
  assert.equal(walkable('farm',160,190),false);const loaded=validate(legacy);assert.ok(walkable(loaded.area,loaded.position.x,loaded.position.y));assert.ok(Math.hypot(loaded.position.x-160,loaded.position.y-190)<96);
  for(const key of ['character','day','money','energy','sold'])assert.deepEqual(loaded[key],legacy[key]);
  for(const [key,value]of Object.entries(legacy.inventory))assert.equal(loaded.inventory[key],value);
- for(const [key,value]of Object.entries(legacy.plots[0]))assert.deepEqual(loaded.plots[0][key],key==='growth'?1:value);
+ assert.equal(loaded.plots[0].crop,'tomato');assert.equal(loaded.plots[0].growth,1);assert.equal(loaded.plots[0].wateredDay,8);
 });

@@ -8,6 +8,8 @@ export const FIELDS=[
  {...FIELD,x:352,y:656,w:192,h:192,price:240},
 ];
 export const PLOTS_PER_FARM=64;
-export const MAX_FARMS=100;
+export const MAX_FARMS=3;
+// Preserve farms already purchased under earlier releases. New purchases stop at three.
+export const SAVE_FARM_LIMIT=100;
 export const FARM_PRICE=600;
 export const FARM_PLOTS=FIELDS.flatMap((f,field)=>PLOTS.map(p=>({...p,x:p.x-FIELD.x+f.x,y:p.y-FIELD.y+f.y,field})));

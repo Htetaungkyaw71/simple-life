@@ -6,8 +6,8 @@ export const RESIDENTS={
 
 // Every visitor/resident has a real house; the porch route is derived from its art.
 for(const [area,homes]of Object.entries({home:[0,2],city:[0,1,6,4,7,2,8,9]}))RESIDENTS[area].forEach((n,i)=>n.home=homes[i]);
+RESIDENTS.city.push({...resident('rowan','Rowan',4,336,738,'Your Axe is in Bag / Gear. It cuts trees and protects you in the Forest.'),home:2});
 export const MERCHANT_RESIDENTS=[
  {...resident('clara','Clara',2,432,306,'',[]),kind:'seed',home:3},
  {...resident('niko','Niko',3,896,306,'',[]),kind:'sell',home:5},
- {...resident('rowan','Rowan',4,336,738,'',[]),kind:'outfitter',home:2}
 ];

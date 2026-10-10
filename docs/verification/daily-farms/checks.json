@@ -1,0 +1,51 @@
+{
+  "version": "0.12.0",
+  "schema": 13,
+  "tests": {
+    "passed": 198,
+    "failed": 0
+  },
+  "build": "pass",
+  "browser": "native IAB Chromium",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      640,
+      360
+    ]
+  ],
+  "distFiles": [
+    "assets/index-DuO74lxp.css",
+    "assets/index-E3-ySTql.js",
+    "assets/phaser-0YPJO2g1.js",
+    "assets/pixel/font.png",
+    "assets/pixel/font.xml",
+    "assets/pixel/processed/boy.png",
+    "assets/pixel/processed/girl.png",
+    "assets/pixel/processed/town.json",
+    "assets/pixel/processed/town.png",
+    "assets/pixel/world.json",
+    "assets/pixel/world.png",
+    "index.html"
+  ],
+  "runtimeArtCount": 8,
+  "distBytes": 2351723,
+  "limitations": [
+    "No physical phone/non-Chromium acceptance",
+    "Crowded phone crop card can hide; contextual care prompt remains"
+  ],
+  "normalOrigin": {
+    "url": "http://127.0.0.1:4175/",
+    "module": "assets/index-E3-ySTql.js",
+    "continue": "passed",
+    "left": "paused",
+    "saveReplaced": false
+  }
+}

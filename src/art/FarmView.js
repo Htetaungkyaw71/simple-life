@@ -2,7 +2,7 @@ import {visiblePlots} from '../systems/expansion.js';
 import {plotAt} from '../systems/plots.js';
 import {wetAt} from '../systems/farmGround.js';
 import {CROPS} from '../data/crops.js';
-import {cropVisual,missed,waterPeriod} from '../systems/watering.js';
+import {cropVisual,missed,wateredToday} from '../systems/watering.js';
 import {pixels} from '../ui/statusArt.js';
 const hash=(x,y)=>{let n=Math.imul(x,374761393)^Math.imul(y,668265263);n=Math.imul(n^(n>>>13),1274126177);return ((n^(n>>>16))>>>0)/4294967295;};
 function soilNoise(x,y,size){const gx=Math.floor(x/size),gy=Math.floor(y/size),fx=x/size-gx,fy=y/size-gy,sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy);const a=hash(gx,gy)*(1-sx)+hash(gx+1,gy)*sx,b=hash(gx,gy+1)*(1-sx)+hash(gx+1,gy+1)*sx;return a*(1-sy)+b*sy;}
@@ -33,7 +33,7 @@ export function soilPixels(mask,wet=false,ox=0,oy=0){
  return data;
 }
 export function bedMask(b,beds){return [[0,-48,1],[48,0,2],[0,48,4],[-48,0,8]].reduce((m,[dx,dy,bit])=>m|(beds.some(p=>p.x===b.x+dx&&p.y===b.y+dy)?bit:0),0);}
-export function cropMarker(p,s){if(!p?.crop)return null;if(missed(p))return 'warning';if(p.growth>=CROPS[p.crop].growthDays)return 'basket';const period=waterPeriod(s);return period&&!p[period]?'drop':null;}
+export function cropMarker(p,s){if(!p?.crop)return null;if(missed(p)>=4)return 'warning';if(p.growth>=CROPS[p.crop].growthDays)return 'basket';if(missed(p)>=3)return 'warning';return !wateredToday(s,p)?'drop':null;}
 function soilTexture(scene,mask,wet,b){const ox=b.x/2-12,oy=b.y/2-12,key='farm-soil-'+mask+'-'+Number(wet)+'-'+ox+'-'+oy;if(!scene.textures.exists(key)){const t=scene.textures.createCanvas(key,24,24),d=t.context.createImageData(24,24);d.data.set(soilPixels(mask,wet,ox,oy));t.context.putImageData(d,0,0);t.setFilter(1);t.refresh();}return key;}
 export function drawFarmBeds(scene,group){
  group.clear(true,true);const s=scene.app.state||{minute:360,plots:[],farms:[{fields:[true,false,false,false]}]},beds=visiblePlots(s);

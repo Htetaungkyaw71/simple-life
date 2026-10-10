@@ -10,26 +10,32 @@ import {walkable,syncInterior,LOCATIONS} from '../src/data/locations.js';
 import {MAPS} from '../src/data/mapLayouts.js';
 import {ROOM} from '../src/data/interior.js';
 const planted=()=>{const s=newState();s.inventory.seed=1;usePlot(s,0);s.selected='water';return s;};
-test('watering windows are bounded, separate and closed in between',()=>{
- const s=planted();for(const [minute,period]of [[360,'morning'],[719,'morning'],[720,null],[959,null],[960,'evening'],[1319,'evening'],[1320,null]]){s.minute=minute;assert.equal(waterPeriod(s),period);}
- s.minute=800;const energy=s.energy;assert.match(usePlot(s,0),/06-12/);assert.equal(s.energy,energy);
+test('daily watering works at every hour and repeat use never spends extra energy',()=>{
+ for(const minute of [0,359,360,719,720,800,959,960,1319,1320,1439]){
+  const s=planted();s.minute=minute;assert.equal(waterPeriod(s),'daily');assert.equal(usePlot(s,0),'Watered');const e=s.energy;
+  assert.equal(usePlot(s,0),'Already watered today');assert.equal(s.energy,e);
+ }
 });
-test('one missed window wilts, watering recovers, repeat evaluation never duplicates a miss',()=>{
- const s=planted();s.minute=720;evaluateWatering(s);assert.equal(s.plots[0].missedWindows,1);assert.equal(cropVisual(s.plots[0],s),'wilted');evaluateWatering(s);assert.equal(s.plots[0].missedWindows,1);
- const loaded=validate(JSON.parse(JSON.stringify(s)));evaluateWatering(loaded);assert.equal(loaded.plots[0].missedWindows,1);
- restUntilEvening(loaded);usePlot(loaded,0);assert.equal(loaded.plots[0].missedWindows,0);nextDay(loaded);assert.equal(loaded.plots[0].growth,0);assert.equal(loaded.plots[0].missedWindows,0);
+
+test('missed-day evaluation is idempotent across sleeping and reload; watering resumes growth',()=>{
+ const s=planted();s.minute=1320;evaluateWatering(s);assert.equal(s.plots[0].missedDays,0);
+ nextDay(s);assert.equal(s.plots[0].missedDays,1);assert.equal(cropVisual(s.plots[0],s),'dry');evaluateWatering(s);assert.equal(s.plots[0].missedDays,1);
+ const loaded=validate(JSON.parse(JSON.stringify(s)));evaluateWatering(loaded);assert.equal(loaded.plots[0].missedDays,1);
+ usePlot(loaded,0);assert.equal(loaded.plots[0].missedDays,0);nextDay(loaded);assert.equal(loaded.plots[0].growth,1);
 });
-test('two consecutive misses kill; sleeping cannot bypass a window; late planting is not penalized retroactively',()=>{
- const s=planted();s.minute=1320;evaluateWatering(s);assert.equal(cropVisual(s.plots[0],s),'dead');
- const p=planted();usePlot(p,0);nextDay(p);assert.equal(p.plots[0].missedWindows,1);usePlot(p,0);assert.equal(p.plots[0].missedWindows,0);
- const late=newState();late.minute=970;late.inventory.seed=1;usePlot(late,0);late.selected='water';usePlot(late,0);nextDay(late);assert.equal(late.plots[0].missedWindows,0);
+
+test('four consecutive missed days kill; late same-day watering still earns growth',()=>{
+ const s=planted();for(let i=1;i<=4;i++){nextDay(s);assert.equal(cropVisual(s.plots[0],s),i===4?'dead':i===3?'wilted':'dry');}
+ const late=newState();late.minute=1439;late.inventory.seed=1;usePlot(late,0);late.selected='water';usePlot(late,0);nextDay(late);assert.equal(late.plots[0].growth,1);assert.equal(late.plots[0].missedDays,0);
 });
-test('short-season tomato poses cover seeds, watering, maturity, wilt and death',()=>{
+
+test('short-season crop poses cover readable seeds, sprouts, maturity, drought and death',()=>{
  const s=planted(),p=s.plots[0],seen=new Set();const capture=()=>seen.add(CROPS.tomato.sprites[cropVisual(p,s)]);
- capture();usePlot(s,0);capture();p.growth=1;capture();p.growth=2;capture();p.growth=3;capture();p.growth=2;p.morning=false;capture();p.missedWindows=1;capture();p.missedWindows=2;capture();assert.equal(seen.size,5);assert.equal(new Set(Object.values(CROPS.tomato.sprites)).size,8);
+ capture();usePlot(s,0);capture();p.growth=1;capture();p.growth=0;p.wateredDay=0;p.missedDays=3;capture();p.missedDays=4;capture();assert.equal(seen.size,5);assert.equal(new Set(Object.values(CROPS.tomato.sprites)).size,8);
 });
+
 test('v1/v2 saves migrate individual crops and preserve economy, reward and locked expansion',()=>{
- for(const version of [1,2]){const s=newState('girl');s.version=version;s.money=123;s.day=7;s.minute=1020;s.starterSeedsClaimed=true;delete s.expansionUnlocked;s.plots[3]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:1};const v=validate(s);assert.equal(v.version,12);assert.equal(v.money,123);assert.equal(v.starterSeedsClaimed,true);assert.equal(v.expansionUnlocked,false);assert.equal(v.plots[3].missedWindows,1);assert.equal(v.plots[3].growth,1);assert.equal(v.plots[3].morning,true);assert.deepEqual(validate(v),v);}
+ for(const version of [1,2]){const s=newState('girl');s.version=version;s.money=123;s.day=7;s.minute=1020;s.starterSeedsClaimed=true;delete s.expansionUnlocked;s.plots[3]={crop:'tomato',growth:2,morning:true,evening:false,dryDays:1};const v=validate(s);assert.equal(v.version,13);assert.equal(v.money,123);assert.equal(v.starterSeedsClaimed,true);assert.equal(v.expansionUnlocked,false);assert.equal(v.plots[3].missedDays,0);assert.equal(v.plots[3].growth,1);assert.equal(v.plots[3].wateredDay,7);assert.deepEqual(validate(v),v);}
 });
 test('compact field has contiguous sixteen reachable cells, with no paths or props crossing them',()=>{
  assert.equal(PLOTS.length,16);assert.equal(new Set(PLOTS.map(p=>p.x)).size,4);assert.equal(FIELD.cell,48);

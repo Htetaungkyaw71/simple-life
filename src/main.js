@@ -6,7 +6,6 @@ import {plotAt} from './systems/plots.js';
 import {groundedPosition,cancelJump} from './systems/jump.js';
 import {WildernessMap} from './ui/WildernessMap.js';
 import {BagPanel} from './ui/BagPanel.js';
-import {SurvivalPanel} from './ui/SurvivalPanel.js';
 import {FORAGE_NODES,FOREST_GUIDANCE} from './data/forest.js';
 import {collectForage,recoverStash,recoverTreasure} from './systems/forest.js';
 import {collectStone} from './systems/resources.js';
@@ -35,7 +34,7 @@ class Application {
     syncInterior(innerWidth,innerHeight);this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
     try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
     this.ambience=new ForestAmbience({storage});this.ambience.bind();window.addEventListener('pagehide',()=>this.ambience.silence());
-    this.bagPanel=new BagPanel(this);this.wildernessMap=new WildernessMap(this);this.survivalPanel=new SurvivalPanel(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
+    this.bagPanel=new BagPanel(this);this.wildernessMap=new WildernessMap(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){this.ui.title();}
   grantTestingCoins(){
@@ -69,7 +68,6 @@ class Application {
     if(c.type==='forage'){const before=this.state.inventory[c.item];this.ui.feedback(collectForage(this.state,c.id));if(this.state.inventory[c.item]>before){this.scene.forestView.collect(FORAGE_NODES.find(n=>n.id===c.id));this.sound('forest:collect');}this.save();return;}
     if(c.type==='treasure'){this.transact(s=>recoverTreasure(s,c.id));return;}
     if(c.type==='stash'){this.transact(recoverStash);return;}
-    if(c.type==='outfitter'){this.survivalPanel.open('outfitter');return;}
     if(c.type==='starter'){const claimed=this.state.starterSeedsClaimed;this.transact(collectStarterSeeds);if(!claimed&&this.state.starterSeedsClaimed){this.ui.notice=null;this.ui.drawNotice();this.ui.showFarmObjective();}return;}
     if(c.type==='refill'){this.scene.atmosphere.refill(this.state.position);this.ui.toast('Watering can full. Water is unlimited for now.');return;}
     if(c.type==='farmOffice'){this.farmOffice.open();return;}
@@ -81,7 +79,7 @@ class Application {
     if(c.type==='plot'){
       const before={...plotAt(this.state,c.index)},fruit=before.crop?this.state.inventory[CROPS[before.crop].produceKey]:0;
       const message=usePlot(this.state,c.index),after=plotAt(this.state,c.index);
-      const action=!before.crop&&after.crop?'plant':before.crop&&this.state.inventory[CROPS[before.crop].produceKey]>fruit?'harvest':(!before.morning&&after.morning)||(!before.evening&&after.evening)?'water':null;
+      const action=!before.crop&&after.crop?'plant':before.crop&&this.state.inventory[CROPS[before.crop].produceKey]>fruit?'harvest':after.crop&&before.wateredDay!==after.wateredDay?'water':null;
       this.scene.renderCrops();this.save();this.ui.feedback(message);
       if(action==='harvest'&&!this.state.hasVisitedCity)this.ui.showCityObjective();
       if(action){this.scene.atmosphere.farming(action,c.x,c.y,before.crop||after.crop);this.scene.events.emit('farming:'+action,{index:c.index,crop:before.crop||after.crop});this.scene.game.events.emit('sound:request',{key:'farming:'+action});}return;
@@ -98,8 +96,7 @@ class Application {
   attack(targetId=null){
     if(this.scene.jumping?.active)return;
     if(this.paused||!this.state||this.transitioning||this.pendingAttack||this.scene.combat.now<this.scene.combat.nextAttack)return;
-    const weapon=this.state.selected==='axe'?'axe':'club';
-    if(weapon==='club'&&(!this.state.ownsClub||!this.state.clubEquipped))return;
+    if(this.state.selected!=='axe')return;const weapon='axe';
     const direction=this.scene.player.direction;
     this.pendingAttack={targetId,direction,weapon,remaining:120};
     if(weapon==='axe')this.scene.player.wateringCan.swing();
@@ -109,7 +106,7 @@ class Application {
     const pending=this.pendingAttack;if(!pending)return;
     pending.remaining-=Math.min(Math.max(delta,0),50);if(pending.remaining>0)return;
     this.pendingAttack=null;
-    if((this.state.selected==='axe'?'axe':'club')!==pending.weapon||this.scene.jumping?.active)return;
+    if(this.state.selected!==pending.weapon||this.scene.jumping?.active)return;
     const result=attack(this.state,this.scene.combat,pending.direction,pending.targetId);
     if(result.message)this.ui.feedback(result.message);
     if(result.ok){this.scene.forestView.attack(pending.direction,result);this.sound('combat:swing');this.save();}

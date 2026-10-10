@@ -20,24 +20,24 @@ test('an awake midnight settles every farm once; later early-morning sleep adds 
  s.minute=1200;s.selected='water';for(const i of [0,64])usePlot(s,i);
  const before=marketPrice(s,'tomato');s.minute=1439.9;s.fatigueMinutes=59.9;s.energy=10;tick(s,100);
  assert.equal(s.day,2);assert.ok(s.minute<1);assert.equal(s.energy,10);assert.equal(s.area,'farm');
- for(const i of [0,64]){assert.equal(s.plots[i].growth,1);assert.equal(s.plots[i].morning,false);assert.equal(s.plots[i].evening,false);}
+ for(const i of [0,64]){assert.equal(s.plots[i].growth,1);assert.equal(s.plots[i].wateredDay,1);}
  const price=marketPrice(s,'tomato');assert.notDeepEqual(price,before);sleep(s);assert.equal(s.day,2);assert.deepEqual(marketPrice(s,'tomato'),price);
  for(const i of [0,64])assert.equal(s.plots[i].growth,1);
 });
-test('sleeping across expired windows cannot dodge missed care or earn twice in one day',()=>{
+test('sleeping across midnight counts missed days and never grows twice in one day',()=>{
  const s=newState();s.selectedCrop='corn';s.inventory.cornSeed=1;usePlot(s,0);s.selected='water';usePlot(s,0);sleep(s);assert.equal(s.minute,1200);assert.equal(s.plots[0].growth,0);usePlot(s,0);sleep(s);assert.equal(s.day,2);assert.equal(s.plots[0].growth,1);
- sleep(s);assert.equal(s.day,2);assert.equal(s.plots[0].growth,1);sleep(s);assert.equal(s.day,3);assert.equal(s.plots[0].growth,1);assert.equal(s.plots[0].missedWindows,2);
+ sleep(s);assert.equal(s.day,2);assert.equal(s.plots[0].growth,1);sleep(s);assert.equal(s.day,3);assert.equal(s.plots[0].growth,1);assert.equal(s.plots[0].missedDays,1);
 });
 test('elapsed time leaves energy unchanged, including legacy fatigue saves',()=>{
  const s=newState();s.minute=10;s.energy=1;s.fatigueMinutes=59.8;s.area='farm';const p={...s.position};const v=validate(s);assert.equal(v.minute,10);assert.equal(v.fatigueMinutes,59.8);tick(v,100);assert.equal(v.energy,1);
  for(let n=0;n<100;n++)tick(v,100);assert.equal(v.energy,1);assert.equal(v.area,'farm');assert.deepEqual(v.position,validate(s).position);assert.deepEqual(s.position,p);
- const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,12);
+ const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,13);
  const bad=validate({...s,fatigueMinutes:Infinity});assert.equal(bad.fatigueMinutes,0);
 });
 test('midnight clock and phases remain correct; both shops close at night',()=>{
  assert.equal(clock({minute:1439}),'23:59');assert.equal(clock({minute:0}),'00:00');assert.equal(clock({minute:2.9}),'00:02');
  for(const minute of [0,120,359,1200,1439]){assert.equal(phase({minute}),'Night');assert.ok(isNight({minute}));assert.equal(shopOpen({minute},'seed'),false);assert.equal(shopOpen({minute},'sell'),false);}
- assert.equal(wateringLabel({minute:120}),'NEXT WATER 06:00');assert.equal(phase({minute:360}),'Morning');
+ assert.equal(wateringLabel({minute:120}),'WATER ONCE DAILY');assert.equal(phase({minute:360}),'Morning');
 });
 test('day/dusk/moonlight are bounded and repeat across midnight with readable darkness',()=>{
  for(let minute=0;minute<1440;minute++){const a=daylight({minute}).alpha;assert.ok(a>=0&&a<=.78);}

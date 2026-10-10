@@ -1,3 +1,9 @@
+# v0.12.0 — daily care, farm purchases and club retirement
+
+OpenAI Codex assisted pure daily-care/growth logic, schema-13 progress migration, one-time retired purchase refund, three-farm coin purchase flow, bag/combat/shop removal, Rowan resident preservation and daily crop/UI/help labels. It updated relevant historical tests to the explicit new rules and added missed-day/recovery/idempotence/migration/purchase/cap/legacy-farm/commute tests. The verification skill guided native browser UI → pure gameplay/local save → canvas checks on an isolated origin; normal user progress was not replaced by fixtures. Existing source art is unchanged; no image model, external download, backend, remote runtime service, crafting or publication. 198 tests and production build passed; browser evidence is under docs/verification/daily-farms. Physical mobile and non-Chromium engines remain unverified.
+
+---
+
 # v0.11.1 — Home correction and explicit local testing gift
 
 OpenAI Codex assisted original house roof/door redraws and directly authored larger Home pixels, source collision regeneration, indoor player/camera proportion repair, original yellow lightning glyph, mobile-only world attack gating, and an explicit one-time localhost testing coin action. It wrote progress-preservation/storage failure/mobile gating tests, source/native/runtime audit, and docs. Native browser UI applied the user's authorized 100,000 gift to the normal save (100,003 after reload), without replacing other progress; isolated QA checked scale/entry/bed/combat. The verification skill guided the UI → pure gameplay/local save → canvas response check. No image model, downloaded asset/audio, backend, or copied reference pixels. 192 tests, build and affected native Chromium browser checks passed; physical phones/non-Chromium not claimed. No push/publication/submission.

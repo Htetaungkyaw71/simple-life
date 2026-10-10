@@ -11,7 +11,7 @@ export const BOAR_HOME={x:936,y:376};
 export const BOAR_TERRITORY=[736,176,400,320];
 export const FOREST_GUIDANCE=[
  'Forest fruit is free. Eat it for energy or sell it in the city.',
- 'Wild animals are dangerous. Buy a club from the City Outfitter.',
+ 'Wild animals are dangerous. Select your Axe in Bag / Gear to defend yourself.',
  'If defeated, recover your Stash Bag before you fall again.',
 ];
 // Authored clusters frame a connected winding route. No tree grid in the interior.

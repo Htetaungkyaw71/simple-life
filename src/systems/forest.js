@@ -2,7 +2,7 @@ import {VEGETATION} from '../data/vegetation.js';
 import {FORAGE_NODES,BOAR_HOME,BOAR_TERRITORY,TREASURES} from '../data/forest.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
-import {FOODS,CLUB} from '../data/items.js';
+import {FOODS} from '../data/items.js';
 import {walkable,nearestSafe} from '../data/locations.js';
 import {shopOpen} from './market.js';
 import {INVENTORY_LIMIT} from './economy.js';
@@ -41,13 +41,6 @@ export function eatFood(s,id){
  s.inventory[id]--;s.energy+=energy;s.health+=health;
  return [health?'+'+health+' health':'',energy?'+'+energy+' energy':''].filter(Boolean).join(' / ');
 }
-export function buyClub(s){
- if(!shopOpen(s,'outfitter'))return 'Closed / 07:00-20:00';
- if(s.ownsClub)return 'Wooden Club already owned.';
- if(s.money<CLUB.price)return 'Need 45 coins.';
- s.money-=CLUB.price;s.ownsClub=true;s.clubEquipped=true;return 'Wooden Club equipped. Space / K to attack.';
-}
-export function equipClub(s){if(!s.ownsClub)return 'Buy a club at the City Outfitter.';s.clubEquipped=true;return 'Wooden Club equipped.';}
 export function recoverStash(s){
  const bag=s.stash;if(!bag||s.area!==bag.area||Math.hypot(s.position.x-bag.x,s.position.y-bag.y)>64||!lineClear(s.area,s.position,bag,0,s))return 'Walk closer to your Stash Bag.';
  if(s.money+bag.coins>9999999)return 'Coin purse full.';

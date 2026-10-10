@@ -6,7 +6,7 @@ export const ownedField=(s,field,farm=s.currentFarm||0)=>s.farms?.[farm]?.fields
 export const visiblePlots=s=>[...FARM_PLOTS.flatMap((p,local)=>{const index=(s.currentFarm||0)*PLOTS_PER_FARM+local;return ownedField(s,p.field)||(s.dugPlots||[]).includes(index)?[{...p,index}]:[];}),...(s.customBeds||[]).flatMap((b,i)=>b.farm===(s.currentFarm||0)?[{x:b.x,y:b.y,index:s.plots.length+i}]:[])];
 export const plotOwned=(s,index)=>Number.isInteger(index)&&index>=0&&(index<s.plots.length?(s.dugPlots||[]).includes(index)||ownedField(s,Math.floor(index%PLOTS_PER_FARM/16),Math.floor(index/PLOTS_PER_FARM)):!!s.customBeds?.[index-s.plots.length]);
 export const nextFarmPrice=s=>FARM_PRICE*s.farms.length;
-export const canExpandFarm=s=>s.farms.at(-1).fields.every(Boolean)&&s.farms.length<MAX_FARMS;
+export const canExpandFarm=s=>s.farms.length<MAX_FARMS;
 
 export function buyField(s,field){
  if(!Number.isInteger(field)||!FIELDS[field]||field===0)return 'Choose a locked field.';
@@ -18,7 +18,6 @@ export function buyField(s,field){
 }
 export function buyFarm(s){
  if(s.farms.length>=MAX_FARMS)return 'Your farm collection is full.';
- if(!canExpandFarm(s))return 'Unlock all four fields on your newest farm first.';
  const price=nextFarmPrice(s);
  if(s.money<price)return `You need ${price} coins for another farm.`;
  s.money-=price;s.farms.push(newFarm());s.plots.push(...Array.from({length:PLOTS_PER_FARM},emptyPlot));s.currentFarm=s.farms.length-1;

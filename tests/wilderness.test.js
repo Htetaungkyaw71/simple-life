@@ -8,7 +8,7 @@ import {validate} from '../src/systems/save.js';
 import {refreshForest,recoverTreasure,inTerritory} from '../src/systems/forest.js';
 import {attack,combatRuntime,animalRuntime,stepCombat} from '../src/systems/combat.js';
 import {marketPrice} from '../src/systems/market.js';
-const forest=()=>Object.assign(newState(),{area:'forest',position:{...FOREST_ENTRANCE},forestTutorialComplete:true,ownsClub:true,clubEquipped:true});
+const forest=()=>Object.assign(newState(),{area:'forest',position:{...FOREST_ENTRANCE},forestTutorialComplete:true,selected:'axe'});
 test('40-fold land area retains 40 regions, only Craftpix boars and one guard per cache',()=>{
  assert.equal(FOREST_SIZE.width*FOREST_SIZE.height,40*1280*1024);assert.equal(REGIONS.length,40);assert.deepEqual(Object.keys(SPECIES),['boar']);assert.equal(ANIMAL_SPAWNS.length,30);
  for(const a of ANIMAL_SPAWNS){assert.equal(a.species,'boar');assert.ok(walkable('forest',a.home.x,a.home.y,16),a.id);assert.ok(inTerritory(a.home,a.territory),a.id);}
@@ -22,7 +22,7 @@ test('one navigable world reaches every region, fruit and hidden chest without c
 test('species health and damage work through directional combat with shared pack invulnerability',()=>{
  for(const key of ['boar']){
   const s=forest(),r=combatRuntime(),a=ANIMAL_SPAWNS.find(a=>a.species===key),target=s.forest.animals[a.id];
-  s.position={x:a.home.x,y:a.home.y+42};const hit=attack(s,r,'up');assert.equal(hit.animalId,a.id);assert.equal(target.health,SPECIES[key].health-1);assert.equal(s.energy,98);
+  s.position={x:a.home.x,y:a.home.y+42};const hit=attack(s,r,'up');assert.equal(hit.animalId,a.id);assert.equal(target.health,SPECIES[key].health-1);assert.equal(s.energy,99);
   // A locked charge right beside the player gives exactly this species' damage.
   target.position={x:s.position.x,y:s.position.y-24};const runtime=animalRuntime(r,a.id);runtime.mode='charge';runtime.timer=600;runtime.heading={x:0,y:1};const result=stepCombat(s,r,50);assert.equal(result.hurt,true);assert.equal(s.health,100-SPECIES[key].damage);
   const health=s.health;stepCombat(s,r,50);assert.equal(s.health,health);
@@ -41,7 +41,7 @@ test('rare guarded treasure pays once, refuses live nearby guards and persists a
 });
 test('schema 8 migration translates legacy forest positions, bag and injured boar without changing progress/prices',()=>{
  const raw=forest();raw.version=8;raw.position={x:640,y:752};raw.money=321;raw.day=7;raw.minute=900;raw.inventory.mango=4;raw.plots[0]={...raw.plots[0],crop:'tomato',growth:2};raw.forest={forageDay:7,collected:['berry-south'],boar:{health:1,position:{x:936,y:376},defeatedDay:0}};raw.stash={area:'forest',x:640,y:960,coins:42};
- const before=['tomato','wildBerry','guava','mango','wildHide'].map(id=>marketPrice(raw,id));const s=validate(raw);assert.equal(s.version,12);assert.deepEqual(s.position,{x:640,y:4848});assert.equal(s.stash.y,5056);assert.equal(s.stash.coins,42);assert.equal(s.forest.boar.position.y,4472);assert.equal(s.forest.boar.health,1);assert.equal(s.money,321);assert.equal(s.inventory.mango,4);assert.equal(s.plots[0].growth,1);assert.deepEqual(s.forest.collected,['berry-south']);assert.equal(Object.keys(s.forest.animals).length,ANIMAL_SPAWNS.length);assert.deepEqual(['tomato','wildBerry','guava','mango','wildHide'].map(id=>marketPrice(s,id)),before);
+ const before=['tomato','wildBerry','guava','mango','wildHide'].map(id=>marketPrice(raw,id));const s=validate(raw);assert.equal(s.version,13);assert.deepEqual(s.position,{x:640,y:4848});assert.equal(s.stash.y,5056);assert.equal(s.stash.coins,42);assert.equal(s.forest.boar.position.y,4472);assert.equal(s.forest.boar.health,1);assert.equal(s.money,321);assert.equal(s.inventory.mango,4);assert.equal(s.plots[0].growth,1);assert.deepEqual(s.forest.collected,['berry-south']);assert.equal(Object.keys(s.forest.animals).length,ANIMAL_SPAWNS.length);assert.deepEqual(['tomato','wildBerry','guava','mango','wildHide'].map(id=>marketPrice(s,id)),before);
 });
 test('schema 9 rejects unknown animals, unsafe territory locations and forged discovery/treasure IDs',()=>{
  const raw=forest(),wolf=ANIMAL_SPAWNS.find(a=>a.species==='boar');raw.forest.animals[wolf.id].position={x:640,y:4848};raw.forest.animals[wolf.id].health=999;raw.forest.animals.fake={health:900};raw.forest.animals['wolf-0']={health:4,position:{x:2240,y:3400},defeatedDay:0};raw.forest.explored=['frost','fake','frost'];raw.forest.treasures=['snake-cache','fake','snake-cache'];const s=validate(raw);assert.deepEqual(s.forest.animals[wolf.id].position,wolf.home);assert.equal(s.forest.animals[wolf.id].health,SPECIES.boar.health);assert.equal(s.forest.animals.fake,undefined);assert.equal(s.forest.animals['wolf-0'],undefined);assert.deepEqual(s.forest.explored,['frost','entrance']);assert.deepEqual(s.forest.treasures,['snake-cache']);

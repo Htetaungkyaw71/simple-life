@@ -11,14 +11,14 @@ import {shopOpen,SHOP_HOURS} from './market.js';
 import {LOCATIONS,walkable} from '../data/locations.js';
 import {FIELDS,FARM_PLOTS,PLOTS_PER_FARM} from '../data/farms.js';
 import {visiblePlots,ownedField} from './expansion.js';
-import {waterPeriod,missed} from './watering.js';
+import {wateredToday,missed} from './watering.js';
 export function plotPrompt(state,plot){
- if(missed(plot)>=2)return state.selected==='water'?'Dead / select Harvest':'Clear dead crop';
+ if(missed(plot)>=4)return state.selected==='water'?'Dead / select Harvest':'Clear dead crop';
  if(plot.crop&&plot.growth>=CROPS[plot.crop].growthDays)return state.selected==='harvest'?'Harvest':'Ripe - select Harvest';
- if(missed(plot)===1&&state.selected!=='water')return 'Wilted - select Water';
+ if(missed(plot)>=3&&state.selected!=='water')return 'Recovering - select Water';
  if(state.selected==='seed')return plot.crop?'Crop planted':state.inventory[CROPS[state.selectedCrop||'tomato'].seedKey]?'Plant seed':'No seeds';
  if(!plot.crop)return state.selected==='water'?'Water ground':'Select a seed';
- if(state.selected==='water'){const period=waterPeriod(state);return !period?'Water at 06-12 or 16-22':plot[period]?'Already watered':missed(plot)?'Wilted - water to recover':'Water';}
+ if(state.selected==='water'){return wateredToday(state,plot)?'Already watered today':missed(plot)>=3?'Recovering - water to recover':'Water';}
  return 'Growing - select Water';
 }
 export function contextFor(state,targetPlot=null,direction='down',targetGround=null){
@@ -41,7 +41,7 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
   const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n,0,state)).sort((a,b)=>dist(a)-dist(b))[0];
   if(node)return {type:'forage',...node,label:'Gather '+FOODS[node.item].name};
  }
- if(nearby.length){const c=nearby[0];if(['seed','sell','outfitter'].includes(c.type)&&!shopOpen(state,c.type))return {...c,type:'hint',label:`Closed / ${SHOP_HOURS[c.type].label}`};if(c.type==='field'&&ownedField(state,c.field))return {...c,type:'hint',label:`Planting beds`};return c.type==='starter'&&state.starterSeedsClaimed?{...c,label:'Starter crate - empty'}:c;}
+ if(nearby.length){const c=nearby[0];if(['seed','sell'].includes(c.type)&&!shopOpen(state,c.type))return {...c,type:'hint',label:`Closed / ${SHOP_HOURS[c.type].label}`};if(c.type==='field'&&ownedField(state,c.field))return {...c,type:'hint',label:`Planting beds`};return c.type==='starter'&&state.starterSeedsClaimed?{...c,label:'Starter crate - empty'}:c;}
  const ground=groundContext();if(ground)return ground;
  if(['axe','hand','grass'].includes(state.selected))return null;
  if(state.area==='farm'){

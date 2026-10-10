@@ -8,7 +8,7 @@ import {pixelArrow} from '../ui/statusArt.js';
 import {FIELDS} from '../data/farms.js';
 import {ownedField} from '../systems/expansion.js';
 import {CROPS} from '../data/crops.js';
-import {cropVisual,waterPeriod} from '../systems/watering.js';
+import {cropVisual} from '../systems/watering.js';
 import {ROOM,FURNITURE} from '../data/interior.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {terrain} from './Terrain.js';
@@ -87,7 +87,7 @@ export function drawWorld(scene,area){
   image(scene,'fence',832,220,252);image(scene,'fence',864,220,252);
  }else if(area==='city'){
   for(const b of map.bridges)drawCityBridge(scene,b);
-  for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE'],[336,'outfitter','OUTFITTER']]){
+  for(const [cx,kind,name]of [[432,'seed','SEEDS'],[896,'sell','PRODUCE']]){
    const t=label(scene,cx,kind==='outfitter'?610:178,name);t.setDepth(1001);scene.shopLabels.push({text:t,kind,name});
   }
   label(scene,1080,626,'SEED AID');

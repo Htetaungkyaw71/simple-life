@@ -1,3 +1,13 @@
+# v0.12.0 — calendar-day care and retired club
+
+watering.js uses wateredDay, missedDays and lastEvaluatedDay; its evaluator settles completed days and never the current incomplete day. farming.js records one watering and grows only plots whose current day has not already settled, including all custom beds. time.js still owns midnight, sleep and daily Forest/market refresh. cropStatus derives a read-only projection, and FarmView/CropInfo/context/help share daily labels and the three/four-day thresholds. farmGround rejects repeat plant watering before energy/soil mutation while retaining cosmetic watering elsewhere.
+
+MAX_FARMS=3 gates new coin purchases; SAVE_FARM_LIMIT=100 bounds legacy migration. FarmOffice adds an exact-price Buy control, transaction input gate, save, selected-farm scene rebuild and cap/affordability disabling. Purchased and custom plot objects remain intact.
+
+Schema 13 translates earlier watering and club fields. No active club fields or second weapon remain. SurvivalPanel's obsolete club shop is removed; BagPanel retains established food/gear handlers, combat/main/ForestView use Axe, and Rowan joins ordinary City residents with unchanged home/commute. The retired club stall is no longer rendered. Fullscreen separate Phaser world/canvas UI and eight runtime art files remain.
+
+---
+
 # v0.11.0 — shared house structure, room furnishings and analog input
 
 Pure systems/movement.js clamps keyboard/analog vectors and applies directional hysteresis for the four native walk poses during eight-way motion. WorldScene uses intended input for facing, actual movement for walk animation/collision, and the existing swept jump system outdoors. MobileControls tracks one joystick pointer, ignores other fingers, clamps strength, preserves a dead zone and independently dispatches Jump/Attack (or nearby axe tree use). Interface forwards move/up/upoutside and resets input on layout/menu/gameout; main also resets on blur/background. No analog input is saved.

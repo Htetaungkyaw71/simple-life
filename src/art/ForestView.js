@@ -3,7 +3,7 @@ import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {FORAGE_NODES,TREASURES} from '../data/forest.js';
 import {FOODS} from '../data/items.js';
 import {forageAvailable,treasureAvailable} from '../systems/forest.js';
-import {attackBox,animalRuntime} from '../systems/combat.js';
+import {animalRuntime} from '../systems/combat.js';
 import {WoodlandView} from './WoodlandView.js';
 import {animalDirection,combatAnimalVisual} from '../data/wildlifeArt.js';
 import {isNight} from '../systems/time.js';
@@ -25,7 +25,6 @@ export class ForestView {
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
    this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2);
   }
-  this.swing=scene.add.image(0,0,'town','wooden-club-item').setOrigin(.5,1).setScale(2).setVisible(false);
   this.arc=scene.add.graphics();
  }
  update(delta,r){
@@ -56,9 +55,9 @@ export class ForestView {
    const bag=s.stash;this.bag.setVisible(!!bag);if(bag)this.bag.setPosition(bag.x,bag.y).setDepth(bag.y);
   }
   if(this.swingLeft>0){
-   this.swingLeft-=delta;const t=1-this.swingLeft/420,p=s.position,box=attackBox(p,this.swingDirection),center={x:box.x+box.w/2,y:box.y+box.h/2};
+   this.swingLeft-=delta;const t=1-this.swingLeft/420,p=s.position;
    const angle={up:-Math.PI/2,down:Math.PI/2,left:Math.PI,right:0}[this.swingDirection]+(t-.45)*2;
-   this.swing.setVisible(this.swingLeft>0&&this.swingWeapon!=='axe').setPosition(center.x,center.y+12).setRotation(angle+Math.PI/4).setDepth(p.y+50);
+
    this.arc.clear().setDepth(p.y+(this.swingDirection==='up'?-2:3));
    if(t>.26&&t<.66){
     const can=this.scene.player.wateringCan.can;
@@ -68,10 +67,10 @@ export class ForestView {
     this.arc.fillStyle(0xffedcc,.55);
     for(let i=0;i<3;i++)this.arc.fillRect(Math.round((blade.x-i*4*Math.cos(angle))/2)*2,Math.round((blade.y-i*4*Math.sin(angle))/2)*2,4,2);
    }
-  }else{this.swing.setVisible(false);this.arc.clear();}
+  }else{this.arc.clear();}
   this.scene.player?.sprite.setAlpha(r.now<r.invulnerableUntil&&Math.floor(r.now/90)%2?.42:1);
  }
- beginSwing(direction,weapon){this.swingDirection=direction;this.swingLeft=420;this.swingWeapon=weapon;}
+ beginSwing(direction){this.swingDirection=direction;this.swingLeft=420;}
  attack(direction,result){
   const s=this.scene.app.state,animal=s.forest.animals[result.animalId]||s.forest.woodland[result.animalId],entry=this.animals?.find(a=>a.definition.id===result.animalId)||this.woodland?.animals.find(a=>a.id===result.animalId);
   if(result.hit){const p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());this.scene.cameras.main.shake(80,.0012);}

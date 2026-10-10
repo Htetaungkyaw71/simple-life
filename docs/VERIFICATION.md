@@ -1,3 +1,14 @@
+# v0.12.0 — daily watering, three farms and club removal, 2026-10-10
+
+Complete: one watering at any hour per calendar day, repeat watering without extra EP, daily midnight growth across farms/custom beds, alive after two misses, Recovering after three (revivable), dead after four. Farm Board → Buy / visit farms buys second/third farms for 600/1,200 coins without field prerequisites and stops at three. Wooden Club bag/shop/combat/stall are removed; Rowan stays a resident. Schema 13 accepts schemas 1–12, translates old watering, preserves purchased land/crops and returns old club value once. Prior owned farms beyond three are retained, with no further purchases. Existing gift marker, Forest species/loot/resources, food, sleep, local saves and Stash recovery remain.
+
+Checks: npm test 198/198; npm run build (105 modules); git diff --check clean. Native Chromium browser at 1280×720, 360×640 and 640×360: midday daily care, no repeat EP, fixture-free save/Continue, natural midnight corn growth, third-day recovery prompt/rescue, board purchases/cap/travel, phone purchases/recovery, compact menu bounds, gear without club and Rowan conversation/two merchants. No warn/error entries in isolated checks. Eight art files, twelve total dist files; no archives or QA screenshots in production. Local preview remains on http://127.0.0.1:4175/.
+
+Evidence/reproduction: docs/verification/daily-farms/README.md. Isolated origin 43863 keeps fixtures away from the normal 4175 save. Normal progress is preserved; optional testing gift is not reapplied. Mobile refers to viewport/native pointer emulation, not a physical phone. The larger crop card may intentionally hide on a crowded phone layout, with the correct contextual care/recovery prompt retained. Earlier records below are historical. No push/publication/submission or rights certification.
+
+
+---
+
 # v0.11.1 — Home proportions, roof and mobile attack correction, 2026-10-09
 
 The indoor farmer and furniture now share 2× native world scale; indoor camera framing matches outdoors (1.5 desktop, 1 compact), so the farmer is 96px / 64px tall in both locations. Existing room sizing, furniture, bed, exit, saved room mapping and collision rules remain. The Home exterior is drawn directly on a 180×144 native canvas (360×288 world), centred at the existing door/porch. Twelve other houses retain 120×96 cells. All thirteen share the broad roof/central raised gable/front facade structure, with a pitched rear cap and taller double doors; unique finishes remain. Source-generated exact collision rows, Home resident doorstep, clear porch and centred grounding shadows follow the new art. No 3D engine, reference-pixel extraction, resampling or external asset.

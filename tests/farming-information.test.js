@@ -9,28 +9,22 @@ import {farmObjective,farmWaypoint} from '../src/systems/navigation.js';
 import {EDGE_TRAVEL,walkable,LOCATIONS} from '../src/data/locations.js';
 import {MAPS} from '../src/data/mapLayouts.js';
 const plant=()=>{const s=newState();s.area='farm';s.inventory.seed=3;usePlot(s,0);s.selected='water';return s;};
-test('crop status is pure, stages follow earned nights and timer agrees through a complete harvest',()=>{
- const s=plant();const before=structuredClone(s);let info=cropStatus(s,0);
- assert.deepEqual(s,before);assert.equal(info.stage,1);assert.equal(info.stages,2);assert.equal(info.remaining,1);assert.equal(info.condition,'Newly planted');assert.equal(info.need,'Needs morning water');
+test('crop status is pure and its one daily care row agrees with growth and harvest',()=>{
+ const s=plant(),before=structuredClone(s);let info=cropStatus(s,0);
+ assert.deepEqual(s,before);assert.equal(info.stage,1);assert.equal(info.stages,2);assert.equal(info.remaining,1);assert.equal(info.condition,'Newly planted');assert.equal(info.need,'Needs water');
  assert.equal(info.plantedDay,1);assert.equal(info.plantedMinute,360);assert.equal(cropStatus(s,1),null);
- for(let night=0;night<1;night++){
-  usePlot(s,0);assert.equal(cropStatus(s,0).care[0].label,'Watered');assert.equal(cropStatus(s,0).condition,'Watered for this window');
-  restUntilEvening(s);assert.equal(cropStatus(s,0).need,'Needs evening water');usePlot(s,0);
-  info=cropStatus(s,0);assert.equal(info.condition,'Fully watered today');assert.equal(info.next,night===0?'Ready at midnight':'Next stage at midnight');
-  assert.deepEqual(cropStatus(validate(JSON.parse(JSON.stringify(s))),0),info);nextDay(s);s.area='farm';assert.equal(cropStatus(s,0).stage,night+2);assert.equal(cropStatus(s,0).remaining,0-night);
- }
+ usePlot(s,0);info=cropStatus(s,0);assert.equal(info.care.length,1);assert.equal(info.care[0].label,'Watered today');assert.equal(info.condition,'Watered today');assert.equal(info.next,'Ready at midnight');
+ restUntilEvening(s);assert.equal(cropStatus(s,0).need,'');assert.deepEqual(cropStatus(validate(s),0),info);nextDay(s);
  info=cropStatus(s,0);assert.equal(info.timer,'Ready to harvest');assert.equal(info.progress,1);s.selected='harvest';usePlot(s,0);assert.equal(cropStatus(s,0),null);
 });
-test('misses, recovery, partial days and death never promise false growth',()=>{
- const s=plant();s.minute=720;const before=structuredClone(s);let info=cropStatus(s,0);
- assert.equal(info.condition,'Wilted');assert.equal(info.timer,'Growth paused - water this crop');assert.deepEqual(s,before);
- restUntilEvening(s);usePlot(s,0);info=cropStatus(s,0);assert.equal(info.condition,'Recovering');assert.equal(info.next,'Next stage after a full care day');
- assert.deepEqual(cropStatus(validate(s),0),info);nextDay(s);assert.equal(s.plots[0].growth,0);
- s.minute=1320;info=cropStatus(s,0);assert.equal(info.dead,true);assert.equal(info.timer,'Dead crop - clear the plot');assert.equal(info.need,'');
- usePlot(s,0);assert.equal(cropStatus(s,0),null);
- const late=newState();late.minute=970;late.inventory.seed=1;usePlot(late,0);late.selected='water';usePlot(late,0);
- assert.equal(cropStatus(late,0).next,'Next stage after a full care day');nextDay(late);assert.equal(late.plots[0].growth,0);
+
+test('two missed days stay alive, three offer recovery, four die; watering removes the warning',()=>{
+ const s=plant();for(let i=1;i<=3;i++){nextDay(s);const before=structuredClone(s),info=cropStatus(s,0);assert.deepEqual(s,before);assert.equal(info.dead,false);assert.equal(info.missedDays,i);assert.equal(info.condition,i===3?'Recovering':'Dry');assert.equal(info.paused,true);}
+ let info=cropStatus(s,0);assert.equal(info.next,'Water today before this crop dies');assert.deepEqual(cropStatus(validate(s),0),info);
+ const rescued=structuredClone(s);usePlot(rescued,0);assert.equal(cropStatus(rescued,0).condition,'Watered today');assert.equal(rescued.plots[0].missedDays,0);nextDay(rescued);assert.equal(rescued.plots[0].growth,1);
+ nextDay(s);info=cropStatus(s,0);assert.equal(info.dead,true);assert.equal(info.need,'');usePlot(s,0);assert.equal(cropStatus(s,0),null);
 });
+
 test('all five save versions infer farm visits only from real evidence and preserve fresh tutorials',()=>{
  for(const version of [1,2,3,4,5]){
   const fresh=newState();fresh.version=version;delete fresh.hasVisitedFarm;assert.equal(validate(fresh).hasVisitedFarm,false);

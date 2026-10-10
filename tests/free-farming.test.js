@@ -30,10 +30,10 @@ test('shovel creates free beds on safe Farm ground and rejects repeats, paths, w
 test('formerly locked field cells are individually dug without coins or unlocking all sixteen',()=>{
  const s=farm(),p=FARM_PLOTS[16];s.position={x:p.x,y:p.y+30};const result=digGround(s,p);assert.equal(result.ok,true);assert.equal(result.index,16);assert.equal(s.money,60);assert.equal(s.farms[0].fields[1],false);assert.equal(visiblePlots(s).length,17);s.selected='seed';s.inventory.seed=1;assert.equal(contextFor(s,16).index,16);assert.match(usePlot(s,16),/planted/);assert.equal(validate(s).plots[16].crop,'tomato');
 });
-test('custom beds complete planting, both watering windows, growth, harvest and save/reload',()=>{
+test('custom beds complete planting, daily watering, growth, harvest and save/reload',()=>{
  let s=farm();const r=dig(s),id='cucumber';s.selected='seed';s.selectedCrop=id;s.inventory[CROPS[id].seedKey]=1;assert.match(usePlot(s,r.index),/planted/);assert.equal(cropStatus(s,r.index).name,'Cucumber');
  for(let day=0;day<CROPS[id].growthDays;day++){
-  s.energy=100;s.selected='water';assert.equal(waterGround(s,r,r.index).cared,true);assert.equal(cropMarker(plotAt(s,r.index),s),null);const flags=structuredClone(plotAt(s,r.index));waterGround(s,r,r.index);assert.deepEqual(plotAt(s,r.index),flags,'repeat cannot add care/growth');restUntilEvening(s);assert.equal(waterGround(s,r,r.index).cared,true);nextDay(s);s.area='farm';s.position={x:r.x,y:r.y+30};s=validate(s);assert.equal(plotAt(s,r.index).growth,day+1);
+  s.energy=100;s.selected='water';assert.equal(waterGround(s,r,r.index).cared,true);assert.equal(cropMarker(plotAt(s,r.index),s),null);const flags=structuredClone(plotAt(s,r.index));waterGround(s,r,r.index);assert.deepEqual(plotAt(s,r.index),flags,'repeat cannot add care/growth');restUntilEvening(s);assert.equal(waterGround(s,r,r.index).ok,false);nextDay(s);s.area='farm';s.position={x:r.x,y:r.y+30};s=validate(s);assert.equal(plotAt(s,r.index).growth,day+1);
  }
  s.selected='harvest';assert.match(usePlot(s,r.index),/harvested/);assert.equal(s.inventory[id],3);assert.equal(plotAt(s,r.index).crop,null);assert.equal(s.customBeds.length,1,'bed remains after harvest');
 });
@@ -44,11 +44,14 @@ test('watering anywhere wets open outdoor ground, dries after three active minut
  for(const area of ['home','city','forest']){s.area=area;const point=area==='forest'?{x:640,y:4800}:area==='city'?{x:600,y:500}:{x:480,y:600};s.position=point;if(openGround(area,point.x,point.y))assert.ok(waterGround(s,point).ok);}
  s.area='interior';assert.equal(waterGround(s,s.position).ok,false);
 });
-test('wetting plants outside a care window changes soil but grants no morning/evening water',()=>{
- const s=farm(),r=dig(s);s.selected='seed';s.inventory.seed=1;usePlot(s,r.index);s.selected='water';s.minute=800;const p=plotAt(s,r.index);const r2=waterGround(s,r,r.index);assert.ok(r2.ok);assert.equal(r2.cared,false);assert.equal(p.morning,false);assert.equal(p.evening,false);assert.ok(wetAt(s,r.x,r.y));
+test('watering at midday cares for a plant and a repeat leaves energy and soil timer unchanged',()=>{
+ const s=farm(),r=dig(s);s.selected='seed';s.inventory.seed=1;usePlot(s,r.index);s.selected='water';s.minute=800;
+ const p=plotAt(s,r.index),result=waterGround(s,r,r.index);assert.ok(result.ok);assert.equal(result.cared,true);assert.equal(p.wateredDay,s.day);assert.ok(wetAt(s,r.x,r.y));
+ const before=structuredClone(s);assert.equal(waterGround(s,r,r.index).ok,false);assert.deepEqual(s,before);
 });
+
 test('schema 9 migration retains paid farms, original crops, inventory, money and forest progress',()=>{
- const old=farm();old.money=2000;for(const i of [1,2,3])buyField(old,i);buyFarm(old);old.version=9;old.plots[0].crop='tomato';old.plots[0].growth=2;old.plots[64].crop='corn';old.inventory.tomato=9;old.forest.treasures=['stone-cache'];const s=validate(old);assert.equal(s.version,12);for(const key of ['farms','money','inventory','currentFarm'])assert.deepEqual(s[key],old[key]);assert.deepEqual(s.plots,old.plots.map(p=>({...p,growth:p.crop==='tomato'?Math.min(p.growth,1):p.growth})));assert.deepEqual(s.customBeds,[]);assert.deepEqual(s.dugPlots,[]);assert.deepEqual(s.wetGround,[]);
+ const old=farm();old.money=2000;for(const i of [1,2,3])buyField(old,i);buyFarm(old);old.version=9;old.plots[0].crop='tomato';old.plots[0].growth=2;old.plots[64].crop='corn';old.inventory.tomato=9;old.forest.treasures=['stone-cache'];const s=validate(old);assert.equal(s.version,13);for(const key of ['farms','money','inventory','currentFarm'])assert.deepEqual(s[key],old[key]);assert.deepEqual(s.plots,old.plots.map(p=>({...p,growth:p.crop==='tomato'?Math.min(p.growth,1):p.growth})));assert.deepEqual(s.customBeds,[]);assert.deepEqual(s.dugPlots,[]);assert.deepEqual(s.wetGround,[]);
 });
 test('new saves reject duplicate/overlapping/unsafe beds and invalid wet patches without harming planted progress',()=>{
  const s=farm(),r=dig(s);s.selected='seed';s.inventory.seed=1;usePlot(s,r.index);s.selected='water';waterGround(s,r,r.index);const before=validate(s);assert.deepEqual(validate(before),before);const b=s.customBeds[0];s.customBeds.push({...b},{...b,farm:999},{...b,x:1800,y:744},{...b,x:376,y:248},{...b,x:NaN});s.wetGround.push({area:'farm',farm:0,x:NaN,y:4,remaining:Infinity},{area:'__proto__',farm:0,x:120,y:120,remaining:20});const fixed=validate(s);assert.equal(fixed.customBeds.length,1);assert.equal(fixed.wetGround.length,1);assert.equal(fixed.customBeds[0].plot.crop,'tomato');
@@ -57,7 +60,7 @@ test('digging and watering share pointer/facing ground targets while Seed still 
  const s=farm();s.position={x:free[0].x,y:free[0].y+30};assert.equal(contextFor(s,null,'up',free[0]).type,'dig');const r=digGround(s,free[0]);s.selected='seed';assert.equal(contextFor(s,r.index).index,r.index);s.selected='water';assert.equal(contextFor(s,null,'up',r).index,r.index);
 });
 test('soil joins neighbours without turf seams; water and warning markers follow actual crop state',()=>{
- const b={x:100,y:100},beds=[b,{x:148,y:100},{x:100,y:148}];assert.equal(bedMask(b,beds),6);const dry=soilPixels(15),wet=soilPixels(15,true);assert.equal(dry.length,2304);assert.ok(wet[0]<dry[0]);const s=farm(),p={...s.plots[0],crop:'tomato'};assert.equal(cropMarker(p,s),'drop');p.missedWindows=1;assert.equal(cropMarker(p,s),'warning');p.missedWindows=0;p.growth=3;assert.equal(cropMarker(p,s),'basket');
+ const b={x:100,y:100},beds=[b,{x:148,y:100},{x:100,y:148}];assert.equal(bedMask(b,beds),6);const dry=soilPixels(15),wet=soilPixels(15,true);assert.equal(dry.length,2304);assert.ok(wet[0]<dry[0]);const s=farm(),p={...s.plots[0],crop:'tomato'};assert.equal(cropMarker(p,s),'drop');p.missedDays=3;assert.equal(cropMarker(p,s),'warning');p.missedDays=0;p.growth=3;assert.equal(cropMarker(p,s),'basket');
 });
 test('all twelve seeds and all produce pages remain selectable at desktop and small/mobile sizes',()=>{
  assert.equal(CROP_IDS.length,12);assert.deepEqual(SALE_IDS.slice(0,14),['tomato','strawberry','carrot','corn','wildBerry','guava','mango','wildHide','banana','orange','papaya','coconut','dragonFruit','pineapple']);

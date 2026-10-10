@@ -1,8 +1,8 @@
 import {FOREST_ITEMS,MEAT} from './items.js';
-export const WATER_WINDOWS=[{id:'morning',start:360,end:720,label:'AM 06-12'},{id:'evening',start:960,end:1320,label:'PM 16-22'}];
+export const WATER_WINDOWS=[{id:'daily',start:0,end:1440,label:'Once daily'}];
 const crop=(id,name,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,description)=>({
  id,name,category:'field',seedKey:id==='tomato'?'seed':id+'Seed',produceKey:id,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,regrow:false,unlock:null,description,
- watering:['morning','evening'],growthStages:growthDays===1?['Seed / sprout','Ripe']:['Seed / sprout','Young plant','Ripe'],stageCount:growthDays+1,stages:['seed','sprout','young','flowering','ripe'],icon:id+'-item',seedIcon:id+'-seed-item',
+ watering:['daily'],growthStages:growthDays===1?['Seed / sprout','Ripe']:['Seed / sprout','Young plant','Ripe'],stageCount:growthDays+1,stages:['seed','sprout','young','flowering','ripe'],icon:id+'-item',seedIcon:id+'-seed-item',
  sprites:Object.fromEntries(['seed','sprout','young','flowering','ripe','dry','wilted','dead'].map(key=>[key,id+'-'+key])),
 });
 export const CROPS={

@@ -1,3 +1,9 @@
+# v0.12.0 — no new assets
+
+Daily-care/farm/club changes use original gameplay/UI code and existing credited sprites. No download, asset regeneration, sprite transformation or new dependency. Club/stall cells remain unused in the existing atlas for source reproducibility; no club or club stall is rendered or selectable. The eight-file runtime allowlist remains unchanged; vendor archives and QA images are excluded from dist. Existing creator/licence evidence and publication limitations remain.
+
+---
+
 # v0.11.1 — original Home roof/proportion and energy correction
 
 Thirteen house cells are independently redrawn by scripts/large_houses_art.py, with a pitched roof cap and taller doors. Home is authored directly at 180×144; other cottages remain 120×96. The yellow bolt is original src/ui/statusArt.js / vitalMeter.js pixel code. No screenshot pixels, external image generation/download or sprite resampling. Indoor furnishings, Channeechan farmer/NPC sheets, font, world and other atlas cells preserve their existing source licences. Evidence and hashes: docs/assets/licenses/home-proportions. Runtime packaging remains the eight-file allowlist. No additional rights/publication claim.

@@ -6,7 +6,7 @@ import {LOCATIONS,EDGE_TRAVEL,edgeTravel,readyEdgeTravel,walkable,nearestSafe} f
 import {FORAGE_NODES,BOAR_HOME} from '../src/data/forest.js';
 import {FOODS,FOOD_IDS} from '../src/data/items.js';
 import {MAPS} from '../src/data/mapLayouts.js';
-import {collectForage,eatFood,buyClub,recoverStash,refreshForest,lineClear,inTerritory} from '../src/systems/forest.js';
+import {collectForage,eatFood,recoverStash,refreshForest,lineClear,inTerritory} from '../src/systems/forest.js';
 import {marketPrice,shopOpen} from '../src/systems/market.js';
 import {sellCrop} from '../src/systems/economy.js';
 import {attack,attackBox,hitInside,combatRuntime,stepCombat,damagePlayer,displace} from '../src/systems/combat.js';
@@ -41,14 +41,15 @@ test('eating exactly one forest fruit respects energy values, full energy and in
 test('forest fruit and hide sales apply stable daily multiplier, keeping crop prices unchanged',()=>{
  const s=forest();s.money=100;for(const id of [...FOOD_IDS,'wildHide']){s.inventory[id]=3;const before=s.money,q=marketPrice(s,id);assert.ok(q.percent>=85&&q.percent<=120);sellCrop(s,id,1);assert.equal(s.money,before+q.price);assert.equal(s.inventory[id],2);assert.deepEqual(marketPrice(validate(s),id),q);}
 });
-test('one permanent auto-equipped club purchase and Outfitter hours match both merchants',()=>{
- const s=newState();for(const m of [0,419,1200,1439]){s.minute=m;assert.equal(shopOpen(s,'outfitter'),false);assert.match(buyClub(s),/Closed/);assert.equal(s.money,60);}
- s.minute=420;s.money=44;assert.match(buyClub(s),/45/);assert.equal(s.ownsClub,false);s.money=60;buyClub(s);assert.equal(s.money,15);assert.equal(s.ownsClub,true);assert.equal(s.clubEquipped,true);buyClub(s);assert.equal(s.money,15);assert.ok(shopOpen({...s,minute:1199},'outfitter'));
+test('retired club refunds an older purchase once without affecting progress',()=>{
+ const old={...newState(),version:12,money:15,ownsClub:true,clubEquipped:true};const s=validate(old);assert.equal(s.money,60);assert.ok(!Object.hasOwn(s,'ownsClub'));assert.ok(!Object.hasOwn(s,'clubEquipped'));assert.deepEqual(validate(s),s);
+ const capped=validate({...old,money:9999990});assert.equal(capped.money,9999999);
 });
-test('directional melee only hits in front, spends two energy on a hit and enforces 450ms cooldown',()=>{
- const s=forest();s.ownsClub=s.clubEquipped=true;s.position={x:936,y:4496};
+
+test('directional axe only hits in front, spends one energy and enforces 500ms cooldown',()=>{
+ const s=forest();s.selected='axe';s.position={x:936,y:4496};
  for(const [dir,front,back]of [['up',{x:936,y:4448},{x:936,y:4550}],['down',{x:936,y:4542},{x:936,y:4442}],['left',{x:886,y:4484},{x:990,y:4484}],['right',{x:986,y:4484},{x:882,y:4484}]]){assert.ok(hitInside(attackBox(s.position,dir),front));assert.equal(hitInside(attackBox(s.position,dir),back),false);}
- const r=combatRuntime();s.forest.boar.position={x:936,y:4448};assert.equal(attack(s,r,'up').hit,true);assert.equal(s.energy,98);assert.equal(s.forest.boar.health,2);const before=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,before);r.now=449;assert.equal(attack(s,r,'up').ok,false);r.now=450;assert.equal(attack(s,r,'up').ok,true);s.forest.boar.position={x:936,y:4448};s.energy=1;r.now=900;assert.match(attack(s,r,'up').message,/Too tired/);assert.equal(s.energy,1);
+ const r=combatRuntime();s.forest.boar.position={x:936,y:4448};assert.equal(attack(s,r,'up').hit,true);assert.equal(s.energy,99);assert.equal(s.forest.boar.health,2);const before=structuredClone(s);assert.equal(attack(s,r,'up').ok,false);assert.deepEqual(s,before);r.now=499;assert.equal(attack(s,r,'up').ok,false);r.now=500;assert.equal(attack(s,r,'up').ok,true);s.forest.boar.position={x:936,y:4448};s.energy=0;r.now=1000;assert.match(attack(s,r,'up').message,/Too tired/);assert.equal(s.energy,0);
 });
 test('boar telegraphs, locks a charge, damages once, recovers and returns to wandering',()=>{
  const s=forest(),r=combatRuntime();s.position={x:936,y:4534};r.grace=0;r.timer=0;
@@ -59,14 +60,14 @@ test('boar charges cannot tunnel through obstacles or territory; melee cannot hi
  const p={x:724,y:4810};assert.equal(lineClear('forest',p,{x:724,y:4770},12),false);displace('forest',p,0,-160);assert.ok(walkable('forest',p.x,p.y));assert.ok(p.y>4770);
  const s=forest(),r=combatRuntime();r.mode='charge';r.timer=650;r.heading={x:1,y:0};s.forest.boar.position={x:1128,y:4486};for(let i=0;i<30;i++)stepCombat(s,r,50);assert.ok(inTerritory(s.forest.boar.position));assert.ok(walkable('forest',s.forest.boar.position.x,s.forest.boar.position.y,16));
  // Solid log directly separates a deliberately close player/animal fixture.
- s.position={x:724,y:4802};s.forest.boar.position={x:724,y:4770};s.ownsClub=s.clubEquipped=true;r.nextAttack=0;assert.equal(attack(s,r,'up').hit,false);
+ s.position={x:724,y:4802};s.forest.boar.position={x:724,y:4770};s.selected='axe';r.nextAttack=0;assert.equal(attack(s,r,'up').hit,false);
 });
 test('damage invulnerability lasts 750ms and zero health cannot be damaged repeatedly',()=>{
  const s=forest(),r=combatRuntime();assert.equal(damagePlayer(s,r),true);assert.equal(s.health,85);r.now=749;assert.equal(damagePlayer(s,r),false);r.now=750;assert.equal(damagePlayer(s,r),true);s.health=10;r.now=1500;damagePlayer(s,r);assert.equal(s.health,0);r.now=3000;assert.equal(damagePlayer(s,r),false);
 });
 test('three hits defeat the boar with one hide, persist across travel and respawn only next day',()=>{
- const s=forest(),r=combatRuntime();s.ownsClub=s.clubEquipped=true;
- for(let i=0;i<3;i++){s.position={x:936,y:4526};s.forest.boar.position={x:936,y:4478};r.now=i*450;const result=attack(s,r,'up');assert.equal(result.hit,true);assert.equal(result.defeated,i===2);}
+ const s=forest(),r=combatRuntime();s.selected='axe';
+ for(let i=0;i<3;i++){s.position={x:936,y:4526};s.forest.boar.position={x:936,y:4478};r.now=i*500;const result=attack(s,r,'up');assert.equal(result.hit,true);assert.equal(result.defeated,i===2);}
  assert.equal(s.inventory.wildHide,1);s.area='home';s.area='forest';refreshForest(s);assert.equal(s.forest.boar.health,0);assert.equal(validate(s).forest.boar.health,0);r.now=2000;attack(s,r,'up');assert.equal(s.inventory.wildHide,1);s.day=2;refreshForest(s);assert.equal(s.forest.boar.health,3);
 });
 test('night awareness and movement increase with the same warning and safe entrance',()=>{
@@ -76,7 +77,7 @@ test('night awareness and movement increase with the same warning and safe entra
 });
 test('defeat drops floor(25 percent), restores home bed next morning and settles crop growth once',()=>{
  for(const money of [0,1,3,4,99,100,9999999])assert.equal(droppedCoins(money),Math.floor(money/4));
- const s=forest();s.money=99;s.health=0;s.energy=0;s.minute=1430;s.plots[0]={...s.plots[0],crop:'tomato',morning:true,evening:true,lastEvaluatedWindow:0};const dead={...s.position};assert.equal(defeat(s),24);assert.equal(s.money,75);assert.deepEqual(s.stash,{area:'forest',...dead,coins:24});assert.equal(s.day,2);assert.equal(s.minute,360);assert.equal(s.area,'interior');assert.equal(s.health,100);assert.equal(s.energy,100);assert.equal(s.plots[0].growth,1);assert.ok(walkable('interior',s.position.x,s.position.y));
+ const s=forest();s.money=99;s.health=0;s.energy=0;s.minute=1430;s.plots[0]={...s.plots[0],crop:'tomato',wateredDay:1,lastEvaluatedDay:0};const dead={...s.position};assert.equal(defeat(s),24);assert.equal(s.money,75);assert.deepEqual(s.stash,{area:'forest',...dead,coins:24});assert.equal(s.day,2);assert.equal(s.minute,360);assert.equal(s.area,'interior');assert.equal(s.health,100);assert.equal(s.energy,100);assert.equal(s.plots[0].growth,1);assert.ok(walkable('interior',s.position.x,s.position.y));
  const early=forest();early.day=4;early.minute=120;defeat(early);assert.equal(early.day,5);assert.equal(early.minute,360);
 });
 test('stash survives sleep, day rollover, save/reload; recovery is atomic and second defeat replaces it',()=>{
@@ -86,6 +87,6 @@ test('stash survives sleep, day rollover, save/reload; recovery is atomic and se
  s.area='forest';s.money=0;defeat(s);assert.equal(s.stash,null);
 });
 test('schema 1–7 migration preserves existing progress and schema 9 repairs malformed forest fields',()=>{
- for(let version=1;version<=7;version++){const raw=newState('girl');Object.assign(raw,{version,day:8,minute:version<7?960:120,money:432,health:63,energy:44,marketSeed:9831,selectedCrop:'corn',hasVisitedCity:true});raw.inventory.tomato=5;raw.plots[0]={...raw.plots[0],crop:'tomato',growth:2,morning:true};delete raw.forest;delete raw.ownsClub;const s=validate(raw);assert.equal(s.version,12);for(const k of ['character','day','minute','money','health','energy','marketSeed','selectedCrop','hasVisitedCity'])assert.deepEqual(s[k],raw[k]);assert.equal(s.inventory.tomato,5);assert.equal(s.plots[0].growth,1);assert.equal(s.ownsClub,false);assert.equal(s.stash,null);assert.deepEqual(s.forest.collected,[]);}
- const raw=forest();raw.ownsClub=true;raw.clubEquipped=true;raw.inventory.mango=2;raw.forest.boar.health=1;raw.stash={area:'forest',x:150,y:4596,coins:42};const loaded=validate(raw);assert.equal(loaded.inventory.mango,2);assert.ok(loaded.clubEquipped);assert.equal(loaded.forest.boar.health,1);assert.ok(walkable('forest',loaded.stash.x,loaded.stash.y));raw.stash.coins=-4;assert.equal(validate(raw).stash,null);
+ for(let version=1;version<=7;version++){const raw=newState('girl');Object.assign(raw,{version,day:8,minute:version<7?960:120,money:432,health:63,energy:44,marketSeed:9831,selectedCrop:'corn',hasVisitedCity:true});raw.inventory.tomato=5;raw.plots[0]={...raw.plots[0],crop:'tomato',growth:2,morning:true};delete raw.forest;delete raw.ownsClub;const s=validate(raw);assert.equal(s.version,13);for(const k of ['character','day','minute','money','health','energy','marketSeed','selectedCrop','hasVisitedCity'])assert.deepEqual(s[k],raw[k]);assert.equal(s.inventory.tomato,5);assert.equal(s.plots[0].growth,1);assert.ok(!Object.hasOwn(s,'ownsClub'));assert.equal(s.stash,null);assert.deepEqual(s.forest.collected,[]);}
+ const raw=forest();raw.ownsClub=true;raw.clubEquipped=true;raw.inventory.mango=2;raw.forest.boar.health=1;raw.stash={area:'forest',x:150,y:4596,coins:42};const loaded=validate(raw);assert.equal(loaded.inventory.mango,2);assert.ok(!Object.hasOwn(loaded,'clubEquipped'));assert.equal(loaded.forest.boar.health,1);assert.ok(walkable('forest',loaded.stash.x,loaded.stash.y));raw.stash.coins=-4;assert.equal(validate(raw).stash,null);
 });

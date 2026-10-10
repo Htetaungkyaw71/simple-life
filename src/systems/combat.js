@@ -1,4 +1,4 @@
-import {CLUB,AXE} from '../data/items.js';
+import {AXE} from '../data/items.js';
 import {WOODLAND_WILDLIFE,WOODLAND_BY_ID,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {ANIMAL_SPAWNS,ANIMAL_BY_ID,SPECIES} from '../data/wildlife.js';
 import {walkable} from '../data/locations.js';
@@ -35,14 +35,14 @@ export function huntContext(s,direction,target=null){
  return a&&(!target||Math.hypot(a.position.x-target.x,a.position.y-target.y)<48)?{type:'hunt',id:a.id,...a.position,label:'Axe / '+(SPECIES[a.species]?.name||WOODLAND_BY_ID[a.id].name)}:null;
 }
 export function attack(s,r,direction,targetId=null){
- const axe=s.selected==='axe',weapon=axe?AXE:CLUB;
- if(!axe&&(!s.ownsClub||!s.clubEquipped))return {ok:false,message:'Select Axe or buy a club at the City Outfitter.'};
+ const weapon=AXE;
+ if(s.selected!=='axe')return {ok:false,message:'Select Axe in Bag / Gear.'};
  if(r.now<r.nextAttack)return {ok:false};
  const target=attackTarget(s,direction,targetId),meat=target?.species==='boar'?2:WOODLAND_SPECIES[target?.species]?.meat||0;
  if(target&&s.energy<weapon.energy)return {ok:false,message:'Too tired / eat food or sleep.'};
  if(target?.health===1&&(s.inventory.meat+meat>9999||target.species==='boar'&&s.inventory.wildHide>=9999))return {ok:false,message:'Bag full / make room for the drop.'};
  s.energy-=target?weapon.energy:0;r.nextAttack=r.now+weapon.cooldown;
- const box=attackBox(s.position,direction),result={ok:true,weapon:axe?'axe':'club',box,hit:false,defeated:false};
+ const box=attackBox(s.position,direction),result={ok:true,weapon:'axe',box,hit:false,defeated:false};
  if(s.area==='forest'){
   if(target){
    const definition=ANIMAL_BY_ID[target.id],p=target.position,len=Math.hypot(p.x-s.position.x,p.y-s.position.y)||1;

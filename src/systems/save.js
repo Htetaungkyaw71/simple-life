@@ -6,11 +6,10 @@ import {FARM_PLOTS} from '../data/farms.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS} from '../data/forest.js';
 import {inTerritory,freshAnimal,safeStash} from './forest.js';
-import {MAX_FARMS,PLOTS_PER_FARM} from '../data/farms.js';
+import {SAVE_FARM_LIMIT,PLOTS_PER_FARM} from '../data/farms.js';
 import {newFarm,plotOwned} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
 import {ROOM} from '../data/interior.js';
-import {completedWindow} from './watering.js';
 import { CROPS,INVENTORY_KEYS } from '../data/crops.js';
 import { SAVE_KEY, TOOLS } from '../config.js';
 import {FATIGUE_MINUTES} from '../data/energy.js';
@@ -20,13 +19,13 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
   if(raw.version>=5&&Array.isArray(raw.farms)&&raw.farms.length){
-    s.farms=raw.farms.slice(0,MAX_FARMS).map(f=>({fields:[true,...[1,2,3].map(i=>f?.fields?.[i]===true)]}));
+    s.farms=raw.farms.slice(0,SAVE_FARM_LIMIT).map(f=>({fields:[true,...[1,2,3].map(i=>f?.fields?.[i]===true)]}));
   }else s.farms=[newFarm()];
   s.currentFarm=number(raw.version>=5?raw.currentFarm:0,0,0,s.farms.length-1);
   if(raw.version>=11&&raw.vegetation&&typeof raw.vegetation==='object')for(const area of ['home','city','forest','farm'])for(const farm of area==='farm'?s.farms.map((_,i)=>i):[0]){
@@ -69,10 +68,14 @@ export function validate(raw) {
   }
   const restorePlot=p=>{
     if(!p||!Object.hasOwn(CROPS,p.crop))return emptyPlot();
-    const plot={crop:p.crop,growth:number(p.growth,0,0,CROPS[p.crop].growthDays),morning:p.morning===true,evening:p.evening===true,dryDays:number(p.missedWindows??p.dryDays,0,0,2),missedWindows:number(p.missedWindows??p.dryDays,0,0,2),lastEvaluatedWindow:raw.version<3?completedWindow(s):number(p.lastEvaluatedWindow,(s.day-1)*2-1,(s.day-1)*2-1,completedWindow(s))};
+    const legacy=raw.version<13,oldMisses=number(p.missedWindows??p.dryDays,0,0,2);
+    const plot={crop:p.crop,growth:number(p.growth,0,0,CROPS[p.crop].growthDays),
+      wateredDay:legacy?(p.morning===true||p.evening===true?s.day:0):number(p.wateredDay,0,0,s.day),
+      missedDays:legacy?(oldMisses>=2?4:p.morning===true||p.evening===true?0:oldMisses):number(p.missedDays,0,0,4),
+      lastEvaluatedDay:legacy?s.day-1:number(p.lastEvaluatedDay,s.day-1,0,s.day-1)};
     if(Number.isFinite(p.plantedDay))plot.plantedDay=number(p.plantedDay,1,1,s.day);
     if(Number.isFinite(p.plantedMinute))plot.plantedMinute=number(p.plantedMinute,360,0,1439);
-    if(Number.isFinite(p.recoveredWindow))plot.recoveredWindow=number(p.recoveredWindow,-1,-1,(s.day-1)*2+1);
+    if(!legacy&&Number.isFinite(p.recoveredDay))plot.recoveredDay=number(p.recoveredDay,0,0,s.day);
     return plot;
   };
   s.plots=s.plots.map((_,i)=>plotOwned(s,i)?restorePlot(raw.plots?.[i]):emptyPlot());
@@ -85,8 +88,9 @@ export function validate(raw) {
     }
   }
   s.hasVisitedFarm=inferFarmVisit(raw,s);
-  for(const key of ['forestTutorialComplete','nightWarningSeen','deathTutorialSeen','hasDied','ownsClub'])s[key]=raw[key]===true;
-  s.clubEquipped=s.ownsClub&&raw.clubEquipped!==false;
+  for(const key of ['forestTutorialComplete','nightWarningSeen','deathTutorialSeen','hasDied'])s[key]=raw[key]===true;
+  // Return the retired item's purchase value once; schema 13 carries no club flags.
+  if(raw.version<13&&raw.ownsClub===true)s.money=Math.min(9999999,s.money+45);
   s.forest.forageDay=number(raw.forest?.forageDay,s.day,1,s.day);
   s.forest.collected=FORAGE_NODES.filter(n=>raw.forest?.collected?.includes?.(n.id)).map(n=>n.id);
   if(s.forest.forageDay<s.day){s.forest.forageDay=s.day;s.forest.collected=[];}
