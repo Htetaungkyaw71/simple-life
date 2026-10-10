@@ -1,3 +1,11 @@
+# v0.15.0 — honest furniture previews and directional views
+
+The cream/olive placement strip has readable object/facing labels, arrow adjustments, Turn, Place and Cancel, replacing ordinary controls only while positioning. A translucent actual-object ghost uses green/red native footprint strokes and a cream facing arrow above foliage/night. Every control remains at least 44 physical pixels in tested layouts; compact portrait uses two action rows.
+
+Share preview/world pixels through DecorationArt. Existing original front bench, barrel and lamp frames are reused; original side/back bench, vertical fence and two-axis picnic table are drawn with native warm wood/plum outline pixels. Retain planter/fence/flowers creator provenance. Never rotate a front-view sprite onto its side. Round/symmetric props naturally have less visible facing difference. Existing lantern yellow glass remains; no new halo or lighting system. No external asset or raster allowlist change.
+
+---
+
 # v0.14.0 — readable pixel text and illustrated resource pages
 
 Use the supplied Pending Orders image as style guidance for dark olive readable mixed-case pixel text, stronger headings, cream/olive frames, pictured rows and clear action buttons. Original lowercase glyph patterns stay in the existing 8px font cells; heading widening preserves counters rather than overprinting them. Actual colored raster glyphs support both Canvas and WebGL; no external font or reference pixels are used.

@@ -1,3 +1,9 @@
+# v0.15.0 — unchanged runtime art, 2026-10-10
+
+All eight allowlisted art files are byte-identical to local baseline 5681815. New native directional furniture/table/preview graphics are drawn from original source in memory; no atlas, archive or unused file is added. Production contains twelve files / 2,386,453 bytes. Evidence: verification/placement/runtime-audit.json; provenance: assets/licenses/placement.md.
+
+---
+
 # v0.14.0 — unchanged runtime art, 2026-10-10
 
 All eight allowlisted art files are byte-identical to baseline 585ae48. Original lowercase glyphs, heading variants and progress/preview graphics are generated in memory; no new art file or vendor pack enters production. The build contains twelve files / 2,378,165 bytes. Audit and screenshots: verification/chopping-ui; provenance: assets/licenses/chopping-ui.md.

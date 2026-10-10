@@ -1,3 +1,11 @@
+# v0.15.0 — furniture placement and recovery
+
+Craft seven movable Farm pieces: existing bench, flower planter, fence and stone path, plus picnic table (12 Wood/4 Stone), barrel (5 Wood) and lantern post (6 Wood/4 Stone). New pieces are decorative; they do not add storage, food or upgrades. The illustrated workshop has a More page. Build consumes the shown materials once; position/turn/cancel is free. Confirm consumes one built item only on valid nearby dry Farm ground, protecting roads, beds, structures and the farmer. Maximum 96 placed pieces across owned farms remains.
+
+A ghost shows the exact footprint and four-facing arrow. Tap/drag repositions; small buttons/arrows nudge by eight pixels; R/Turn changes facing; E/Place confirms; Escape/Cancel keeps the item. Cancel to walk. Hand packs the complete placed item into Gear for reuse, with no material loss or duplicate item. Placement automatically selects Hand afterward. Each farm and confirmed orientation survive reload. Current farming, wood/stone economy, cooking, NPC/projects and Forest survival remain.
+
+---
+
 # v0.14.0 — chopping feedback and clear resource choices
 
 Each authored tree requires three valid Axe hits. Hits one and two show saved progress without Wood/removal; hit three gives 3 Wood and clears the tree. Each hit costs 1 energy, empty/invalid work costs none, and elapsed time never drains energy. Damage persists across areas/farms/days/reloads. Earlier fully cut trees remain cut. Desktop uses tree clicks/E; mobile uses Attack and its circular movement control.

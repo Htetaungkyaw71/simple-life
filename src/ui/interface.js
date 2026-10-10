@@ -45,8 +45,8 @@ export class Interface extends Phaser.Scene {
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Your farmer','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / outdoor jump\n1-7 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / circle to move\nJump / leap   Attack / swing\nTap people or ground / use':'Crate / 3 starter seeds\n4 shovel / 5 axe / 6 hand / 7 grass\nWater once daily / any time\nHarvest after 3-6 watered days\nBed / restore energy\nMiss 3 days / recover with water\nMiss 4 days / dead';
-    this.modal('FIELD NOTES',page?'Your first harvest':'Controls',body,[[page?'Got it':'Farming >',()=>page?back():this.help(back,1)],...(!page?[['Close',back]]:[])]);
+    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / outdoor jump\n1-7 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / circle to move\nJump / leap   Attack / swing\nTap people or ground / use':page===2?'Place / preview before confirming\nTap or drag / adjust position\nArrows / small adjustments\nR or Turn / change direction\nE or Place / confirm\nEscape or Cancel / keep item\nHand / pack into Bag': 'Crate / 3 starter seeds\n4 shovel / 5 axe / 6 hand / 7 grass\nWater once daily / any time\nHarvest after 3-6 watered days\nBed / restore energy\nMiss 3 days / recover with water\nMiss 4 days / dead';
+    this.modal('FIELD NOTES',page===2?'Farm furniture':page?'Your first harvest':'Controls',body,[[page===2?'Got it':page?'Placing >':'Farming >',()=>page===2?back():this.help(back,page+1)],...(page<2?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}
   showFarmObjective(){this.objectiveStarted=true;this.objectiveUntil=this.time.now+7000;}
@@ -60,6 +60,6 @@ export class Interface extends Phaser.Scene {
     const close=text(this,this.noticeLayer,w-15,5,'X',8,UI_COLORS.gold).setInteractive({useHandCursor:true});close.on('pointerdown',(p,x,y,e)=>{e.stopPropagation();this.notice=null;this.drawNotice();});
     this.noticeLayer.setPosition(Math.floor((this.w-w)/2),this.menu?this.safe.top+5:Math.max(68,this.h-(this.touch&&this.w<this.h?155:90)-height));
   }
-  update(){if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu)this.hud?.update(this.app.state,this.app.scene.context());if(this.noticeLayer)this.noticeLayer.setVisible(!this.hud?.cropInfo.root.visible||!!this.menu);}
+  update(){if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu)this.hud?.update(this.app.state,this.app.scene.context());if(this.noticeLayer)this.noticeLayer.setVisible(!this.hud?.cropInfo?.root.visible||!!this.menu);}
   controlSnapshot(){return this.controls.map(({id,label,x,y,w,h,disabled})=>({id,label,x:x*2,y:y*2,w:w*2,h:h*2,disabled}));}
 }

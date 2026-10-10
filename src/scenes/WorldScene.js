@@ -1,3 +1,4 @@
+import {PlacementView} from '../art/PlacementView.js';
 import {TreeProgressView} from '../art/TreeProgressView.js';
 import {screenAttackAllowed} from '../systems/screenAttack.js';
 import {movementVector} from '../systems/movement.js';
@@ -45,16 +46,18 @@ export class WorldScene extends Phaser.Scene {
   }
   create(){
     for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,Q,K,M,J,SHIFT,B');
+    this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,Q,K,M,J,SHIFT,B,R');
     for(const key of Object.keys(KEY_ACTIONS))this.keys[key].on('down',(_,event)=>{const action=keyboardAction(key,this.app.state?.area,{paused:this.app.paused,repeat:event?.repeat,transitioning:this.app.transitioning});if(action==='jump')this.jump();else if(action==='attack')this.app.attack();else if(action==='map')this.app.wildernessMap.open();else if(action==='bag')this.app.bagPanel.open('seeds');});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
-    this.keys.ESC.on('down',()=>this.app.pause());
+    this.keys.ESC.on('down',()=>!this.app.paused&&this.app.placement.draft?this.app.placement.cancel():this.app.pause());
+    this.keys.R.on('down',()=>{if(!this.app.paused)this.app.placement.turn();});
+    for(const [key,dx,dy]of [['UP',0,-1],['DOWN',0,1],['LEFT',-1,0],['RIGHT',1,0]])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.placement.nudge(dx,dy);});
     this.keys.E.on('down',()=>this.app.use());
     for(const [key,tool]of [['ONE','seed'],['TWO','water'],['THREE','harvest'],['FOUR','shovel'],['FIVE','axe'],['SIX','hand'],['SEVEN','grass']])this.keys[key].on('down',()=>{if(!this.app.paused)this.app.select(tool);});
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
       const a=this.app;if(a.paused||!a.state||a.transitioning)return;
-      const world=this.cameras.main.getWorldPoint(p.x,p.y),context=this.touchContext(world);
+      const world=this.cameras.main.getWorldPoint(p.x,p.y);if(a.placement.draft){a.placement.move(world);this.placementPointer=p.id;return;}const context=this.touchContext(world);
       if(context){this.lastGroundTap=null;if(screenAttackAllowed(a.ui.touch,context.type))a.use(context);return;}
       if(a.state.area==='forest'&&p.wasTouch&&['seed','harvest'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
       if(a.state.selected==='axe'){
@@ -77,6 +80,8 @@ export class WorldScene extends Phaser.Scene {
       if(!bed)return;if(Math.hypot(bed.x-a.state.position.x,bed.y-a.state.position.y)>=60){a.ui.toast('Walk closer');return;}
       this.targetPlot=bed.index;this.targetGround=null;a.use();
     });
+    this.input.on('pointermove',p=>{if(!this.app.paused&&this.app.placement.draft&&p.id===this.placementPointer&&p.isDown)this.app.placement.move(this.cameras.main.getWorldPoint(p.x,p.y));});
+    this.input.on('pointerup',()=>{this.placementPointer=null;});
   }
   resize(){
     const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));const size=MAPS[this.app.state?.area||'farm'].size||MAP_SIZE;cam.setBounds(-Math.max(0,(this.scale.width-size.width)/2),-Math.max(0,(this.scale.height-size.height)/2),Math.max(size.width,this.scale.width),Math.max(size.height,this.scale.height));cam.roundPixels=true;
@@ -98,7 +103,7 @@ export class WorldScene extends Phaser.Scene {
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
-    this.treeProgress=new TreeProgressView(this);
+    this.treeProgress=new TreeProgressView(this);this.placementView=new PlacementView(this);
     this.lastGroundTap=null;this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
     this.combat=combatRuntime();this.forestView=new ForestView(this);
     this.residents=new ResidentView(this,s?.area||'farm');
@@ -132,7 +137,7 @@ export class WorldScene extends Phaser.Scene {
   context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||this.residents?.context(this.app.state.position);}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   jump(){
-    const a=this.app;if(!a.state||a.paused||a.transitioning||document.hidden)return;
+    const a=this.app;if(!a.state||a.paused||a.transitioning||a.placement.draft||document.hidden)return;
     const {x,y}=movementVector(this.keys,a.input);
     const facing={down:{x:0,y:1},up:{x:0,y:-1},left:{x:-1,y:0},right:{x:1,y:0}};
     beginJump(a.state,this.jumping,x||y?{x,y}:facing[this.player.direction]);
@@ -140,7 +145,7 @@ export class WorldScene extends Phaser.Scene {
   update(_,delta){
     const a=this.app,s=a.state;a.ambience.update(s,!a.paused&&!document.hidden&&!a.transitioning,delta);if(!s||a.transitioning)return;let dx=0,dy=0,intent={x:0,y:0};
     if(!a.paused&&!document.hidden){
-      const {x,y}=movementVector(this.keys,a.input);intent={x,y};
+      a.placement.update();const {x,y}=a.placement.draft?{x:0,y:0}:movementVector(this.keys,a.input);intent={x,y};
       const step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x*step,ny=s.position.y+y*step;
       const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
@@ -155,6 +160,6 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position,Math.min(delta,50));
     const light=daylight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
     this.cityLights.update(light);
-    this.renderWetGround();const c=this.context();this.treeProgress.update(c);this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
+    this.renderWetGround();const c=this.context();this.treeProgress.update(c);this.placementView.update();this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused&&!a.placement.draft){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!a.placement.draft&&!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

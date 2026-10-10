@@ -1,3 +1,13 @@
+# v0.15.0 — adjust, turn and recover Farm furniture
+
+Choose Place in the workshop or Bag / Gear to see a ghost before spending the item. Tap or drag nearby ground; arrows or the small arrow buttons adjust by eight world pixels. **R / Turn** changes direction; **E / Place** confirms; **Escape / Cancel** keeps the item. Green means the spot is clear; red explains blocked or distant ground. The farmer stays still while positioning. Cancel to walk elsewhere. After placing, Hand is selected: tap the object or press E beside it to pack the whole item into Bag, then place it again.
+
+The workshop’s **More** page adds a **Picnic table (12 Wood / 4 Stone)**, **Garden barrel (5 Wood)** and **Lantern post (6 Wood / 4 Stone)**. These are movable scenery, alongside benches, flower planters, fences and paving. Side/back furniture art and collision footprints match the preview. Confirmed direction survives reloads and each farm keeps its own furniture. Earlier saves retain their items and progress.
+
+**220 tests pass; production build succeeds (120 modules).** Actual desktop, portrait and landscape browser controls passed; eight runtime art files remain unchanged. Evidence: docs/verification/placement. Local game: http://127.0.0.1:4175/.
+
+---
+
 # v0.14.0 — tree progress and visual crafting
 
 Trees now take **three Axe hits**: one energy per hit, **3 Wood on the third hit**. A cream three-segment meter shows progress, which survives travel, new days and reloads. Previously cut trees stay cut. Pressing toward a blocked trunk now turns the farmer correctly.
@@ -18,7 +28,7 @@ Wood/Stone now have four uses: **City town board** for daily NPC requests and th
 
 # Simple Life — Leaf and parchment UI
 
-An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.14.0**, schema **15**.
+An original tropical farming and forest survival game for Digit7 Jam. Phaser 3 + Vite, fullscreen pixel canvas, keyboard/mouse/touch, local saves. Version **0.15.0**, schema **16**.
 
 The City is now **2560×1792**, four times its previous area, with a fountain market square, cream curbs and stone streets, a canal/two wooden bridges, cottage lanes, planted seating, garden commons and a tent/picnic corner. Home is now 360×288 world units with a pitched roof cap and a door taller than the farmer; other cottages retain their size with corrected roof caps and taller doors. Thirteen distinct houses now use larger original warm plaster/brick/timber designs with varied terracotta roofs, ivy and flowerboxes; shared collisions follow their new silhouettes. Eight City residents, two Home visitors and both sellers and Rowan emerge from house doors at 06:00, walk to work, then return to their doors by 20:00. All NPCs/sellers now share the farmer’s native body style, scale and walking animation, with adapted Channeechan hair/clothing palettes. Short conversations remain. Fountain/river flow is animated and wading reflects the farmer. Cottages and sunflower pots sit fully off paved roads. Energy has a yellow lightning icon. Health and energy share round cream badges and grey/cream beveled frames; direct screen taps replace the USE button. Existing shops, farming, house entry and saves remain. All houses share the reference’s broad roof, raised central gable, flat facade and double door, with thirteen different finishes. Home has original patterned tiles, arched windows, fireplace/logs, pottery shelves, dining rugs/table and bed. Sleep/exit remain accessible. Sources/evidence: docs/assets/licenses/home-mobile and docs/verification/home-mobile.
 
@@ -74,7 +84,7 @@ Shovel and Axe are free tools available in Bag → Gear. Approach a tree, select
 
 ## Saves and sources
 
-`simple-life.save.v1` remains the storage key; schemas 1–14 migrate to 15 without deleting progress. Either old watering window counts as the current day’s watering; already dead crops stay dead. Earlier owned clubs return 45 coins once and their equipment flags are retired. Farms bought beyond the new cap are preserved for existing saves. Earned growth at or beyond the shorter crop duration becomes ripe. Autosave follows actions/travel/sleep/defeat, every 2.5 seconds and pagehide. Invalid positions repair to nearby safe ground. Save scope is browser/origin. New Game confirms replacement; unavailable storage is reported. No offline simulation. See docs/SAVE_SCHEMA.md.
+`simple-life.save.v1` remains the storage key; schemas 1–15 migrate to 16 without deleting progress. Either old watering window counts as the current day’s watering; already dead crops stay dead. Earlier owned clubs return 45 coins once and their equipment flags are retired. Farms bought beyond the new cap are preserved for existing saves. Earned growth at or beyond the shorter crop duration becomes ripe. Autosave follows actions/travel/sleep/defeat, every 2.5 seconds and pagehide. Invalid positions repair to nearby safe ground. Save scope is browser/origin. New Game confirms replacement; unavailable storage is reported. No offline simulation. See docs/SAVE_SCHEMA.md.
 
 Rules stay under `src/systems`, definitions under `src/data`, world rendering in WorldScene/ForestView and UI in a separate Phaser scene. Farmer and furnishings share 2× native world pixels indoors and outdoors, with 1.5 desktop / 1 compact camera zoom and 96px / 64px displayed farmer frames. Primary environment: **Serene Village revamped 1.9 by LimeZu, CC BY 4.0**, adapted palette/atlas and fruit trees. Playable farmers now use Channeechan’s supplied native character pixels with adapted jump poses; original NPC/forest/crop/item/effect art, font and UI are code-authored with Codex assistance. Forest includes selected ToffeeCraft FreeEnvironment scenery at the user’s noncommercial request. Both creators and the Eris Esra template are credited. Evidence: docs/ASSET_LICENSES.md, docs/assets/licenses and docs/AI_USAGE.md; title → Credits links creator/license. No commercial-game assets, downloaded audio or external font. Forest ambience uses original local Web Audio synthesis, with no downloaded recording. Its mute preference uses simple-life.audio-muted.v1 separately from the game save.
 

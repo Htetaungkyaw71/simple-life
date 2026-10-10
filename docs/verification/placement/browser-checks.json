@@ -1,0 +1,144 @@
+{
+  "checks": [
+    {
+      "name": "desktop click/R/Left preview without spending",
+      "placement": {
+        "type": "bench",
+        "farm": 0,
+        "x": 1144,
+        "y": 800,
+        "direction": "right",
+        "ok": true,
+        "message": "Ready to place / Hand recovers it",
+        "decoration": {
+          "type": "bench",
+          "farm": 0,
+          "x": 1144,
+          "y": 800,
+          "direction": "right"
+        }
+      },
+      "stock": 1,
+      "placed": []
+    },
+    {
+      "name": "desktop E confirms exact preview once",
+      "stock": 0,
+      "placed": [
+        {
+          "type": "bench",
+          "farm": 0,
+          "x": 1144,
+          "y": 800,
+          "direction": "right"
+        }
+      ],
+      "selected": "hand"
+    },
+    {
+      "name": "turned placed item reloads and Hand tap packs it",
+      "stock": 1,
+      "placed": []
+    },
+    {
+      "name": "blocked ground does not consume bench",
+      "placement": {
+        "type": "bench",
+        "farm": 0,
+        "x": 1152,
+        "y": 912,
+        "direction": "down",
+        "ok": false,
+        "message": "Keep roads, beds and your feet clear",
+        "decoration": {
+          "type": "bench",
+          "farm": 0,
+          "x": 1152,
+          "y": 912
+        }
+      },
+      "stock": 1
+    },
+    {
+      "name": "three new recipes consume their pictured costs",
+      "table": 1,
+      "barrel": 1,
+      "lantern": 1,
+      "wood": 77,
+      "stone": 92
+    },
+    {
+      "name": "portrait tap only positions preview, Turn/nudge adjust it",
+      "placement": {
+        "type": "table",
+        "farm": 0,
+        "x": 1144,
+        "y": 776,
+        "direction": "left",
+        "ok": false,
+        "message": "Walk closer to the preview",
+        "decoration": {
+          "type": "table",
+          "farm": 0,
+          "x": 1144,
+          "y": 776,
+          "direction": "left"
+        }
+      },
+      "stock": 1
+    },
+    {
+      "name": "portrait Place confirms side table with matching saved shape",
+      "placed": [
+        {
+          "type": "table",
+          "farm": 0,
+          "x": 1144,
+          "y": 800,
+          "direction": "left"
+        }
+      ],
+      "stock": 0
+    },
+    {
+      "name": "portrait Hand tap restores the complete table",
+      "placed": [],
+      "stock": 1
+    },
+    {
+      "name": "landscape drag adjusts preview, Turn and R each advance one direction",
+      "placement": {
+        "type": "lantern",
+        "farm": 0,
+        "x": 1144,
+        "y": 792,
+        "direction": "up",
+        "ok": true,
+        "message": "Ready to place / Hand recovers it",
+        "decoration": {
+          "type": "lantern",
+          "farm": 0,
+          "x": 1144,
+          "y": 792,
+          "direction": "up"
+        }
+      },
+      "stock": 1
+    }
+  ],
+  "logs": [],
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      640,
+      360
+    ]
+  ]
+}

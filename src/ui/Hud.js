@@ -1,3 +1,4 @@
+import {placementControls} from './PlacementControls.js';
 import {mobileControls} from './MobileControls.js';
 import {CROPS} from '../data/crops.js';
 import {CropInfo} from './CropInfo.js';
@@ -9,7 +10,7 @@ import {hudLayout,displayClock} from './layouts.js';
 import {meterFrame,meterBadge,meterGlyph} from './vitalMeter.js';
 export class Hud {
  constructor(ui){this.ui=ui;this.app=ui.app;this.root=ui.add.container();ui.root.add(this.root);this.signature=this.key();this.create();}
- key(){return this.app.state.area+':'+this.app.state.selectedCrop+':'+this.app.state.selectedDecoration+':'+(['shovel','axe','hand','grass','decorate'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
+ key(){return (!!this.app.placement?.draft)+':'+this.app.state.area+':'+this.app.state.selectedCrop+':'+this.app.state.selectedDecoration+':'+(['shovel','axe','hand','grass','decorate'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
  create(){
   const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6;
   const healthWidth=Math.min(140,w-96),barX=left+21,barW=healthWidth-21;
@@ -22,6 +23,7 @@ export class Hud {
   this.waterWindow=text(u,p,left,top+64,'',6,UI_COLORS.cream);
   panel(u,p,right-76,top,76,37);this.clock=text(u,p,right-38,top+7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,p,right-38,top+23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
   panel(u,p,right-70,top+40,70,18,UI_COLORS.selected);this.money=text(u,p,right-35,top+45,'60c',8).setOrigin(.5,0);
+  if(this.app.placement?.draft){this.slots=[];this.placementSignature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;placementControls(u,p);return;}
   const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
     const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'watering-can-item',harvest:'sickle',shovel:'shovel-item',axe:'axe-item',hand:'hand-item',grass:'grass-item',decorate:'stone-item'},glyphs={bag:'bag',map:'map',pause:'menu'};
@@ -34,9 +36,10 @@ export class Hud {
  }
  update(s,c){
   if(this.signature!==this.key()){this.ui.layout();return;}
-  this.cropInfo.update(s,c);this.farmGuide.update(s);this.waterWindow.setVisible(!(this.cropInfo.root.visible&&this.ui.touch&&this.ui.w>this.ui.h));this.waterWindow.setText(s.area==='farm'?wateringLabel(s):'');this.clock.setText(displayClock(s.minute));this.day.setText('Day '+s.day);this.money.setText(s.money+'c');
+  if(this.app.placement?.draft){const signature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;if(signature!==this.placementSignature){this.ui.layout();return;}}else{this.cropInfo.update(s,c);this.farmGuide.update(s);}this.waterWindow.setVisible(!(this.cropInfo?.root.visible&&this.ui.touch&&this.ui.w>this.ui.h));this.waterWindow.setText(s.area==='farm'?wateringLabel(s):'');this.clock.setText(displayClock(s.minute));this.day.setText('Day '+s.day);this.money.setText(s.money+'c');
   const health=Math.max(0,Math.floor(this.healthWidth*s.health/100)),energy=Math.max(0,Math.floor(this.energyWidth*s.energy/100));
   this.health.setSize(health,9);this.energy.setSize(energy,9);this.healthShine.setSize(health,2);this.energyShine.setSize(energy,2);
+  if(this.app.placement?.draft)return;
   for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?UI_COLORS.selected:UI_COLORS.cream);slot.box.setStrokeStyle(s.selected===tool?2:1,UI_COLORS.edge);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):'');}
   const feedback=this.ui.feedbackState?.until>this.ui.time.now?this.ui.feedbackState.text:null;
   this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;

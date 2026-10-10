@@ -1,0 +1,64 @@
+{
+  "version": "0.15.0",
+  "schema": 16,
+  "tests": 220,
+  "modules": 120,
+  "distFiles": 12,
+  "distBytes": 2386453,
+  "runtimeArt": [
+    {
+      "path": "public/assets/pixel/font.png",
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/font.xml",
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/processed/boy.png",
+      "sha256": "b2f244d772547cb53f1d90868199245a8dddf1db3cc3d5c169c3fff31b160b8e",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/processed/girl.png",
+      "sha256": "de1cc4ac5fa32af7b7ef575c0d97dd15e1db8a19be152856f2c1378ce038f0e2",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/processed/town.json",
+      "sha256": "09776e25170917af8c29d673843705bd851c28d061c055ef03d763815269afdc",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/processed/town.png",
+      "sha256": "abb11a6e55afca9ce23714af1d36980e3ef460e709c4edafc219d1335bb5c411",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2",
+      "unchanged": true
+    },
+    {
+      "path": "public/assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721",
+      "unchanged": true
+    }
+  ],
+  "files": [
+    "dist/assets/index-Cm8JFMop.js",
+    "dist/assets/index-DuO74lxp.css",
+    "dist/assets/phaser-0YPJO2g1.js",
+    "dist/assets/pixel/font.png",
+    "dist/assets/pixel/font.xml",
+    "dist/assets/pixel/processed/boy.png",
+    "dist/assets/pixel/processed/girl.png",
+    "dist/assets/pixel/processed/town.json",
+    "dist/assets/pixel/processed/town.png",
+    "dist/assets/pixel/world.json",
+    "dist/assets/pixel/world.png",
+    "dist/index.html"
+  ]
+}

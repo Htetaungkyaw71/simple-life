@@ -1,3 +1,15 @@
+# v0.15.0 — adjustable placement and recoverable furniture, 2026-10-10
+
+Complete: placement is a transient world ghost, with ground click/tap/drag, eight-pixel nudges, four directions, explicit confirm/cancel, green/red footprint and arrow. No stock is spent before a valid confirmation. Movement/jumping are suspended while positioning; Cancel keeps stock and restores walking. Desktop arrows/R/E/Escape and mobile controls work. Hand is automatically selected after confirmation and retrieves the whole piece into Bag. Targeting follows the full turned silhouette; approach checks ignore the piece’s own solid while retaining other blockers and inventory capacity.
+
+Added Picnic table (12 Wood/4 Stone), Garden barrel (5 Wood), Lantern post (6 Wood/4 Stone), pictured on a second workshop page and available in Bag/Gear. Shared DecorationArt draws previews and placed pieces with native side/back bench/fence/table views; axis-aware geometry drives placement/collision/cover/save validation. No sprite sheet is rotated sideways. Round/symmetric objects may look the same from opposite directions. These remain decorative scenery, without storage, dining or new light simulation.
+
+Schema 16 adds bounded optional left/up/right directions (missing/down retains the original south-facing shape), with three new inventory keys. Old furniture, tree damage, crops/care, projects/orders/stove, farms, money, gift marker and Forest/Stash progress stay intact. Draft position is intentionally transient; reload opens a fresh preview from the farmer for a saved decoration selection. Invalid paths/water/beds/solids/feet, stale farms/items, no stock/full farm and malformed directions reject without loss.
+
+Checks: npm test **220/220**, npm run build **120 modules**, git diff --check. Native Chromium 1280×720, 360×640, 640×360 verified selection → unspent preview → turn/nudge/drag → exact confirmation → saved orientation/Continue → Hand recovery; blocked E/disabled Place, Cancel, new recipe costs and second Gear page. No browser warning/error logs. Runtime twelve files / 2,386,453 bytes, eight byte-identical art files. Evidence: verification/placement; provenance: assets/licenses/placement.md. Normal 4175 save refreshed/continued/paused without fixtures or repeated gift. Physical phones and other engines remain unverified. No new dependency/download, backend, remote asset, publication or push.
+
+---
+
 # v0.14.0 — three-hit trees and illustrated resource UI, 2026-10-10
 
 Complete: every authored tree takes three valid Axe hits, costing 1 EP each; Wood/crown/root removal happen only on hit three and cannot repeat. The cream world meter shows Tree 0/3, 1/3, 2/3 and +3 Wood, above foliage/night shading. Schema 15 saves bounded known treeHits (1–2) per outdoor area/owned farm. Days/travel/reload preserve partial damage; earlier completed cuts and all crop/economy/farm/Forest/Stash/testing-gift records remain. Full inventory, invalid range/approach/tool/ID or no energy leaves the action atomic. Blocked movement now turns from input intent without interrupting an active swing.

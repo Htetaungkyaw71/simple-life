@@ -1,3 +1,11 @@
+# v0.15.0 — adjustable placement and additional furniture, 2026-10-10
+
+OpenAI Codex assisted pure placement drafts/quotes, axis-aware geometry, original side/back furniture/picnic graphics, existing barrel/lamp reuse, confirmed-direction save migration, recipe paging, canvas ghost/actions, input routing and full-item Hand recovery targeting. No image-generation model, new external art/font/dependency, subagent or external messaging. Existing third-party pixels retain creator attribution separately.
+
+The verification skill guided UI selection → pure quote/transaction → local save → visible world → Hand recovery checks on an isolated local origin. 220 tests and production build pass; actual desktop/portrait/landscape native click/drag/keyboard flows, saved orientation, disabled placement, cancellation, recipe costs and pictured pages are recorded in verification/placement. Initial QA snapshot omission while the placement HUD hid normal prompts was found and corrected before final browser evidence. Normal game saves are preserved; no publication/push/submission or final rights certification. Physical devices/other engines remain unverified.
+
+---
+
 # v0.14.0 — tree progress and visual resources, 2026-10-10
 
 OpenAI Codex assisted three-hit tree transactions, schema-15 bounded partial-damage migration, the original world progress meter, blocked-facing correction, original lowercase glyph patterns/readable widened font rasterization, illustrated responsive recipe/request/project/cooking pages, finished-object bag thumbnails, direct cooked-meal selection, separated bag pagination, regressions, native browser QA and documentation. The supplied Plant Tales screenshot informed cream/olive text hierarchy and readability only; no screenshot pixels, font or layout were extracted.

@@ -17,7 +17,11 @@ export const DECORATIONS={
  planter:{name:'Flower planter',item:'planterDecor',icon:'grass-item',frame:'planter',w:32,h:32,box:[-12,-14,24,14],cost:{wood:4,stone:2}},
  fence:{name:'Wood fence',item:'fenceDecor',icon:'wood-item',frame:'fence',w:32,h:32,box:[-8,-20,16,20],cost:{wood:3}},
  path:{name:'Stone path',item:'pathDecor',icon:'stone-item',frame:null,w:48,h:48,box:null,cost:{stone:2}},
+ table:{name:'Picnic table',item:'tableDecor',icon:'wood-item',frame:null,w:64,h:48,box:[-28,-26,56,26],cost:{wood:12,stone:4}},
+ barrel:{name:'Garden barrel',item:'barrelDecor',icon:'wood-item',frame:'barrel',w:32,h:36,box:[-12,-16,24,16],cost:{wood:5}},
+ lantern:{name:'Lantern post',item:'lanternDecor',icon:'stone-item',frame:'lamp',w:32,h:64,box:[-8,-10,16,10],cost:{wood:6,stone:4}},
 };
+export const DECORATION_DIRECTIONS=['down','left','up','right'];
 export const STOVE_COST={wood:20,stone:16};
 export const GRILL_COST={meat:1,wood:1};
 export const MAX_DECORATIONS=96;

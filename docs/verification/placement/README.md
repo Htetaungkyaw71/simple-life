@@ -1,0 +1,9 @@
+# Adjustable placement verification — 0.15.0 / schema 16
+
+Baseline 5681815. npm test: 220 passed. npm run build: 120 modules, twelve files / 2,386,453 bytes. Eight runtime art files are byte-identical. git diff --check clean. Runtime audit and provenance: runtime-audit.json and ../../assets/licenses/placement.md.
+
+Actual native Chromium inputs via Codex browser used isolated localhost43863, never fixtures on normal4175. Begin from ?qa&fixture=crafting; Continue, B, Gear, Bench, Place. World clicks only move the unspent preview; arrows/R or adjustment/Turn buttons change it; E/Place commits the exact coordinate and direction once. Reload with ?qa (fixture query removed) and Continue retains the turned bench. Hand tapping the artwork packs one full item into Bag. E on blocked road preview cannot spend it; Cancel/ESC retains it.
+
+Wood/Gear/Uses → More builds Table, Barrel and Lamp for total 23 Wood / 8 Stone. 360×640: Table/Place, ground tap, Turn and arrow nudges retain stock until Place; Hand tap packs the side table. 640×360: Gear page 2 exposes Lamp; native drag adjusts its preview, Turn and R each advance one direction, Cancel preserves it. Final desktop table ghost, phone/landscape ghosts and new recipe screenshots are actual captures. browser-checks.json records the observed transactions, controls and empty warning/error logs. An initial read-only snapshot exception caused stale QA attributes during placement; omitted prompt/crop helpers are now guarded. Final checks use the corrected build.
+
+Reproduce with npm test; npm run build; node tests/browser/city-redesign-server.mjs on the isolated origin. Use only native browser controls; canvas data-qa-state is read-only evidence. Stop isolated server afterward and reset viewport. Normal4175 save was refreshed/continued/paused with no fixture replacement or repeated coin gift. Physical devices and non-Chromium engines remain unverified. No push/publication/submission.

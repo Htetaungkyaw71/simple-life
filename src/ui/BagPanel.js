@@ -22,7 +22,7 @@ export class BagPanel {
   if(this.app.transitioning||this.tab==='produce'||this.app.ui.menu?.kind!=='bag'||!this.gate.accept(this.app.ui.time.now))return;
   const s=this.app.state,item=bagItems(s,this.tab)[this.index];
   if(this.tab==='seeds'){s.selectedCrop=item.id;s.selected='seed';this.app.save();this.app.ui.close();return;}
-  if(this.tab==='gear'){if(['wood','stone'].includes(item.id)){this.app.resourcePanel.open();return;}if(Object.hasOwn(DECORATIONS,item.id)){if(s.area!=='farm'||!item.count)return;s.selected='decorate';s.selectedDecoration=item.id;}else s.selected=item.id;this.app.save();this.app.ui.close();return;}
+  if(this.tab==='gear'){if(['wood','stone'].includes(item.id)){this.app.resourcePanel.open();return;}if(Object.hasOwn(DECORATIONS,item.id)){if(s.area!=='farm'||!item.count)return;this.app.placement.begin(item.id);return;}else s.selected=item.id;this.app.save();this.app.ui.close();return;}
   const before=s.energy,health=s.health;this.message=eatFood(s,item.id);
   if(s.energy>before)this.app.scene.forestView.energy(s.energy-before);
   if(s.health>health)this.app.scene.forestView.health(s.health-health);
@@ -42,7 +42,7 @@ export class BagPanel {
    if(entry){if(i===this.index)c.box.setFillStyle(UI_COLORS.selected);text(u,u.root,sx+cell-4,sy+cell-9,String(entry.count),7).setOrigin(1,0);}
   }
   const fy=y+h-(h<190?33:37);text(u,u.root,x+12,fy,item.name,8,UI_COLORS.light,w-24);
-  const detail=this.tab==='food'?'+'+FOODS[item.id].healthRestored+' HP / +'+FOODS[item.id].energyRestored+' EP':this.tab==='gear'?(({shovel:'Dig free beds',axe:'Trees: 3 hits / hunt with K',hand:'Grass / stone',grass:'Plant on dry ground',wood:'Orders / projects / decor',stone:'Projects / decor / stove'})[item.id]||'Place on Farm / Hand packs it'):this.tab==='produce'?marketPrice(s,item.id).price+'c / City Market':'Planting seeds';
+  const detail=this.tab==='food'?'+'+FOODS[item.id].healthRestored+' HP / +'+FOODS[item.id].energyRestored+' EP':this.tab==='gear'?(({shovel:'Dig free beds',axe:'Trees: 3 hits / hunt with K',hand:'Pack furniture / grass / stone',grass:'Plant on dry ground',wood:'Orders / projects / decor',stone:'Projects / decor / stove'})[item.id]||'Preview / turn / Hand packs it'):this.tab==='produce'?marketPrice(s,item.id).price+'c / City Market':'Planting seeds';
   text(u,u.root,x+12,fy+13,this.message||detail,6,UI_COLORS.muted,w-90);
   if(this.tab!=='produce')button(u,u.root,this.tab==='food'?'Eat':this.tab==='seeds'?'Select':['wood','stone'].includes(item.id)?'Uses':Object.hasOwn(DECORATIONS,item.id)?'Place':'Equip',x+w-69,fy+(h<190?7:9),57,22,()=>this.perform(),{id:'bag-action',disabled:this.tab==='food'?!item.count||(s.energy>=100&&s.health>=100)||s.health<=0:this.tab==='gear'?(item.id==='grass'&&!item.count||Object.hasOwn(DECORATIONS,item.id)&&(s.area!=='farm'||!item.count)):false});
  }

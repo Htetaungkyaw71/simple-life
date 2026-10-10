@@ -1,3 +1,11 @@
+# Schema 16 — placed furniture directions and new objects
+
+Version 0.15.0 accepts schemas 1–16 under the existing localStorage key. Optional settlement.decorations[].direction accepts only left/up/right/down; missing/down restores the original south-facing form and is omitted from normalized storage. Unknown/null/non-string directions in schema 16 are rejected. Earlier schemas preserve their original footprints. Turned widths/heights/solids are shared with placement and rendering; malformed coordinates, overlaps, roads/beds/water/structures still reject. Existing per-farm/max-96 rules and safe player repair remain.
+
+New bounded inventory keys: tableDecor, barrelDecor, lanternDecor, each defaulting to zero for earlier saves. The active preview/draft is not serialized and never spends inventory. Selected decorate/type remains saved; Continue creates a fresh local preview if a piece is available. Partial tree damage still restores for source >=15; ripe-crop legacy threshold remains <14. Existing crops, daily care, farms, economy, projects/orders/stove, gift marker, Forest/Stash and completed tree cuts retain their migration contracts.
+
+---
+
 # Save schema 15 — partial tree chopping, v0.14.0
 
 Storage key stays simple-life.save.v1. Accept versions 1–15. Each existing vegetation record optionally adds treeHits, an object mapping known stable authored tree IDs to integer hit counts 1–2. Only the record's outdoor area/owned farm IDs are accepted; unknown IDs, arrays, nonintegers, counts outside 1–2 and damage on already removed trees are rejected. Empty partial records are omitted. Older schemas initialize with no partial damage; completed trees arrays remain removed. No position translation, refund or crop maturity reinterpretation is introduced. The schema-14 crop-duration boundary remains unchanged: version 14/15 growing crops never receive legacy ripe promotion.

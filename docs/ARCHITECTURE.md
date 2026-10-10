@@ -1,3 +1,11 @@
+# v0.15.0 — transient placement and shared orientation geometry
+
+systems/placement.js owns pure snapped draft/turn/quote helpers. PlacementController owns transient positioning and input-gated confirmation; existing pure settlement transactions still own inventory/placement/reclaim. WorldScene routes placement pointer drags and arrow/R/E/Escape input before ordinary interaction, holds movement/jump during positioning and draws PlacementView above night shading. PlacementControls replaces the hotbar/movement controls only while placing, with responsive accessible actions. HUD/QA observability guard omitted crop/prompt helpers in this mode.
+
+settlementGeometry.decorationShape owns rotated-axis dimensions and solid masks. Shared DecorationArt renders actual native front/back/side furniture without rotating a flat sprite; resourcePreviews, SettlementView and PlacementView consume it. Saved optional orientation and new item keys are bounded in schema 16; draft state remains outside the save. ResourcePanel pages recipes, Bag supports the thirteenth Gear item via existing paging. Fullscreen separate Phaser world/UI, pure rules and local art allowlist are retained.
+
+---
+
 # v0.14.0 — tree damage and visual resource pages
 
 vegetation.js retains pure transactions and coordinate identities, adding bounded partial treeHits until the third hit completes the existing removal/reward path. save.js accepts schema 15 and validates known per-area/farm damage separately from completed trees. TreeProgressView is transient world-space presentation; main saves each valid hit and only rebuilds root collision on a completed cut. PlayerView turns from movement intent even when blocked, retaining active-swing/pending-attack facing guards.

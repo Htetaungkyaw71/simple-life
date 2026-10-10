@@ -1,3 +1,11 @@
+# v0.15.0 — adjustable placement and furniture recovery
+
+220 tests pass; production build succeeds (120 modules, twelve files, eight unchanged art files). New regressions exercise all seven pieces in four directions, preview purity/no early stock spend, exact geometry, invalid/stale/cross-farm atomicity, cancellation, oriented collision/save restoration, legacy inventory/furniture, full-bag recovery and second workshop page/action sizes in seven viewports.
+
+Actual native Chromium at 1280×720, 360×640 and 640×360: Bag/workshop selection opens a ghost; click/tap/drag, Turn/R and nudges adjust without consumption; E/Place commits the shown coordinate/direction; fixture-free reload/Continue retains it; Hand world taps recover the full item. Invalid E and disabled Place retain stock; Cancel retains stock; new recipes spend 12+5+6 Wood and 4+0+4 Stone; the thirteenth Gear item remains selectable. Screenshots/JSON: verification/placement. No warning/error logs. Normal origin/save preserved. Phone-size pointer checks are not physical touch or other-engine acceptance.
+
+---
+
 # v0.14.0 — three-hit trees and illustrated resources
 
 215 tests pass; production build succeeds (115 modules, twelve files, eight unchanged art files). Pure regressions verify no early Wood/removal, per-farm partial damage, reload/day retention, invalid/full-bag atomicity, known bounded schema-15 restoration, older cuts/crops, blocked-facing swing guards, recipe preview/count/actions, seven viewport text/control bounds, direct cooked-food eating and nonoverlapping bag pagination.

@@ -21,7 +21,7 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
@@ -135,7 +135,7 @@ export function validate(raw) {
     s.settlement.projects=PROJECTS.filter(d=>Array.isArray(progress.projects)&&progress.projects.includes(d.id)).map(d=>d.id);
     s.settlement.stove=progress.stove===true;
     if(progress.orders?.day===s.day)s.settlement.orders={day:s.day,completed:dailyOrders(s).filter(d=>Array.isArray(progress.orders.completed)&&progress.orders.completed.includes(d.id)).map(d=>d.id)};
-    for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS))if(validDecoration(s,d))s.settlement.decorations.push({type:d.type,farm:d.farm,x:d.x,y:d.y});
+    for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS)){if(!d||typeof d!=='object')continue;const restored={type:d.type,farm:d.farm,x:d.x,y:d.y,...(raw.version>=16&&d.direction!==undefined&&d.direction!=='down'?{direction:d.direction}:{})};if(validDecoration(s,restored))s.settlement.decorations.push(restored);}
     s.position=nearestSafe(s.area,s.position,s);
   }
   return s;
