@@ -1,3 +1,113 @@
+# v0.17.4 — gentle birds outdoors
+
+Reuse existing reviewed `forestDay` / `forest-day.wav` at `.6*(1-night)` outside Home, Farm and City to address reported daytime silence. Forest profile, night crickets, river/fountain proximity and all successful gameplay effect mappings stay intact; no wind/music is restored. Every interior remains free of looping ambience. Plant gathering uses the existing pickup alias. Runtime stays 22 WAVs with unchanged hashes. Evidence: verification/outdoor-plants/README.md.
+
+---
+
+# v0.17.3 — quiet house interior
+
+The indoor `room` loop sourced from `fireplace.wav` was the reported wind-like background. Interior layers are now empty at every time/design. The loop is neither fetched nor included in production. All 22 other selected samples, action/sleep/wake/rooster mappings, outdoor profiles, volumes and preferences remain unchanged. Evidence: verification/quiet-interior. Prior entries below describe their versions.
+
+---
+
+# v0.16.6 — no wind, sleep and natural wake feedback
+
+Removed meadow wind and winter wind from both audioProfile and the runtime/preload allowlist. Home/Farm daytime is quiet; Forest day/night, nearby river, interior fire and City fountain retain their nature loops. No gameplay music or musical sleep/wake jingle. Title music stays on Title and saved audio preferences remain.
+
+sleep:begin uses the previously converted/licensed Farm sleep sample. morning:wake uses alys's public-domain **Medium rooster crowing** recording (crow with nearby hen clucking); evening:wake uses the existing short bush-rustle sample. The bed branch chooses the wake effect from its actual resulting morning/evening time. AudioManager schedules it after the sleep buffer duration/playback rate plus 80ms, using the AudioContext clock without timers. Another sleep cancels previous rest voices; Title/new world cleanup cancels scheduled wake nodes. Opening/cancelling the bed menu stays silent.
+
+Current allowlist: **24 audible event IDs / 17 distinct SFX** (16 supplied Farm, one public-domain rooster), five Nature loops and one title track = **23 runtime WAVs**. Original score WAVs, both wind files, unused jingles and sixteen previously selected unused SFX stay outside production. Existing sample hashes remain; new rooster conversion/rights/credit/hashes are under assets/licenses/morning-audio. Current audit: verification/sleep-wakeup/runtime-audit.json.
+
+---
+
+# v0.16.5 — natural gameplay ambience and successful pickups
+
+Gameplay audioProfile has an empty music map at every location/time and during Pause. Title music remains, and its source is stopped/disconnected immediately on entering a world. Completion retains its existing API but starts no musical cue. Original six scores remain reproducible historical source; AUDIO_FILES is empty and none of their WAVs ship.
+
+Successful forest:collect/item:pickup/furniture:recover use pickup-item; stone:collect uses rock-break; cache:open uses chest-open; stash:recover/keepsake:collect use pickup-rare. Each established call follows a confirmed gameplay mutation; the starter crate gains the same success check. Existing Wood/grass, actual tree/animal hit, crop farming and buy/sell feedback remain. Failed pickups, empty swings/felling and UI/Jump/doors/travel stay rejected before synthesis/loading.
+
+Current allowlist: **21 audible event IDs / 15 distinct Farm SFX**, seven Nature loops and one **title-only** HuntSounds track: **23 runtime WAVs**. Seventeen previously selected unused SFX and all original scores stay outside production. Exact source hashes/licences remain unchanged. Current audit: verification/nature-pickups/runtime-audit.json. Volume/mute settings are preserved; Music still controls title audio.
+
+---
+
+# v0.16.4 — landed-hit feedback only
+
+Removed combat:swing and tree:fall from the central playback/preload/build allowlist. Empty swings create no audio. Existing successful tree work emits an impact for unfinished cuts; a finished cut's tree:fall event is silent and wood:pickup still plays. Animal hit/defeat effects already emit only after a landed hit. Farming and transactions retain their effects; UI/Jump/doors/travel remain silent.
+
+Fourteen audible event IDs use twelve supplied SFX files. With seven Nature loops, one supplied music loop and the original ending cue, exactly **21 WAVs** ship. Twenty selected supplied files retain their licence evidence and exact hashes; twenty unused SFX stay outside production. Current audit: verification/hit-feedback/runtime-audit.json. No source WAV, preferences or audio transport changes.
+
+---
+
+# v0.16.3 — farming and tree/animal hit effects restored
+
+The user's clarification restores all seven crop farming event IDs, swing/tree hit/fall/Wood pickup, animal hit/defeat and grass placement effects, alongside successful buy/sell. Farming chop/gatherGrass/placeGrass aliases are restored through their established mappings. UI clicks/menus/tool selection, Jump, doors/travel and other excluded effects still reject before loading or synthesis. Background music, seven Nature loops and the original ending cue are unchanged.
+
+Current: sixteen audible effect event IDs map to fourteen distinct supplied SFX; eight supplied music/ambience files plus the original cue yield **23 runtime WAVs**. The same map gates playback, preloading and build selection. Source bytes/permissions/hashes remain in assets/licenses/cozy-audio/manifest.json; eighteen unused SFX are excluded from production. Current audit: verification/restored-effects/runtime-audit.json. Earlier version inventories below are historical.
+
+---
+
+# v0.16.2 — current runtime audio inventory
+
+The user requested silent actions/UI/travel while retaining buying and selling. `SAMPLE_EFFECTS` now permits only `shop:buy` → `sfx-buy` and `shop:sell` → `sfx-sell-coins`. All other effects, aliases and synthetic ambient calls reject before loading, synthesis, cooldown bookkeeping or queuing. The existing synthetic fallback is reachable only for these two transaction effects. Background music, seven Nature loops and the original ending cue remain unchanged.
+
+Current runtime: **11 WAVs** (two transaction samples, seven Nature loops, one shared music loop, original completion cue). Ten supplied files retain the exact hashes and permissions in assets/licenses/cozy-audio/manifest.json. Its earlier forty-file selection and the v0.16.1 inventory below are historical provenance; thirty withdrawn SFX remain outside dist and are never fetched. Current measurements: verification/quiet-actions/runtime-audit.json. Four volume/mute preferences remain unchanged.
+
+---
+
+# v0.16.1 — current runtime audio inventory
+
+32 Farm SFX samples map all 49 gameplay/UI events; seven Nature loops and one HuntSounds bonus music loop replace the earlier generated background audio. The original 11-second ending cue remains. Original effects are used only if a sample has not loaded or failed. All creator permissions, transformations and exact hashes: [source record](assets/licenses/cozy-audio/SOURCE_RECORD.md) / manifest.json. Current numerical/production audit: scripts/qa/cozy-audio-audit.py. The earlier generated-source audit below is historical; scripts/audit-audio.py now writes its separate original-audio-inventory under verification/story-audio rather than overwriting this current inventory.
+
+Existing four volume/mute preferences are preserved. Forest day/night and water proximity adjust layer gains; meadow/snow/fountain/fireplace remain location/habitat-specific. One shared quieter music source avoids duplicate identical tracks. Loop checks compare the seam against ordinary adjacent-sample variation, appropriate for broadband nature textures. Numerical checks and browser output measurements do not establish subjective comfort or physical-device playback.
+
+| ID | Runtime path | Seconds | Peak | RMS | Loop | Creator |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| sfx-ui-hover | assets/audio/cozy/sfx-ui-hover.wav | 0.06 | 0.3747 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-ui-click | assets/audio/cozy/sfx-ui-click.wav | 0.07 | 0.3873 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-ui-back | assets/audio/cozy/sfx-ui-back.wav | 0.36 | 0.4714 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-ui-error | assets/audio/cozy/sfx-ui-error.wav | 0.39 | 0.4879 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-menu-open | assets/audio/cozy/sfx-menu-open.wav | 0.41 | 0.4228 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-menu-close | assets/audio/cozy/sfx-menu-close.wav | 0.41 | 0.4618 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-notification | assets/audio/cozy/sfx-notification.wav | 0.58 | 0.5000 | 0.0859 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-hoe-dig | assets/audio/cozy/sfx-hoe-dig.wav | 0.24 | 0.5000 | 0.0868 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-seed-plant | assets/audio/cozy/sfx-seed-plant.wav | 0.20 | 0.4725 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-watering | assets/audio/cozy/sfx-watering.wav | 1.32 | 0.5000 | 0.0881 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-harvest-pop | assets/audio/cozy/sfx-harvest-pop.wav | 0.59 | 0.3928 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-bush-rustle | assets/audio/cozy/sfx-bush-rustle.wav | 0.41 | 0.4618 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-buy | assets/audio/cozy/sfx-buy.wav | 0.78 | 0.4750 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-sell-coins | assets/audio/cozy/sfx-sell-coins.wav | 0.65 | 0.4958 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-not-enough-money | assets/audio/cozy/sfx-not-enough-money.wav | 0.37 | 0.5000 | 0.0820 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-jingle-quest-complete | assets/audio/cozy/sfx-jingle-quest-complete.wav | 1.55 | 0.4536 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-jingle-level-up | assets/audio/cozy/sfx-jingle-level-up.wav | 1.47 | 0.4805 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-pickup-item | assets/audio/cozy/sfx-pickup-item.wav | 0.47 | 0.5000 | 0.0985 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-scythe-swish | assets/audio/cozy/sfx-scythe-swish.wav | 0.37 | 0.5000 | 0.0970 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-axe-chop | assets/audio/cozy/sfx-axe-chop.wav | 0.22 | 0.5000 | 0.0780 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-tree-fall | assets/audio/cozy/sfx-tree-fall.wav | 1.36 | 0.5000 | 0.0825 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-rock-break | assets/audio/cozy/sfx-rock-break.wav | 0.28 | 0.5000 | 0.0849 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-craft | assets/audio/cozy/sfx-craft.wav | 0.76 | 0.5000 | 0.0944 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-place-item | assets/audio/cozy/sfx-place-item.wav | 0.22 | 0.5000 | 0.0815 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-gate | assets/audio/cozy/sfx-gate.wav | 1.02 | 0.5000 | 0.0699 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-eat | assets/audio/cozy/sfx-eat.wav | 0.50 | 0.5000 | 0.0578 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-pickup-rare | assets/audio/cozy/sfx-pickup-rare.wav | 0.82 | 0.5000 | 0.0651 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-chest-open | assets/audio/cozy/sfx-chest-open.wav | 0.90 | 0.5000 | 0.0683 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-jingle-fail | assets/audio/cozy/sfx-jingle-fail.wav | 1.18 | 0.2516 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-door-wood-open | assets/audio/cozy/sfx-door-wood-open.wav | 0.77 | 0.5000 | 0.0922 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-sleep | assets/audio/cozy/sfx-sleep.wav | 2.97 | 0.5000 | 0.0813 | no | Spaceyyy (formerly Bramble & Byte) |
+| sfx-jingle-new-day | assets/audio/cozy/sfx-jingle-new-day.wav | 1.55 | 0.4797 | 0.1000 | no | Spaceyyy (formerly Bramble & Byte) |
+| cozyMusic | assets/audio/cozy/music.wav | 68.00 | 0.4000 | 0.0661 | yes | HuntSounds |
+| wind | assets/audio/cozy/meadow.wav | 29.90 | 0.4000 | 0.0568 | yes | Spaceyyy (formerly Bramble & Byte) |
+| forestDay | assets/audio/cozy/forest-day.wav | 29.90 | 0.4000 | 0.0450 | yes | Spaceyyy (formerly Bramble & Byte) |
+| night | assets/audio/cozy/night.wav | 29.90 | 0.4000 | 0.0462 | yes | Spaceyyy (formerly Bramble & Byte) |
+| water | assets/audio/cozy/river.wav | 29.90 | 0.4000 | 0.0691 | yes | Spaceyyy (formerly Bramble & Byte) |
+| room | assets/audio/cozy/fireplace.wav | 29.90 | 0.4000 | 0.0495 | yes | Spaceyyy (formerly Bramble & Byte) |
+| fountain | assets/audio/cozy/fountain.wav | 29.90 | 0.4000 | 0.0748 | yes | Spaceyyy (formerly Bramble & Byte) |
+| winter | assets/audio/cozy/winter.wav | 29.90 | 0.4000 | 0.0617 | yes | Spaceyyy (formerly Bramble & Byte) |
+| completion | assets/audio/completion.wav | 11.00 | 0.1822 | 0.0371 | no | Original Simple Life / Codex-assisted |
+
+---
+
+# Historical v0.16.0 generated-source inventory (five old background scores and original ambience no longer used)
+
 # Original audio inventory and waveform audit
 
 All six scores are newly authored in src/audio/score.js and rendered to mono 16-bit PCM by scripts/generate-audio.mjs. No external recording, commercial-game melody, preset sample, generative audio service or remote asset was used. Bass is a finite triangle-like harmonic sum; gentle pulse and bell voices use sine harmonics. Sparse low-frequency taps replace noise percussion. Music starts/ends with rounded envelopes. Effects and three ambience textures are synthesized once and cached after unlock.

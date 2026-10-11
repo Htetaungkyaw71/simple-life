@@ -14,6 +14,7 @@ export const EFFECTS={
  'farming:dig':[.16,160,95,.17], 'farming:plant':[.18,330,520,.16], 'farming:water':[.28,360,210,.17],
  'farming:empty':[.13,270,200,.1], 'farming:growth':[.5,520,780,.18], 'farming:harvest':[.28,550,880,.2], 'farming:clear':[.15,170,120,.14],
  'shop:buy':[.23,660,880,.18], 'shop:sell':[.26,740,1100,.18], 'shop:failure':[.13,240,220,.09],
+ 'item:pickup':[.17,330,440,.15],
  'project:complete':[.65,520,1040,.24], 'request:complete':[.45,520,780,.22], 'coin:reward':[.2,880,1100,.15],
  'combat:swing':[.15,220,110,.16], 'tree:hit':[.16,150,90,.2], 'tree:fall':[.5,180,60,.22], 'wood:pickup':[.17,330,440,.15],
  'stone:collect':[.18,480,310,.16], 'craft:complete':[.32,330,660,.18], 'furniture:place':[.2,200,320,.17],
@@ -24,12 +25,13 @@ export const EFFECTS={
  'animal:defeat':[.42,360,540,.22], 'cache:open':[.5,440,880,.22], 'stash:drop':[.3,340,170,.21],
  'stash:recover':[.48,550,1100,.23], 'keepsake:collect':[.8,660,1320,.24],
  'door:open':[.25,160,260,.14], 'travel:enter':[.35,330,660,.15], 'bed:open':[.22,440,330,.13],
- 'sleep:begin':[.8,520,260,.18], 'morning:wake':[.7,440,880,.2],
+ 'sleep:begin':[.8,520,260,.18], 'morning:wake':[.7,440,880,.2], 'evening:wake':[.22,160,210,.14],
  'ambient:bird':[.38,1000,1350,.055], 'ambient:cricket':[.28,1400,1600,.035],
  'ambient:wood':[.13,130,90,.05], 'ambient:fire':[.12,220,110,.05], 'ambient:animal':[.48,220,180,.045], 'ambient:step':[.12,90,60,.045],
 };
 export const AMBIENCE={wind:24,water:24,room:24};
-export const AUDIO_FILES=Object.fromEntries(Object.keys(TRACKS).map(id=>[id,'assets/audio/'+id+'.wav']));
+// Original arrangements remain reproducible source, outside the runtime build.
+export const AUDIO_FILES={};
 const TAU=Math.PI*2,frequency=n=>440*2**((n-69)/12);
 function tone(samples,rate,start,duration,hz,level,kind='bell',endHz=hz){
  const from=Math.floor(start*rate),length=Math.floor(duration*rate);let phase=0;

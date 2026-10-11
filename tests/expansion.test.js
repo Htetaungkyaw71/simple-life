@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {newState} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {FIELDS,FARM_PLOTS} from '../src/data/farms.js';
 import {buyField,buyFarm,visitFarm,visiblePlots,nextFarmPrice} from '../src/systems/expansion.js';
 import {usePlot} from '../src/systems/farming.js';
@@ -49,7 +49,7 @@ test('watering and manual sleep settle crops on every owned farm exactly once',(
 test('version 1-4 migration preserves original crop indices and ignores forged expansion',()=>{
  for(const version of [1,2,3,4]){
   const raw=newState();raw.version=version;raw.plots=raw.plots.slice(0,16);raw.plots[5].crop='tomato';raw.plots[5].growth=2;raw.farms=[{fields:[true,true,true,true]}];raw.currentFarm=99;
-  const s=validate(raw);assert.equal(s.version,17);assert.equal(s.plots[5].growth,3);assert.deepEqual(s.farms,[{fields:[true,false,false,false]}]);assert.equal(s.currentFarm,0);assert.equal(s.plots.length,64);
+  const s=validate(raw);assert.equal(s.version,18);assert.equal(s.plots[5].growth,3);assert.deepEqual(s.farms,[{fields:[true,false,false,false]}]);assert.equal(s.currentFarm,0);assert.equal(s.plots.length,64);
  }
  const s=newState();s.currentFarm=999;s.farms=[null,{fields:[false,'yes',true,1]}];s.plots[16].crop='tomato';const v=validate(s);assert.equal(v.currentFarm,1);assert.deepEqual(v.farms[1].fields,[true,false,true,false]);assert.equal(v.plots[16].crop,null);
 });

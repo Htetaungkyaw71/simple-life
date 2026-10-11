@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {newState} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {validate} from '../src/systems/save.js';
 import {tick,sleep,wakeTime,phase,clock,daylight,isNight} from '../src/systems/time.js';
 import {usePlot} from '../src/systems/farming.js';
@@ -31,7 +31,7 @@ test('sleeping across midnight counts missed days and never grows twice in one d
 test('elapsed time leaves energy unchanged, including legacy fatigue saves',()=>{
  const s=newState();s.minute=10;s.energy=1;s.fatigueMinutes=59.8;s.area='farm';const p={...s.position};const v=validate(s);assert.equal(v.minute,10);assert.equal(v.fatigueMinutes,59.8);tick(v,100);assert.equal(v.energy,1);
  for(let n=0;n<100;n++)tick(v,100);assert.equal(v.energy,1);assert.equal(v.area,'farm');assert.deepEqual(v.position,validate(s).position);assert.deepEqual(s.position,p);
- const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,17);
+ const old={...s,version:6};delete old.fatigueMinutes;assert.equal(validate(old).fatigueMinutes,0);assert.equal(validate(old).version,18);
  const bad=validate({...s,fatigueMinutes:Infinity});assert.equal(bad.fatigueMinutes,0);
 });
 test('midnight clock and phases remain correct; both shops close at night',()=>{

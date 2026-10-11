@@ -1,3 +1,67 @@
+# v0.17.2 — customization access and house structure
+
+HUD `customize` house glyph precedes `pause`; no DOM controls. Four bounded Customize categories include seven Wood/Stone recipes and a separate nine-item coin catalog plus eight paid houses. Material and coin transactions are mutually exclusive, retaining atomic failure/stock guards. Crafting supports Home/Farm/interior with outdoor placement restrictions. Save schema stays 18; no second gift.
+
+Native 180×144 house textures are generated in memory from the original house atlas frame, using pure palette/material processing with identical alpha and steps. Cached designs are reused for thumbnails/world. Atlas file allowlist, structural collision, source positions and room interactions stay unchanged.
+
+---
+
+# v0.17.1 — screen placement
+
+Version 0.17.1, schema 18, unchanged dependencies and runtime asset allowlist. Add is a dark bold label even on a disabled button; direction controls reuse native pixel-arrow masks. Pure gameplay guards preserve occupied/function areas; the controller checks camera visibility. Readjust keeps original save/collision data until its atomic confirmation; it does not borrow an inventory item. Mobile pointer selection of placed decor opens choices while ordinary touch actions retain Use/Hit. Local/public test builds retain the v0.17 once-only coin stamp.
+
+---
+
+# v0.17.0 — customization testing
+
+Normal build: `npm run build` (60 starting coins). Friend/local testing build: `npm run build:playtest` (once-per-save +100,000 on Play/Continue). Static runtime and localStorage only; the same public origin preserves progress. Home/interior upgrades and furniture stay in schema 18; old saves migrate without resetting currency/farms/Forest/story. Adaptive indoor room resizing can return obstructed furniture to Bag; gardens keep world coordinates and per-Farm separation. Refer to verification/customization/README.md for actual checks and hosting/build inventory. Physical phones, Safari/Firefox/Edge and human art/listening/balance approval remain unverified.
+
+---
+
+# v0.16.6 — plain public playtest and sleep feedback
+
+Version 0.16.6, schema 17 and runtime dependencies unchanged. Dedicated wind/Winter files and profile keys are removed. Sleep/wake effects use bounded Web Audio source scheduling and existing cleanup rather than timers or save fields. Morning gets one natural public-domain rooster recording; evening uses existing short rustle. All effects respect saved Master/Effects/Mute settings, and gameplay has no music. Audio credits/source submenu retains short-screen fit.
+
+The same verified free Vercel project publishes the tested static build at a stable plain game URL using standard deployment protection: production game domain public; preview/generated domains protected. Each browser/origin owns a separate local save. Earlier preview progress stays at its original URL; stable-domain saves survive later updates on that same origin. No query token or tester-link expiration is needed for the stable public game URL. Current evidence: verification/sleep-wakeup/README.md.
+
+---
+
+# v0.16.5 — music stops at gameplay entry
+
+Version 0.16.5, schema 17 and dependencies unchanged. Gameplay music is disabled by profile and source cleanup, preserving the saved Music volume for Title. The original completion cue is disabled/excluded. Selected sounds follow successful food/stone/seeds/cache/Stash/Keepsake/furniture mutations. Failed actions and earlier quiet controls remain silent. No save migration or new asset bytes.
+
+The existing protected free Hobby playtest project receives an audited preview of 35 static files. Each new preview URL is a separate localStorage origin: earlier preview/local saves stay on their original URL and are not automatically transferred. Current checks/expiry/limitations: verification/nature-pickups/README.md.
+
+---
+
+# v0.16.4 — silent empty swings and Vercel playtest
+
+Version 0.16.4, schema 17 and Phaser/Vite dependencies unchanged. Excluding combat:swing/tree:fall from SAMPLE_EFFECTS keeps the established action animations/events while preventing sample/synth playback and preloading. Actual tree/animal result events and Wood pickup remain; farming/trade and background transport are unchanged.
+
+The current tested dist is staged into Vercel Build Output API v3 static files under /private/tmp. The dedicated free Hobby project has no Git integration/backend and all deployments require Vercel protection; a seven-day share cookie link lets testers access it without login. X-Robots-Tag blocks indexing and hosting feedback overlays are disabled. The first upload was automatically marked production in the new project; a subsequent verified preview is the supplied test target. Vercel CLI 63.1.2 used its existing login. Local saves belong to each browser/origin; local saves do not automatically move to HTTPS. Current verification/deployment details: verification/hit-feedback/README.md.
+
+---
+
+# v0.16.3 — audible farming/hits, silent UI/travel
+
+Version 0.16.3, save schema 17 and dependencies unchanged. Expanded the existing playback/preload/build allowlist to sixteen events / fourteen sample files, preserving aliases for chopping and grass work. Click/menu/Bag/tool/Jump/door/travel events remain rejected; transaction effects and background transport/preferences remain. No gameplay event wiring was rewritten. Current audit and affected-interaction checks: verification/restored-effects/README.md.
+
+---
+
+# v0.16.2 — transaction-only action sounds
+
+Version 0.16.2, save schema 17, unchanged dependencies. The existing AudioManager rejects any event absent from `SAMPLE_EFFECTS` before sample loading or synthesis; that same two-event map supplies preloading and Vite asset selection. Successful buy/sell feedback retains cooldowns, six-voice/two-per-frame limits and bounded expiry/deduplication for deferred transactions. Music/ambience/ending transport and existing preference values are unchanged. Current tests/evidence: verification/quiet-actions/README.md.
+
+---
+
+# v0.16.1 — local licensed PCM audio and touch controls
+
+Version 0.16.1, schema 17, unchanged Phaser 3.90.0/Vite 6.4.3. Forty selected converted PCM16/22050 mono files plus the original ending cue use the existing lazy Web Audio graph. No runtime Ogg decoding, remote assets, audio library or server API. Offline conversion uses ffmpeg 8.0 and bundled Python/NumPy; neither ships with the game. Source/archive/runtime hashes and commands are in assets/licenses/cozy-audio.
+
+Default Hand is saved under the existing tool ID but has no Bag/HUD slot. Fine mouse input remains available even in compact Mac windows; touch/coarse-pointer ordinary world actions route through Use/Hit. Placement retains separate drag/confirmation. Existing preferences and valid selections persist. Targeted checks/limits: verification/cozy-audio/README.md. Production build remains served locally on LAN port 4176; QA uses isolated port 4190. No push/publication.
+
+---
+
 # v0.16.0 — audio and story verification scope
 
 Production is a local static bundle with eight art files and six explicit local WAVs; initial loading does not fetch audio. Web Audio unlocks after a user gesture; unavailable audio/storage fail safely. Phaser Canvas default and ?renderer=webgl share the audio owner. No runtime external API/network, authentication, analytics, backend or new dependency. Credit links open only on deliberate user activation. Run offline using a local static server and bundled assets; this is not a service-worker installation or file:// support claim.

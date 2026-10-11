@@ -1,3 +1,83 @@
+# v0.17.4 — outdoor nature and default ground plants
+
+**276 tests**, both **136-module builds**, **14 local collection/reload/audio cases**, **nine local sleep/nature cases**, **six live affected cases**, two staged/two public fresh/save flows and all **34 exact deployed hashes** pass. Actual desktop clicks and native phone Use collect default flowers and small plants once, remove visuals immediately and retain removal after reload. Short pickup output sampled during the action. Two real house exits per local/public suite restore audible outdoor birds from silent interiors. Successful action sound mappings remain; no wind/music added. Public plain URL returns **200** without login/query.
+
+Runtime audit: **11,544,720 bytes / 22 approved WAVs / eight unchanged art files / full dependency notices**; all licences/provenance retained, no unused archives/source. Existing schema/gift and paid decoration behavior remain. `git diff --check` passes. READY **dpl_7nvBNxA22GFybwBYQ85J3qDAP5dZ**; source **0cf62d9 plus authorized uncommitted work**, no push/commit. Evidence, reproduction and physical-device/other-engine/listening limits: [verification/outdoor-plants/README.md](verification/outdoor-plants/README.md).
+
+---
+
+# v0.17.3 — indoor audio fix
+
+**273 tests**, both **136-module builds**, nine local and nine live-public audio cases pass. Measured indoor ambience peak **0**, no indoor loop/WAV request, preserved actual sleep/wake/rooster output and outdoor birds. Two staged/two public fresh/save flows pass; all **34 hosted hashes** match and the plain public URL returns **200** without login/query. Allowlist: **11,543,935 bytes / 22 approved WAVs / eight unchanged art files / full notices**. No new asset/dependency; retired fireplace and unused/vendor archives excluded. `git diff --check` passes. Evidence, safe deployment/source metadata, commands and device/listening limitations: [verification/quiet-interior/README.md](verification/quiet-interior/README.md).
+
+---
+
+# v0.17.2 — Customize access and shared original house structure
+
+**272 tests** and both **136-module builds** pass. Native original-house alpha/transparent/step equality across nine designs is verified. 23 house/shop cases, twelve full seven-recipe flows, four final label/shop cases, four editing regressions, two normal-release Mac/touch flows, two staged/two public hosted smoke flows and four live affected public crafting/shop/place/reload cases pass. Normal build starts with 60 coins; playtest gift remains once per save. Fullscreen single canvas and clean consoles. All 35 public hashes match; plain stable public URL 200 without login/query. Allowlist audit: 12,862,615 bytes, 23 approved WAVs, eight unchanged art files and full notices. No vendor archives/unused source. Full commands/evidence/deployment/source/device limitations: [verification/customize-access/README.md](verification/customize-access/README.md). No physical-phone/other-engine or subjective approval claim.
+
+---
+
+# v0.17.1 — visible-screen placement and editing verified
+
+269 Node tests and both 135-module release/playtest builds pass. Twelve core flows across Farm/Home/indoors at 1280×720, 390×844, 640×360 and 360×640 verify distant placement, occupancy, deliberate choices, Cancel, crop/Bag interruption, save/reload preservation, free atomic readjust and one-item recovery. Five nearby Use/collision/rotation cases pass. Four final flows explicitly exercise all drawn direction arrows after fixing the missing caret glyph.
+
+Two final staged and two public fresh Mac/touch hosted cases pass; the bare public URL returns 200 without login/query/redirect and all 35 remote byte counts/SHA256s match the final local artifact. Four live public editing flows (Farm Mac/touch, Home portrait, indoor landscape) pass. Consoles are clean, one fullscreen canvas remains, and disposable contexts preserve user saves. Runtime audit: 35 files / 12,862,528 bytes / 23 approved WAVs / eight unchanged art files / full MIT notices; git diff --check passes.
+
+[Current evidence, final deployment, reproduction and physical-device/other-engine/human approval limitations](verification/decoration-editing/README.md). Unaffected full-story and long-term performance/balance checks are not claimed rerun.
+
+---
+
+# v0.17.0 — verified Home/Farm customization
+
+265 tests and both normal/playtest builds pass. Actual Chromium canvas controls verified eight house purchases/interiors, 100,000 once-per-save gift, free owned switches, Home/Farm/indoor decoration purchase/placement/collision/packing/reload, old-save migration and phone rotation. 23 comprehensive plus 12 final UI/art cases, 14 audio/action and nine sleep/nature regressions, two staged/two public hosted smoke cases with all 35 exact hashes, and four public customization flows pass. Plain public URL 200, one fullscreen canvas, clean consoles. Local 4176 200. Full evidence/commands and physical-device/other-engine/human art/balance limitations: verification/customization/README.md.
+
+---
+
+# v0.16.6 — public link, wind absence and sleep/wake output
+
+256 tests / 130-module build pass. Nine new cases verify removed wind/Home/Forest/snow/desert, retained Forest nature, actual Mac/touch morning/evening sleep effects/scheduling/energy/day/time, nonrepeating rooster and silent cancellation. Fourteen action regressions and seven credit/submenu viewport cases pass. Two staged and two public hosted fresh-game cases pass; unauthenticated plain stable URL returns 200 and opens real game with no login/query/redirect. All 35 hosted byte lengths/SHA256s match tested dist. Production audit: 35 files / 12,841,863 bytes, 23 licensed/PD WAVs/eight unchanged art files/full MIT notices. Clean consoles/failures, one canvas, no user-save mutation. [Current evidence, public target, source rights and physical-device/listening limits](verification/sleep-wakeup/README.md).
+
+---
+
+# v0.16.5 — nature-only gameplay and pickups
+
+253 tests and 130-module build pass. Fifteen new native-browser cases measure zero gameplay Music bus output, audible nature, title-to-world music cleanup, Forest night, Mac/touch successful fruit/stone/starter/Stash/treasure pickups and silent full-Bag failures. Fourteen existing hit/farm/trade/UI/travel cases pass. Exact successful inventory/coin mutations and one source per pickup are checked. Runtime audit: 35 files / 14,980,993 bytes, twenty-three supplied WAVs/eight unchanged art files/full MIT notices; no failed audio or console warnings/errors. [Current evidence and hosted verification](verification/nature-pickups/README.md).
+
+Hosted verification also passes in two fresh Mac/touch browser cases: protected direct access, account-free tester link, music-free world profiles, selection/Jump/reload/save persistence, clean consoles/one canvas, and all **35 remote file bytes/SHA256s** matching the audited local build.
+
+---
+
+# v0.16.4 — landed-hit policy and hosted playtest
+
+252 tests/130-module build pass; fourteen local source-start interaction cases verify silent empty swings/felling with retained tree impacts/Wood pickup/animal/farming/trade feedback. Two hosted fresh-game Mac/touch cases verify account-free tester access, selection/Jump/reload/audio. All 33 hosted file byte lengths/SHA256s match the exact local runtime; protected direct URL, clean consoles, one canvas. Production audit: 33 files / 15,377,884 bytes, twenty-one WAVs/eight unchanged art files and MIT notices. [Current evidence, Vercel target/expiry, reproduction and hardware limits](verification/hit-feedback/README.md).
+
+---
+
+# v0.16.3 — restored farming/tree/animal sounds
+
+252 tests and 130-module production build pass. Thirteen native Chromium desktop/touch cases confirm audible planting/watering/harvest, tree hits/fall and animal hit/defeat; silent menu/Bag/tool/Jump/door/travel; retained buy/sell sounds and correct state changes. Runtime audit: 35 files / 15,454,318 bytes, twenty-three WAVs/eight unchanged art files, matching hashes/PCM limits and MIT notices. Clean consoles/audio failures, git diff --check and Mac preview HTTP 200. [Current evidence, commands, fixture disclosure and hardware limitations](verification/restored-effects/README.md).
+
+---
+
+# v0.16.2 — quiet actions and retained transactions
+
+251 tests pass; 130-module production build succeeds. Nine browser action cases observe zero non-loop sources for UI/tool/Jump/tree/door/travel, one for each completed buy/sell; fifteen layout/gameplay/audio cases include seven viewports, silent farming Effects bus, measured Forest day/night ambience and all ten supplied files decoding. Production audit passes with 23 files / 15,172,480 bytes and eleven WAVs/eight unchanged art files. Mac and LAN preview HTTP 200, clean consoles and git diff --check. Disposable QA on 4190; physical phones/other engines/human listening remain pending. [Evidence, commands and limits](verification/quiet-actions/README.md).
+
+---
+
+# v0.16.1 — supplied sounds and contextual mobile/default-tool checks
+
+250 tests pass; build succeeds (130 modules); git diff --check passes. Production: 53 files / 16,136,998 bytes, exactly 41 WAVs and eight unchanged art files plus the shell/bundles. Source/runtime hashes and all selected sample PCM/peak/DC/clipping/seam checks pass; zero clipped samples and full runtime MIT notices retained.
+
+Actual Chrome 154: seven viewports test fresh hidden Hand, gear equip/put-away and reload; small layouts use real touch Jump. Mobile ground touches do not spend items or trigger ordinary actions; Use plants, waters, harvests, travels in/out of Home, opens bed/sleeps, gathers Stone/fruit, recovers a 15-coin Stash and fells a tree in exactly three hits. Default Hand does not gather nearby grass ahead of fruit/recovery. Desktop fine-pointer world use in a 640x360 window still plants, and repeated keyboard tool shortcuts keep the selected tool. All source WAVs decode in the real browser. Forest day/night buses produce measured RMS .00614 / .00942 before Master, with their proper layers; day loop runs past its 29.9-second boundary. Focus safely suspends/resumes. Canvas/WebGL lifecycle each pass twelve Pause and twelve Title/Continue cycles, one AudioContext, bounded source pools, no failures and persisted volumes; Canvas Title runs 120 seconds. Added audio Credits fit all seven sizes; screenshots were reviewed for short landscape controls/credits and portrait controls. No error/warning or remote request in the affected flows.
+
+Isolated QA fixtures target individual interactions; fresh default/equip/reload checks use real New Game. An initial farming fixture approached the next row rather than the intended bed; its final approach is asserted to target index zero before the successful check. Conversion removes DC after edge processing. Broadband loop seams are compared with their ordinary sample-step variation, rather than a tonal-silence threshold. These corrections are reflected in final passing evidence, not claimed as first-pass results.
+
+Normal user origins 4175/4176 are preserved. Physical mobile audio/touch/interruptions, other browser engines and human listening/comfort remain unverified; no full story benchmark rerun or publication. [Current report, commands and JSON evidence](verification/cozy-audio/README.md).
+
+---
+
 # v0.16.0 — story, original audio and competition audit
 
 Baseline ce6903a: 220 tests/build passed before edits. Final: **245 passing tests, zero failures**, **128 build modules**, **18 production files / 21,930,569 bytes**, git diff --check. Only eight uncertain atlas cells changed; 850 others, outside pixels, metadata and seven other art files are unchanged. Runtime MIT notices, eight art files and six local WAVs are audited; no archive/unused source pack/remote media enters production.

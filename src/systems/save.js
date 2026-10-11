@@ -1,3 +1,4 @@
+import {HOMES} from '../data/homes.js';
 import {restoreStory} from './story.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {testingCredit,TESTING_COIN_GRANT} from './testingCredit.js';
@@ -22,8 +23,9 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
+  if(raw.version>=18&&raw.home){s.home.owned=Object.keys(HOMES).filter(id=>id==='starter'||Array.isArray(raw.home.owned)&&raw.home.owned.includes(id));s.home.design=s.home.owned.includes(raw.home.design)?raw.home.design:'starter';}
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
@@ -58,7 +60,7 @@ export function validate(raw) {
   for (const [key,min,max] of [['day',1,99999],['minute',0,1439],['money',0,9999999],['health',0,100],['energy',0,100],['sold',0,999999]]) s[key] = number(raw[key],s[key],min,max);
   s.settlement.orders.day=s.day;
   s.fatigueMinutes=Number.isFinite(raw.fatigueMinutes)?Math.max(0,Math.min(FATIGUE_MINUTES-.000001,raw.fatigueMinutes)):0;
-  s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'seed';
+  s.selected = TOOLS.includes(raw.selected) ? raw.selected : 'hand';
   s.selectedDecoration=Object.hasOwn(DECORATIONS,raw.selectedDecoration)?raw.selectedDecoration:'bench';
   for (const key of INVENTORY_KEYS) s.inventory[key] = number(raw.inventory?.[key],0,0,9999);
   if(raw.version>=10){
@@ -136,7 +138,11 @@ export function validate(raw) {
     s.settlement.projects=PROJECTS.filter(d=>Array.isArray(progress.projects)&&progress.projects.includes(d.id)).map(d=>d.id);
     s.settlement.stove=progress.stove===true;
     if(progress.orders?.day===s.day)s.settlement.orders={day:s.day,completed:dailyOrders(s).filter(d=>Array.isArray(progress.orders.completed)&&progress.orders.completed.includes(d.id)).map(d=>d.id)};
-    for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS)){if(!d||typeof d!=='object')continue;const restored={type:d.type,farm:d.farm,x:d.x,y:d.y,...(raw.version>=16&&d.direction!==undefined&&d.direction!=='down'?{direction:d.direction}:{})};if(validDecoration(s,restored))s.settlement.decorations.push(restored);}
+    for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS)){if(!d||typeof d!=='object')continue;const area=raw.version>=18&&d.area?d.area:'farm';
+      const resized=area==='interior'&&oldRoom?.width>0&&oldRoom?.height>0&&(oldRoom.width!==ROOM.width||oldRoom.height!==ROOM.height);
+      const restored={type:d.type,...(area==='farm'?{farm:d.farm}:{area}),x:resized?Math.round(d.x*ROOM.width/oldRoom.width/8)*8:d.x,y:resized?Math.round(d.y*ROOM.height/oldRoom.height/8)*8:d.y,...(raw.version>=16&&d.direction!==undefined&&d.direction!=='down'?{direction:d.direction}:{})};
+      if(validDecoration(s,restored))s.settlement.decorations.push(restored);
+      else if(resized&&Object.hasOwn(DECORATIONS,d.type)&&!DECORATIONS[d.type].outdoors&&Number.isInteger(d.x)&&Number.isInteger(d.y)&&d.x>=0&&d.x<=oldRoom.width&&d.y>=0&&d.y<=oldRoom.height)s.inventory[DECORATIONS[d.type].item]=Math.min(9999,s.inventory[DECORATIONS[d.type].item]+1);}
     s.position=nearestSafe(s.area,s.position,s);
   }
   restoreStory(raw,s);

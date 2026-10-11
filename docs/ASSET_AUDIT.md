@@ -1,3 +1,75 @@
+# v0.17.4 — unchanged runtime asset selection
+
+Outdoor birds reuse existing forest-day WAV; default plants reuse existing atlas bytes. No additions to the 22-WAV/eight-art-file allowlist. Wind and fireplace remain excluded. Existing licences and full dependency notices retained; verification/outdoor-plants/runtime-audit.json validates hashes/format/seams/production exclusions.
+
+---
+
+# v0.17.3 — indoor loop retired
+
+Runtime selection is now 22 WAVs and 34 files total / 11,543,935 bytes. The unused fireplace/room loop is excluded; remaining sample hashes, all eight art files and full dependency notices are unchanged. No new external asset/dependency or archive/unused/source file enters production. Current manifest/audit: verification/quiet-interior.
+
+---
+
+# v0.17.2 — runtime-only material derivatives
+
+No production asset additions. All house variants reuse the original native house frame in memory; source atlas stays unchanged. Seven existing decoration recipe frames and nine coin pieces reuse existing assets/code. New house glyph uses original 9×9 code pixels. Current manifest and selected audio/art/dependency-notice allowlist audit: verification/customize-access. Vendor archives, unused pack files, source/docs/QA and credentials remain excluded.
+
+---
+
+# v0.17.1 — unchanged assets, final static audit
+
+Final runtime audit passes: **35 files / 12,862,528 bytes**, **23 approved local WAVs**, **eight unchanged art files**, full runtime dependency notices. The Add label and direction controls use the existing original bitmap font/pixel-arrow code; no new raster/audio/dependency. Vendor archives, unused pack files, docs/source and credentials are excluded from the staged runtime. Every hosted byte count/SHA256 matches the local final manifest. Evidence: verification/decoration-editing/runtime-audit.json, deployment-files.json and hosted-checks.json; existing asset rights/source records remain.
+
+---
+
+# v0.17.0 runtime inventory
+
+35 explicit runtime files / 12,860,205 bytes, 23 approved WAVs, eight unchanged art files and complete runtime notices. Original house/prop graphics are code-drawn; existing oak/palm/furniture cells retain credits. No external download, new dependency, vendor/unused pack or credential enters production. All staged and public hosted files match exact final SHA256/bytes. Evidence: verification/customization/runtime-audit.json and deployment-files.json; source/AI record: assets/licenses/customization/SOURCE_RECORD.md.
+
+---
+
+# v0.16.6 — removed wind and licensed rooster
+
+Production: **35 files / 12,841,863 bytes**, exactly **23 WAVs** (16 Farm effects, one public-domain rooster, five Nature loops and one title-only music), eight unchanged art files and four app/page/style files. Both wind WAVs, all original scores, unused jingles, source Ogg/archives/HTML/docs stay outside dist. Original sample hashes and art bytes remain unchanged; the new rooster is converted offline from retained public-domain evidence. PCM/peak/DC/seam checks and full runtime MIT notices pass.
+
+Source evidence: assets/licenses/morning-audio and assets/licenses/cozy-audio; current audit and runtime-only deployment SHA256 inventory: verification/sleep-wakeup. Only audited static Build Output files are staged for the existing free playtest project; source/credentials/evidence are excluded.
+
+---
+
+# v0.16.5 — nature ambience and pickup selection
+
+Production: **35 files / 14,980,993 bytes**, exactly **23 supplied WAVs** (15 effects, seven Nature loops, one title-only music track) and eight unchanged art files. Original completion/music WAVs and seventeen unused supplied effects are excluded. All selected PCM/peak/DC/seam/hash checks and full runtime MIT notices pass; no source audio/art bytes or dependencies changed. Evidence: verification/nature-pickups/runtime-audit.json.
+
+Only the exact audited runtime files are staged into Vercel static Build Output. The SHA256 inventory is verification/nature-pickups/deployment-files.json; private access links, credentials, source archives, repository and documentation stay outside the uploaded output.
+
+---
+
+# v0.16.4 — hit policy and hosted runtime-only build
+
+Runtime: **33 files / 15,377,884 bytes**, exactly twenty-one WAVs and eight unchanged art files. Twenty selected supplied files (twelve effects/seven Nature loops/one music) plus the original ending cue. Unused swing/falling sounds are removed from the production allowlist along with other excluded effects. Source hashes/PCM/peak/DC/seams, art identity and full MIT notices pass.
+
+Only these runtime files and Vercel's static Build Output configuration are deployed, with no source archives, source repository, licence/QA documents, credentials, new server functions or dependency. A SHA256 inventory is in verification/hit-feedback/deployment-files.json; hosted-checks.json compares every remote file with this exact build. The isolated staging folder is under /private/tmp; the source checkout was never linked to Vercel and no Git push occurred.
+
+---
+
+# v0.16.3 — restored action effects within the allowlist
+
+Production: **35 files / 15,454,318 bytes**, exactly **23 WAVs** and eight unchanged art files. Twenty-two supplied files (fourteen effects, seven Nature loops, one music loop) plus the original completion cue. Eighteen unused effects remain outside dist. Hash/byte/PCM/peak/DC/seam checks, full runtime MIT notices and art identity pass: verification/restored-effects/runtime-audit.json. No audio/art bytes or dependencies changed.
+
+---
+
+# v0.16.2 — silent interaction effects excluded
+
+Production includes **23 files / 15,172,480 bytes**, with exactly **11 WAVs** and eight unchanged art files. The two successful transaction effects, seven Nature loops, shared music and original ending cue remain allowlisted. Thirty now-unused converted SFX are excluded from dist and preloading; their earlier provenance stays in source. WAV hashes/bytes, PCM limits/seams, retained MIT notices and art identity all pass. Evidence: verification/quiet-actions/runtime-audit.json. Reproduce after building: `AUDIO_QA_OUT=docs/verification/quiet-actions python scripts/qa/cozy-audio-audit.py` with the bundled Python/NumPy runtime.
+
+---
+
+# v0.16.1 — forty selected audio files and retained ending cue
+
+Vite emits exactly 41 local WAVs: 32 selected effect files, seven nature loops, one HuntSounds music loop and the original ending cue. All eight art files remain byte-identical to 0cf62d9. Old five background WAVs, source archives, unused sounds, licence documents and QA evidence do not enter dist. Exact source/runtime hashes, durations, RMS/peaks and loop edge checks: assets/licenses/cozy-audio/manifest.json and verification/cozy-audio/runtime-audit.json. Reproduce with scripts/import-cozy-audio.py (user archives / ffmpeg / NumPy) then npm run build and scripts/qa/cozy-audio-audit.py. No runtime dependency changes.
+
+---
+
 # v0.16.0 — eight targeted replacements and six explicit WAVs
 
 Audit against ce6903a: 858 atlas cells, exactly eight original scenery replacements, 850 untouched cells, unchanged town metadata and seven other art files; pixels outside replaced rectangles unchanged. Eighteen production files, only eight established art paths/six WAV paths plus four shell/bundle files; no archive, source pack, unused file or QA evidence. Reproduce with scripts/qa/story-audio-audit.py; hashes/bytes: verification/story-audio/runtime-audit.json. Audio source and waveform inventory: AUDIO_SOURCES.md. Source-specific permission review: assets/licenses/story-audio/SOURCE_RECORD.md.

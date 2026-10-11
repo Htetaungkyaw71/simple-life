@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {newState,emptyPlot} from '../src/systems/state.js';
+import {emptyPlot} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {usePlot} from '../src/systems/farming.js';
 import {nextDay,restUntilEvening} from '../src/systems/time.js';
 import {cropStatus} from '../src/systems/cropStatus.js';

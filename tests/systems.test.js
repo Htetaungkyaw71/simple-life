@@ -1,7 +1,7 @@
 import {marketPrice} from '../src/systems/market.js';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { newState } from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import { usePlot } from '../src/systems/farming.js';
 import { buySeed, sellProduce } from '../src/systems/economy.js';
 import { nextDay, tick } from '../src/systems/time.js';

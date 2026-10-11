@@ -1,3 +1,29 @@
+# v0.17.4 — default plant collection uses existing schema 18
+
+Newly gatherable default plants use existing `vegetation[area or farm:N].grass` coordinate IDs (`grass:name:x:y`), the registered-ID whitelist and `inventory.grass`. Old grass/tree IDs stay unchanged; new known flower/fern/mushroom/shrub/bamboo IDs survive validation and deduplicate. Removal persists per farm. No version bump or playtest gift reset. Purchased decoration ownership/editing remains separate.
+
+---
+
+# v0.17.1 — editing preserves schema 18
+
+No new persisted fields or gift stamp. Preview/readjust references remain transient. Original placed record persists through autosave while adjusting; confirmed movement replaces that record with validated coordinates/direction. Remove returns one item. Reload/Continue discards an unfinished preview and retains the original. Clear path ground now validates as legal placement, preserving new layouts across reload. Cross-Farm/area membership, overlaps and reserved functional footprints remain validated.
+
+---
+
+# Save schema 18 — owned homes and area decoration
+
+Keep `simple-life.save.v1`; accept schemas 1–18. New `home={design,owned}` defaults to starter; ownership is deduplicated against the nine known IDs including the original cottage, and design must be owned. Unknown/forged IDs fall back safely. All old farming, Forest, City, story, clocks, balances, Stash Bag, stove, audio settings and valid furniture remain.
+
+Existing `{type,farm,x,y,direction?}` means Farm and keeps its exact representation. New Home/indoor pieces use `{type,area:'home'|'interior',x,y,direction?}`; Home is shared, Farm records stay per purchased Farm. Sixteen known decoration item keys persist in inventory. Restore only valid, nonoverlapping 8-pixel-grid placements within the cap. Outdoor-only pieces cannot load indoors or in City/Forest. Room positions scale from saved roomSize on phone/desktop changes; paid furniture that cannot fit after legitimate resizing returns to Bag/Gear. `testingCoinGrant='custom-home-playtest-2026-10-11'` records the new one-time gift; old grant balances remain. Migration itself never grants money; Application start grants only when explicitly running a playtest/authorized local test flag.
+
+---
+
+# v0.16.1 — schema 17 retained
+
+No new gameplay fields or save key. New states and missing/invalid selected values default to the existing `hand` ID; valid saved selections remain unchanged. Hand is hidden presentation, not removed functionality. Bag Put away and equipped hotbar taps save `selected: hand`; desktop keyboard tool shortcuts remain idempotent. Audio preferences still use simple-life.audio.v2 separately, preserving Master/Music/Ambience/Effects and mute, including legacy Forest mute. No progress or preference reset.
+
+---
+
 # v0.16.0 — schema 17 story and separate audio preferences
 
 Schema 17 preserves every schema-16 gameplay field and adds `story`: `intro` (pending/seen/skipped), ordered allowlisted flags, `keepsake` (hidden/carried/placed), completed/endingSeen/cuePlayed, activeSeconds, stats (harvests/sales/boars/deaths), and a frozen completion snapshot (day/seconds/stats). Validation bounds values and rejects completion without every chapter flag and a placed key. An interrupted fresh introduction resumes; old saves mark it seen. Migration uses retained starter/living-crop/watering/harvest/sale/resources/cut-tree/Forest evidence and completed Commons project, not money. Missing legacy conversation/eating evidence remains an objective. An already-looted old story chest yields the key after its guard dies, without duplicating coins. The story key is outside inventory and Stash Bag; death and daily resets leave it intact. Saves are migrated on normal write, never deleted.

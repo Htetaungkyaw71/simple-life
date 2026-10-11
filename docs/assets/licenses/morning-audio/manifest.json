@@ -1,0 +1,20 @@
+{
+  "reviewed": "2026-10-11",
+  "files": [
+    {
+      "id": "sfx-rooster",
+      "runtime": "assets/audio/cozy/sfx-rooster.wav",
+      "creator": "alys",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Medium_rooster_crowing.ogg",
+      "sourceURL": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Medium_rooster_crowing.ogg",
+      "licence": "Public domain; author grants use for any purpose without conditions where dedication is unavailable",
+      "sourceSha256": "318baa8a707dec66af08b6b7a4ed6b1a418cd792d1b4f52e7bf2cd502ee5befb",
+      "sha256": "17e4e54dc1598dce94c287311f6e9e2abd363bb2adec17e755d816e684df96e5",
+      "seconds": 8.306938775510204,
+      "peak": 0.34782785882690176,
+      "rms": 0.08,
+      "loop": false,
+      "changes": "Mono PCM16 / 22050 Hz, DC removal, 10ms head / 40ms tail fades, RMS <= .08 and peak <= .35; no remix/music/loop"
+    }
+  ]
+}

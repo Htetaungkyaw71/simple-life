@@ -1,3 +1,73 @@
+# v0.17.4 — user-requested outdoor audio and plant collection
+
+2026-10-11: Codex assisted with diagnosis of silent daytime Home/Farm/City profiles, reuse of the reviewed birds sample outdoors, registration and gathering of default ground plants (including the supplied screenshot's wildflowers), bamboo collision removal, animated sprite cleanup, persistence/atomicity tests, native mouse/touch browser verification and the authorized same-project public playtest update. Existing interior silence, action SFX, paid decoration editing and saved progression retained. No new external assets, dependency, backend, image generation, commit or push. Human review remains the user's live playtest. Evidence: verification/outdoor-plants/README.md.
+
+---
+
+# v0.17.3 — user-requested indoor sound removal
+
+Codex identified the interior `room` background as the reported wind-like sound, disabled only that ambient profile and excluded its unused WAV from the production allowlist. Existing sound effects and outdoor audio remain. Assistance includes a meaningful audio lifecycle regression, measured native Web Audio/browser checks, documentation and authorized update of the existing public friend playtest. No new asset/dependency/image generator/backend or Git push. Evidence: verification/quiet-interior/README.md.
+
+---
+
+# v0.17.2 — user-requested Customize shortcut, structure and crafting
+
+OpenAI Codex inspected the user’s two house screenshots and original native house source. Work includes the house icon beside Menu, removing old menu/Farm crafting entries, moving seven material recipes under Customize, separating coin purchases and guarding transactions, and preserving exact starter architecture through runtime palette/material derivatives. Original house pixels originate in `scripts/large_houses_art.py`; they are reused rather than sampled from screenshots. Assistance includes targeted pure regressions, native canvas Mac/touch browser checks, documentation and the authorized existing free playtest update. No image-generation service/new third-party asset/dependency, backend or Git push. Evidence and limitations: verification/customize-access/README.md.
+
+---
+
+# v0.17.1 — user-requested placement controls
+
+Codex inspected the supplied two placement screenshots and changed the canvas Add label/contrast, removed proximity/sight limits, allowed clear path ground, and added a Remove/Readjust choice with atomic movement and safe cancellation. Assistance includes meaningful pure regression cases, disposable native mouse/touch browser flows, documentation and authorized public friend-playtest publishing. Existing licensed art/audio reused; no generated raster art, new dependency or external asset. Evidence and limits: verification/decoration-editing/README.md.
+
+---
+
+# v0.17.0 — house upgrades, garden customization and test gift, 2026-10-11
+
+Tool: OpenAI Codex coding agent (GPT-6 family; no precise model override or image generator). User prompt: give 100,000 coins in the test version, implement eight differently priced/design/decor/interior houses and paid customization with trees/other craft objects at Farm/Home. Work: original catalogue/prices, purchase guards and once-per-save build-scoped gift; schema-18 migration; original JavaScript pixel exteriors/interior/prop art; extending existing canvas UI/placement/collision/recovery to Home/interior; automated pure-system and actual desktop/touch browser verification; authorized runtime-only update to the existing Vercel playtest. Main areas: data/homes, customization, settlement/placement/save/testingCredit, HomeArt/DecorationArt, CustomizationPanel/ResourceView/Bag, main/WorldScene, tests and docs. No new third-party asset/dependency or runtime network service. Human approval of subjective art/economy balance and physical-phone testing remains pending; no signed originality/eligibility declaration or source push is claimed.
+
+---
+
+# v0.16.6 — public playtest, wind removal and sleep/wake effects, 2026-10-11
+
+OpenAI Codex assisted the user's requested plain public game URL, removal of wind loops, success-triggered sleep/morning/evening audio, nonoverlapping AudioContext scheduling, voice cleanup and regressions. It searched the supplied archives, reviewed a public-domain rooster source, retained provenance, performed offline PCM/level conversion, updated creator/source UI and authored the evening fallback parameter. The rooster is alys's recording; prior pack samples are creator work. No AI audio-generation service or new art/asset generation, runtime dependency, save migration, backend or subagent.
+
+Codex used the existing verified Vercel CLI login to stage/test/promote the exact runtime-only build in the free playtest project and apply standard protection so its stable production game domain is public while generated/preview URLs remain protected. This is user-authorized testing access, not a competition submission. No source commit/push, external messages, paid resource or credentials printed. QA uses disposable browser storage and private temporary staged-access data outside repository/evidence.
+
+---
+
+# v0.16.5 — nature-only gameplay and collection feedback, 2026-10-11
+
+OpenAI Codex assisted the user's gameplay-music removal and retained natural ambience, success-gated pickup feedback, original-ending removal, allowlist/regression updates, native browser source/output measurements, runtime audit and documentation. Codex also updated the already authorized protected Vercel friend preview using existing CLI authentication and verified runtime-only staging, with Mac/touch hosted checks. Supplied audio is creator work, not newly AI-generated sound. No audio/art processing, dependency/schema change, subagent, commit/push, friend messaging or competition submission. Tester share credentials stay outside repository/evidence; user saves/preferences are untouched.
+
+---
+
+# v0.16.4 — landed-hit audio and friend playtest deployment, 2026-10-11
+
+OpenAI Codex assisted the user's requested empty-swing/falling-sound removal, retained Wood/farming/animal/transaction feedback, sample/build allowlist and regression updates, actual local audio-source checks, runtime-only Vercel static staging/deployment, protected seven-day tester link and hosted Mac/phone-size fresh-game/save/asset verification. Existing local Vercel login handled project creation/upload after connector permission failures; credentials were never read or printed. No AI audio/art generation, new gameplay/dependency/schema, subagent, Git commit/push, messages to the friend, marketplace release or competition submission. Only the tested runtime build is uploaded; the share URL is delivered in chat and excluded from repository/evidence files.
+
+---
+
+# v0.16.3 — clarified farming/hit audio, 2026-10-11
+
+OpenAI Codex assisted the user's correction to restore farming and tree/animal hit effects while retaining silent UI/Jump/travel. Assistance covers the existing sample allowlist, positive/negative and farming-alias regressions, actual touch planting/watering/harvest/tree/animal-hit/animal-defeat verification with native source-start observation, retained trade/menu/travel checks and current build/asset documentation. No audio/art generation or modification, dependency/save change, subagent, external messaging, push or publication. QA remains isolated from user saves/preferences.
+
+---
+
+# v0.16.2 — quiet-action follow-up, 2026-10-11
+
+OpenAI Codex assisted the user's requested removal of interaction/UI/travel sounds, preserving buy/sell effects and background ambience/music. Work includes a central playback/preload/build allowlist, bounded deferred transaction feedback, regression updates, actual native browser source-start observation through desktop/touch/three-hit chopping/door/location/transaction flows, current production asset audit and documentation. No source audio/art modification, new dependency, save migration, external service, subagent, publication or push. Targeted QA uses disposable saves on 4190, never the user's 4175/4176 origins.
+
+---
+
+# v0.16.1 — supplied sound integration and touch/default-tool follow-up, 2026-10-11
+
+OpenAI Codex assisted archive/licence review against embedded terms and primary creator pages, selected-file conversion/normalization/circular loops, sample mapping/mixing/lifecycle reuse, mobile contextual actions and original star/arrow glyphs, hidden default Hand/tool put-away behavior, targeted context priority, regressions/browser QA and source/disclosure documentation. External audio is credited separately to Spaceyyy (formerly Bramble & Byte) and HuntSounds; Codex did not create those source sounds. No audio/image generation service, model training, external messaging, subagent, dependency addition, publication or push. Optional FFmpeg/NumPy processing runs offline, never in the playable build.
+
+Checks include actual Chromium audio decoding/output measurement, touch/desktop inputs, saved selection/preferences, clipped-sample/DC/loop-edge analysis and production allowlist. They establish technical behavior; no claim of human listening or physical phone/Safari/other-engine acceptance. Browser QA uses disposable contexts on 4190 and preserves normal user origins 4175/4176. Earlier historical farming tests now explicitly equip seeds via a fixture, while new regressions and fresh real New Game browser flows verify hidden default Hand.
+
+---
+
 # v0.16.0 — story, original audio and targeted licence replacement (2026-10-10)
 
 Tool: OpenAI Codex (GPT-6-family coding agent; exact backend identifier unavailable). Purpose: implement the user's story/audio/competition-readiness milestone in the existing Phaser/Vite project. Material assistance covers data/pure story and schema-17 migration, original narrative/intro/Keepsake pixels, centralized Web Audio graph/preferences/crossfades/effect wiring, original MIDI phrases/finite-harmonic synthesis and six generated WAVs, eight independently drawn environment cells, night/BAG/mobile polish, tests, browser QA, licence research and documentation. Source: src/audio, src/data/story.js, src/systems/story.js, src/ui/{StoryPanel,AudioPanel,KeepsakeArt,readingGlyphs}.js, src/art/{HomeKeepsake,worldLight}.js, affected gameplay/UI modules, scripts/{generate-audio,audit-audio,original_environment_art,replace-uncertain-art}, tests/audio.test.js, tests/story.test.js and tests/browser. No image/audio generation service, external recording, commercial-game tune or screenshot-pixel extraction. Retained third-party creator artwork is separately credited; it was not fed into a model-training or generative-image pipeline.

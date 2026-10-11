@@ -21,6 +21,20 @@ export const DECORATIONS={
  barrel:{name:'Garden barrel',item:'barrelDecor',icon:'wood-item',frame:'barrel',w:32,h:36,box:[-12,-16,24,16],cost:{wood:5}},
  lantern:{name:'Lantern post',item:'lanternDecor',icon:'stone-item',frame:'lamp',w:32,h:64,box:[-8,-10,16,10],cost:{wood:6,stone:4}},
 };
+// Coin shop prices are separate from the seven material recipes.
+Object.assign(DECORATIONS,{
+ oak:{name:'Shade oak',item:'oakDecor',icon:'grass-item',w:112,h:144,box:[-12,-20,24,20],outdoors:true,price:900,description:'A leafy shade tree. Decorative; cannot be chopped.'},
+ palm:{name:'Garden palm',item:'palmDecor',icon:'grass-item',w:96,h:144,box:[-8,-20,16,20],outdoors:true,price:1200,description:'A tropical palm for your Home or Farm.'},
+ blossom:{name:'Blossom tree',item:'blossomDecor',icon:'grass-item',w:96,h:120,box:[-10,-18,20,18],outdoors:true,price:1600,description:'Pink spring blossoms, all year round.'},
+ hedge:{name:'Leafy hedge',item:'hedgeDecor',icon:'grass-item',w:64,h:40,box:[-28,-20,56,20],outdoors:true,price:180,description:'A tidy border for your garden.'},
+ flowers:{name:'Flower patch',item:'flowersDecor',icon:'grass-item',w:48,h:32,box:null,outdoors:true,price:120,description:'Warm wildflowers with room to walk through.'},
+ birdbath:{name:'Stone birdbath',item:'birdbathDecor',icon:'stone-item',w:40,h:56,box:[-12,-16,24,16],outdoors:true,price:700,description:'A small stone bowl for a peaceful garden.'},
+ rug:{name:'Woven rug',item:'rugDecor',icon:'grass-item',w:64,h:48,box:null,price:350,description:'A patterned rug for your room or terrace.'},
+ bookcase:{name:'Little bookcase',item:'bookcaseDecor',icon:'wood-item',w:48,h:64,box:[-20,-16,40,16],price:800,description:'Books and keepsakes for your reading corner.'},
+ vase:{name:'Ceramic flowers',item:'vaseDecor',icon:'grass-item',w:32,h:48,box:[-10,-12,20,12],price:450,description:'A glazed vase full of bright flowers.'},
+});
+DECORATIONS.fence.outdoors=true;DECORATIONS.path.outdoors=true;
+export const CRAFT_DECORATIONS=Object.keys(DECORATIONS).filter(id=>DECORATIONS[id].cost);
 export const DECORATION_DIRECTIONS=['down','left','up','right'];
 export const STOVE_COST={wood:20,stone:16};
 export const GRILL_COST={meat:1,wood:1};

@@ -1,3 +1,73 @@
+# v0.17.4 — existing audio/art reuse only
+
+Existing reviewed `forest-day.wav` supplies gentle outdoor birds around Home/Farm/City. No new audio file or changed WAV bytes: runtime remains 22 selected samples, with wind/fireplace/vendor archives excluded. Default plant sprites are existing approved local atlas frames; gathering changes behavior, not artwork or licence terms. Eight runtime art files and dependency notices remain unchanged. Provenance: assets/licenses/cozy-audio/SOURCE_RECORD.md and existing art records. Audit: verification/outdoor-plants/runtime-audit.json.
+
+---
+
+# v0.17.3 — retire indoor background sample
+
+`assets/audio/cozy/fireplace.wav` (previously the `room` loop) is removed from runtime selection/production after the user's indoor-wind request. Its source/manifest/licence evidence is retained; no WAV bytes or external rights change. The other 22 selected WAVs keep their exact reviewed hashes/permissions. Eight runtime art files and dependency notices remain unchanged. Evidence: verification/quiet-interior/runtime-audit.json; assets/licenses/cozy-audio/SOURCE_RECORD.md.
+
+---
+
+# v0.17.2 — reused original cottage structure
+
+Eight house themes now derive at runtime from the original `house-village-0` frame authored in `scripts/large_houses_art.py` (earlier original-home evidence in assets/licenses/home-proportions). `src/art/homePalette.js` changes palette/material pixels without altering alpha or steps; HomeArt caches local textures. This frame is original project artwork, not a newly downloaded licensed house. The Customize house glyph is original code art. Existing separately credited environment/furniture/audio and dependency rights remain applicable. No new external licence/dependency/runtime file; all eight processed art files remain unchanged. Updated evidence: assets/licenses/customization/SOURCE_RECORD.md; verification/customize-access/runtime-audit.json.
+
+---
+
+# v0.17.1 — unchanged placement assets
+
+Placement/editor changes use existing licensed local art and original code-native pixel UI. No new third-party art/audio/dependency, runtime remote request or imported archive. Existing source evidence and attribution remain; the runtime allowlist is re-audited in verification/decoration-editing/runtime-audit.json.
+
+---
+
+# v0.17.0 — original houses and customization art, 2026-10-11
+
+No new external asset or dependency. Eight house exteriors, themed floor/curtain/rug/bed/wall/table decorations, blossom/hedge/flowers/birdbath/rug/bookcase/vase graphics and shop UI are original Codex-assisted JavaScript drawings. Oak/palm and existing furniture/room previews reuse the already credited local runtime atlas cells; their original creator/licence evidence remains applicable. Eight runtime art files are unchanged; source packs and unused files remain excluded. Source record and exact inventory: docs/assets/licenses/customization/SOURCE_RECORD.md and docs/verification/customization/runtime-audit.json. AI assistance is disclosed; human subjective art review remains pending.
+
+---
+
+# v0.16.6 — public-domain morning rooster, 2026-10-11
+
+The supplied five packs contain no chicken/rooster sample. Selected **Medium rooster crowing** by **alys**, whose [Wikimedia file/permission page](https://commons.wikimedia.org/wiki/File:Medium_rooster_crowing.ogg) records the author's public-domain dedication and unrestricted-use permission where dedication is unavailable. This is a natural recording, not Codex-authored audio. Source page snapshot, original Ogg, media URL, source/runtime SHA256s, conversion and attribution are retained under assets/licenses/morning-audio. The runtime ships only the adapted local PCM16 WAV. Credits → Audio identifies alys/public domain and links the source; the recording has no mandatory attribution condition, but credit is provided.
+
+Sleep and evening wake use already licensed Farm sleep/bush-rustle samples with unchanged hashes. No musical wake jingle or new rights claim for prior assets; both wind loops are excluded. Current runtime selection: AUDIO_SOURCES.md; audit: verification/sleep-wakeup/runtime-audit.json. Public hosting is explicitly user-requested for this test build; licence evidence/source archives are not deployed.
+
+---
+
+# v0.16.5 — previously licensed pickup effects
+
+The user's requested collection feedback restores three deduplicated Farm SFX files to the prior twelve-file selection: pickup-rare, rock-break and chest-open; pickup-item was already retained for Wood. All fifteen SFX, seven Nature loops and HuntSounds title music keep the existing embedded/creator game-use permissions, credits and manifest hashes. No new asset, licence claim or WAV processing. Original completion music no longer ships. Current source selection/audit: AUDIO_SOURCES.md and verification/nature-pickups/runtime-audit.json. The authorized Vercel preview is a runtime-only testing host.
+
+---
+
+# v0.16.4 — reduced effects and authorized testing host
+
+The user authorized hosting this testing version for a friend. The deployed build includes only twelve existing licensed Farm SFX, seven Nature loops, HuntSounds music, the original ending cue and the established eight art files. Existing creator/game-use terms and source hashes apply unchanged; no new asset or rights claim. Runtime-only Vercel hosting is a testing deployment, not a standalone pack or competition submission. Current selection/audit: AUDIO_SOURCES.md and verification/hit-feedback/runtime-audit.json.
+
+---
+
+# v0.16.3 — previously licensed farming/combat effects restored
+
+The user's clarification restores fourteen already converted Farm SFX samples for crop work, tree/animal hits and transactions. Seven Nature loops, HuntSounds music and the original ending cue remain. Existing creator licence snapshots and manifest hashes apply unchanged. No new asset/licence claim; eighteen unused SFX stay outside production. Current inventory: AUDIO_SOURCES.md; audit: verification/restored-effects/runtime-audit.json.
+
+---
+
+# v0.16.2 — reduced audio selection
+
+Current runtime selects only the two Farm transaction sounds, seven Nature loops and HuntSounds bonus music, plus the original completion cue. Earlier creator permissions and file hashes remain applicable; no asset modification or new rights claim. Thirty withdrawn effects remain historical source evidence and do not ship. Current selection: AUDIO_SOURCES.md; evidence: verification/quiet-actions/runtime-audit.json and assets/licenses/cozy-audio/SOURCE_RECORD.md.
+
+---
+
+# v0.16.1 — supplied audio review, 2026-10-11
+
+All five supplied ZIPs were inspected before integration. The three Cozy Farm archives and Cozy Nature archive contain custom terms allowing personal and commercial game/app/video use and modification, while prohibiting standalone asset redistribution and claiming original authorship. Their creator pages confirm game use; Spaceyyy confirms the former Bramble & Byte name. HuntSounds' archive has no embedded licence; its [matching official product page](https://huntsounds.itch.io/cosy-sfx-volume-1) grants royalty-free personal/commercial project use without required attribution. No purchase or creator contact is needed for the selected supplied free-download files. Source-specific game-use permission is the basis for integration, not a claim that these packs are CC0 or that all project assets/competition eligibility are certified.
+
+Selected: 32 Farm SFX files, seven Nature ambience files and HuntSounds' bonus music loop. Only modified game-runtime PCM WAVs are allowlisted, with creator credits and exact hashes. The two Farm ambience ZIPs are permitted but unused because the Nature loops better match the current scenes; all other files in the packs remain unused. Evidence/embedded terms/dated creator-page snapshots: [cozy-audio source record](assets/licenses/cozy-audio/SOURCE_RECORD.md). No source ZIP or standalone sound-pack release. Existing ending cue/original synthesis fallback and artwork retain prior attribution. Full runtime inventory: AUDIO_SOURCES.md.
+
+---
+
 # v0.16.0 — current production permissions
 
 [Complete filename/use/creator/source/licence/attribution/modification/AI/competition inventory](assets/licenses/story-audio/SOURCE_RECORD.md) supersedes historical runtime rights qualifications below. All eight ToffeeCraft FreeEnvironment cells are replaced by independently authored project art; the known prize-entry ambiguity is removed from runtime. Atlas metadata and other 850 cells remain unchanged. Retained LimeZu CC BY 4.0, Channeechan/Eris Esra and Pipoya game-use terms, and CraftPix Freebie Products terms remain source-specific and credited. No source pack is offered as an asset library. No new external download/dependency.

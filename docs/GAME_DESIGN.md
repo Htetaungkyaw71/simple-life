@@ -1,3 +1,47 @@
+# v0.17.2 — crafting and buying in Customize
+
+Use the house icon beside Menu. Craft bench (8 Wood + 2 Stone), planter (4 + 2), fence (3 Wood), path (2 Stone), picnic table (12 + 4), barrel (5 Wood) or lantern (6 + 4) from gathered materials at Home/Farm/inside. These recipes no longer cost coins. Other garden/furniture objects and eight houses retain their coin prices. Farm board focuses on farming. Crafting a fence/path indoors is allowed; place it outdoors. Inventory, Add, Remove/Readjust and owned-house switches keep their prior rules.
+
+Upgraded houses use the starter cottage’s exact architectural structure/positions while keeping distinct palettes/materials/interiors. Essential doors, paths, bed, cooking and Keepsake positions stay usable.
+
+---
+
+# v0.17.1 — free visible placement and deliberate editing
+
+Purchased/crafted pieces can be previewed anywhere on the visible screen, including clear paths, without walking closer. Add commits only clear geometry; overlap, crops, water, structures, farmer feet and essential approaches remain protected. Click/touch existing decor (or nearby Use) opens Remove / Readjust / Cancel. Remove returns one item to Bag, Readjust costs nothing and commits only on Add, and Cancel/reload retains the original location. This user follow-up supersedes the former nearby-only and direct-pack interaction.
+
+---
+
+# v0.17.0 — earn coins for your Home and Farm
+
+Eight Home upgrades cost 2,000–90,000 coins: Rose cottage, Orchard lodge, Seabreeze villa, Bamboo retreat, Lantern townhouse, Garden conservatory, Moonwood chalet and Suncrest manor. Each includes a different exterior finish/architectural details, room theme, floor/rug/curtain/bed treatments and decorative furnishings. Original cottage remains free and owned; paid designs remain owned and can be switched without another charge. No house changes door/bed/stove/Keepsake gameplay or grants economy/combat advantages.
+
+Menu → Customize supplies a coin catalogue for all sixteen scenery/furniture types, priced 70–1,600 coins. Nine new types add cosmetic oak/palm/blossom trees, hedge, flower patch, birdbath, rug, bookcase and vase. Existing seven material recipes remain. Outdoor scenery goes on Home or the selected Farm; furniture also goes indoors. Use established preview/turn/confirm/cancel/pack controls, including phone touch controls. Pieces remain reusable; no selling/refund/material/harvest loop is added. Paid trees cannot produce Wood/fruit. Decoration footprints keep roads/crops/water/structures and key indoor interactions clear. Ninety-six total placed pieces is the existing save cap.
+
+Public/local playtest grants each save 100,000 extra coins once; ordinary builds/newState still start at 60. Existing earnings and achievements are not reset. Coin balances never complete Journal chapters on their own.
+
+---
+
+# v0.16.6 — quieter ambience and morning wakeup
+
+Remove dedicated wind everywhere, including snowy/desert wind. Keep Forest birds/night insects and nearby water/fire/fountain; Home/Farm daytime is quiet. Confirming bed sleep plays its soft effect followed by a rooster/hen call if waking at 06:00, or a short rustle when waking at 20:00. Cancelling remains silent. No wake music/jingle. Existing sleep times, energy restoration, daily rollover/care, story and save behavior remain.
+
+---
+
+# v0.16.5 — natural audio during play
+
+Gameplay uses nature ambience with no music or musical ending cue. Title music remains on Title only. Successful food/stone/seeds/treasure/Stash/Keepsake/recovered-object pickups give short feedback, alongside retained Wood/grass, actual tree/animal hits, crop farming and trades. Empty/failed actions, falling trees, UI/Bag/tool selection, Jump, doors and location travel stay silent. Current audio behavior supersedes earlier descriptions below; gameplay and local progress are unchanged.
+
+---
+
+# v0.16.1 — audio and empty-hand controls
+
+The user requests suitable sounds from five supplied archives after licence review, audible Forest atmosphere, button-based mobile actions with friendly icons/captions, and automatic hidden Hand. Use the star/Use action for the nearby prompt; its Hit caption describes Axe work/hunting/empty swings. The arrow/Jump action retains free outdoor jumping. Ground touches act only during placement previews on mobile; desktop clicks/E/K/Space remain. Put away selected equipment to gather grass/stone or reclaim furniture without an inventory Hand item. Preserve existing saved equipment/progress and give primary nearby fruit/cache/recovery actions priority over incidental grass.
+
+Supplied game-permitted loops/effects replace background arrangements and gameplay tones; the original completion cue stays. Forest birds/leaves, changing crickets, nearby streams and snowy wind contrast with meadow, fountain and fireplace ambience. No weather, ocean, new combat/economy system or remote runtime asset is introduced.
+
+---
+
 # v0.16.0 — finite story over the existing sandbox
 
 Grandfather's last request connects existing farming, sale/conversation, fixed Commons seating, Forest fruit/three-hit Axe boar and guarded cache to a Home ending. No new crop, map, animal, weapon, furniture, project, weather or unrelated system. Journal has five chapter pages/checkmarks, active objective/hint and optional intro replay. Success notifications are brief; no permanent quest panel. The Keepsake is a durable key item and never part of selling/eating/dropping/coin recovery. Place it by the Home pottery shelf only when all pre-ending steps are complete. One-time cue, letter, frozen statistics and continued play follow.

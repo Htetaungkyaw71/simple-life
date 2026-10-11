@@ -1,3 +1,33 @@
+# v0.17.4 — gather default ground plants
+
+Keep all existing default ground foliage artwork, colors, scale and placements until gathered. Register flower/fern/mushroom/snow-grass/low shrub/bamboo silhouettes at their visible feet, using native atlas dimensions. Gathering removes the complete plant and shadow without changing unrelated tree/crop/purchased-decoration art. Animated plants leave the animation list when removed. No new art, recoloring, teal ferns or raised banks. Evidence: verification/outdoor-plants/README.md.
+
+---
+
+# v0.17.2 — original cottage structure across house designs
+
+Follow the user’s old-house screenshot for structure and position. All eight themes now use the original native `house-village-0` pixels: pitched roof planes/ridge, front gable, taller centered double door, asymmetrical right windows, wall envelope, flowerboxes and steps align exactly. Colors/material details differentiate the designs: terracotta/rose, green timber, seafoam, woven bamboo, brick/dark trim, glass/vines palette, moonwood and ivory/gold. Interior themes remain distinct. No imported screenshot pixels or new atlas raster. The HUD uses an original drawn house glyph beside the Menu glyph.
+
+---
+
+# v0.17.1 — readable placement feedback
+
+The canvas confirmation button reads Add with dark bold pixels even when disabled. Drawn pixel direction arrows replace unsupported font characters. Green/red original placement ghost and directional arrow remain, with concise clear-spot/screen feedback. Readjust hides the original drawing while keeping its saved record until confirm/cancel. Placed decor opens the existing cream canvas choice dialog. No new art bytes, palette changes, DOM HUD or Forest changes.
+
+---
+
+# v0.17.0 — warm homes and gardens
+
+Eight original native-pixel exteriors share the established walkable porch/envelope while varying timber, brick, glass, ivory columns, balconies, shutters, vines and rose boxes. Premium homes have more elaborate accents. Interiors use distinct wood/bamboo/checker/mosaic floors, floral/woven rugs, curtains, bed covers, wall displays and themed tabletop flowers/books/shells/tea/ledger/greenery/map/candelabra. Retain existing licensed room anchors and natural warm cream/olive language. Garden previews reuse the exact placed artwork; decorative trees have dry roots and depth at their feet. Phone pages use short distinct labels and enlarged portrait house previews. No external image/reference pixels imported or atlas modified.
+
+---
+
+# v0.16.1 — readable mobile action icons
+
+Original nine-pixel upward-arrow and star masks share the cream/olive canvas buttons with short Jump and Use/Hit captions inside 56-pixel touch targets. Retain native integer drawing and fullscreen world/canvas UI. Hand has no inventory or hotbar icon. Existing eight runtime art files are unchanged. Caption/glyphs are original source code; no external UI/font/art sample is introduced.
+
+---
+
 # v0.16.0 — restrained original story art and readable night
 
 Retain native pixel art, cream/olive canvas panels and fullscreen world. Four small original geometric intro illustrations and a 16-pixel sun medallion match the established palette; no reference-game pixels/font extraction. Night settlement overlay caps at 0.52 while Forest retains 0.78 distance darkness and existing local bands. Uppercase BAG avoids the g/9 ambiguity; original lowercase g/q/y patterns now have clear stems/descenders. Short landscape action captions sit inside the viewport with hotbar spacing. Eight uncertain environment cells are independently redrawn in their existing dimensions/anchors, with no map/collision redesign. Source/hashes: assets/licenses/story-audio.

@@ -1,4 +1,6 @@
+import {decorationAllowed} from '../systems/customization.js';
 import {keepsakeThumb} from './KeepsakeArt.js';
+import {toolSelection} from '../systems/toolSelection.js';
 import {DECORATIONS} from '../data/settlement.js';
 import {decorationThumb} from './resourcePreviews.js';
 import {CROPS,CROP_IDS} from '../data/crops.js';
@@ -11,19 +13,19 @@ import {bagLayout} from './layouts.js';
 export function bagItems(s,tab){
  if(tab==='seeds')return CROP_IDS.map(id=>({id,name:CROPS[id].name,icon:CROPS[id].seedIcon,count:s.inventory[CROPS[id].seedKey]}));
  if(tab==='food')return FOOD_IDS.map(id=>({id,name:FOODS[id].name,icon:FOODS[id].icon,count:s.inventory[id]}));
- if(tab==='gear')return [...(s.story?.keepsake!=='hidden'&&s.story?.keepsake?[{id:'keepsake',name:"Grandfather's Keepsake",icon:null,count:1}]:[]),{id:'shovel',name:'Shovel',icon:'shovel-item',count:1},{id:'axe',name:'Axe',icon:'axe-item',count:1},{id:'hand',name:'Hand',icon:'hand-item',count:1},{id:'grass',name:'Grass',icon:'grass-item',count:s.inventory.grass},{id:'wood',name:'Wood',icon:'wood-item',count:s.inventory.wood},{id:'stone',name:'Stone',icon:'stone-item',count:s.inventory.stone},...Object.entries(DECORATIONS).map(([id,d])=>({id,name:d.name,icon:d.icon,count:s.inventory[d.item]}))];
+ if(tab==='gear')return [...(s.story?.keepsake!=='hidden'&&s.story?.keepsake?[{id:'keepsake',name:"Grandfather's Keepsake",icon:null,count:1}]:[]),{id:'shovel',name:'Shovel',icon:'shovel-item',count:1},{id:'axe',name:'Axe',icon:'axe-item',count:1},{id:'grass',name:'Grass',icon:'grass-item',count:s.inventory.grass},{id:'wood',name:'Wood',icon:'wood-item',count:s.inventory.wood},{id:'stone',name:'Stone',icon:'stone-item',count:s.inventory.stone},...Object.entries(DECORATIONS).map(([id,d])=>({id,name:d.name,icon:d.icon,count:s.inventory[d.item]}))];
  return [...CROP_IDS.map(id=>({id,name:CROPS[id].name,icon:CROPS[id].icon,count:s.inventory[id]})),{id:'wildHide',name:'Wild Hide',icon:'wild-hide-item',count:s.inventory.wildHide},{id:'meat',name:'Meat',icon:FOODS.meat.icon,count:s.inventory.meat}];
 }
 export class BagPanel {
  constructor(app){this.app=app;this.tab='seeds';this.index=0;this.gate=inputGate();this.message='';}
- open(tab='seeds',selected=null){if(this.app.transitioning||!this.app.state)return;this.app.sound?.('ui:open');this.tab=tab;this.index=Math.max(0,bagItems(this.app.state,tab).findIndex(i=>i.id===selected));this.message='';this.show();}
+ open(tab='seeds',selected=null){if(this.app.transitioning||!this.app.state)return;if(this.app.placement?.draft)this.app.placement.cancel();this.app.sound?.('ui:open');this.tab=tab;this.index=Math.max(0,bagItems(this.app.state,tab).findIndex(i=>i.id===selected));this.message='';this.show();}
  show(){const u=this.app.ui;this.app.paused=true;this.app.input={};u.notice=null;u.menu={kind:'bag',draw:()=>this.draw(u)};u.focus=0;u.layout();u.focus=Math.max(0,u.controls.filter(c=>!c.disabled).findIndex(c=>c.id==='bag-action'));u.highlight();}
  move(step){const items=bagItems(this.app.state,this.tab);this.index=(this.index+step+items.length)%items.length;this.message='';this.show();}
  perform(){
   if(this.app.transitioning||this.tab==='produce'||this.app.ui.menu?.kind!=='bag'||!this.gate.accept(this.app.ui.time.now))return;
   const s=this.app.state,item=bagItems(s,this.tab)[this.index];
-  if(this.tab==='seeds'){s.selectedCrop=item.id;s.selected='seed';this.app.save();this.app.ui.close();return;}
-  if(this.tab==='gear'){if(item.id==='keepsake'){this.app.storyPanel.journal(4);return;}if(['wood','stone'].includes(item.id)){this.app.resourcePanel.open();return;}if(Object.hasOwn(DECORATIONS,item.id)){if(s.area!=='farm'||!item.count)return;this.app.placement.begin(item.id);return;}else s.selected=item.id;this.app.save();this.app.ui.close();return;}
+  if(this.tab==='seeds'){s.selected=toolSelection(s.selectedCrop===item.id?s.selected:'hand','seed');s.selectedCrop=item.id;this.app.save();this.app.ui.close();return;}
+  if(this.tab==='gear'){if(item.id==='keepsake'){this.app.storyPanel.journal(4);return;}if(['wood','stone'].includes(item.id)){this.app.resourcePanel.open();return;}if(Object.hasOwn(DECORATIONS,item.id)){if(!decorationAllowed(s.area,item.id)||!item.count)return;this.app.placement.begin(item.id);return;}else s.selected=toolSelection(s.selected,item.id);this.app.save();this.app.ui.close();return;}
   const before=s.energy,health=s.health;this.message=eatFood(s,item.id);
   if(s.energy>before)this.app.scene.forestView.energy(s.energy-before);
   if(s.health>health)this.app.scene.forestView.health(s.health-health);
@@ -43,8 +45,8 @@ export class BagPanel {
    if(entry){if(i===this.index)c.box.setFillStyle(UI_COLORS.selected);text(u,u.root,sx+cell-4,sy+cell-9,String(entry.count),7).setOrigin(1,0);}
   }
   const fy=y+h-(h<190?33:37);text(u,u.root,x+12,fy,item.name,8,UI_COLORS.light,w-24);
-  const detail=this.tab==='food'?'+'+FOODS[item.id].healthRestored+' HP / +'+FOODS[item.id].energyRestored+' EP':this.tab==='gear'?(({keepsake:'Key item / safe / JOURNAL',shovel:'Dig free beds',axe:'Trees: 3 hits / hunt with K',hand:'Pack furniture / grass / stone',grass:'Plant on dry ground',wood:'Orders / projects / decor',stone:'Projects / decor / stove'})[item.id]||'Preview / turn / Hand packs it'):this.tab==='produce'?marketPrice(s,item.id).price+'c / City Market':'Planting seeds';
+  const detail=this.tab==='food'?'+'+FOODS[item.id].healthRestored+' HP / +'+FOODS[item.id].energyRestored+' EP':this.tab==='gear'?(({keepsake:'Key item / safe / JOURNAL',shovel:'Dig free beds',axe:'Trees: 3 hits / hunt with K',grass:'Plant on dry ground',wood:'Orders / projects / decor',stone:'Projects / decor / stove'})[item.id]||'Put tools away to pack it'):this.tab==='produce'?marketPrice(s,item.id).price+'c / City Market':'Planting seeds';
   text(u,u.root,x+12,fy+13,this.message||detail,6,UI_COLORS.muted,w-90);
-  if(this.tab!=='produce')button(u,u.root,this.tab==='food'?'Eat':this.tab==='seeds'?'Select':item.id==='keepsake'?'Journal':['wood','stone'].includes(item.id)?'Uses':Object.hasOwn(DECORATIONS,item.id)?'Place':'Equip',x+w-69,fy+(h<190?7:9),57,22,()=>this.perform(),{id:'bag-action',disabled:this.tab==='food'?!item.count||(s.energy>=100&&s.health>=100)||s.health<=0:this.tab==='gear'?(item.id==='grass'&&!item.count||Object.hasOwn(DECORATIONS,item.id)&&(s.area!=='farm'||!item.count)):false});
+  if(this.tab!=='produce')button(u,u.root,this.tab==='food'?'Eat':this.tab==='seeds'?(s.selected==='seed'&&s.selectedCrop===item.id?'Put away':'Select'):item.id==='keepsake'?'Journal':['wood','stone'].includes(item.id)?'Uses':Object.hasOwn(DECORATIONS,item.id)?'Place':s.selected===item.id?'Put away':'Equip',x+w-69,fy+(h<190?7:9),57,22,()=>this.perform(),{id:'bag-action',disabled:this.tab==='food'?!item.count||(s.energy>=100&&s.health>=100)||s.health<=0:this.tab==='gear'?(item.id==='grass'&&!item.count&&s.selected!=='grass'||Object.hasOwn(DECORATIONS,item.id)&&(!decorationAllowed(s.area,item.id)||!item.count)):false});
  }
 }

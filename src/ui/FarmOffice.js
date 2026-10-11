@@ -12,7 +12,7 @@ export class FarmOffice {
  modal(title,body,buttons){this.app.ui.modal('FARM '+(this.s.currentFarm+1),title,body,buttons);}
  open(){this.modal('Farm board',`Coins: ${this.s.money}`,[
   ['Seeds and harvest',()=>this.trade()],['Dig planting beds',()=>this.land()],
-  ['Buy / visit farms',()=>this.farms()],['Build decorations',()=>this.app.resourcePanel.decorations()],['Back to farming',()=>this.app.ui.close()],
+  ['Buy / visit farms',()=>this.farms()],['Back to farming',()=>this.app.ui.close()],
  ]);}
  trade(){const price=marketPrice(this.s,'tomato').price;this.modal('Seeds and harvest',`Coins: ${this.s.money} / Seeds: ${this.s.inventory.seed}\nTomatoes: ${this.s.inventory.tomato} / Today: ${price}c each`,[
   [`Buy 1 seed / ${CROPS.tomato.seedPrice} coins`,()=>this.transaction(buySeed),this.s.money<CROPS.tomato.seedPrice||this.s.inventory.seed>=9999],

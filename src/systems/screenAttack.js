@@ -1,2 +1,2 @@
-// The mobile action button owns combat; ordinary world interactions remain available.
-export function screenAttackAllowed(mobile,type){return !mobile||!['attack','hunt','chop'].includes(type);}
+// The mobile action button owns all ordinary world actions; placement has its own preview controls.
+export function screenAttackAllowed(mobile){return !mobile;}

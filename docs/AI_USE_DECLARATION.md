@@ -1,3 +1,39 @@
+# v0.17.4 — code assistance follow-up
+
+Codex assisted with outdoor birds, default ground-plant gathering, collision/render cleanup, deterministic save/action tests, disposable native browser audio/input checks, documentation and authorized public playtest update. Existing licensed art/audio reused byte-for-byte. User review is the playtest; no claim of physical phone or subjective audio review. Evidence: verification/outdoor-plants/README.md.
+
+---
+
+# v0.17.3 assistance record
+
+Codex-assisted removal of the indoor wind-like background only, with existing effects/outdoor audio preserved. No new external assets or rights; the retired room WAV stays in source provenance and out of production. Pure and native audio-output checks plus the authorized existing public playtest update are recorded in verification/quiet-interior. No physical-device/subjective approval or signed competition declaration claimed.
+
+---
+
+# v0.17.2 assistance record
+
+Codex-assisted UI, crafting/coin guards and runtime house material processing satisfy the user’s October 11 follow-up. Original project house pixels retain their exact structure; no screenshot pixels copied or third-party download. Pure and disposable browser verification plus authorized playtest publishing are recorded in verification/customize-access. Human art/device/balance review remains pending; this record is not a signed competition declaration.
+
+---
+
+# v0.17.1 — placement follow-up
+
+Codex assistance covers clearer Add text, visible-screen placement, decoration Remove/Readjust choices, atomic free movement/cancellation/save protection, tests, documentation and authorized friend-playtest update. No new raster/third-party asset. See AI_USAGE.md and verification/decoration-editing/README.md for evidence and verification limits.
+
+---
+
+# v0.17.0 disclosure
+
+Codex assisted the new original house/decoration code art, data/economy/UI/save/placement integration and browser/system verification for the user's requested paid home/farm customization and test coins. Existing asset creator credits remain. Human art/balance/device review is pending; no human authorship or signed competition declaration is asserted. See AI_USAGE.md and assets/licenses/customization/SOURCE_RECORD.md.
+
+---
+
+# v0.16.1 — current follow-up assistance
+
+Codex assisted the supplied-audio licence review, conversion/mix/integration, original mobile action glyphs, contextual touch actions/default-tool changes, tests, browser QA and documentation. Third-party sound sources retain their creators' authorship and permissions; no generative audio service was used. Detailed disclosure: AI_USAGE.md and assets/licenses/cozy-audio/SOURCE_RECORD.md. Human/device review and final signed declarations remain distinct from automated checks.
+
+---
+
 # v0.16.0 — current material assistance
 
 OpenAI Codex assisted story/narrative/schema-17 integration, original MIDI scores/synthesized effects/ambience, original source-generated replacement scenery/intro/Keepsake pixels, visual fixes, tests/browser QA and documentation. Full source/purpose/verification disclosure: AI_USAGE.md and assets/licenses/story-audio/SOURCE_RECORD.md. External creator pixels retain distinct credits. Agent checks do not constitute human listening or signed team review; those remain pending.

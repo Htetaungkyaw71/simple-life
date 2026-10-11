@@ -1,3 +1,9 @@
+# v0.16.1 — third-party audio source separation
+
+Current background music and selected effects/ambience are third-party sounds by HuntSounds and Spaceyyy (formerly Bramble & Byte), used with documented game-use permissions and credited modifications. The original ending cue and synthesis fallback remain Codex-assisted project source. New star/arrow glyphs and integration/control code are Codex-assisted original source. Source evidence: assets/licenses/cozy-audio. This is a provenance record, not a signed human originality declaration.
+
+---
+
 # v0.16.0 — current source record
 
 Six scores and original synthesis, story text/illustrations/key icon and eight replacement environment cells are newly authored project source with disclosed Codex assistance. No commercial-game melody/arrangement, external recording or screenshot pixels were intentionally copied. Retained reusable third-party pixels retain documented creator/licence evidence. No exclusive copyright or signed human acceptance is claimed; team must review the final originality/rights declaration. Known ToffeeCraft runtime ambiguity is resolved by replacement. No publication/submission.

@@ -26,12 +26,12 @@ export class Hud {
   if(this.app.placement?.draft){this.slots=[];this.placementSignature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;placementControls(u,p);return;}
   const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
-    const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'watering-can-item',harvest:'sickle',shovel:'shovel-item',axe:'axe-item',hand:'hand-item',grass:'grass-item',decorate:'stone-item'},glyphs={bag:'bag',map:'map',pause:'menu'};
-   const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():['shovel','axe','hand','grass','decorate'].includes(id)?this.app.bagPanel.open('gear'):this.app.select(id);
+    const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'watering-can-item',harvest:'sickle',shovel:'shovel-item',axe:'axe-item',hand:'hand-item',grass:'grass-item',decorate:'stone-item'},glyphs={bag:'bag',map:'map',pause:'menu',customize:'customize'};
+   const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():id==='customize'?this.app.customizationPanel.open():['shovel','axe','hand','grass','decorate'].includes(id)?this.app.bagPanel.open('gear',id):this.app.select(id,{toggle:true});
    const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]&&id!=='map'?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
    if(['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
   }
-  if(u.touch)mobileControls(u,p);
+  if(u.touch)this.mobile=mobileControls(u,p);
   this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
  }
  update(s,c){
@@ -40,12 +40,13 @@ export class Hud {
   const health=Math.max(0,Math.floor(this.healthWidth*s.health/100)),energy=Math.max(0,Math.floor(this.energyWidth*s.energy/100));
   this.health.setSize(health,9);this.energy.setSize(energy,9);this.healthShine.setSize(health,2);this.energyShine.setSize(energy,2);
   if(this.app.placement?.draft)return;
+  this.mobile?.updateAction(c);
   for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?UI_COLORS.selected:UI_COLORS.cream);slot.box.setStrokeStyle(s.selected===tool?2:1,UI_COLORS.edge);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):'');}
   const feedback=this.ui.feedbackState?.until>this.ui.time.now?this.ui.feedbackState.text:null;
   this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;
   let hint=(feedback||c.label).replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Sleep');
   const farmDirection=hint==='FARM / SOUTH';if(farmDirection)hint='FARM';
-  this.promptText.setText((feedback||c.type==='hint'?'':this.ui.touch?(['hunt','chop'].includes(c.type)?'Attack / ':'Tap / '):'E / ')+hint);
+  this.promptText.setText((feedback||c.type==='hint'?'':this.ui.touch?(['hunt','chop'].includes(c.type)?'Hit / ':'Use / '):'E / ')+hint);
   const pw=Math.min(156,Math.ceil(this.promptText.width)+10+(farmDirection?9:0));this.promptWidth=pw;this.promptPanel.clear();frame(this.promptPanel,0,0,pw,15);
   this.promptArrow.clear();if(farmDirection){this.promptArrow.fillStyle(UI_COLORS.light).fillRect(pw-10,3,2,6).fillRect(pw-12,7,6,2).fillRect(pw-10,9,2,2);}
   const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)*cam.zoom/2,py=(s.position.y-cam.worldView.y)*cam.zoom/2;

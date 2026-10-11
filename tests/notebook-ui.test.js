@@ -6,7 +6,7 @@ import {BagPanel,bagItems} from '../src/ui/BagPanel.js';
 import {WildernessMap} from '../src/ui/WildernessMap.js';
 import {forestMapPixels,mapPoint} from '../src/ui/forestMapArt.js';
 import {FOREST_MAP,FOREST_SIZE} from '../src/data/forest.js';
-import {newState} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {recorder} from './helpers/uiRecorder.js';
 const sizes=[[1440,900],[1280,720],[1024,768],[844,390],[390,844],[640,360],[360,640]];
 function appFor(s,u=recorder()){const a={state:s,ui:u,paused:false,input:{},saveCount:0,save(){this.saveCount++;},sound(){},scene:{player:{direction:'up'},forestView:{energy(){}},keys:{} }};u.app=a;return a;}

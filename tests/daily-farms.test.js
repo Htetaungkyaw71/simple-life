@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {newState,emptyPlot} from '../src/systems/state.js';
+import {emptyPlot} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {usePlot,growOvernight} from '../src/systems/farming.js';
 import {nextDay} from '../src/systems/time.js';
 import {buyFarm,visitFarm,canExpandFarm} from '../src/systems/expansion.js';
@@ -28,7 +29,7 @@ test('sleeping through multiple days counts whole missed days only, and the thir
 test('schema 1–12 grants either old watering credit, preserves dead crops and migrates once',()=>{
  for(let version=1;version<=12;version++)for(const period of ['morning','evening']){
   const raw=newState('girl');Object.assign(raw,{version,day:7,minute:1000,money:327,ownsClub:version===12,clubEquipped:true});raw.plots[0]={crop:'corn',growth:1,[period]:true,missedWindows:1};
-  const s=validate(raw);assert.equal(s.version,17);assert.equal(s.plots[0].wateredDay,7);assert.equal(s.plots[0].missedDays,0);assert.equal(s.plots[0].lastEvaluatedDay,6);assert.equal(s.money,version===12?372:327);assert.deepEqual(validate(s),s);
+  const s=validate(raw);assert.equal(s.version,18);assert.equal(s.plots[0].wateredDay,7);assert.equal(s.plots[0].missedDays,0);assert.equal(s.plots[0].lastEvaluatedDay,6);assert.equal(s.money,version===12?372:327);assert.deepEqual(validate(s),s);
   raw.plots[0].missedWindows=2;assert.equal(validate(raw).plots[0].missedDays,4);
  }
 });

@@ -29,7 +29,7 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
  const decoration=decorationContext(state,targetGround,direction);if(decoration)return decoration;
  const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
  if(state.area==='forest'&&(state.selected==='hand'||targetGround)){const stone=stoneContext(state,targetGround);if(stone)return stone;}
- const vegetation=vegetationContext(state,direction,targetGround);if(vegetation)return vegetation;
+ const vegetation=vegetationContext(state,direction,targetGround);if(vegetation&&(state.selected!=='hand'||targetGround))return vegetation;
  const {x,y}=state.position,location=LOCATIONS[state.area],dist=p=>Math.hypot(p.x-x,p.y-y);
  const nearby=location.interactions.filter(p=>dist(p)<(p.type==='starter'?52:72)&&(!p.approach||(x>=p.approach[0]&&x<=p.approach[0]+p.approach[2]&&y>=p.approach[1]&&y<=p.approach[1]+p.approach[3]))).sort((a,b)=>dist(a)-dist(b));
  const groundContext=()=>{if(state.selected==='shovel'||state.selected==='water'){
@@ -46,6 +46,8 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
   if(node)return {type:'forage',...node,label:'Gather '+FOODS[node.item].name};
  }
  if(nearby.length){const c=nearby[0];if(['seed','sell'].includes(c.type)&&!shopOpen(state,c.type))return {...c,type:'hint',label:`Closed / ${SHOP_HOURS[c.type].label}`};if(c.type==='field'&&ownedField(state,c.field))return {...c,type:'hint',label:`Planting beds`};return c.type==='starter'&&state.starterSeedsClaimed?{...c,label:'Starter crate - empty'}:c;}
+ // Default empty hands must not let incidental grass hide a door, fruit, cache or Stash Bag.
+ if(vegetation)return vegetation;
  const ground=groundContext();if(ground)return ground;
  if(['axe','hand','grass'].includes(state.selected))return null;
  if(state.area==='farm'){

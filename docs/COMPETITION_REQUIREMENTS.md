@@ -1,3 +1,39 @@
+# v0.17.1 — user placement follow-up
+
+The user explicitly authorizes clear visible-screen decoration placement and Remove/Readjust choices, superseding the earlier nearby-only placement/direct-pack behavior. Clear path ground is now permitted; occupied pieces, crops, water, structures and essential functional approaches remain protected. Fullscreen separate Phaser canvas UI, static local runtime, dependency/asset allowlist, existing rights evidence and AI disclosure remain. No unrelated Forest/gameplay expansion or organizer submission.
+
+---
+
+# v0.17.0 — authorized homes and customization, 2026-10-11
+
+The current user explicitly requests eight buyable home upgrades, paid Home/Farm/indoor customization and 100,000 test coins. This supersedes earlier no-house-upgrades/decorative-customization scope limits for these features. The master prompt and four competition PDFs were reviewed as reference requirements; they do not override the user's request. Continue updating the already authorized public friend playtest on its existing stable URL. No backend/cloud save, other weapon/armor, weather, relationships, remote runtime assets, new dependency, source push or organizer submission is added. The normal release build retains its 60-coin economy; an explicit `build:playtest` flag enables the once-per-save grant. Final competition balance, hosting, eligibility and human declarations remain the team's responsibility.
+
+---
+
+# v0.16.6 — explicitly public test URL
+
+The user requests a plain phone/friend link without the share query and login. This authorizes a public stable game domain for the existing testing host and supersedes the earlier protected-only testing scope. Standard Vercel protection still covers previews/generated URLs. Master and all four competition PDFs are re-reviewed as references, including their publication/originality/final assigned-host requirements; no eligibility certification or organizer submission is performed. The latest user request governs this testing access. Runtime-only hosting, local saves, fullscreen Phaser architecture, AI disclosure, creator/licence evidence and asset allowlist remain. New morning recording rights/evidence: assets/licenses/morning-audio.
+
+---
+
+# v0.16.5 — requested audio update to the testing host
+
+The user's follow-up authorizes nature-only gameplay and pickup feedback on the existing friend-testing build. Prior protected preview authorization applies to this update. Existing competition references, disclosure/licence requirements and final-review limits remain; no organizer submission or eligibility claim. Runtime stays static, fullscreen Phaser with same-origin assets/local saves and below the reference size ceiling. Current evidence: verification/nature-pickups/README.md.
+
+---
+
+# v0.16.4 — user-authorized friend testing host
+
+The user explicitly authorized Vercel/free hosting for this testing version after the hit-audio correction. This supersedes earlier no-deployment scope for this playtest only. Master prompt and all four competition PDFs were reviewed as reference requirements: their originality/publication and assigned final-host rules remain relevant to final team/organizer review. A protected, unlisted testing preview with a seven-day friend share link is provided; no source push, marketplace release, organizer submission or eligibility certification is performed. Final competition hosting/declarations/reviewer/portal obligations remain deferred. Runtime is same-origin static assets with localStorage saves, no new API/analytics/backend. Creator/dependency credits, AI disclosure and runtime allowlist remain intact.
+
+---
+
+# v0.16.1 — user-authorized audio/mobile follow-up
+
+The user authorizes suitable supplied-pack sounds after licence review, audible Forest ambience, button-driven mobile actions/icon captions and invisible default Hand. This supersedes historical original-only audio/ground-tap mobile UI descriptions. Master prompt/four competition PDF requirements remain references; preserve fullscreen local Phaser world/UI, existing gameplay/save schema, explicit production allowlist, licence/creator evidence and AI disclosure. Primary/embedded source-specific game-use permissions support selected files; no blanket rights/eligibility certification or publication/submission. Runtime files stay below the reference 200 MB build ceiling. Physical device/other-engine screening and human listening remain to be completed by the team.
+
+---
+
 # v0.16.0 — story/audio milestone scope
 
 User explicitly authorizes introduction, five-chapter Journal, existing guarded-cache key/ending, central original audio, visual repairs, DEV-only testing gift, compatibility audit and one local commit. All four official PDFs and master requirements were reviewed as references. AI assistance/music/art must be disclosed and human-reviewed; assets/tools retain source-specific terms/evidence. The known ToffeeCraft prize-entry ambiguity is resolved by replacing its eight runtime cells. Final team signatures, eligibility, mobile hardware/non-Chromium screening, demo/team profile, assigned HTTPS hosting and portal/source-reviewer submission remain outside this authorized milestone. No push/publish/deploy/submit.

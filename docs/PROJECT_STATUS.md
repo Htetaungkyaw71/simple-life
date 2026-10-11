@@ -1,3 +1,133 @@
+# v0.17.4 — outdoor nature restored and default plants gatherable, published
+
+Home/Farm/City daytime birds now play using the existing approved nature sample at gentler gain. Forest, river/fountain and night ambience retain their established behavior. Every house interior remains free of background loops; action, farming, real hits, pickups, transactions and sleep/wake effects remain. No wind or gameplay music is added.
+
+Default grass, all wildflower variants (including the user's screenshot), ferns, mushrooms, low shrubs, animated plants and bamboo can be gathered by empty hands. Desktop clicks/E and mobile **Use** work; ordinary phone world taps remain inactive. Each plant yields one Grass with a pickup sound, disappears completely and stays removed after reload. Per-farm removals are separate; full bags, tired players, blocked/distant/wrong-tool actions and duplicate rewards are guarded. Bamboo removes its own small collision mask; animated plant cleanup is safe. Crops, axe trees and paid decoration Remove/Readjust choices remain. Existing Grass planting, schema 18 and once-per-save test gift are preserved.
+
+Checks: **276 tests**, normal/playtest **136-module builds**, **14 local plant/audio/save cases**, **nine local sleep/nature audio cases**, **six live affected cases**, two staged/two public fresh/reload cases and all **34 public file hashes** pass. Measured outdoor nature/pickup audio is positive and indoor ambience is zero; clean console/audio failures, no wind/fireplace fetch or gameplay music. Plain public URL **200** without login/query. Runtime audit: **11,544,720 bytes / 22 approved WAVs / eight unchanged art files / full notices**, no unused archives/source. `git diff --check` passes. Evidence/commands: [verification/outdoor-plants/README.md](verification/outdoor-plants/README.md).
+
+Published READY deployment **dpl_7nvBNxA22GFybwBYQ85J3qDAP5dZ** to the existing authorized free project/team. Same **[public playtest](https://simple-life-playtest.vercel.app/)** and save origin: refresh and Continue. Preview/generated protection remains unchanged. Source baseline **0cf62d95072f1bb95e1beff03d14eedf89175061 plus authorized uncommitted work**; no commit/push/new asset/dependency/backend/paid service. Disposable Chromium Mac and phone layouts verified; physical devices, other browser engines and subjective listening remain unverified. No user-profile saves touched by automation.
+
+---
+
+# v0.17.3 — indoor wind-like background removed, published
+
+The continuous background inside every house is now silent. The retired `room` / fireplace WAV caused the reported wind-like sound; only that loop is removed from indoor profiles and the production allowlist. Other effects, sleep/wake/rooster timing, outdoor nature, volume preferences, house/crafting/placement, local saves and once-per-save playtest gift remain unchanged. Refresh and Continue at the same **[public playtest](https://simple-life-playtest.vercel.app/)**.
+
+Checks: **273 tests**, normal/playtest **136-module builds**, nine local and nine public native audio cases pass. Actual indoor ambience peak is **zero** on Mac and native-touch phone layouts, no indoor background loop/file request, preserved audible sleep/wake/rooster output and outdoor Forest nature. Two staged/two public fresh/save cases pass; all **34 public file hashes** match; plain URL **200** without login/query. Audit: **11,543,935 bytes / 22 approved WAVs / eight unchanged art files / full notices**; unused fireplace, wind, archives/source excluded. `git diff --check` passes. Commands/evidence and limits: [verification/quiet-interior/README.md](verification/quiet-interior/README.md).
+
+READY promoted deployment **dpl_DLcL23nQQK4vS3AJnQ1N5bvafpnp**, existing free Vercel project/team; source baseline **0cf62d9 plus authorized uncommitted work**. Preview/generated protection remains unchanged. No new asset/dependency/backend/paid service or Git push/commit. Physical phones, other browser engines and subjective listening remain untested; actual Web Audio output is measured in disposable Chromium Mac/touch contexts, with user saves untouched by automation.
+
+---
+
+# v0.17.2 — Customize icon, original house structure and material crafting complete
+
+Published to the same public **[Simple Life playtest](https://simple-life-playtest.vercel.app/)**. Refresh and Continue preserves the browser’s progress. A native house icon beside Menu opens Customize; Pause no longer lists it, and the Farm board no longer exposes decoration crafting.
+
+Customize contains seven Wood/Stone recipes, nine separate coin decoration purchases and eight differently priced houses. Crafting spends only materials; coin purchases reject these recipes. Craft at Home/Farm/inside, with outdoor placement restrictions and existing Add/Remove/Readjust/save rules retained. Previously owned stock, placed pieces and house ownership stay intact. Houses now preserve the original 180×144 cottage’s exact roof, walls, door/window/flowerbox/step structure and position while retaining distinct material palettes and furnished interiors. Native atlas bytes, collision/interaction coordinates, schema 18, once-per-save gift and audio policy remain unchanged.
+
+Checks: **272 tests**, normal/playtest **136-module builds**, actual native-house alpha/transparent/step equality for all nine designs, 23 house/shop browser cases, twelve seven-recipe crafting flows across three areas/four viewports, four final-label/shop cases and four placement-editing regressions pass. Normal-release fresh Mac/touch builds retain **60 coins**. Two staged and two public hosted fresh/save cases pass; all **35 public file hashes** match, plain URL **200** without login or share query. Four live affected Customize/craft/shop/place/reload cases are recorded under verification/customize-access/public. Audit: **12,862,615 bytes / 23 approved WAVs / eight unchanged art files / full dependency notices**, no unused/source archives. `git diff --check` passes. Evidence/commands: [verification/customize-access/README.md](verification/customize-access/README.md).
+
+READY promoted deployment **dpl_B9iA3EyK7aQDs5uyXXde144yj9mQ**, existing free Vercel project/team. Source baseline **0cf62d9 plus authorized uncommitted work**; no Git push/commit, backend, paid service or new external asset/dependency. Preview/generated protection stays unchanged. Physical phones/friend hardware, other engines, subjective art/listening and long-term balance remain unverified; native touch browser checks cover layouts/flows. Earlier release notes below are historical and superseded by this section for menu/shop/house structure.
+
+---
+
+# v0.17.1 — decoration placement and choices complete
+
+Published to the same public **https://simple-life-playtest.vercel.app/**. Refresh and Continue retains this browser’s save. Add text is dark/bold in enabled and disabled states; four drawn direction arrows include the formerly blank Up button. Tap/drag previews anywhere clear on the visible screen without moving the farmer closer. Clear paths are usable, with occupied footprints, crops, water, structures, feet and essential approaches protected.
+
+Click/touch placed decor (any tool), or nearby Hand/Use, opens Remove / Readjust / Cancel. Remove returns one item to Bag. Readjust moves/turns the original for free on Add, with no spare inventory/placement-slot requirement. Cancel, crop/tool change, Bag/modal entry and unfinished reload preserve it; original data remain saved until atomic confirmation. Responsive room resizing retains its existing safe relocation/repacking behavior. The eight house designs, schema 18, once-per-save playtest gift, farming/Forest and audio policies remain.
+
+Checks: **269 tests**, normal/playtest **135-module builds**, twelve core editing browser cases across three areas/four sizes, five nearby-use/collision/rotation regressions, four final drawn-arrow editing cases, two staged/two public fresh Mac/touch hosted cases, and four live public editing cases pass. The plain public domain returns **200** without login/token and all **35 remote file hashes** match the tested runtime. Audit: **12,862,528 bytes / 23 approved WAVs / eight unchanged art files / full dependency notices**, no archives/unused/source files. git diff --check passes. Evidence, commands and deployment metadata: [verification/decoration-editing/README.md](verification/decoration-editing/README.md).
+
+Final deployment **dpl_6aXSoPn567vyWDxE3uh8VJ6sTr8g**, existing free Vercel project/team; source baseline **0cf62d9 plus authorized uncommitted work**. Preview/generated protection remains unchanged; the public stable URL needs no share query. No Git push/commit, backend, paid service or new external asset/dependency. Physical phones/friend hardware, other browser engines, human art/listening approval and long-term balance remain unverified. Browser emulation verifies layouts/interactions; separate browser/origin saves remain separate.
+
+---
+
+# v0.17.0 — owned homes, paid gardens and testing coins, 2026-10-11
+
+Completed and published the user-authorized update at **https://simple-life-playtest.vercel.app/**. Refresh/Continue gives **100,000 extra test coins once per save**, preserving prior balances/progress. Fresh test games have 100,060. Normal release builds retain the 60-coin starting economy; explicit build:playtest enables the grant. The same plain public origin preserves saves and requires no login/share query.
+
+Menu → Customize at Home/Farm offers **eight differently priced house designs (2,000–90,000 coins)** with distinct original exteriors/decor/furnished room themes, Outside/Inside preview, confirmed purchase, owned persistence and free switching. Original cottage stays owned; doors/bed/hearth/Keepsake/exit remain usable. **Sixteen paid scenery/furniture pieces (nine new)** add oak/palm/blossom trees, hedges, flowers, birdbath, rugs, books and vases. Existing seven material recipes remain. Home, each Farm and indoor furniture use the existing preview/turn/place/cancel/pack workflow with shared collision masks; safe phone room changes pack pieces into Bag. Decorative trees yield no Wood/fruit. Schema 18 migrates old saves. Retained Save control, fullscreen separate canvas UI, no wind/gameplay music and prior nature/hit/farm/trade/sleep/rooster feedback.
+
+Checks: **265 tests pass**, both **135-module normal/playtest builds**, **23 comprehensive customization + 12 final UI/art browser cases**, **14 action/audio + nine sleep/nature regressions**, **two staged + two public hosted smoke cases** with **35 exact asset hashes**, and **four public customization cases**. Desktop/touch purchases, saves/gift-once, migration, collision, packing and rotation pass with clean consoles. Runtime audit: **35 files / 12,860,205 bytes / 23 approved WAVs / eight unchanged art files**; no new dependency/external asset/source pack/credential in production. Local 4176 HTTP 200; git diff --check passes.
+
+Existing free Hobby Vercel project only, staged static runtime output verified and promoted, protection for generated/previews unchanged; no Git commit/push/backend/paid resource/external message/organizer submission. New original code art/source/AI disclosure recorded. Detailed commands, final deployment ID, screenshots and evidence: [customization report](verification/customization/README.md). Physical phones/friends, other browser engines, subjective art/listening and long-term economy balance remain unverified. Normal user browser saves were not touched by test fixtures.
+
+---
+
+# v0.16.6 — public test URL, no wind, sleep/wake effects, 2026-10-11
+
+Completed the latest request. **https://simple-life-playtest.vercel.app/** opens directly on Mac/phone without Vercel login, query token or token expiry. User-authorized public stable game domain uses standard Vercel protection for previews/generated URLs. Earlier preview/local saves remain at their own origins; this stable domain retains its browser-local progress across future updates.
+
+Dedicated meadow/winter wind is removed from profiles/preloading/production. Retain other nature, gameplay music disabled, successful pickup/real-hit/farming/trade feedback and earlier quiet controls. Confirmed sleep plays its licensed effect, followed after the actual buffer by a public-domain rooster/hen recording for 06:00 waking or short rustle for 20:00 waking. New rest/Title/world cleanup cancels prior scheduled wake voices; cancelled bed menu stays silent. Schema-17 saves, preferences, energy/time/daily rollover unchanged. Credits/evidence updated for alys and the new converted local WAV.
+
+Checks: **256 passing tests / 130-module build / nine affected audio browser cases / fourteen existing interaction cases / seven credits viewport cases / two staged plus two public hosted fresh-game cases**. Zero gameplay Music output, no wind file requests, correctly ordered successful sleep/wake effects and quiet cancellation; source/inventory/coin mutations, one fullscreen canvas, clean consoles/audio. All **35 public hosted file bytes/SHA256s** match tested local dist. Runtime audit: **35 files / 12,841,863 bytes**, **23 licensed/PD WAVs**, eight unchanged art files/full MIT notices; no source packs/unused wind/jingles/evidence/credentials in production. git diff --check passes. Local 4176 HTTP 200.
+
+Free Hobby existing project, pinned authenticated CLI, static runtime-only staged and verified build promoted, no Git commit/push/backend/paid resource/external messages/organizer submission. Current IDs/public target and detailed commands/evidence/limits: [sleep-wakeup report](verification/sleep-wakeup/README.md). Physical phone/friend hardware, other browser engines and human listening remain unverified. User save origins are untouched.
+
+---
+
+# v0.16.5 — nature-only gameplay and pickup effects, 2026-10-11
+
+Completed the user's request: gameplay has no music, including its ending; title music stops immediately on Play/Continue. Natural ambience remains. Successful food, stone, starter seed, treasure, Stash Bag, Keepsake and recovered-object pickups sound. Existing Wood/grass, actual tree/animal hit, farming and buy/sell feedback remain; failed/empty actions, felling and UI/Bag/tool selection/Jump/doors/travel stay silent. Existing schema-17 saves and audio preferences are preserved.
+
+Checks: **253 tests pass**, **130-module production build**, **15 dedicated collection/nature browser cases** and **14 prior hit/farming/quiet-action cases**. Native Web Audio reports exactly zero gameplay Music output and audible nature; successful pickups start one source, failed full-Bag pickups start none. Clean local console/audio failures; git diff --check passes. Runtime: **35 files / 14,980,993 bytes**, exactly **23 supplied WAVs**, eight unchanged art files, matching hashes/PCM limits/full MIT notices. Original score/completion WAVs and seventeen unused effects are excluded.
+
+The already authorized free Vercel Hobby friend preview is updated to this tested static build. Seven-day share access expires **October 18, 2026 at 15:16:21 Myanmar**; link is supplied in chat and kept outside repository evidence. All deployments remain protected; only audited static runtime output uploads, no Git push/commit, backend, paid resource or competition submission. Local port 4176 remains available; each browser/origin has its own save, and the earlier hosted preview's progress remains on its earlier URL.
+
+Evidence, hosted checks, target/expiry, runtime SHA256 inventory and commands: [nature-pickups report](verification/nature-pickups/README.md). Physical phone/friend hardware, Safari/other engines and subjective listening remain unverified; browser fixtures never modify user origins.
+
+Hosted verification also passes in two fresh Mac/touch browser cases: protected direct access, account-free tester link, music-free world profiles, selection/Jump/reload/save persistence, clean consoles/one canvas, and all **35 remote file bytes/SHA256s** matching the audited local build.
+
+---
+
+# v0.16.4 — landed-hit audio and Vercel friend testing, 2026-10-11
+
+Completed the requested hit policy: empty swings and tree felling are silent; unfinished actual tree hits retain impact, completed cutting retains Wood pickup; actual animal hit/defeat, farming/trades and background ambience/music remain. Menus/Bag/tool selection/Jump/doors/travel stay silent. Existing action animations/events, schema-17 saves and volume/mute preferences are preserved.
+
+Checks: **252 tests pass**, **130-module production build**, **fourteen local interaction browser cases** and **two hosted fresh-game browser cases**, clean consoles/audio failures/git diff --check. Runtime: **33 files / 15,377,884 bytes**, exactly **21 WAVs** and eight unchanged art files; full MIT notices/hashes/PCM limits pass. All 33 hosted responses match the tested build's exact bytes/SHA256s. Silent empty animation, two tree impacts/final Wood pickup, landed animal feedback, retained farming and transactions are verified.
+
+User-authorized friend testing is deployed to the free Vercel Hobby simple-life-playtest project. The separate protected preview is READY; seven-day friend link is supplied in chat and expires October 18 at 14:50:45 Myanmar. All deployments are protected; hosting overlays disabled; noindex header configured. Connector permissions were insufficient; the existing Vercel CLI login succeeded in the verified team. Only runtime/static Build Output files uploaded. No source push/commit, backend, Git integration, paid resource or competition submission. Each browser has an independent save; local user origins are untouched. Local port 4176 remains available.
+
+Evidence, target/IDs/expiry, SHA256 deployment inventory, setup corrections, commands and limitations: [hit-feedback report](verification/hit-feedback/README.md). Physical phones/friend hardware, other browser engines and subjective listening remain unverified.
+
+---
+
+# v0.16.3 — farming and tree/animal hit sounds restored, 2026-10-11
+
+Applied the user's clarification: restored planting, watering, digging, harvest/clear/growth, grass work, tree swings/hits/fall/Wood pickup and animal hit/defeat. Clicking menus/Bag/tool selection, Jump, doors and travel remain silent. Successful transactions, music/Nature ambience/ending and existing volume/mute preferences remain. Sixteen audible event IDs use fourteen previously licensed SFX through the established central allowlist; no gameplay wiring, source asset bytes, dependencies or schema-17 progress changed.
+
+Checks: **252 passing tests**, **130-module build**, **thirteen passing desktop/touch browser cases** showing actual restored farming/tree/animal source starts and silent selection/UI/Jump/travel; correct gameplay mutations and retained buy/sell sounds. No console/audio failures; git diff --check passes. Production audit: **35 files / 15,454,318 bytes**, exactly **23 WAVs** and eight unchanged art files, full MIT notices, unchanged source hashes and excluded unused effects. Existing Mac preview returns HTTP 200.
+
+Evidence/reproduction/limits: [restored-effects verification](verification/restored-effects/README.md). Disposable targeted QA on 4190 preserves user origins/preferences. Physical phone hardware, other engines and subjective listening remain unverified; historical full layout/background checks are not claimed as rerun. No commit, push or publication.
+
+---
+
+# v0.16.2 — silent actions/UI/travel, 2026-10-11
+
+Completed the user's follow-up: clicks, menus, Bag/tool selection, jumping, hits, farming/pickups, doors and location travel produce no sound effects. Only successful buying/selling retain transaction effects. Music, seven Nature ambience loops and the original ending cue remain, with all existing mute/volume preferences and schema-17 local progress preserved. Playback, preloading and production use the same two-event allowlist, preventing synthetic fallback sounds for removed events. Thirty unused SFX are excluded from production.
+
+Validation: **251 tests pass**, **npm run build succeeds (130 modules)**, **23 production files / 15,172,480 bytes**, exactly **11 WAVs** and eight unchanged art files. Nine native-browser action/transaction checks and fifteen desktop/touch layout/gameplay/background-audio cases pass. UI/Jump/tree hits/doors/Home → Farm/City/Forest create zero non-loop sources; successful buy/sell each create exactly one. Watering Effects bus peak is zero; Forest day/night output stays nonzero; all ten supplied runtime files decode. Clean console/audio failures and git diff --check. Mac localhost:4176 and Wi-Fi 192.168.100.7:4176 return HTTP 200.
+
+Evidence: [quiet-action verification](verification/quiet-actions/README.md). Disposable QA on 4190 preserves user origins 4175/4176. Physical phones, other browser engines and subjective listening remain unverified. No new dependency, asset bytes, schema change, commit, push or publication.
+
+---
+
+# v0.16.1 — licensed cozy audio, mobile Use and hidden default Hand (2026-10-11)
+
+Implemented the user's supplied-audio/control follow-up. All five archives have reviewed game-use permission evidence; selected 32 Farm SFX files, seven Nature loops and one HuntSounds bonus music loop. All 49 gameplay/UI events map to selected samples; original synthesis remains initial-load/failure fallback. Forest has audible birds/leaves, proximity-based streams, nighttime crickets/owl and snowy wind; Farm/Home meadow, City fountain and Home fireplace suit their scenes. Background music is quieter in Forest/night; the original ending cue remains. Preserve existing volume/mute preferences. Credits identify Spaceyyy (formerly Bramble & Byte) and HuntSounds; exact licence snapshots/embedded terms, hashes and processing details are under assets/licenses/cozy-audio.
+
+Mobile ordinary world touches no longer trigger actions. Star/Use reads the highlighted nearby context, with Hit for Axe work/hunting/empty swings; arrow/Jump retains outdoor jumping. Use works indoors. Placement retains tap/drag previews and explicit confirmation. Fine-pointer mouse/E/K/Space behavior remains, even in compact Mac windows. Hand is the existing invisible default, removed from Bag/HUD; Put away and equipped hotbar taps return to it. Desktop numeric tool shortcuts remain idempotent. Default Hand prioritizes fruit/cache/Stash recovery over incidental grass, while explicit desktop grass targeting remains.
+
+Schema 17 and valid existing selections/progress remain. No new runtime dependency, art asset change, weather/gameplay expansion, remote runtime asset, commit, push, publication or submission. Local Mac/phone production preview stays on port 4176; QA uses disposable contexts on 4190 without touching user saves.
+
+Validation: **250 tests pass**, **production build succeeds (130 modules)**, **53 production files / 16,136,998 bytes**. Only eight unchanged art files and 41 explicit WAVs ship; full MIT notices remain. Forty selected files pass PCM/peak/DC/clipping/loop-edge and byte/hash checks. Chrome actual decoder loads all forty; measured Forest bus output is nonzero for day/night. Seven viewport fresh-game/equip/put-away/reload/Jump checks, touch planting/watering/harvest/doors/bed/sleep/stone/fruit/Stash recovery/three-hit chopping, desktop small-window world actions, keyboard selection and audio credits fit pass without warnings/errors. Canvas/WebGL each retain one actual AudioContext through twelve Pause and twelve Title/Continue cycles, focus suspend/resume and preference reload; Canvas Title runs 120 seconds. git diff --check passes. HTTP 200 on localhost:4176 and 192.168.100.7:4176; LAN IP verified.
+
+Evidence/reproduction: [verification/cozy-audio](verification/cozy-audio/README.md). Phone-size Chromium checks are not physical phone/Safari/Firefox/Edge tests or subjective listening approval. Old preset mute/zero-volume remains respected; hardware audio/comfort and final competition screening remain for the team. Full natural story benchmark from v0.16.0 is historical; this follow-up tests the affected interactions rather than repeating that benchmark.
+
+---
+
 # v0.16.0 — Grandfather's last request and original audio, 2026-10-10
 
 Implemented the authorized story/audio milestone: four original introduction panels; five persistent Journal chapters using existing farming, market/resident, fixed Commons seating, Forest fruit/boar/cache and Home shelf; durable original Keepsake; placement animation, final letter, frozen statistics, once-only cue, Credits and Continue Playing. No extra crops, locations, animals, equipment, furniture, projects, relationships, weather, backend or cloud saves.

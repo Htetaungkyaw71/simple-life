@@ -1,3 +1,105 @@
+# v0.17.4 — outdoor birds and gatherable default plants
+
+Daytime birds now play around Home, Farm and City; Forest, rivers, fountains and night ambience retain their existing behavior. Inside the house stays quiet, with action and sleep/wake effects preserved. Default wildflowers, ferns, grass, mushrooms, low shrubs and bamboo can be gathered with empty hands: click nearby plants on desktop, or face them and press **Use** on mobile. Each patch gives one Grass, plays a pickup sound and stays removed after saving/reloading; Grass can be replanted using the existing tool. Paid decorations retain Remove/Readjust choices. [Public playtest](https://simple-life-playtest.vercel.app/) — refresh and Continue. [Verification](docs/verification/outdoor-plants/README.md).
+
+---
+
+# v0.17.3 — quiet indoor background
+
+Inside every house, the continuous wind-like background is removed. Other action sounds, sleep/wake and morning rooster effects, outdoor nature audio, houses, crafting and saved progress are preserved. The unused fireplace/background WAV is excluded from production. [Current playtest](https://simple-life-playtest.vercel.app/) — refresh and Continue. [Checks and limitations](docs/verification/quiet-interior/README.md).
+
+---
+
+# v0.17.2 — Customize shortcut and material crafting
+
+Open the **house icon beside Menu** to customize Home, Farm or the room. Customize is removed from Pause; the Farm board now handles farming only.
+
+**Craft decorations / Wood & Stone** contains the seven existing recipes: bench, planter, fence, path, picnic table, barrel and lantern. Build spends only the displayed materials. **Trees & garden** and **Furniture & room decor** sell the nine other objects for coins; the eight house designs retain their different coin prices and furnished interiors. Existing owned pieces, placements and house purchases stay saved. Clear-screen Add and Remove/Readjust remain available.
+
+Every house design now reuses the original cottage’s exact roof, walls, windows, door, flowerboxes and steps at the same position. Different palettes, roof/wall materials and interior themes retain each design’s appearance. No runtime atlas file changes.
+
+[Playtest](https://simple-life-playtest.vercel.app/) — refresh, Continue, then use the house icon. [Verification and device limitations](docs/verification/customize-access/README.md). Earlier release notes below describe their versions; this section supersedes their menu and shop instructions.
+
+---
+
+# v0.17.1 — screen placement and decoration choices
+
+Tap or drag the preview to **any clear spot on the visible screen**, then press the clearly labeled **Add** button. The farmer does not need to be nearby or have an unobstructed route to it. Clear path ground can be decorated; occupied pieces, structures, crop beds, water, the farmer’s feet and essential door/bed/cooking/travel approaches remain protected. Drawn direction icons include a visible up arrow. A disabled Add label stays dark and readable; the panel explains an invalid spot.
+
+Click or touch a placed decoration to choose **Remove** or **Readjust**. Remove returns the same reusable piece to Bag/Gear. Readjust previews moving/turning that piece at no coin or item cost; Add commits it. Cancel or reload keeps its original saved position. The nearby Use button also opens these choices. Mobile decoration touches open this menu; ordinary farming, gathering and attacks still use Use/Hit. Local saves, eight house designs, the once-per-save 100,000 playtest gift and the stable public game origin are retained.
+
+Current evidence and device limitations: [decoration editing verification](docs/verification/decoration-editing/README.md).
+
+---
+
+# v0.17.0 — house designs and paid customization
+
+The public **[playtest](https://simple-life-playtest.vercel.app/)** awards **100,000 extra coins once per save** on Play/Continue (a fresh game has 100,060 including its usual 60). Existing progress is retained; refresh does not repeat the gift. Normal `npm run build` keeps the 60-coin starter economy; `npm run build:playtest` explicitly enables this testing gift, also on local preview.
+
+Open **Menu → Customize** at Home/Farm. **House designs** offers eight purchasable exteriors with themed decorations and furnished interiors, priced 2,000 / 5,000 / 10,000 / 18,000 / 30,000 / 45,000 / 65,000 / 90,000 coins. Preview Outside/Inside, buy with confirmation, and switch owned designs for free. The original cottage stays owned. All houses retain the same usable door, bed, cooking and Keepsake positions.
+
+**Trees & garden** sells fences, paving, oak/palm/blossom trees, hedges, flowers and birdbaths. **Furniture & room decor** sells benches, planters, tables, barrels, lanterns, rugs, bookcases and ceramic flowers. Every purchase charges its displayed coin price and puts one reusable piece in Bag/Gear. Place outdoors at Home/Farm; furniture also fits indoors. Preview, adjust/turn, then Place; Cancel keeps the item. Put tools away and Use beside a piece to pack it. Roads, crops, structures, water and key indoor approaches stay clear. Purchased trees are scenery and cannot be chopped. Each Farm keeps its own layout. Rotation to a smaller indoor floor may safely pack pieces into Bag.
+
+Schema **18** accepts existing saves. The seven material workshop recipes remain available. Music-free gameplay, no wind and prior nature/action/sleep/rooster sounds are preserved. Details and verification: [customization report](docs/verification/customization/README.md).
+
+---
+
+# v0.16.6 — plain public playtest, no wind and morning rooster
+
+Play on Mac or phone at **[simple-life-playtest.vercel.app](https://simple-life-playtest.vercel.app/)**. No Vercel login or share query is needed. This stable testing link has no tester-token expiry, and browser-local progress on it survives future updates. Earlier preview/local saves remain on their original URLs.
+
+Dedicated wind is removed everywhere. Confirming sleep plays a soft effect, then morning waking plays one natural rooster/hen call; evening waking uses a short rustle. Cancelling sleep stays silent. Nature ambience, successful pickups/real tree/animal hits/farming/trades remain; gameplay music and earlier quiet UI/movement actions stay off. Existing schema-17 saves/volume settings and sleep rules are preserved.
+
+**256 tests pass**, production build succeeds; Mac/phone-size browser audio, credits and public access/hosted hashes pass. [Verification and source/deployment details](docs/verification/sleep-wakeup/README.md). Local [Mac](http://localhost:4176/) / [same-Wi-Fi phone](http://192.168.100.7:4176/) remain available.
+
+---
+
+# v0.16.5 — nature-only gameplay and pickup sounds
+
+Playing uses natural ambience without music, including at story completion. Title-screen music stops immediately on Play/Continue. Successful food, stone, starter-seed, treasure, Stash Bag, Keepsake and recovered-object pickups now sound; Wood/grass pickup, real tree/animal hits, farming and trades retain their effects. Failed pickups, empty swings, falling trees, UI/Bag/tool selection, Jump, doors and travel stay silent. Existing saves and audio preferences remain.
+
+The authorized Vercel friend playtest is updated; use the new seven-day link supplied in chat. Local [Mac](http://localhost:4176/) and [phone on the same Wi-Fi](http://192.168.100.7:4176/) remain available. Each browser/origin has its own save, so earlier preview progress stays on its earlier URL. [Checks and deployment record](docs/verification/nature-pickups/README.md).
+
+---
+
+# v0.16.4 — landed hits and friend playtesting
+
+Empty Axe swings are silent. Tree impacts play only on actual hits; when the tree finishes cutting, its falling sound is removed and the Wood pickup sound remains. Animal hit/defeat and farming/buy/sell effects remain. Menus, Bag/tool selection, Jump, doors and travel stay silent. Existing local progress and audio preferences are preserved.
+
+A Vercel testing deployment is ready in the free Hobby `simple-life-playtest` project. Use the seven-day friend share link supplied in chat; direct deployment URLs remain protected. Each browser/device has its own local save. This is a testing build, not multiplayer or a competition submission. Local Mac/phone port 4176 also remains available. [Checks and deployment record](docs/verification/hit-feedback/README.md).
+
+---
+
+# v0.16.3 — farming and hit effects restored
+
+Tree/animal swings and hits, falling trees, planting, watering, digging, harvest/clearing/growth and grass work have their sound effects again. Buying/selling, background music, Nature ambience and the ending cue remain. Clicks, menus, Bag/tool selection, Jump, doors and location travel stay silent. Volume/mute preferences and local progress are preserved.
+
+Refresh [Mac](http://localhost:4176/) or [phone on the same Wi-Fi](http://192.168.100.7:4176/). Current checks: [restored-effects verification](docs/verification/restored-effects/README.md).
+
+---
+
+# v0.16.2 — quiet actions
+
+Clicks, menus, Bag/tool selection, jumping, hits, farming, pickups, doors and travel now have no sound effects. Only successful buying and selling play transaction sounds. Background music, Forest/location ambience and the original ending cue remain; existing Audio volume/mute preferences and local saves are preserved. Unused effects are excluded from preloading and the production build.
+
+Refresh [Mac](http://localhost:4176/) or [phone on the same Wi-Fi](http://192.168.100.7:4176/). Checks and device limitations: [quiet-action verification](docs/verification/quiet-actions/README.md).
+
+---
+
+# v0.16.1 — supplied cozy audio and mobile Use
+
+The supplied **Cozy Farm SFX / Cozy Nature Ambience by Spaceyyy (formerly Bramble & Byte)** and **Cozy SFX Volume 1 by HuntSounds** permit personal/commercial game use. Creator pages and embedded terms were checked before selecting assets; exact source/archive/runtime hashes and licence evidence are in [the source record](docs/assets/licenses/cozy-audio/SOURCE_RECORD.md).
+
+The selected HuntSounds bonus music loop replaces the five earlier background arrangements. All 49 gameplay/UI events use matched Farm effects, with 32 distinct samples. Seven selected Nature loops provide Forest birds/leaves, meadow wind, night crickets/owl, nearby streams, snowy wind, the City fountain and the Home fireplace. Forest ambience is clearly mixed above the quieter music. The original ending cue remains. Only 40 selected converted samples plus that cue ship; unused weather/ocean/campfire packs and source ZIPs stay outside production. WAV conversion keeps runtime decoding independent of Ogg support. **Pause → Audio** retains all existing volume/mute preferences.
+
+Mobile: move with the circle, use **star / Use** for the nearby highlighted action, **Hit** for Axe chopping/hunting or an empty swing, and **arrow / Jump** to leap. Ordinary world touches perform no actions; placement still has its own tap/drag preview and Place confirmation. Use works indoors for doors, bed and cooking; Jump stays disabled indoors. Desktop mouse and E/K/Space shortcuts remain, including mouse actions in compact Mac windows.
+
+Hand is the invisible default. It has no Bag or hotbar item. Choose a tool in Bag / Gear; **Put away** returns to empty hands. Tap an equipped Seed/Water/Harvest hotbar slot to put it away; keyboard 1–5/7 still equips that tool, and 6 puts it away. Empty hands collect grass/stone and pack furniture. Nearby fruit, caches and Stash recovery take priority over incidental grass. Existing valid saved tool selections and schema-17 progress are retained.
+
+Local Mac: http://localhost:4176/ ; phone on the Mac's Wi-Fi: http://192.168.100.7:4176/ . Refresh after this update; keep the Mac awake. Each browser/origin has its own local save. Current checks and hardware limitations: [verification report](docs/verification/cozy-audio/README.md). No push, publication or submission.
+
+---
+
 # v0.16.0 — Grandfather's last request
 
 A four-panel New Game introduction and **Pause → JOURNAL** guide five chapters: your first crop, City sale/resident, fixed Commons seating (24 Wood / 12 Stone), Forest fruit/boar/Keepsake, and returning it to the Home pottery shelf. The existing snake-cache at **4122 / 4376**, west/north of the southern Forest entrance, holds the original sun medallion after its guard is defeated. It stays safe through sleep, saves and death, and cannot be sold/eaten/dropped. Completion presents a letter, statistics, Credits and Continue Playing; the sandbox remains playable.

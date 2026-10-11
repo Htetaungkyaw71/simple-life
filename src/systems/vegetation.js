@@ -17,7 +17,7 @@ export function vegetationContext(s,direction='down',target=null){
  const [dx,dy]=face[direction]||face.down,p=target||{x:s.position.x+dx*36,y:s.position.y+dy*36};
  if(s.selected==='grass'){const q={x:Math.round(p.x/8)*8,y:Math.round(p.y/8)*8};return {...q,type:'placeGrass',label:s.inventory.grass?'Plant grass':'No grass / gather by hand'};}
  const tree=s.selected==='axe';const nodes=nearbyVegetation(s,s.position,72).filter(n=>n.id.startsWith('tree:')===tree).filter(n=>target?Math.hypot(n.x-target.x,n.y-target.y)<56:(n.x-s.position.x)*dx+(n.y-s.position.y)*dy>=-16).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y));
- const n=nodes[0];return n?{...n,type:tree?'chop':'gatherGrass',label:tree?'Chop tree / '+treeHits(s,n.id)+' of '+TREE_HITS+' hits':'Gather grass'}:null;
+ const n=nodes[0];return n?{...n,type:tree?'chop':'gatherGrass',label:tree?'Chop tree / '+treeHits(s,n.id)+' of '+TREE_HITS+' hits':'Gather plants / grass'}:null;
 }
 export function useVegetation(s,c){
  if(!c||!['chop','gatherGrass','placeGrass'].includes(c.type)||Math.hypot(c.x-s.position.x,c.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
@@ -27,7 +27,8 @@ export function useVegetation(s,c){
   node=VEGETATION[s.area]?.byId.get(c.id)||v?.placed.find(n=>n.id===c.id);
   if(!node||removed(s,c.id)||node.x!==c.x||node.y!==c.y||c.id.startsWith('tree:')!==(c.type==='chop'))return {ok:false,message:'Already gathered'};
  }
- const view=c.type==='chop'?{...s,vegetation:{...s.vegetation,[vegetationKey(s)]:{...v,trees:[...(v?.trees||[]),c.id]}}}:s;
+ const removedKey=c.type==='chop'?'trees':'grass';
+ const view=c.type!=='placeGrass'?{...s,vegetation:{...s.vegetation,[vegetationKey(s)]:{trees:[],grass:[],placed:[],...v,[removedKey]:[...(v?.[removedKey]||[]),c.id]}}}:s;
  const size=MAPS[s.area].size||MAP_SIZE,end=c.type==='chop'?{x:Math.max(0,Math.min(size.width,c.x)),y:Math.max(0,Math.min(size.height,c.y))}:c;
  if(!lineClear(s.area,s.position,end,0,view))return {ok:false,message:'Choose a clear approach'};
  const cost=1,key=c.type==='chop'?'wood':'grass',amount=c.type==='chop'?3:1;

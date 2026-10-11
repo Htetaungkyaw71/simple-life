@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {newState} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {CROPS,CROP_IDS,LEGACY_GROWTH_DAYS} from '../src/data/crops.js';
-import {PROJECTS,DECORATIONS,STOVE_COST} from '../src/data/settlement.js';
+import {PROJECTS,DECORATIONS,CRAFT_DECORATIONS,STOVE_COST} from '../src/data/settlement.js';
 import {dailyOrders,deliverOrder,completeProject,craftDecoration,buildStove,grillMeat,validDecoration,placeDecoration,reclaimDecoration,decorationContext} from '../src/systems/settlement.js';
 import {nextDay} from '../src/systems/time.js';
 import {usePlot} from '../src/systems/farming.js';
@@ -53,15 +53,15 @@ test('stone stove builds once, cooking consumes fuel and meat, eating restores c
 test('farm decoration is crafted, safely placed, collidable and packed up without duplication',()=>{
  const s=stocked('farm');s.position={x:1152,y:856};craftDecoration(s,'bench');assert.equal(s.inventory.benchDecor,1);s.selected='decorate';s.selectedDecoration='bench';assert.ok(validDecoration(s,placement));placeDecoration(s,placement);assert.equal(s.inventory.benchDecor,0);assert.equal(s.settlement.decorations.length,1);assert.equal(walkable('farm',1152,796,12,false,s),false);assert.equal(openGround('farm',1152,776,true,s),false);assert.equal(grassGround(s,{x:1152,y:800}),false);noMutation(s,()=>placeDecoration(s,placement));
  s.selected='hand';assert.equal(decorationContext(s,null).type,'reclaimDecoration');const loaded=validate(s);assert.deepEqual(loaded,s);reclaimDecoration(s,placement);assert.equal(s.inventory.benchDecor,1);assert.equal(s.settlement.decorations.length,0);noMutation(s,()=>reclaimDecoration(s,placement));assert.ok(walkable('farm',1152,796,12,false,s));
- for(const id of Object.keys(DECORATIONS)){const before=s.inventory[DECORATIONS[id].item];craftDecoration(s,id);assert.equal(s.inventory[DECORATIONS[id].item],before+1);}s.area='home';noMutation(s,()=>craftDecoration(s,'path'));
+ for(const id of CRAFT_DECORATIONS){const before=s.inventory[DECORATIONS[id].item];craftDecoration(s,id);assert.equal(s.inventory[DECORATIONS[id].item],before+1);}s.area='city';noMutation(s,()=>craftDecoration(s,'path'));
 });
-test('placement protects roads, beds, water, structures and the player; decorations belong to each farm',()=>{
+test('placement protects beds, water, structures and the player; decorations belong to each farm',()=>{
  const s=stocked('farm');s.position={x:1152,y:856};s.selected='decorate';s.inventory.benchDecor=2;
- for(const d of [{...placement,x:976,y:608},{...placement,x:376,y:248},{...placement,x:0},{...placement,x:1153},{...placement,farm:99},{...placement,type:'forged'}])assert.equal(validDecoration(s,d),false);
+ for(const d of [{...placement,x:1792,y:720},{...placement,x:376,y:248},{...placement,x:0},{...placement,x:1153},{...placement,farm:99},{...placement,type:'forged'}])assert.equal(validDecoration(s,d),false);
  s.position={x:1152,y:792};noMutation(s,()=>placeDecoration(s,placement));s.position={x:1152,y:856};placeDecoration(s,placement);s.money=2000;buyFarm(s);s.area='farm';assert.ok(walkable('farm',1152,796,12,false,s));assert.ok(validDecoration(s,{...placement,farm:1}));s.position={x:1152,y:856};placeDecoration(s,{...placement,farm:1});assert.equal(s.settlement.decorations.length,2);assert.deepEqual(validate(s),s);
 });
 test('malformed resource saves bound known records, reject illegal overlaps and repair trapped player',()=>{
- const s=stocked('farm');s.day=5;s.position={x:1152,y:796};s.selectedDecoration='bad';s.inventory.pathDecor=-1;s.settlement={projects:['bad','commons','commons'],stove:'yes',orders:{day:99,completed:['bad']},decorations:[placement,placement,{...placement,type:'bad'},{...placement,x:976,y:608}]};const v=validate(s);assert.deepEqual(v.settlement.projects,['commons']);assert.equal(v.settlement.stove,false);assert.deepEqual(v.settlement.orders,{day:5,completed:[]});assert.equal(v.settlement.decorations.length,1);assert.equal(v.inventory.pathDecor,0);assert.equal(v.selectedDecoration,'bench');assert.ok(walkable('farm',v.position.x,v.position.y,12,false,v));
+ const s=stocked('farm');s.day=5;s.position={x:1152,y:796};s.selectedDecoration='bad';s.inventory.pathDecor=-1;s.settlement={projects:['bad','commons','commons'],stove:'yes',orders:{day:99,completed:['bad']},decorations:[placement,placement,{...placement,type:'bad'},{...placement,x:1792,y:720}]};const v=validate(s);assert.deepEqual(v.settlement.projects,['commons']);assert.equal(v.settlement.stove,false);assert.deepEqual(v.settlement.orders,{day:5,completed:[]});assert.equal(v.settlement.decorations.length,1);assert.equal(v.inventory.pathDecor,0);assert.equal(v.selectedDecoration,'bench');assert.ok(walkable('farm',v.position.x,v.position.y,12,false,v));
 });
 test('resource pages, farm board and decoration tools remain bounded on desktop and both phone orientations',async()=>{
  const {FarmOffice}=await import('../src/ui/FarmOffice.js'),{Hud}=await import('../src/ui/Hud.js');
@@ -71,7 +71,7 @@ test('resource pages, farm board and decoration tools remain bounded on desktop 
 });
 test('visual crafting pages show real object art, live material counts and guarded build/place actions',()=>{
  const u=recorder(360,640),s=stocked('farm'),a={state:s,ui:u,scene:{build(){}},save(){},transact(fn){return fn(s);}};u.app=a;u.toast=()=>{};const r=new ResourcePanel(a);
- for(const [i,id]of Object.keys(DECORATIONS).entries()){r.decorations(i);const d=DECORATIONS[id];assert.equal(u.menu.page.preview,id);assert.equal(u.menu.page.materials[0].have,100);assert.equal(u.controls.find(c=>c.label==='Place').disabled,true);const before=s.inventory[d.item];u.controls.find(c=>c.label==='Build').action();u.time.now+=1000;assert.equal(s.inventory[d.item],before+1);assert.equal(u.controls.find(c=>c.label==='Place').disabled,false);if(d.frame)assert.ok(u.root.list.some(n=>n.type==='image'&&n.frame===d.frame));else assert.ok(u.root.list.some(n=>n.type==='graphics'&&n.commands.some(c=>c.color===(id==='path'?0x756f61:0x543d32))));s.inventory.wood=100;s.inventory.stone=100;}
+ for(const [i,id]of CRAFT_DECORATIONS.entries()){r.decorations(i);const d=DECORATIONS[id];assert.equal(u.menu.page.preview,id);assert.equal(u.menu.page.materials[0].have,100);assert.equal(u.controls.find(c=>c.label==='Place').disabled,true);const before=s.inventory[d.item];u.controls.find(c=>c.label==='Build').action();u.time.now+=1000;assert.equal(s.inventory[d.item],before+1);assert.equal(u.controls.find(c=>c.label==='Place').disabled,false);if(d.frame)assert.ok(u.root.list.some(n=>n.type==='image'&&n.frame===d.frame));else assert.ok(u.root.list.some(n=>n.type==='graphics'&&n.commands.some(c=>c.color===(id==='path'?0x756f61:0x543d32))));s.inventory.wood=100;s.inventory.stone=100;}
  s.inventory.wood=0;s.inventory.stone=0;r.decorations();const build=u.controls.find(c=>c.label==='Build');assert.equal(build.disabled,true);const before=JSON.stringify(s);build.box.events.pointerdown({},0,0,{stopPropagation(){}});assert.equal(JSON.stringify(s),before);assert.match(u.menu.page.note,/Need materials/);
 });
 test('resource text, material/reward rows and actions remain legible and separate in seven viewports',()=>{

@@ -17,11 +17,12 @@ export class Interface extends Phaser.Scene {
     this.resetMovement();
     this.root?.destroy(true);this.controls=[];this.root=this.add.container().setScale(2);this.w=Math.floor(this.scale.width/2);this.h=Math.floor(this.scale.height/2);
     const css=getComputedStyle(document.querySelector('#app'));const inset=side=>Math.ceil((parseFloat(css.getPropertyValue('--safe-'+side))||0)/2);
-    this.safe={top:inset('top'),bottom:inset('bottom'),left:inset('left'),right:inset('right')};this.touch=this.scale.width<1000||matchMedia('(pointer:coarse)').matches;
+    this.safe={top:inset('top'),bottom:inset('bottom'),left:inset('left'),right:inset('right')};this.mobileInput=matchMedia('(pointer:coarse)').matches;this.touch=this.scale.width<1000||this.mobileInput;
     if(this.menu){this.hud=null;this.drawMenu();}else if(this.app.state)this.hud=new Hud(this);
     this.noticeLayer=this.add.container().setDepth(50);this.root.add(this.noticeLayer);this.drawNotice();
   }
   modal(kicker,title,body,buttons,kind='dialog'){
+    if(this.app.placement?.draft)this.app.placement.cancel();
     this.app.sound('ui:open');this.app.paused=true;this.app.input={};this.notice=null;this.menu={kicker,title,body,buttons,kind};this.focus=0;this.layout();
   }
   close(){if(this.menu)this.app.sound('ui:close');this.menu=null;this.app.paused=false;this.app.input={};Object.values(this.app.scene.keys).forEach(k=>k.reset());this.layout();}
@@ -29,24 +30,26 @@ export class Interface extends Phaser.Scene {
   drawMenu(){if(['trade','wilderness','bag','resources','audio','intro','journal','completion'].includes(this.menu.kind)){this.menu.draw?.();return;}drawModal(this);}
   title(){
     const save=this.app.saves.load();this.creditsBack=undefined;this.notice=null;
-    this.modal('A TROPICAL FARMING ADVENTURE','Simple Life','',[
+    this.modal('A TROPICAL FARMING ADVENTURE','Simple Life',this.app.testingCreditEnabled?'PLAYTEST / +100,000c gift':'',[
       ['Play',()=>save?this.confirmNew():this.choose()],
       ['Continue',()=>this.app.start(save),!save],
       ['Controls',()=>this.help(()=>this.title())],
       ['Credits',()=>this.credits(this.creditsBack)],
-      ...(this.app.testingCreditEnabled?[['Add 100,000 test coins',()=>this.app.grantTestingCoins(),!save||save.testingCoinGrant===TESTING_COIN_GRANT]]:[]),
+      ...(this.app.testingCreditEnabled&&!import.meta.env.VITE_PLAYTEST?[['Add 100,000 test coins',()=>this.app.grantTestingCoins(),!save||save.testingCoinGrant===TESTING_COIN_GRANT]]:[]),
     ],'title');
     if(this.app.saves.error)this.toast(this.app.saves.error);
   }
-  credits(back=()=>this.title()){this.creditsBack=back;this.modal('ART & CREDITS','Simple Life','Serene Village / LimeZu\nCC BY 4.0 / houses adapted.\nOriginal forest & music / Codex.',[['Asset source',()=>window.open('https://limezu.itch.io/serenevillagerevamped','_blank','noopener')],['Town residents',()=>this.residentCredits()],['More art credits',()=>this.suppliedCredits()],['Wildlife & ruins',()=>this.craftpixCredits()],['Back',()=>this.creditsBack()]]);}
+  credits(back=()=>this.title()){this.creditsBack=back;this.modal('ART & CREDITS','Simple Life','Serene Village / LimeZu\nCC BY 4.0 / houses adapted.\nOriginal forest / Codex-assisted.',[['Village',()=>window.open('https://limezu.itch.io/serenevillagerevamped','_blank','noopener')],['Residents',()=>this.residentCredits()],['More art',()=>this.suppliedCredits()],['Wildlife',()=>this.craftpixCredits()],['Audio',()=>this.audioCredits()],['Back',()=>this.creditsBack()]]);}
+  audioCredits(){this.modal('AUDIO CREDITS','Cozy sounds','Farm SFX & Nature / Spaceyyy\nFormerly Bramble & Byte\nTitle music / HuntSounds\nRooster / alys / public domain',[['Farm & Nature sources',()=>this.audioSources()],['Rooster source',()=>window.open('https://commons.wikimedia.org/wiki/File:Medium_rooster_crowing.ogg','_blank','noopener')],['Music source',()=>window.open('https://huntsounds.itch.io/cosy-sfx-volume-1','_blank','noopener')],['Back',()=>this.credits(this.creditsBack)]]);}
+  audioSources(){this.modal('AUDIO CREDITS','Farm & Nature','Spaceyyy / formerly Bramble & Byte\nLocal audio edits / Codex',[['Farm SFX source',()=>window.open('https://aquumgifts.itch.io/cozy-farm-sfx','_blank','noopener')],['Nature source',()=>window.open('https://aquumgifts.itch.io/cozy-nature-ambience','_blank','noopener')],['Back',()=>this.audioCredits()]]);}
   residentCredits(){this.modal('TOWN RESIDENTS','Channeechan','Farmer bodies / Channeechan\nTemplate / Eris Esra\nHair and clothes adapted.\nLegacy atlas cells / Pipoya.',[['Farmer source & terms',()=>window.open('https://channeechan.itch.io/cute-farmer-character','_blank','noopener')],['Legacy source & terms',()=>window.open('https://pipoya.itch.io/pipoya-free-rpg-character-sprites-32x32','_blank','noopener')],['Back',()=>this.credits(this.creditsBack)]]);}
   suppliedCredits(){this.modal('FARMERS & FOREST','Artist credits','Farmers / Channeechan\nTemplate / Eris Esra', [['Farmer source & terms',()=>window.open('https://channeechan.itch.io/cute-farmer-character','_blank','noopener')],['Original character template',()=>window.open('https://erisesra.itch.io/character-templates-pack','_blank','noopener')],['Forest & licences',()=>this.artLicence()]]);}
-  artLicence(){this.modal('ART LICENCES','Original art & audio','Original scenery & six scores\nSimple Life / Codex-assisted\nNo external audio recordings', [['CC BY 4.0 licence',()=>window.open('https://creativecommons.org/licenses/by/4.0/','_blank','noopener')],['Back',()=>this.credits(this.creditsBack)]]);}
+  artLicence(){this.modal('ART LICENCES','Original scenery','Original scenery & ending cue\nSimple Life / Codex-assisted\nOther audio / Audio credits', [['CC BY 4.0 licence',()=>window.open('https://creativecommons.org/licenses/by/4.0/','_blank','noopener')],['Audio',()=>this.audioCredits()],['Back',()=>this.credits(this.creditsBack)]]);}
   craftpixCredits(){this.modal('WILDLIFE & RUINS','Craftpix','Hunt animals, ruins and\nplant sprites / Craftpix.\nFreebie licence / selected\nPNG frames repacked.',[['Craftpix assets',()=>window.open('https://craftpix.net/freebies/','_blank','noopener')],['Craftpix licence',()=>window.open('https://craftpix.net/file-licenses/','_blank','noopener')],['Back',()=>this.credits(this.creditsBack)]]);}
   confirmNew(){this.modal('NEW GAME','A fresh start?','Replace this browser\'s saved farm? Your current harvest and progress will be lost.',[['Keep my farm',()=>this.title()],['Start fresh',()=>this.choose()]]);}
   choose(){this.modal('CHOOSE YOUR FARMER','Your farmer','',[['Play as Boy',()=>this.app.newGame('boy')],['Play as Girl',()=>this.app.newGame('girl')],['Back',()=>this.title()]],'choose');}
   help(back,page=0){
-    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / outdoor jump\n1-7 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / circle to move\nJump / leap   Attack / swing\nTap people or ground / use':page===2?'Place / preview before confirming\nTap or drag / adjust position\nArrows / small adjustments\nR or Turn / change direction\nE or Place / confirm\nEscape or Cancel / keep item\nHand / pack into Bag': 'Crate / 3 starter seeds\n4 shovel / 5 axe / 6 hand / 7 grass\nWater once daily / any time\nHarvest after 3-6 watered days\nBed / restore energy\nMiss 3 days / recover with water\nMiss 4 days / dead';
+    const body=page===0?'WASD / arrows / move\nE / use   K / attack\nSpace / outdoor jump\n1-7 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / circle to move\nArrow / Jump   Star / Use or Hit\nWalk closer, then press Use':page===2?'Place / preview before confirming\nTap or drag / adjust position\nArrows / small adjustments\nR or Turn / change direction\nE or Add / confirm\nEscape or Cancel / keep item\nTap a piece / Remove or Readjust': 'Crate / 3 starter seeds\n4 shovel / 5 axe / 6 put away / 7 grass\nWater once daily / any time\nHarvest after 3-6 watered days\nBed / restore energy\nMiss 3 days / recover with water\nMiss 4 days / dead';
     this.modal('FIELD NOTES',page===2?'Farm furniture':page?'Your first harvest':'Controls',body,[[page===2?'Got it':page?'Placing >':'Farming >',()=>page===2?back():this.help(back,page+1)],...(page<2?[['Close',back]]:[])]);
   }
   showCityObjective(){this.cityStarted=true;this.cityUntil=this.time.now+7000;}

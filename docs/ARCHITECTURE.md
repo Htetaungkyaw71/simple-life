@@ -1,3 +1,65 @@
+# v0.17.4 — default ground vegetation and outdoor ambience
+
+`data/vegetation.js` registers explicit default ground-plant frame names from both details and props, using native sprite dimensions at scale 2. Existing grass/tree coordinate identities remain stable. Added flower/fern/snow-grass/mushroom/palmetto/animated plant/bamboo nodes share `gatherGrass`, inventory Grass, per-area/per-farm save lists, spatial buckets, renderer removal and pure guards. Bamboo's small solid mask joins the removal lookup; interaction sight checks omit only the gathered node. Animated plant sprite references are removed along with sprites to avoid atmosphere updates on destroyed objects. Trees remain the existing axe system; crop and purchased decoration data stay separate. No schema migration, new item or art bytes.
+
+Audio profiles add `.6*(1-night)` for the existing licensed `forestDay` sample outdoors at Home/Farm/City. Interiors remain `{}`; Forest habitat policy, night crickets, positional water/fountain and all successful-action SFX remain intact. No music or wind added. Read-only QA snapshots include registered ground-plant sprite visibility. Evidence: verification/outdoor-plants/README.md.
+
+---
+
+# v0.17.3 — quiet interior audio profile
+
+`audioProfile` returns no ambient layers indoors; effects and outdoor/title profiles retain their existing logic. The retired room sample is removed from `COZY_FILES`, the shared fetch/preload/build allowlist. Existing ambient transition retirement is preserved. No save, gameplay, UI, renderer, volume preference or dependency change.
+
+---
+
+# v0.17.2 — shared customization entry
+
+The canvas HUD adds Customize immediately before Pause in `hudLayout`; `Hud` opens the existing CustomizationPanel directly. Pause and FarmOffice no longer list customization/crafting. ResourcePanel retains the seven pictured material recipes as a Customize subpage with Back; Home/Farm material-use entry opens Customize. City requests/projects and the hearth are preserved. Craft guards allow Home/Farm/interior and enforce combined placed/Bag stack limits; outdoor placement remains restricted. Coin quotes reject material recipes, and coin catalogs filter them out. No schema change or new gift stamp.
+
+HomeArt caches eight local CanvasTexture derivatives of the existing original `house-village-0` frame. Pure `homePixels` changes materials/colors within existing alpha pixels only. The exact original 180×144 native structure, texture detail, coordinates, scale, depth and step pixels are retained. Previews and world share these derivatives. Interior layouts/themes remain. No file/remote asset/backend added.
+
+---
+
+# v0.17.1 — transient decoration editor
+
+Pure settlement geometry accepts clear path ground without a farmer-distance or sight-line restriction. PlacementController adds the current camera world-view boundary to quotes. Placed-piece pointer hit testing runs before the ordinary mobile world-action guard and only opens a canvas modal. Nearby Use enters the same Remove/Readjust choice. Removal mutates once after explicit selection and checks Bag capacity.
+
+Readjust retains the original placed record by transient reference, hides only its rendering, and evaluates new geometry with that record excluded from overlap checks. Confirm atomically replaces the record without spending inventory/coins or requiring a spare global placement slot; stale/cross-area/farm references fail. Original collision/save data remain until confirmation. Cancel/tool changes restore the original rendering; Continue clears transient drafts; responsive indoor resizing ends an active readjust before safely relocating/repacking its original record. Schema 18, assets, dependencies and Phaser world/UI ownership remain.
+
+---
+
+# v0.17.0 — data-driven Home customization
+
+`data/homes.js` contains eight priced designs plus starter and original theme palettes. `systems/customization.js` quotes/purchases atomically; UI controls cannot charge negative balances or rebuy owned houses. `ui/CustomizationPanel.js` reuses canvas ResourcePanel/ResourceView with shared artwork previews, confirmation, paging and input gate. Main Menu → Customize is the entry point; existing Save autosave is preserved.
+
+`settlementGeometry`, `settlement`, `placement` and PlacementController extend the established per-Farm furniture path to Home/indoor areas. Rendering, pure movement/save guards and Phaser CollisionWorld consume the same masks. `systems/roomDecor.js` scales/re-packs indoor pieces when responsive room geometry changes. `art/HomeArt.js` supplies original native-pixel exteriors, floors and theme furnishings; old house/room gameplay geometry is retained. `DecorationArt` supplies nine new prop previews/world drawings, reusing local oak/palm frames. No DOM HUD, backend, runtime external request or dependency.
+
+`npm run build:playtest` sets VITE_PLAYTEST=true at build time. Normal build stays gift-disabled; URL parameters cannot enable a production gift. Playtest gift is stamped once per local save and preserves player progress.
+
+---
+
+# v0.16.6 — wind-free profiles and audio-clock wake scheduling
+
+No wind/winter keys remain in gameplay profiles or COZY_FILES. The existing sole AudioManager permits sleep:begin and morning/evening wake events alongside prior action feedback. A successful sleep source records its buffer-duration/playback-rate end; the wake node starts after that time plus 80ms. Scheduling uses Web Audio, with no timers or new gameplay state. Per-voice event IDs let a new rest cancel prior rest voices; existing Title/new-world/destruction cleanup cancels pending nodes. The bed branch uses its resulting wake time for the event. Existing focus/mute/volume/rate/voice bounds and schema-17 saves remain.
+
+In-game creator links stay in the separate Phaser UI scene; Farm/Nature use a source submenu and rooster gets a source credit without adding DOM HUD. Runtime is static same-origin WAV/art/code, with no backend or remote audio.
+
+---
+
+# v0.16.5 — gameplay without music
+
+Pure audioProfile returns no world music keys. The sole AudioManager stops title music nodes immediately when entering a world; pending title loads recheck the desired gain and cannot start during gameplay. Completion remains an inert compatible method. Natural ambience, duck/focus/mute/volume lifecycle and source bounds are preserved. The shared playback/preload/build map permits 21 event IDs using 15 effects plus seven ambience buffers and title music; no original score WAVs ship. Pickup calls remain conditional on successful pure-system mutations; starter seeds gain a dedicated item:pickup event. No backend, gameplay rewrite or save migration.
+
+---
+
+# v0.16.1 — curated local sample audio and contextual touch actions
+
+The established AudioManager remains the sole AudioContext owner. audio/cozy.js maps 49 event IDs to 32 deduplicated short buffers and names seven ambience buffers plus a shared 68-second music loop. Music/ambience load by key; effects warm once after entering an unlocked world. Existing bounded synthesis is a failure/initial-load fallback only. Pending loads, source retirement, focus serialization, preferences, rate/voice limits and the one ending cue retain the prior lifecycle. Loops supply their own natural events instead of synthetic periodic bird/fire/cricket calls. Forest/river/night/snow/fountain/interior weights remain pure audioProfile data. Vite explicitly emits COZY_FILES plus the original completion cue and eight unchanged art files.
+
+Mobile action reads the same scene context as E; it uses shared transactions, saves, world feedback and menus, with an Axe empty swing only when no context exists. Touch/coarse-pointer world input stops before ordinary actions; fine-pointer mouse input remains available in compact responsive layouts. Placement input keeps its earlier routing. Action suppresses the generic UI confirm sound so chopping's swing plus impact fit the two-start limit. Hand remains the existing internal tool ID, defaults on missing/invalid selection, hides from Bag/HUD and returns through put-away toggles. Keyboard tool selection stays idempotent. Default Hand context gives primary nearby actions priority over incidental grass, while explicit desktop grass targeting remains.
+
+---
+
 # v0.16.0 — pure story and one audio owner
 
 `data/story.js` defines chapters/intro and fixed existing cache/guard/project. `systems/story.js` owns pure persistent transitions and migration, invoked only by successful existing gameplay actions. `StoryPanel` and `AudioPanel` render in the separate Phaser UI canvas; HomeKeepsake uses world Graphics. No DOM HUD, quest-marker subsystem, backend or remote assets.

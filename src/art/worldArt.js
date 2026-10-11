@@ -15,11 +15,16 @@ import {terrain} from './Terrain.js';
 import {forestTexture} from './forestPalette.js';
 import {drawBridge} from './BridgeView.js';
 import {drawSettlement,settlementCovers} from './SettlementView.js';
+import {drawHomeArt,drawHomeRoom} from './HomeArt.js';
 const SCALE=2;
 export function image(scene,name,x,y,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.image(Math.round(x),Math.round(y),atlas,name).setOrigin(0).setScale(scene.artScale||SCALE).setDepth(depth);}
 function tiled(scene,name,x,y,w,h,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.tileSprite(x,y,w,h,atlas,name).setOrigin(0).setTileScale(scene.artScale||SCALE).setDepth(depth);}
 function label(scene,x,y,value){return scene.add.bitmapText(x,y,'pixel',value,6).setScale(2).setOrigin(.5,0).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(y+3);}
 function object(scene,p){
+ if(scene.worldArea==='home'&&p===MAPS.home.buildings[0]&&scene.app.state?.home?.design!=='starter'){
+  scene.add.ellipse(p.x+180,p.y+258,240,14,0x253951,.18).setDepth(1);
+  return drawHomeArt(scene,null,scene.app.state.home.design,p.x,p.y,2,p.y+258);
+ }
  if(p.rocky)return image(scene,p.name,p.x,p.y,p.foot);
  const node=VEGETATION[scene.worldArea].byProp.get(p);if(node&&removed(scene.app.state,node.id))return;
  const visuals=[];const record=sprite=>{if(node){visuals.push(sprite);scene.vegetationVisuals.set(node.id,[...(scene.vegetationVisuals.get(node.id)||[]),...visuals]);}return sprite;};
@@ -82,6 +87,7 @@ export function drawWorld(scene,area){
   tiled(scene,'home-wall',0,0,w,48,48);tiled(scene,'home-wall',0,48,16,h-48,h);tiled(scene,'home-wall',w-16,48,16,h-48,h);
   tiled(scene,'home-wall',0,h-32,w/2-24,32,h);tiled(scene,'home-wall',w/2+24,h-32,w/2-24,32,h);
   for(const [name,x,y]of FURNITURE)image(scene,name,x,y,name==='home-rug'?1:y+scene.textures.getFrame('town',name).height*2);
+  drawHomeRoom(scene,scene.app.state);
   scene.doors.push(image(scene,'door0',w/2-16,h-64,h));
  }else if(area==='home'){
   label(scene,544,554,'STARTER SEEDS');const arrow=scene.add.graphics().setDepth(1);arrow.fillStyle(0xffe4a3,.8);arrow.fillRect(478,1090,4,12);arrow.fillRect(474,1098,12,4);arrow.fillRect(476,1102,8,2);arrow.fillRect(478,1104,4,2);image(scene,'post',416,1104,1136);image(scene,'post',528,1104,1136);

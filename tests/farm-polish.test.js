@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {newState} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {FARM_ENERGY,FATIGUE_MINUTES} from '../src/data/energy.js';
 import {usePlot} from '../src/systems/farming.js';
 import {waterGround} from '../src/systems/farmGround.js';

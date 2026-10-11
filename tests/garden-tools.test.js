@@ -1,9 +1,9 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {newState} from '../src/systems/state.js';
+import {plantingState as newState} from './helpers/plantingState.js';
 import {validate} from '../src/systems/save.js';
-import {VEGETATION,vegetationKey,isTree,nearbyVegetation} from '../src/data/vegetation.js';
+import {VEGETATION,vegetationKey,isTree,isGrass,nearbyVegetation} from '../src/data/vegetation.js';
 import {MAPS} from '../src/data/mapLayouts.js';
 import {walkable} from '../src/data/locations.js';
 import {vegetationContext,useVegetation,grassGround} from '../src/systems/vegetation.js';
@@ -24,6 +24,28 @@ import {recorder} from './helpers/uiRecorder.js';
 const approach=(s,n)=>{for(const distance of [32,48,60])for(const [dx,dy]of [[0,1],[-1,0],[1,0],[0,-1]]){const p={x:n.x+dx*distance,y:n.y+dy*distance};if(walkable(s.area,p.x,p.y,12,false,s)){s.position=p;return true;}}return false;};
 function cuttable(area='farm',name){const s=newState();s.area=area;s.selected='axe';for(const n of VEGETATION[area].trees){if(name&&n.prop.name!==name||!approach(s,n))continue;const c=vegetationContext(s,'up',n),trial=structuredClone(s);if(c?.id===n.id&&useVegetation(trial,c).ok)return {s,n,c};}throw Error('No reachable '+area+' '+name);}
 const fell=(s,c)=>{useVegetation(s,c);useVegetation(s,c);return useVegetation(s,c);};
+test('every default ground plant type is registered, gathers once by hand and survives reload',()=>{
+ for(const area of ['home','farm','city','forest']){
+  for(const p of [...MAPS[area].details,...MAPS[area].props].filter(isGrass))assert.ok(VEGETATION[area].byProp.has(p),p.name);
+  for(const name of new Set(VEGETATION[area].grass.filter(n=>n.prop).map(n=>n.prop.name))){
+   const s=newState();s.area=area;s.selected='hand';let c;
+   for(const n of VEGETATION[area].grass.filter(n=>n.prop?.name===name)){
+    if(!approach(s,n))continue;
+    const target=vegetationContext(s,'up',n);
+    if(target?.id===n.id&&useVegetation(structuredClone(s),target).ok){c=target;break;}
+   }
+   assert.ok(c,area+' '+name);const before=s.inventory.grass;assert.ok(useVegetation(s,c).ok);assert.equal(s.inventory.grass,before+1);
+   const loaded=validate(s);assert.ok(loaded.vegetation[vegetationKey(s)].grass.includes(c.id),name);
+   const saved=structuredClone(loaded);assert.equal(useVegetation(loaded,c).ok,false);assert.deepEqual(loaded,saved);
+   if(name==='bamboo-clump')assert.ok(walkable(area,c.prop.x+30,c.prop.y+56,0,false,loaded),'gathered bamboo removes its own obstacle');
+  }
+ }
+});
+test('flower collection is atomic for full bags, tired players and wrong tools, and stays per farm',()=>{
+ const s=newState();s.area='farm';s.selected='hand';const n=VEGETATION.farm.grass.find(n=>n.prop?.name==='flowers2'&&approach(s,n)&&useVegetation(structuredClone(s),{...n,type:'gatherGrass'}).ok);assert.ok(n);const c={...n,type:'gatherGrass'};
+ for(const mutate of [()=>{s.inventory.grass=9999;},()=>{s.inventory.grass=0;s.energy=0;},()=>{s.energy=100;s.selected='axe';}]){mutate();const before=structuredClone(s);assert.equal(useVegetation(s,c).ok,false);assert.deepEqual(s,before);}
+ s.selected='hand';s.farms.push({fields:[true,false,false,false]});s.currentFarm=1;assert.ok(useVegetation(s,c).ok);assert.equal(nearbyVegetation(s,n,1).some(p=>p.id===n.id),false);s.currentFarm=0;assert.ok(nearbyVegetation(s,n,1).some(p=>p.id===n.id));assert.ok(useVegetation(s,c).ok);assert.equal(s.inventory.grass,2);
+});
 function patch(s){for(let y=96;y<1000;y+=8)for(let x=96;x<2100;x+=8){const p={x,y};if(grassGround(s,p)&&!nearbyVegetation(s,p,28).some(n=>!n.id.startsWith('tree:'))&&walkable(s.area,x,y+32,12,false,s)){s.position={x,y:y+32};return p;}}throw Error('No grass placement');}
 test('every authored tree is registered and each outdoor area cuts roots only once, keeps rewards after reload',()=>{
  for(const area of ['home','farm','city','forest']){
@@ -62,7 +84,7 @@ test('grass refuses water, bridges, solid roots, farm beds and occupied patches 
 });
 test('schema 10 migration retains progress; schema 11 rejects unsafe and forged vegetation',()=>{
  const old=newState('girl');old.version=10;old.money=765;old.inventory.tomato=7;old.plots[0]={...old.plots[0],crop:'tomato',growth:2,morning:true};delete old.vegetation;delete old.inventory.wood;delete old.inventory.grass;
- const s=validate(old);assert.equal(s.version,17);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,3);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
+ const s=validate(old);assert.equal(s.version,18);assert.equal(s.money,765);assert.equal(s.inventory.tomato,7);assert.equal(s.plots[0].growth,3);assert.equal(s.inventory.wood,0);assert.deepEqual(s.vegetation,{});
  const t=VEGETATION.home.trees[0];s.vegetation={home:{trees:[t.id,t.id,'bad'],grass:['bad'],placed:[{x:NaN,y:32},{x:t.x,y:t.y}]},'farm:999':{trees:[t.id]}};const fixed=validate(s);assert.deepEqual(fixed.vegetation.home,{trees:[t.id],grass:[],placed:[]});assert.equal(fixed.vegetation['farm:999'],undefined);
 });
 test('all twelve crop identities mature in three to six watered days; missed care still prevents growth',()=>{
@@ -81,7 +103,7 @@ test('actual cleanup removes cut crown and shadow, and grass buckets filter remo
 test('bag utility selection and materials work in the same canvas theme across seven viewports',()=>{
  for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844],[640,360],[360,640]]){
   const u=recorder(w,h),s=newState(),app={state:s,paused:false,input:{},ui:u,save(){},scene:{forestView:{energy(){}}}};u.app=app;app.bagPanel=new BagPanel(app);s.inventory.grass=3;
-  for(const id of ['shovel','axe','hand','grass']){u.time.now+=1000;app.bagPanel.open('gear');app.bagPanel.index=bagItems(s,'gear').findIndex(i=>i.id===id);const before={...s.inventory};app.bagPanel.perform();assert.equal(s.selected,id);assert.deepEqual(s.inventory,before);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h);}
+  for(const id of ['shovel','axe','grass']){u.time.now+=1000;app.bagPanel.open('gear');app.bagPanel.index=bagItems(s,'gear').findIndex(i=>i.id===id);const before={...s.inventory};app.bagPanel.perform();assert.equal(s.selected,id);assert.deepEqual(s.inventory,before);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h);}
  }
 });
 

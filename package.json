@@ -1,13 +1,14 @@
 {
   "name": "simple-life",
-  "version": "0.16.0",
+  "version": "0.17.4",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "build:playtest": "VITE_PLAYTEST=true vite build"
   },
   "dependencies": {
     "phaser": "3.90.0"

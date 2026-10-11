@@ -1,3 +1,27 @@
+# v0.17.2 — exact original house structure
+
+Upgraded exteriors reuse original project `house-village-0` artwork from `scripts/large_houses_art.py` with Codex-assisted runtime material/palette processing. No new third-party house or screenshot pixels. Original new house HUD glyph and material UI code. All existing independent environment/furniture/audio and dependency attributions remain. Source record: assets/licenses/customization/SOURCE_RECORD.md.
+
+---
+
+# v0.17.0 — Home design and garden additions
+
+Original Codex-assisted native pixel drawings: HomeArt.js exteriors/interior themes and DecorationArt.js blossom/hedge/flowers/birdbath/rug/bookcase/vase. Existing oak/palm and furniture/room atlas artwork retains the previously documented project/LimeZu credits and terms. No new source pack or third-party licence introduced; eight runtime art files unchanged. Evidence: assets/licenses/customization/SOURCE_RECORD.md.
+
+---
+
+# v0.16.6 — morning rooster credit
+
+**Medium rooster crowing** — alys; [Wikimedia Commons source and permission](https://commons.wikimedia.org/wiki/File:Medium_rooster_crowing.ogg), author-released public domain (PDSounds recording transferred by Fæ; embedded Author metadata says Chanticleer). Offline conversion: mono PCM16/22050 Hz, DC/edge/level edits; no music or looping. Codex assisted integration/processing, not the original recording. Evidence: assets/licenses/morning-audio. In-game Credits → Audio gives creator/status/source. Prior Farm/Nature and HuntSounds credits remain; Farm/Nature source links have a submenu to preserve small-screen fit. The old ending-cue caption is removed because that audio no longer ships.
+
+---
+
+# v0.16.1 — audio credits
+
+Cozy Farm SFX and Cozy Nature Ambience: **Spaceyyy, formerly Bramble & Byte**, [Farm source](https://aquumgifts.itch.io/cozy-farm-sfx), [Nature source](https://aquumgifts.itch.io/cozy-nature-ambience). Bonus music: **HuntSounds**, [Cozy SFX Volume 1](https://huntsounds.itch.io/cosy-sfx-volume-1). Selected files converted to mono PCM16/22050 Hz, DC corrected, edge/circular-loop processed and level adjusted. Creator synthesis/recordings are third-party work, not claimed as Codex compositions. Original ending cue and load-failure synthesis remain Codex-assisted Simple Life source. Title/ending Credits → Audio credits displays both creators and source links. Evidence: assets/licenses/cozy-audio.
+
+---
+
 # v0.16.0 — current credits
 
 Original scenery replacements, six music scores, 55 synthesized effects/calls, three subtle textures, introduction, Journal/Keepsake/ending and revised source glyphs: Simple Life, authored with OpenAI Codex assistance. Reproducible source, no external recording/image sample, no exclusive copyright claim. Retained art: LimeZu Serene Village (CC BY 4.0; palette/atlas/fruit adaptations), Channeechan farmers/residents (Eris Esra template; native crops/jump/clothing adaptations), Pipoya legacy residents (custom game terms), CraftPix wildlife/ruins/plants/rocky objects (Freebie terms; native repack). Source/licence links remain in Title/ending Credits. ToffeeCraft no longer contributes runtime pixels; earlier credits below are historical. Phaser and EventEmitter3 MIT; Vite/build tool licences and optional Pillow HPND are under docs/licenses. [Current inventory](assets/licenses/story-audio/SOURCE_RECORD.md), [audio inventory](AUDIO_SOURCES.md).

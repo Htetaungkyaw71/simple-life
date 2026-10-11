@@ -1,3 +1,5 @@
+import {placedDecorationAt} from '../systems/settlement.js';
+import {resizeRoomDecor} from '../systems/roomDecor.js';
 import {PlacementView} from '../art/PlacementView.js';
 import {TreeProgressView} from '../art/TreeProgressView.js';
 import {screenAttackAllowed} from '../systems/screenAttack.js';
@@ -8,7 +10,7 @@ import {refreshVegetationVisuals} from '../art/VegetationView.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {groundPoint} from '../systems/farmGround.js';
 import {drawWetGround} from '../art/FarmView.js';
-import {KEY_ACTIONS,keyboardAction,touchJumpTap} from '../data/controls.js';
+import {KEY_ACTIONS,keyboardAction} from '../data/controls.js';
 import {GrassView} from '../art/GrassView.js';
 import {jumpRuntime,beginJump,stepJump,jumpPose,cancelJump} from '../systems/jump.js';
 import {forestRegion} from '../data/forest.js';
@@ -59,11 +61,13 @@ export class WorldScene extends Phaser.Scene {
     this.scale.on('resize',()=>this.resize());this.build();this.scene.launch('UI');
     this.input.on('pointerdown',p=>{
       const a=this.app;if(a.paused||!a.state||a.transitioning)return;
-      const world=this.cameras.main.getWorldPoint(p.x,p.y);if(a.placement.draft){a.placement.move(world);this.placementPointer=p.id;return;}const context=this.touchContext(world);
-      if(context){this.lastGroundTap=null;if(screenAttackAllowed(a.ui.touch,context.type))a.use(context);return;}
-      if(a.state.area==='forest'&&p.wasTouch&&['seed','harvest'].includes(a.state.selected)){const tap=touchJumpTap(this.lastGroundTap,p,this.time.now);this.lastGroundTap=tap.tap;if(tap.jump)this.jump();return;}
+      const world=this.cameras.main.getWorldPoint(p.x,p.y);if(a.placement.draft){a.placement.move(world);this.placementPointer=p.id;return;}
+      // Decoration selection opens choices on mouse and touch; it never removes a piece.
+      const piece=placedDecorationAt(a.state,world);if(piece){a.placement.inspect(piece);return;}
+      // Other mobile gameplay uses the contextual action button.
+      if(!screenAttackAllowed(p.wasTouch||a.ui.mobileInput))return;const context=this.touchContext(world);
+      if(context){a.use(context);return;}
       if(a.state.selected==='axe'){
-        if(!screenAttackAllowed(a.ui.touch,'attack'))return;
         // A tapped trunk still harvests wood; other world taps swing toward the pointer.
         for(const [id,sprites]of this.vegetationVisuals){const n=VEGETATION[a.state.area].byId.get(id),sprite=sprites.at(-1);
           if(id.startsWith('tree:')&&Math.hypot(n.x-a.state.position.x,n.y-a.state.position.y)<72&&sprite.getBounds().contains(world.x,world.y)){
@@ -90,7 +94,9 @@ export class WorldScene extends Phaser.Scene {
     if(this.app.state?.area==='interior'){
       const old={w:ROOM.width,h:ROOM.height},p=this.app.state.position;
       if(syncInterior(this.scale.width,this.scale.height)){
-        this.app.state.position=nearestSafe('interior',{x:p.x*ROOM.width/old.w,y:p.y*ROOM.height/old.h});this.build();return;
+        // Room resizing can replace the original piece. End its transient preview first.
+        if(this.app.placement.original){this.app.placement.draft=null;this.app.placement.original=null;}
+        const packed=resizeRoomDecor(this.app.state,{width:old.w,height:old.h});this.app.state.position=nearestSafe('interior',{x:p.x*ROOM.width/old.w,y:p.y*ROOM.height/old.h},this.app.state);this.build();this.app.save();if(packed)this.app.ui.toast(packed+' room pieces packed in Bag / Gear');return;
       }
       const zoom=displayZoom(this.scale.width,this.scale.height);cam.setZoom(zoom);const vw=this.scale.width/zoom,vh=this.scale.height/zoom;
       cam.setBounds(-Math.max(8,(vw-ROOM.width)/2),-Math.max(24,(vh-ROOM.height)/2),Math.max(vw,ROOM.width+16),Math.max(vh,ROOM.height+48));

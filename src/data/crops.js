@@ -1,3 +1,4 @@
+import {DECORATIONS} from './settlement.js';
 import {FOREST_ITEMS,MEAT,GRILLED_MEAT} from './items.js';
 export const LEGACY_GROWTH_DAYS={tomato:1,strawberry:2,carrot:2,corn:2,chili:1,eggplant:2,cucumber:1,watermelon:2,pumpkin:2,grape:2,blueberry:2,sweetPotato:1};
 export const WATER_WINDOWS=[{id:'daily',start:0,end:1440,label:'Once daily'}];
@@ -21,7 +22,7 @@ export const CROPS={
  sweetPotato:crop('sweetPotato','Sweet Potato',24,38,3,2,24,'A warm root under broad leaves.'),
 };
 export const CROP_IDS=Object.keys(CROPS);
-export const INVENTORY_KEYS=[...CROP_IDS.flatMap(id=>[CROPS[id].seedKey,id]),...Object.keys(FOREST_ITEMS),'wood','grass','stone','meat','grilledMeat','benchDecor','planterDecor','fenceDecor','pathDecor','tableDecor','barrelDecor','lanternDecor'];
+export const INVENTORY_KEYS=[...CROP_IDS.flatMap(id=>[CROPS[id].seedKey,id]),...Object.keys(FOREST_ITEMS),'wood','grass','stone','meat','grilledMeat',...Object.values(DECORATIONS).map(d=>d.item)];
 export const FIELD={x:352,y:224,cell:48,cols:4,rows:4};
 // Preserve the original six save indices, then the later expansion to sixteen.
 const cells=[[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[3,0],[3,1],...Array.from({length:8},(_,i)=>[i%4,2+Math.floor(i/4)])];

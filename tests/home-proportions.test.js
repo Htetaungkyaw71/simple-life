@@ -6,9 +6,9 @@ import {SAVE_KEY} from '../src/config.js';
 import {testingCreditEnabled,TESTING_COIN_GRANT} from '../src/systems/testingCredit.js';
 import {screenAttackAllowed} from '../src/systems/screenAttack.js';
 
-test('mobile world taps cannot hunt or chop; desktop attacks and mobile ordinary interactions remain',()=>{
+test('mobile world taps cannot perform actions; desktop pointer interactions remain',()=>{
  for(const type of ['attack','hunt','chop']){assert.equal(screenAttackAllowed(true,type),false);assert.equal(screenAttackAllowed(false,type),true);}
- for(const type of ['travel','dialog','waterGround','dig','plot','forage','stone'])assert.equal(screenAttackAllowed(true,type),true);
+ for(const type of ['travel','dialog','waterGround','dig','plot','forage','stone']){assert.equal(screenAttackAllowed(true,type),false);assert.equal(screenAttackAllowed(false,type),true);};
 });
 test('explicit testing gift adds 100000 once, saves atomically, and preserves all other progress',()=>{
  const state=newState();state.money=3;state.inventory.mango=4;state.day=7;state.health=71;
