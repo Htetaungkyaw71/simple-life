@@ -1,3 +1,11 @@
+# v0.20.0 — additive schema 18 curse record
+
+The existing save key/version remain. Missing or invalid curse data defaults to harmless `sealed`. Known stages are sealed/broken/restored; bounded paid money/Wood/Stone/Meat amounts persist independently of current stock. Only fully funded repair records restore as `restored`, with permanent Curse Breaker evidence through restoredDay/stage. Three known ghost IDs preserve health, active-time respawn/arrival/windup/recovery and safe outdoor positions. Interior/unsafe/unknown positions are discarded; timers clamp to defined maxima. A single night key continues across midnight and resets at dawn/new night. No pending UI confirmation is saved; reloading before Break seal remains harmless.
+
+Stash records now accept Home, Farm and City alongside existing Forest, preserving coins and safe positions and validating farm index. Existing legacy Forest-coordinate migration remains. A defeat still drops floor(25% coins), replaces the previous bag and returns to next-day bed. Paid repairs survive defeat and never duplicate cache rewards.
+
+---
+
 # v0.19.0 — separate language preference, unchanged schema 18
 
 simple-life.language.v1 stores only en or mm. Invalid/missing values default to English; denied storage still permits in-memory selection. HTML locale is en/my. Language choice never overwrites simple-life.save.v1, money, inventory, story, playtest grant or schema. The first-job guide reads the existing intro/starter/plant/water flags; no new gameplay persistence field or migration is required. Continue preserves old saves. Switching renderer/language does not create another test gift.

@@ -1,3 +1,11 @@
+# v0.20.0 — optional cave implementation
+
+Data/pure systems own cave guards, repair spends, timer bounds and nightly pursuit. Saved ghost timers are active milliseconds, clamped per simulation step consistently with existing combat; menus/hidden tabs do not advance them. Midnight retains the current night; dawn/new nights clear/reset ghosts. Scene changes relocate outdoor spirits with an arrival telegraph; the interior clears visible ghosts. Axe targeting prefers a valid close spirit before nearby cave/vegetation, preserving contextual mobile Hit. Repair/cache mutations happen before saves, preventing repeat-click rewards. Legacy records default sealed; restored records require full paid costs. Reuse existing stash recovery for all outdoor areas; validate farm domain.
+
+CavePanel measures actual font bounds, paginates every warning paragraph, guards final confirmation by proximity/stage and restarts warning reading after resize/language changes. Remote repair cards show paid totals and disable contributions away from the entrance. The same original cave texture is used in world and UI; new ghost warning uses native m5x7 at integer 2× scale. Normal/public runtime inventories remain separate, and only the audited static playtest stage is deployed to the existing target.
+
+---
+
 # v0.19.0 — Unicode shaping and bounded mobile text
 
 Local FontFace loads the allowlisted original Noto Sans Myanmar UI TTF before boot (8-second failure limit). Whole-run Phaser Text preserves Myanmar ligatures/stacked marks; Intl.Segmenter(my, word) wraps at language word boundaries, with a punctuation/space fallback. Integer font sizes/resolution/scales and nearest filtering remain; numeric controls and Latin brand retain their original bitmap font. Glyph rasterization is handled by Canvas, while game texture antialias remains disabled.

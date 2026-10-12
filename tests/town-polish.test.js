@@ -13,7 +13,7 @@ import {Hud} from '../src/ui/Hud.js';
 import {newState} from '../src/systems/state.js';
 import {recorder} from './helpers/uiRecorder.js';
 
-test('residents and every seller emerge at dawn, commute over safe dry routes, and enter doors before 8pm',()=>{
+test('residents and every seller emerge at dawn, commute over safe dry routes, and enter doors by 7pm',()=>{
  for(const area of ['home','city']){
   const state={minute:359},people=residentsFor(area,state);assert.equal(people.length,area==='home'?2:11);
   for(const n of people){
@@ -22,15 +22,15 @@ test('residents and every seller emerge at dawn, commute over safe dry routes, a
    for(let i=2;i<n.commute.length;i++){const a=n.commute[i-1],b=n.commute[i],d=Math.hypot(a.x-b.x,a.y-b.y);for(let v=0;v<=d;v+=2){const p=pathPose([a,b],v).position;assert.ok(walkable(area,p.x,p.y,8),n.name+' blocked path');assert.equal(waterAt(MAPS[area],p),false);}}
    state.minute=420;stepResident(n,area,0,{x:0,y:0},state);assert.equal(n.mode,'work');assert.equal(n.visible,true);
    const before={...n.position},leave=commutePose(n,600).leave;state.minute=leave;stepResident(n,area,0,{x:0,y:0},state);assert.equal(n.mode,'toHome');assert.ok(Math.hypot(n.position.x-before.x,n.position.y-before.y)<.01,'no teleport at departure');
-   state.minute=1199.99;stepResident(n,area,16,{x:0,y:0},state);assert.ok(Math.hypot(n.position.x-n.commute[0].x,n.position.y-n.commute[0].y)<2,'returns to actual doorway');
-   state.minute=1200;stepResident(n,area,16,{x:0,y:0},state);assert.equal(n.visible,false);assert.equal(n.mode,'home');
+   state.minute=1139.99;stepResident(n,area,16,{x:0,y:0},state);assert.ok(Math.hypot(n.position.x-n.commute[0].x,n.position.y-n.commute[0].y)<2,'returns to actual doorway');
+   state.minute=1140;stepResident(n,area,16,{x:0,y:0},state);assert.equal(n.visible,false);assert.equal(n.mode,'home');
    state.minute=360;stepResident(n,area,0,{x:0,y:0},state);assert.deepEqual(n.position,n.commute[0]);
   }
  }
 });
 test('late-evening reload reconstructs travel and pauses keep the clock-derived position stable',()=>{
- const people=residentsFor('city',{minute:1199});assert.ok(people.some(n=>n.kind));for(const n of people){assert.equal(n.mode,'toHome');const before={...n.position};stepResident(n,'city',0,{x:0,y:0},{minute:1199});assert.ok(Math.hypot(n.position.x-before.x,n.position.y-before.y)<1e-6);assert.ok(pathLength(n.commute)>64);}
- for(const minute of [0,359,1200,1439])assert.ok(residentsFor('city',{minute}).every(n=>!n.visible));
+ const people=residentsFor('city',{minute:1139});assert.ok(people.some(n=>n.kind));for(const n of people){assert.equal(n.mode,'toHome');const before={...n.position};stepResident(n,'city',0,{x:0,y:0},{minute:1139});assert.ok(Math.hypot(n.position.x-before.x,n.position.y-before.y)<1e-6);assert.ok(pathLength(n.commute)>64);}
+ for(const minute of [0,359,1140,1439])assert.ok(residentsFor('city',{minute}).every(n=>!n.visible));
 });
 test('all rendered houses are larger, unique, physically solid, and preserve the Home entry',()=>{
  const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames,names=[];

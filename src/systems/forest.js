@@ -46,7 +46,7 @@ export function eatFood(s,id){
  return [health?'+'+health+' health':'',energy?'+'+energy+' energy':''].filter(Boolean).join(' / ');
 }
 export function recoverStash(s){
- const bag=s.stash;if(!bag||s.area!==bag.area||Math.hypot(s.position.x-bag.x,s.position.y-bag.y)>64||!lineClear(s.area,s.position,bag,0,s))return 'Walk closer to your Stash Bag.';
+ const bag=s.stash;if(!bag||s.area!==bag.area||s.area==='farm'&&(bag.farm||0)!==(s.currentFarm||0)||Math.hypot(s.position.x-bag.x,s.position.y-bag.y)>64||!lineClear(s.area,s.position,bag,0,s))return 'Walk closer to your Stash Bag.';
  if(s.money+bag.coins>9999999)return 'Coin purse full.';
  s.money+=bag.coins;s.stash=null;return 'Recovered '+bag.coins+' coins';
 }

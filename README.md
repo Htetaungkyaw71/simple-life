@@ -1,3 +1,13 @@
+# v0.20.0 — optional cursed cave (2026-10-12)
+
+The two skull caves are removed. One sealed cave in eastern Dark Forest is marked on the Forest map. Visiting it is harmless. Inspect it to read a pictured English/Myanmar warning, then explicitly choose Break seal. An untouched seal never causes attacks.
+
+Breaking grants a one-time 200c cache and releases up to three spirits outdoors each night from 7 pm to 6 am. Use the existing Axe; dispersed spirits return after five active seconds. The house interior is safe. NPCs and merchants reach home by 7 pm. Repair the cave with 600c, 48 Wood, 32 Stone and 20 Meat (an offering), contributed in stages. Contributions save; completing them permanently ends the curse and records Curse Breaker. Pause > Cursed cave shows the quest and saved progress. Normal farming, Journal, equipment, sleep and saves remain.
+
+Checks and release: [cursed cave verification](docs/verification/cursed-cave/README.md).
+
+---
+
 # v0.19.3 — centered clock and coin rows (2026-10-12)
 
 Clock/day rows now center as one measured block, and coins center inside their own panel. Both languages retain their native font sizes and whole-pixel positions, with clear row spacing and internal padding. Published on the existing [playtest](https://simple-life-playtest.vercel.app/). Refresh and Continue. Verification and release status: [clock alignment](docs/verification/clock-alignment/README.md).

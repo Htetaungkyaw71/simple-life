@@ -32,8 +32,8 @@ test('deterministic daily prices stay within 75–130 percent and survive reload
  assert.ok(seen.size>30);assert.notDeepEqual(marketPrice(newState('boy',1),'tomato'),marketPrice(newState('boy',999),'tomato'));
 });
 test('shop boundary hours and context block closed counters while outdoor time continues',()=>{
- const s=newState();s.area='city';s.position={x:432,y:306};for(const minute of [360,419,1200,1439]){s.minute=minute;assert.equal(shopOpen(s,'seed'),false);assert.equal(contextFor(s).type,'hint');assert.match(contextFor(s).label,/Closed.*07:00-20:00/);}
- for(const minute of [420,1199]){s.minute=minute;assert.equal(contextFor(s).type,'seed');}s.position={x:896,y:306};s.minute=1199;assert.equal(contextFor(s).type,'sell');s.minute=1200;assert.equal(contextFor(s).type,'hint');
+ const s=newState();s.area='city';s.position={x:432,y:306};for(const minute of [360,419,1140,1439]){s.minute=minute;assert.equal(shopOpen(s,'seed'),false);assert.equal(contextFor(s).type,'hint');assert.match(contextFor(s).label,/Closed.*07:00-19:00/);}
+ for(const minute of [420,1139]){s.minute=minute;assert.equal(contextFor(s).type,'seed');}s.position={x:896,y:306};s.minute=1139;assert.equal(contextFor(s).type,'sell');s.minute=1140;assert.equal(contextFor(s).type,'hint');
 });
 test('Home and City gates sit on actual edges with safe inward spawns; objective completes once',()=>{
  const s=newState();s.hasHarvestedFirstCrop=true;assert.ok(cityObjective(s));assert.ok(cityWaypoint(s,{x:0,y:0,width:1280,height:720}));s.position={x:2220,y:640};assert.equal(edgeTravel(s).to,'city');assert.equal(cityWaypoint(s,{x:1800,y:400,width:500,height:400}),null);

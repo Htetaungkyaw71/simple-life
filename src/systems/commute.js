@@ -22,10 +22,11 @@ export function pathPose(route,distance){
  return {position:{...from},direction:'up'};
 }
 // Travel is clock-derived, including reload/scene reentry. Menus pause the clock.
-// Depart early enough to reach the home door by 20:00; emerge at 06:00.
+export const NPC_HOME_MINUTE=1140;
+// Reach the home door by 19:00; emerge at 06:00.
 export function commutePose(n,minute){
- const route=n.commute,distance=pathLength(route),duration=Math.max(8,Math.min(60,distance/110*6)),leave=1200-duration;
- if(minute<360||minute>=1200)return {position:{...route[0]},direction:'up',visible:false,moving:false,mode:'home',leave};
+ const route=n.commute,distance=pathLength(route),duration=Math.max(8,Math.min(60,distance/110*6)),leave=NPC_HOME_MINUTE-duration;
+ if(minute<360||minute>=NPC_HOME_MINUTE)return {position:{...route[0]},direction:'up',visible:false,moving:false,mode:'home',leave};
  if(minute<360+duration)return {...pathPose(route,(minute-360)/duration*distance),visible:true,moving:true,mode:'toWork',leave};
  if(minute>=leave)return {...pathPose([...route].reverse(),(minute-leave)/duration*distance),visible:true,moving:true,mode:'toHome',leave};
  return {visible:true,moving:false,mode:'work',leave};

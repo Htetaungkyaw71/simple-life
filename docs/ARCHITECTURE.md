@@ -1,3 +1,9 @@
+# v0.20.0 — cursed cave composition
+
+`data/cursedCave.js` owns the location, costs, times and bounded ghost defaults. `systems/curse.js` supplies pure guarded seal/repair/save and active-time pursuit functions. Existing combat targets spirits before nearby wildlife, uses the same Axe/cooldown/energy/invulnerability and never creates ghost loot. WorldScene runs curse logic only in active simulation, routes ghost impacts to CurseView, and keeps the interior safe. CurseView draws original generated nearest-filtered textures; CavePanel uses those same textures in responsive paged canvas UI. Interface owns the panel separately from world rendering. SaveService validates an additive schema-18 curse record; restored repairs serve as the achievement record. Stash recovery extends established state/rendering/context guards to each outdoor domain rather than introducing a second recovery system.
+
+---
+
 # v0.19.0 — local presentation-only language layer
 
 Application owns LanguageService beside SaveService; validated en/mm preference uses its own localStorage key. i18n dictionaries project original display strings without changing semantic control IDs or pure gameplay systems. Shared pixelWidgets selects original English bitmap rendering or Myanmar Phaser Text with OpenType shaping; world labels use the same local language projection. A bounded local font preload precedes normal Phaser startup, with English fallback on failure. Interface owns the language chooser and four-card onboarding, StoryPanel chains it after introduction, and FarmGuide reads existing starter/plant/water flags. MyanmarResourceView reserves shaped text bands while retaining ResourcePanel's existing data/actions. No DOM HUD/backend/runtime API/save-schema change.

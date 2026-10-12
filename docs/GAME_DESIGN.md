@@ -1,3 +1,11 @@
+# v0.20.0 — optional curse choice and repair achievement
+
+One sealed cave lies in eastern Dark Forest, marked on the Forest map. No curse occurs without an explicit pictured, paged warning and deliberate Break seal. The one-time 200c cache is the temptation. From 19:00 to 06:00 while broken, up to three tattered spirits pursue outdoors; the existing Axe disperses them with three hits, with no loot, and they re-form after five active seconds. They use solid-ground movement, arrival/attack telegraphs, 12 damage and shared 750ms invulnerability. The farmer can outrun them; the interior and daytime are safe. NPCs reach actual home doors by 19:00. Sleep/night lighting retain established 20:00 rules.
+
+Repair at the same cave entrance through staged saved contributions: 600c / 48 Wood / 32 Stone / 20 Meat. The warning explains Meat is an offering. A tap gives available stock only up to the outstanding requirement. Completing all four permanently restores the seal and records Curse Breaker, visible in Pause > Cursed cave and the cave itself. This adds a finite optional challenge with a meaningful consequence and achievable recovery, without changing the five main Journal chapters or adding weapons/XP/backend systems.
+
+---
+
 # v0.18.0 — focused judge progression
 
 Five existing Journal chapters now reveal starter farming and City/resident first, modest wood/stone/board/foraging/eating errands during growth, then harvest/sale/Commons, Forest combat/Keepsake, and the return home. Landmark directions replace coordinate instructions. The destination marker only appears after the first three chapters are complete; the exact cache stays hidden earlier. Existing progress can complete steps out of order without losing earned flags. A few resident lines respond to sale, Commons and Keepsake progress; no relationship system is added.

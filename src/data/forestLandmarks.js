@@ -22,5 +22,5 @@ export function addDarkLandmarks(map,protectedPlaces){
  // Keep each landmark's silhouette clear, without moving saved tree identities.
  map.props=map.props.filter(p=>!places.some(o=>{const x=p.x+32,y=p.y+90,tree=p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree');return tree?x+96>o.x-24&&x-96<o.x+o.w+24&&y>o.y-16&&y-256<o.y+o.h+40:x>o.x-24&&x<o.x+o.w+24&&y>o.y-16&&y<o.y+o.h+40;}));
  map.grass=map.grass.filter(g=>!places.some(o=>g.x>o.x-16&&g.x<o.x+o.w+16&&g.y>o.y&&g.y<o.y+o.h+32));
- map.props.push(...places);return places;
+ map.props.push(...places.filter(p=>p.name!=='rocky-cave'));return places;
 }

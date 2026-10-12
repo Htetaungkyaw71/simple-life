@@ -1,3 +1,9 @@
+# v0.20.0 — explicit optional cave scope
+
+The latest user authorizes a new cursed-cave challenge and 7 pm NPC return, superseding historical limits on unrelated encounters only for this feature. Master/four competition PDFs have been reviewed as reference requirements; they do not override user scope. The curse is opt-in after pictured English/Myanmar warning and explicit seal destruction. Existing gameplay and architecture remain. Record original code-authored art and AI-assisted design/translation/code/QA; no third-party image, dependency, weapon, backend or remote runtime is introduced. The established public friend playtest update remains authorized on its existing project/origin; no source push, organizer submission or human rights/eligibility certification.
+
+---
+
 # v0.19.0 — user-authorized language and explanatory UI
 
 The current user explicitly requests Myanmar/English selection and clearer first-player understanding. This is a presentation/localization extension of existing gameplay, with no backend, external runtime service, additional equipment or economy rule. Master/four competition references remain requirements rather than overriding instructions. Preserve full AI/third-party font disclosure and exact runtime allowlist. Any playtest update uses the already authorized existing project/origin and explicit test mode; normal build remains 60 coins. No Git push, paid resource, organizer submission or signed human declaration.

@@ -1,3 +1,4 @@
+import {caveContext} from './curse.js';
 import {ROOM} from '../data/interior.js';
 import {vegetationContext} from './vegetation.js';
 import {decorationContext} from './settlement.js';
@@ -28,9 +29,11 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
  if(state.area==='interior'&&state.story?.keepsake==='carried'&&Math.hypot(state.position.x-(ROOM.width-120),state.position.y-158)<72)return {type:'keepsakePlace',x:ROOM.width-120,y:158,label:"Place Grandfather's Keepsake"};
  const decoration=decorationContext(state,targetGround,direction);if(decoration)return decoration;
  const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
+ const cave=caveContext(state,targetGround);if(cave)return cave;
  if(state.area==='forest'&&(state.selected==='hand'||targetGround)){const stone=stoneContext(state,targetGround);if(stone)return stone;}
  const vegetation=vegetationContext(state,direction,targetGround);if(vegetation&&(state.selected!=='hand'||targetGround))return vegetation;
  const {x,y}=state.position,location=LOCATIONS[state.area],dist=p=>Math.hypot(p.x-x,p.y-y);
+ const bag=state.stash;if(bag&&bag.area===state.area&&(state.area!=='farm'||(bag.farm||0)===(state.currentFarm||0))&&dist(bag)<64&&lineClear(state.area,state.position,bag,0,state))return {type:'stash',...bag,label:'Recover '+bag.coins+' coins'};
  const nearby=location.interactions.filter(p=>dist(p)<(p.type==='starter'?52:72)&&(!p.approach||(x>=p.approach[0]&&x<=p.approach[0]+p.approach[2]&&y>=p.approach[1]&&y<=p.approach[1]+p.approach[3]))).sort((a,b)=>dist(a)-dist(b));
  const groundContext=()=>{if(state.selected==='shovel'||state.selected==='water'){
   const positions=visiblePlots(state),underfoot=state.area==='farm'&&state.selected==='water'?positions.find(b=>Math.abs(b.x-state.position.x)<24&&Math.abs(b.y-state.position.y)<24):null,point=groundPoint(state,targetGround||underfoot,direction),bed=state.area==='farm'?positions.find(b=>Math.abs(b.x-point.x)<24&&Math.abs(b.y-point.y)<24):null;
@@ -40,7 +43,6 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
  if(targetGround){const ground=groundContext();if(ground)return ground;}
  if(state.area==='forest'){
   const stone=stoneContext(state,targetGround);if(stone)return stone;
-  const bag=state.stash;if(bag&&dist(bag)<64&&lineClear('forest',state.position,bag,0,state))return {type:'stash',...bag,label:'Recover '+bag.coins+' coins'};
   const treasure=TREASURES.find(t=>dist(t)<64&&treasureAvailable(state,t)&&lineClear('forest',state.position,t,0,state));if(treasure)return {type:'treasure',...treasure,label:'Search ancient chest'};
   const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n,0,state)).sort((a,b)=>dist(a)-dist(b))[0];
   if(node)return {type:'forage',...node,label:'Gather '+FOODS[node.item].name};

@@ -1,6 +1,6 @@
 import {HOUSE} from '../data/geometry.js';
 import {MAPS} from '../data/mapLayouts.js';
-import {commutePath,commutePose,pathPose,pathLength} from './commute.js';
+import {commutePath,commutePose,pathPose,pathLength,NPC_HOME_MINUTE} from './commute.js';
 import {RESIDENTS,MERCHANT_RESIDENTS} from '../data/residents.js';
 import {walkable} from '../data/locations.js';
 export function residentsFor(area,state=null){
@@ -18,7 +18,7 @@ export function stepResident(n,area,delta,player,state=null){
   let pose=commutePose(n,state.minute);
   if(pose.mode==='toHome'){
    if(n.mode==='work'){const porch=n.commute[1];n.returnRoute=[...commutePath(area,n.position,porch),n.commute[0]];}
-   const route=n.returnRoute||[...n.commute].reverse();pose={...pose,...pathPose(route,(state.minute-pose.leave)/(1200-pose.leave)*pathLength(route))};
+   const route=n.returnRoute||[...n.commute].reverse();pose={...pose,...pathPose(route,(state.minute-pose.leave)/(NPC_HOME_MINUTE-pose.leave)*pathLength(route))};
   }else if(pose.mode!=='home')n.returnRoute=null;
   if(n.mode!=='work'&&pose.mode==='work')n.position={x:n.x,y:n.y};
   Object.assign(n,pose);if(n.mode!=='work')return;

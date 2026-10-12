@@ -1,3 +1,9 @@
+# v0.20.0 — provisional optional curse balance
+
+The default game remains harmless until explicit warning confirmation. A finite 200c cache offsets one-third of a 600c repair; Wood 48 / Stone 32 / Meat 20 add a deliberate resource challenge. Paid resources persist independently of inventory and deaths, so players can progress in small contributions. Spirits never drop loot, avoiding an infinite respawn-farming reward exploit. Cap three / three Axe hits / one energy per hit / five active seconds between defeats; 86 speed versus farmer 260 allows retreat, with 1200ms arrival and 700ms attack telegraphs, 12 damage and shared invulnerability. Daytime and house interior are safe. Existing 25% coin-bag recovery applies outdoors, including correct farm identity. Full restoration is permanent, with a saved achievement rather than repeatable rewards. These are implementation defaults, not a claim of human-tested long-term difficulty. The public test gift affects coins only; the normal build stays at 60c.
+
+---
+
 # Crop economy audit before changes — 2026-10-11
 
 Baseline v0.17.4. Profit/day = (yield × normal sell − seed cost) / watered growth days. Work energy = plant + daily water + harvest; eating produce has a revenue opportunity cost. Market averages below are nominal 100%; the deterministic 85–120% discrete distribution averages 102.5% before rounding. Current requests only consume Wood/Stone, then reward crop seeds; no crop is required for the story.

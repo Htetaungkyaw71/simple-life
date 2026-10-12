@@ -1,3 +1,9 @@
+# v0.20.0 — cave/ghost source record
+
+Original code-authored native pixels in src/art/CurseArt.js generate three 48×52 cave states and two 20×26 spirit poses in memory. Simple Life project work with disclosed Codex assistance; no external image/source URL, copied screenshot, image-model output or exclusive ownership claim. The warning uses those same textures. Source/Git evidence: docs/assets/licenses/cursed-cave.md. Previously licensed skull frame remains in the existing approved atlas/source evidence but is no longer rendered. Existing approved fonts/art/audio/dependency evidence and visible Credits remain. No new downloaded file, npm package or runtime allowlist entry.
+
+---
+
 # v0.19.3 — existing clock assets retained
 
 Clock layout uses the unchanged local Thaleah/m5x7/Noto fonts and original cream/olive procedural panel artwork. All approved runtime media and licence notices remain byte-identical to v0.19.2. No new asset, dependency, licence or remote runtime source.

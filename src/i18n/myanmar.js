@@ -1,5 +1,50 @@
 // Unicode Myanmar copy. Keys stay English so gameplay IDs/save data never change.
 export const MM=Object.fromEntries(String.raw`
+Break seal = release curse.|တံဆိပ်ဖျက်လျှင် ကျိန်စာသင့်မည်။
+Repair at the cave entrance.|ဂူဝတွင် ပြန်ဆောက်နိုင်သည်။
+Cursed cave|ကျိန်စာဂူ
+WARNING|သတိပေးချက်
+Inspect sealed cave|ပိတ်ထားသောဂူကြည့်မည်
+Rebuild cursed cave|ကျိန်စာဂူပြန်ဆောက်မည်
+Restored cave|ပြန်ဆောက်ပြီးသောဂူ
+Read warning|သတိပေးချက်ဖတ်
+Break seal|ဖျက်မည်
+Keep seal|မဖျက်ပါ
+Rebuild|ပြန်ဆောက်
+Give resources|ပစ္စည်းလှူပါ
+Curse Breaker|ကျိန်စာဖြေသူ
+Achievement earned.|အောင်မြင်မှုရပြီ။
+The cave is restored.|ဂူပြန်ဆောက်ပြီးပြီ။
+Ghosts will never return.|သရဲများ ထပ်မလာတော့ပါ။
+Your saved repair progress records this achievement.|ဤအောင်မြင်မှုကို သိမ်းထားမည်။
+The untouched seal is harmless.|အပိတ်တံဆိပ်ကို မဖျက်လျှင် အန္တရာယ်မရှိပါ။
+Breaking it gives 200 coins once, but releases a curse.|ဖျက်လျှင် ဒင်္ဂါး 200 တစ်ကြိမ်ရမည်။ သို့သော် ကျိန်စာသင့်မည်။
+Read the warning before deciding.|မဆုံးဖြတ်မီ သတိပေးချက်ကို ဖတ်ပါ။
+Find the cave marker in the eastern Dark Forest.|အရှေ့ဘက် မှောင်မိုက်သောတော၏ မြေပုံတွင် ဂူအမှတ်အသားကို ရှာပါ။
+Destroying the seal releases a curse.|အပိတ်တံဆိပ်ကို ဖျက်လျှင် ကျိန်စာသင့်မည်။
+Ghosts attack outdoors every night from 7 pm to 6 am.|ည 7 နာရီမှ နံနက် 6 နာရီအထိ ညတိုင်း အပြင်၌ သရဲများ တိုက်ခိုက်မည်။
+Defeated ghosts return after 5 seconds.|သရဲများကို နှိမ်နင်းပြီး 5 စက္ကန့်ကြာလျှင် ပြန်ပေါ်မည်။
+Your house interior is safe.|အိမ်အတွင်း၌ ဘေးကင်းသည်။
+NPCs return home by 7 pm.|ရွာသားများ ည 7 နာရီတွင် အိမ်ပြန်ရောက်မည်။
+Only rebuilding this cave ends the curse.|ဤဂူကို ပြန်ဆောက်မှသာ ကျိန်စာပြေမည်။
+Repair costs:|ပြန်ဆောက်ရန် လိုအပ်သည်မှာ
+600 coins|ဒင်္ဂါး 600
+48 Wood|သစ်သား 48
+32 Stone|ကျောက် 32
+20 Meat|အသား 20
+Meat is an offering.|အသားကို ပူဇော်ရန် အသုံးပြုမည်။
+Resources can be given in stages. Contributions stay saved.|ပစ္စည်းများကို တစ်ခါတည်း အကုန်ပေးရန်မလိုပါ။ ပေးပြီးသမျှကို သိမ်းထားမည်။
+Breaking the seal gives 200 coins once.|တံဆိပ်ဖျက်လျှင် ဒင်္ဂါး 200 တစ်ကြိမ်ရမည်။
+Ghosts attack outdoors from 7 pm to 6 am.|ည 7 နာရီမှ နံနက် 6 နာရီအထိ အပြင်၌ သရဲများ တိုက်ခိုက်မည်။
+They return 5 seconds after defeat.|နှိမ်နင်းပြီး 5 စက္ကန့်ကြာလျှင် ပြန်ပေါ်မည်။
+Rebuild this cave to end the curse.|ကျိန်စာဖြေရန် ဤဂူကို ပြန်ဆောက်ပါ။
+Tap a resource to give what you have, up to its remaining cost.|ပစ္စည်းကို နှိပ်၍ လိုအပ်သမျှထဲမှ မိမိရှိသလောက် ပေးပါ။
+Contributions stay saved.|ပေးပြီးသမျှကို သိမ်းထားမည်။
+Restless spirit|မကျွတ်သောဝိညာဉ်
+Spirit dispersed / returns in 5s.|သရဲပျောက်သွားပြီ / 5 စက္ကန့်ကြာလျှင် ပြန်ပေါ်မည်။
+The curse awakens / ghosts return until 6 am.|ကျိန်စာနိုးလာပြီ / နံနက် 6 နာရီအထိ သရဲများ ပြန်လာမည်။
+Dawn / the spirits retreat until 7 pm.|မိုးလင်းပြီ / ည 7 နာရီအထိ သရဲများ ပျောက်နေမည်။
+Curse released. Ghosts come at 7 pm. Rebuild the cave to stop them.|ကျိန်စာသင့်ပြီ။ ည 7 နာရီတွင် သရဲများလာမည်။ ရပ်ရန် ဂူပြန်ဆောက်ပါ။
 Play|စတင်မည်
 Continue|ဆက်ကစားမည်
 Back|နောက်သို့
@@ -493,7 +538,7 @@ Try your gathered fruit|ကောက်ထားသောသစ်သီးစ�
 Bag / Food shows exact recovery. Eat after work, then tend crops tomorrow.|အိတ် / အစားအစာတွင် အားပြည့်ပမာဏပြသည်။ အလုပ်ပြီးစား၍ မနက်ဖြန် သီးနှံစောင့်ရှောက်ပါ။
 Harvest the first crop|ပထမဆုံးသီးနှံရိတ်သိမ်းပါ
 Water each morning. After your errands, use the Home bed to rest. After three watered midnights, select Harvest.|နေ့စဉ်ရေလောင်းပါ။ အိမ်အိပ်ရာတွင် နားပါ။ ရေလောင်းထားသော 3 ညပြီးလျှင် ရိတ်သိမ်းကိရိယာရွေးပါ။
-City / Niko beside the fountain / 7 am to 8 pm. Check today's market price.|မြို့ရေပန်းဘေး Niko ထံရောင်းပါ။ နံနက် 7 မှ ည 8 ထိဖွင့်သည်။ ယနေ့ဈေးစစ်ပါ။
+City / Niko beside the fountain / 7 am to 7 pm. Check today's market price.|မြို့ရေပန်းဘေး Niko ထံရောင်းပါ။ နံနက် 7 မှ ည 7 ထိဖွင့်သည်။ ယနေ့ဈေးစစ်ပါ။
 Build Commons seating|ဥယျာဉ်ထိုင်ခုံဆောက်ပါ
 City town board / Town projects / Seats. 12 Wood + 6 Stone; earns 240c. Copper Can unlocks at Farm board.|မြို့ဘုတ် / စီမံကိန်း / ထိုင်ခုံ။ သစ်သား 12 + ကျောက် 6 လို၍ ဒင်္ဂါး 240 ရသည်။ လယ်ယာဘုတ်၌ ကြေးရေလောင်းဘူး ဝယ်နိုင်မည်။
 Enter Forest|တောထဲဝင်ပါ

@@ -1,3 +1,4 @@
+import {restoreCurse} from './curse.js';
 import {HOMES} from '../data/homes.js';
 import {restoreStory} from './story.js';
 import {VEGETATION} from '../data/vegetation.js';
@@ -7,7 +8,7 @@ import {openGround,MAX_CUSTOM_BEDS,MAX_WET_PATCHES,WET_DURATION} from './farmGro
 import {FARM_PLOTS} from '../data/farms.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS} from '../data/forest.js';
-import {inTerritory,freshAnimal,safeStash} from './forest.js';
+import {inTerritory,freshAnimal} from './forest.js';
 import {SAVE_FARM_LIMIT,PLOTS_PER_FARM} from '../data/farms.js';
 import {newFarm,plotOwned} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
@@ -136,7 +137,7 @@ export function validate(raw) {
   s.forest.explored=REGIONS.filter(r=>r.id==='entrance'||Array.isArray(raw.forest?.explored)&&raw.forest.explored.includes(r.id)).map(r=>r.id);
   s.forest.treasures=TREASURES.filter(t=>Array.isArray(raw.forest?.treasures)&&raw.forest.treasures.includes(t.id)).map(t=>t.id);
   const coins=number(raw.stash?.coins,0,0,9999999);
-  if(raw.stash?.area==='forest'&&coins>0)s.stash={...safeStash(forestPosition(raw.stash),s),coins};
+  if(['home','farm','city','forest'].includes(raw.stash?.area)&&coins>0){const area=raw.stash.area,farm=number(raw.stash.farm,0,0,s.farms.length-1);s.stash={area,...nearestSafe(area,area==='forest'?forestPosition(raw.stash):raw.stash,{...s,currentFarm:farm}),...(area==='farm'?{farm}:{}),coins};}
   if(raw.version>=14&&raw.settlement&&typeof raw.settlement==='object'){
     const progress=raw.settlement;s.settlement.orders={day:s.day,completed:[]};
     s.settlement.projects=PROJECTS.filter(d=>Array.isArray(progress.projects)&&progress.projects.includes(d.id)).map(d=>d.id);
@@ -149,6 +150,7 @@ export function validate(raw) {
       else if(resized&&Object.hasOwn(DECORATIONS,d.type)&&!DECORATIONS[d.type].outdoors&&Number.isInteger(d.x)&&Number.isInteger(d.y)&&d.x>=0&&d.x<=oldRoom.width&&d.y>=0&&d.y<=oldRoom.height)s.inventory[DECORATIONS[d.type].item]=Math.min(9999,s.inventory[DECORATIONS[d.type].item]+1);}
     s.position=nearestSafe(s.area,s.position,s);
   }
+  s.curse=restoreCurse(raw,s);
   restoreStory(raw,s);
   return s;
 }

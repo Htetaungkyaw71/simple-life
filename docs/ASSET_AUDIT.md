@@ -1,3 +1,9 @@
+# v0.20.0 — generated cave/spirit pixels
+
+The cave and spirits are original in-memory generated textures; no runtime file/allowlist entry is added. Normal/explicit-playtest builds retain 45 runtime files, 27 approved WAVs and byte-identical existing art/fonts/audio/licence notices. Runtime stage excludes source, documents, QA captures, vendor archives, unused packs and credentials. Fingerprints/counts: verification/cursed-cave/deployment-files.json. Full release checks and limits: verification/cursed-cave/README.md.
+
+---
+
 # v0.19.0 — exact Unicode-font allowlist
 
 The original Noto Myanmar TTF and its full runtime OFL notice add exactly two files: assets/pixel/fonts/noto-myanmar.ttf and assets/pixel/fonts/myanmar-license.json. The runtime inventory is 45 files with 27 unchanged approved WAVs, eight unchanged prior art files and four unchanged Latin bitmap-font files. The extended cosy-audio audit verifies the new manifest hash, exact deployed font bytes, copyright and full OFL text. Source/license documents, unused vendor packs, archives, tests, QA captures and credentials remain excluded. Final build fingerprints/counts: verification/myanmar-onboarding.

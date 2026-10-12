@@ -1,5 +1,5 @@
 import {SALE_ITEMS,SALE_IDS} from '../data/crops.js';
-export const SHOP_HOURS={seed:{open:420,close:1200,label:'07:00-20:00'},sell:{open:420,close:1200,label:'07:00-20:00'}};
+export const SHOP_HOURS={seed:{open:420,close:1140,label:'07:00-19:00'},sell:{open:420,close:1140,label:'07:00-19:00'}};
 export const shopOpen=(s,type)=>s.minute>=SHOP_HOURS[type].open&&s.minute<SHOP_HOURS[type].close;
 // Integer hash: the day, persistent seed and crop all contribute; no runtime random rolls.
 export function marketPrice(s,id){

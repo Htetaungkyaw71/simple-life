@@ -1,3 +1,15 @@
+# v0.20.0 — user-authorized cursed cave (2026-10-12)
+
+Replaced both rendered Dark Forest skull caves with one original sealed stone arch at the eastern clearing. A native cave image accompanies paged English/Myanmar information, an explicit pictured warning and a guarded Break seal choice. Visiting, inspecting, swinging and canceling are harmless. The final warning repeats that breaking releases the curse; every warning page precedes confirmation, and viewport/language changes reset reading. The Forest map marks its location. Pause > Cursed cave provides remote information and repair progress; contributions require proximity to the entrance.
+
+Break once for up to 200c, then at most three spirits pursue outdoors from 19:00 to 06:00. Existing Axe hits and combat invulnerability apply; no ghost loot is granted. Telegraphs precede arrival/attacks, colliders block motion and hits, and each defeated spirit returns after five active seconds with a fresh arrival warning. Menus/hidden tabs stop simulation; midnight retains the same night. The interior is safe, dawn clears spirits, and staged 600c/48 Wood/32 Stone/20 Meat contributions save atomically. Full repairs permanently end the curse and persist Curse Breaker through the restored quest record. Meat is explicitly an offering. The daytime cache/cost and limit keep this optional challenge finite and reversible through rebuilding.
+
+NPCs and all merchants commute to their actual doors by 19:00; shop hours now read 07:00–19:00. General 20:00 night/sleep thresholds, existing animals, farming, five Journal chapters, equipment, local saves and once-per-save playtest credit are retained. New outdoor ghost defeats retain 25% coin loss and recoverable bags at Home/Farm/City as well as Forest, including the correct farm domain. Additive schema-18 validation defaults old saves to sealed, clamps repair/ghost records, and safely moves saves inside the new collider. No new weapon, dependency, external/runtime image, backend or remote save.
+
+311 tests and both 148-module builds pass. Sixteen pictured warning/repair/achievement cases, four native combat/home/NPC cases, two final phone combat/restoration cases, two rotation/remote-progress cases, three startup/pause/language/save cases and two farming/all-five-Journal cases pass. The exact runtime-only playtest has 45 files / 12,030,635 bytes / 27 approved WAVs; all 43 retained assets are byte-identical to the previous release. Publication is pending; no deployment is claimed yet. Evidence: [verification](verification/cursed-cave/README.md). Phone/Safari touch comfort, native-speaker phrasing and long-term difficulty remain human review.
+
+---
+
 # v0.19.3 — clock alignment (2026-10-12)
 
 The smaller Burmese font still used the earlier fixed clock offsets: time touched the upper edge and coins touched their panel's top edge. Hud now vertically centers measured padded time/day bounds as one block with two logical pixels of leading, and independently centers the coin row. Positions remain whole logical pixels; existing panel sizes, fonts, glyph shaping and gameplay remain. English uses the same measured alignment.

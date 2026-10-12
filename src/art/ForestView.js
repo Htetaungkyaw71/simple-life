@@ -24,8 +24,9 @@ export class ForestView {
    this.woodland=new WoodlandView(scene);
    this.stones=forestStones().map(node=>({node,sprite:scene.add.image(node.x,node.y,'town','loose-stones').setOrigin(.5,1).setScale(2).setDepth(node.y)}));
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
-   this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2);
+
   }
+  this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2).setVisible(false);
   this.arc=scene.add.graphics();
  }
  update(delta,r){
@@ -52,8 +53,8 @@ export class ForestView {
     if(near){entry.health.fillStyle(0x34344f).fillRect(p.x-20,p.y-top-8,40,6);entry.health.fillStyle(d.tier>=4?0xdd7e6c:0xe6af66).fillRect(p.x-18,p.y-top-6,36*b.health/d.health,2);}
    }
    for(const {treasure,sprite}of this.chests)sprite.setVisible(treasureAvailable(s,treasure)&&Math.hypot(treasure.x-s.position.x,treasure.y-s.position.y)<200);
-   const bag=s.stash;this.bag.setVisible(!!bag);if(bag)this.bag.setPosition(bag.x,bag.y).setDepth(bag.y);
   }
+  const bag=s.stash;this.bag.setVisible(!!bag&&bag.area===s.area&&(s.area!=='farm'||(bag.farm||0)===(s.currentFarm||0)));if(bag)this.bag.setPosition(bag.x,bag.y).setDepth(bag.y);
   if(this.swingLeft>0){
    this.swingLeft-=delta;const t=1-this.swingLeft/420,p=s.position;
    const angle={up:-Math.PI/2,down:Math.PI/2,left:Math.PI,right:0}[this.swingDirection]+(t-.45)*2;

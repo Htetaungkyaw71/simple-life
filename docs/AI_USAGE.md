@@ -1,3 +1,9 @@
+# v0.20.0 — cursed cave assistance, 2026-10-12
+
+OpenAI Codex assisted with the user's explicit curse-cave implementation request: original cave/spirit pixel source, data-driven pure mechanics, saved staged repairs and quest achievement, 7 pm resident/shop timing, reusable outdoor stash handling, English/Myanmar pictured warning and responsive UI, automated unit/native-input browser verification, documentation and the authorized same-origin playtest update. The earlier user concept and screenshot informed the mechanic and removed object; no screenshot pixels or series assets were copied. No image-generation service, new downloaded art/audio/font/dependency, backend, source push or subagent was used. Existing licensed assets/fonts/audio and Credits remain. Burmese phrasing and final art/difficulty acceptance remain human review. Disposable browser contexts never modify the user's browser saves. Creation evidence: assets/licenses/cursed-cave.md; checks/release evidence: verification/cursed-cave/README.md.
+
+---
+
 # v0.19.3 — clock alignment assistance, 2026-10-12
 
 Codex inspected the supplied HUD screenshot, replaced obsolete fixed row offsets with measured text centering, and checked font padding, row separation, maximum saved day/coin values and phone/desktop bounds in isolated Chrome contexts. Assistance includes the same authorized existing playtest update and design advice on the user's optional cursed-cave idea; that feature is not implemented. No new media/dependency, subagent, source push, organizer submission or user-profile save editing.
