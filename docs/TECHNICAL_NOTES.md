@@ -1,3 +1,11 @@
+# v0.18.1 — rotation input lifecycle
+
+UI layouts remember their physical viewport dimensions and call Phaser InputPlugin.resetPointers on a changed size, reclaiming touches whose release was cancelled during rotation. The orientation handler also resets movement/pointers, then schedules canvas fitting immediately and after 250ms. Fitting compares real canvas bounds as well as logical size and refreshes Phaser's displayScale when the canvas moves without resizing. Window resize, orientationchange/screen.orientation change and visualViewport resize/scroll supplement an optional host ResizeObserver; all listeners/frames/timers are removed on destruction. A scoped wrapper of the pinned TouchManager.onTouchCancel preserves its processing/capture behavior while checking event.cancelable before preventDefault. Vendor source is untouched.
+
+Short landscape menus keep the established 2× pixel UI rather than squeezing the entire game. Bag pagination derives its page size from the six-column one/two-row layout, and keyboard row movement uses the actual column count. Audio controls use two columns; tiny Journal panels show the active step/directions. New narrow-HUD tool access remains through the existing Bag / Gear. Current verification is under verification/mobile-rotation.
+
+---
+
 # v0.18.0 — additive judge polish
 
 Architecture remains ES modules, pure gameplay systems, one fullscreen Phaser game canvas with separate World/UI scenes, same-origin allowlisted assets and localStorage. No new dependency, backend or runtime remote service. `npm run build` explicitly sets `VITE_PLAYTEST=false`; only the explicit flag authorizes credit, independent of host/query/DEV. Existing gifted saves are not debited.

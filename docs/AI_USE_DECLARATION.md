@@ -1,3 +1,9 @@
+# v0.18.1 — follow-up AI assistance
+
+Codex assisted removal of the location-change cue, inspection of pinned Phaser input/scale code, responsive short-landscape UI, touch-pointer/bounds/cancellation repairs, regression tests, isolated native touch verification and documentation. No generative media, third-party asset download, dependency/backend, public-save mutation, push or deployment. Human device/listening/visual and official declarations remain separate.
+
+---
+
 # v0.18.0 — assistance disclosure for human review
 
 Codex-assisted code, crop balance, clock/progression, Copper tool, original procedural intro illustrations/effects, tests, native browser verification, source-rights audit and documentation are recorded in AI_USAGE.md and assets/licenses/judge-polish/SOURCE_RECORD.md. Existing licensed artwork and sounds retain their creators' authorship. No generative image/audio service, new external source or deployment/submission. This is a truthful assistance record for the team to review, not a signed human originality/eligibility/legal declaration. Physical devices, subjective art/audio acceptance and official submission documents remain the team's responsibility.

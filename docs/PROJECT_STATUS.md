@@ -1,3 +1,13 @@
+# v0.18.1 — user-requested silent travel and mobile landscape (2026-10-12)
+
+Removed the outdoor travel gate cue from the gameplay call and central playback/preload/build allowlist. Door, action, sleep/wake, progression and nature audio retain their current behavior. Rotation resets cancelled Phaser touch pointers and movement, and refreshes the actual canvas hit-test bounds after browser layout settles, even when its logical size is unchanged. Explicit window/orientation/visual-viewport resize/scroll listeners supplement the parent ResizeObserver, with cleanup and a fallback for unavailable observers. The pinned Phaser touchcancel callback is guarded against preventDefault on non-cancelable events without changing vendor files or disabling other touch capture.
+
+Verified a separate short-landscape issue before fixing it: Credits/Back and, at 568×256, other start buttons extended below the viewport. Short menus now use two columns and a compact title/character preview; Bag uses six columns and fewer rows with all items paginated; Audio uses two columns; a very short Journal keeps the current objective/directions; compact HUD badges avoid the action column. Narrow landscape tools remain in Bag / Gear. No orientation is forced and no save/economy/story rules change.
+
+Checks: **292 tests**, normal/playtest **138-module builds**, runtime audit **40 files / 11,719,411 bytes / 28 approved WAVs / eight unchanged art files**, four standard fresh cases and 21 native rotation/travel cases, with safe-area/shifted-canvas checks and clean consoles/whitespace. Checks and limitations: see [rotation verification](verification/mobile-rotation/README.md). Native Chrome emulates touch and browser-bar/safe-area changes; the user's exact physical phone/browser was not supplied and has not been tested. No new assets/dependency, public-save mutation, push or deployment.
+
+---
+
 # v0.18.0 — local judge progression, farming feel and balance (completed 2026-10-12)
 
 The default production build starts at 60c and cannot receive the testing gift through host/query/developer mode. Only explicit `VITE_PLAYTEST=true` enables the visibly labeled once-per-save +100,000c playtest. Existing saved balances are preserved. The reviewed v0.17.4 source is protected by local checkpoint `3ececed`; this pass is local only, with no push, deployment or submission. The public playtest and user browser save were not changed.

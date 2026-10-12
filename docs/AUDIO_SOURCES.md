@@ -1,3 +1,9 @@
+# v0.18.1 — silent outdoor location changes
+
+The user removes the gate sound on Home/Farm/City/Forest crossings. travel:enter is absent from the central event/sample allowlist and from the travel call; its unique sfx-gate.wav is no longer preloaded, played (including synthesized fallback) or shipped. Runtime now contains 28 unchanged approved WAVs: 23 deduplicated effects, four outdoor nature loops and title music. Door/action/progression/sleep/wake and volume/mute behavior remain. No new recording, processing, download or rights change.
+
+---
+
 # v0.18.0 — restrained interaction and progression feedback
 
 Current runtime contains **29 approved WAVs**: 24 deduplicated effects (including the public-domain rooster), four outdoor nature loops (birds, night, river, fountain), and the existing title-only music track. No audio bytes were changed or newly downloaded. Seven previously reviewed Farm SFX return to runtime: ui-hover, menu-open, menu-close, ui-back, door-wood-open, gate and jingle-quest-complete. Existing notification/eat samples now cover Journal/animal warning/food. Original source recordings/synthesis remain Spaceyyy (formerly Bramble & Byte), HuntSounds (title) and alys (rooster), as documented below and in assets/licenses/cozy-audio and morning-audio.

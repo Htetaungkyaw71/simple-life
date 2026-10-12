@@ -12,7 +12,7 @@ export class Hud {
  constructor(ui){this.ui=ui;this.app=ui.app;this.root=ui.add.container();ui.root.add(this.root);this.signature=this.key();this.create();}
  key(){return (!!this.app.placement?.draft)+':'+this.app.state.area+':'+this.app.state.selectedCrop+':'+this.app.state.selectedDecoration+':'+(['shovel','axe','hand','grass','decorate'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
  create(){
-  const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6;
+  const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6-(u.touch&&w>h&&h<170?44:0);
   const healthWidth=Math.min(140,w-96),barX=left+21,barW=healthWidth-21;
   const meters=u.add.graphics();p.add(meters);meterFrame(meters,barX,top+4,barW);meterFrame(meters,barX,top+36,barW);
   this.health=u.add.rectangle(barX+4,top+8,barW-8,9,0xce4438).setOrigin(0);this.energy=u.add.rectangle(barX+4,top+40,barW-8,9,0xe6b642).setOrigin(0);p.add([this.health,this.energy]);this.healthWidth=this.energyWidth=barW-8;

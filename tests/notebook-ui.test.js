@@ -97,3 +97,15 @@ test('fractional gameplay minutes never leak decimals or overflow the 12-hour cl
 test('the clearly labelled Forest map opens from its actual hotbar action and shows current facing',async()=>{
  const {Hud}=await import('../src/ui/Hud.js');for(const [w,h]of sizes){const s=newState();s.area='forest';const u=recorder(w,h),a=appFor(s,u);a.wildernessMap=new WildernessMap(a);a.bagPanel=new BagPanel(a);new Hud(u);const action=u.controls.find(c=>c.id==='wilderness-map');assert.equal(action.label,'Map');action.action();assert.equal(a.paused,true);assert.equal(u.menu.kind,'wilderness');assert.ok([...u.textures.cache.values()].some(t=>t.pixels?.some((value,i)=>i%4===3&&value===255)));assert.ok(u.controls.some(c=>c.id==='wilderness-locate'));}
 });
+
+test('short phone landscape keeps start, Bag and audio controls reachable at touch size',async()=>{
+ const {drawModal}=await import('../src/ui/MenuView.js'),{drawAudioPanel}=await import('../src/ui/AudioPanel.js');
+ for(const [w,h]of [[844,300],[667,280],[568,256]]){
+  const u=recorder(w,h),a=appFor(newState(),u);u.touch=true;
+  const bounded=()=>{for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h&&c.w>=22&&c.h>=22,c.id+' '+w+'x'+h);};
+  for(const [kind,title,labels]of [['title','Simple Life',['Play','Continue','Controls','Credits']],['choose','Your farmer',['Play as Boy','Play as Girl','Back']]]){u.controls=[];u.menu={kind,title,body:'',buttons:labels.map(label=>[label,()=>{}])};drawModal(u);bounded();}
+  const b=new BagPanel(a);a.bagPanel=b;
+  for(const tab of ['seeds','produce','food','gear']){b.open(tab);bounded();for(let i=0;i<bagItems(a.state,tab).length;i++){b.index=i;b.show();bounded();assert.ok(u.controls.some(c=>c.id==='bag-item-'+bagItems(a.state,tab)[i].id));}}
+  u.controls=[];a.audio={preferences:{master:.75,music:.5,ambience:.5,effects:.5,muted:false}};drawAudioPanel(u);bounded();
+ }
+});

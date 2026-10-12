@@ -32,15 +32,15 @@ export class BagPanel {
   this.app.save();this.app.sound(s.energy>before||s.health>health?'food:eat':'ui:disabled');if(s.health>health)this.app.sound('food:health');if(s.energy>before)this.app.sound('food:energy');this.show();
  }
  draw(u){
-  const s=this.app.state,l=bagLayout(u),{x,y,w,h,cell,gap}=l,items=bagItems(s,this.tab),item=items[this.index];u.menuBounds={x:x*2,y:y*2,w:w*2,h:h*2};
+  const s=this.app.state,l=bagLayout(u),{x,y,w,h,cell,gap,cols,rows}=l,items=bagItems(s,this.tab),item=items[this.index];this.columns=cols;u.menuBounds={x:x*2,y:y*2,w:w*2,h:h*2};
   const veil=u.add.rectangle(0,0,u.w,u.h,0x26342b,.62).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,w,h);
   text(u,u.root,x+12,y+10,'BAG',12,UI_COLORS.light,undefined,true);button(u,u.root,'X',x+w-31,y+7,22,22,()=>u.close(),{id:'bag-close'});
   const tabs=[['seeds',CROPS.tomato.seedIcon],['produce',CROPS.tomato.icon],['food',FOODS.wildBerry.icon],['gear','axe-item']];
   tabs.forEach(([tab,key],i)=>{const c=button(u,u.root,tab,x+12+i*29,y+29,26,h<190?22:24,()=>this.open(tab),{id:'bag-tab-'+tab,iconName:key});if(tab===this.tab)c.box.setFillStyle(UI_COLORS.selected);});
-  const gw=4*cell+3*gap,gx=Math.floor(x+(w-gw)/2),gy=y+(h<190?55:59);
-  const page=Math.floor(this.index/12);if(items.length>12)button(u,u.root,(page+1)+' >',x+w-69,y+7,32,22,()=>{this.index=(page*12+12)%items.length;this.show();},{id:'bag-page'});
-  for(let slot=0;slot<12;slot++){const i=page*12+slot;
-   const sx=gx+(slot%4)*(cell+gap),sy=gy+Math.floor(slot/4)*(cell+gap),entry=items[i];
+  const gw=cols*cell+(cols-1)*gap,gx=Math.floor(x+(w-gw)/2),gy=y+(h<190?55:59),pageSize=cols*rows;
+  const page=Math.floor(this.index/pageSize);if(items.length>pageSize)button(u,u.root,(page+1)+' >',x+w-69,y+7,32,22,()=>{this.index=(page*pageSize+pageSize)%items.length;this.show();},{id:'bag-page'});
+  for(let slot=0;slot<pageSize;slot++){const i=page*pageSize+slot;
+   const sx=gx+(slot%cols)*(cell+gap),sy=gy+Math.floor(slot/cols)*(cell+gap),entry=items[i];
    const decor=this.tab==='gear'&&Object.hasOwn(DECORATIONS,entry?.id);const c=button(u,u.root,entry?.name||'',sx,sy,cell,cell,()=>{this.index=i;this.message='';this.show();},{id:'bag-item-'+(entry?.id||'empty-'+i),disabled:!entry,iconName:decor?null:entry?.icon||null,preview:entry?.id==='keepsake'?keepsakeThumb:decor?decorationThumb(entry.id):null});
    if(entry){if(i===this.index)c.box.setFillStyle(UI_COLORS.selected);text(u,u.root,sx+cell-4,sy+cell-9,String(entry.count),7).setOrigin(1,0);}
   }

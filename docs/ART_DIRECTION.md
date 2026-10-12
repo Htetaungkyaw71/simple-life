@@ -1,3 +1,9 @@
+# v0.18.1 — usable short landscape
+
+Retain 2× native cream/olive pixel UI and world art. Compact start menus use two columns; Bag uses wider rows with pagination; Audio uses two columns; tiny Journal panels prioritize the active objective/directions. Compact right badges move clear of Jump/Use, and narrow hotbars keep tools accessible through Bag / Gear. Touch targets retain at least 44 physical pixels in the recorded cases, rather than shrinking the full UI. No new raster, atlas/palette change or DOM HUD.
+
+---
+
 # v0.18.0 — restrained judge polish
 
 Introduction tableaux now use deterministic integer-pixel textures, layered olive foliage, warm cottage shingles/planks/windows, wood grain/paper/keepsake, and a muted crowded city. They are original project code art; no outside bitmap/sample. Copper preview uses restrained gold corners, its existing can receives a warm copper tint, and soil/seed/pour/leaf/produce/coin/tree-fall effects remain short, world-local and crisp. Approved atlas bytes, quiet interiors, fullscreen canvas UI, current Forest natural shores/grass passages/bridges/dry roots and path/gate clearance remain. No new floating-label catalogue or wholesale map redraw. Human visual acceptance remains required.

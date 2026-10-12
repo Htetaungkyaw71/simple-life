@@ -1,3 +1,9 @@
+# v0.18.1 — mobile touch rotation and silent travel (2026-10-12)
+
+Full suite: **292 pass / 0 fail**; normal/playtest 138-module builds pass. Four standard fresh and 21 native rotation/travel cases pass; the runtime audit verifies 40 files / 11,719,411 bytes / 28 approved WAVs / eight unchanged art files. Safe-area/shifted-canvas input checks are included. Both production modes, current runtime audit and native browser evidence are recorded in [verification/mobile-rotation/README.md](verification/mobile-rotation/README.md). Public deployment and user save remain untouched. Physical-phone verification is still required.
+
+---
+
 # v0.18.0 — judge polish, local only (completed 2026-10-12)
 
 Final pure suite: **290 pass / 0 fail**. Normal and explicit playtest **138-module builds** pass; normal is the forced-false default and separate playtest output stays in `/tmp`. Runtime audit verifies **41 files / 11,762,498 bytes**, all **29 approved byte-identical WAVs**, eight unchanged allowed art files and complete Phaser/EventEmitter3/Vite notices, with no vendor archives/unused packs/remote runtime assets. Whitespace passes.

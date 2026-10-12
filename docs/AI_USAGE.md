@@ -1,3 +1,9 @@
+# v0.18.1 — mobile rotation and silent travel assistance, 2026-10-12
+
+Codex assisted the user's follow-up by removing outdoor travel audio, inspecting pinned Phaser input/scale behavior, reproducing clipped short-landscape start controls, resetting interrupted touch pointers and refreshing canvas hit bounds, adjusting short landscape menus/Bag/Audio/Journal/HUD, and authoring isolated native touch/rotation/travel regression checks. No subagent, new dependency, external asset/media generation, publication or user-save mutation. Physical-phone/browser and subjective acceptance remain human checks.
+
+---
+
 # v0.18.0 — judge polish assistance, 2026-10-11
 
 OpenAI Codex (GPT-6 family, no model override or subagent) inspected source/status, README/docs, master prompt, four competition PDFs and the current deployed title without using the public save. It checkpointed the latest playable v0.17.4 locally, audited twelve crop economies before selecting new values, and assisted explicit build-mode isolation, deterministic clock/modal pause, controlled Journal hints, Copper Watering Can, save migration, meal cooldown, fairer warning/recovery, restrained effects/audio, original code-drawn introduction art and progress-aware resident lines. It authored pure regressions and native Chrome mouse/keyboard/touch tests with disposable saves, measured actual-input progression, audited unchanged asset bytes/notices, and updated documentation. No external asset download, image/audio generator, dependency/backend, push, deployment, organizer submission or message to others. Existing third-party creator credits remain; human visual/listening, physical-phone, other-engine and legal/eligibility approval remain distinct from automated evidence.

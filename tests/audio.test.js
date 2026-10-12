@@ -114,3 +114,10 @@ test('a new sleep cancels the prior queued morning call; evening wake uses a sho
  const {audio,c}=create();audio.startWorld(state('interior'));await audio.resume();await settle();audio.effect('sleep:begin');audio.effect('morning:wake');const old=[...audio.voices];c.currentTime+=.2;
  assert.equal(audio.effect('sleep:begin'),true);assert.ok(old.every(v=>v.source.stopped));assert.equal(audio.effect('evening:wake'),true);assert.equal(audio.voices.size,2);assert.equal(SAMPLE_EFFECTS['evening:wake'],'sfx-bush-rustle');assert.equal(SAMPLE_EFFECTS['morning:wake'],'sfx-rooster');audio.destroy();
 });
+
+test('outdoor travel is silent at playback, fallback and preload boundaries',async()=>{
+ const {audio,c}=create();audio.startWorld(state('home'));await audio.resume();await settle();
+ for(const area of ['farm','home','city','home','forest','home']){c.currentTime+=3;audio.update(state(area));await settle();const buffers=audio.buffers.size;assert.equal(audio.effect('travel:enter'),false);assert.equal(audio.buffers.size,buffers);assert.equal(audio.voices.size,0);assert.equal(audio.queued.length,0);assert.equal(audio.lastEffects.has('travel:enter'),false);}
+ assert.ok(!Object.hasOwn(SAMPLE_EFFECTS,'travel:enter'));assert.ok(!Object.values(COZY_FILES).some(p=>p.endsWith('/sfx-gate.wav')));
+ c.currentTime+=1;assert.equal(audio.effect('farming:water'),true);audio.destroy();assert.equal(c.nodes.size,0);
+});

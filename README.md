@@ -1,3 +1,9 @@
+# v0.18.1 — silent travel and mobile rotation (2026-10-12)
+
+Home/Farm/City/Forest crossings no longer play a gate sound. Rotate the phone freely: cancelled touches are released, canvas touch bounds are refreshed after rotation/browser-bar movement, and short landscape menus retain reachable controls. Landscape Bag pages use wider rows; very short Journal pages show the current step and its directions. All tools remain available in Bag / Gear. Refresh the local preview and Continue to retain progress. This update is local only; the public deployment is unchanged.
+
+---
+
 # v0.18.0 — local judge polish (2026-10-11)
 
 The default production build is the real 60-coin game. Only `VITE_PLAYTEST=true` enables the clearly labeled once-per-save +100,000c testing gift; localhost, developer mode and query parameters cannot grant it. Existing saved balances remain intact.

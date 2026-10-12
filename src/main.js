@@ -155,7 +155,7 @@ class Application {
   }
   travel(c){
     if(this.transitioning)return;this.transitioning=true;this.paused=true;this.input={};
-    this.sound(c.to==='interior'||this.state.area==='interior'?'door:open':'travel:enter');const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
+    if(c.to==='interior'||this.state.area==='interior')this.sound('door:open');const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
     cam.once('camerafadeoutcomplete',()=>{
       const firstCity=c.to==='city'&&!this.state.hasVisitedCity;this.state.area=c.to;if(c.to==='city')this.state.hasVisitedCity=true;if(c.to==='farm')this.state.hasVisitedFarm=true;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
       this.scene.player.direction=c.facing||'down';this.scene.player.pose(false);this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;
@@ -170,16 +170,36 @@ class Application {
 }
 const app=new Application();
 const game=new Phaser.Game({type:new URLSearchParams(location.search).get('renderer')==='webgl'?Phaser.WEBGL:Phaser.CANVAS,parent:'game',width:innerWidth,height:innerHeight,backgroundColor:'#263e38',pixelArt:true,antialias:false,roundPixels:true,scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%',autoCenter:Phaser.Scale.NO_CENTER},scene:[app.scene,app.ui],physics:{default:'arcade',arcade:{gravity:{x:0,y:0},debug:false}},audio:{noAudio:true},input:{activePointers:4,keyboard:{capture:[32,37,38,39,40]}}});
+game.events.once('ready',()=>{
+  // Phaser 3.90 captures touchcancel without checking cancelable. A rotation's
+  // non-cancelable event still needs processing, without preventDefault warnings.
+  const touch=game.input.touch,original=touch.onTouchCancel;
+  touch.target.removeEventListener('touchcancel',original);
+  touch.onTouchCancel=event=>{const capture=touch.capture;touch.capture=capture&&event.cancelable;try{original(event);}finally{touch.capture=capture;}app.ui.resetMovement();};
+  touch.target.addEventListener('touchcancel',touch.onTouchCancel,{passive:false});
+});
 // Mobile resize events can arrive before the parent has its new layout. Observe
 // the actual fullscreen host so canvas, cameras and UI use the same dimensions.
 const host=document.getElementById('game');let resizeFrame=0;
 const fitCanvas=()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{
   if(!game.isBooted)return;const width=host.clientWidth,height=host.clientHeight;
-  if(width>0&&height>0&&(game.scale.width!==width||game.scale.height!==height)){game.scale.getParentBounds();game.scale.resize(width,height);}
+  if(width<=0||height<=0)return;
+  const rect=game.canvas.getBoundingClientRect(),bounds=game.scale.canvasBounds;
+  const moved=rect.left+scrollX!==bounds.x||rect.top+scrollY!==bounds.y||rect.width!==bounds.width||rect.height!==bounds.height;
+  if(game.scale.width!==width||game.scale.height!==height){game.scale.getParentBounds();game.scale.resize(width,height);}
+  else if(moved){game.scale.getParentBounds();game.scale.refresh();}
 });};
-const resizeObserver=new ResizeObserver(fitCanvas);resizeObserver.observe(host);
+// Rotation can cancel touches before Phaser receives their release. Reclaim the
+// pointer slots and refresh the hit-test bounds again after the browser settles.
+let settleTimer=0;
+const rotateCanvas=()=>{app.ui.resetMovement();app.ui.input?.resetPointers();fitCanvas();clearTimeout(settleTimer);settleTimer=setTimeout(fitCanvas,250);};
+const resizeObserver=typeof ResizeObserver==='function'?new ResizeObserver(fitCanvas):null;resizeObserver?.observe(host);
+window.addEventListener('resize',fitCanvas);
+window.addEventListener('orientationchange',rotateCanvas);
+screen.orientation?.addEventListener('change',rotateCanvas);
 window.visualViewport?.addEventListener('resize',fitCanvas);
-game.events.once('destroy',()=>{resizeObserver.disconnect();cancelAnimationFrame(resizeFrame);window.visualViewport?.removeEventListener('resize',fitCanvas);});
+window.visualViewport?.addEventListener('scroll',fitCanvas);
+game.events.once('destroy',()=>{resizeObserver?.disconnect();cancelAnimationFrame(resizeFrame);clearTimeout(settleTimer);window.removeEventListener('resize',fitCanvas);window.removeEventListener('orientationchange',rotateCanvas);screen.orientation?.removeEventListener('change',rotateCanvas);window.visualViewport?.removeEventListener('resize',fitCanvas);window.visualViewport?.removeEventListener('scroll',fitCanvas);});
 window.addEventListener('pagehide',()=>app.save());
 window.addEventListener('blur',()=>{app.ui.resetMovement();if(app.scene.keys)Object.values(app.scene.keys).forEach(k=>k.reset());});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){app.ui.resetMovement();app.save();}});

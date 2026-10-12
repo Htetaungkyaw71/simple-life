@@ -1,3 +1,9 @@
+# v0.18.1 — mobile rotation and silent travel
+
+No new asset or dependency. The previously reviewed sfx-gate.wav is removed from production after the user rejected the location-change sound; 28 approved WAVs and eight unchanged allowlisted art files remain, with their existing source records and dependency notices. UI changes are original project code; no atlas/raster/audio bytes are edited. Generated mobile QA screenshots/test saves remain outside the commit.
+
+---
+
 # v0.18.0 — source evidence and unchanged approved assets
 
 No new third-party art/audio/dependency or source terms. Eight runtime art files retain their baseline hashes. The 29 selected WAVs are byte-identical to previously reviewed local assets under assets/licenses/cozy-audio and morning-audio; seven approved Farm effects are newly reselected. Introduction art is original Codex-assisted source code, with no protected game/reference pixels copied and no exclusive authorship claim. Runtime preserves full Phaser/EventEmitter3/Vite notices, copyPublicDir:false and exact art/audio allowlists; vendor/source archives, unused packs, wind/fireplace and historical generated scores stay outside dist. Source record: assets/licenses/judge-polish/SOURCE_RECORD.md; current production audit summary: verification/judge-polish/README.md. Human legal/team/organizer declarations remain unsigned and separate from technical checks.

@@ -1,3 +1,9 @@
+# v0.18.1 — silent travel and mobile layout
+
+The rejected gate sample is excluded from runtime; the remaining 28 approved WAVs keep their existing creator/licence records. Eight atlas/font/character files are unchanged. Responsive menu/HUD changes are original project code with Codex assistance, using the existing pixel art and glyphs. No new third-party asset or font.
+
+---
+
 # v0.18.0 — original introduction and existing audio
 
 The four textured city/letter/cottage/forest pixel illustrations in src/ui/IntroArt.js are original Simple Life deterministic code drawings authored with OpenAI Codex assistance. Copper tint/preview, soil depression/seed/plant bounce/coin/tree-fall effects reuse existing approved project/LimeZu/character atlas assets with their established attributions. All eight art files are unchanged. Quiet UI/door/travel and quest/ending sounds reuse reviewed Spaceyyy Farm samples; HuntSounds title music and alys rooster attribution remain. No external artwork/recording/download, generative image/audio service or new dependency. Source evidence: assets/licenses/judge-polish/SOURCE_RECORD.md.

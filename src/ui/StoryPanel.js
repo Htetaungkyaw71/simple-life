@@ -17,9 +17,10 @@ export class StoryPanel {
   this.show('journal',u=>{const l=storyPanelLayout(u),s=this.app.state,q=s.story,c=CHAPTERS[index],current=storyObjective(s),g=u.add.graphics();backdrop(u,l);u.root.add(g);
    text(u,u.root,l.x+12,l.y+9,"GRANDFATHER'S LAST REQUEST",l.w<220?7:10,UI_COLORS.light,l.w-24,true);
    text(u,u.root,l.x+12,l.y+(l.short?26:34),'CHAPTER '+(index+1)+' / '+c.title,7,UI_COLORS.gold,l.w-24,true);
-   const top=l.y+(l.short?44:56),step=l.short?12:19;
-   c.steps.forEach(([id,label],i)=>{check(g,l.x+12,top+i*step,q.flags.includes(id));text(u,u.root,l.x+24,top+i*step,label,l.short?6:7,UI_COLORS.light,l.w-38);});
-   const active=c.steps.find(([id])=>!q.flags.includes(id));text(u,u.root,l.x+12,top+c.steps.length*step+5,active?active[2]:'Chapter complete.',l.short?6:7,UI_COLORS.muted,l.w-24);
+   const top=l.y+(l.short?44:56),step=l.short?12:19,active=c.steps.find(([id])=>!q.flags.includes(id)),tiny=l.h<150;
+   const shown=tiny?[active||c.steps.at(-1)]:c.steps;
+   shown.forEach(([id,label],i)=>{check(g,l.x+12,top+i*step,q.flags.includes(id));text(u,u.root,l.x+24,top+i*step,label,l.short?6:7,UI_COLORS.light,l.w-38);});
+   text(u,u.root,l.x+12,top+shown.length*step+5,active?active[2]:'Chapter complete.',l.short?6:7,UI_COLORS.muted,l.w-24);
    if(!l.short)text(u,u.root,l.x+12,l.y+l.h-66,q.completed?'Your life here continues.':'Current / '+current.step,7,UI_COLORS.gold,l.w-24);
    const y=l.y+l.h-30,bw=Math.floor((l.w-36)/4);
    [['<',()=>this.journal((index+4)%5),'journal-prev'],['>',()=>this.journal((index+1)%5),'journal-next'],['Replay',()=>this.intro(0,true),'journal-replay'],['Close',()=>this.app.pauseMenu(),'journal-close']].forEach(([label,fn,id],i)=>button(u,u.root,label,l.x+12+i*(bw+4),y,bw,24,fn,{id,fontSize:7}));
