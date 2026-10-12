@@ -20,7 +20,7 @@ export class ForestView {
     const sprite=scene.add.image(node.x,node.y-22,'town',FOODS[node.item].icon).setScale(2).setDepth(node.y+1);
     this.nodes.push({node,sprite});
    }
-   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:scene.add.ellipse(0,0,Math.min(64,SPECIES[a.species].body*2.5),10,0x253324,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080),name:worldText(scene,0,0,SPECIES[a.species].name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)};});
+   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:scene.add.ellipse(0,0,Math.min(64,SPECIES[a.species].body*2.5),10,0x253324,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080)};});
    this.woodland=new WoodlandView(scene);
    this.stones=forestStones().map(node=>({node,sprite:scene.add.image(node.x,node.y,'town','loose-stones').setOrigin(.5,1).setScale(2).setDepth(node.y)}));
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
@@ -50,7 +50,6 @@ export class ForestView {
     entry.health.clear().setDepth(p.y+1);
     const near=visible&&Math.hypot(p.x-s.position.x,p.y-s.position.y)<190;
     if(near){entry.health.fillStyle(0x34344f).fillRect(p.x-20,p.y-top-8,40,6);entry.health.fillStyle(d.tier>=4?0xdd7e6c:0xe6af66).fillRect(p.x-18,p.y-top-6,36*b.health/d.health,2);}
-    entry.name.setPosition(p.x,p.y-top-26).setDepth(p.y+1).setVisible(near&&runtime.mode!=='warning');
    }
    for(const {treasure,sprite}of this.chests)sprite.setVisible(treasureAvailable(s,treasure)&&Math.hypot(treasure.x-s.position.x,treasure.y-s.position.y)<200);
    const bag=s.stash;this.bag.setVisible(!!bag);if(bag)this.bag.setPosition(bag.x,bag.y).setDepth(bag.y);

@@ -1,3 +1,13 @@
+# v0.19.1 — Burmese readability and removed nature nameplates (2026-10-12)
+
+User follow-up: remove animal/tree names; reduce Burmese font size; fix world-sign overflow and translate Seed Aid. Removed hostile and woodland nameplate objects while preserving health bars and attack warning. Tree meter displays only n/3 and the existing Wood reward. Burmese UI uses 8px body / 12px headings / 24px large headings, world text 7/8px, integer scale/resolution with unchanged local Noto shaping/nearest sampling. Burmese signs measure shaped text and reserve a separate direction-arrow row. Oversized words wrap at Unicode grapheme boundaries. Standalone Seed Aid maps to မျိုးစေ့အကူအညီ. No save/economy/audio/asset/dependency change.
+
+The user's question about levels/achievements is advisory. Existing five story chapters and recorded milestones provide the best foundation for progression and optional badges; no XP/achievement system is added in this repair. Reviewed supplied judging reference and official https://digit7s.com/game-jam : engagement, clear progression, replay value and polish matter; neither provides guaranteed points for adding a feature name.
+
+Checks and publication record follow in verification/myanmar-world-labels/README.md. Physical-phone/Safari rendering and native-speaker acceptance remain human review.
+
+---
+
 # v0.19.0 — user-requested Myanmar language and onboarding (2026-10-12)
 
 Implemented English / မြန်မာ selection on cold startup, title/pause switching and a separate validated local language preference. Local dictionaries cover the main gameplay/menu/dialogue/Journal/feedback/asset-credit paths; IDs, catalogue values, system return strings and schema 18 remain unchanged. Bundled Noto Sans Myanmar UI 2.103 renders complete Unicode runs through Phaser Text; native Latin bitmap fonts remain for English and pure numeric controls. Font failure disables the Myanmar option and preserves English startup; an eight-second timeout prevents an indefinitely blocked boot.

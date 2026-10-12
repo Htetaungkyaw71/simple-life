@@ -58,13 +58,27 @@ function object(scene,p){
  if(p.nameplate)label(scene,p.x+80,p.y+136,p.nameplate);
  return record(obj);
 }
+// Myanmar runs are measured after shaping; reserve separate text/arrow rows.
+function myanmarSign(scene,p,value,list){
+ const t=worldText(scene,0,p.y+4,value,6).setDepth(p.y+65);
+ const width=Math.max(32,Math.ceil(t.displayWidth/2)+8),height=Math.ceil(t.displayHeight/2)+18;
+ const left=p.x+16-width,center=p.x+16;
+ const g=scene.add.graphics().setPosition(left,p.y).setScale(2).setDepth(p.y+64);
+ g.fillStyle(0x544249).fillRect(width/2-3,height-3,6,13);g.fillStyle(0xa8794e).fillRect(width/2-2,height-2,4,12);
+ g.fillStyle(0x544249).fillRect(0,0,width,height);g.fillStyle(0xa8794e).fillRect(1,1,width-2,height-2);
+ g.fillStyle(0xd6ad73).fillRect(2,2,width-4,2).fillRect(2,height-3,width-4,1);
+ t.setX(Math.round(center-t.displayWidth/2));pixelArrow(g,p.direction||2,Math.floor(width/2),height-9,0xffedcc);
+ list.push({board:{x:left+4,y:p.y+4,w:width*2-8,h:height*2-8},text:t});return g;
+}
 function farmSign(scene,p){
+ if(scene.app.language?.current==='mm')return myanmarSign(scene,p,'FARM',scene.farmSigns);
  const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
  g.fillStyle(0x544249);g.fillRect(9,19,6,13);g.fillStyle(0xa8794e);g.fillRect(10,20,4,12);
  g.fillStyle(0x544249);g.fillRect(0,0,24,23);g.fillStyle(0xa8794e);g.fillRect(1,1,22,21);g.fillStyle(0xd6ad73);g.fillRect(2,2,20,2);g.fillRect(2,20,20,1);
  pixelArrow(g,2,12,15,0xffedcc);const t=worldText(scene,p.x+24,p.y+8,'FARM',6).setOrigin(.5,0).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.farmSigns.push({board:{x:p.x+4,y:p.y+4,w:40,h:38},text:t});return g;
 }
 function roadSign(scene,p){
+ if(scene.app.language?.current==='mm')return myanmarSign(scene,p,p.text,scene.roadSigns);
  const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
  g.fillStyle(0x544249).fillRect(13,19,6,13);g.fillStyle(0xa8794e).fillRect(14,20,4,12);
  g.fillStyle(0x544249).fillRect(0,0,32,23);g.fillStyle(0xa8794e).fillRect(1,1,30,21);g.fillStyle(0xd6ad73).fillRect(2,2,28,2).fillRect(2,20,28,1);

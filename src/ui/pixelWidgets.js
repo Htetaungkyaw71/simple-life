@@ -16,7 +16,7 @@ export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLOR
 }
 export function panel(scene,parent,x,y,w,h,color=UI_COLORS.panel,style='leaf'){const g=scene.add.graphics();parent.add(g);return frame(g,x,y,w,h,color,style);}
 export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width,bold=false,role=size>=10?'heading':'body'){
- if((scene.app?.language?.current==='mm'&&role!=='numeric'&&!/^[0-9\s<>?X%+.:-]+$/.test(String(value))&&!['SIMPLE LIFE','SIMPLE\nLIFE','Simple Life'].includes(value))||/[\u1000-\u109f]/u.test(String(value))){const t=myanmarText(scene,x,y,value,role==='heading'?(size>=24?28:14):10,tint,width);parent.add(t);return t;}
+ if((scene.app?.language?.current==='mm'&&role!=='numeric'&&!/^[0-9\s<>?X%+.:-]+$/.test(String(value))&&!['SIMPLE LIFE','SIMPLE\nLIFE','Simple Life'].includes(value))||/[\u1000-\u109f]/u.test(String(value))){const t=myanmarText(scene,x,y,value,role==='heading'?(size>=24?24:12):8,tint,width);parent.add(t);return t;}
  const family=role==='heading'?'thaleah':'m5x7',data=scene.cache.bitmapFont.get(family).data,native=data.size;
  let multiple=role==='heading'?(size>=24?3:size>=12?2:1):1;
  const measure=v=>Math.max(...String(v).split('\n').map(line=>[...line].reduce((n,c)=>n+(data.chars[c.charCodeAt(0)]?.xAdvance||0),0)));

@@ -1,3 +1,9 @@
+# v0.19.1 — user-requested Burmese layout and nature-label repair, 2026-10-12
+
+Codex reduced Burmese text sizes, corrected world-sign geometry and Seed Aid translation, removed wildlife nameplates/tree name text, added Unicode grapheme wrapping and verified affected browser flows using disposable saves. Advised on progression/achievements from existing story systems, supplied judging PDF and official competition webpage; no new progression system, dependency, generated media or external runtime asset. Same approved Noto font and existing licence evidence apply. The previously authorized existing public-playtest update remains within the same project/origin; no source push or organizer submission.
+
+---
+
 # v0.19.0 — Myanmar localization and onboarding assistance, 2026-10-12
 
 OpenAI Codex assisted the user-requested English/Myanmar language service, Unicode Burmese copy and concise button translations, complete-run font shaping, responsive layouts, first-start guide/reminders, regression/browser checks and documentation. It downloaded the unmodified Noto Sans Myanmar UI Regular font directly from the official Noto repository and retained original creator/copyright/OFL evidence. Glyph artwork is the Noto authors' work; no AI font/glyph/media generation, new runtime dependency, backend or subagent. Native-speaker copy acceptance and physical-device review are not claimed. Checks use isolated disposable saves, with only named test fixtures; the user's live save is untouched. Published and verified the update on the previously authorized existing public playtest, retaining project/protection/origin and explicit test mode; no Git push or organizer submission.

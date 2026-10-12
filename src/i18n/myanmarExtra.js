@@ -244,6 +244,8 @@ Edit|ပြင်မည်
 No built item / choose one in Bag|ဆောက်ထားသောပစ္စည်းမရှိ / အိတ်မှရွေးပါ
 Decor limit / put tools away to pack a piece|အလှဆင်ပြည့်နေ / ကိရိယာသိမ်းပြီး ပစ္စည်းပြန်ယူပါ
 Copper Can owned / up to 3 aligned beds / 1-2 energy|ကြေးရေလောင်းဘူးရှိပြီး / ရှေ့စိုက်ခင်း 3 ခုအထိ / အားအင် 1–2
+SEED AID|မျိုးစေ့အကူအညီ
+Seed Aid|မျိုးစေ့အကူအညီ
 CITY / SEED AID|မြို့ / မျိုးစေ့အကူအညီ
 A fresh start|အသစ်စမည်
 No coins for seeds? With fewer than 10 coins and no seeds, produce or living crops, collect one free Tomato seed each day.|မျိုးစေ့ဝယ်ရန် ဒင်္ဂါးမရှိပါသလား။ ဒင်္ဂါး 10 ထက်နည်းပြီး မျိုးစေ့၊ သီးနှံ၊ အပင်မရှိလျှင် တစ်နေ့မျိုးစေ့တစ်စေ့ အခမဲ့ယူနိုင်သည်။

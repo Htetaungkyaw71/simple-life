@@ -9,7 +9,7 @@ export async function loadMyanmarFont(){
 export function wrapMyanmar(value,maxWidth,measure){
  if(!maxWidth)return value;
  const segmenter=typeof Intl?.Segmenter==='function'?new Intl.Segmenter('my',{granularity:'word'}):null;
- return value.split('\n').map(line=>{const tokens=segmenter?[...segmenter.segment(line)].map(s=>s.segment):line.split(/(?<=[၊။\s])/u);const rows=[];let row='';for(const token of tokens){if(row&&measure(row+token)>maxWidth){rows.push(row.trimEnd());row=token.trimStart();}else row+=token;}rows.push(row);return rows.join('\n');}).join('\n');
+ return value.split('\n').map(line=>{const tokens=segmenter?[...segmenter.segment(line)].map(s=>s.segment):line.split(/(?<=[၊။\s])/u);const graphemes=typeof Intl?.Segmenter==='function'?new Intl.Segmenter('my',{granularity:'grapheme'}):null;const parts=tokens.flatMap(token=>measure(token)>maxWidth&&graphemes?[...graphemes.segment(token)].map(s=>s.segment):[token]);const rows=[];let row='';for(const token of parts){if(row&&measure(row+token)>maxWidth){rows.push(row.trimEnd());row=token.trimStart();}else row+=token;}rows.push(row);return rows.join('\n');}).join('\n');
 }
 export function myanmarText(scene,x,y,value,size,tint,width){
  const fontSize=size,language=()=>scene.app?.language?.current||'en';
@@ -22,6 +22,6 @@ export function myanmarText(scene,x,y,value,size,tint,width){
  return t.setText(value);
 }
 export function worldText(scene,x,y,value,size=6,tint=0xffedcc){
- if(scene.app.language?.current==='mm')return myanmarText(scene,x,y,value,10,tint).setScale(2);
+ if(scene.app.language?.current==='mm')return myanmarText(scene,x,y,value,size<=6?7:8,tint).setScale(2);
  return scene.add.bitmapText(x,y,'pixel',value,size).setScale(2).setTint(tint);
 }

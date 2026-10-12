@@ -1,3 +1,9 @@
+# v0.19.1 — unchanged licensed runtime assets
+
+Text/layout/nameplate changes reuse the byte-identical local Noto Sans Myanmar UI font and previous art/audio. No new asset, licence, dependency or remote runtime request. Font/source/OFL evidence remains assets/licenses/myanmar-font/SOURCE_RECORD.md.
+
+---
+
 # v0.19.0 — bundled Myanmar Unicode font
 
 Noto Sans Myanmar UI Regular 2.103, The Noto Project Authors / Google, SIL Open Font License 1.1. The 199,680-byte official TTF is byte-identical and only renamed to fonts/noto-myanmar.ttf. Its embedded copyright (2021 Google), exact source URL, hash and complete licence evidence are under [Myanmar font](assets/licenses/myanmar-font/SOURCE_RECORD.md). The build includes a font-specific JSON notice with full OFL text. In-game Credits / More art / Fonts / Myanmar font provides attribution/source/licence links. No remote runtime fetch, new dependency or modification to previous fonts/art/audio.

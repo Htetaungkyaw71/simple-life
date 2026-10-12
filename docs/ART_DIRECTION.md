@@ -1,3 +1,9 @@
+# v0.19.1 — restrained Burmese scale and world signs
+
+Supersedes v0.19.0 sizes: Burmese body 8 logical pixels, headings 12/24, world captions 7/8. Keep integer texture resolution and scale, full-run Noto shaping, existing padding/leading and nearest sampling. World signs fit measured text and separate directional arrows. No animal nameplate or Tree word; retain useful combat warnings/health and tree hit segments. Seed Aid uses Myanmar copy when selected. English/art/audio unchanged.
+
+---
+
 # v0.19.0 — correctly shaped Myanmar text
 
 Retain Thaleah/m5x7 and native integer bitmap sizes for English, the Latin Simple Life brand and numeric/symbol-only UI controls. Burmese requires an actual Myanmar Unicode font: Noto Sans Myanmar UI, complete-run OpenType shaping rather than bitmap code-point drawing. Body text is 10 logical pixels, headings 14/28, with integer resolution 2, UI root scale 2, nearest texture filtering, 3 logical pixels of leading and 2 logical pixels of padding per edge. Renderer antialias settings remain off; browser Canvas glyph rasterization supports proper stacked marks and is distinct from the binary Latin bitmap sheets. No fractional text transform or improvised Myanmar glyph shape. Keep warm cream/olive panels, measured row bands, concise buttons and paginated long copy. World art/audio/camera remain approved existing assets/settings.

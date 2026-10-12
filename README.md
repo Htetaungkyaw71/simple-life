@@ -1,3 +1,9 @@
+# v0.19.1 — smaller Burmese text and clean world labels (2026-10-12)
+
+Burmese body text is smaller, world road/Farm signs size their boards from shaped text, and the Seed Aid caption is translated. Wildlife has no nameplates; tree work shows only hit progress and its Wood reward. Menus keep full Unicode shaping, integer sizes/scale, leading, padding and paginated copy. Save data, gameplay, audio and English styling are preserved.
+
+---
+
 # v0.19.0 — English / Myanmar and a clear first start (2026-10-12)
 
 The fullscreen canvas opens with English / မြန်မာ choices. Menus, dialogue, farming/shop labels, Journal chapters, first-job directions and world labels use the selected language. The preference is separate from farm progress and can be changed through Language on the title or pause menu.
