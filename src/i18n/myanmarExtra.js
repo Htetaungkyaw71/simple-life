@@ -277,5 +277,6 @@ Farmer source & terms|လယ်သမား မူရင်းနှင့်စ
 Legacy source & terms|ပုံဟောင်း မူရင်းနှင့်စည်းကမ်း
 Forest & licences|တောပုံနှင့်လိုင်စင်
 Water any time, once a day. A missed day pauses growth; day three needs recovery water, and day four kills the crop. Three watered nights bring your first Tomato harvest.|နေ့စဉ်တစ်ကြိမ် အချိန်မရွေးရေလောင်းပါ။ တစ်ရက်မလောင်းလျှင် ကြီးထွားမှုရပ်သည်။ သုံးရက်မြောက်၌ ပြန်ကယ်ရန်ရေလောင်းပါ။ လေးရက်မလောင်းလျှင် အပင်သေသည်။ သုံးညရေလောင်းပြီးနောက် ပထမခရမ်းချဉ်သီးရိတ်နိုင်သည်။
+CLOSED|ဆိုင်ပိတ်ထားသည်
 Fruit and quiet wildlife|သစ်သီးနှင့် ငြိမ်သက်သောတိရစ္ဆာန်
 ` .trim().split('\n').map(line=>{const i=line.indexOf('|');return [line.slice(0,i).replaceAll('\\n','\n'),line.slice(i+1).replaceAll('\\n','\n')];}));

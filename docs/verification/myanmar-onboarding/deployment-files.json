@@ -141,9 +141,9 @@
       "sha256": "4f9075c4b1f0041ae565b6925ed336dce90805c21a871f5e1a3529f473e32978"
     },
     {
-      "path": "assets/index-sHoU5IZ0.js",
-      "bytes": 418620,
-      "sha256": "1b93a68a7ee9aeaedee8723f5e662a9b9ed69ad8cfc8f5ace420b9395dfba93d"
+      "path": "assets/index-ExnW9n8G.js",
+      "bytes": 419601,
+      "sha256": "402f44a4901cbb5b3aae4bb5b708d999b72cc7453cd6c4d3c1e1528b3a5880e5"
     },
     {
       "path": "assets/phaser-D75MrIe-.js",
@@ -223,7 +223,7 @@
     {
       "path": "index.html",
       "bytes": 588,
-      "sha256": "5889d7289643f315b6b49da65f02b274f1f77c64095d8d132e3b99aee7b9ab89"
+      "sha256": "05e4d6c64649f16fc40c708aa24b1d2336926a49eef5f43fede06dc771730f98"
     }
   ]
 }
