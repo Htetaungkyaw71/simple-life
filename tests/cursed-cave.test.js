@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {newState} from '../src/systems/state.js';
+import {HOUSE} from '../src/data/geometry.js';
 import {validate} from '../src/systems/save.js';
 import {CURSED_CAVE,CURSE_GHOST} from '../src/data/cursedCave.js';
 import {nearCave,breakSeal,contribute,stepCurse} from '../src/systems/curse.js';
@@ -13,6 +14,9 @@ import {recoverStash} from '../src/systems/forest.js';
 const cave=()=>Object.assign(newState(),{area:'forest',position:{...CURSED_CAVE.approach},selected:'axe'});
 const broken=()=>{const s=cave();breakSeal(s,true);s.area='farm';s.position={x:896,y:600};s.minute=1140;return s;};
 const step=(s,r,n=1)=>{let e;for(let i=0;i<n;i++){stepCombat(s,r,50);e=stepCurse(s,r,50);}return e;};
+test('the safe house doorway takes priority over point-blank spirits with Axe equipped',()=>{
+ const s=broken();s.area='home';s.position={...HOUSE.door};Object.assign(s.curse.ghosts[0],{area:'home',position:{x:HOUSE.door.x+20,y:HOUSE.door.y},arrival:0});const c=contextFor(s,null,'right');assert.equal(c.type,'travel');assert.equal(c.to,'interior');s.position.x+=80;assert.notEqual(contextFor(s,null,'right')?.to,'interior','only the real doorway approach grants entry');
+});
 test('the skull caves are absent and the new seal is solid with a reachable entrance',()=>{
  assert.equal(FOREST_MAP.props.some(p=>p.name==='rocky-cave'),false);const s=cave();assert.ok(nearCave(s));assert.ok(walkable('forest',s.position.x,s.position.y,12,false,s));assert.equal(walkable('forest',CURSED_CAVE.x,CURSED_CAVE.y-60,12,false,s),false);assert.equal(contextFor(s).type,'cursedCave');
 });

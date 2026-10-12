@@ -27,6 +27,9 @@ export function plotPrompt(state,plot){
 export function contextFor(state,targetPlot=null,direction='down',targetGround=null){
  if(!state)return null;
  if(state.area==='interior'&&state.story?.keepsake==='carried'&&Math.hypot(state.position.x-(ROOM.width-120),state.position.y-158)<72)return {type:'keepsakePlace',x:ROOM.width-120,y:158,label:"Place Grandfather's Keepsake"};
+ // The safe-house doorway must remain usable while an equipped Axe sees a spirit.
+ const door=state.area==='home'&&LOCATIONS.home.interactions.find(p=>p.type==='travel'&&p.to==='interior');
+ if(door?.approach){const [x,y,w,h]=door.approach,p=state.position;if(p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h)return door;}
  const decoration=decorationContext(state,targetGround,direction);if(decoration)return decoration;
  const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
  const cave=caveContext(state,targetGround);if(cave)return cave;

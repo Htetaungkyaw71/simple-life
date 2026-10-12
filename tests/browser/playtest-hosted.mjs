@@ -9,15 +9,16 @@ const out=process.env.AUDIO_QA_OUT||'docs/verification/hit-feedback';
 const manifest=JSON.parse(await readFile(out+'/deployment-files.json','utf8'));
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
 const records=[],files=[];
+const goto=async(p,url)=>{for(let i=0;i<3;i++){try{return await p.goto(url);}catch(e){if(i===2||!e.message.includes('ERR_CONNECTION_RESET'))throw e;await p.waitForTimeout(400);}}};
 const unauth=await request.newContext(),raw=await unauth.get(access.url,{maxRedirects:0,maxRetries:2});
 if(access.public)assert.equal(raw.status(),200,'plain public game URL opens without authentication');else assert.ok([301,302,303,307,308,401,403].includes(raw.status()),'direct preview requires protected access');const directStatus=raw.status();await unauth.dispose();
 try{
  for(const mobile of [false,true]){
   const ctx=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1280,height:720},hasTouch:mobile}),p=await ctx.newPage(),errors=[];
   p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(['error','warning'].includes(m.type()))errors.push(m.text());});
-  if(access.public){await p.goto(access.url);await p.waitForSelector('canvas');assert.equal(new URL(p.url()).origin,new URL(access.url).origin);assert.equal(new URL(p.url()).search,'','plain URL has no access query or redirect');}
-  const u=new URL(access.shareURL||access.url);u.searchParams.set('qa','');await p.goto(u.href);await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);
-  const snap=()=>p.evaluate(()=>window.__simpleLife.snapshot());
+  if(access.public){await goto(p,access.url);await p.waitForSelector('canvas');assert.equal(new URL(p.url()).origin,new URL(access.url).origin);assert.equal(new URL(p.url()).search,'','plain URL has no access query or redirect');}
+  const u=new URL(access.shareURL||access.url);u.searchParams.set('qa','');await goto(p,u.href);await p.waitForFunction(()=>{try{return !!window.__simpleLife?.snapshot().controls.length;}catch{return false;}});
+  const snap=()=>p.evaluate(()=>{const v=window.__simpleLife.snapshot();return Object.fromEntries(["state", "controls", "audio", "jump"].map(k=>[k,v[k]]));});
   const click=async(id,delay=300)=>{const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,id);if(mobile)await p.touchscreen.tap(c.x+c.w/2,c.y+c.h/2);else await p.mouse.click(c.x+c.w/2,c.y+c.h/2);await p.waitForTimeout(delay);};
   await click('language-en');await click('Play');await click('Play as Boy');await click('intro-skip');await click('guide-back');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0&&window.__simpleLife.snapshot().audio.context==='running');
   assert.deepEqual((await snap()).audio.profile.music,{});assert.ok((await snap()).audio.loops.every(v=>v.key.startsWith('ambience:')));
@@ -25,7 +26,7 @@ try{
   await click('choose-seeds');await click('bag-tab-gear');await click('bag-item-axe');await click('bag-action');assert.equal((await snap()).state.selected,'axe');
   await click('choose-seeds');await click('bag-tab-gear');await click('bag-item-axe');await click('bag-action');assert.equal((await snap()).state.selected,'hand');
   if(mobile){await click('jump',30);assert.ok((await snap()).jump.active);await p.waitForTimeout(850);}
-  await p.reload();await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('language-en');await click('Continue');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0);
+  await p.reload();await p.waitForFunction(()=>{try{return !!window.__simpleLife?.snapshot().controls.length;}catch{return false;}});await click('language-en');await click('Continue');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0);
   assert.equal((await snap()).state.selected,'hand');assert.equal((await snap()).state.money,expectedCoins);assert.deepEqual((await snap()).audio.profile.music,{});assert.ok((await snap()).audio.loops.every(v=>v.key.startsWith('ambience:')));
   if(!mobile)for(const row of manifest.files){const r=await ctx.request.get(new URL(row.path,access.url).href,{maxRetries:2});assert.equal(r.status(),200,row.path);const b=await r.body();assert.equal(b.length,row.bytes,row.path);assert.equal(createHash('sha256').update(b).digest('hex'),row.sha256,row.path);files.push({path:row.path,status:200,bytes:b.length,sha256:row.sha256});}
   const canvasCount=await p.locator('canvas').count();assert.equal(canvasCount,1);assert.deepEqual(errors,[]);
