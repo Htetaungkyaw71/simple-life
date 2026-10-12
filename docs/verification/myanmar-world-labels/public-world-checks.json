@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "name": "mm-390-home",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-390-city",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-390-forest",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-844-home",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-844-city",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-844-forest",
+      "result": "PASS"
+    }
+  ]
+}

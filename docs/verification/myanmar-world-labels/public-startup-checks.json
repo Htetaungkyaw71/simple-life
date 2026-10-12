@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "name": "canvas-mm-568",
+      "result": "PASS",
+      "language": "mm",
+      "guidePages": true,
+      "savePreserved": true,
+      "errors": []
+    },
+    {
+      "name": "webgl-mm-390",
+      "result": "PASS",
+      "language": "mm",
+      "guidePages": true,
+      "savePreserved": true,
+      "errors": []
+    }
+  ]
+}

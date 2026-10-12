@@ -1,6 +1,6 @@
 # v0.19.1 — smaller Burmese text and clean world labels (2026-10-12)
 
-Burmese body text is smaller, world road/Farm signs size their boards from shaped text, and the Seed Aid caption is translated. Wildlife has no nameplates; tree work shows only hit progress and its Wood reward. Menus keep full Unicode shaping, integer sizes/scale, leading, padding and paginated copy. Save data, gameplay, audio and English styling are preserved.
+Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. Burmese body text is smaller, world road/Farm signs size their boards from shaped text, and the Seed Aid caption is translated. Wildlife has no nameplates; tree work shows only hit progress and its Wood reward. Menus keep full Unicode shaping, integer sizes/scale, leading, padding and paginated copy. Save data, gameplay, audio and English styling are preserved.
 
 ---
 

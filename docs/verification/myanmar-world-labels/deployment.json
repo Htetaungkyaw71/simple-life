@@ -1,0 +1,20 @@
+{
+  "version": "0.19.1",
+  "sourceCommit": "a35fca7",
+  "deploymentId": "dpl_9XUS34MWsb2F89voeHzX1P4gdXRR",
+  "generatedURL": "https://simple-life-playtest-gidxxjfhh-htetaungkyaw71s-projects.vercel.app",
+  "publicURL": "https://simple-life-playtest.vercel.app/",
+  "readyState": "READY",
+  "projectId": "prj_yAUSg3ycEwhd7xCyR5izuTPSUnRh",
+  "teamId": "team_N7fzv8ro0kcyz4cs9Pt3Mnm2",
+  "stagedBundleMatches": true,
+  "stagedHTMLCheck": "Connection resets; public index verified byte-identical after promotion. No protection changes.",
+  "runtimeFiles": 45,
+  "runtimeBytes": 12009070,
+  "gitPush": false,
+  "publicStatus": 200,
+  "publicAllFileHashesMatch": true,
+  "publicFreshCases": 2,
+  "publicBurmeseStartupCases": 2,
+  "publicBurmeseWorldCases": 6
+}

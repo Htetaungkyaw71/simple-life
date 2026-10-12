@@ -4,7 +4,7 @@ User follow-up: remove animal/tree names; reduce Burmese font size; fix world-si
 
 The user's question about levels/achievements is advisory. Existing five story chapters and recorded milestones provide the best foundation for progression and optional badges; no XP/achievement system is added in this repair. Reviewed supplied judging reference and official https://digit7s.com/game-jam : engagement, clear progression, replay value and polish matter; neither provides guaranteed points for adding a feature name.
 
-Checks and publication record follow in verification/myanmar-world-labels/README.md. Physical-phone/Safari rendering and native-speaker acceptance remain human review.
+302 tests and both builds pass. Local browser checks pass for 16 startup/language/save cases, 20 Burmese resource pages, 24 world-label cases, four focused short-landscape trading cases and two exact-playtest fresh starts. Published READY dpl_9XUS34MWsb2F89voeHzX1P4gdXRR (source a35fca7) on the existing https://simple-life-playtest.vercel.app/ : plain HTTP 200, all 45 runtime hashes match, two fresh public starts and two Burmese startup/language/save cases pass. Six public portrait/landscape world-label cases also pass. Full release record: verification/myanmar-world-labels/README.md. Physical-phone/Safari rendering and native-speaker acceptance remain human review.
 
 ---
 
