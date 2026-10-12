@@ -1,3 +1,9 @@
+# v0.18.4 — UI font and mobile assistance, 2026-10-12
+
+OpenAI Codex (GPT-6 family, no override/subagent) inspected the user screenshots and existing source/docs, downloaded the exact requested fonts directly from the creator pages, assisted native monochrome bitmap conversion/colour caching, responsive layout/leading/padding, phone interior zoom and real wooden-door playback, and authored regression/browser checks and source/licence/hash records. Third-party glyphs remain their creators' work; conversion does not imply original authorship. No AI-generated glyph shapes, new art/audio sample, dependency/backend, publication, push or user-save mutation. Browser evidence uses disposable contexts, with explicitly identified fixture saves; subjective physical-phone/listening and other-engine acceptance remains separate.
+
+---
+
 # v0.18.3 — mobile HUD/camera assistance, 2026-10-12
 
 Codex used the user's supplied phone screenshot to assess oversized gameplay HUD coverage, adjusted existing HUD/layout/joystick dimensions and landscape camera framing, extended the existing camera regression, and checked native desktop/touch gameplay/rotation/safe-area/house/save behavior. Original code art and approved assets remain reused; no screenshot pixels imported, new media/dependency/backend, subagent, deployment, push or existing user-save editing. Revised physical-phone visual/comfort acceptance remains with the user. Evidence: verification/mobile-proportions/README.md.

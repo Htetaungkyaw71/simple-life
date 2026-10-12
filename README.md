@@ -1,3 +1,11 @@
+# v0.18.4 — clearer UI text and mobile panels (2026-10-12)
+
+UI headers use Thaleah; small labels, counters and clocks use m5x7. Local bitmap fonts have binary alpha, nearest filtering and native integer size multiples, with extra leading and text padding. Mobile menus reserve separate content/footer bands; the home customization footer overlap is removed. Compact resource pages show costs side by side, and long Journal/ending text can be paged. Landscape phone interiors use zoom 1 instead of .75; outdoors retain the wider .75 framing. House entry waits for the wooden-door recording and plays it at a clearer level.
+
+Refresh and Continue at **http://192.168.100.7:4198/** from a phone on the same Wi-Fi, keeping the Mac/server running. The local Mac URL remains http://127.0.0.1:4196/. Font sources, licence evidence and conversion hashes are under docs/assets/licenses/ui-fonts, with attribution in Credits / More art / Fonts. Verification: [UI typography](docs/verification/ui-typography/README.md). This is a local update.
+
+---
+
 # v0.18.3 — compact phone HUD and wider landscape view (2026-10-12)
 
 The mobile status bars/clock, toolbar, joystick and Jump/Use controls now occupy less screen space. Toolbar/action targets are up to 48 CSS pixels (at least 44 in verified layouts), with a 96px joystick. Landscape phone zoom is 0.75 instead of 1, showing one-third more world in each direction; portrait and desktop camera framing retain their previous values. Safe-area positioning, rotation, farming, house entry and saved progression remain usable.

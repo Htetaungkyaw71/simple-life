@@ -121,3 +121,13 @@ test('outdoor travel is silent at playback, fallback and preload boundaries',asy
  assert.ok(!Object.hasOwn(SAMPLE_EFFECTS,'travel:enter'));assert.ok(!Object.values(COZY_FILES).some(p=>p.endsWith('/sfx-gate.wav')));
  c.currentTime+=1;assert.equal(audio.effect('farming:water'),true);audio.destroy();assert.equal(c.nodes.size,0);
 });
+
+test('cold house entry waits for the wooden-door recording without a synth fallback, then plays once',async()=>{
+ const c=context();let release;const door=new Promise(r=>release=r),audio=new AudioManager({contextFactory:()=>c,storage:storage(),loader:async path=>path==='sfx-door-wood-open'?door:{duration:96},random:()=>.5});
+ await audio.resume();await settle();audio.startWorld(state());await settle();c.currentTime=1;
+ assert.equal(audio.effect('door:open'),false);assert.equal([...audio.voices].some(v=>v.id==='door:open'),false);assert.equal(audio.queued.filter(q=>q.raw==='door:open').length,1);
+ c.currentTime=1.1;audio.update(state('interior'));assert.equal([...audio.voices].some(v=>v.id==='door:open'),false);
+ const recording={duration:.8};release(recording);await settle();c.currentTime=1.2;audio.update(state('interior'));
+ const voices=[...audio.voices].filter(v=>v.id==='door:open');assert.equal(voices.length,1);assert.equal(voices[0].source.buffer,recording);assert.equal(voices[0].source.playbackRate.value,1);assert.ok(voices[0].gain.gain.value>=.65);assert.equal(audio.queued.length,0);
+ c.currentTime=1.3;audio.update(state('interior'));assert.equal([...audio.voices].filter(v=>v.id==='door:open').length,1);audio.destroy();assert.equal(c.nodes.size,0);
+});

@@ -10,10 +10,10 @@ export class CustomizationPanel {
  get s(){return this.app.state;}
  show(page){this.app.resourcePanel.show(page);}
  open(){const a=this.app,here=customizationAvailable(this.s);this.show({kicker:'Make it your own',title:'Home & garden',note:here?'Craft with materials or buy with coins. Pieces stay in Bag.':'Visit Home or Farm to customize.',home:[
-  {label:'Craft / Wood & Stone',id:'customize-craft',preview:decorationThumb('bench'),action:()=>this.app.resourcePanel.decorations()},
-  {label:'House designs / 8 to buy',id:'customize-houses',preview:homePreview(this.s.home.design),action:()=>this.houses()},
-  {label:'Trees & garden scenery',id:'customize-garden',preview:decorationThumb('blossom'),action:()=>this.decorations('garden')},
-  {label:'Furniture & room decor',id:'customize-furniture',preview:decorationThumb('bookcase'),action:()=>this.decorations('furniture')},
+  {label:'Craft / materials',id:'customize-craft',preview:decorationThumb('bench'),action:()=>this.app.resourcePanel.decorations()},
+  {label:'House designs',id:'customize-houses',preview:homePreview(this.s.home.design),action:()=>this.houses()},
+  {label:'Trees & garden',id:'customize-garden',preview:decorationThumb('blossom'),action:()=>this.decorations('garden')},
+  {label:'Room furniture',id:'customize-furniture',preview:decorationThumb('bookcase'),action:()=>this.decorations('furniture')},
  ]});}
  houses(index=0,inside=false){const ids=[...HOME_IDS,'starter'],id=ids[index],d=HOMES[id],q=houseQuote(this.s,id),current=this.s.home.design===id;
   this.show({kicker:'House designs / '+(index+1)+' of 9',title:d.name,customPreview:homePreview(id,inside),description:d.detail,materials:[{name:q.owned?'Owned / free':'Coins',need:q.price,have:this.s.money,icon:'coin'}],note:!['home','interior'].includes(this.s.area)?'Visit Home to buy or change your house.':current?'Your current Home. Door and bed stay in place.':q.owned?'Owned. Switch to this design for free.':'Includes exterior, decor and a furnished interior.',status:current?'Current Home':q.owned?'Owned':'Price: '+d.price+'c',tabs:this.tabs(ids,index,k=>({starter:'Old',rose:'Rose',orchard:'Lodge',coastal:'Villa',bamboo:'Tea',brick:'Brick',glass:'Glass',alpine:'Moon',manor:'Manor'})[k],k=>homePreview(k),i=>this.houses(i,inside),'house-'),actions:[

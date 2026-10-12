@@ -24,10 +24,18 @@ for row in manifest['files']:
  assert seam<=max(.005,normal),row['id']
  checks.append({'id':row['id'],'seconds':len(samples)/22050,'peak':float(np.max(abs(samples))),'rms':float(np.sqrt(np.mean(samples*samples))),'boundaryStep':seam,'normalStep99':normal,'clipped':0})
 for p in (root/'public/assets/pixel').rglob('*'):
- if p.is_file() and (root/'dist/assets/pixel'/p.relative_to(root/'public/assets/pixel')).exists():
+ if p.is_file() and 'fonts' not in p.parts and (root/'dist/assets/pixel'/p.relative_to(root/'public/assets/pixel')).exists():
   old=subprocess.check_output(['git','show','0cf62d9:'+str(p.relative_to(root))],cwd=root);assert old==p.read_bytes()
+fonts=json.loads((root/'docs/assets/licenses/ui-fonts/manifest.json').read_text())
+for row in fonts['files']:
+ p=root/row['file'];assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']
+ if row['file'].startswith('public/'):
+  assert p.read_bytes()==(root/'dist'/row['file'].removeprefix('public/')).read_bytes()
+  if p.suffix=='.png':
+   from PIL import Image
+   assert set(Image.open(p).getchannel('A').tobytes())=={0,255}
 files=[p for p in (root/'dist').rglob('*') if p.is_file()]
-assert len(files)==len(expected)+12
+assert len(files)==len(expected)+16
 assert not any(p.suffix.lower() in ['.zip','.rar','.md','.txt','.ogg','.mp4'] for p in files)
 normalize=lambda text:' '.join(text.split())
 phaser=next((root/'dist/assets').glob('phaser-*.js')).read_text();app=next((root/'dist/assets').glob('index-*.js')).read_text()

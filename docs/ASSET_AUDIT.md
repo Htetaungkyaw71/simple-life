@@ -1,3 +1,9 @@
+# v0.18.4 — font allowlist addition
+
+Only fonts/thaleah.png, fonts/thaleah.xml, fonts/m5x7.png and fonts/m5x7.xml are added to production. Glyph sheets have binary alpha and manifest-verified bytes. Original eight allowed art files and 28 approved WAVs remain unchanged. Source TTFs, vendor archives, documents, QA captures and unused packs stay excluded. The updated cosy-audio runtime audit verifies font hashes/alpha, prior art/audio hashes and dependency notices; see verification/ui-typography/README.md.
+
+---
+
 # v0.17.4 — unchanged runtime asset selection
 
 Outdoor birds reuse existing forest-day WAV; default plants reuse existing atlas bytes. No additions to the 22-WAV/eight-art-file allowlist. Wind and fireplace remain excluded. Existing licences and full dependency notices retained; verification/outdoor-plants/runtime-audit.json validates hashes/format/seams/production exclusions.

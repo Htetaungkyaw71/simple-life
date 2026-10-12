@@ -1,3 +1,11 @@
+# v0.18.4 — requested UI fonts
+
+Thaleah Fat by Rick Hoppmann / Tiny Worlds is CC BY 4.0; m5x7 by Daniel Linssen is CC0. Direct official source links, acquired source TTFs, conversion details and SHA-256 evidence are recorded in [UI fonts](assets/licenses/ui-fonts/SOURCE_RECORD.md). Attribution/source/licence links are accessible in-game under Credits / More art / Fonts. The Thaleah conversion removes empty top rows and recolours native monochrome glyphs; no replacement glyph shapes are authored.
+
+Four generated bitmap PNG/XML files join the exact runtime allowlist. Source TTFs, archives, source evidence and unused fonts stay outside production. Existing eight art files, 28 approved WAVs and dependency notices retain their established bytes/licences. The phone screenshots are references only.
+
+---
+
 # v0.18.3 — mobile HUD proportions
 
 Existing original code-drawn meters/frames/glyphs and the licensed font/art are reused with smaller mobile rendering dimensions. The supplied phone screenshot is a layout reference only; no reference pixels enter runtime. No new asset, dependency or licence change. The runtime audit retains 28 unchanged approved WAVs, eight byte-identical allowed art files and existing dependency notices; captures/test saves stay outside source/build.

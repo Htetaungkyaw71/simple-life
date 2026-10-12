@@ -1,3 +1,12 @@
+# v0.18.4 — UI fonts
+
+- **Thaleah Fat** — Rick Hoppmann / Tiny Worlds; [official source](https://tinyworlds.itch.io/free-pixel-font-thaleah); [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Converted to native monochrome bitmap sheets and colour variants for UI headers.
+- **m5x7** — Daniel Linssen; [official source](https://managore.itch.io/m5x7); [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Converted to native monochrome bitmap sheets and colour variants for small UI text.
+
+Sources and hashes: [UI font record](assets/licenses/ui-fonts/SOURCE_RECORD.md). In-game attribution: Credits / More art / Fonts. Other existing art/audio/dependency credits remain.
+
+---
+
 # v0.18.1 — silent travel and mobile layout
 
 The rejected gate sample is excluded from runtime; the remaining 28 approved WAVs keep their existing creator/licence records. Eight atlas/font/character files are unchanged. Responsive menu/HUD changes are original project code with Codex assistance, using the existing pixel art and glyphs. No new third-party asset or font.

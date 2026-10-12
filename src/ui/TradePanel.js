@@ -36,7 +36,7 @@ export class TradePanel {
   const veil=u.add.rectangle(0,0,u.w,u.h,0x102025,.46).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,lx,ly,e)=>e.stopPropagation());
   panel(u,u.root,x,y,pw,ph,UI_COLORS.panel);
   const tx=x+10,right=x+pw-10;
-  text(u,u.root,tx,y+14,plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold);
+  text(u,u.root,tx,y+14,plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold,undefined,false,'heading');
   button(u,u.root,'X',right-22,y+8,22,22,()=>u.close(),{id:'trade-close'});
   if(plant)button(u,u.root,'FOOD',tx+76,y+8,44,22,()=>this.app.survivalPanel.open('food'),{id:'bag-food'});
   if(!plant)button(u,u.root,(Math.floor(this.index/4)+1)+' >',tx+40,y+8,22,22,()=>this.selectCrop((Math.floor(this.index/4)*4+4)%this.ids.length),{id:selling?'market-page':'seed-page'});

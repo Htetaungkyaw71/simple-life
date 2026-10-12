@@ -1,3 +1,11 @@
+# v0.18.4 — typography and phone spacing
+
+Use creator-supplied Thaleah Fat for UI headings and m5x7 for small labels, counts and clock. Keep native binary glyph silhouettes, nearest filtering and integer size multiples; no smoothing, fractional UI text parent scales or artificial bold widening. Retain warm cream/olive panels and measured text spacing, with 4 CSS pixels of extra leading and 6 CSS pixels of button side padding. Compact panels reserve separate content/footer bands; short panels use concise labels and paginated text. The supplied screenshots inform layout only.
+
+The phone interior is one-third larger in landscape, keeping the established artwork/room. Retain the compact outdoor HUD and wider outdoor view. Jump/Use captions require 56px targets. This supersedes v0.18.3's fractional clock scale and matched mobile interior/outdoor zoom. No Forest foliage, shore, bridge or other world-art change.
+
+---
+
 # v0.18.3 — phone proportions from the supplied gameplay screenshot
 
 Reduce mobile gameplay HUD coverage while retaining warm cream/olive frames and readable labels: shorter/scaled status bars, smaller clock, 48px toolbar/action targets and a 96px joystick. Keep the fullscreen separate canvas UI and existing menu proportions. Landscape phones use .75 world zoom with nearest-neighbour rendering and matched indoor/outdoor actor scale, leaving more surroundings visible; desktop/portrait framing stays consistent with the prior version. Existing original glyphs/font/atlas pixels are reused, without importing screenshot art. This supersedes earlier fixed gameplay HUD dimensions for mobile.

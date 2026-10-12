@@ -22,19 +22,19 @@ export class Hud {
   const heart=u.add.graphics();vitals.add(heart);heart.setScale(2).setPosition(6,6);meterGlyph(heart,'heart',0xcf4939);
   const bolt=u.add.graphics();vitals.add(bolt);bolt.setScale(2).setPosition(6,38);meterGlyph(bolt,'bolt',0xffd45a);
   this.waterWindow=text(u,p,left,top+(u.touch?50:64),'',6,UI_COLORS.cream);
-  const clockGroup=u.add.container(right,top).setScale(scale);p.add(clockGroup);
-  panel(u,clockGroup,-76,0,76,37);this.clock=text(u,clockGroup,-38,7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,clockGroup,-38,23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
-  panel(u,clockGroup,-70,40,70,18,UI_COLORS.selected);this.money=text(u,clockGroup,-35,45,'60c',8).setOrigin(.5,0);
+  const clockGroup=u.add.container(right,top),cw=u.touch?66:76;p.add(clockGroup);
+  panel(u,clockGroup,-cw,0,cw,31);this.clock=text(u,clockGroup,-cw/2,6,'6:00 am',8).setOrigin(.5,0);this.day=text(u,clockGroup,-cw/2,19,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
+  panel(u,clockGroup,-cw,34,cw,18,UI_COLORS.selected);this.money=text(u,clockGroup,-cw/2,39,'60c',8).setOrigin(.5,0);
   if(this.app.placement?.draft){this.slots=[];this.placementSignature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;placementControls(u,p);return;}
   const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
     const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'watering-can-item',harvest:'sickle',shovel:'shovel-item',axe:'axe-item',hand:'hand-item',grass:'grass-item',decorate:'stone-item'},glyphs={bag:'bag',map:'map',pause:'menu',customize:'customize'};
    const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():id==='customize'?this.app.customizationPanel.open():['shovel','axe','hand','grass','decorate'].includes(id)?this.app.bagPanel.open('gear',id):this.app.select(id,{toggle:true});
    const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]&&id!=='map'?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
-   if(['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-8,'',6).setOrigin(1,0)});}
+   if(['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-11,'',6).setOrigin(1,0)});}
   }
   if(u.touch)this.mobile=mobileControls(u,p);
-  this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,146);this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
+  this.hotbarY=y;this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,Math.min(210,u.w-u.safe.left-u.safe.right-22));this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
  }
  update(s,c){
   if(this.signature!==this.key()){this.ui.layout();return;}
@@ -43,13 +43,13 @@ export class Hud {
   this.health.setSize(health,9);this.energy.setSize(energy,9);this.healthShine.setSize(health,2);this.energyShine.setSize(energy,2);
   if(this.app.placement?.draft)return;
   this.mobile?.updateAction(c);
-  for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?UI_COLORS.selected:UI_COLORS.cream);slot.box.setStrokeStyle(s.selected===tool?2:1,UI_COLORS.edge);count.setText(tool==='seed'?String(s.inventory[CROPS[s.selectedCrop].seedKey]):'');}
+  for(const {tool,slot,count}of this.slots){slot.box.setFillStyle(s.selected===tool?UI_COLORS.selected:UI_COLORS.cream);slot.box.setStrokeStyle(s.selected===tool?2:1,UI_COLORS.edge);count.setText(tool==='seed'?(s.inventory[CROPS[s.selectedCrop].seedKey]>=1000?Math.floor(s.inventory[CROPS[s.selectedCrop].seedKey]/1000)+'k':String(s.inventory[CROPS[s.selectedCrop].seedKey])):'');}
   const feedback=this.ui.feedbackState?.until>this.ui.time.now?this.ui.feedbackState.text:null;
   this.prompt.setVisible(!!c||!!feedback);if(!c&&!feedback)return;
   let hint=(feedback||c.label).replace(' · ',' / ').replace('Step outside','Outside').replace('Take the lane','Travel').replace('Follow the lane','Travel').replace('Visit the ','').replace('Rest at the bed','Sleep');
   const farmDirection=hint==='FARM / SOUTH';if(farmDirection)hint='FARM';
   this.promptText.setText((feedback||c.type==='hint'?'':this.ui.touch?(['hunt','chop'].includes(c.type)?'Hit / ':'Use / '):'E / ')+hint);
-  const pw=Math.min(156,Math.ceil(this.promptText.width)+10+(farmDirection?9:0));this.promptWidth=pw;this.promptPanel.clear();frame(this.promptPanel,0,0,pw,15);
+  const u=this.ui,pw=Math.min(u.w-u.safe.left-u.safe.right-12,Math.ceil(this.promptText.width)+10+(farmDirection?9:0)),ph=Math.ceil(this.promptText.height)+8;this.promptY=this.hotbarY-ph-4;this.promptWidth=pw;this.promptPanel.clear();frame(this.promptPanel,0,0,pw,ph);
   this.promptArrow.clear();if(farmDirection){this.promptArrow.fillStyle(UI_COLORS.light).fillRect(pw-10,3,2,6).fillRect(pw-12,7,6,2).fillRect(pw-10,9,2,2);}
   const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)*cam.zoom/2,py=(s.position.y-cam.worldView.y)*cam.zoom/2;
   const overlaps=Math.abs(px-this.ui.w/2)<pw/2+12&&py>this.promptY&&py-30<this.promptY+15;

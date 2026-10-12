@@ -1,0 +1,36 @@
+{
+  "nativeSize": 16,
+  "pixelConversion": "Native 16px monochrome FreeType raster, no smoothing; common 10px line metrics, 2px extra leading at runtime, unchanged glyph silhouettes",
+  "files": [
+    {
+      "file": "docs/assets/licenses/ui-fonts/source/ThaleahFat.ttf",
+      "bytes": 10080,
+      "sha256": "c9bb0f1370f95140c0f1c71cf844bc448384604151c5570a4bb2bb88021ec873"
+    },
+    {
+      "file": "public/assets/pixel/fonts/thaleah.png",
+      "bytes": 1528,
+      "sha256": "4b0b3c082b584e69138dcef4a7650b0d3e764d54f01effb624e1511cc2524ee8"
+    },
+    {
+      "file": "public/assets/pixel/fonts/thaleah.xml",
+      "bytes": 10952,
+      "sha256": "6ed78c8e255224421daffec7f5077c904191ff781942e93563abe4e0f625e89c"
+    },
+    {
+      "file": "docs/assets/licenses/ui-fonts/source/m5x7.ttf",
+      "bytes": 34300,
+      "sha256": "47c3f0b01f0fd417b3a44c2888a71d3072f750e76f3e6e946a6a9b188d988cbf"
+    },
+    {
+      "file": "public/assets/pixel/fonts/m5x7.png",
+      "bytes": 1354,
+      "sha256": "6f3ae0190a7b62b68105812fd0dab4e66361520305bddfcb73a9fbddf476dc63"
+    },
+    {
+      "file": "public/assets/pixel/fonts/m5x7.xml",
+      "bytes": 10946,
+      "sha256": "2e8b99ee8d0cbf21cfb2928019b907da3dae8d7369fa4d933860ad4eff7e4880"
+    }
+  ]
+}

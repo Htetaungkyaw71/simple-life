@@ -1,3 +1,13 @@
+# v0.18.4 — native bitmap UI text
+
+WorldScene loads thaleah/m5x7 PNG/XML bitmap fonts alongside the original world font and applies NEAREST. pixelWidgets.text selects the font by semantic heading/body role, translates legacy requested sizes into whole 16px native multiples, reduces headings by whole steps when needed, and adds two logical pixels of leading. Buttons use native body text, measured vertical centering, 6 CSS pixels of side padding and bounded abbreviated display labels; control labels/IDs remain intact. coloredFont copies the whole __BASE sheet, disables smoothing and applies source-in colour; Canvas and WebGL share those glyphs/metrics. Renderer antialias/antialiasGL are disabled. UI root remains scale 2 and clock text has no fractional ancestor. The .75 vitals container contains graphics only.
+
+ResourceView reserves bands and switches to two material columns without a redundant main preview below 160 logical panel pixels. Journal/completion text wraps at native size and paginates against the footer. Large stock counts abbreviate on slots while Bag selection shows the exact count. Caption controls remain at least 44 CSS pixels in tested mobile layouts; Jump/Use return to 56px to fit the requested font/padding. Read-only QA snapshots expose visible UI text bounds/font/native size/ancestor scales. The offline recorder loads actual XML metrics and preserves the original world-font metrics separately.
+
+House camera zoom is 1 on mobile (outdoor compact framing remains .75). No map, collision, furniture or save-schema changes. Cold door playback queues the actual recording for up to 1.5 audio-clock seconds; there is no synth door fallback. Outdoor travel remains outside effect/preload mappings. Normal/playtest builds preserve their existing balance isolation.
+
+---
+
 # v0.18.3 — compact gameplay HUD and landscape camera
 
 The UI scene remains at 2× logical pixels. Only noninteractive mobile vitals/clock containers use an additional .75 presentation scale; hit-tested toolbar/action controls are redrawn at 24 logical units, and the joystick uses a 24-unit radius. Touch coordinate conversion and read-only snapshots remain consistent with the existing 2× scene. Portrait toolbar and landscape joystick/action reservations move inward/down to release gameplay space; navigation/crop-panel floors track these positions. Menus retain their previous readable sizing.

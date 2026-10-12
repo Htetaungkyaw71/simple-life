@@ -13,7 +13,13 @@ export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLOR
  return g;
 }
 export function panel(scene,parent,x,y,w,h,color=UI_COLORS.panel,style='leaf'){const g=scene.add.graphics();parent.add(g);return frame(g,x,y,w,h,color,style);}
-export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width,bold=false){const t=scene.add.bitmapText(Math.round(x),Math.round(y),coloredFont(scene,tint,bold),value,size);if(width)t.setMaxWidth(width);parent.add(t);return t;}
+export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width,bold=false,role=size>=10?'heading':'body'){
+ const family=role==='heading'?'thaleah':'m5x7',data=scene.cache.bitmapFont.get(family).data,native=data.size;
+ let multiple=role==='heading'?(size>=24?3:size>=12?2:1):1;
+ const measure=v=>Math.max(...String(v).split('\n').map(line=>[...line].reduce((n,c)=>n+(data.chars[c.charCodeAt(0)]?.xAdvance||0),0)));
+ if(width)while(multiple>1&&measure(value)*multiple>width)multiple--;
+ const t=scene.add.bitmapText(Math.round(x),Math.round(y),coloredFont(scene,tint,family),value,native*multiple);t.setLineSpacing(2);if(width)t.setMaxWidth(Math.floor(width));parent.add(t);return t;
+}
 export function icon(scene,parent,name,x,y,scale=1){const i=scene.add.image(x,y,scene.textures.get('town').has(name)?'town':'world',name).setOrigin(0).setScale(scale);parent.add(i);return i;}
 export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null,glyph=null,preview=null,bold=false,fontSize=8,textTint=null,sound=true}={}){
  const box=scene.add.graphics();parent.add(box);let fill=disabled?0xd7d2b4:UI_COLORS.cream,edge=UI_COLORS.edge,stroke=1,base=fill;
@@ -21,7 +27,8 @@ export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=labe
  box.setFillStyle=c=>{base=fill=c;paint();return box;};box.setStrokeStyle=(size,c)=>{stroke=size;edge=c;paint();return box;};paint();
  if(iconName)icon(scene,parent,iconName,Math.round(x+(w-16)/2),Math.round(y+(h-16)/2));
  if(preview)preview(scene,parent,x+w/2,y+h/2,w-8,h-8);
- const t=iconName||glyph||preview?null:text(scene,parent,x+w/2,y+(h-fontSize)/2,label,fontSize,textTint??(disabled?UI_COLORS.muted:UI_COLORS.light),undefined,bold);t?.setOrigin(.5,0);
+ const t=iconName||glyph||preview?null:text(scene,parent,x+w/2,0,label,fontSize,textTint??(disabled?UI_COLORS.muted:UI_COLORS.light),w-6,bold,'body');
+ if(t){if(t.height>h-6){let short=label;while(short.length&&(t.width>w-6||t.height>h-6)){short=short.slice(0,-1);t.setText(short+'...');}}t.setOrigin(.5,0).setPosition(Math.round(x+w/2),Math.round(y+(h-t.height)/2));}
  const invoke=(...args)=>{if(sound)scene.app?.sound?.(disabled?'ui:disabled':/^(Cancel|Skip|Not yet|Keep my farm)$/i.test(label)?'ui:cancel':'ui:confirm');if(!disabled)return action(...args);};const control={id,label,x,y,w,h,disabled,action:invoke,box,text:t};scene.controls.push(control);
  box.setInteractive({useHandCursor:!disabled,hitArea:{x,y,width:w,height:h},hitAreaCallback:(a,px,py)=>px>=a.x&&py>=a.y&&px<a.x+a.width&&py<a.y+a.height});box.on('pointerdown',(p,lx,ly,event)=>{event.stopPropagation();invoke(p);});if(!disabled){box.on('pointerover',()=>{fill=UI_COLORS.selected;paint();});box.on('pointerout',()=>{fill=base;paint();});}
  return control;

@@ -47,11 +47,12 @@ export class WorldScene extends Phaser.Scene {
     this.load.atlas('town',base+'processed/town.png',base+'processed/town.json');
     for(const char of ['boy','girl'])this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:24,frameHeight:32});
     this.load.bitmapFont('pixel',base+'font.png',base+'font.xml');
-    const text=this.add.text(20,20,'Loading Simple Life...',{fontFamily:'monospace',fontSize:'16px',color:'#e1d7ad'});
-    this.load.on('complete',()=>text.destroy());
+    for(const name of ['thaleah','m5x7'])this.load.bitmapFont(name,base+'fonts/'+name+'.png',base+'fonts/'+name+'.xml');
+    const loading=this.add.graphics();loading.fillStyle(0xe1d7ad).fillRect(20,20,120,4);
+    this.load.on('complete',()=>loading.destroy());
   }
   create(){
-    for(const name of ['world','town','boy','girl','pixel'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    for(const name of ['world','town','boy','girl','pixel','thaleah','m5x7'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
     this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,Q,K,M,J,SHIFT,B,R');
     for(const key of Object.keys(KEY_ACTIONS))this.keys[key].on('down',(_,event)=>{const action=keyboardAction(key,this.app.state?.area,{paused:this.app.paused,repeat:event?.repeat,transitioning:this.app.transitioning});if(action==='jump')this.jump();else if(action==='attack')this.app.attack();else if(action==='map')this.app.wildernessMap.open();else if(action==='bag')this.app.bagPanel.open('seeds');});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
@@ -100,7 +101,7 @@ export class WorldScene extends Phaser.Scene {
         if(this.app.placement.original){this.app.placement.draft=null;this.app.placement.original=null;}
         const packed=resizeRoomDecor(this.app.state,{width:old.w,height:old.h});this.app.state.position=nearestSafe('interior',{x:p.x*ROOM.width/old.w,y:p.y*ROOM.height/old.h},this.app.state);this.build();this.app.save();if(packed)this.app.ui.toast(packed+' room pieces packed in Bag / Gear');return;
       }
-      const zoom=displayZoom(this.scale.width,this.scale.height,coarse);cam.setZoom(zoom);const vw=this.scale.width/zoom,vh=this.scale.height/zoom;
+      const zoom=this.app.ui.touch?1:displayZoom(this.scale.width,this.scale.height,coarse);cam.setZoom(zoom);const vw=this.scale.width/zoom,vh=this.scale.height/zoom;
       cam.setBounds(-Math.max(8,(vw-ROOM.width)/2),-Math.max(24,(vh-ROOM.height)/2),Math.max(vw,ROOM.width+16),Math.max(vh,ROOM.height+48));
       if(this.scale.width>=1000&&this.scale.height>=600){cam.stopFollow();cam.centerOn(ROOM.width/2,ROOM.height/2);return;}
     }

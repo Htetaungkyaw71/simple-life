@@ -98,8 +98,12 @@ export class AudioManager {
   if(id==='sleep:begin'){for(const v of [...this.voices])if(['sleep:begin','morning:wake','evening:wake'].includes(v.id))this.cleanup(v);this.sleepCueUntil=0;}
   if(this.voices.size>=6||t===this.lastFrame&&this.frameEffects>=2){if(!retry&&this.queued.length<4&&!this.queued.some(q=>q.raw===raw))this.queued.push({raw,bus,expires:t+.25});return false;}
   if(t!==this.lastFrame){this.lastFrame=t;this.frameEffects=0;}this.frameEffects++;this.lastEffects.set(id,t);
-  const sample=SAMPLE_EFFECTS[id];if(sample&&!this.buffers.has(sample))this.bufferFor(sample);
-  const v=this.source(this.buffers.get(sample)||this.synthBuffer(id),bus);v.gain.gain.value=(quiet?.18:id==='animal:warning'?.28:.85)+this.random()*.03;v.source.playbackRate.value=.97+this.random()*.06;v.id=id;this.voices.add(v);v.source.onended=()=>this.cleanup(v);
+  const sample=SAMPLE_EFFECTS[id];if(sample&&!this.buffers.has(sample)){
+   this.bufferFor(sample);
+   // Wait briefly for the real wooden-door recording; a synth chirp is not a door.
+   if(id==='door:open'){if(!retry&&!this.queued.some(q=>q.raw===raw))this.queued.push({raw,bus,expires:t+1.5});this.lastEffects.delete(id);return false;}
+  }
+  const v=this.source(this.buffers.get(sample)||this.synthBuffer(id),bus);v.gain.gain.value=(id==='door:open'?.65:quiet?.18:id==='animal:warning'?.28:.85)+this.random()*.03;v.source.playbackRate.value=id==='door:open'?1:.97+this.random()*.06;v.id=id;this.voices.add(v);v.source.onended=()=>this.cleanup(v);
   // Audio-clock scheduling keeps the bed and wake sounds separate, without timers.
   const start=['morning:wake','evening:wake'].includes(id)?Math.max(t,(this.sleepCueUntil||0)+.08):t;
   if(id==='sleep:begin')this.sleepCueUntil=t+v.source.buffer.duration/v.source.playbackRate.value;
