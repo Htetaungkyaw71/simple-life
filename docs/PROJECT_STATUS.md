@@ -1,3 +1,13 @@
+# v0.18.6 — silent doors and requested playtest deployment (2026-10-12)
+
+House exit now follows entry's silent travel behavior. The door event is removed from the shared playback/preload/production allowlist, excluding its unused WAV while retaining source/licence evidence. The new regression verifies no fallback, queue, load or voice for the retired event while approved actions remain audible. No camera, gameplay, economy, save or UI-layout changes in this follow-up.
+
+The user explicitly authorizes deploying the accumulated local changes to the existing free Vercel Simple Life playtest. This supersedes the prior task's no-deployment instruction for that update. The target project/team/protection are verified through the existing CLI login; runtime-only static playtest output is prepared separately. Normal build retains 60 coins; hosted playtest preserves its established once-per-save +100,000c gift. No push, new service/backend, unrelated resource or user-save editing.
+
+296 tests and both 137-module builds pass. Audit: 43 runtime files / 11,712,035 bytes, 27 approved WAVs, unchanged art/fonts and full notices. Native exit/re-entry/save and fresh hosted-build checks use disposable Chrome desktop/touch contexts. Final release evidence and device limits: [silent doors verification](verification/silent-doors/README.md).
+
+---
+
 # v0.18.5 — silent house entry, responsive mobile trading and icon controls (2026-10-12)
 
 Entering the house no longer requests an effect; the previous house-exit sound remains. Buy Seeds and Market keep headings, navigation, tabs, selected-item details, quantity choices and complete transaction quotes in separate bands. Short landscape uses two columns within safe margins. On the narrowest phones, the info button moves to the header and coins move above quantities; measured item/detail text remains at native font size. Sale feedback keeps the complete coin amount while dropping the optional HIGH-market suffix if it would exceed its row. Existing prices/catalogue/gates, transactions, paused shop time and save schema are preserved.

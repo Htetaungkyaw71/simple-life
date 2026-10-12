@@ -155,7 +155,7 @@ class Application {
   }
   travel(c){
     if(this.transitioning)return;this.transitioning=true;this.paused=true;this.input={};
-    if(this.state.area==='interior')this.sound('door:open');const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
+    const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
     cam.once('camerafadeoutcomplete',()=>{
       const firstCity=c.to==='city'&&!this.state.hasVisitedCity;this.state.area=c.to;if(c.to==='city')this.state.hasVisitedCity=true;if(c.to==='farm')this.state.hasVisitedFarm=true;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
       this.scene.player.direction=c.facing||'down';this.scene.player.pose(false);this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;

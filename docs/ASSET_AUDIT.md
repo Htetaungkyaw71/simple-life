@@ -1,3 +1,9 @@
+# v0.18.6 — silent-door runtime selection
+
+Retiring the door effect removes its unused WAV from preloading and production. Normal/playtest runtime inventories have 43 files and 27 approved WAVs; eight prior art files, four fonts and notices remain unchanged. Runtime-only deployment excludes source, documents, vendor/unused files, credentials and QA captures. Evidence: verification/silent-doors/README.md.
+
+---
+
 # v0.18.5 — unchanged asset selection
 
 Mobile trade and icon controls change source rendering only. Four approved bitmap font files, eight previous art files and 28 selected WAVs retain their hashes, with full dependency notices. Vendor/source archives, unused packs/fonts, docs and QA captures stay excluded. Current audit evidence: verification/mobile-trade/README.md.

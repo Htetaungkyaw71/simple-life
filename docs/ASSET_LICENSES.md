@@ -1,3 +1,9 @@
+# v0.18.6 — retired door sample
+
+The approved sfx-door-wood-open.wav is excluded from runtime after the user requested silent house entry and exit. Historical creator/source/licence/hash evidence is retained; no source asset is deleted or edited. The 27 remaining approved WAVs, eight prior art files, four approved font files and dependency notices retain their existing bytes and evidence. No new asset or dependency.
+
+---
+
 # v0.18.5 — original icons reused
 
 Existing code-drawn map/jump/use glyphs, approved Thaleah/m5x7 fonts, art and audio are reused. No new asset, modified media bytes, third-party download or dependency. The phone screenshot guides layout only. The wood-door sample remains selected for house exit; house entry is silent. Source/licence evidence and the exact runtime allowlist remain intact.

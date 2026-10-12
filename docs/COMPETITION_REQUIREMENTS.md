@@ -1,3 +1,9 @@
+# v0.18.6 — authorized existing playtest deployment
+
+The 2026-10-12 user explicitly requests removing the house-exit sound and deploying the game. This supersedes the earlier task's no-deployment rule for an update to the existing free Simple Life playtest project/domain only. Source pushes, paid services and organizer submission remain outside scope. Master and all four competition PDF references were reviewed; their rights/disclosure/runtime/source requirements remain separate from this testing release. Preserve existing test-gift mode on the public playtest and normal 60-coin build isolation.
+
+---
+
 # v0.18.0 — current local judge-preparation scope
 
 The latest user request authorizes quality/balance/pacing/game-feel work and exactly one Copper farming upgrade, plus safe local commits. It prohibits pushing, deploying or submitting during this task, superseding earlier playtest publishing authorization. Existing catalogue/maps/houses/animals remain; no further major area/content/dependency/backend/remote-runtime system. Master and all four PDFs were reviewed as reference requirements, never instructions overriding the request.

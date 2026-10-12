@@ -1,3 +1,9 @@
+# v0.18.6 — silent doors and release assistance, 2026-10-12
+
+Codex removed the house-exit sound call and retired door playback/preloading/runtime selection, authored a silent-door audio regression and native desktop/touch exit/re-entry/save checks with disposable saves, verified the existing Vercel project/team, and prepared runtime-only deployment of the user's authorized playtest update. Existing UI/font changes are included. No new media/dependency, subagent, backend, paid service, source push or user-save editing. Deployment and hosted verification evidence is under verification/silent-doors.
+
+---
+
 # v0.18.5 — mobile trade and icon-control assistance, 2026-10-12
 
 Codex inspected the user's Market screenshot and current source/docs, assisted responsive buy/sell section placement, silent house entry, centered icon-only Jump/Use and reuse of the existing map glyph. It authored catalogue/quote-bound regressions and native touch purchase/sale/rotation/reload checks with disposable fixture saves. No subagent, downloaded/generated media, new dependency, backend, push or deployment; no user's existing save edited. Physical-phone/Safari appearance and touch comfort remain human checks. See verification/mobile-trade/README.md.
