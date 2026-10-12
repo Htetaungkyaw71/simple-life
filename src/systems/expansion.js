@@ -13,6 +13,7 @@ export function buyField(s,field){
  if(ownedField(s,field))return 'You already own this field.';
  const price=FIELDS[field].price;
  if(s.money<price)return `You need ${price} coins for field ${field+1}.`;
+ if(!s.ownsCopperCan)return 'Buy the Copper Can at the Farm board before expanding.';
  s.money-=price;s.farms[s.currentFarm].fields[field]=true;
  return `Field ${field+1} is ready. Sixteen new planting spaces!`;
 }
@@ -20,6 +21,7 @@ export function buyFarm(s){
  if(s.farms.length>=MAX_FARMS)return 'Your farm collection is full.';
  const price=nextFarmPrice(s);
  if(s.money<price)return `You need ${price} coins for another farm.`;
+ if(!s.ownsCopperCan)return 'Buy the Copper Can at the Farm board before expanding.';
  s.money-=price;s.farms.push(newFarm());s.plots.push(...Array.from({length:PLOTS_PER_FARM},emptyPlot));s.currentFarm=s.farms.length-1;
  return `Welcome to farm ${s.currentFarm+1}. Its first field is yours.`;
 }

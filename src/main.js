@@ -1,3 +1,5 @@
+import {waterWithCan} from './systems/wateringCan.js';
+import {residentReaction} from './systems/residents.js';
 import {CustomizationPanel} from './ui/CustomizationPanel.js';
 import {AudioManager} from './audio/AudioManager.js';
 import {StoryPanel} from './ui/StoryPanel.js';
@@ -52,7 +54,7 @@ class Application {
     const receipt=this.saves.grantTestingCoins(this.testingCreditEnabled);this.ui.title();
     this.ui.toast(receipt?(receipt.added?'Added '+receipt.added+' testing coins. ':'Testing coins already added. ')+'Saved balance / '+receipt.balance+'c.':this.saves.error);
   }
-  start(state){if(!state)return;if(this.testingCreditEnabled)state=testingCredit(state).state;this.audio.startWorld(state);this.placement.draft=null;this.placement.original=null;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.journalSeen=state.story.flags.length;syncStory(state);this.save();if(state.story.completed&&!state.story.endingSeen)this.storyPanel.completion();else if(state.story.intro==='pending')this.storyPanel.intro();}
+  start(state){if(!state)return;if(this.testingCreditEnabled)state=testingCredit(state,this.testingCreditEnabled).state;this.audio.startWorld(state);this.placement.draft=null;this.placement.original=null;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.journalSeen=state.story.flags.length;syncStory(state);this.save();if(state.story.completed&&!state.story.endingSeen)this.storyPanel.completion();else if(state.story.intro==='pending')this.storyPanel.intro();}
   newGame(character){this.start(newState(character,crypto.getRandomValues(new Uint32Array(1))[0]));}
   sound(key){this.audio.effect(key);this.scene.game.events.emit('sound:request',{key,area:this.state?.area,day:this.state?.day});}
   cycleCrop(){if(this.paused||!this.state)return;if(this.placement.draft)this.placement.cancel();this.sound('ui:move');this.state.selectedCrop=CROP_IDS[(CROP_IDS.indexOf(this.state.selectedCrop)+1)%CROP_IDS.length];this.state.selected='seed';this.save();this.ui.feedback(CROPS[this.state.selectedCrop].name+' seeds selected.');}
@@ -62,19 +64,19 @@ class Application {
   advance(delta){const window=waterPeriod(this.state),day=this.state.day,energy=this.state.energy;tick(this.state,delta);if(this.state.story&&!this.state.story.completed)this.state.story.activeSeconds+=Math.max(0,Math.min(delta,100))/1000;if(window!==waterPeriod(this.state)||day!==this.state.day){this.scene.renderCrops();if(day!==this.state.day&&this.state.plots.some(p=>p.crop&&p.growth>=CROPS[p.crop].growthDays))this.sound('farming:growth');}if(energy>10&&this.state.energy<=10)this.ui.feedback('Low energy / rest at your bed');this.elapsed+=delta;if(this.elapsed>2500||day!==this.state.day){this.save();this.elapsed=0;}}
   use(pointed=null){
     if(this.scene.jumping?.active)return;
-    if(this.paused||!this.state||this.transitioning)return;if(this.placement.draft){this.placement.confirm();return;}const c=pointed||this.scene.context();if(!c)return;this.scene.faceContext(c);
+    if(this.paused||!this.state||this.transitioning)return;if(this.placement.draft){this.placement.confirm();return;}const c=pointed||this.scene.context();if(!c)return;if(this.state.selected!=='water')this.scene.faceContext(c);else if(!this.state.ownsCopperCan)this.scene.player.face(c.x-this.state.position.x,c.y-this.state.position.y);
     if(c.type==='keepsakePlace'){this.storyPanel.place();return;}
     if(c.type==='hunt'){this.attack(c.id);return;}
     if(c.type==='stone'){const before=this.state.inventory.stone;this.ui.feedback(collectStone(this.state,c.id));if(this.state.inventory.stone>before){this.scene.forestView.bits(c.x,c.y-12,0xc1bcac);this.sound('stone:collect');}this.save();return;}
     if(['chop','gatherGrass','placeGrass'].includes(c.type)){
       const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
       const result=useVegetation(this.state,c);this.ui.feedback(result.message);if(!result.ok)this.sound('ui:disabled');
-      if(result.ok){this.scene.refreshVegetation(result.felled);if(c.type==='chop'){this.scene.player.wateringCan.swing();this.sound('combat:swing');this.scene.treeProgress.hit(result);}this.scene.atmosphere.vegetation(c.type,c.x,c.y);this.sound(c.type==='chop'?(result.felled?'tree:fall':'tree:hit'):'farming:'+c.type);if(result.felled)this.sound('wood:pickup');this.save();}return;
+      if(result.ok){if(c.type==='chop')this.scene.treeProgress.hit(result);this.scene.refreshVegetation(result.felled);if(c.type==='chop'){this.scene.player.wateringCan.swing();this.sound('combat:swing');this.scene.impactStop=45;}this.scene.atmosphere.vegetation(c.type,c.x,c.y);this.sound(c.type==='chop'?(result.felled?'tree:fall':'tree:hit'):'farming:'+c.type);if(result.felled)this.sound('wood:pickup');this.save();}return;
     }
     if(c.type==='dig'||c.type==='waterGround'||c.type==='plot'&&this.state.selected==='water'){
       const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
-      const result=c.type==='dig'?digGround(this.state,c):waterGround(this.state,c,c.type==='plot'?c.index:undefined);
-      this.ui.feedback(result.message);if(!result.ok)this.sound(c.type==='waterGround'||c.type==='plot'?'farming:empty':'ui:disabled');if(result.ok){if(c.type==='dig'){this.scene.player.wateringCan.swing();this.scene.refreshVegetation();}this.scene.renderCrops();this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',result.x,result.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();}return;
+      const result=c.type==='dig'?digGround(this.state,c):c.type==='plot'&&this.state.ownsCopperCan?waterWithCan(this.state,c,this.scene.player.direction):waterGround(this.state,c,c.type==='plot'?c.index:undefined);
+      this.ui.feedback(result.message);if(!result.ok&&c.type==='dig')this.sound('ui:disabled');if(result.ok){if(c.type==='dig'){this.scene.player.wateringCan.swing();this.scene.refreshVegetation();}this.scene.renderCrops();for(const tile of result.tiles||[result])this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',tile.x,tile.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();}return;
     }
     if(c.type==='forage'){const before=this.state.inventory[c.item];this.ui.feedback(collectForage(this.state,c.id));if(this.state.inventory[c.item]>before){this.scene.forestView.collect(FORAGE_NODES.find(n=>n.id===c.id));this.sound('forest:collect');}this.save();return;}
     if(c.type==='treasure'){const before=this.state.story.keepsake,count=this.state.forest.treasures.length;this.transact(s=>recoverTreasure(s,c.id));if(this.state.story.keepsake!==before)this.sound('keepsake:collect');else if(count!==this.state.forest.treasures.length)this.sound('cache:open');return;}
@@ -93,7 +95,7 @@ class Application {
     if(c.type==='field'){this.farmOffice.field(c.field);return;}
     if(c.type==='seed'||c.type==='sell'){this.tradePanel.open(c.type);return;}
     if(c.type==='aid'){this.ui.modal('CITY / SEED AID','A fresh start','No coins for seeds? With fewer than 10 coins and no seeds, produce or living crops, collect one free Tomato seed each day.',[['Collect seed',()=>{this.transact(claimRecoverySeed);this.ui.close();},!recoveryEligible(this.state)],['Close',()=>this.ui.close()]]);return;}
-    if(c.type==='dialog'){if(c.residentId&&this.state.area==='city'){recordStory(this.state,'resident');this.save();}this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.body,[...(ORDERS.some(d=>d.resident===c.residentId)?[['Daily request',()=>this.resourcePanel.orders(c.residentId)]]:[]),['See you around',()=>this.ui.close()]]);return;}
+    if(c.type==='dialog'){if(c.residentId&&this.state.area==='city'){recordStory(this.state,'resident');this.save();}this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.residentId?residentReaction(this.state,c.body):c.body,[...(ORDERS.some(d=>d.resident===c.residentId)?[['Daily request',()=>this.resourcePanel.orders(c.residentId)]]:[]),['See you around',()=>this.ui.close()]]);return;}
     if(c.type==='hint'){this.ui.feedback(c.label);return;}
     if(c.type==='plot'){
       const before={...plotAt(this.state,c.index)},fruit=before.crop?this.state.inventory[CROPS[before.crop].produceKey]:0;
@@ -129,7 +131,7 @@ class Application {
     if(this.state.selected!==pending.weapon||this.scene.jumping?.active)return;
     const result=attack(this.state,this.scene.combat,pending.direction,pending.targetId);
     if(result.message)this.ui.feedback(result.message);
-    if(result.ok){this.scene.forestView.attack(pending.direction,result);if(result.hit)this.sound(result.defeated?'animal:defeat':'combat:hit');this.save();}
+    if(result.ok){this.scene.forestView.attack(pending.direction,result);if(result.hit){this.scene.impactStop=55;this.sound(result.defeated?'animal:defeat':'combat:hit');}this.save();}
   }
 
   forestGuidance(){
@@ -157,7 +159,7 @@ class Application {
     cam.once('camerafadeoutcomplete',()=>{
       const firstCity=c.to==='city'&&!this.state.hasVisitedCity;this.state.area=c.to;if(c.to==='city')this.state.hasVisitedCity=true;if(c.to==='farm')this.state.hasVisitedFarm=true;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
       this.scene.player.direction=c.facing||'down';this.scene.player.pose(false);this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;
-      this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;this.sound('travel:enter');if(c.portal)this.ui.toast('Return gate / Forest entrance');if(firstCity)this.ui.toast('Welcome to Lantern Square. Clara sells seeds; Niko buys your harvest.');
+      this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;if(c.portal)this.ui.toast('Return gate / Forest entrance');if(firstCity)this.ui.toast('Welcome to Lantern Square. Clara sells seeds; Niko buys your harvest.');
     });
   }
   pause(){if(this.transitioning||!this.state)return;if(this.paused){this.sound('ui:cancel');if(this.ui.menu?.escape)this.ui.menu.escape();else this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','',[
@@ -167,7 +169,17 @@ class Application {
   pauseMenu(){this.paused=false;this.pause();}
 }
 const app=new Application();
-new Phaser.Game({type:new URLSearchParams(location.search).get('renderer')==='webgl'?Phaser.WEBGL:Phaser.CANVAS,parent:'game',width:innerWidth,height:innerHeight,backgroundColor:'#263e38',pixelArt:true,antialias:false,roundPixels:true,scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%',autoCenter:Phaser.Scale.NO_CENTER},scene:[app.scene,app.ui],physics:{default:'arcade',arcade:{gravity:{x:0,y:0},debug:false}},audio:{noAudio:true},input:{activePointers:4,keyboard:{capture:[32,37,38,39,40]}}});
+const game=new Phaser.Game({type:new URLSearchParams(location.search).get('renderer')==='webgl'?Phaser.WEBGL:Phaser.CANVAS,parent:'game',width:innerWidth,height:innerHeight,backgroundColor:'#263e38',pixelArt:true,antialias:false,roundPixels:true,scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%',autoCenter:Phaser.Scale.NO_CENTER},scene:[app.scene,app.ui],physics:{default:'arcade',arcade:{gravity:{x:0,y:0},debug:false}},audio:{noAudio:true},input:{activePointers:4,keyboard:{capture:[32,37,38,39,40]}}});
+// Mobile resize events can arrive before the parent has its new layout. Observe
+// the actual fullscreen host so canvas, cameras and UI use the same dimensions.
+const host=document.getElementById('game');let resizeFrame=0;
+const fitCanvas=()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{
+  if(!game.isBooted)return;const width=host.clientWidth,height=host.clientHeight;
+  if(width>0&&height>0&&(game.scale.width!==width||game.scale.height!==height)){game.scale.getParentBounds();game.scale.resize(width,height);}
+});};
+const resizeObserver=new ResizeObserver(fitCanvas);resizeObserver.observe(host);
+window.visualViewport?.addEventListener('resize',fitCanvas);
+game.events.once('destroy',()=>{resizeObserver.disconnect();cancelAnimationFrame(resizeFrame);window.visualViewport?.removeEventListener('resize',fitCanvas);});
 window.addEventListener('pagehide',()=>app.save());
 window.addEventListener('blur',()=>{app.ui.resetMovement();if(app.scene.keys)Object.values(app.scene.keys).forEach(k=>k.reset());});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){app.ui.resetMovement();app.save();}});

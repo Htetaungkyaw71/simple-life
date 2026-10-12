@@ -39,3 +39,10 @@ export function residentContext(residents,player){
 }
 
 export function residentMoveAllowed(people,from,to){return people.filter(n=>n.visible!==false).every(n=>{const p=n.position,next=Math.hypot(to.x-p.x,to.y-p.y);return next>=24||next>=Math.hypot(from.x-p.x,from.y-p.y);});}
+
+export function residentReaction(s,body){
+ if(s.story?.keepsake!=='hidden'&&s.story?.keepsake)return 'That little sun belonged to your grandfather. Take it home; there is always another morning.';
+ if(s.settlement.projects.includes('commons'))return 'Our new Commons seats feel like home. The Farm board now has a Copper Can for you.';
+ if(s.hasSoldProduce)return 'Your first harvest reached the market! Help our Commons at the town board by the square.';
+ return 'Water once each day. While the seeds grow, visit the town board. Gather 12 Wood and 6 Stone for our Commons.';
+}

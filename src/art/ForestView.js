@@ -73,7 +73,7 @@ export class ForestView {
  beginSwing(direction){this.swingDirection=direction;this.swingLeft=420;}
  attack(direction,result){
   const s=this.scene.app.state,animal=s.forest.animals[result.animalId]||s.forest.woodland[result.animalId],entry=this.animals?.find(a=>a.definition.id===result.animalId)||this.woodland?.animals.find(a=>a.id===result.animalId);
-  if(result.hit){const p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());this.scene.cameras.main.shake(80,.0012);}
+  if(result.hit){const p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());}
   if(result.defeated){const b=animal.position;const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast('+'+result.meat+' Meat'+(result.species==='boar'?' / +1 Wild Hide':''));}
  }
  hurt(){const p=this.scene.app.state.position;this.bits(p.x,p.y-24,0xe99566);this.scene.cameras.main.shake(100,.0015);}

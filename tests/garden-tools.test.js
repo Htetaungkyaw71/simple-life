@@ -92,7 +92,7 @@ test('all twelve crop identities mature in three to six watered days; missed car
  const s=newState();s.inventory.seed=1;usePlot(s,0);nextDay(s);assert.equal(s.plots[0].growth,0);
 });
 test('actual held utility sprites follow four farmer hand anchors, swing, switch and pause',()=>{
- const u=recorder(),s=newState();u.app={state:s,paused:false};const held=new HeldWateringCan(u);
+ const u=recorder(),s=newState();s.ownsCopperCan=false;u.app={state:s,paused:false};const held=new HeldWateringCan(u);
  for(const tool of ['shovel','axe','water']){s.selected=tool;for(const direction of ['up','down','left','right']){held.update({x:100,y:100},direction,2);assert.ok(held.can.visible);assert.equal(held.can.frame,tool==='water'?'watering-can-item':tool+'-item');assert.ok(Math.hypot(held.hand.x-100,held.hand.y-100)<(tool==='axe'?40:32));assert.equal(held.can.depth,direction==='up'?99:101);}held.swing();held.update({x:100,y:100},'right',2);assert.ok(held.can.rotation>0);u.app.paused=true;u.time.now+=100;held.update({x:100,y:100},'right',2);assert.equal(held.remaining,420);u.app.paused=false;}
  s.selected='hand';held.update({x:100,y:100},'right',2);assert.equal(held.can.visible,false);
 });

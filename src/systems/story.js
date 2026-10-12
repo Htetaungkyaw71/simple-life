@@ -9,13 +9,14 @@ export function storyObjective(s){const q=s.story||freshStory();const chapter=CH
 export function syncStory(s){
  if(!s.story)return;const q=s.story;
  if(s.hasVisitedCity||s.area==='city')recordStory(s,'city');if(s.area==='forest')recordStory(s,'forest');
- if(s.settlement.projects.includes(STORY_PROJECT))recordStory(s,'help');
+ if(s.settlement.projects.includes(STORY_PROJECT)){recordStory(s,'help');recordStory(s,'board');}
  if(q.keepsake!=='hidden'){recordStory(s,'keepsake');if(['home','interior'].includes(s.area))recordStory(s,'home');}
 }
 export function restoreStory(raw,s){
  const q=freshStory(),old=raw.version>=17&&raw.story&&typeof raw.story==='object'?raw.story:null;
  const bounded=(v,max)=>Number.isFinite(v)?Math.max(0,Math.min(max,Math.floor(v))):0;
- if(old){q.intro=['seen','skipped'].includes(old.intro)?old.intro:'pending';q.flags=STORY_FLAGS.filter(id=>Array.isArray(old.flags)&&old.flags.includes(id));q.keepsake=['carried','placed'].includes(old.keepsake)?old.keepsake:'hidden';q.activeSeconds=Number.isFinite(old.activeSeconds)?Math.max(0,Math.min(9999999,old.activeSeconds)):0;for(const id of Object.keys(q.stats))q.stats[id]=bounded(old.stats?.[id],999999);
+ if(old&&(old.flags?.includes('help')||s.settlement.projects.includes(STORY_PROJECT)))recordStory({story:q},'board');
+ if(old){q.intro=['seen','skipped'].includes(old.intro)?old.intro:'pending';q.flags=STORY_FLAGS.filter(id=>q.flags.includes(id)||Array.isArray(old.flags)&&old.flags.includes(id));q.keepsake=['carried','placed'].includes(old.keepsake)?old.keepsake:'hidden';q.activeSeconds=Number.isFinite(old.activeSeconds)?Math.max(0,Math.min(9999999,old.activeSeconds)):0;for(const id of Object.keys(q.stats))q.stats[id]=bounded(old.stats?.[id],999999);
   const all=q.keepsake==='placed'&&STORY_FLAGS.every(id=>q.flags.includes(id));q.completed=old.completed===true&&all;q.endingSeen=q.completed&&old.endingSeen===true;q.cuePlayed=q.completed&&old.cuePlayed===true;
   if(q.completed)q.completion={day:Math.max(1,bounded(old.completion?.day,s.day)),seconds:bounded(old.completion?.seconds,q.activeSeconds),...Object.fromEntries(Object.keys(q.stats).map(id=>[id,bounded(old.completion?.[id],999999)]))};
   if(!q.completed){q.flags=q.flags.filter(id=>!['placed','complete'].includes(id));if(q.keepsake==='placed')q.keepsake='carried';}
@@ -25,7 +26,7 @@ export function restoreStory(raw,s){
   if(allPlots(s).some(p=>p.crop))q.flags.push('plant');if(allPlots(s).some(p=>p.crop&&(p.wateredDay>0||p.growth>0)))q.flags.push('water');
   if(Object.values(s.vegetation||{}).some(v=>v.trees?.length))q.flags.push('wood');
   if(s.forest.collected.length)q.flags.push('fruit');if(s.area==='forest'||s.forest.explored.length>1)q.flags.push('forest');if(Object.values(s.forest.animals).some(a=>a.species==='boar'&&a.health===0))q.flags.push('boar');
-  if(s.settlement.projects.includes(STORY_PROJECT))q.flags.push('wood','stone');
+  if(s.settlement.projects.includes(STORY_PROJECT))q.flags.push('wood','stone','board');
  }
  s.story=q;syncStory(s);q.flags=STORY_FLAGS.filter(id=>q.flags.includes(id));return q;
 }
@@ -37,3 +38,5 @@ export function completeStory(s){
  syncStory(s);const q=s.story;if(!q||q.completed||s.area!=='interior'||q.keepsake!=='carried'||!STORY_FLAGS.filter(id=>!['placed','complete'].includes(id)).every(id=>q.flags.includes(id)))return false;
  q.keepsake='placed';recordStory(s,'placed');recordStory(s,'complete');q.completed=true;q.completion={day:s.day,seconds:Math.floor(q.activeSeconds),...q.stats};return true;
 }
+
+export function storyMarker(s){const q=s.story;if(!q||q.completed||q.keepsake!=='hidden'||!CHAPTERS.slice(0,3).flatMap(c=>c.steps).every(([id])=>q.flags.includes(id)))return null;return {id:STORY_CACHE,label:'Grandfather\'s Keepsake'};}

@@ -70,7 +70,7 @@ test('more stones occupy all forty dry habitats; gathering is one-time per day a
 test('food heals at full energy, caps both stats and never wastes a full/dead/invalid inventory meal',()=>{
  for(const [id,food]of Object.entries(FOODS)){
   const s=forest();s.inventory[id]=2;s.health=50;s.energy=100;assert.match(eatFood(s,id),/health/);assert.equal(s.health,50+food.healthRestored);assert.equal(s.energy,100);assert.equal(s.inventory[id],1);
-  s.health=99;s.energy=99;eatFood(s,id);assert.equal(s.health,100);assert.equal(s.energy,100);assert.equal(s.inventory[id],0);
+  s.foodCooldown=0;s.health=99;s.energy=99;eatFood(s,id);assert.equal(s.health,100);assert.equal(s.energy,100);assert.equal(s.inventory[id],0);
   s.inventory[id]=1;const full=structuredClone(s);assert.match(eatFood(s,id),/already full/);assert.deepEqual(s,full);
   s.health=0;const dead=structuredClone(s);eatFood(s,id);assert.deepEqual(s,dead);
   s.health=50;s.inventory[id]=-1;const invalid=structuredClone(s);eatFood(s,id);assert.deepEqual(s,invalid);

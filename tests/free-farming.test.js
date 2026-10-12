@@ -16,7 +16,7 @@ import {soilPixels,bedMask,cropMarker,drawFarmBeds} from '../src/art/FarmView.js
 import {TradePanel} from '../src/ui/TradePanel.js';
 import {BagPanel,bagItems} from '../src/ui/BagPanel.js';
 import {recorder} from './helpers/uiRecorder.js';
-const farm=()=>Object.assign(newState(),{area:'farm',selected:'shovel'});
+const farm=()=>Object.assign(newState(),{area:'farm',selected:'shovel',ownsCopperCan:true});
 const free=[];
 for(let y=72;y<1056;y+=48)for(let x=72;x<2160;x+=48)if(openGround('farm',x,y,true)&&!FARM_PLOTS.some(b=>Math.abs(b.x-x)<48&&Math.abs(b.y-y)<48))free.push({x,y});
 function dig(s,p=free[0]){s.position={x:p.x,y:p.y+30};return digGround(s,p);}
@@ -71,7 +71,7 @@ test('all twelve seeds and all produce pages remain selectable at desktop and sm
 });
 
 test('harvested watermelon, grapes and blueberries are edible through the existing capped-energy rules',()=>{
- const s=farm();s.energy=50;for(const id of ['watermelon','grape','blueberry']){s.energy=50;s.inventory[id]=1;assert.match(eatFood(s,id),/energy/);assert.ok(s.energy>50&&s.energy<=100);assert.equal(s.inventory[id],0);}
+ const s=farm();s.energy=50;for(const id of ['watermelon','grape','blueberry']){s.foodCooldown=0;s.energy=50;s.inventory[id]=1;assert.match(eatFood(s,id),/energy/);assert.ok(s.energy>50&&s.energy<=100);assert.equal(s.inventory[id],0);}
 });
 
 test('watering selected still permits keyboard interaction with the home door and bed',()=>{

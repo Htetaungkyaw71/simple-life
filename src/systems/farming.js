@@ -6,7 +6,7 @@ import {CROPS} from '../data/crops.js';
 import {emptyPlot} from './state.js';
 import {wateredToday,completedDay,evaluateWatering,missed} from './watering.js';
 export {waterPeriod} from './watering.js';
-export function usePlot(s,index){
+export function usePlot(s,index,{waterCost=FARM_ENERGY.water}={}){
  if(!plotOwned(s,index))return 'Dig with the shovel first.';
  evaluateWatering(s);
  const p=plotAt(s,index);if(!p)return 'Choose a farm plot';
@@ -19,9 +19,9 @@ export function usePlot(s,index){
  if(!p.crop)return 'Select a seed';
  if(s.selected==='water'){
   if(p.growth>=def.growthDays)return 'Ready to harvest';
-  if(wateredToday(s,p))return 'Already watered today';if(s.energy<FARM_ENERGY.water)return 'Too tired - rest at home';
+  if(wateredToday(s,p))return 'Already watered today';if(s.energy<waterCost)return 'Too tired - rest at home';
   if(missed(p))p.recoveredDay=s.day;
-  s.energy-=FARM_ENERGY.water;p.wateredDay=s.day;recordStory(s,'water');p.missedDays=0;return 'Watered';
+  s.energy-=waterCost;p.wateredDay=s.day;recordStory(s,'water');p.missedDays=0;return 'Watered';
  }
  if(p.growth<def.growthDays)return missed(p)?'Growth paused - needs water':'Still growing';
  if(s.energy<FARM_ENERGY.harvest)return 'Too tired - rest at home';if((s.inventory[def.produceKey]||0)>9999-def.harvestYield)return 'Produce bag full';

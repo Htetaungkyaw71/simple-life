@@ -1,3 +1,9 @@
+# v0.18.0 — assistance disclosure for human review
+
+Codex-assisted code, crop balance, clock/progression, Copper tool, original procedural intro illustrations/effects, tests, native browser verification, source-rights audit and documentation are recorded in AI_USAGE.md and assets/licenses/judge-polish/SOURCE_RECORD.md. Existing licensed artwork and sounds retain their creators' authorship. No generative image/audio service, new external source or deployment/submission. This is a truthful assistance record for the team to review, not a signed human originality/eligibility/legal declaration. Physical devices, subjective art/audio acceptance and official submission documents remain the team's responsibility.
+
+---
+
 # v0.17.4 — code assistance follow-up
 
 Codex assisted with outdoor birds, default ground-plant gathering, collision/render cleanup, deterministic save/action tests, disposable native browser audio/input checks, documentation and authorized public playtest update. Existing licensed art/audio reused byte-for-byte. User review is the playtest; no claim of physical phone or subjective audio review. Evidence: verification/outdoor-plants/README.md.

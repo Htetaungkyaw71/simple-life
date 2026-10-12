@@ -1,3 +1,9 @@
+# v0.18.0 — source evidence and unchanged approved assets
+
+No new third-party art/audio/dependency or source terms. Eight runtime art files retain their baseline hashes. The 29 selected WAVs are byte-identical to previously reviewed local assets under assets/licenses/cozy-audio and morning-audio; seven approved Farm effects are newly reselected. Introduction art is original Codex-assisted source code, with no protected game/reference pixels copied and no exclusive authorship claim. Runtime preserves full Phaser/EventEmitter3/Vite notices, copyPublicDir:false and exact art/audio allowlists; vendor/source archives, unused packs, wind/fireplace and historical generated scores stay outside dist. Source record: assets/licenses/judge-polish/SOURCE_RECORD.md; current production audit summary: verification/judge-polish/README.md. Human legal/team/organizer declarations remain unsigned and separate from technical checks.
+
+---
+
 # v0.17.4 — existing audio/art reuse only
 
 Existing reviewed `forest-day.wav` supplies gentle outdoor birds around Home/Farm/City. No new audio file or changed WAV bytes: runtime remains 22 selected samples, with wind/fireplace/vendor archives excluded. Default plant sprites are existing approved local atlas frames; gathering changes behavior, not artwork or licence terms. Eight runtime art files and dependency notices remain unchanged. Provenance: assets/licenses/cozy-audio/SOURCE_RECORD.md and existing art records. Audit: verification/outdoor-plants/runtime-audit.json.

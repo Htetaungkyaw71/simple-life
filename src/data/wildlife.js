@@ -2,7 +2,7 @@ import {dryFootprint} from './water.js';
 import {EAST_BOARS} from './forestExpansion.js';
 import {TREASURES,BOAR_HOME,BOAR_TERRITORY,FOREST_MAP} from './forest.js';
 // Only supplied Craftpix animals remain; quiet animals have no combat state.
-export const SPECIES={boar:{name:'Wild Boar',tier:1,health:3,damage:15,speed:280,awareness:190,temperament:'defensive',warning:650,recovery:1100,body:16}};
+export const SPECIES={boar:{name:'Wild Boar',tier:1,health:3,damage:15,speed:280,awareness:190,temperament:'defensive',warning:850,recovery:1100,body:16}};
 export const ANIMAL_SPAWNS=[
  {id:'boar-original',species:'boar',region:'entrance',territory:BOAR_TERRITORY,home:{...BOAR_HOME}},
  {id:'boar-1',species:'boar',region:'entrance',territory:BOAR_TERRITORY,home:{x:1008,y:4432}},

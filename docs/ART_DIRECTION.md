@@ -1,3 +1,9 @@
+# v0.18.0 — restrained judge polish
+
+Introduction tableaux now use deterministic integer-pixel textures, layered olive foliage, warm cottage shingles/planks/windows, wood grain/paper/keepsake, and a muted crowded city. They are original project code art; no outside bitmap/sample. Copper preview uses restrained gold corners, its existing can receives a warm copper tint, and soil/seed/pour/leaf/produce/coin/tree-fall effects remain short, world-local and crisp. Approved atlas bytes, quiet interiors, fullscreen canvas UI, current Forest natural shores/grass passages/bridges/dry roots and path/gate clearance remain. No new floating-label catalogue or wholesale map redraw. Human visual acceptance remains required.
+
+---
+
 # v0.17.4 — gather default ground plants
 
 Keep all existing default ground foliage artwork, colors, scale and placements until gathered. Register flower/fern/mushroom/snow-grass/low shrub/bamboo silhouettes at their visible feet, using native atlas dimensions. Gathering removes the complete plant and shadow without changing unrelated tree/crop/purchased-decoration art. Animated plants leave the animation list when removed. No new art, recoloring, teal ferns or raised banks. Evidence: verification/outdoor-plants/README.md.

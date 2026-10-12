@@ -49,11 +49,11 @@ test('each free forage node collects once per day, persists on reload/reentry an
  const before=structuredClone(saved);saved.inventory[node.item]=9999;saved.day++;refreshForest(saved);assert.match(collectForage(saved,node.id),/full/);assert.equal(saved.forest.collected.length,0);assert.ok(before.inventory.wildBerry>0);
 });
 test('eating exactly one forest fruit respects energy values, full energy and invalid inventory',()=>{
- for(const id of FOOD_IDS){const s=forest();s.inventory[id]=2;s.energy=10;eatFood(s,id);assert.equal(s.energy,10+FOODS[id].energyRestored);assert.equal(s.inventory[id],1);s.energy=99;eatFood(s,id);assert.equal(s.energy,100);assert.equal(s.inventory[id],0);s.inventory[id]=1;assert.match(eatFood(s,id),/already full/);assert.equal(s.inventory[id],1);}
+ for(const id of FOOD_IDS){const s=forest();s.inventory[id]=2;s.energy=10;eatFood(s,id);assert.equal(s.energy,10+FOODS[id].energyRestored);assert.equal(s.inventory[id],1);s.foodCooldown=0;s.energy=99;eatFood(s,id);assert.equal(s.energy,100);assert.equal(s.inventory[id],0);s.inventory[id]=1;assert.match(eatFood(s,id),/already full/);assert.equal(s.inventory[id],1);}
  const s=forest(),before=structuredClone(s);eatFood(s,'tomato');assert.deepEqual(s,before);
 });
 test('forest fruit and hide sales apply stable daily multiplier, keeping crop prices unchanged',()=>{
- const s=forest();s.money=100;for(const id of [...FOOD_IDS,'wildHide']){s.inventory[id]=3;const before=s.money,q=marketPrice(s,id);assert.ok(q.percent>=85&&q.percent<=120);sellCrop(s,id,1);assert.equal(s.money,before+q.price);assert.equal(s.inventory[id],2);assert.deepEqual(marketPrice(validate(s),id),q);}
+ const s=forest();s.money=100;for(const id of [...FOOD_IDS,'wildHide']){s.inventory[id]=3;const before=s.money,q=marketPrice(s,id);assert.ok(q.percent>=75&&q.percent<=130);sellCrop(s,id,1);assert.equal(s.money,before+q.price);assert.equal(s.inventory[id],2);assert.deepEqual(marketPrice(validate(s),id),q);}
 });
 test('retired club refunds an older purchase once without affecting progress',()=>{
  const old={...newState(),version:12,money:15,ownsClub:true,clubEquipped:true};const s=validate(old);assert.equal(s.money,60);assert.ok(!Object.hasOwn(s,'ownsClub'));assert.ok(!Object.hasOwn(s,'clubEquipped'));assert.deepEqual(validate(s),s);
@@ -67,7 +67,7 @@ test('directional axe only hits in front, spends one energy and enforces 500ms c
 });
 test('boar telegraphs, locks a charge, damages once, recovers and returns to wandering',()=>{
  const s=forest(),r=combatRuntime();s.position={x:936,y:4534};r.grace=0;r.timer=0;
- assert.equal(stepCombat(s,r,50).warning,true);assert.equal(s.health,100);assert.equal(r.mode,'warning');for(let i=0;i<12;i++)stepCombat(s,r,50);assert.equal(r.mode,'warning');assert.equal(s.health,100);stepCombat(s,r,50);assert.equal(r.mode,'charge');
+ assert.equal(stepCombat(s,r,50).warning,true);assert.equal(s.health,100);assert.equal(r.mode,'warning');for(let i=0;i<16;i++)stepCombat(s,r,50);assert.equal(r.mode,'warning');assert.equal(s.health,100);stepCombat(s,r,50);assert.equal(r.mode,'charge');
  let hurt=false;for(let i=0;i<15;i++)hurt=stepCombat(s,r,50).hurt||hurt;assert.ok(hurt);assert.equal(s.health,85);assert.equal(r.mode,'recover');s.position={x:640,y:5056};for(let i=0;i<30;i++)stepCombat(s,r,50);assert.equal(r.mode,'wander');
 });
 test('boar charges cannot tunnel through obstacles or territory; melee cannot hit through solids',()=>{

@@ -1,3 +1,9 @@
+# v0.18.0 additive schema-18 fields
+
+balanceRevision:1 records the crop-economy duration migration; omitted old values preserve already-ripe Cucumber/Sweet Potato and earned partial growth/care. ownsCopperCan defaults false and is persisted as a boolean, without deleting old large farms/custom beds. foodCooldown defaults zero and clamps to 0–12000ms, advances only in active world time and persists on reload. Existing coin balances/testing-grant stamp, key item, story completion, inventory, farms, houses/decor and localStorage key remain. Newly added board story flag restores from prior help/Commons evidence. No new external save format or cloud service.
+
+---
+
 # v0.17.4 — default plant collection uses existing schema 18
 
 Newly gatherable default plants use existing `vegetation[area or farm:N].grass` coordinate IDs (`grass:name:x:y`), the registered-ID whitelist and `inventory.grass`. Old grass/tree IDs stay unchanged; new known flower/fern/mushroom/shrub/bamboo IDs survive validation and deduplicate. Removal persists per farm. No version bump or playtest gift reset. Purchased decoration ownership/editing remains separate.

@@ -1,3 +1,5 @@
+import {wateringPreview} from '../systems/wateringCan.js';
+import {simulationActive} from '../systems/time.js';
 import {placedDecorationAt} from '../systems/settlement.js';
 import {resizeRoomDecor} from '../systems/roomDecor.js';
 import {PlacementView} from '../art/PlacementView.js';
@@ -106,7 +108,7 @@ export class WorldScene extends Phaser.Scene {
     else cam.centerOn(448,290);
   }
   build(){
-    this.app.pendingAttack=null;this.collisionWorld?.destroy();this.collisionWorld=null;this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;
+    this.app.pendingAttack=null;this.collisionWorld?.destroy();this.collisionWorld=null;this.cameras.main.stopFollow();this.tweens.killAll();this.children.removeAll(true);this.player=null;this.impactStop=0;
     const s=this.app.state;this.targetPlot=null;this.targetGround=null;this.plotPositions=visiblePlots(s||{farms:[{fields:[true,false,false,false]}]});drawWorld(this,s?.area||'farm');this.plots=this.add.group();this.wetPatches=this.add.group();this.wetSignature='';this.renderCrops();this.portal=s?.area==='forest'?new ForestPortalView(this):null;
     if(s){this.collisionWorld=new CollisionWorld(this,s.area);this.player=new PlayerView(this,s.character);this.player.update(s.position,0,0);}
     this.plotOutline=this.add.graphics().setDepth(1800);
@@ -151,8 +153,8 @@ export class WorldScene extends Phaser.Scene {
     beginJump(a.state,this.jumping,x||y?{x,y}:facing[this.player.direction]);
   }
   update(_,delta){
-    const a=this.app,s=a.state;a.audio.update(s,!a.paused&&!document.hidden&&!a.transitioning,delta,{paused:a.paused});if(!s||a.transitioning)return;let dx=0,dy=0,intent={x:0,y:0};
-    if(!a.paused&&!document.hidden){
+    const a=this.app,s=a.state;a.audio.update(s,!a.paused&&!document.hidden&&!a.transitioning,delta,{paused:a.paused});if(!s||a.transitioning)return;if(this.impactStop>0&&!a.paused){this.impactStop=Math.max(0,this.impactStop-Math.min(delta,50));return;}let dx=0,dy=0,intent={x:0,y:0};
+    if(simulationActive({paused:a.paused,hidden:document.hidden,transitioning:a.transitioning})){
       a.placement.update();const {x,y}=a.placement.draft?{x:0,y:0}:movementVector(this.keys,a.input);intent={x,y};
       const step=WORLD.speed*(s.area==='interior'?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x*step,ny=s.position.y+y*step;
       const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
@@ -168,6 +170,6 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position,Math.min(delta,50));
     const light=worldLight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
     this.cityLights.update(light);
-    this.renderWetGround();const c=this.context();this.treeProgress.update(c);this.placementView.update();this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused&&!a.placement.draft){this.plotOutline.lineStyle(2,0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=c.x+sx*23,y=c.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}this.marker.setVisible(!a.placement.draft&&!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
+    this.renderWetGround();const c=this.context();this.treeProgress.update(c);this.placementView.update();this.plotOutline.clear();if(['plot','dig','waterGround','placeDecoration'].includes(c?.type)&&!a.paused&&!a.placement.draft){const preview=s.selected==='water'&&s.ownsCopperCan?wateringPreview(s,c,this.player.direction):[c];for(const tile of preview){this.plotOutline.lineStyle(2,tile.eligible===false?0x88916c:0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=tile.x+sx*23,y=tile.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}}this.marker.setVisible(!a.placement.draft&&!!c&&!['plot','dig','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

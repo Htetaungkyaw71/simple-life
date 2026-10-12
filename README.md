@@ -1,3 +1,23 @@
+# v0.18.0 — local judge polish (2026-10-11)
+
+The default production build is the real 60-coin game. Only `VITE_PLAYTEST=true` enables the clearly labeled once-per-save +100,000c testing gift; localhost, developer mode and query parameters cannot grant it. Existing saved balances remain intact.
+
+```sh
+npm install
+npm test
+npm run dev
+npm run build
+npm run preview
+# Separate testing artifact; never use this for competition:
+npm run build:playtest -- --outDir /tmp/simple-life-playtest --emptyOutDir
+```
+
+A day from 06:00 to midnight lasts 7½ active minutes. Journal, Bag, shops, Customize, dialogue, story and Pause stop time. Claim three seeds beside Home's front steps; follow the south Farm sign, plant and water once each day. Visit City, meet a neighbour, collect 12 Wood / 6 Stone, read the board and try one fruit while crops grow. After your errands, rest using the actual bed; after three watered midnights, harvest and sell. Help Commons at the City board; its 240c reward unlocks the Farm board's Copper Can (180c / 6 Wood / 4 Stone). Select Water and face the row: up to three gold-preview beds cost 2 EP. New expansion requires the can. Existing expanded farms remain usable.
+
+The Forest chapter reveals a gold sun destination on the map. Dodge a boar's `!` warning, recover the Keepsake and return it to the right-hand shelf inside Home. Expensive houses and deep exploration remain optional. See [balance report](docs/BALANCE_REPORT.md), [current checks](docs/verification/judge-polish/README.md) and [project status](docs/PROJECT_STATUS.md). This version is local only: the public playtest remains its prior deployed version. No push, deployment or submission is performed.
+
+---
+
 # v0.17.4 — outdoor birds and gatherable default plants
 
 Daytime birds now play around Home, Farm and City; Forest, rivers, fountains and night ambience retain their existing behavior. Inside the house stays quiet, with action and sleep/wake effects preserved. Default wildflowers, ferns, grass, mushrooms, low shrubs and bamboo can be gathered with empty hands: click nearby plants on desktop, or face them and press **Use** on mobile. Each patch gives one Grass, plays a pickup sound and stays removed after saving/reloading; Grass can be replanted using the existing tool. Paid decorations retain Remove/Readjust choices. [Public playtest](https://simple-life-playtest.vercel.app/) — refresh and Continue. [Verification](docs/verification/outdoor-plants/README.md).

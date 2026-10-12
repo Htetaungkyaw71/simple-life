@@ -16,7 +16,7 @@ const FOREST_FOOD_IDS=Object.keys(FOODS);
 export const FOREST_ITEMS={wildBerry:FOODS.wildBerry,guava:FOODS.guava,mango:FOODS.mango,wildHide:{id:'wildHide',name:'Wild Hide',sellPrice:18,energyRestored:0,icon:'wild-hide-item'},...Object.fromEntries(FOREST_FOOD_IDS.slice(3).map(id=>[id,FOODS[id]]))};
 Object.assign(FOODS,{watermelon:{id:'watermelon',name:'Watermelon',sellPrice:85,energyRestored:35,icon:'watermelon-item'},grape:{id:'grape',name:'Grape',sellPrice:42,energyRestored:20,icon:'grape-item'},blueberry:{id:'blueberry',name:'Blueberry',sellPrice:38,energyRestored:16,icon:'blueberry-item'}});
 export const FOOD_IDS=Object.keys(FOODS);
-for(const food of Object.values(FOODS))food.healthRestored=Math.round(food.energyRestored*.4);
+for(const food of Object.values(FOODS)){if(FOREST_FOOD_IDS.includes(food.id))food.energyRestored=Math.round(food.energyRestored*.6);food.healthRestored=FOREST_FOOD_IDS.includes(food.id)?Math.max(2,Math.round(food.energyRestored*.25)):Math.round(food.energyRestored*.4);}
 export const MEAT={id:'meat',name:'Meat',sellPrice:16,energyRestored:20,healthRestored:25,icon:'meat-item'};
 FOODS.meat=MEAT;FOOD_IDS.push('meat');
 export const GRILLED_MEAT={id:'grilledMeat',name:'Grilled Meat',sellPrice:32,energyRestored:35,healthRestored:50,icon:'meat-item'};

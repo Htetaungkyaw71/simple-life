@@ -12,6 +12,18 @@ export function axeSwingPose(direction,remaining){
  const turn=remaining<=0?0:t<.26?-.55*ease(t/.26):t<.60?-.55+1.65*ease((t-.26)/.34):1.1*(1-ease((t-.60)/.40));
  return {flip,originX:flip?13/16:3/16,rotation:Math.PI+side*turn,reach:Math.round(Math.sin(t*Math.PI)*2)*2};
 }
+// Canvas and WebGL share the same cached native pixels; sprite tint is WebGL-only.
+export function copperCanPixels(input){
+ const data=new Uint8ClampedArray(input);
+ for(let i=0;i<data.length;i+=4){if(!data[i+3]||Math.max(data[i],data[i+1],data[i+2])<80)continue;const light=(data[i]+data[i+1]+data[i+2])/3;data[i]=Math.min(255,Math.round(light*1.1+24));data[i+1]=Math.round(light*.78+12);data[i+2]=Math.round(light*.47+8);}
+ return data;
+}
+function copperCanTexture(scene){
+ const key='watering-can-copper';if(scene.textures.exists(key))return key;
+ const frame=scene.textures.getFrame('town','watering-can-item'),t=scene.textures.createCanvas(key,frame.cutWidth,frame.cutHeight),ctx=t.context;
+ ctx.drawImage(frame.source.image,frame.cutX,frame.cutY,frame.cutWidth,frame.cutHeight,0,0,frame.cutWidth,frame.cutHeight);
+ const pixels=ctx.getImageData(0,0,frame.cutWidth,frame.cutHeight);pixels.data.set(copperCanPixels(pixels.data));ctx.putImageData(pixels,0,0);t.setFilter(1);t.refresh();return key;
+}
 export class HeldWateringCan {
  constructor(scene){
   this.scene=scene;this.can=scene.add.image(0,0,'town','watering-can-item').setVisible(false);
@@ -32,7 +44,8 @@ export class HeldWateringCan {
    Object.assign(p,pose);
    p.depth=Math.round(position.y)+(facing==='up'?-1:1);
   }
-  this.can.setTexture('town',tool==='water'?'watering-can-item':tool+'-item').setOrigin(p.originX,tool==='water'?5/16:tool==='axe'?2/16:3/16).setScale(scale).setFlipX(p.flip).setFlipY(false).setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth);
+  const copper=tool==='water'&&this.scene.app.state?.ownsCopperCan;this.can.setTexture(copper?copperCanTexture(this.scene):'town',copper?undefined:tool==='water'?'watering-can-item':tool+'-item').setOrigin(p.originX,tool==='water'?5/16:tool==='axe'?2/16:3/16).setScale(scale).setFlipX(p.flip).setFlipY(false).setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth);
+  this.can.setTint(0xffffff);
   this.hand.setSize(2,2).setScale(scale).setPosition(p.x,p.y).setDepth(p.depth+1);
  }
  nozzle(){const sign=this.can.flipX?-1:1,scale=this.can.scaleX;return {x:this.can.x+sign*10*scale,y:this.can.y+(this.remaining?4:-1)*scale};}

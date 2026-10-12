@@ -1,3 +1,9 @@
+# v0.18.0 — judge polish assistance, 2026-10-11
+
+OpenAI Codex (GPT-6 family, no model override or subagent) inspected source/status, README/docs, master prompt, four competition PDFs and the current deployed title without using the public save. It checkpointed the latest playable v0.17.4 locally, audited twelve crop economies before selecting new values, and assisted explicit build-mode isolation, deterministic clock/modal pause, controlled Journal hints, Copper Watering Can, save migration, meal cooldown, fairer warning/recovery, restrained effects/audio, original code-drawn introduction art and progress-aware resident lines. It authored pure regressions and native Chrome mouse/keyboard/touch tests with disposable saves, measured actual-input progression, audited unchanged asset bytes/notices, and updated documentation. No external asset download, image/audio generator, dependency/backend, push, deployment, organizer submission or message to others. Existing third-party creator credits remain; human visual/listening, physical-phone, other-engine and legal/eligibility approval remain distinct from automated evidence.
+
+---
+
 # v0.17.4 — user-requested outdoor audio and plant collection
 
 2026-10-11: Codex assisted with diagnosis of silent daytime Home/Farm/City profiles, reuse of the reviewed birds sample outdoors, registration and gathering of default ground plants (including the supplied screenshot's wildflowers), bamboo collision removal, animated sprite cleanup, persistence/atomicity tests, native mouse/touch browser verification and the authorized same-project public playtest update. Existing interior silence, action SFX, paid decoration editing and saved progression retained. No new external assets, dependency, backend, image generation, commit or push. Human review remains the user's live playtest. Evidence: verification/outdoor-plants/README.md.

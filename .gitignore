@@ -4,3 +4,8 @@ tmp/
 .DS_Store
 *.log
 __pycache__/
+
+# Generated QA captures/reports stay local; authored verification READMEs are tracked.
+docs/verification/**/*.png
+docs/verification/**/*.json
+docs/verification/**/*.txt

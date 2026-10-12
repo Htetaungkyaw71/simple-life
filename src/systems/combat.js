@@ -49,7 +49,7 @@ export function attack(s,r,direction,targetId=null){
    const definition=ANIMAL_BY_ID[target.id],p=target.position,len=Math.hypot(p.x-s.position.x,p.y-s.position.y)||1;
    result.hit=true;result.animalId=target.id;result.species=target.species;target.health--;
    displace('forest',p,(p.x-s.position.x)/len*18,(p.y-s.position.y)/len*18,definition?.territory||false,SPECIES[target.species]?.body||8,s);
-   if(definition){const runtime=animalRuntime(r,target.id);runtime.mode='recover';runtime.timer=600;}
+   if(definition){const runtime=animalRuntime(r,target.id);if(runtime.mode==='wander'){runtime.mode='recover';runtime.timer=150;}}
    if(!target.health){result.defeated=true;target.defeatedDay=s.day;if(target.species==='boar'){recordStory(s,'boar');if(s.story)s.story.stats.boars++;}s.inventory.meat+=meat;result.meat=meat;if(target.species==='boar')s.inventory.wildHide++;}
   }
  }

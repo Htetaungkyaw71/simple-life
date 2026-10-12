@@ -1,5 +1,5 @@
 import {DECORATIONS} from './settlement.js';
-import {FOREST_ITEMS,MEAT,GRILLED_MEAT} from './items.js';
+import {FOREST_ITEMS,MEAT,GRILLED_MEAT,FOODS,FOOD_IDS} from './items.js';
 export const LEGACY_GROWTH_DAYS={tomato:1,strawberry:2,carrot:2,corn:2,chili:1,eggplant:2,cucumber:1,watermelon:2,pumpkin:2,grape:2,blueberry:2,sweetPotato:1};
 export const WATER_WINDOWS=[{id:'daily',start:0,end:1440,label:'Once daily'}];
 const crop=(id,name,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,description)=>({
@@ -8,19 +8,21 @@ const crop=(id,name,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,d
  sprites:Object.fromEntries(['seed','sprout','young','flowering','ripe','dry','wilted','dead'].map(key=>[key,id+'-'+key])),
 });
 export const CROPS={
- tomato:crop('tomato','Tomato',10,18,3,2,12,'A dependable first harvest.'),
- strawberry:crop('strawberry','Strawberry',18,28,4,2,8,'Sweet berries reward steady care.'),
- carrot:crop('carrot','Carrot',28,70,3,1,22,'One valuable root beneath the soil.'),
- corn:crop('corn','Corn',40,36,4,3,14,'A longer season, a generous harvest.'),
- chili:crop('chili','Chili',22,24,3,3,10,'Small peppers, a bright harvest.'),
- eggplant:crop('eggplant','Eggplant',32,46,4,2,18,'Purple fruit on a leafy bush.'),
- cucumber:crop('cucumber','Cucumber',26,30,3,3,16,'Crisp fruit on curling vines.'),
- watermelon:crop('watermelon','Watermelon',55,85,5,2,35,'Large sweet melons on low vines.'),
- pumpkin:crop('pumpkin','Pumpkin',48,74,6,2,28,'Golden pumpkins need patient care.'),
- grape:crop('grape','Grape',36,42,5,3,20,'Sweet clusters on a small vine.'),
- blueberry:crop('blueberry','Blueberry',30,38,4,3,16,'Blue berries on a low bush.'),
- sweetPotato:crop('sweetPotato','Sweet Potato',24,38,3,2,24,'A warm root under broad leaves.'),
+ tomato:crop('tomato','Tomato',10,18,3,2,12,'Low-cost first crop'),
+ strawberry:crop('strawberry','Strawberry',18,51,4,2,18,'Rich return on a small seed budget'),
+ carrot:crop('carrot','Carrot',28,70,3,1,28,'Fast single root / travel food'),
+ corn:crop('corn','Corn',40,30,4,4,10,'Four ears / market volume'),
+ chili:crop('chili','Chili',22,24,3,3,6,'Fast cash / light food'),
+ eggplant:crop('eggplant','Eggplant',32,52,4,2,24,'Balanced meal and market crop'),
+ cucumber:crop('cucumber','Cucumber',26,33,4,3,16,'Three fruits / strong market days'),
+ watermelon:crop('watermelon','Watermelon',55,90,5,2,35,'Premium melons / long journey food'),
+ pumpkin:crop('pumpkin','Pumpkin',48,72,6,3,38,'Patient harvest / hearty food'),
+ grape:crop('grape','Grape',36,46,5,4,20,'Four clusters / high market volume'),
+ blueberry:crop('blueberry','Blueberry',30,33,4,3,20,'Three berries / better food than cucumber'),
+ sweetPotato:crop('sweetPotato','Sweet Potato',24,42,4,2,32,'Affordable hearty exploration food'),
 };
+// Existing food flow now gives every crop a clear eating opportunity cost.
+for(const c of Object.values(CROPS)){c.trait=c.description;FOODS[c.id]={id:c.id,name:c.name,sellPrice:c.sellPrice,energyRestored:c.energyRestored,healthRestored:Math.round(c.energyRestored*.4),icon:c.icon};if(!FOOD_IDS.includes(c.id))FOOD_IDS.push(c.id);}
 export const CROP_IDS=Object.keys(CROPS);
 export const INVENTORY_KEYS=[...CROP_IDS.flatMap(id=>[CROPS[id].seedKey,id]),...Object.keys(FOREST_ITEMS),'wood','grass','stone','meat','grilledMeat',...Object.values(DECORATIONS).map(d=>d.item)];
 export const FIELD={x:352,y:224,cell:48,cols:4,rows:4};

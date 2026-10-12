@@ -1,0 +1,735 @@
+[
+  {
+    "id": "tomato",
+    "name": "Tomato",
+    "category": "field",
+    "seedKey": "seed",
+    "produceKey": "tomato",
+    "seedPrice": 10,
+    "sellPrice": 18,
+    "growthDays": 3,
+    "harvestYield": 2,
+    "energyRestored": 12,
+    "regrow": false,
+    "unlock": null,
+    "description": "Low-cost first crop",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "tomato-item",
+    "seedIcon": "tomato-seed-item",
+    "sprites": {
+      "seed": "tomato-seed",
+      "sprout": "tomato-sprout",
+      "young": "tomato-young",
+      "flowering": "tomato-flowering",
+      "ripe": "tomato-ripe",
+      "dry": "tomato-dry",
+      "wilted": "tomato-wilted",
+      "dead": "tomato-dead"
+    },
+    "trait": "Low-cost first crop",
+    "profitPerDay": 8.666666666666666,
+    "workEnergy": 5,
+    "market": {
+      "min": 14,
+      "mean": 18.464285714285715,
+      "max": 23
+    },
+    "food": {
+      "id": "tomato",
+      "name": "Tomato",
+      "sellPrice": 18,
+      "energyRestored": 12,
+      "healthRestored": 5,
+      "icon": "tomato-item"
+    }
+  },
+  {
+    "id": "strawberry",
+    "name": "Strawberry",
+    "category": "field",
+    "seedKey": "strawberrySeed",
+    "produceKey": "strawberry",
+    "seedPrice": 18,
+    "sellPrice": 51,
+    "growthDays": 4,
+    "harvestYield": 2,
+    "energyRestored": 18,
+    "regrow": false,
+    "unlock": null,
+    "description": "Rich return on a small seed budget",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "strawberry-item",
+    "seedIcon": "strawberry-seed-item",
+    "sprites": {
+      "seed": "strawberry-seed",
+      "sprout": "strawberry-sprout",
+      "young": "strawberry-young",
+      "flowering": "strawberry-flowering",
+      "ripe": "strawberry-ripe",
+      "dry": "strawberry-dry",
+      "wilted": "strawberry-wilted",
+      "dead": "strawberry-dead"
+    },
+    "trait": "Rich return on a small seed budget",
+    "profitPerDay": 21,
+    "workEnergy": 6,
+    "market": {
+      "min": 38,
+      "mean": 52.267857142857146,
+      "max": 66
+    },
+    "food": {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "sellPrice": 51,
+      "energyRestored": 18,
+      "healthRestored": 7,
+      "icon": "strawberry-item"
+    }
+  },
+  {
+    "id": "carrot",
+    "name": "Carrot",
+    "category": "field",
+    "seedKey": "carrotSeed",
+    "produceKey": "carrot",
+    "seedPrice": 28,
+    "sellPrice": 70,
+    "growthDays": 3,
+    "harvestYield": 1,
+    "energyRestored": 28,
+    "regrow": false,
+    "unlock": null,
+    "description": "Fast single root / travel food",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "carrot-item",
+    "seedIcon": "carrot-seed-item",
+    "sprites": {
+      "seed": "carrot-seed",
+      "sprout": "carrot-sprout",
+      "young": "carrot-young",
+      "flowering": "carrot-flowering",
+      "ripe": "carrot-ripe",
+      "dry": "carrot-dry",
+      "wilted": "carrot-wilted",
+      "dead": "carrot-dead"
+    },
+    "trait": "Fast single root / travel food",
+    "profitPerDay": 14,
+    "workEnergy": 5,
+    "market": {
+      "min": 53,
+      "mean": 71.80357142857143,
+      "max": 91
+    },
+    "food": {
+      "id": "carrot",
+      "name": "Carrot",
+      "sellPrice": 70,
+      "energyRestored": 28,
+      "healthRestored": 11,
+      "icon": "carrot-item"
+    }
+  },
+  {
+    "id": "corn",
+    "name": "Corn",
+    "category": "field",
+    "seedKey": "cornSeed",
+    "produceKey": "corn",
+    "seedPrice": 40,
+    "sellPrice": 30,
+    "growthDays": 4,
+    "harvestYield": 4,
+    "energyRestored": 10,
+    "regrow": false,
+    "unlock": null,
+    "description": "Four ears / market volume",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "corn-item",
+    "seedIcon": "corn-seed-item",
+    "sprites": {
+      "seed": "corn-seed",
+      "sprout": "corn-sprout",
+      "young": "corn-young",
+      "flowering": "corn-flowering",
+      "ripe": "corn-ripe",
+      "dry": "corn-dry",
+      "wilted": "corn-wilted",
+      "dead": "corn-dead"
+    },
+    "trait": "Four ears / market volume",
+    "profitPerDay": 20,
+    "workEnergy": 6,
+    "market": {
+      "min": 23,
+      "mean": 30.803571428571427,
+      "max": 39
+    },
+    "food": {
+      "id": "corn",
+      "name": "Corn",
+      "sellPrice": 30,
+      "energyRestored": 10,
+      "healthRestored": 4,
+      "icon": "corn-item"
+    }
+  },
+  {
+    "id": "chili",
+    "name": "Chili",
+    "category": "field",
+    "seedKey": "chiliSeed",
+    "produceKey": "chili",
+    "seedPrice": 22,
+    "sellPrice": 24,
+    "growthDays": 3,
+    "harvestYield": 3,
+    "energyRestored": 6,
+    "regrow": false,
+    "unlock": null,
+    "description": "Fast cash / light food",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "chili-item",
+    "seedIcon": "chili-seed-item",
+    "sprites": {
+      "seed": "chili-seed",
+      "sprout": "chili-sprout",
+      "young": "chili-young",
+      "flowering": "chili-flowering",
+      "ripe": "chili-ripe",
+      "dry": "chili-dry",
+      "wilted": "chili-wilted",
+      "dead": "chili-dead"
+    },
+    "trait": "Fast cash / light food",
+    "profitPerDay": 16.666666666666668,
+    "workEnergy": 5,
+    "market": {
+      "min": 18,
+      "mean": 24.589285714285715,
+      "max": 31
+    },
+    "food": {
+      "id": "chili",
+      "name": "Chili",
+      "sellPrice": 24,
+      "energyRestored": 6,
+      "healthRestored": 2,
+      "icon": "chili-item"
+    }
+  },
+  {
+    "id": "eggplant",
+    "name": "Eggplant",
+    "category": "field",
+    "seedKey": "eggplantSeed",
+    "produceKey": "eggplant",
+    "seedPrice": 32,
+    "sellPrice": 52,
+    "growthDays": 4,
+    "harvestYield": 2,
+    "energyRestored": 24,
+    "regrow": false,
+    "unlock": null,
+    "description": "Balanced meal and market crop",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "eggplant-item",
+    "seedIcon": "eggplant-seed-item",
+    "sprites": {
+      "seed": "eggplant-seed",
+      "sprout": "eggplant-sprout",
+      "young": "eggplant-young",
+      "flowering": "eggplant-flowering",
+      "ripe": "eggplant-ripe",
+      "dry": "eggplant-dry",
+      "wilted": "eggplant-wilted",
+      "dead": "eggplant-dead"
+    },
+    "trait": "Balanced meal and market crop",
+    "profitPerDay": 18,
+    "workEnergy": 6,
+    "market": {
+      "min": 39,
+      "mean": 53.32142857142857,
+      "max": 68
+    },
+    "food": {
+      "id": "eggplant",
+      "name": "Eggplant",
+      "sellPrice": 52,
+      "energyRestored": 24,
+      "healthRestored": 10,
+      "icon": "eggplant-item"
+    }
+  },
+  {
+    "id": "cucumber",
+    "name": "Cucumber",
+    "category": "field",
+    "seedKey": "cucumberSeed",
+    "produceKey": "cucumber",
+    "seedPrice": 26,
+    "sellPrice": 33,
+    "growthDays": 4,
+    "harvestYield": 3,
+    "energyRestored": 16,
+    "regrow": false,
+    "unlock": null,
+    "description": "Three fruits / strong market days",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "cucumber-item",
+    "seedIcon": "cucumber-seed-item",
+    "sprites": {
+      "seed": "cucumber-seed",
+      "sprout": "cucumber-sprout",
+      "young": "cucumber-young",
+      "flowering": "cucumber-flowering",
+      "ripe": "cucumber-ripe",
+      "dry": "cucumber-dry",
+      "wilted": "cucumber-wilted",
+      "dead": "cucumber-dead"
+    },
+    "trait": "Three fruits / strong market days",
+    "profitPerDay": 18.25,
+    "workEnergy": 6,
+    "market": {
+      "min": 25,
+      "mean": 33.839285714285715,
+      "max": 43
+    },
+    "food": {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "sellPrice": 33,
+      "energyRestored": 16,
+      "healthRestored": 6,
+      "icon": "cucumber-item"
+    }
+  },
+  {
+    "id": "watermelon",
+    "name": "Watermelon",
+    "category": "field",
+    "seedKey": "watermelonSeed",
+    "produceKey": "watermelon",
+    "seedPrice": 55,
+    "sellPrice": 90,
+    "growthDays": 5,
+    "harvestYield": 2,
+    "energyRestored": 35,
+    "regrow": false,
+    "unlock": null,
+    "description": "Premium melons / long journey food",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 6,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "watermelon-item",
+    "seedIcon": "watermelon-seed-item",
+    "sprites": {
+      "seed": "watermelon-seed",
+      "sprout": "watermelon-sprout",
+      "young": "watermelon-young",
+      "flowering": "watermelon-flowering",
+      "ripe": "watermelon-ripe",
+      "dry": "watermelon-dry",
+      "wilted": "watermelon-wilted",
+      "dead": "watermelon-dead"
+    },
+    "trait": "Premium melons / long journey food",
+    "profitPerDay": 25,
+    "workEnergy": 7,
+    "market": {
+      "min": 68,
+      "mean": 92.28571428571429,
+      "max": 117
+    },
+    "food": {
+      "id": "watermelon",
+      "name": "Watermelon",
+      "sellPrice": 90,
+      "energyRestored": 35,
+      "healthRestored": 14,
+      "icon": "watermelon-item"
+    }
+  },
+  {
+    "id": "pumpkin",
+    "name": "Pumpkin",
+    "category": "field",
+    "seedKey": "pumpkinSeed",
+    "produceKey": "pumpkin",
+    "seedPrice": 48,
+    "sellPrice": 72,
+    "growthDays": 6,
+    "harvestYield": 3,
+    "energyRestored": 38,
+    "regrow": false,
+    "unlock": null,
+    "description": "Patient harvest / hearty food",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 7,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "pumpkin-item",
+    "seedIcon": "pumpkin-seed-item",
+    "sprites": {
+      "seed": "pumpkin-seed",
+      "sprout": "pumpkin-sprout",
+      "young": "pumpkin-young",
+      "flowering": "pumpkin-flowering",
+      "ripe": "pumpkin-ripe",
+      "dry": "pumpkin-dry",
+      "wilted": "pumpkin-wilted",
+      "dead": "pumpkin-dead"
+    },
+    "trait": "Patient harvest / hearty food",
+    "profitPerDay": 28,
+    "workEnergy": 8,
+    "market": {
+      "min": 54,
+      "mean": 73.80357142857143,
+      "max": 94
+    },
+    "food": {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "sellPrice": 72,
+      "energyRestored": 38,
+      "healthRestored": 15,
+      "icon": "pumpkin-item"
+    }
+  },
+  {
+    "id": "grape",
+    "name": "Grape",
+    "category": "field",
+    "seedKey": "grapeSeed",
+    "produceKey": "grape",
+    "seedPrice": 36,
+    "sellPrice": 46,
+    "growthDays": 5,
+    "harvestYield": 4,
+    "energyRestored": 20,
+    "regrow": false,
+    "unlock": null,
+    "description": "Four clusters / high market volume",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 6,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "grape-item",
+    "seedIcon": "grape-seed-item",
+    "sprites": {
+      "seed": "grape-seed",
+      "sprout": "grape-sprout",
+      "young": "grape-young",
+      "flowering": "grape-flowering",
+      "ripe": "grape-ripe",
+      "dry": "grape-dry",
+      "wilted": "grape-wilted",
+      "dead": "grape-dead"
+    },
+    "trait": "Four clusters / high market volume",
+    "profitPerDay": 29.6,
+    "workEnergy": 7,
+    "market": {
+      "min": 35,
+      "mean": 47.160714285714285,
+      "max": 60
+    },
+    "food": {
+      "id": "grape",
+      "name": "Grape",
+      "sellPrice": 46,
+      "energyRestored": 20,
+      "healthRestored": 8,
+      "icon": "grape-item"
+    }
+  },
+  {
+    "id": "blueberry",
+    "name": "Blueberry",
+    "category": "field",
+    "seedKey": "blueberrySeed",
+    "produceKey": "blueberry",
+    "seedPrice": 30,
+    "sellPrice": 33,
+    "growthDays": 4,
+    "harvestYield": 3,
+    "energyRestored": 20,
+    "regrow": false,
+    "unlock": null,
+    "description": "Three berries / better food than cucumber",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "blueberry-item",
+    "seedIcon": "blueberry-seed-item",
+    "sprites": {
+      "seed": "blueberry-seed",
+      "sprout": "blueberry-sprout",
+      "young": "blueberry-young",
+      "flowering": "blueberry-flowering",
+      "ripe": "blueberry-ripe",
+      "dry": "blueberry-dry",
+      "wilted": "blueberry-wilted",
+      "dead": "blueberry-dead"
+    },
+    "trait": "Three berries / better food than cucumber",
+    "profitPerDay": 17.25,
+    "workEnergy": 6,
+    "market": {
+      "min": 25,
+      "mean": 33.839285714285715,
+      "max": 43
+    },
+    "food": {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "sellPrice": 33,
+      "energyRestored": 20,
+      "healthRestored": 8,
+      "icon": "blueberry-item"
+    }
+  },
+  {
+    "id": "sweetPotato",
+    "name": "Sweet Potato",
+    "category": "field",
+    "seedKey": "sweetPotatoSeed",
+    "produceKey": "sweetPotato",
+    "seedPrice": 24,
+    "sellPrice": 42,
+    "growthDays": 4,
+    "harvestYield": 2,
+    "energyRestored": 32,
+    "regrow": false,
+    "unlock": null,
+    "description": "Affordable hearty exploration food",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "sweetPotato-item",
+    "seedIcon": "sweetPotato-seed-item",
+    "sprites": {
+      "seed": "sweetPotato-seed",
+      "sprout": "sweetPotato-sprout",
+      "young": "sweetPotato-young",
+      "flowering": "sweetPotato-flowering",
+      "ripe": "sweetPotato-ripe",
+      "dry": "sweetPotato-dry",
+      "wilted": "sweetPotato-wilted",
+      "dead": "sweetPotato-dead"
+    },
+    "trait": "Affordable hearty exploration food",
+    "profitPerDay": 15,
+    "workEnergy": 6,
+    "market": {
+      "min": 32,
+      "mean": 43.07142857142857,
+      "max": 55
+    },
+    "food": {
+      "id": "sweetPotato",
+      "name": "Sweet Potato",
+      "sellPrice": 42,
+      "energyRestored": 32,
+      "healthRestored": 13,
+      "icon": "sweetPotato-item"
+    }
+  }
+]

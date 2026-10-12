@@ -38,6 +38,7 @@ export function digGround(s,point){
  if(!openGround('farm',p.x,p.y,true,s)||!lineClear('farm',s.position,p,0,s))return {ok:false,message:'Choose clear grass'};
  if(visiblePlots(s).some(b=>Math.abs(b.x-p.x)<47&&Math.abs(b.y-p.y)<47))return {ok:false,message:'Already dug'};
  if(p.index==null&&FARM_PLOTS.some(b=>Math.abs(b.x-p.x)<48&&Math.abs(b.y-p.y)<48))return {ok:false,message:'Dig beside the existing bed'};
+ if(visiblePlots(s).length>=16&&!s.ownsCopperCan)return {ok:false,message:'Copper Can first / Farm board after Commons seating'};
  if(s.energy<FARM_ENERGY.dig)return {ok:false,message:'Too tired - eat or sleep'};
  if(p.index==null&&(s.customBeds||[]).length>=MAX_CUSTOM_BEDS)return {ok:false,message:'Farm beds full'};
  s.energy-=FARM_ENERGY.dig;s.hasVisitedFarm=true;
@@ -66,8 +67,11 @@ export function waterGround(s,point,index){
  if(s.energy<FARM_ENERGY.water)return {ok:false,message:'Too tired - eat or sleep'};
  const care=!!p?.crop;
  if(care)usePlot(s,index);else s.energy-=FARM_ENERGY.water;
+ markWet(s,point);
+ return {...point,ok:true,message:care?'Watered':'Watered ground',cared:!!care};
+}
+export function markWet(s,point){
  s.wetGround??=[];const existing=s.wetGround.find(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))&&p.x===point.x&&p.y===point.y);
  if(existing)existing.remaining=WET_DURATION;else {if(s.wetGround.length>=MAX_WET_PATCHES)s.wetGround.shift();s.wetGround.push({area:s.area,farm:s.currentFarm||0,x:point.x,y:point.y,remaining:WET_DURATION});}
- return {...point,ok:true,message:care?'Watered':'Watered ground',cared:!!care};
 }
 export function dryGround(s,delta){let changed=false;for(const p of s.wetGround||[]){p.remaining-=Math.max(0,Math.min(delta,100));if(p.remaining<=0)changed=true;}if(changed)s.wetGround=s.wetGround.filter(p=>p.remaining>0);return changed;}

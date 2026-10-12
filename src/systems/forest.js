@@ -35,12 +35,14 @@ export function collectForage(s,id){
  s.inventory[node.item]++;recordStory(s,'fruit');s.forest.collected.push(id);
  return 'Collected '+FOODS[node.item].name+'.';
 }
+export function foodRestore(s,id){const f=FOODS[id];return f?{health:Math.min(f.healthRestored,100-s.health),energy:Math.min(f.energyRestored,100-s.energy)}:{health:0,energy:0};}
 export function eatFood(s,id){
  const food=Object.hasOwn(FOODS,id)?FOODS[id]:null;if(!food||!Number.isInteger(s.inventory[id])||s.inventory[id]<=0)return 'No food in your bag.';
  if(s.health<=0)return 'Rest at home first.';
  const energy=Math.min(food.energyRestored,100-s.energy),health=Math.min(food.healthRestored,100-s.health);
  if(!energy&&!health)return 'Health and energy are already full.';
- if(['wildBerry','guava','mango','banana','orange','papaya','coconut','dragonFruit','pineapple'].includes(id))recordStory(s,'eatFruit');s.inventory[id]--;s.energy+=energy;s.health+=health;
+ if(s.foodCooldown>0)return 'Next food in '+Math.ceil(s.foodCooldown/1000)+' active seconds.';
+ if(['wildBerry','guava','mango','banana','orange','papaya','coconut','dragonFruit','pineapple'].includes(id))recordStory(s,'eatFruit');s.inventory[id]--;s.energy+=energy;s.health+=health;s.foodCooldown=12000;
  return [health?'+'+health+' health':'',energy?'+'+energy+' energy':''].filter(Boolean).join(' / ');
 }
 export function recoverStash(s){

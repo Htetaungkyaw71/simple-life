@@ -27,8 +27,8 @@ test('sell 1, 5 and all uses today\'s exact prices; no seed sales, overdraw or p
  for(const id of CROP_IDS){const s=newState();s.inventory[id]=8;const unit=marketPrice(s,id).price;s.inventory[CROPS[id].seedKey]=9;sellCrop(s,id,1);sellCrop(s,id,5);assert.equal(s.inventory[id],2);sellCrop(s,id,'all');assert.equal(s.money,60+unit*8);assert.equal(s.sold,8);assert.equal(s.inventory[CROPS[id].seedKey],9);assert.equal(s.hasSoldProduce,true);const before=structuredClone(s);sellCrop(s,id,1);sellCrop(s,'seed',1);sellCrop(s,'water',1);assert.deepEqual(s,before);}
  const s=newState();s.money=COIN_LIMIT;s.inventory.tomato=20;const before=structuredClone(s);sellCrop(s,'tomato','all');assert.deepEqual(s,before);
 });
-test('deterministic daily prices stay within 85–120 percent and survive reload for a whole season',()=>{
- const seen=new Set();for(let day=1;day<=100;day++){const s=newState('girl',3597241);s.day=day;for(const id of CROP_IDS){const q=marketPrice(s,id);assert.ok(q.percent>=85&&q.percent<=120);assert.equal(q.price,Math.round(CROPS[id].sellPrice*q.percent/100));assert.deepEqual(marketPrice(validate(JSON.parse(JSON.stringify(s))),id),q);assert.equal(q.label,q.percent<95?'Low':q.percent>105?'High':'Normal');seen.add(q.percent);}}
+test('deterministic daily prices stay within 75–130 percent and survive reload for a whole season',()=>{
+ const seen=new Set();for(let day=1;day<=100;day++){const s=newState('girl',3597241);s.day=day;for(const id of CROP_IDS){const q=marketPrice(s,id);assert.ok(q.percent>=75&&q.percent<=130);assert.equal(q.price,Math.round(CROPS[id].sellPrice*q.percent/100));assert.deepEqual(marketPrice(validate(JSON.parse(JSON.stringify(s))),id),q);assert.equal(q.label,q.percent<95?'Low':q.percent>105?'High':'Normal');seen.add(q.percent);}}
  assert.ok(seen.size>30);assert.notDeepEqual(marketPrice(newState('boy',1),'tomato'),marketPrice(newState('boy',999),'tomato'));
 });
 test('shop boundary hours and context block closed counters while outdoor time continues',()=>{

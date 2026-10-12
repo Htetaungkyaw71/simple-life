@@ -93,20 +93,21 @@ export class AudioManager {
  }
  effect(raw,bus='effects',retry=false){
   const id=aliases[raw]||raw;if(!Object.prototype.hasOwnProperty.call(SAMPLE_EFFECTS,id)||!EFFECTS[id]||!this.context||!this.unlocked||this.muted||!this.focused||this.context.state!=='running'||this.destroyed)return false;
-  const t=this.context.currentTime;if(t-(this.lastEffects.get(id)??-100)<.085)return false;
+  const t=this.context.currentTime;const quiet=/^(ui:|door:|travel:)/.test(id),cooldown=quiet?.25:id==='journal:update'||id==='animal:warning'?1:.085;
+  if(t-(this.lastEffects.get(id)??-100)<cooldown)return false;
   if(id==='sleep:begin'){for(const v of [...this.voices])if(['sleep:begin','morning:wake','evening:wake'].includes(v.id))this.cleanup(v);this.sleepCueUntil=0;}
   if(this.voices.size>=6||t===this.lastFrame&&this.frameEffects>=2){if(!retry&&this.queued.length<4&&!this.queued.some(q=>q.raw===raw))this.queued.push({raw,bus,expires:t+.25});return false;}
   if(t!==this.lastFrame){this.lastFrame=t;this.frameEffects=0;}this.frameEffects++;this.lastEffects.set(id,t);
   const sample=SAMPLE_EFFECTS[id];if(sample&&!this.buffers.has(sample))this.bufferFor(sample);
-  const v=this.source(this.buffers.get(sample)||this.synthBuffer(id),bus);v.gain.gain.value=.85+this.random()*.1;v.source.playbackRate.value=.97+this.random()*.06;v.id=id;this.voices.add(v);v.source.onended=()=>this.cleanup(v);
+  const v=this.source(this.buffers.get(sample)||this.synthBuffer(id),bus);v.gain.gain.value=(quiet?.18:id==='animal:warning'?.28:.85)+this.random()*.03;v.source.playbackRate.value=.97+this.random()*.06;v.id=id;this.voices.add(v);v.source.onended=()=>this.cleanup(v);
   // Audio-clock scheduling keeps the bed and wake sounds separate, without timers.
   const start=['morning:wake','evening:wake'].includes(id)?Math.max(t,(this.sleepCueUntil||0)+.08):t;
   if(id==='sleep:begin')this.sleepCueUntil=t+v.source.buffer.duration/v.source.playbackRate.value;
   v.source.start(start);return true;
  }
  async completion(){
-  // Story completion is part of gameplay and must not introduce music.
-  return false;
+  // One short approved progression stinger; gameplay remains music-free.
+  return this.effect('project:complete');
  }
  startWorld(state){this.queued=[];this.serial++;this.cueUntil=0;this.sleepCueUntil=0;for(const v of [...this.voices])this.cleanup(v);this.world=true;this.paused=false;this.desired=audioProfile(state);this.sync();this.warmEffects();}
  stopWorld(){this.queued=[];this.serial++;this.cueUntil=0;this.sleepCueUntil=0;for(const [key,v]of this.loops){this.cleanup(v);this.loops.delete(key);}for(const v of [...this.voices])this.cleanup(v);this.world=false;this.desired=audioProfile(null);this.sync();}

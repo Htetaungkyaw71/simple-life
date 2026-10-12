@@ -1,3 +1,11 @@
+# v0.18.0 — restrained interaction and progression feedback
+
+Current runtime contains **29 approved WAVs**: 24 deduplicated effects (including the public-domain rooster), four outdoor nature loops (birds, night, river, fountain), and the existing title-only music track. No audio bytes were changed or newly downloaded. Seven previously reviewed Farm SFX return to runtime: ui-hover, menu-open, menu-close, ui-back, door-wood-open, gate and jingle-quest-complete. Existing notification/eat samples now cover Journal/animal warning/food. Original source recordings/synthesis remain Spaceyyy (formerly Bramble & Byte), HuntSounds (title) and alys (rooster), as documented below and in assets/licenses/cozy-audio and morning-audio.
+
+UI/tool/door/travel cues use about 21% of normal effect gain (.18 vs .85 before saved bus settings), at most one per event per 250ms. Journal/animal warnings are rate-limited to one per event per second. Completion uses one short licensed quest jingle; no continuous gameplay score. Empty axe swings and failed watering do not trigger impact/watering samples. Existing action feedback, gentle outdoor birds, proximity river/fountain, night insects, saved mute/four volume settings, sleep/wake scheduling and quiet interiors remain. A numerical audit checks selected hashes, PCM format, peak/RMS/DC/loop edges and production paths; native lifecycle testing checks unlock, focus, persistence and bounded sources. Subjective mix and physical-phone listening remain human checks.
+
+---
+
 # v0.17.4 — gentle birds outdoors
 
 Reuse existing reviewed `forestDay` / `forest-day.wav` at `.6*(1-night)` outside Home, Farm and City to address reported daytime silence. Forest profile, night crickets, river/fountain proximity and all successful gameplay effect mappings stay intact; no wind/music is restored. Every interior remains free of looping ambience. Plant gathering uses the existing pickup alias. Runtime stays 22 WAVs with unchanged hashes. Evidence: verification/outdoor-plants/README.md.

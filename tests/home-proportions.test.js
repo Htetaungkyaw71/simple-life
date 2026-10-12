@@ -22,5 +22,5 @@ test('explicit testing gift adds 100000 once, saves atomically, and preserves al
 test('testing gift is hidden on normal URLs and all remote hosts; new-game balance stays 60',()=>{
  assert.equal(newState().money,60);
  for(const url of ['https://example.com/?testingCoins=100000','http://127.0.0.1:4175/','http://localhost/?testingCoins=100001'])assert.equal(testingCreditEnabled(url),false);
- assert.equal(testingCreditEnabled('http://127.0.0.1:4175/?testingCoins=100000',true),true);
+ assert.equal(testingCreditEnabled('http://127.0.0.1:4175/?testingCoins=100000',true),false);
 });

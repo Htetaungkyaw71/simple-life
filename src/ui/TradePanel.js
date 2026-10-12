@@ -26,7 +26,7 @@ export class TradePanel {
   const id=this.ids[this.index],q=quote(this.app.state,this.type,id,this.quantity);
   this.coinFrom=this.app.state.money;
   this.app.transact(s=>this.type==='seed'?buySeeds(s,id,this.quantity):sellCrop(s,id,this.quantity));
-  this.message=q.ok?(this.type==='seed'?`+${q.quantity} seeds`:`+${q.total} coins`):q.reason;
+  this.message=q.ok?(this.type==='seed'?`+${q.quantity} seeds`:`+${q.total} coins${marketPrice(this.app.state,id).label==='High'?' / HIGH market!':''}`):q.reason;
   this.app.sound(q.ok?(this.type==='seed'?'shop:buy':'shop:sell'):'shop:failure');this.app.ui.notice=null;this.show();
  }
  draw(u){
@@ -62,8 +62,8 @@ export class TradePanel {
   if(this.details){
    panel(u,u.root,tx,y+111-lift,pw-20,60);
    text(u,u.root,tx+7,y+117-lift,selling?`Today: ${price.label}`:`${d.growthDays} days / yield ${d.harvestYield}`,7,UI_COLORS.gold);
-   text(u,u.root,tx+7,y+133-lift,selling?'Price changes at midnight.':'Water once each day.',7,UI_COLORS.muted,pw-34);
-   text(u,u.root,tx+7,y+150-lift,plant?d.description:SHOP_HOURS[this.type].label,7,UI_COLORS.muted,pw-34);
+   text(u,u.root,tx+7,y+133-lift,selling?'Price changes at midnight.':`Normal sell ${d.sellPrice}c / Food ${d.energyRestored} EP`,7,UI_COLORS.muted,pw-34);
+   text(u,u.root,tx+7,y+150-lift,selling?SHOP_HOURS[this.type].label:d.trait,6,UI_COLORS.muted,pw-34);
    if(selling&&price.label!=='Normal'){const arrow=u.add.graphics();u.root.add(arrow);pixelArrow(arrow,price.label==='Low'?2:6,right-14,y+121-lift,UI_COLORS.gold);}
   }else if(plant){
    button(u,u.root,'Select',tx,y+134-lift,pw-20,26,()=>{s.selectedCrop=id;s.selected='seed';this.app.save();u.close();},{id:'choose-crop'});

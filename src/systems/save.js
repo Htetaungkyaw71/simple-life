@@ -27,6 +27,8 @@ export function validate(raw) {
   const s = newState(raw.character);
   if(raw.version>=18&&raw.home){s.home.owned=Object.keys(HOMES).filter(id=>id==='starter'||Array.isArray(raw.home.owned)&&raw.home.owned.includes(id));s.home.design=s.home.owned.includes(raw.home.design)?raw.home.design:'starter';}
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
+  s.ownsCopperCan=raw.ownsCopperCan===true;
+  s.foodCooldown=Number.isFinite(raw.foodCooldown)?Math.max(0,Math.min(12000,raw.foodCooldown)):0;
   s.area = Object.hasOwn(LOCATIONS, raw.area) ? raw.area : 'home';
   if(raw.version===1&&raw.area==='home'&&raw.position?.x>=240&&raw.position.x<=592&&raw.position.y>=144&&raw.position.y<496)s.area='interior';
   if(raw.version>=5&&Array.isArray(raw.farms)&&raw.farms.length){
@@ -81,7 +83,9 @@ export function validate(raw) {
     if(!p||!Object.hasOwn(CROPS,p.crop))return emptyPlot();
     const legacy=raw.version<13,oldMisses=number(p.missedWindows??p.dryDays,0,0,2);
     // Honour already ripe legacy crops; growing plants retain their earned care days.
-    const growth=raw.version<14&&Number.isFinite(p.growth)&&p.growth>=LEGACY_GROWTH_DAYS[p.crop]?CROPS[p.crop].growthDays:number(p.growth,0,0,raw.version<14?LEGACY_GROWTH_DAYS[p.crop]:CROPS[p.crop].growthDays);
+    const previousDays={tomato:3,strawberry:4,carrot:3,corn:4,chili:3,eggplant:4,cucumber:3,watermelon:5,pumpkin:6,grape:5,blueberry:4,sweetPotato:3};
+    const wasRipe=raw.version>=14&&raw.balanceRevision!==1&&p.growth>=previousDays[p.crop];
+    const growth=wasRipe?CROPS[p.crop].growthDays:raw.version<14&&Number.isFinite(p.growth)&&p.growth>=LEGACY_GROWTH_DAYS[p.crop]?CROPS[p.crop].growthDays:number(p.growth,0,0,raw.version<14?LEGACY_GROWTH_DAYS[p.crop]:CROPS[p.crop].growthDays);
     const plot={crop:p.crop,growth,
       wateredDay:legacy?(p.morning===true||p.evening===true?s.day:0):number(p.wateredDay,0,0,s.day),
       missedDays:legacy?(oldMisses>=2?4:p.morning===true||p.evening===true?0:oldMisses):number(p.missedDays,0,0,4),
@@ -152,12 +156,12 @@ export class SaveService {
   constructor(storage) { this.storage = storage; this.error = ''; }
   load() { try { const text = this.storage.getItem(SAVE_KEY); if (!text) return null; const state = validate(JSON.parse(text)); this.error = state ? '' : 'This save is incompatible. Start a new life to replace it.'; return state; } catch { this.error = 'Save could not be read. Start a new life, or enable browser storage.'; return null; } }
   write(state) { try { this.storage.setItem(SAVE_KEY, JSON.stringify(state)); this.error = ''; return true; } catch { this.error = 'Saving unavailable. Enable browser storage to keep your progress.'; return false; } }
-  grantTestingCoins(development=import.meta.env?.DEV===true){
+  grantTestingCoins(development=false){
     if(!development)return null;
     try{
       const raw=JSON.parse(this.storage.getItem(SAVE_KEY));
       if(!raw||!validate(raw)||!Number.isInteger(raw.money)||raw.money<0||raw.money>9999999){this.error='Continue or start a game before adding testing coins.';return null;}
-      const result=testingCredit(raw);
+      const result=testingCredit(raw,development);
       if(result.state!==raw&&!this.write(result.state))return null;
       return {added:result.added,balance:result.state.money};
     }catch{this.error='Testing coins could not be saved. Enable browser storage.';return null;}

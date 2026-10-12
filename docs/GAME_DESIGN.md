@@ -1,3 +1,17 @@
+# v0.18.0 — focused judge progression
+
+Five existing Journal chapters now reveal starter farming and City/resident first, modest wood/stone/board/foraging/eating errands during growth, then harvest/sale/Commons, Forest combat/Keepsake, and the return home. Landmark directions replace coordinate instructions. The destination marker only appears after the first three chapters are complete; the exact cache stays hidden earlier. Existing progress can complete steps out of order without losing earned flags. A few resident lines respond to sale, Commons and Keepsake progress; no relationship system is added.
+
+The 06:00–24:00 active period lasts 450 seconds. Real bed rests let the guided first farming loop finish sooner than three full awake days; midnight still settles care once. Three watered midnights remain required for Tomato. No elapsed-time energy drain is introduced. Farming uses 1 EP per basic plant/water/harvest/dig action. All twelve crops trade cost, days, revenue, yield and food value; see BALANCE_REPORT.md and balance/v0.18.0.json. Daily market range is 75–130%, deterministic by existing seed/day/salts. Requests remain optional materials, and no crop/house/expanded farm blocks the ending.
+
+Exactly one new upgrade: Copper Watering Can, 180c + 6 Wood + 4 Stone after Commons (12 Wood + 6 Stone, reward 240c and two Grape seeds). Select the existing Water tool; a stopped facing ray previews up to three fixed/custom beds on the current farm. Only thirsty living unripe crops change; successful use costs at most 2 EP once (1 EP for a single thirsty edge crop), failures are atomic. Missing beds/obstacles stop the ray. New beds beyond 16 and all new farms/fields require ownership; old farms remain.
+
+Forest fruit has reduced EP and modest HP; all crops are edible through the existing Bag. The Bag previews actual capped HP/EP before consuming; every meal has a 12-second active-world cooldown. Boars warn for 850ms, lock their charge heading, retain warnings/charges through impacts, and cannot have their recovery endlessly extended. The first landed impact can stagger wandering for 150ms. Axe, 15-damage boars, 25% coin Stash loss/replacement, protected Keepsake and local saves remain. Human combat/balance review is still needed.
+
+Original textured introduction illustrations and restrained soil/seed/splash/plant bounce/produce/coin/tree-fall feedback improve action contact. Only successful real hits get 45/55ms world hit-stop. Quiet, rate-limited UI/door/transition cues and short Journal/project/ending stingers reuse approved audio. Indoors retain zero ambience and gameplay has no continuous music. Ending letter, statistics and Continue remain available without buying houses or exploring every region.
+
+---
+
 # v0.17.2 — crafting and buying in Customize
 
 Use the house icon beside Menu. Craft bench (8 Wood + 2 Stone), planter (4 + 2), fence (3 Wood), path (2 Stone), picnic table (12 + 4), barrel (5 Wood) or lantern (6 + 4) from gathered materials at Home/Farm/inside. These recipes no longer cost coins. Other garden/furniture objects and eight houses retain their coin prices. Farm board focuses on farming. Crafting a fence/path indoors is allowed; place it outdoors. Inventory, Add, Remove/Readjust and owned-house switches keep their prior rules.

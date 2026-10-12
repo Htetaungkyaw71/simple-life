@@ -1,10 +1,14 @@
 // Selected user-supplied assets only. Provenance and hashes: docs/assets/licenses/cozy-audio.
 // Farming, landed hits, successful pickups and trades make action sounds.
-// UI, jumping, doors and travel remain silent. The same allowlist gates
+// UI and transitions use quiet, rate-limited feedback; Jump/empty hits stay silent. The same allowlist gates
 // playback, preloading and production assets, including synthesized fallbacks.
 const fx={
+ 'ui:move':'ui-hover','ui:open':'menu-open','ui:close':'menu-close','ui:cancel':'ui-back',
+ 'door:open':'door-wood-open','travel:enter':'gate','journal:update':'notification',
+ 'project:complete':'jingle-quest-complete','request:complete':'notification','food:eat':'eat',
+ 'animal:warning':'notification','combat:hurt':'axe-chop',
  'farming:dig':'hoe-dig','farming:plant':'seed-plant','farming:water':'watering',
- 'farming:empty':'ui-error','farming:growth':'notification','farming:harvest':'harvest-pop','farming:clear':'bush-rustle',
+ 'farming:growth':'notification','farming:harvest':'harvest-pop','farming:clear':'bush-rustle',
  'tree:hit':'axe-chop',
  'wood:pickup':'pickup-item','furniture:place':'place-item',
  'combat:hit':'axe-chop','animal:defeat':'pickup-item',

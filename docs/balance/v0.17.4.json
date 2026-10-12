@@ -1,0 +1,541 @@
+{
+  "tomato": {
+    "id": "tomato",
+    "name": "Tomato",
+    "category": "field",
+    "seedKey": "seed",
+    "produceKey": "tomato",
+    "seedPrice": 10,
+    "sellPrice": 18,
+    "growthDays": 3,
+    "harvestYield": 2,
+    "energyRestored": 12,
+    "regrow": false,
+    "unlock": null,
+    "description": "A dependable first harvest.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "tomato-item",
+    "seedIcon": "tomato-seed-item",
+    "sprites": {
+      "seed": "tomato-seed",
+      "sprout": "tomato-sprout",
+      "young": "tomato-young",
+      "flowering": "tomato-flowering",
+      "ripe": "tomato-ripe",
+      "dry": "tomato-dry",
+      "wilted": "tomato-wilted",
+      "dead": "tomato-dead"
+    }
+  },
+  "strawberry": {
+    "id": "strawberry",
+    "name": "Strawberry",
+    "category": "field",
+    "seedKey": "strawberrySeed",
+    "produceKey": "strawberry",
+    "seedPrice": 18,
+    "sellPrice": 28,
+    "growthDays": 4,
+    "harvestYield": 2,
+    "energyRestored": 8,
+    "regrow": false,
+    "unlock": null,
+    "description": "Sweet berries reward steady care.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "strawberry-item",
+    "seedIcon": "strawberry-seed-item",
+    "sprites": {
+      "seed": "strawberry-seed",
+      "sprout": "strawberry-sprout",
+      "young": "strawberry-young",
+      "flowering": "strawberry-flowering",
+      "ripe": "strawberry-ripe",
+      "dry": "strawberry-dry",
+      "wilted": "strawberry-wilted",
+      "dead": "strawberry-dead"
+    }
+  },
+  "carrot": {
+    "id": "carrot",
+    "name": "Carrot",
+    "category": "field",
+    "seedKey": "carrotSeed",
+    "produceKey": "carrot",
+    "seedPrice": 28,
+    "sellPrice": 70,
+    "growthDays": 3,
+    "harvestYield": 1,
+    "energyRestored": 22,
+    "regrow": false,
+    "unlock": null,
+    "description": "One valuable root beneath the soil.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "carrot-item",
+    "seedIcon": "carrot-seed-item",
+    "sprites": {
+      "seed": "carrot-seed",
+      "sprout": "carrot-sprout",
+      "young": "carrot-young",
+      "flowering": "carrot-flowering",
+      "ripe": "carrot-ripe",
+      "dry": "carrot-dry",
+      "wilted": "carrot-wilted",
+      "dead": "carrot-dead"
+    }
+  },
+  "corn": {
+    "id": "corn",
+    "name": "Corn",
+    "category": "field",
+    "seedKey": "cornSeed",
+    "produceKey": "corn",
+    "seedPrice": 40,
+    "sellPrice": 36,
+    "growthDays": 4,
+    "harvestYield": 3,
+    "energyRestored": 14,
+    "regrow": false,
+    "unlock": null,
+    "description": "A longer season, a generous harvest.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "corn-item",
+    "seedIcon": "corn-seed-item",
+    "sprites": {
+      "seed": "corn-seed",
+      "sprout": "corn-sprout",
+      "young": "corn-young",
+      "flowering": "corn-flowering",
+      "ripe": "corn-ripe",
+      "dry": "corn-dry",
+      "wilted": "corn-wilted",
+      "dead": "corn-dead"
+    }
+  },
+  "chili": {
+    "id": "chili",
+    "name": "Chili",
+    "category": "field",
+    "seedKey": "chiliSeed",
+    "produceKey": "chili",
+    "seedPrice": 22,
+    "sellPrice": 24,
+    "growthDays": 3,
+    "harvestYield": 3,
+    "energyRestored": 10,
+    "regrow": false,
+    "unlock": null,
+    "description": "Small peppers, a bright harvest.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "chili-item",
+    "seedIcon": "chili-seed-item",
+    "sprites": {
+      "seed": "chili-seed",
+      "sprout": "chili-sprout",
+      "young": "chili-young",
+      "flowering": "chili-flowering",
+      "ripe": "chili-ripe",
+      "dry": "chili-dry",
+      "wilted": "chili-wilted",
+      "dead": "chili-dead"
+    }
+  },
+  "eggplant": {
+    "id": "eggplant",
+    "name": "Eggplant",
+    "category": "field",
+    "seedKey": "eggplantSeed",
+    "produceKey": "eggplant",
+    "seedPrice": 32,
+    "sellPrice": 46,
+    "growthDays": 4,
+    "harvestYield": 2,
+    "energyRestored": 18,
+    "regrow": false,
+    "unlock": null,
+    "description": "Purple fruit on a leafy bush.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "eggplant-item",
+    "seedIcon": "eggplant-seed-item",
+    "sprites": {
+      "seed": "eggplant-seed",
+      "sprout": "eggplant-sprout",
+      "young": "eggplant-young",
+      "flowering": "eggplant-flowering",
+      "ripe": "eggplant-ripe",
+      "dry": "eggplant-dry",
+      "wilted": "eggplant-wilted",
+      "dead": "eggplant-dead"
+    }
+  },
+  "cucumber": {
+    "id": "cucumber",
+    "name": "Cucumber",
+    "category": "field",
+    "seedKey": "cucumberSeed",
+    "produceKey": "cucumber",
+    "seedPrice": 26,
+    "sellPrice": 30,
+    "growthDays": 3,
+    "harvestYield": 3,
+    "energyRestored": 16,
+    "regrow": false,
+    "unlock": null,
+    "description": "Crisp fruit on curling vines.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "cucumber-item",
+    "seedIcon": "cucumber-seed-item",
+    "sprites": {
+      "seed": "cucumber-seed",
+      "sprout": "cucumber-sprout",
+      "young": "cucumber-young",
+      "flowering": "cucumber-flowering",
+      "ripe": "cucumber-ripe",
+      "dry": "cucumber-dry",
+      "wilted": "cucumber-wilted",
+      "dead": "cucumber-dead"
+    }
+  },
+  "watermelon": {
+    "id": "watermelon",
+    "name": "Watermelon",
+    "category": "field",
+    "seedKey": "watermelonSeed",
+    "produceKey": "watermelon",
+    "seedPrice": 55,
+    "sellPrice": 85,
+    "growthDays": 5,
+    "harvestYield": 2,
+    "energyRestored": 35,
+    "regrow": false,
+    "unlock": null,
+    "description": "Large sweet melons on low vines.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 6,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "watermelon-item",
+    "seedIcon": "watermelon-seed-item",
+    "sprites": {
+      "seed": "watermelon-seed",
+      "sprout": "watermelon-sprout",
+      "young": "watermelon-young",
+      "flowering": "watermelon-flowering",
+      "ripe": "watermelon-ripe",
+      "dry": "watermelon-dry",
+      "wilted": "watermelon-wilted",
+      "dead": "watermelon-dead"
+    }
+  },
+  "pumpkin": {
+    "id": "pumpkin",
+    "name": "Pumpkin",
+    "category": "field",
+    "seedKey": "pumpkinSeed",
+    "produceKey": "pumpkin",
+    "seedPrice": 48,
+    "sellPrice": 74,
+    "growthDays": 6,
+    "harvestYield": 2,
+    "energyRestored": 28,
+    "regrow": false,
+    "unlock": null,
+    "description": "Golden pumpkins need patient care.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 7,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "pumpkin-item",
+    "seedIcon": "pumpkin-seed-item",
+    "sprites": {
+      "seed": "pumpkin-seed",
+      "sprout": "pumpkin-sprout",
+      "young": "pumpkin-young",
+      "flowering": "pumpkin-flowering",
+      "ripe": "pumpkin-ripe",
+      "dry": "pumpkin-dry",
+      "wilted": "pumpkin-wilted",
+      "dead": "pumpkin-dead"
+    }
+  },
+  "grape": {
+    "id": "grape",
+    "name": "Grape",
+    "category": "field",
+    "seedKey": "grapeSeed",
+    "produceKey": "grape",
+    "seedPrice": 36,
+    "sellPrice": 42,
+    "growthDays": 5,
+    "harvestYield": 3,
+    "energyRestored": 20,
+    "regrow": false,
+    "unlock": null,
+    "description": "Sweet clusters on a small vine.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 6,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "grape-item",
+    "seedIcon": "grape-seed-item",
+    "sprites": {
+      "seed": "grape-seed",
+      "sprout": "grape-sprout",
+      "young": "grape-young",
+      "flowering": "grape-flowering",
+      "ripe": "grape-ripe",
+      "dry": "grape-dry",
+      "wilted": "grape-wilted",
+      "dead": "grape-dead"
+    }
+  },
+  "blueberry": {
+    "id": "blueberry",
+    "name": "Blueberry",
+    "category": "field",
+    "seedKey": "blueberrySeed",
+    "produceKey": "blueberry",
+    "seedPrice": 30,
+    "sellPrice": 38,
+    "growthDays": 4,
+    "harvestYield": 3,
+    "energyRestored": 16,
+    "regrow": false,
+    "unlock": null,
+    "description": "Blue berries on a low bush.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 5,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "blueberry-item",
+    "seedIcon": "blueberry-seed-item",
+    "sprites": {
+      "seed": "blueberry-seed",
+      "sprout": "blueberry-sprout",
+      "young": "blueberry-young",
+      "flowering": "blueberry-flowering",
+      "ripe": "blueberry-ripe",
+      "dry": "blueberry-dry",
+      "wilted": "blueberry-wilted",
+      "dead": "blueberry-dead"
+    }
+  },
+  "sweetPotato": {
+    "id": "sweetPotato",
+    "name": "Sweet Potato",
+    "category": "field",
+    "seedKey": "sweetPotatoSeed",
+    "produceKey": "sweetPotato",
+    "seedPrice": 24,
+    "sellPrice": 38,
+    "growthDays": 3,
+    "harvestYield": 2,
+    "energyRestored": 24,
+    "regrow": false,
+    "unlock": null,
+    "description": "A warm root under broad leaves.",
+    "watering": [
+      "daily"
+    ],
+    "growthStages": [
+      "Seed / sprout",
+      "Young plant",
+      "Flowering",
+      "Ripe"
+    ],
+    "stageCount": 4,
+    "stages": [
+      "seed",
+      "sprout",
+      "young",
+      "flowering",
+      "ripe"
+    ],
+    "icon": "sweetPotato-item",
+    "seedIcon": "sweetPotato-seed-item",
+    "sprites": {
+      "seed": "sweetPotato-seed",
+      "sprout": "sweetPotato-sprout",
+      "young": "sweetPotato-young",
+      "flowering": "sweetPotato-flowering",
+      "ripe": "sweetPotato-ripe",
+      "dry": "sweetPotato-dry",
+      "wilted": "sweetPotato-wilted",
+      "dead": "sweetPotato-dead"
+    }
+  }
+}

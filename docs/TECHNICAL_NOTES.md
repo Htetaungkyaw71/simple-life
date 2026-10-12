@@ -1,3 +1,17 @@
+# v0.18.0 — additive judge polish
+
+Architecture remains ES modules, pure gameplay systems, one fullscreen Phaser game canvas with separate World/UI scenes, same-origin allowlisted assets and localStorage. No new dependency, backend or runtime remote service. `npm run build` explicitly sets `VITE_PLAYTEST=false`; only the explicit flag authorizes credit, independent of host/query/DEV. Existing gifted saves are not debited.
+
+`wateringCan.js` shares a single stopped ray between rendering and mutation, using current-farm visiblePlots, plotAt, openGround and shared collision lineClear. The whole action checks energy before touching plots. Basic usePlot accepts an internal waterCost override only for this batch. Ownership and active-time foodCooldown are optional schema-18 additions with validation; balanceRevision makes the crop-duration migration idempotent. Previously ripe Cucumber/Sweet Potato remain ripe; partial growth/care, old owned farms, paid decor, saves and story completion persist. Restored completed stories receive the newly introduced board flag.
+
+A ResizeObserver on the fullscreen host plus visualViewport resize schedules a layout-frame ScaleManager.resize with actual parent dimensions. This fixes mobile rotation retaining the previous viewport dimensions; existing World/UI resize handlers and room-safe furniture relocation remain.
+
+`simulationActive` gates time, combat and movement while paused/transitioning/hidden or successful-impact hit-stop. Clock tick clamps delta to 100ms and advances 1080/450 minutes per active second; food cooldown uses that same active delta. No elapsed-time EP drain. `IntroArt.js` draws deterministic integer-pixel tableaux without external files. Copper uses a cached warm palette variant of the existing native can in both Canvas and WebGL, preserving alpha and dark outlines, shared pour/bounce and previews. Audio uses the same central lifecycle, allowlist, six-voice/two-per-frame limits and preferences; quiet UI/doors/transitions scale .18 vs .85 for action samples, with cooldowns and no continuous world music.
+
+Native test scripts use isolated contexts and read-only snapshots; only explicitly identified late-game fixtures are injected before loading in targeted tests. Fresh timing paths use ordinary inputs and real sleeps, with no gift, fixture, teleport or growth injection. Generated captures and reports belong in temporary directories and are excluded from source checkpoints. See verification/judge-polish/README.md for exact scope and results.
+
+---
+
 # v0.17.2 — customization access and house structure
 
 HUD `customize` house glyph precedes `pause`; no DOM controls. Four bounded Customize categories include seven Wood/Stone recipes and a separate nine-item coin catalog plus eight paid houses. Material and coin transactions are mutually exclusive, retaining atomic failure/stock guards. Crafting supports Home/Farm/interior with outdoor placement restrictions. Save schema stays 18; no second gift.

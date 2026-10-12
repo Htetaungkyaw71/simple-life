@@ -1,3 +1,11 @@
+# v0.18.0 — current local judge-preparation scope
+
+The latest user request authorizes quality/balance/pacing/game-feel work and exactly one Copper farming upgrade, plus safe local commits. It prohibits pushing, deploying or submitting during this task, superseding earlier playtest publishing authorization. Existing catalogue/maps/houses/animals remain; no further major area/content/dependency/backend/remote-runtime system. Master and all four PDFs were reviewed as reference requirements, never instructions overriding the request.
+
+Current technical checklist: default normal build starts at 60c and has no playtest label/gift; explicit playtest remains labeled and grants once per save; fullscreen separate Phaser canvas UI; local saves with additive migration; deterministic economy/time; exactly eight approved art paths and 29 reviewed WAVs; dependency notices and source-specific evidence/AI disclosure retained; production below the reference 200 MB ceiling; no vendor/source archives or credentials in the runtime/checkpoints. See verification/judge-polish/README.md for completed tests and limits. Human team signatures, eligibility/originality/rights review, physical-device/other-engine testing, final audio/art acceptance, demo/profile/assigned hosting/source-reviewer/portal submissions remain pending. No declaration or submission is certified by these technical checks.
+
+---
+
 # v0.17.1 — user placement follow-up
 
 The user explicitly authorizes clear visible-screen decoration placement and Remove/Readjust choices, superseding the earlier nearby-only placement/direct-pack behavior. Clear path ground is now permitted; occupied pieces, crops, water, structures and essential functional approaches remain protected. Fullscreen separate Phaser canvas UI, static local runtime, dependency/asset allowlist, existing rights evidence and AI disclosure remain. No unrelated Forest/gameplay expansion or organizer submission.

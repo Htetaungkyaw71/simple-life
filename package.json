@@ -1,11 +1,11 @@
 {
   "name": "simple-life",
-  "version": "0.17.4",
+  "version": "0.18.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "build": "VITE_PLAYTEST=false vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.js",
     "build:playtest": "VITE_PLAYTEST=true vite build"

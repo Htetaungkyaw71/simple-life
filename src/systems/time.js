@@ -21,7 +21,9 @@ export function sleep(s){const wake=wakeTime(s);advanceMinutes(s,(wake-s.minute+
 // Retained explicit skips used by the established pure farming tests.
 export function nextDay(s){advanceMinutes(s,1440-s.minute+MORNING);rested(s);}
 export function restUntilEvening(s){if(s.minute<960)advanceMinutes(s,960-s.minute);}
+export function simulationActive({paused=false,transitioning=false,hidden=false,hitStop=0}={}){return !paused&&!transitioning&&!hidden&&hitStop<=0;}
 export function tick(s,delta){
+ s.foodCooldown=Math.max(0,(s.foodCooldown||0)-Math.max(0,Math.min(delta,100)));
  dryGround(s,delta);
  const minutes=Math.max(0,Math.min(delta,100))/1000*1080/DAY_SECONDS;
  // Legacy saves retain this field, but elapsed time never spends energy.

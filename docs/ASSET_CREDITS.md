@@ -1,3 +1,9 @@
+# v0.18.0 — original introduction and existing audio
+
+The four textured city/letter/cottage/forest pixel illustrations in src/ui/IntroArt.js are original Simple Life deterministic code drawings authored with OpenAI Codex assistance. Copper tint/preview, soil depression/seed/plant bounce/coin/tree-fall effects reuse existing approved project/LimeZu/character atlas assets with their established attributions. All eight art files are unchanged. Quiet UI/door/travel and quest/ending sounds reuse reviewed Spaceyyy Farm samples; HuntSounds title music and alys rooster attribution remain. No external artwork/recording/download, generative image/audio service or new dependency. Source evidence: assets/licenses/judge-polish/SOURCE_RECORD.md.
+
+---
+
 # v0.17.2 — exact original house structure
 
 Upgraded exteriors reuse original project `house-village-0` artwork from `scripts/large_houses_art.py` with Codex-assisted runtime material/palette processing. No new third-party house or screenshot pixels. Original new house HUD glyph and material UI code. All existing independent environment/furniture/audio and dependency attributions remain. Source record: assets/licenses/customization/SOURCE_RECORD.md.

@@ -31,9 +31,9 @@ test('hotbar/bag/map layouts fit seven viewports with no upper or Jump buttons; 
 });
 test('bag actions select seeds without stock mutations and eat through existing guarded food rules',()=>{
  const s=newState(),a=appFor(s),b=new BagPanel(a);a.bagPanel=b;b.open('seeds');b.index=1;const before={...s.inventory};b.perform();assert.equal(s.selectedCrop,'strawberry');assert.deepEqual(s.inventory,before);assert.equal(a.ui.closed,true);
- a.ui.time.now+=1000;s.energy=80;s.inventory.wildBerry=2;b.open('food');b.perform();assert.equal(s.energy,92);assert.equal(s.inventory.wildBerry,1);b.perform();assert.equal(s.energy,92,'rapid duplicate is gated');
+ a.ui.time.now+=1000;s.energy=80;s.inventory.wildBerry=2;b.open('food');b.perform();assert.equal(s.energy,87);assert.equal(s.inventory.wildBerry,1);b.perform();assert.equal(s.energy,87,'rapid duplicate is gated');
  a.ui.time.now+=1000;s.energy=100;b.perform();assert.equal(s.inventory.wildBerry,1);b.open('gear');assert.ok(!bagItems(s,'gear').some(i=>i.id==='club'));b.index=bagItems(s,'gear').findIndex(i=>i.id==='axe');a.ui.time.now+=1000;b.perform();assert.equal(s.selected,'axe');
- assert.equal(bagItems(s,'produce').length,14);assert.equal(bagItems(s,'food').length,14);
+ assert.equal(bagItems(s,'produce').length,14);assert.equal(bagItems(s,'food').length,23);
 });
 test('bag controls stay in bounds at each viewport and all inventory categories are available',()=>{
  for(const [w,h]of sizes){const u=recorder(w,h),a=appFor(newState(),u),b=new BagPanel(a);a.bagPanel=b;for(const tab of ['seeds','food','produce','gear']){b.open(tab);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id+` ${w}x${h}`);}}

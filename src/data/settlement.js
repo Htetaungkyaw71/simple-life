@@ -8,7 +8,7 @@ export const ORDERS=[
  {id:'sol-garden',resident:'city-sol',name:'Sol',purpose:'Restore a quiet garden corner',cost:{wood:10,stone:10},coins:150,seed:'blueberrySeed',seeds:2},
 ];
 export const PROJECTS=[
- {id:'commons',name:'Commons seating',description:'Build a leafy bench corner in the garden commons.',cost:{wood:24,stone:12},coins:180,seed:'grapeSeed',seeds:2,x:1440,y:880,props:[['bench',1408,816],['planter',1352,836],['planter',1496,836],['flowers2',1352,820],['flowers2',1496,820]]},
+ {id:'commons',name:'Commons seating',description:'Build a leafy bench corner in the garden commons.',cost:{wood:12,stone:6},coins:240,seed:'grapeSeed',seeds:2,x:1440,y:880,props:[['bench',1408,816],['planter',1352,836],['planter',1496,836],['flowers2',1352,820],['flowers2',1496,820]]},
  {id:'flowerCourt',name:'Flower court',description:'Plant a welcoming flower court east of the square.',cost:{wood:18,stone:24},coins:220,seed:'watermelonSeed',seeds:2,x:2056,y:880,props:[['planter',1984,800],['planter',2080,800],['flowers2',1984,784],['flowers2',2080,784],['bench',2024,864]]},
  {id:'picnic',name:'Picnic garden',description:'Add seating and flowers beside the picnic camp.',cost:{wood:36,stone:16},coins:250,seed:'pumpkinSeed',seeds:2,x:1440,y:1208,props:[['bench',1376,1184],['bench',1488,1184],['planter',1448,1148],['flowers2',1448,1132]]},
 ];
