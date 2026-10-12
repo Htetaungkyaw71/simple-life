@@ -1,3 +1,9 @@
+# v0.19.0 — separate language preference, unchanged schema 18
+
+simple-life.language.v1 stores only en or mm. Invalid/missing values default to English; denied storage still permits in-memory selection. HTML locale is en/my. Language choice never overwrites simple-life.save.v1, money, inventory, story, playtest grant or schema. The first-job guide reads the existing intro/starter/plant/water flags; no new gameplay persistence field or migration is required. Continue preserves old saves. Switching renderer/language does not create another test gift.
+
+---
+
 # v0.18.0 additive schema-18 fields
 
 balanceRevision:1 records the crop-economy duration migration; omitted old values preserve already-ripe Cucumber/Sweet Potato and earned partial growth/care. ownsCopperCan defaults false and is persisted as a boolean, without deleting old large farms/custom beds. foodCooldown defaults zero and clamps to 0–12000ms, advances only in active world time and persists on reload. Existing coin balances/testing-grant stamp, key item, story completion, inventory, farms, houses/decor and localStorage key remain. Newly added board story flag restores from prior help/Commons evidence. No new external save format or cloud service.

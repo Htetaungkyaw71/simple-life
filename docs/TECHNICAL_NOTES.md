@@ -1,3 +1,11 @@
+# v0.19.0 — Unicode shaping and bounded mobile text
+
+Local FontFace loads the allowlisted original Noto Sans Myanmar UI TTF before boot (8-second failure limit). Whole-run Phaser Text preserves Myanmar ligatures/stacked marks; Intl.Segmenter(my, word) wraps at language word boundaries, with a punctuation/space fallback. Integer font sizes/resolution/scales and nearest filtering remain; numeric controls and Latin brand retain their original bitmap font. Glyph rasterization is handled by Canvas, while game texture antialias remains disabled.
+
+Empty dynamic labels use Myanmar-capable Text; explicitly numeric counters retain Latin bitmap rendering. Landscape crop cards reserve the action column, and prompts clear joystick/Jump hit areas. Language switching rebuilds scene labels from existing state, then restores the calling title/pause menu. Original IDs and actions remain stable. Language preference is independent of save data. Text-only guide/description pages pause time, use measured line budgets, and preserve full copy through navigation/details. Compact shop feedback shares the stock row only when needed, avoiding the shortest-landscape overlap. Font failures keep English playable; native-speaker/Safari/physical-phone validation remains pending.
+
+---
+
 # v0.18.5 — bounded trade layout and silent house entry
 
 TradePanel replaces the subtractive lift calculation with fixed header/tab bands and a compact two-column body below 190 logical pixels of available height. Compact panels may expand to 336 logical pixels wide while respecting side/bottom safe insets; tall panels cap at 252×225. Below 160 logical pixels of panel width, the info button moves to the header and the balance moves above the quantity row (hidden in details mode). Selected names/counts/price and measured detail rows wrap at native font size. Quote controls retain full count/total labels. Safe-area centering uses the remaining usable rectangle. Catalogue, gates, prices, quantity behavior and transaction/save systems are unchanged.

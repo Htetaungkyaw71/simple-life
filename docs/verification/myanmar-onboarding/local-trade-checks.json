@@ -1,0 +1,134 @@
+{
+  "result": "PASS",
+  "method": "Isolated fixture saves, native Chrome mouse/touch inputs, actual transactions and reload; both renderers, all catalogue entries/details, native typography, text/control intersections and safe-area rotation.",
+  "results": [
+    {
+      "name": "canvas-320x568-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-320x568-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-390x844-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-390x844-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-844x390-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-844x390-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-568x256-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-568x256-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-320x568-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-320x568-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-390x844-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-390x844-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-844x390-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-844x390-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-568x256-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "webgl-568x256-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    }
+  ]
+}

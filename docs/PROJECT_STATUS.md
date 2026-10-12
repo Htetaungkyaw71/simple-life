@@ -1,3 +1,13 @@
+# v0.19.0 — user-requested Myanmar language and onboarding (2026-10-12)
+
+Implemented English / မြန်မာ selection on cold startup, title/pause switching and a separate validated local language preference. Local dictionaries cover the main gameplay/menu/dialogue/Journal/feedback/asset-credit paths; IDs, catalogue values, system return strings and schema 18 remain unchanged. Bundled Noto Sans Myanmar UI 2.103 renders complete Unicode runs through Phaser Text; native Latin bitmap fonts remain for English and pure numeric controls. Font failure disables the Myanmar option and preserves English startup; an eight-second timeout prevents an indefinitely blocked boot.
+
+A four-card guide now follows the introduction (including Skip), explains the overall Keepsake goal and farming/controls, and directs the player to three free Tomato seeds and the south Farm route. Title Controls replays it. A first-job reminder follows actual starter/plant/water flags. Menus pause gameplay; reading does not grant rewards or modify balance. The recovery-aid sentence now correctly says once-daily watering; the irrigation sign correctly states three watered Tomato nights and growth pausing after a missed day.
+
+Myanmar-specific measured layouts cover Bag, shops/details, resources/recipes/projects/decor, Journal, map, HUD and crop status. Long copy is available through pages or a details button on the shortest landscape. Credits preserve creator/font/product names and provide the new OFL source links. Art/audio/silent doors, camera, economy and gameplay are preserved. 301 tests, both 143-module builds and the allowlist audit pass (45 files / 12,007,135 bytes / 27 approved WAVs / preserved prior art/fonts / complete notices). Checks and release evidence: [verification](verification/myanmar-onboarding/README.md). Physical phones, Safari/WebKit and native-speaker phrasing acceptance remain human checks.
+
+---
+
 # v0.18.6 — silent doors and requested playtest deployment (2026-10-12)
 
 House exit now follows entry's silent travel behavior. The door event is removed from the shared playback/preload/production allowlist, excluding its unused WAV while retaining source/licence evidence. The new regression verifies no fallback, queue, load or voice for the retired event while approved actions remain audible. No camera, gameplay, economy, save or UI-layout changes in this follow-up.

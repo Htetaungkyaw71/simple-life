@@ -1,7 +1,8 @@
+import {worldText} from '../i18n/myanmarText.js';
 import {FOREST_PORTAL} from '../data/forestLandmarks.js';
 // Original pixel stone ring, inner light and rising motes; no extra HUD button.
 export class ForestPortalView{
- constructor(scene){this.scene=scene;this.ring=scene.add.graphics().setDepth(1);this.light=scene.add.graphics().setDepth(FOREST_PORTAL.y+2);this.label=scene.add.bitmapText(FOREST_PORTAL.x,FOREST_PORTAL.y+74,'pixel','RETURN GATE',6).setOrigin(.5,0).setScale(2).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(FOREST_PORTAL.y+3);this.phase=-1;}
+ constructor(scene){this.scene=scene;this.ring=scene.add.graphics().setDepth(1);this.light=scene.add.graphics().setDepth(FOREST_PORTAL.y+2);this.label=worldText(scene,FOREST_PORTAL.x,FOREST_PORTAL.y+74,'RETURN GATE',6).setOrigin(.5,0).setScale(2).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(FOREST_PORTAL.y+3);this.phase=-1;}
  update(time){
   const phase=Math.floor(time/160);if(this.phase===phase)return;this.phase=phase;
   const {x,y}=FOREST_PORTAL,g=this.ring;g.clear().fillStyle(0x303d34,.3).fillEllipse(x+8,y+12,156,80);

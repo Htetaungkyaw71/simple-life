@@ -1,0 +1,51 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "language": "en",
+      "width": 390,
+      "height": 844,
+      "result": "PASS",
+      "introPages": 4,
+      "credits": true,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 568,
+      "height": 256,
+      "result": "PASS",
+      "introPages": 4,
+      "credits": true,
+      "errors": []
+    },
+    {
+      "language": "mm",
+      "width": 390,
+      "height": 844,
+      "result": "PASS",
+      "introPages": 4,
+      "credits": true,
+      "errors": []
+    },
+    {
+      "language": "mm",
+      "width": 568,
+      "height": 256,
+      "result": "PASS",
+      "introPages": 4,
+      "credits": true,
+      "errors": []
+    },
+    {
+      "fontFailure": "abort",
+      "result": "PASS",
+      "englishStartup": true
+    },
+    {
+      "fontFailure": "timeout",
+      "result": "PASS",
+      "englishStartup": true
+    }
+  ]
+}

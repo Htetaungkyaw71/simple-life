@@ -1,3 +1,9 @@
+# v0.19.0 — localization assistance disclosure
+
+Codex authored the English/Myanmar dictionaries and onboarding copy, presentation code, checks and records. Noto's original Unicode glyphs retain their authorship/OFL licence. This records AI assistance truthfully for human review; it is not a certified native-speaker translation or a signed competition declaration. See AI_USAGE.md and assets/licenses/myanmar-font/SOURCE_RECORD.md.
+
+---
+
 # v0.18.3 — mobile proportions assistance
 
 Codex assisted smaller phone HUD rendering/hit areas, wider landscape camera framing, existing regression maintenance and native browser verification from the user's gameplay screenshot. No screenshot art was copied or new external asset/dependency introduced. User approval of actual phone appearance remains separate from browser checks. Evidence: verification/mobile-proportions/README.md.

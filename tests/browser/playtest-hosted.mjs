@@ -19,13 +19,13 @@ try{
   const u=new URL(access.shareURL||access.url);u.searchParams.set('qa','');await p.goto(u.href);await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);
   const snap=()=>p.evaluate(()=>window.__simpleLife.snapshot());
   const click=async(id,delay=300)=>{const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,id);if(mobile)await p.touchscreen.tap(c.x+c.w/2,c.y+c.h/2);else await p.mouse.click(c.x+c.w/2,c.y+c.h/2);await p.waitForTimeout(delay);};
-  await click('Play');await click('Play as Boy');await click('intro-skip');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0&&window.__simpleLife.snapshot().audio.context==='running');
+  await click('language-en');await click('Play');await click('Play as Boy');await click('intro-skip');await click('guide-back');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0&&window.__simpleLife.snapshot().audio.context==='running');
   assert.deepEqual((await snap()).audio.profile.music,{});assert.ok((await snap()).audio.loops.every(v=>v.key.startsWith('ambience:')));
   assert.equal((await snap()).state.money,expectedCoins);assert.equal((await snap()).state.selected,'hand');assert.equal((await snap()).audio.context,'running');assert.deepEqual((await snap()).audio.failures,[]);
   await click('choose-seeds');await click('bag-tab-gear');await click('bag-item-axe');await click('bag-action');assert.equal((await snap()).state.selected,'axe');
   await click('choose-seeds');await click('bag-tab-gear');await click('bag-item-axe');await click('bag-action');assert.equal((await snap()).state.selected,'hand');
   if(mobile){await click('jump',30);assert.ok((await snap()).jump.active);await p.waitForTimeout(850);}
-  await p.reload();await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('Continue');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0);
+  await p.reload();await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('language-en');await click('Continue');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0);
   assert.equal((await snap()).state.selected,'hand');assert.equal((await snap()).state.money,expectedCoins);assert.deepEqual((await snap()).audio.profile.music,{});assert.ok((await snap()).audio.loops.every(v=>v.key.startsWith('ambience:')));
   if(!mobile)for(const row of manifest.files){const r=await ctx.request.get(new URL(row.path,access.url).href);assert.equal(r.status(),200,row.path);const b=await r.body();assert.equal(b.length,row.bytes,row.path);assert.equal(createHash('sha256').update(b).digest('hex'),row.sha256,row.path);files.push({path:row.path,status:200,bytes:b.length,sha256:row.sha256});}
   const canvasCount=await p.locator('canvas').count();assert.equal(canvasCount,1);assert.deepEqual(errors,[]);

@@ -1,3 +1,9 @@
+# v0.19.0 — Myanmar selection and starter understanding
+
+Current browser/unit/build/audit evidence and reproduction are recorded in [Myanmar onboarding](verification/myanmar-onboarding/README.md). Native Chrome checks cover both renderers, English/Myanmar, desktop/portrait/landscape, guide/save/language switching, complete catalogues and transactions, resource panels and an actual fresh seed/plant/water task. Fixtures are explicitly identified; no user-profile storage is edited. Native-speaker copy, physical devices and non-Chromium engines remain separate human checks.
+
+---
+
 # v0.18.3 — mobile proportions and camera (2026-10-12)
 
 **292 tests / 0 fail**, normal/playtest **138-module builds**, runtime audit **40 files / 11,719,637 bytes / 28 approved WAVs / eight unchanged art files / full notices**, and **33 native browser cases** pass. Existing rotation matrix covers actual movement, plant/water, Bag/Audio/Journal, jump, safe-area touch bounds, save and six silent edge crossings; fresh desktop/touch cases retain startup/Continue; four supplemental safe-area cases verify .75 camera zoom/coverage, 44–48px controls, 96px joystick, native house entry and indoor save/reload. Captures inspected at portrait, desktop and landscape Home/Farm/interior sizes. No failed requests or console warnings/errors. The user's earlier physical-phone screenshot confirms responsiveness; revised physical appearance/comfort remains unverified. Reproduction/evidence: [verification/mobile-proportions/README.md](verification/mobile-proportions/README.md).

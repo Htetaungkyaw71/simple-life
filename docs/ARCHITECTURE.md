@@ -1,3 +1,9 @@
+# v0.19.0 — local presentation-only language layer
+
+Application owns LanguageService beside SaveService; validated en/mm preference uses its own localStorage key. i18n dictionaries project original display strings without changing semantic control IDs or pure gameplay systems. Shared pixelWidgets selects original English bitmap rendering or Myanmar Phaser Text with OpenType shaping; world labels use the same local language projection. A bounded local font preload precedes normal Phaser startup, with English fallback on failure. Interface owns the language chooser and four-card onboarding, StoryPanel chains it after introduction, and FarmGuide reads existing starter/plant/water flags. MyanmarResourceView reserves shaped text bands while retaining ResourcePanel's existing data/actions. No DOM HUD/backend/runtime API/save-schema change.
+
+---
+
 # v0.17.4 — default ground vegetation and outdoor ambience
 
 `data/vegetation.js` registers explicit default ground-plant frame names from both details and props, using native sprite dimensions at scale 2. Existing grass/tree coordinate identities remain stable. Added flower/fern/snow-grass/mushroom/palmetto/animated plant/bamboo nodes share `gatherGrass`, inventory Grass, per-area/per-farm save lists, spatial buckets, renderer removal and pure guards. Bamboo's small solid mask joins the removal lookup; interaction sight checks omit only the gathered node. Animated plant sprite references are removed along with sprites to avoid atmosphere updates on destroyed objects. Trees remain the existing axe system; crop and purchased decoration data stay separate. No schema migration, new item or art bytes.

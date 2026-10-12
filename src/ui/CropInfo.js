@@ -4,7 +4,7 @@ import {pixels} from './statusArt.js';
 const intersects=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
 export class CropInfo {
  constructor(hud){
-  this.hud=hud;this.ui=hud.ui;const u=this.ui;this.compact=u.touch&&u.w>u.h&&u.h<200;this.w=Math.min(this.compact&&u.w<=340?128:u.touch&&u.w>u.h&&u.h<240?176:184,u.w-u.safe.left-u.safe.right-12);this.h=this.compact?65:70;
+  this.hud=hud;this.ui=hud.ui;const u=this.ui;this.mm=u.app.language?.current==='mm';this.compact=u.touch&&u.w>u.h&&u.h<200;this.w=Math.min(this.compact&&u.w<=340?128:u.touch&&u.w>u.h&&u.h<240?(this.mm?160:176):184,u.w-u.safe.left-u.safe.right-12);this.tinyMyanmar=this.mm&&u.h<150;this.h=this.mm?(this.tinyMyanmar?74:90):this.compact?65:70;
   this.root=u.add.container().setVisible(false);hud.root.add(this.root);panel(u,this.root,0,0,this.w,this.h,UI_COLORS.panel);
   this.art=u.add.graphics();this.root.add(this.art);this.crop=icon(u,this.root,'tomato',6,4,.75);
   this.name=text(u,this.root,23,5,'',8,UI_COLORS.gold);this.stage=text(u,this.root,6,18,'',this.w<=140?6:7);
@@ -13,26 +13,28 @@ export class CropInfo {
  }
  update(s,c){
   const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(!!info);if(!info)return;
-  this.crop.setTexture('town',info.icon);this.name.setText(info.name);this.stage.setText(`${info.stageName} / ${info.stage}/${info.stages}`);
+  this.crop.setTexture('town',info.icon);this.name.setText(info.name);if(this.mm){this.name.setY(3);this.stage.setY(22).setVisible(!this.tinyMyanmar);this.timer.setY(this.tinyMyanmar?33:49);this.condition.setY(this.tinyMyanmar?53:69).setMaxWidth(this.w-25);}
+  this.stage.setText(`${info.stageName} / ${info.stage}/${info.stages}`);
   const narrow=this.w<=130,timer=info.dead?'Dead / clear':info.ready?'Ready to harvest':info.paused?'Paused / water':`Harvest / ${info.remaining} watered days`;
   this.timer.setMaxWidth(this.w-25).setText(narrow&&!info.dead&&!info.ready&&!info.paused?`Harvest / ${info.remaining} days`:timer);
   const condition=info.recovering?'Recovering / water':info.condition==='Newly planted'?'New / needs water':info.condition==='Growing'?'Needs water':info.condition==='Dry'?'Dry / needs water':info.condition;this.condition.setText(condition);this.am.setVisible(false);
   this.am.setText('Daily / '+info.care[0].label);this.pm.setText('');
-  const g=this.art;g.clear();pixels(g,'clock',6,this.compact?33:36,UI_COLORS.gold);
-  pixels(g,info.dead||info.paused?'warning':info.ready?'basket':info.need?'drop':'leaf',6,this.compact?46:49,UI_COLORS.gold);
+  const g=this.art;g.clear();pixels(g,'clock',6,this.mm?(this.tinyMyanmar?35:51):this.compact?33:36,UI_COLORS.gold);
+  pixels(g,info.dead||info.paused?'warning':info.ready?'basket':info.need?'drop':'leaf',6,this.mm?(this.tinyMyanmar?55:71):this.compact?46:49,UI_COLORS.gold);
 
   const sw=Math.floor((this.w-12-(info.stages-1)*3)/info.stages);
-  for(let i=0;i<info.stages;i++){g.fillStyle(UI_COLORS.ink);g.fillRect(6+i*(sw+3),this.compact?27:29,sw,5);g.fillStyle(i<info.stage?UI_COLORS.gold:0x536e59);g.fillRect(7+i*(sw+3),this.compact?28:30,sw-2,3);}
+  for(let i=0;i<info.stages;i++){g.fillStyle(UI_COLORS.ink);g.fillRect(6+i*(sw+3),this.mm?(this.tinyMyanmar?24:40):this.compact?27:29,sw,5);g.fillStyle(i<info.stage?UI_COLORS.gold:0x536e59);g.fillRect(7+i*(sw+3),this.mm?(this.tinyMyanmar?25:41):this.compact?28:30,sw-2,3);}
   this.place(s,c);
  }
  place(s,c){
   const u=this.ui,cam=u.app.scene.cameras.main,screen=p=>({x:(p.x-cam.worldView.x)*cam.zoom/2,y:(p.y-cam.worldView.y)*cam.zoom/2});
   const player=screen(s.position),plot=screen(c);
   const avoid=[{x:player.x-14,y:player.y-34,w:28,h:38},{x:plot.x-25,y:plot.y-24,w:50,h:47}];
-  const left=u.safe.left+6,right=u.w-u.safe.right-6-this.w,top=u.safe.top+(this.compact?66:80);
+  const short=u.touch&&u.w>u.h&&u.h<240;
+  const left=u.safe.left+6,right=u.w-u.safe.right-6-this.w-(this.mm&&short?72:0),top=u.safe.top+(this.mm&&short?54:this.compact?66:80);
   // Candidate positions avoid the farmer, inspected sprite/soil and existing HUD.
   // On short landscape displays use a side; portrait uses the upper clear band.
-  const short=u.touch&&u.w>u.h&&u.h<240;const floor=u.h-u.safe.bottom-(short?40:u.touch?78:48);
+  const floor=u.h-u.safe.bottom-(short?40:u.touch?78:48);
   const bottom=short?floor-this.h:Math.min(this.hud.promptY-4-this.h,floor-this.h);
   const candidates=[{x:Math.floor((u.w-this.w)/2),y:bottom},{x:left,y:bottom},{x:right,y:bottom},{x:left,y:top},{x:right,y:top}];
   const chosen=candidates.find(p=>p.y>=top&&p.x>=left&&p.x+this.w<=u.w-u.safe.right-6&&p.y+this.h<=floor&&!avoid.some(b=>intersects({...p,w:this.w,h:this.h},b)));

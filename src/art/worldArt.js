@@ -1,3 +1,4 @@
+import {worldText} from '../i18n/myanmarText.js';
 import {forestHabitat} from '../data/forestHabitats.js';
 import {drawCityBridge} from './cityBridge.js';
 import {VEGETATION,removed} from '../data/vegetation.js';
@@ -19,7 +20,7 @@ import {drawHomeArt,drawHomeRoom} from './HomeArt.js';
 const SCALE=2;
 export function image(scene,name,x,y,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.image(Math.round(x),Math.round(y),atlas,name).setOrigin(0).setScale(scene.artScale||SCALE).setDepth(depth);}
 function tiled(scene,name,x,y,w,h,depth=0){const atlas=scene.textures.get('town').has(name)?'town':'world';return scene.add.tileSprite(x,y,w,h,atlas,name).setOrigin(0).setTileScale(scene.artScale||SCALE).setDepth(depth);}
-function label(scene,x,y,value){return scene.add.bitmapText(x,y,'pixel',value,6).setScale(2).setOrigin(.5,0).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(y+3);}
+function label(scene,x,y,value){return worldText(scene,x,y,value,6).setScale(2).setOrigin(.5,0).setTint(0xffefd0).setDropShadow(1,1,0x34344f,1).setDepth(y+3);}
 function object(scene,p){
  if(scene.worldArea==='home'&&p===MAPS.home.buildings[0]&&scene.app.state?.home?.design!=='starter'){
   scene.add.ellipse(p.x+180,p.y+258,240,14,0x253951,.18).setDepth(1);
@@ -61,14 +62,14 @@ function farmSign(scene,p){
  const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
  g.fillStyle(0x544249);g.fillRect(9,19,6,13);g.fillStyle(0xa8794e);g.fillRect(10,20,4,12);
  g.fillStyle(0x544249);g.fillRect(0,0,24,23);g.fillStyle(0xa8794e);g.fillRect(1,1,22,21);g.fillStyle(0xd6ad73);g.fillRect(2,2,20,2);g.fillRect(2,20,20,1);
- pixelArrow(g,2,12,15,0xffedcc);const t=scene.add.bitmapText(p.x+24,p.y+8,'pixel','FARM',6).setOrigin(.5,0).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.farmSigns.push({board:{x:p.x+4,y:p.y+4,w:40,h:38},text:t});return g;
+ pixelArrow(g,2,12,15,0xffedcc);const t=worldText(scene,p.x+24,p.y+8,'FARM',6).setOrigin(.5,0).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.farmSigns.push({board:{x:p.x+4,y:p.y+4,w:40,h:38},text:t});return g;
 }
 function roadSign(scene,p){
  const g=scene.add.graphics().setPosition(p.x,p.y).setScale(2).setDepth(p.y+64);
  g.fillStyle(0x544249).fillRect(13,19,6,13);g.fillStyle(0xa8794e).fillRect(14,20,4,12);
  g.fillStyle(0x544249).fillRect(0,0,32,23);g.fillStyle(0xa8794e).fillRect(1,1,30,21);g.fillStyle(0xd6ad73).fillRect(2,2,28,2).fillRect(2,20,28,1);
  pixelArrow(g,p.direction,p.direction===4?6:p.direction===6||p.direction===2?16:26,p.direction===6||p.direction===2?15:11,0xffedcc);
- const t=scene.add.bitmapText(p.x+(p.direction===4?22:7),p.y+(p.direction===6||p.direction===2?6:16),'pixel',p.text,p.text==='FOREST'?5:6).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.roadSigns.push({board:{x:p.x+4,y:p.y+4,w:56,h:38},text:t});
+ const t=worldText(scene,p.x+(p.direction===4?22:7),p.y+(p.direction===6||p.direction===2?6:16),p.text,p.text==='FOREST'?5:6).setScale(2).setTint(0xffedcc).setDepth(p.y+65);scene.roadSigns.push({board:{x:p.x+4,y:p.y+4,w:56,h:38},text:t});
  return g;
 }
 export function drawWorld(scene,area){

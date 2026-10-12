@@ -1,3 +1,9 @@
+# v0.19.0 — exact Unicode-font allowlist
+
+The original Noto Myanmar TTF and its full runtime OFL notice add exactly two files: assets/pixel/fonts/noto-myanmar.ttf and assets/pixel/fonts/myanmar-license.json. The runtime inventory is 45 files with 27 unchanged approved WAVs, eight unchanged prior art files and four unchanged Latin bitmap-font files. The extended cosy-audio audit verifies the new manifest hash, exact deployed font bytes, copyright and full OFL text. Source/license documents, unused vendor packs, archives, tests, QA captures and credentials remain excluded. Final build fingerprints/counts: verification/myanmar-onboarding.
+
+---
+
 # v0.18.6 — silent-door runtime selection
 
 Retiring the door effect removes its unused WAV from preloading and production. Normal/playtest runtime inventories have 43 files and 27 approved WAVs; eight prior art files, four fonts and notices remain unchanged. Runtime-only deployment excludes source, documents, vendor/unused files, credentials and QA captures. Evidence: verification/silent-doors/README.md.

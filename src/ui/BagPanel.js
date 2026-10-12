@@ -32,9 +32,9 @@ export class BagPanel {
   this.app.save();this.app.sound(s.energy>before||s.health>health?'food:eat':'ui:disabled');if(s.health>health)this.app.sound('food:health');if(s.energy>before)this.app.sound('food:energy');this.show();
  }
  draw(u){
-  const s=this.app.state,l=bagLayout(u),{x,y,w,h,cell,gap,cols,rows}=l,items=bagItems(s,this.tab),item=items[this.index];this.columns=cols;u.menuBounds={x:x*2,y:y*2,w:w*2,h:h*2};
+  const mm=u.app.language?.current==='mm',s=this.app.state,l=bagLayout(u),{x,y,w,h,cell,gap,cols,rows}=l,items=bagItems(s,this.tab),item=items[this.index];this.columns=cols;u.menuBounds={x:x*2,y:y*2,w:w*2,h:h*2};
   const veil=u.add.rectangle(0,0,u.w,u.h,0x26342b,.62).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,w,h);
-  text(u,u.root,x+12,y+10,'BAG',12,UI_COLORS.light,undefined,true);button(u,u.root,'X',x+w-31,y+7,22,22,()=>u.close(),{id:'bag-close'});
+  text(u,u.root,x+12,y+10,'BAG',mm?8:12,UI_COLORS.light,undefined,true);button(u,u.root,'X',x+w-31,y+7,22,22,()=>u.close(),{id:'bag-close'});
   const tabs=[['seeds',CROPS.tomato.seedIcon],['produce',CROPS.tomato.icon],['food',FOODS.wildBerry.icon],['gear','axe-item']];
   tabs.forEach(([tab,key],i)=>{const c=button(u,u.root,tab,x+12+i*29,y+29,26,h<190?22:24,()=>this.open(tab),{id:'bag-tab-'+tab,iconName:key});if(tab===this.tab)c.box.setFillStyle(UI_COLORS.selected);});
   const gw=cols*cell+(cols-1)*gap,gx=Math.floor(x+(w-gw)/2),gy=y+(h<190?55:59),pageSize=cols*rows;
@@ -44,9 +44,10 @@ export class BagPanel {
    const decor=this.tab==='gear'&&Object.hasOwn(DECORATIONS,entry?.id);const c=button(u,u.root,entry?.name||'',sx,sy,cell,cell,()=>{this.index=i;this.message='';this.show();},{id:'bag-item-'+(entry?.id||'empty-'+i),disabled:!entry,iconName:decor?null:entry?.icon||null,preview:entry?.id==='keepsake'?keepsakeThumb:decor?decorationThumb(entry.id):null});
    if(entry){if(i===this.index)c.box.setFillStyle(UI_COLORS.selected);text(u,u.root,sx+cell-4,sy+cell-9,entry.count>=1000?Math.floor(entry.count/1000)+'k':String(entry.count),7).setOrigin(1,0);}
   }
-  const fy=y+h-(h<190?33:37);text(u,u.root,x+12,fy,item.name+(item.count>=1000?' / '+item.count:''),8,UI_COLORS.light,w-24);
+  const fy=y+h-(mm&&h>=144?53:h<190?33:37);text(u,u.root,x+12,fy,item.name+(item.count>=1000?' / '+item.count:''),8,UI_COLORS.light,mm&&h<144?w-86:w-24);
   const detail=this.tab==='food'?(s.foodCooldown>0?'Wait '+Math.ceil(s.foodCooldown/1000)+'s': '+'+foodRestore(s,item.id).health+' HP / +'+foodRestore(s,item.id).energy+' EP'):this.tab==='gear'?(({keepsake:'Key item / safe / JOURNAL',water:s.ownsCopperCan?'3 beds ahead / 2 EP':'1 bed / 1 EP',shovel:'Dig free beds',axe:'Trees: 3 hits / hunt with K',grass:'Plant on dry ground',wood:'Orders / projects / decor',stone:'Projects / decor / stove'})[item.id]||'Put tools away to pack it'):this.tab==='produce'?marketPrice(s,item.id).price+'c / City Market':'Planting seeds';
-  text(u,u.root,x+12,fy+13,this.message||detail,6,UI_COLORS.muted,w-90);
-  if(this.tab!=='produce')button(u,u.root,this.tab==='food'?'Eat':this.tab==='seeds'?(s.selected==='seed'&&s.selectedCrop===item.id?'Put away':'Select'):item.id==='keepsake'?'Journal':['wood','stone'].includes(item.id)?'Uses':Object.hasOwn(DECORATIONS,item.id)?'Place':s.selected===item.id?'Put away':'Equip',x+w-69,fy+(h<190?7:9),57,22,()=>this.perform(),{id:'bag-action',disabled:this.tab==='food'?s.foodCooldown>0||!item.count||(s.energy>=100&&s.health>=100)||s.health<=0:this.tab==='gear'?(item.id==='grass'&&!item.count&&s.selected!=='grass'||Object.hasOwn(DECORATIONS,item.id)&&(!decorationAllowed(s.area,item.id)||!item.count)):false});
+  if(!mm||h>=144)text(u,u.root,x+12,fy+(mm?20:13),this.message||detail,6,UI_COLORS.muted,w-90);
+  if(mm)button(u,u.root,'?',x+w-96,y+7,22,22,()=>u.modal('BAG',item.name,this.message||detail,[['Back',()=>this.show()]]),{id:'bag-details'});
+  if(this.tab!=='produce')button(u,u.root,this.tab==='food'?'Eat':this.tab==='seeds'?(s.selected==='seed'&&s.selectedCrop===item.id?'Put away':'Select'):item.id==='keepsake'?'Journal':['wood','stone'].includes(item.id)?'Uses':Object.hasOwn(DECORATIONS,item.id)?'Place':s.selected===item.id?'Put away':'Equip',x+w-69,fy+(mm&&h>=144?23:h<190?7:9),57,22,()=>this.perform(),{id:'bag-action',disabled:this.tab==='food'?s.foodCooldown>0||!item.count||(s.energy>=100&&s.health>=100)||s.health<=0:this.tab==='gear'?(item.id==='grass'&&!item.count&&s.selected!=='grass'||Object.hasOwn(DECORATIONS,item.id)&&(!decorationAllowed(s.area,item.id)||!item.count)):false});
  }
 }

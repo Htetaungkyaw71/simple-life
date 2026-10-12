@@ -23,18 +23,18 @@ export class Hud {
   const bolt=u.add.graphics();vitals.add(bolt);bolt.setScale(2).setPosition(6,38);meterGlyph(bolt,'bolt',0xffd45a);
   this.waterWindow=text(u,p,left,top+(u.touch?50:64),'',6,UI_COLORS.cream);
   const clockGroup=u.add.container(right,top),cw=u.touch?66:76;p.add(clockGroup);
-  panel(u,clockGroup,-cw,0,cw,31);this.clock=text(u,clockGroup,-cw/2,6,'6:00 am',8).setOrigin(.5,0);this.day=text(u,clockGroup,-cw/2,19,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
-  panel(u,clockGroup,-cw,34,cw,18,UI_COLORS.selected);this.money=text(u,clockGroup,-cw/2,39,'60c',8).setOrigin(.5,0);
+  panel(u,clockGroup,-cw,0,cw,31);this.clock=text(u,clockGroup,-cw/2,u.app.language?.current==='mm'?0:6,'6:00 am',8).setOrigin(.5,0);this.day=text(u,clockGroup,-cw/2,u.app.language?.current==='mm'?15:19,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
+  panel(u,clockGroup,-cw,34,cw,18,UI_COLORS.selected);this.money=text(u,clockGroup,-cw/2,u.app.language?.current==='mm'?34:39,'60c',8).setOrigin(.5,0);
   if(this.app.placement?.draft){this.slots=[];this.placementSignature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;placementControls(u,p);return;}
   const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
     const sx=x+i*(cell+gap),tools={seed:CROPS[s.selectedCrop].seedIcon,water:'watering-can-item',harvest:'sickle',shovel:'shovel-item',axe:'axe-item',hand:'hand-item',grass:'grass-item',decorate:'stone-item'},glyphs={bag:'bag',map:'map',pause:'menu',customize:'customize'};
    const action=()=>id==='bag'?this.app.bagPanel.open('seeds'):id==='map'?this.app.wildernessMap.open():id==='pause'?this.app.pause():id==='customize'?this.app.customizationPanel.open():['shovel','axe','hand','grass','decorate'].includes(id)?this.app.bagPanel.open('gear',id):this.app.select(id,{toggle:true});
    const control=button(u,p,id==='map'?'Map':id,sx,y,cell,cell,action,{id:id==='bag'?'choose-seeds':id==='map'?'wilderness-map':['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)?'tool-'+id:id,iconName:tools[id]||null,glyph:glyphs[id]?(g,a,b,c)=>pixels(g,glyphs[id],a,b,c):null});
-   if(['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-11,'',6).setOrigin(1,0)});}
+   if(['seed','water','harvest','shovel','axe','hand','grass','decorate'].includes(id)){this.slots.push({tool:id,slot:control,count:text(u,p,sx+cell-3,y+cell-11,'',6,UI_COLORS.light,undefined,false,'numeric').setOrigin(1,0)});}
   }
   if(u.touch)this.mobile=mobileControls(u,p);
-  this.hotbarY=y;this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,Math.min(210,u.w-u.safe.left-u.safe.right-22));this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
+  this.hotbarY=y;this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,Math.min(210,u.w-u.safe.left-u.safe.right-(u.touch&&w>h&&h<240?112:22)));this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
  }
  update(s,c){
   if(this.signature!==this.key()){this.ui.layout();return;}
@@ -53,7 +53,8 @@ export class Hud {
   this.promptArrow.clear();if(farmDirection){this.promptArrow.fillStyle(UI_COLORS.light).fillRect(pw-10,3,2,6).fillRect(pw-12,7,6,2).fillRect(pw-10,9,2,2);}
   const cam=this.app.scene.cameras.main,px=(s.position.x-cam.worldView.x)*cam.zoom/2,py=(s.position.y-cam.worldView.y)*cam.zoom/2;
   const overlaps=Math.abs(px-this.ui.w/2)<pw/2+12&&py>this.promptY&&py-30<this.promptY+15;
-  this.prompt.setPosition(Math.round(this.ui.w/2-pw/2),overlaps?Math.round(py-46):this.promptY);
-  const crop=this.cropInfo.snapshot();if(crop&&this.ui.touch&&this.ui.w>this.ui.h&&this.ui.h<240)this.prompt.setPosition(crop.x/2<this.ui.w/2?this.ui.w-this.ui.safe.right-pw-6:this.ui.safe.left+6,this.promptY);
+  const promptX=u.touch&&u.w>u.h&&u.h<240?u.safe.left+60+Math.floor((u.w-u.safe.left-u.safe.right-96-pw)/2):Math.round(this.ui.w/2-pw/2);
+  this.prompt.setPosition(promptX,overlaps?Math.round(py-46):this.promptY);
+  const crop=this.cropInfo.snapshot();if(crop&&this.ui.touch&&this.ui.w>this.ui.h&&this.ui.h<240){const right=crop.x/2+crop.w/4<this.ui.w/2,limit=this.ui.h-this.ui.safe.bottom-(right?70:55)-ph-4;this.prompt.setPosition(right?this.ui.w-this.ui.safe.right-pw-6:this.ui.safe.left+6,Math.min(this.promptY,limit));}
  }
 }

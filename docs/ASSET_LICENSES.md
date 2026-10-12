@@ -1,3 +1,9 @@
+# v0.19.0 — bundled Myanmar Unicode font
+
+Noto Sans Myanmar UI Regular 2.103, The Noto Project Authors / Google, SIL Open Font License 1.1. The 199,680-byte official TTF is byte-identical and only renamed to fonts/noto-myanmar.ttf. Its embedded copyright (2021 Google), exact source URL, hash and complete licence evidence are under [Myanmar font](assets/licenses/myanmar-font/SOURCE_RECORD.md). The build includes a font-specific JSON notice with full OFL text. In-game Credits / More art / Fonts / Myanmar font provides attribution/source/licence links. No remote runtime fetch, new dependency or modification to previous fonts/art/audio.
+
+---
+
 # v0.18.6 — retired door sample
 
 The approved sfx-door-wood-open.wav is excluded from runtime after the user requested silent house entry and exit. Historical creator/source/licence/hash evidence is retained; no source asset is deleted or edited. The 27 remaining approved WAVs, eight prior art files, four approved font files and dependency notices retain their existing bytes and evidence. No new asset or dependency.

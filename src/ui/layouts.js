@@ -11,7 +11,7 @@ export function hudLayout(u,forest,armed,selected='shovel'){
 export function bagLayout(u){
  const w=Math.min(340,u.w-(u.safe.left||0)-(u.safe.right||0)-12),h=Math.min(254,u.h-(u.safe.top||0)-(u.safe.bottom||0)-12),gap=4;
  const landscape=u.w>u.h&&h<190,cols=landscape?6:4,rows=landscape?(h<144?1:2):3;
- const cell=Math.floor(Math.min(48,(w-24-gap*(cols-1))/cols,(h-(h<190?92:104)-gap*(rows-1))/rows));
+ const cell=Math.floor(Math.min(48,(w-24-gap*(cols-1))/cols,(h-(h<190?92:104)-(u.app?.language?.current==='mm'&&h>=144?16:0)-gap*(rows-1))/rows));
  return {x:Math.floor((u.w-w)/2),y:Math.floor((u.h-h)/2),w,h,cell,gap,cols,rows};
 }
 export const facingIndex={right:0,down:2,left:4,up:6};

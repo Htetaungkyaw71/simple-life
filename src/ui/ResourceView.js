@@ -1,8 +1,10 @@
+import {drawMyanmarResourcePage} from './MyanmarResourceView.js';
 import {button,panel,text,icon,UI_COLORS} from './pixelWidgets.js';
 import {decorationPreview,projectPreview} from './resourcePreviews.js';
 
 // Layout reserves separate header, content, reward and action bands.
 export function drawResourcePage(u,page){
+ if(u.app.language?.current==='mm')return drawMyanmarResourcePage(u,page);
  const short=u.h-u.safe.top-u.safe.bottom<220,narrow=u.w-u.safe.left-u.safe.right<240,w=Math.min(370,u.w-u.safe.left-u.safe.right-12),h=Math.min(narrow?306:280,u.h-u.safe.top-u.safe.bottom-12),x=Math.floor(u.safe.left+(u.w-u.safe.left-u.safe.right-w)/2),y=Math.max(u.safe.top+6,Math.floor((u.h-h)/2)),inner=w-24,tiny=h<160;
  u.menuBounds={x:x*2,y:y*2,w:w*2,h:h*2};
  const veil=u.add.rectangle(0,0,u.w,u.h,0x23362a,.65).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,w,h,UI_COLORS.cream);

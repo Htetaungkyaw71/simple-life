@@ -35,7 +35,11 @@ for row in fonts['files']:
    from PIL import Image
    assert set(Image.open(p).getchannel('A').tobytes())=={0,255}
 files=[p for p in (root/'dist').rglob('*') if p.is_file()]
-assert len(files)==len(expected)+16
+myanmar=json.loads((root/'docs/assets/licenses/myanmar-font/manifest.json').read_text())
+for row in myanmar['files']:
+ p=root/row['file'];assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'];assert p.read_bytes()==(root/'dist'/row['file'].removeprefix('public/')).read_bytes()
+notice=json.loads((root/'dist/assets/pixel/fonts/myanmar-license.json').read_text());assert 'Copyright 2021 Google Inc.' in notice['copyright'];assert notice['license']==(root/'docs/assets/licenses/myanmar-font/FONT-LICENSE.txt').read_text()
+assert len(files)==len(expected)+18
 assert not any(p.suffix.lower() in ['.zip','.rar','.md','.txt','.ogg','.mp4'] for p in files)
 normalize=lambda text:' '.join(text.split())
 phaser=next((root/'dist/assets').glob('phaser-*.js')).read_text();app=next((root/'dist/assets').glob('index-*.js')).read_text()

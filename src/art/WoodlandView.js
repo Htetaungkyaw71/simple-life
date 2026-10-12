@@ -1,8 +1,9 @@
+import {worldText} from '../i18n/myanmarText.js';
 import {WOODLAND_WILDLIFE,animalDirection,wildlifeFrame} from '../data/wildlifeArt.js';
 export class WoodlandView {
  constructor(scene){
   this.scene=scene;this.animals=WOODLAND_WILDLIFE.map((a,i)=>{
-   const p=scene.app.state.forest.woodland[a.id].position;return {...a,p,previous:{...p},i,direction:'down',sprite:scene.add.image(p.x,p.y,'town',wildlifeFrame(a.species,'idle','down',0)).setOrigin(.5,.9).setScale(2),label:scene.add.bitmapText(p.x,p.y-64,'pixel',a.name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)};
+   const p=scene.app.state.forest.woodland[a.id].position;return {...a,p,previous:{...p},i,direction:'down',sprite:scene.add.image(p.x,p.y,'town',wildlifeFrame(a.species,'idle','down',0)).setOrigin(.5,.9).setScale(2),label:worldText(scene,p.x,p.y-64,a.name,6).setScale(2).setOrigin(.5).setTint(0xffedcc)};
   });
  }
  update(delta,now){

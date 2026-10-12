@@ -1,0 +1,23 @@
+{
+  "font": "Noto Sans Myanmar UI Regular",
+  "creator": "The Noto Project Authors / Google",
+  "source": "https://github.com/notofonts/noto-fonts/blob/main/hinted/ttf/NotoSansMyanmarUI/NotoSansMyanmarUI-Regular.ttf",
+  "downloaded": "2026-10-12",
+  "license": "SIL Open Font License 1.1",
+  "modifications": "None; original TTF bytes renamed for runtime allowlist. OpenType shaping via local browser Canvas; integer dimensions and nearest texture filtering.",
+  "names": {
+    "0": "Copyright 2021 Google Inc. All Rights Reserved.",
+    "1": "Noto Sans Myanmar UI",
+    "2": "Regular",
+    "5": "Version 2.103; ttfautohint (v1.8) -l 8 -r 50 -G 200 -x 14 -D mymr -f none -a qsq -X \"\"",
+    "13": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.",
+    "14": "http://scripts.sil.org/OFL"
+  },
+  "files": [
+    {
+      "file": "public/assets/pixel/fonts/noto-myanmar.ttf",
+      "bytes": 199680,
+      "sha256": "d3fa6e33ca7a4aeb8cb65dfe19ec608c49ef629f2b37585c23d5c80b0bd1e1bf"
+    }
+  ]
+}

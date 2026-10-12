@@ -1,0 +1,2221 @@
+{
+  "result": "PASS",
+  "method": "Fresh 60-coin Myanmar-language start; native guide/keyboard/mouse, actual navigation, crate collection, Farm travel, planting and watering; no injected state.",
+  "flags": [
+    "starter",
+    "plant",
+    "water"
+  ],
+  "state": {
+    "version": 18,
+    "balanceRevision": 1,
+    "ownsCopperCan": false,
+    "foodCooldown": 0,
+    "home": {
+      "design": "starter",
+      "owned": [
+        "starter"
+      ]
+    },
+    "story": {
+      "intro": "skipped",
+      "flags": [
+        "starter",
+        "plant",
+        "water"
+      ],
+      "keepsake": "hidden",
+      "completed": false,
+      "endingSeen": false,
+      "cuePlayed": false,
+      "activeSeconds": 14.89938999999987,
+      "stats": {
+        "harvests": 0,
+        "sales": 0,
+        "boars": 0,
+        "deaths": 0
+      },
+      "completion": null
+    },
+    "settlement": {
+      "projects": [],
+      "orders": {
+        "day": 1,
+        "completed": []
+      },
+      "stove": false,
+      "decorations": []
+    },
+    "selectedDecoration": "bench",
+    "vegetation": {},
+    "customBeds": [],
+    "dugPlots": [],
+    "wetGround": [
+      {
+        "area": "farm",
+        "farm": 0,
+        "x": 376,
+        "y": 248,
+        "remaining": 179700.00999999986
+      }
+    ],
+    "forest": {
+      "forageDay": 1,
+      "collected": [],
+      "stones": [],
+      "woodland": {
+        "woodland-deer-480-4680": {
+          "id": "woodland-deer-480-4680",
+          "species": "deer",
+          "position": {
+            "x": 480,
+            "y": 4680
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-520-4736": {
+          "id": "woodland-deer-520-4736",
+          "species": "deer",
+          "position": {
+            "x": 520,
+            "y": 4736
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-480-4840": {
+          "id": "woodland-hare-480-4840",
+          "species": "hare",
+          "position": {
+            "x": 480,
+            "y": 4840
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-520-4896": {
+          "id": "woodland-hare-520-4896",
+          "species": "hare",
+          "position": {
+            "x": 520,
+            "y": 4896
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1760-3784": {
+          "id": "woodland-fox-1760-3784",
+          "species": "fox",
+          "position": {
+            "x": 1760,
+            "y": 3784
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1800-3840": {
+          "id": "woodland-fox-1800-3840",
+          "species": "fox",
+          "position": {
+            "x": 1800,
+            "y": 3840
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4320-2792": {
+          "id": "woodland-grouse-4320-2792",
+          "species": "grouse",
+          "position": {
+            "x": 4320,
+            "y": 2792
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4360-2848": {
+          "id": "woodland-grouse-4360-2848",
+          "species": "grouse",
+          "position": {
+            "x": 4360,
+            "y": 2848
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5464-632": {
+          "id": "woodland-deer-5464-632",
+          "species": "deer",
+          "position": {
+            "x": 5464,
+            "y": 632
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5512-668": {
+          "id": "woodland-deer-5512-668",
+          "species": "deer",
+          "position": {
+            "x": 5512,
+            "y": 668
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6744-632": {
+          "id": "woodland-hare-6744-632",
+          "species": "hare",
+          "position": {
+            "x": 6744,
+            "y": 632
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6792-668": {
+          "id": "woodland-hare-6792-668",
+          "species": "hare",
+          "position": {
+            "x": 6792,
+            "y": 668
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8024-632": {
+          "id": "woodland-fox-8024-632",
+          "species": "fox",
+          "position": {
+            "x": 8024,
+            "y": 632
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8072-668": {
+          "id": "woodland-fox-8072-668",
+          "species": "fox",
+          "position": {
+            "x": 8072,
+            "y": 668
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9304-632": {
+          "id": "woodland-grouse-9304-632",
+          "species": "grouse",
+          "position": {
+            "x": 9304,
+            "y": 632
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9352-668": {
+          "id": "woodland-grouse-9352-668",
+          "species": "grouse",
+          "position": {
+            "x": 9352,
+            "y": 668
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5464-1656": {
+          "id": "woodland-deer-5464-1656",
+          "species": "deer",
+          "position": {
+            "x": 5464,
+            "y": 1656
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5512-1692": {
+          "id": "woodland-deer-5512-1692",
+          "species": "deer",
+          "position": {
+            "x": 5512,
+            "y": 1692
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6744-1656": {
+          "id": "woodland-hare-6744-1656",
+          "species": "hare",
+          "position": {
+            "x": 6744,
+            "y": 1656
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6792-1692": {
+          "id": "woodland-hare-6792-1692",
+          "species": "hare",
+          "position": {
+            "x": 6792,
+            "y": 1692
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8024-1656": {
+          "id": "woodland-fox-8024-1656",
+          "species": "fox",
+          "position": {
+            "x": 8024,
+            "y": 1656
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8072-1692": {
+          "id": "woodland-fox-8072-1692",
+          "species": "fox",
+          "position": {
+            "x": 8072,
+            "y": 1692
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9304-1656": {
+          "id": "woodland-grouse-9304-1656",
+          "species": "grouse",
+          "position": {
+            "x": 9304,
+            "y": 1656
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9352-1692": {
+          "id": "woodland-grouse-9352-1692",
+          "species": "grouse",
+          "position": {
+            "x": 9352,
+            "y": 1692
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5464-2680": {
+          "id": "woodland-deer-5464-2680",
+          "species": "deer",
+          "position": {
+            "x": 5464,
+            "y": 2680
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5512-2716": {
+          "id": "woodland-deer-5512-2716",
+          "species": "deer",
+          "position": {
+            "x": 5512,
+            "y": 2716
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6744-2680": {
+          "id": "woodland-hare-6744-2680",
+          "species": "hare",
+          "position": {
+            "x": 6792,
+            "y": 2680
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6792-2716": {
+          "id": "woodland-hare-6792-2716",
+          "species": "hare",
+          "position": {
+            "x": 6792,
+            "y": 2716
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8024-2680": {
+          "id": "woodland-fox-8024-2680",
+          "species": "fox",
+          "position": {
+            "x": 8024,
+            "y": 2680
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8072-2716": {
+          "id": "woodland-fox-8072-2716",
+          "species": "fox",
+          "position": {
+            "x": 8072,
+            "y": 2716
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9304-2680": {
+          "id": "woodland-grouse-9304-2680",
+          "species": "grouse",
+          "position": {
+            "x": 9304,
+            "y": 2680
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9352-2716": {
+          "id": "woodland-grouse-9352-2716",
+          "species": "grouse",
+          "position": {
+            "x": 9352,
+            "y": 2716
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5464-3704": {
+          "id": "woodland-deer-5464-3704",
+          "species": "deer",
+          "position": {
+            "x": 5464,
+            "y": 3704
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5512-3740": {
+          "id": "woodland-deer-5512-3740",
+          "species": "deer",
+          "position": {
+            "x": 5512,
+            "y": 3740
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6744-3704": {
+          "id": "woodland-hare-6744-3704",
+          "species": "hare",
+          "position": {
+            "x": 6744,
+            "y": 3704
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6792-3740": {
+          "id": "woodland-hare-6792-3740",
+          "species": "hare",
+          "position": {
+            "x": 6792,
+            "y": 3740
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8024-3704": {
+          "id": "woodland-fox-8024-3704",
+          "species": "fox",
+          "position": {
+            "x": 8120,
+            "y": 3704
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8072-3740": {
+          "id": "woodland-fox-8072-3740",
+          "species": "fox",
+          "position": {
+            "x": 8152,
+            "y": 3740
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9304-3704": {
+          "id": "woodland-grouse-9304-3704",
+          "species": "grouse",
+          "position": {
+            "x": 9400,
+            "y": 3704
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9352-3740": {
+          "id": "woodland-grouse-9352-3740",
+          "species": "grouse",
+          "position": {
+            "x": 9400,
+            "y": 3740
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5464-4728": {
+          "id": "woodland-deer-5464-4728",
+          "species": "deer",
+          "position": {
+            "x": 5464,
+            "y": 4728
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5512-4764": {
+          "id": "woodland-deer-5512-4764",
+          "species": "deer",
+          "position": {
+            "x": 5512,
+            "y": 4764
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6744-4728": {
+          "id": "woodland-hare-6744-4728",
+          "species": "hare",
+          "position": {
+            "x": 6744,
+            "y": 4728
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6792-4764": {
+          "id": "woodland-hare-6792-4764",
+          "species": "hare",
+          "position": {
+            "x": 6792,
+            "y": 4764
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8024-4728": {
+          "id": "woodland-fox-8024-4728",
+          "species": "fox",
+          "position": {
+            "x": 8024,
+            "y": 4728
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8072-4764": {
+          "id": "woodland-fox-8072-4764",
+          "species": "fox",
+          "position": {
+            "x": 8072,
+            "y": 4764
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9304-4728": {
+          "id": "woodland-grouse-9304-4728",
+          "species": "grouse",
+          "position": {
+            "x": 9304,
+            "y": 4728
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-9352-4764": {
+          "id": "woodland-grouse-9352-4764",
+          "species": "grouse",
+          "position": {
+            "x": 9352,
+            "y": 4764
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-448-712": {
+          "id": "woodland-hare-448-712",
+          "species": "hare",
+          "position": {
+            "x": 448,
+            "y": 712
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-576-752": {
+          "id": "woodland-hare-576-752",
+          "species": "hare",
+          "position": {
+            "x": 576,
+            "y": 752
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-1728-712": {
+          "id": "woodland-hare-1728-712",
+          "species": "hare",
+          "position": {
+            "x": 1728,
+            "y": 712
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1856-752": {
+          "id": "woodland-fox-1856-752",
+          "species": "fox",
+          "position": {
+            "x": 1856,
+            "y": 752
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-3008-712": {
+          "id": "woodland-fox-3008-712",
+          "species": "fox",
+          "position": {
+            "x": 3056,
+            "y": 712
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-3136-752": {
+          "id": "woodland-grouse-3136-752",
+          "species": "grouse",
+          "position": {
+            "x": 3136,
+            "y": 752
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4288-712": {
+          "id": "woodland-grouse-4288-712",
+          "species": "grouse",
+          "position": {
+            "x": 4288,
+            "y": 712
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-4416-752": {
+          "id": "woodland-deer-4416-752",
+          "species": "deer",
+          "position": {
+            "x": 4416,
+            "y": 752
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-448-1736": {
+          "id": "woodland-hare-448-1736",
+          "species": "hare",
+          "position": {
+            "x": 448,
+            "y": 1736
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-576-1776": {
+          "id": "woodland-hare-576-1776",
+          "species": "hare",
+          "position": {
+            "x": 576,
+            "y": 1776
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-1728-1736": {
+          "id": "woodland-hare-1728-1736",
+          "species": "hare",
+          "position": {
+            "x": 1728,
+            "y": 1736
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1856-1776": {
+          "id": "woodland-fox-1856-1776",
+          "species": "fox",
+          "position": {
+            "x": 1856,
+            "y": 1776
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-3008-1736": {
+          "id": "woodland-fox-3008-1736",
+          "species": "fox",
+          "position": {
+            "x": 3008,
+            "y": 1736
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-3136-1776": {
+          "id": "woodland-grouse-3136-1776",
+          "species": "grouse",
+          "position": {
+            "x": 3136,
+            "y": 1776
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4288-1736": {
+          "id": "woodland-grouse-4288-1736",
+          "species": "grouse",
+          "position": {
+            "x": 4368,
+            "y": 1736
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-4416-1776": {
+          "id": "woodland-deer-4416-1776",
+          "species": "deer",
+          "position": {
+            "x": 4416,
+            "y": 1776
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-448-2760": {
+          "id": "woodland-hare-448-2760",
+          "species": "hare",
+          "position": {
+            "x": 448,
+            "y": 2760
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-576-2800": {
+          "id": "woodland-hare-576-2800",
+          "species": "hare",
+          "position": {
+            "x": 576,
+            "y": 2800
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-1728-2760": {
+          "id": "woodland-hare-1728-2760",
+          "species": "hare",
+          "position": {
+            "x": 1728,
+            "y": 2760
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1856-2800": {
+          "id": "woodland-fox-1856-2800",
+          "species": "fox",
+          "position": {
+            "x": 1856,
+            "y": 2800
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-3008-2760": {
+          "id": "woodland-fox-3008-2760",
+          "species": "fox",
+          "position": {
+            "x": 3008,
+            "y": 2760
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-3136-2800": {
+          "id": "woodland-grouse-3136-2800",
+          "species": "grouse",
+          "position": {
+            "x": 3136,
+            "y": 2800
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4288-2760": {
+          "id": "woodland-grouse-4288-2760",
+          "species": "grouse",
+          "position": {
+            "x": 4288,
+            "y": 2760
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-4416-2800": {
+          "id": "woodland-deer-4416-2800",
+          "species": "deer",
+          "position": {
+            "x": 4416,
+            "y": 2800
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-448-3784": {
+          "id": "woodland-hare-448-3784",
+          "species": "hare",
+          "position": {
+            "x": 448,
+            "y": 3784
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-576-3824": {
+          "id": "woodland-hare-576-3824",
+          "species": "hare",
+          "position": {
+            "x": 576,
+            "y": 3824
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-1728-3784": {
+          "id": "woodland-hare-1728-3784",
+          "species": "hare",
+          "position": {
+            "x": 1728,
+            "y": 3784
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1856-3824": {
+          "id": "woodland-fox-1856-3824",
+          "species": "fox",
+          "position": {
+            "x": 1856,
+            "y": 3824
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-3008-3784": {
+          "id": "woodland-fox-3008-3784",
+          "species": "fox",
+          "position": {
+            "x": 3008,
+            "y": 3784
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-3136-3824": {
+          "id": "woodland-grouse-3136-3824",
+          "species": "grouse",
+          "position": {
+            "x": 3136,
+            "y": 3824
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4288-3784": {
+          "id": "woodland-grouse-4288-3784",
+          "species": "grouse",
+          "position": {
+            "x": 4288,
+            "y": 3784
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-4416-3824": {
+          "id": "woodland-deer-4416-3824",
+          "species": "deer",
+          "position": {
+            "x": 4416,
+            "y": 3824
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-448-4808": {
+          "id": "woodland-deer-448-4808",
+          "species": "deer",
+          "position": {
+            "x": 448,
+            "y": 4808
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-576-4848": {
+          "id": "woodland-hare-576-4848",
+          "species": "hare",
+          "position": {
+            "x": 576,
+            "y": 4848
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-1728-4808": {
+          "id": "woodland-hare-1728-4808",
+          "species": "hare",
+          "position": {
+            "x": 1728,
+            "y": 4808
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-1856-4848": {
+          "id": "woodland-fox-1856-4848",
+          "species": "fox",
+          "position": {
+            "x": 1856,
+            "y": 4848
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-3008-4808": {
+          "id": "woodland-fox-3008-4808",
+          "species": "fox",
+          "position": {
+            "x": 3008,
+            "y": 4808
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-3136-4848": {
+          "id": "woodland-grouse-3136-4848",
+          "species": "grouse",
+          "position": {
+            "x": 3136,
+            "y": 4848
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-4288-4808": {
+          "id": "woodland-grouse-4288-4808",
+          "species": "grouse",
+          "position": {
+            "x": 4288,
+            "y": 4808
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-4416-4848": {
+          "id": "woodland-deer-4416-4848",
+          "species": "deer",
+          "position": {
+            "x": 4416,
+            "y": 4848
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5568-712": {
+          "id": "woodland-deer-5568-712",
+          "species": "deer",
+          "position": {
+            "x": 5568,
+            "y": 712
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-5696-752": {
+          "id": "woodland-hare-5696-752",
+          "species": "hare",
+          "position": {
+            "x": 5696,
+            "y": 752
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6848-712": {
+          "id": "woodland-hare-6848-712",
+          "species": "hare",
+          "position": {
+            "x": 6848,
+            "y": 712
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-6976-752": {
+          "id": "woodland-fox-6976-752",
+          "species": "fox",
+          "position": {
+            "x": 6976,
+            "y": 752
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8128-712": {
+          "id": "woodland-fox-8128-712",
+          "species": "fox",
+          "position": {
+            "x": 8128,
+            "y": 712
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-8256-752": {
+          "id": "woodland-grouse-8256-752",
+          "species": "grouse",
+          "position": {
+            "x": 8256,
+            "y": 752
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-9408-712": {
+          "id": "woodland-fox-9408-712",
+          "species": "fox",
+          "position": {
+            "x": 9408,
+            "y": 712
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-9536-752": {
+          "id": "woodland-hare-9536-752",
+          "species": "hare",
+          "position": {
+            "x": 9536,
+            "y": 752
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5568-1736": {
+          "id": "woodland-deer-5568-1736",
+          "species": "deer",
+          "position": {
+            "x": 5568,
+            "y": 1736
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-5696-1776": {
+          "id": "woodland-hare-5696-1776",
+          "species": "hare",
+          "position": {
+            "x": 5696,
+            "y": 1776
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6848-1736": {
+          "id": "woodland-hare-6848-1736",
+          "species": "hare",
+          "position": {
+            "x": 6848,
+            "y": 1736
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-6976-1776": {
+          "id": "woodland-fox-6976-1776",
+          "species": "fox",
+          "position": {
+            "x": 6928,
+            "y": 1776
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8128-1736": {
+          "id": "woodland-fox-8128-1736",
+          "species": "fox",
+          "position": {
+            "x": 8128,
+            "y": 1736
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-grouse-8256-1776": {
+          "id": "woodland-grouse-8256-1776",
+          "species": "grouse",
+          "position": {
+            "x": 8256,
+            "y": 1776
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-9408-1736": {
+          "id": "woodland-fox-9408-1736",
+          "species": "fox",
+          "position": {
+            "x": 9408,
+            "y": 1736
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-9536-1776": {
+          "id": "woodland-hare-9536-1776",
+          "species": "hare",
+          "position": {
+            "x": 9536,
+            "y": 1776
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5568-2760": {
+          "id": "woodland-deer-5568-2760",
+          "species": "deer",
+          "position": {
+            "x": 5568,
+            "y": 2760
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-5696-2800": {
+          "id": "woodland-hare-5696-2800",
+          "species": "hare",
+          "position": {
+            "x": 5696,
+            "y": 2800
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-6848-2760": {
+          "id": "woodland-fox-6848-2760",
+          "species": "fox",
+          "position": {
+            "x": 6848,
+            "y": 2760
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6976-2800": {
+          "id": "woodland-hare-6976-2800",
+          "species": "hare",
+          "position": {
+            "x": 6976,
+            "y": 2800
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-8128-2760": {
+          "id": "woodland-hare-8128-2760",
+          "species": "hare",
+          "position": {
+            "x": 8128,
+            "y": 2760
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8256-2800": {
+          "id": "woodland-fox-8256-2800",
+          "species": "fox",
+          "position": {
+            "x": 8256,
+            "y": 2800
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-9408-2760": {
+          "id": "woodland-fox-9408-2760",
+          "species": "fox",
+          "position": {
+            "x": 9408,
+            "y": 2760
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-9536-2800": {
+          "id": "woodland-hare-9536-2800",
+          "species": "hare",
+          "position": {
+            "x": 9536,
+            "y": 2800
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5568-3784": {
+          "id": "woodland-deer-5568-3784",
+          "species": "deer",
+          "position": {
+            "x": 5568,
+            "y": 3784
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-5696-3824": {
+          "id": "woodland-hare-5696-3824",
+          "species": "hare",
+          "position": {
+            "x": 5696,
+            "y": 3824
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-6848-3784": {
+          "id": "woodland-fox-6848-3784",
+          "species": "fox",
+          "position": {
+            "x": 6848,
+            "y": 3784
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6976-3824": {
+          "id": "woodland-hare-6976-3824",
+          "species": "hare",
+          "position": {
+            "x": 6976,
+            "y": 3824
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-8128-3784": {
+          "id": "woodland-hare-8128-3784",
+          "species": "hare",
+          "position": {
+            "x": 7856,
+            "y": 3784
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8256-3824": {
+          "id": "woodland-fox-8256-3824",
+          "species": "fox",
+          "position": {
+            "x": 8400,
+            "y": 3824
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-9408-3784": {
+          "id": "woodland-fox-9408-3784",
+          "species": "fox",
+          "position": {
+            "x": 9152,
+            "y": 3784
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-9536-3824": {
+          "id": "woodland-hare-9536-3824",
+          "species": "hare",
+          "position": {
+            "x": 9744,
+            "y": 3824
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-deer-5568-4808": {
+          "id": "woodland-deer-5568-4808",
+          "species": "deer",
+          "position": {
+            "x": 5568,
+            "y": 4808
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "woodland-hare-5696-4848": {
+          "id": "woodland-hare-5696-4848",
+          "species": "hare",
+          "position": {
+            "x": 5696,
+            "y": 4848
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-hare-6848-4808": {
+          "id": "woodland-hare-6848-4808",
+          "species": "hare",
+          "position": {
+            "x": 6848,
+            "y": 4808
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-6976-4848": {
+          "id": "woodland-fox-6976-4848",
+          "species": "fox",
+          "position": {
+            "x": 6976,
+            "y": 4848
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-8128-4808": {
+          "id": "woodland-hare-8128-4808",
+          "species": "hare",
+          "position": {
+            "x": 8128,
+            "y": 4808
+          },
+          "health": 1,
+          "defeatedDay": 0
+        },
+        "woodland-fox-8256-4848": {
+          "id": "woodland-fox-8256-4848",
+          "species": "fox",
+          "position": {
+            "x": 8256,
+            "y": 4848
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-fox-9408-4808": {
+          "id": "woodland-fox-9408-4808",
+          "species": "fox",
+          "position": {
+            "x": 9408,
+            "y": 4808
+          },
+          "health": 2,
+          "defeatedDay": 0
+        },
+        "woodland-hare-9536-4848": {
+          "id": "woodland-hare-9536-4848",
+          "species": "hare",
+          "position": {
+            "x": 9536,
+            "y": 4848
+          },
+          "health": 1,
+          "defeatedDay": 0
+        }
+      },
+      "animals": {
+        "boar-original": {
+          "id": "boar-original",
+          "species": "boar",
+          "position": {
+            "x": 936,
+            "y": 4472
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-1": {
+          "id": "boar-1",
+          "species": "boar",
+          "position": {
+            "x": 1008,
+            "y": 4432
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-moss-boar-0": {
+          "id": "east-moss-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 5944,
+            "y": 280
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-moss-boar-1": {
+          "id": "east-moss-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 6016,
+            "y": 328
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-reed-boar-0": {
+          "id": "east-reed-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 9784,
+            "y": 280
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-reed-boar-1": {
+          "id": "east-reed-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 9856,
+            "y": 328
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-amber-boar-0": {
+          "id": "east-amber-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 8504,
+            "y": 1304
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-amber-boar-1": {
+          "id": "east-amber-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 8576,
+            "y": 1352
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-silverpine-boar-0": {
+          "id": "east-silverpine-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 7224,
+            "y": 2328
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-silverpine-boar-1": {
+          "id": "east-silverpine-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 7296,
+            "y": 2376
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-mistwood-boar-0": {
+          "id": "east-mistwood-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 5944,
+            "y": 3352
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-mistwood-boar-1": {
+          "id": "east-mistwood-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 6016,
+            "y": 3400
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-sungrass-boar-0": {
+          "id": "east-sungrass-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 9784,
+            "y": 3352
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-sungrass-boar-1": {
+          "id": "east-sungrass-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 9856,
+            "y": 3400
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-fernshade-boar-0": {
+          "id": "east-fernshade-boar-0",
+          "species": "boar",
+          "position": {
+            "x": 8594,
+            "y": 4286
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "east-fernshade-boar-1": {
+          "id": "east-fernshade-boar-1",
+          "species": "boar",
+          "position": {
+            "x": 8644,
+            "y": 4356
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-frost": {
+          "id": "boar-frost",
+          "species": "boar",
+          "position": {
+            "x": 980,
+            "y": 298
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-highland": {
+          "id": "boar-highland",
+          "species": "boar",
+          "position": {
+            "x": 2208,
+            "y": 328
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-basalt": {
+          "id": "boar-basalt",
+          "species": "boar",
+          "position": {
+            "x": 3552,
+            "y": 328
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-pride": {
+          "id": "boar-pride",
+          "species": "boar",
+          "position": {
+            "x": 4832,
+            "y": 328
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-leopard": {
+          "id": "boar-leopard",
+          "species": "boar",
+          "position": {
+            "x": 2208,
+            "y": 1352
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-tiger": {
+          "id": "boar-tiger",
+          "species": "boar",
+          "position": {
+            "x": 3564,
+            "y": 1364
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-cheetah": {
+          "id": "boar-cheetah",
+          "species": "boar",
+          "position": {
+            "x": 4832,
+            "y": 1352
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-rhino": {
+          "id": "boar-rhino",
+          "species": "boar",
+          "position": {
+            "x": 2208,
+            "y": 2376
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-elephant": {
+          "id": "boar-elephant",
+          "species": "boar",
+          "position": {
+            "x": 3552,
+            "y": 2376
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-jaguar": {
+          "id": "boar-jaguar",
+          "species": "boar",
+          "position": {
+            "x": 992,
+            "y": 3400
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-wolf": {
+          "id": "boar-wolf",
+          "species": "boar",
+          "position": {
+            "x": 2208,
+            "y": 3400
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-hyena": {
+          "id": "boar-hyena",
+          "species": "boar",
+          "position": {
+            "x": 3552,
+            "y": 3400
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-river": {
+          "id": "boar-river",
+          "species": "boar",
+          "position": {
+            "x": 2264,
+            "y": 4480
+          },
+          "health": 3,
+          "defeatedDay": 0
+        },
+        "boar-snake": {
+          "id": "boar-snake",
+          "species": "boar",
+          "position": {
+            "x": 4058,
+            "y": 4312
+          },
+          "health": 3,
+          "defeatedDay": 0
+        }
+      },
+      "boar": {
+        "id": "boar-original",
+        "species": "boar",
+        "position": {
+          "x": 936,
+          "y": 4472
+        },
+        "health": 3,
+        "defeatedDay": 0
+      },
+      "explored": [
+        "entrance"
+      ],
+      "treasures": []
+    },
+    "forestTutorialComplete": false,
+    "nightWarningSeen": false,
+    "deathTutorialSeen": false,
+    "hasDied": false,
+    "stash": null,
+    "roomSize": {
+      "width": 624,
+      "height": 304
+    },
+    "character": "girl",
+    "area": "farm",
+    "position": {
+      "x": 367.6736,
+      "y": 241.66059999999993
+    },
+    "day": 1,
+    "minute": 395.7585360000016,
+    "money": 60,
+    "health": 100,
+    "energy": 98,
+    "fatigueMinutes": 0,
+    "selected": "water",
+    "marketSeed": 3526242755,
+    "selectedCrop": "tomato",
+    "hasHarvestedFirstCrop": false,
+    "hasVisitedCity": false,
+    "hasBoughtSeeds": false,
+    "hasSoldProduce": false,
+    "lastRecoveryDay": 0,
+    "inventory": {
+      "seed": 2,
+      "tomato": 0,
+      "strawberrySeed": 0,
+      "strawberry": 0,
+      "carrotSeed": 0,
+      "carrot": 0,
+      "cornSeed": 0,
+      "corn": 0,
+      "chiliSeed": 0,
+      "chili": 0,
+      "eggplantSeed": 0,
+      "eggplant": 0,
+      "cucumberSeed": 0,
+      "cucumber": 0,
+      "watermelonSeed": 0,
+      "watermelon": 0,
+      "pumpkinSeed": 0,
+      "pumpkin": 0,
+      "grapeSeed": 0,
+      "grape": 0,
+      "blueberrySeed": 0,
+      "blueberry": 0,
+      "sweetPotatoSeed": 0,
+      "sweetPotato": 0,
+      "wildBerry": 0,
+      "guava": 0,
+      "mango": 0,
+      "wildHide": 0,
+      "banana": 0,
+      "orange": 0,
+      "papaya": 0,
+      "coconut": 0,
+      "dragonFruit": 0,
+      "pineapple": 0,
+      "wood": 0,
+      "grass": 0,
+      "stone": 0,
+      "meat": 0,
+      "grilledMeat": 0,
+      "benchDecor": 0,
+      "planterDecor": 0,
+      "fenceDecor": 0,
+      "pathDecor": 0,
+      "tableDecor": 0,
+      "barrelDecor": 0,
+      "lanternDecor": 0,
+      "oakDecor": 0,
+      "palmDecor": 0,
+      "blossomDecor": 0,
+      "hedgeDecor": 0,
+      "flowersDecor": 0,
+      "birdbathDecor": 0,
+      "rugDecor": 0,
+      "bookcaseDecor": 0,
+      "vaseDecor": 0
+    },
+    "currentFarm": 0,
+    "farms": [
+      {
+        "fields": [
+          true,
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "plots": [
+      {
+        "crop": "tomato",
+        "growth": 0,
+        "wateredDay": 1,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0,
+        "plantedDay": 1,
+        "plantedMinute": 393
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      },
+      {
+        "crop": null,
+        "growth": 0,
+        "wateredDay": 0,
+        "missedDays": 0,
+        "lastEvaluatedDay": 0
+      }
+    ],
+    "sold": 0,
+    "hasVisitedFarm": true,
+    "starterSeedsClaimed": true,
+    "expansionUnlocked": false
+  },
+  "errors": [],
+  "warnings": []
+}

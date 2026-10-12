@@ -1,3 +1,13 @@
+# v0.19.0 — English / Myanmar and a clear first start (2026-10-12)
+
+The fullscreen canvas opens with English / မြန်မာ choices. Menus, dialogue, farming/shop labels, Journal chapters, first-job directions and world labels use the selected language. The preference is separate from farm progress and can be changed through Language on the title or pause menu.
+
+New players receive four short, paginated cards covering the goal (grow, sell, help the town, recover Grandfather's Keepsake), actual keyboard/touch controls, the daily farming loop and the free seed crate beside Home. A contextual reminder follows seed collection, planting and watering. Replay the guide through title Controls; existing Journal directions remain. No reward, balance, save-schema or gameplay rule changes.
+
+Burmese uses a bundled, original Noto Sans Myanmar UI Unicode font with browser OpenType shaping. English retains Thaleah/m5x7. All runtime files remain local and allowlisted; source/licence evidence is under docs/assets/licenses/myanmar-font. Phone layouts reserve taller Burmese rows and paginate long copy rather than clipping it. Verification and device limits: [Myanmar onboarding](docs/verification/myanmar-onboarding/README.md).
+
+---
+
 # v0.18.6 — silent doors and playtest release (2026-10-12)
 
 House entry and exit are silent. The unused door sample is excluded from runtime. This release includes the responsive mobile trade panels, icon-only Jump/Use/Map controls, native Thaleah/m5x7 fonts, mobile rotation/startup fixes and larger phone interior from the preceding local updates. The established public playtest keeps its once-per-save test coins and browser-local progress.

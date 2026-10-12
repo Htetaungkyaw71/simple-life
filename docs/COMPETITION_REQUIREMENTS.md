@@ -1,3 +1,9 @@
+# v0.19.0 — user-authorized language and explanatory UI
+
+The current user explicitly requests Myanmar/English selection and clearer first-player understanding. This is a presentation/localization extension of existing gameplay, with no backend, external runtime service, additional equipment or economy rule. Master/four competition references remain requirements rather than overriding instructions. Preserve full AI/third-party font disclosure and exact runtime allowlist. Any playtest update uses the already authorized existing project/origin and explicit test mode; normal build remains 60 coins. No Git push, paid resource, organizer submission or signed human declaration.
+
+---
+
 # v0.18.6 — authorized existing playtest deployment
 
 The 2026-10-12 user explicitly requests removing the house-exit sound and deploying the game. This supersedes the earlier task's no-deployment rule for an update to the existing free Simple Life playtest project/domain only. Source pushes, paid services and organizer submission remain outside scope. Master and all four competition PDF references were reviewed; their rights/disclosure/runtime/source requirements remain separate from this testing release. Preserve existing test-gift mode on the public playtest and normal 60-coin build isolation.

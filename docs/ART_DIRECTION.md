@@ -1,3 +1,9 @@
+# v0.19.0 — correctly shaped Myanmar text
+
+Retain Thaleah/m5x7 and native integer bitmap sizes for English, the Latin Simple Life brand and numeric/symbol-only UI controls. Burmese requires an actual Myanmar Unicode font: Noto Sans Myanmar UI, complete-run OpenType shaping rather than bitmap code-point drawing. Body text is 10 logical pixels, headings 14/28, with integer resolution 2, UI root scale 2, nearest texture filtering, 3 logical pixels of leading and 2 logical pixels of padding per edge. Renderer antialias settings remain off; browser Canvas glyph rasterization supports proper stacked marks and is distinct from the binary Latin bitmap sheets. No fractional text transform or improvised Myanmar glyph shape. Keep warm cream/olive panels, measured row bands, concise buttons and paginated long copy. World art/audio/camera remain approved existing assets/settings.
+
+---
+
 # v0.18.5 — clear mobile trade bands and icon actions
 
 Buy/Sell sections keep separate space at native font sizes. Short landscape uses an item column and an action column; details replace that content with measured rows. Headings and header actions no longer overlap. Reuse the original folded-map, upward-arrow and star glyphs. Center Jump/Use glyphs without captions, retaining 56 CSS pixel touch targets. This supersedes the previous caption requirement. Existing world art, mobile camera and approved font/filter rules remain.

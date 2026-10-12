@@ -1,3 +1,9 @@
+# v0.19.0 — Myanmar localization and onboarding assistance, 2026-10-12
+
+OpenAI Codex assisted the user-requested English/Myanmar language service, Unicode Burmese copy and concise button translations, complete-run font shaping, responsive layouts, first-start guide/reminders, regression/browser checks and documentation. It downloaded the unmodified Noto Sans Myanmar UI Regular font directly from the official Noto repository and retained original creator/copyright/OFL evidence. Glyph artwork is the Noto authors' work; no AI font/glyph/media generation, new runtime dependency, backend or subagent. Native-speaker copy acceptance and physical-device review are not claimed. Checks use isolated disposable saves, with only named test fixtures; the user's live save is untouched. Publication, if performed, stays within the previously authorized existing public playtest; no Git push or organizer submission.
+
+---
+
 # v0.18.6 — silent doors and release assistance, 2026-10-12
 
 Codex removed the house-exit sound call and retired door playback/preloading/runtime selection, authored a silent-door audio regression and native desktop/touch exit/re-entry/save checks with disposable saves, verified the existing Vercel project/team, and published/verified the runtime-only update on the user's existing authorized Vercel playtest origin. Existing UI/font changes are included. No new media/dependency, subagent, backend, paid service, source push or user-save editing. Deployment and hosted verification evidence is under verification/silent-doors.

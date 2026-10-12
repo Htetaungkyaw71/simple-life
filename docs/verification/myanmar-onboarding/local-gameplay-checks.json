@@ -1,0 +1,117 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "width": 1280,
+      "height": 720,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "status": "dry",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "status": "dead",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "status": "ripe",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "status": "dry",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "status": "dead",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "status": "ripe",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "dry",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "dead",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "ripe",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "dry",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "dead",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "ripe",
+      "result": "PASS",
+      "journal": false
+    }
+  ]
+}

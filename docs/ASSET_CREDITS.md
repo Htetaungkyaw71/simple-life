@@ -1,3 +1,9 @@
+# v0.19.0 — Myanmar font credit
+
+Noto Sans Myanmar UI Regular by The Noto Project Authors / Google, Copyright 2021 Google Inc., SIL Open Font License 1.1. Official source: https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMyanmarUI . Original TTF used locally without modification; complete licence and SHA-256 evidence: assets/licenses/myanmar-font. The credit is accessible in-game alongside existing Thaleah/m5x7 and creator credits.
+
+---
+
 # v0.18.4 — UI fonts
 
 - **Thaleah Fat** — Rick Hoppmann / Tiny Worlds; [official source](https://tinyworlds.itch.io/free-pixel-font-thaleah); [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Converted to native monochrome bitmap sheets and colour variants for UI headers.

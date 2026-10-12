@@ -13,6 +13,7 @@ export class WildernessMap {
  show(){const u=this.app.ui;u.notice=null;this.app.paused=true;this.app.input={};u.menu={kind:'wilderness',draw:()=>this.draw(u)};u.focus=0;u.layout();u.highlight();}
  move(step){this.index=(this.index+step+REGIONS.length)%REGIONS.length;this.show();}
  draw(u){
+  const mm=u.app.language?.current==='mm';
   const {x,y,w:pw,h:ph,mw,mh}=mapLayout(u),side=28;
   u.menuBounds={x:x*2,y:y*2,w:pw*2,h:ph*2};
   const veil=u.add.rectangle(0,0,u.w,u.h,0x29382c,.64).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,pw,ph,UI_COLORS.paper,'wood');
@@ -27,14 +28,14 @@ export class WildernessMap {
    if(i===this.index)g.lineStyle(1,0xb78447).strokeRect(a.x+1,a.y+1,b.x-a.x-2,b.y-a.y-2);
   }
   for(const habitat of HABITATS){
-   const r=forestRegion(habitat);if(!this.app.state.forest.explored.includes(r.id))continue;
+   const r=forestRegion(habitat);if(!this.app.state.forest.explored.includes(r.id)||mm&&mw<240)continue;
    const p=mapPoint(habitat,rect,FOREST_SIZE);
    text(u,u.root,p.x,p.y,habitat.name,5,UI_COLORS.ink,Math.max(36,mw/4)).setOrigin(.5,.5);
   }
   if(this.app.state.forest.explored.includes(forestRegion(FOREST_PORTAL).id)){const p=mapPoint(FOREST_PORTAL,rect,FOREST_SIZE);g.lineStyle(1,0x4f7d6c).strokeRect(p.x-3,p.y-3,6,6);text(u,u.root,p.x,p.y+5,'Gate',5,UI_COLORS.ink).setOrigin(.5,0);}
   const exit=mapPoint({x:FOREST_ENTRANCE.x,y:FOREST_SIZE.height},rect,FOREST_SIZE);
-  pixelArrow(g,2,exit.x,exit.y-7,UI_COLORS.wood);text(u,u.root,exit.x+9,exit.y+3,'Home',5,UI_COLORS.ink);
-  const marker=storyMarker(this.app.state),destination=marker&&TREASURES.find(t=>t.id===marker.id);if(destination){const p=mapPoint(destination,rect,FOREST_SIZE);keepsakePixels(g,p.x-8,p.y-8);text(u,u.root,p.x,p.y+9,'Sun cache',5,UI_COLORS.gold).setOrigin(.5,0);}
+  pixelArrow(g,2,exit.x,exit.y-7,UI_COLORS.wood);text(u,u.root,exit.x+9,exit.y+(mm?-1:3),'Home',5,UI_COLORS.ink);
+  const marker=storyMarker(this.app.state),destination=marker&&TREASURES.find(t=>t.id===marker.id);if(destination){const p=mapPoint(destination,rect,FOREST_SIZE);keepsakePixels(g,p.x-8,p.y-8);if(!mm)text(u,u.root,p.x,p.y+9,'Sun cache',5,UI_COLORS.gold).setOrigin(.5,0);}
   const player=mapPoint(this.app.state.position,rect,FOREST_SIZE),facing=this.app.scene.player?.direction||'down';
   pixelArrow(g,facingIndex[facing],player.x+1,player.y+1,UI_COLORS.ink);pixelArrow(g,facingIndex[facing],player.x,player.y,0xfff5cc);
   text(u,u.root,rect.x+mw-9,rect.y+5,'N',6,UI_COLORS.wood);pixelArrow(g,6,rect.x+mw-8,rect.y+17,UI_COLORS.wood);
@@ -43,7 +44,8 @@ export class WildernessMap {
   button(u,u.root,'?',bx,y+65,22,22,()=>{this.details=!this.details;this.show();},{id:'wilderness-info'});
   const r=REGIONS[this.index],visited=this.app.state.forest.explored.includes(r.id),fy=y+ph-30;
   button(u,u.root,'<',x+12,fy,22,22,()=>this.move(-1),{id:'wilderness-prev'});button(u,u.root,'>',x+pw-34,fy,22,22,()=>this.move(1),{id:'wilderness-next'});
-  text(u,u.root,x+pw/2,fy+4,visited?forestHabitat({x:r.x+r.w/2,y:r.y+r.h/2}).name:'Unexplored',8,UI_COLORS.light,pw-88).setOrigin(.5,0);
+  text(u,u.root,x+pw/2,fy+4,mm&&ph<140?(visited?'Forest':'မသိသေး'):visited?forestHabitat({x:r.x+r.w/2,y:r.y+r.h/2}).name:'Unexplored',8,UI_COLORS.light,pw-88).setOrigin(.5,0);
+  if(this.details&&mm){const r=REGIONS[this.index],visited=this.app.state.forest.explored.includes(r.id),t=TREASURES.find(t=>t.region===r.id),copy=visited?(t?this.app.state.forest.treasures.includes(t.id)?'Cache recovered':t.clue:r.danger?'Boars / 3 hits / 15 damage':'Fruit and quiet wildlife'):'Explore to reveal this area';u.modal('Forest',visited?r.name:'Unexplored',copy,[['Back',()=>{this.details=false;this.show();}]]);return;}
   if(this.details){const t=TREASURES.find(t=>t.region===r.id);panel(u,u.root,rect.x+5,rect.y+mh-32,mw-10,27);text(u,u.root,rect.x+10,rect.y+mh-26,visited?(t?this.app.state.forest.treasures.includes(t.id)?'Cache recovered':t.clue:r.danger?'Boars / 3 hits / 15 damage':'Fruit and quiet wildlife'):'Explore to reveal this area',6,UI_COLORS.muted,mw-20);}
  }
 }
