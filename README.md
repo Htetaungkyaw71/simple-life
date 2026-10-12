@@ -1,6 +1,6 @@
 # v0.19.2 — correct sign direction and centered alignment (2026-10-12)
 
-Burmese City signs preserve right direction 0. Text, arrows and boards center on the original post; extra top spacing keeps text off the bevel. Even native board widths keep posts/arrows on whole pixels. Existing saves, English signs and other game systems are preserved.
+Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. Burmese City signs preserve right direction 0. Text, arrows and boards center on the original post; extra top spacing keeps text off the bevel. Even native board widths keep posts/arrows on whole pixels. Existing saves, English signs and other game systems are preserved.
 
 ---
 

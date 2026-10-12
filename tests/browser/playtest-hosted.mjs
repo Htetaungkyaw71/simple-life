@@ -9,7 +9,7 @@ const out=process.env.AUDIO_QA_OUT||'docs/verification/hit-feedback';
 const manifest=JSON.parse(await readFile(out+'/deployment-files.json','utf8'));
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
 const records=[],files=[];
-const unauth=await request.newContext(),raw=await unauth.get(access.url,{maxRedirects:0});
+const unauth=await request.newContext(),raw=await unauth.get(access.url,{maxRedirects:0,maxRetries:2});
 if(access.public)assert.equal(raw.status(),200,'plain public game URL opens without authentication');else assert.ok([301,302,303,307,308,401,403].includes(raw.status()),'direct preview requires protected access');const directStatus=raw.status();await unauth.dispose();
 try{
  for(const mobile of [false,true]){
@@ -27,7 +27,7 @@ try{
   if(mobile){await click('jump',30);assert.ok((await snap()).jump.active);await p.waitForTimeout(850);}
   await p.reload();await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('language-en');await click('Continue');await p.waitForFunction(()=>window.__simpleLife.snapshot().audio.pending===0);
   assert.equal((await snap()).state.selected,'hand');assert.equal((await snap()).state.money,expectedCoins);assert.deepEqual((await snap()).audio.profile.music,{});assert.ok((await snap()).audio.loops.every(v=>v.key.startsWith('ambience:')));
-  if(!mobile)for(const row of manifest.files){const r=await ctx.request.get(new URL(row.path,access.url).href);assert.equal(r.status(),200,row.path);const b=await r.body();assert.equal(b.length,row.bytes,row.path);assert.equal(createHash('sha256').update(b).digest('hex'),row.sha256,row.path);files.push({path:row.path,status:200,bytes:b.length,sha256:row.sha256});}
+  if(!mobile)for(const row of manifest.files){const r=await ctx.request.get(new URL(row.path,access.url).href,{maxRetries:2});assert.equal(r.status(),200,row.path);const b=await r.body();assert.equal(b.length,row.bytes,row.path);assert.equal(createHash('sha256').update(b).digest('hex'),row.sha256,row.path);files.push({path:row.path,status:200,bytes:b.length,sha256:row.sha256});}
   const canvasCount=await p.locator('canvas').count();assert.equal(canvasCount,1);assert.deepEqual(errors,[]);
   await p.screenshot({path:out+'/hosted-'+(mobile?'phone':'mac')+'.png'});records.push({mobile,viewport:p.viewportSize(),freshGame:true,putAway:true,reload:true,jump:mobile,audio:(await snap()).audio,canvasCount,errors});await ctx.close();console.log('PASS hosted '+(mobile?'phone':'Mac'));
  }

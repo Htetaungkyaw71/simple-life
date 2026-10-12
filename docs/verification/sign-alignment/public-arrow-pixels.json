@@ -1,0 +1,73 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "name": "canvas-1280",
+      "result": "PASS",
+      "direction": 0,
+      "pixels": [
+        [
+          255,
+          237,
+          204
+        ],
+        [
+          168,
+          121,
+          78
+        ]
+      ]
+    },
+    {
+      "name": "canvas-568",
+      "result": "PASS",
+      "direction": 0,
+      "pixels": [
+        [
+          255,
+          237,
+          204
+        ],
+        [
+          168,
+          121,
+          78
+        ]
+      ]
+    },
+    {
+      "name": "webgl-1280",
+      "result": "PASS",
+      "direction": 0,
+      "pixels": [
+        [
+          255,
+          237,
+          204
+        ],
+        [
+          168,
+          121,
+          78
+        ]
+      ]
+    },
+    {
+      "name": "webgl-568",
+      "result": "PASS",
+      "direction": 0,
+      "pixels": [
+        [
+          255,
+          237,
+          204
+        ],
+        [
+          168,
+          121,
+          78
+        ]
+      ]
+    }
+  ]
+}

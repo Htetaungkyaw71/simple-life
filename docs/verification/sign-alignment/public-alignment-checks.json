@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "results": [
+    {
+      "name": "mm-844-home",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-844-city",
+      "result": "PASS"
+    },
+    {
+      "name": "mm-844-forest",
+      "result": "PASS"
+    }
+  ]
+}
