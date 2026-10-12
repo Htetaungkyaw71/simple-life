@@ -95,7 +95,7 @@ test('fractional gameplay minutes never leak decimals or overflow the 12-hour cl
 });
 
 test('the clearly labelled Forest map opens from its actual hotbar action and shows current facing',async()=>{
- const {Hud}=await import('../src/ui/Hud.js');for(const [w,h]of sizes){const s=newState();s.area='forest';const u=recorder(w,h),a=appFor(s,u);a.wildernessMap=new WildernessMap(a);a.bagPanel=new BagPanel(a);new Hud(u);const action=u.controls.find(c=>c.id==='wilderness-map');assert.equal(action.label,'Map');action.action();assert.equal(a.paused,true);assert.equal(u.menu.kind,'wilderness');assert.ok([...u.textures.cache.values()].some(t=>t.pixels?.some((value,i)=>i%4===3&&value===255)));assert.ok(u.controls.some(c=>c.id==='wilderness-locate'));}
+ const {Hud}=await import('../src/ui/Hud.js');for(const [w,h]of sizes){const s=newState();s.area='forest';const u=recorder(w,h),a=appFor(s,u);a.wildernessMap=new WildernessMap(a);a.bagPanel=new BagPanel(a);new Hud(u);const action=u.controls.find(c=>c.id==='wilderness-map');assert.equal(action.label,'Map');assert.equal(action.text,null,'Map is a glyph button');action.action();assert.equal(a.paused,true);assert.equal(u.menu.kind,'wilderness');assert.ok([...u.textures.cache.values()].some(t=>t.pixels?.some((value,i)=>i%4===3&&value===255)));assert.ok(u.controls.some(c=>c.id==='wilderness-locate'));}
 });
 
 test('short phone landscape keeps start, Bag and audio controls reachable at touch size',async()=>{

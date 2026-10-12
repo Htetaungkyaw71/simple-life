@@ -1,4 +1,4 @@
-import {button,text,UI_COLORS} from './pixelWidgets.js';
+import {button,UI_COLORS} from './pixelWidgets.js';
 import {joystickVector} from '../systems/movement.js';
 import {pixels} from './statusArt.js';
 // Native pixel circles share the cream/olive HUD palette.
@@ -13,12 +13,11 @@ export function mobileControls(ui,parent){
  g.setInteractive({hitArea:{cx,cy,r},hitAreaCallback:(a,x,y)=>Math.hypot(x-a.cx,y-a.cy)<=a.r});
  g.on('pointerdown',(p,x,y,event)=>{event.stopPropagation();if(pointerId!==null)return;pointerId=p.id;move(p);});paint();
  const right=ui.w-ui.safe.right,actions=portrait?[[right-70,cy-14],[right-34,cy-14]]:[[right-34,ui.h-ui.safe.bottom-70],[right-34,ui.h-ui.safe.bottom-34]];
- const glyph=name=>(g,x,y,c)=>pixels(g,name,x,y-4,c);
- const jump=button(ui,parent,'Jump',...actions[0],28,28,()=>app.scene.jump(),{id:'jump',glyph:glyph('jump'),disabled:app.state.area==='interior'});
+ const glyph=name=>(g,x,y,c)=>pixels(g,name,x,y,c);
+ button(ui,parent,'Jump',...actions[0],28,28,()=>app.scene.jump(),{id:'jump',glyph:glyph('jump'),disabled:app.state.area==='interior'});
  const attack=button(ui,parent,'Use',...actions[1],28,28,()=>{
   const c=app.scene.context();if(c&&c.type!=='hint')app.use();else if(!c&&app.state.selected==='axe'&&app.state.area!=='interior')app.attack();else app.ui.feedback(c?.label||'Move closer to use');
  },{id:'attack',glyph:glyph('use'),sound:false});
- for(const b of [jump,attack]){b.caption=text(ui,parent,b.x+b.w/2,b.y+17,b.label,6,b.disabled?UI_COLORS.muted:UI_COLORS.light).setOrigin(.5,0);}
- control.updateAction=c=>{const label=app.state.selected==='axe'&&(!c||['hunt','chop'].includes(c.type))&&app.state.area!=='interior'?'Hit':'Use';attack.label=label;attack.caption.setText(label);};
+ control.updateAction=c=>{const label=app.state.selected==='axe'&&(!c||['hunt','chop'].includes(c.type))&&app.state.area!=='interior'?'Hit':'Use';attack.label=label;};
  return control;
 }

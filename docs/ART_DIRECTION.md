@@ -1,3 +1,9 @@
+# v0.18.5 — clear mobile trade bands and icon actions
+
+Buy/Sell sections keep separate space at native font sizes. Short landscape uses an item column and an action column; details replace that content with measured rows. Headings and header actions no longer overlap. Reuse the original folded-map, upward-arrow and star glyphs. Center Jump/Use glyphs without captions, retaining 56 CSS pixel touch targets. This supersedes the previous caption requirement. Existing world art, mobile camera and approved font/filter rules remain.
+
+---
+
 # v0.18.4 — typography and phone spacing
 
 Use creator-supplied Thaleah Fat for UI headings and m5x7 for small labels, counts and clock. Keep native binary glyph silhouettes, nearest filtering and integer size multiples; no smoothing, fractional UI text parent scales or artificial bold widening. Retain warm cream/olive panels and measured text spacing, with 4 CSS pixels of extra leading and 6 CSS pixels of button side padding. Compact panels reserve separate content/footer bands; short panels use concise labels and paginated text. The supplied screenshots inform layout only.

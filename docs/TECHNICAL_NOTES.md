@@ -1,3 +1,11 @@
+# v0.18.5 — bounded trade layout and silent house entry
+
+TradePanel replaces the subtractive lift calculation with fixed header/tab bands and a compact two-column body below 190 logical pixels of available height. Compact panels may expand to 336 logical pixels wide while respecting side/bottom safe insets; tall panels cap at 252×225. Below 160 logical pixels of panel width, the info button moves to the header and the balance moves above the quantity row (hidden in details mode). Selected names/counts/price and measured detail rows wrap at native font size. Quote controls retain full count/total labels. Safe-area centering uses the remaining usable rectangle. Catalogue, gates, prices, quantity behavior and transaction/save systems are unchanged.
+
+Application.travel only requests the existing door effect when leaving the interior; entry is silent. MobileControls stops constructing captions, centers glyphs and retains semantic Use/Hit labels and actions. Hud uses its existing map glyph instead of rendered Map text. Font size/parent scale, filtering and fullscreen separate canvas architecture are preserved.
+
+---
+
 # v0.18.4 — native bitmap UI text
 
 WorldScene loads thaleah/m5x7 PNG/XML bitmap fonts alongside the original world font and applies NEAREST. pixelWidgets.text selects the font by semantic heading/body role, translates legacy requested sizes into whole 16px native multiples, reduces headings by whole steps when needed, and adds two logical pixels of leading. Buttons use native body text, measured vertical centering, 6 CSS pixels of side padding and bounded abbreviated display labels; control labels/IDs remain intact. coloredFont copies the whole __BASE sheet, disables smoothing and applies source-in colour; Canvas and WebGL share those glyphs/metrics. Renderer antialias/antialiasGL are disabled. UI root remains scale 2 and clock text has no fractional ancestor. The .75 vitals container contains graphics only.

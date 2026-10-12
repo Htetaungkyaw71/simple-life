@@ -1,3 +1,9 @@
+# v0.18.5 — original icons reused
+
+Existing code-drawn map/jump/use glyphs, approved Thaleah/m5x7 fonts, art and audio are reused. No new asset, modified media bytes, third-party download or dependency. The phone screenshot guides layout only. The wood-door sample remains selected for house exit; house entry is silent. Source/licence evidence and the exact runtime allowlist remain intact.
+
+---
+
 # v0.18.4 — requested UI fonts
 
 Thaleah Fat by Rick Hoppmann / Tiny Worlds is CC BY 4.0; m5x7 by Daniel Linssen is CC0. Direct official source links, acquired source TTFs, conversion details and SHA-256 evidence are recorded in [UI fonts](assets/licenses/ui-fonts/SOURCE_RECORD.md). Attribution/source/licence links are accessible in-game under Credits / More art / Fonts. The Thaleah conversion removes empty top rows and recolours native monochrome glyphs; no replacement glyph shapes are authored.

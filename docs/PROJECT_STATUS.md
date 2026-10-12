@@ -1,3 +1,15 @@
+# v0.18.5 — silent house entry, responsive mobile trading and icon controls (2026-10-12)
+
+Entering the house no longer requests an effect; the previous house-exit sound remains. Buy Seeds and Market keep headings, navigation, tabs, selected-item details, quantity choices and complete transaction quotes in separate bands. Short landscape uses two columns within safe margins. On the narrowest phones, the info button moves to the header and coins move above quantities; measured item/detail text remains at native font size. Sale feedback keeps the complete coin amount while dropping the optional HIGH-market suffix if it would exceed its row. Existing prices/catalogue/gates, transactions, paused shop time and save schema are preserved.
+
+Jump/Use buttons have centered arrow/star icons and no visible captions. The Forest hotbar displays its existing folded-map glyph. Semantic control labels, actions and 56px touch targets remain. Requested Thaleah/m5x7 fonts, integer text scaling, nearest filtering, fullscreen separate canvas UI, camera, approved world art and gameplay scope remain.
+
+Checks: **296 tests**, normal/playtest **137-module builds**, **28 main trade browser cases**, **four silent-entry typography cases** and **six icon cases** pass. **12 final-build narrow/landscape cases** pass as well, giving **32 distinct trade cases** including 320px phones. Evidence and check chronology are recorded in [mobile trade verification](verification/mobile-trade/README.md). Real native taps/clicks check all 12 seeds/24 sale items, details/page changes, 1/5/MAX/ALL quotes, exact stock/coin changes, paused time, rotation and Save/reload/Continue, with disposable saves only. Final runtime audit passes: **44 files / 11,746,118 bytes / 28 approved WAVs / eight unchanged previous art files / four unchanged approved font files / full notices**. No new asset/dependency/backend, user-save editing, push or deployment. Physical-phone Safari/WebKit appearance and touch comfort remain human checks.
+
+Phone preview: **http://192.168.100.7:4198/**; Mac: **http://127.0.0.1:4196/**. Both return HTTP 200 and serve the rebuilt local dist. Refresh/Continue on the same Wi-Fi, with the Mac/server running.
+
+---
+
 # v0.18.4 — requested fonts, responsive panels and house entry (2026-10-12)
 
 Replaced the UI's original customized lettering with actual creator-supplied Thaleah Fat headers/title/quest headings and m5x7 small text/counters/clock. Native 16px TTF glyphs are converted to monochrome bitmap PNG/XML, with unchanged silhouettes. Every UI text node uses 16/32/48 font sizes and integer ancestor scales; the clock's fractional parent scale is removed. Antialias and antialiasGL are explicitly false, pixelArt/roundPixels remain true, font textures and recoloured sheets use nearest filtering. Two logical pixels of extra leading produce 4 CSS pixels of row separation; button text gets 3 logical pixels/6 CSS pixels of internal side padding.

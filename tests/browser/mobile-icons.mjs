@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {newState} from '../../src/systems/state.js';
+import {STORY_FLAGS} from '../../src/data/story.js';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
+const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true}),base=process.env.GAME_URL||'http://127.0.0.1:4198/',out=process.env.QA_OUT||'/tmp/simple-life-mobile-icons',results=[];await mkdir(out,{recursive:true});
+try{for(const renderer of ['canvas','webgl'])for(const [width,height]of [[390,844],[844,390],[568,256]]){
+ const s=newState();Object.assign(s,{area:'forest',position:{x:5120,y:4900},minute:720,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true});s.story.intro='seen';s.story.flags=STORY_FLAGS.filter(f=>!['placed','complete'].includes(f));
+ const ctx=await browser.newContext({viewport:{width,height},hasTouch:true,isMobile:true}),p=await ctx.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(['warning','error'].includes(m.type()))errors.push(m.text());});
+ await p.addInitScript(s=>localStorage.setItem('simple-life.save.v1',JSON.stringify(s)),s);await p.goto(base+'?qa&renderer='+renderer);await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);
+ const snap=()=>p.evaluate(()=>window.__simpleLife.snapshot()),tap=async id=>{const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,id);await p.touchscreen.tap(c.x+c.w/2,c.y+c.h/2);await p.waitForTimeout(220);};
+ await tap('Continue');let v=await snap();for(const id of ['jump','attack','wilderness-map']){const c=v.controls.find(c=>c.id===id);assert.ok(c&&c.w>=44&&c.h>=44);}assert.ok(!v.texts.some(t=>['Jump','Use','Hit','Map'].includes(t.text)),'no action captions');await p.screenshot({path:out+'/'+renderer+'-'+width+'-hud.png'});
+ await tap('wilderness-map');assert.equal((await snap()).menu,'wilderness');await p.screenshot({path:out+'/'+renderer+'-'+width+'-map.png'});await tap('wilderness-close');await tap('jump');await p.waitForFunction(()=>window.__simpleLife.snapshot().jump.active);await p.waitForFunction(()=>!window.__simpleLife.snapshot().jump.active);await tap('attack');assert.equal((await snap()).state.area,'forest');assert.deepEqual(errors,[]);results.push({renderer,width,height,result:'PASS',map:true,jump:true,use:true});console.log('PASS icons',renderer,width,height);await ctx.close();
+}await writeFile(out+'/results.json',JSON.stringify({result:'PASS',method:'Native touch inputs in disposable fixture contexts, icon-only HUD/map navigation and real outdoor jump/use.',results},null,2));}finally{await browser.close();}

@@ -1,3 +1,11 @@
+# v0.18.5 — mobile trading and icon controls (2026-10-12)
+
+Entering your house is silent. Buy Seeds and Market panels keep their heading, crop tabs, item details, quantity buttons and transaction quote in separate bounds; short landscape screens use two columns and safe-area centering. Jump/Use captions are removed, with centered arrow/star icons. The Forest toolbar uses the existing folded-map icon. Native fonts and whole text scaling are retained.
+
+Refresh and Continue at [phone preview](http://192.168.100.7:4198/) on the same Wi-Fi, keeping the Mac/server running. Mac preview: http://127.0.0.1:4196/. This is a local update. Evidence and device limits: [mobile trade verification](docs/verification/mobile-trade/README.md).
+
+---
+
 # v0.18.4 — clearer UI text and mobile panels (2026-10-12)
 
 UI headers use Thaleah; small labels, counters and clocks use m5x7. Local bitmap fonts have binary alpha, nearest filtering and native integer size multiples, with extra leading and text padding. Mobile menus reserve separate content/footer bands; the home customization footer overlap is removed. Compact resource pages show costs side by side, and long Journal/ending text can be paged. Landscape phone interiors use zoom 1 instead of .75; outdoors retain the wider .75 framing. House entry waits for the wooden-door recording and plays it at a clearer level.

@@ -1,3 +1,9 @@
+# v0.18.5 — mobile trade and icon-control assistance, 2026-10-12
+
+Codex inspected the user's Market screenshot and current source/docs, assisted responsive buy/sell section placement, silent house entry, centered icon-only Jump/Use and reuse of the existing map glyph. It authored catalogue/quote-bound regressions and native touch purchase/sale/rotation/reload checks with disposable fixture saves. No subagent, downloaded/generated media, new dependency, backend, push or deployment; no user's existing save edited. Physical-phone/Safari appearance and touch comfort remain human checks. See verification/mobile-trade/README.md.
+
+---
+
 # v0.18.4 — UI font and mobile assistance, 2026-10-12
 
 OpenAI Codex (GPT-6 family, no override/subagent) inspected the user screenshots and existing source/docs, downloaded the exact requested fonts directly from the creator pages, assisted native monochrome bitmap conversion/colour caching, responsive layout/leading/padding, phone interior zoom and real wooden-door playback, and authored regression/browser checks and source/licence/hash records. Third-party glyphs remain their creators' work; conversion does not imply original authorship. No AI-generated glyph shapes, new art/audio sample, dependency/backend, publication, push or user-save mutation. Browser evidence uses disposable contexts, with explicitly identified fixture saves; subjective physical-phone/listening and other-engine acceptance remains separate.

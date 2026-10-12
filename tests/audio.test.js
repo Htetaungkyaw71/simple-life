@@ -122,7 +122,7 @@ test('outdoor travel is silent at playback, fallback and preload boundaries',asy
  c.currentTime+=1;assert.equal(audio.effect('farming:water'),true);audio.destroy();assert.equal(c.nodes.size,0);
 });
 
-test('cold house entry waits for the wooden-door recording without a synth fallback, then plays once',async()=>{
+test('cold door effect waits for the wooden-door recording without a synth fallback, then plays once',async()=>{
  const c=context();let release;const door=new Promise(r=>release=r),audio=new AudioManager({contextFactory:()=>c,storage:storage(),loader:async path=>path==='sfx-door-wood-open'?door:{duration:96},random:()=>.5});
  await audio.resume();await settle();audio.startWorld(state());await settle();c.currentTime=1;
  assert.equal(audio.effect('door:open'),false);assert.equal([...audio.voices].some(v=>v.id==='door:open'),false);assert.equal(audio.queued.filter(q=>q.raw==='door:open').length,1);

@@ -30,7 +30,7 @@ test('mobile Use performs nearby actions indoors and outside while Jump stays di
  for(const area of ['farm','forest','interior']){
   const u=recorder(360,640);let context=null,uses=0,attacks=0,feedback=0;const s=newState();s.area=area;
   u.app={state:s,input:{},ui:{feedback(){feedback++;}},scene:{jump(){},context:()=>context},use(){uses++;},attack(){attacks++;}};
-  const stick=mobileControls(u,u.root),action=u.controls.find(c=>c.id==='attack');assert.equal(action.disabled,false);assert.equal(u.controls.find(c=>c.id==='jump').disabled,area==='interior');
+  const stick=mobileControls(u,u.root);assert.equal(u.root.list.some(n=>n.type==='text'),false,'action buttons use icons only');const action=u.controls.find(c=>c.id==='attack');assert.equal(action.disabled,false);assert.equal(u.controls.find(c=>c.id==='jump').disabled,area==='interior');
   for(const type of ['plot','dig','waterGround','chop','hunt','forage','stone','travel','bed','keepsakePlace','resident']){context={type};action.action();}
   assert.equal(uses,11);assert.equal(attacks,0);context=null;action.action();assert.equal(feedback,1);
   s.selected='axe';action.action();assert.equal(attacks,area==='interior'?0:1);stick.updateAction(context);assert.equal(action.label,area==='interior'?'Use':'Hit');

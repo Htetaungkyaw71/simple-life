@@ -1,3 +1,9 @@
+# v0.18.5 — unchanged asset selection
+
+Mobile trade and icon controls change source rendering only. Four approved bitmap font files, eight previous art files and 28 selected WAVs retain their hashes, with full dependency notices. Vendor/source archives, unused packs/fonts, docs and QA captures stay excluded. Current audit evidence: verification/mobile-trade/README.md.
+
+---
+
 # v0.18.4 — font allowlist addition
 
 Only fonts/thaleah.png, fonts/thaleah.xml, fonts/m5x7.png and fonts/m5x7.xml are added to production. Glyph sheets have binary alpha and manifest-verified bytes. Original eight allowed art files and 28 approved WAVs remain unchanged. Source TTFs, vendor archives, documents, QA captures and unused packs stay excluded. The updated cosy-audio runtime audit verifies font hashes/alpha, prior art/audio hashes and dependency notices; see verification/ui-typography/README.md.
