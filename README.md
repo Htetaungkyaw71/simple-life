@@ -4,7 +4,7 @@ The fullscreen canvas opens with English / မြန်မာ choices. Menus, di
 
 New players receive four short, paginated cards covering the goal (grow, sell, help the town, recover Grandfather's Keepsake), actual keyboard/touch controls, the daily farming loop and the free seed crate beside Home. A contextual reminder follows seed collection, planting and watering. Replay the guide through title Controls; existing Journal directions remain. No reward, balance, save-schema or gameplay rule changes.
 
-Burmese uses a bundled, original Noto Sans Myanmar UI Unicode font with browser OpenType shaping. English retains Thaleah/m5x7. All runtime files remain local and allowlisted; source/licence evidence is under docs/assets/licenses/myanmar-font. Phone layouts reserve taller Burmese rows and paginate long copy rather than clipping it. Verification and device limits: [Myanmar onboarding](docs/verification/myanmar-onboarding/README.md).
+Burmese uses a bundled, original Noto Sans Myanmar UI Unicode font with browser OpenType shaping. English retains Thaleah/m5x7. All runtime files remain local and allowlisted; source/licence evidence is under docs/assets/licenses/myanmar-font. Phone layouts reserve taller Burmese rows and paginate long copy rather than clipping it. Verification and device limits: [Myanmar onboarding](docs/verification/myanmar-onboarding/README.md). Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh, choose English or မြန်မာ, and Continue your existing farm.
 
 ---
 

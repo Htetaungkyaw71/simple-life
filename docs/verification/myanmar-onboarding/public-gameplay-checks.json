@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "width": 844,
+      "height": 390,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "dry",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "dead",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "status": "ripe",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "dry",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "dead",
+      "result": "PASS",
+      "journal": false
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "ripe",
+      "result": "PASS",
+      "journal": false
+    }
+  ]
+}

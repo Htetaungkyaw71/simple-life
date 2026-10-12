@@ -6,6 +6,8 @@ A four-card guide now follows the introduction (including Skip), explains the ov
 
 Myanmar-specific measured layouts cover Bag, shops/details, resources/recipes/projects/decor, Journal, map, HUD and crop status. Long copy is available through pages or a details button on the shortest landscape. Credits preserve creator/font/product names and provide the new OFL source links. Art/audio/silent doors, camera, economy and gameplay are preserved. 301 tests, both 143-module builds and the allowlist audit pass (45 files / 12,008,116 bytes / 27 approved WAVs / preserved prior art/fonts / complete notices). Checks and release evidence: [verification](verification/myanmar-onboarding/README.md). Physical phones, Safari/WebKit and native-speaker phrasing acceptance remain human checks.
 
+Published READY **dpl_2GEokkKhHHqvHHMx496oQjoKBBG2**, source **c41d57e**, on the existing [public playtest](https://simple-life-playtest.vercel.app/). Public 200/no login, preserved protection/noindex, and all 45 file hashes verified. Fresh English desktop/phone (two), Myanmar portrait/landscape startup/save in both renderers (four), landscape crop-state/Journal/control cases (eight) and complete landscape Buy Seeds/Market transaction cases (two) pass. Stable save origin and once-per-save test gift remain. No Git push, new paid resource/backend or user-profile save editing. Local previews serve the latest normal build.
+
 ---
 
 # v0.18.6 — silent doors and requested playtest deployment (2026-10-12)

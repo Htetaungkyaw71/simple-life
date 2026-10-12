@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "method": "Isolated fixture saves, native Chrome mouse/touch inputs, actual transactions and reload; both renderers, all catalogue entries/details, native typography, text/control intersections and safe-area rotation.",
+  "results": [
+    {
+      "name": "canvas-844x390-seed",
+      "catalogueItems": 12,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    },
+    {
+      "name": "canvas-844x390-sell",
+      "catalogueItems": 24,
+      "result": "PASS",
+      "rotation": true,
+      "transactions": 3,
+      "saveReload": true
+    }
+  ]
+}
