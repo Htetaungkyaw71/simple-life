@@ -1,3 +1,9 @@
+# v0.19.3 — centered clock and coin rows (2026-10-12)
+
+Clock/day rows now center as one measured block, and coins center inside their own panel. Both languages retain their native font sizes and whole-pixel positions, with clear row spacing and internal padding. Refresh and Continue at the existing [playtest](https://simple-life-playtest.vercel.app/). Verification and release status: [clock alignment](docs/verification/clock-alignment/README.md).
+
+---
+
 # v0.19.2 — correct sign direction and centered alignment (2026-10-12)
 
 Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. Burmese City signs preserve right direction 0. Text, arrows and boards center on the original post; extra top spacing keeps text off the bevel. Even native board widths keep posts/arrows on whole pixels. Existing saves, English signs and other game systems are preserved.

@@ -1,3 +1,11 @@
+# v0.19.3 — clock alignment (2026-10-12)
+
+The smaller Burmese font still used the earlier fixed clock offsets: time touched the upper edge and coins touched their panel's top edge. Hud now vertically centers measured padded time/day bounds as one block with two logical pixels of leading, and independently centers the coin row. Positions remain whole logical pixels; existing panel sizes, fonts, glyph shaping and gameplay remain. English uses the same measured alignment.
+
+302 tests and normal/explicit-playtest 143-module builds pass. The runtime-only playtest has 45 files / 12,009,545 bytes / 27 unchanged approved WAVs; every non-entry/non-application asset is byte-identical to v0.19.2. Browser and release evidence: [clock alignment](verification/clock-alignment/README.md). Physical-phone/Safari appearance remains human review. The user's cursed-cave concept is discussed as a possible optional challenge; no curse, enemy, resource cost, achievement or save change is implemented in this fix.
+
+---
+
 # v0.19.2 — City sign arrow and alignment repair (2026-10-12)
 
 The user reports City pointing down and poorly aligned Burmese signs. Replaced the erroneous direction || 2 fallback with direction ?? 2, preserving right (0), and centered boards/text/arrows on the original Farm/Road post anchors. Even native board widths prevent half-pixel post geometry; text moves down four world pixels for top-bevel breathing room while staying separate from the arrow row. No gameplay/save/collision/font/asset/audio changes. 302 tests and normal/explicit-playtest builds pass. 12 local sign-direction/alignment cases and four rendered-arrow pixel cases pass. Published READY dpl_G6PfY3JjWRrEQhfZt532R1jJcgzC (source b5507e4) to the same public playtest origin; exact staged bundle/public index verified. Four public Canvas/WebGL arrow-pixel cases and three public landscape world-alignment cases pass. Release evidence: verification/sign-alignment/README.md.

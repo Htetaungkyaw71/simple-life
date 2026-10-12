@@ -1,3 +1,9 @@
+# v0.19.3 — existing clock assets retained
+
+Clock layout uses the unchanged local Thaleah/m5x7/Noto fonts and original cream/olive procedural panel artwork. All approved runtime media and licence notices remain byte-identical to v0.19.2. No new asset, dependency, licence or remote runtime source.
+
+---
+
 # v0.19.2 — unchanged sign/font assets
 
 Sign geometry and arrow selection reuse existing procedural art and the unchanged licensed Noto font. No asset, dependency or licence addition; source evidence remains unchanged.

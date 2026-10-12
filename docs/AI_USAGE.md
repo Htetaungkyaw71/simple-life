@@ -1,3 +1,9 @@
+# v0.19.3 — clock alignment assistance, 2026-10-12
+
+Codex inspected the supplied HUD screenshot, replaced obsolete fixed row offsets with measured text centering, and checked font padding, row separation, maximum saved day/coin values and phone/desktop bounds in isolated Chrome contexts. Assistance includes the same authorized existing playtest update and design advice on the user's optional cursed-cave idea; that feature is not implemented. No new media/dependency, subagent, source push, organizer submission or user-profile save editing.
+
+---
+
 # v0.19.2 — sign-direction and alignment assistance, 2026-10-12
 
 Codex corrected the right-direction zero fallback, original post anchoring, whole-pixel board width and text spacing. Browser checks use disposable saves, including rendered arrow-pixel assertions and sign alignment checks; approved art/fonts/licences remain unchanged. Existing authorized playtest project only; no source push/backend/new asset or organizer submission.

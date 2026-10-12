@@ -24,8 +24,9 @@ export class Hud {
   const bolt=u.add.graphics();vitals.add(bolt);bolt.setScale(2).setPosition(6,38);meterGlyph(bolt,'bolt',0xffd45a);
   this.waterWindow=text(u,p,left,top+(u.touch?50:64),'',6,UI_COLORS.cream);
   const clockGroup=u.add.container(right,top),cw=u.touch?66:76;p.add(clockGroup);
-  const mm=u.app.language?.current==='mm';panel(u,clockGroup,-cw,0,cw,mm?36:31);this.clock=text(u,clockGroup,-cw/2,mm?0:6,'6:00 am',8).setOrigin(.5,0);this.day=text(u,clockGroup,-cw/2,mm?18:19,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
-  panel(u,clockGroup,-cw,mm?39:34,cw,18,UI_COLORS.selected);this.money=text(u,clockGroup,-cw/2,39,'60c',8).setOrigin(.5,0);
+  this.clockHeight=u.app.language?.current==='mm'?36:31;this.moneyTop=this.clockHeight+3;
+  panel(u,clockGroup,-cw,0,cw,this.clockHeight);this.clock=text(u,clockGroup,-cw/2,0,'6:00 am',8).setOrigin(.5,0);this.day=text(u,clockGroup,-cw/2,0,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
+  panel(u,clockGroup,-cw,this.moneyTop,cw,18,UI_COLORS.selected);this.money=text(u,clockGroup,-cw/2,0,'60c',8).setOrigin(.5,0);this.alignClock();
   if(this.app.placement?.draft){this.slots=[];this.placementSignature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;placementControls(u,p);return;}
   const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){
@@ -37,9 +38,15 @@ export class Hud {
   if(u.touch)this.mobile=mobileControls(u,p);
   this.hotbarY=y;this.promptY=y-19;this.prompt=u.add.container();p.add(this.prompt);this.promptPanel=panel(u,this.prompt,0,0,156,15);this.promptText=text(u,this.prompt,5,4,'',6,UI_COLORS.light,Math.min(210,u.w-u.safe.left-u.safe.right-(u.touch&&w>h&&h<240?112:22)));this.promptArrow=u.add.graphics();this.prompt.add(this.promptArrow);this.cropInfo=new CropInfo(this);this.farmGuide=new FarmGuide(this);
  }
+ alignClock(){
+  // Center the complete padded glyph bounds, including Myanmar stacked marks.
+  const top=Math.floor((this.clockHeight-this.clock.height-this.day.height-2)/2);
+  this.clock.setY(top);this.day.setY(top+this.clock.height+2);this.money.setY(this.moneyTop+Math.floor((18-this.money.height)/2));
+ }
  update(s,c){
   if(this.signature!==this.key()){this.ui.layout();return;}
   if(this.app.placement?.draft){const signature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;if(signature!==this.placementSignature){this.ui.layout();return;}}else{this.cropInfo.update(s,c);this.farmGuide.update(s);}this.waterWindow.setVisible(!(this.ui.touch&&this.ui.w>this.ui.h&&(this.cropInfo?.root.visible||this.ui.h<150&&c?.type==='plot')));this.waterWindow.setText(s.area==='farm'?wateringLabel(s):'');this.clock.setText(displayClock(s.minute));this.day.setText('Day '+s.day);this.money.setText(s.money+'c');
+  this.alignClock();
   const health=Math.max(0,Math.floor(this.healthWidth*s.health/100)),energy=Math.max(0,Math.floor(this.energyWidth*s.energy/100));
   this.health.setSize(health,9);this.energy.setSize(energy,9);this.healthShine.setSize(health,2);this.energyShine.setSize(energy,2);
   if(this.app.placement?.draft)return;
