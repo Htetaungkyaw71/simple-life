@@ -1,3 +1,9 @@
+# v0.18.3 — phone proportions from the supplied gameplay screenshot
+
+Reduce mobile gameplay HUD coverage while retaining warm cream/olive frames and readable labels: shorter/scaled status bars, smaller clock, 48px toolbar/action targets and a 96px joystick. Keep the fullscreen separate canvas UI and existing menu proportions. Landscape phones use .75 world zoom with nearest-neighbour rendering and matched indoor/outdoor actor scale, leaving more surroundings visible; desktop/portrait framing stays consistent with the prior version. Existing original glyphs/font/atlas pixels are reused, without importing screenshot art. This supersedes earlier fixed gameplay HUD dimensions for mobile.
+
+---
+
 # v0.18.1 — usable short landscape
 
 Retain 2× native cream/olive pixel UI and world art. Compact start menus use two columns; Bag uses wider rows with pagination; Audio uses two columns; tiny Journal panels prioritize the active objective/directions. Compact right badges move clear of Jump/Use, and narrow hotbars keep tools accessible through Bag / Gear. Touch targets retain at least 44 physical pixels in the recorded cases, rather than shrinking the full UI. No new raster, atlas/palette change or DOM HUD.

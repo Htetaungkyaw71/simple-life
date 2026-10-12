@@ -12,17 +12,19 @@ export class Hud {
  constructor(ui){this.ui=ui;this.app=ui.app;this.root=ui.add.container();ui.root.add(this.root);this.signature=this.key();this.create();}
  key(){return (!!this.app.placement?.draft)+':'+this.app.state.area+':'+this.app.state.selectedCrop+':'+this.app.state.selectedDecoration+':'+(['shovel','axe','hand','grass','decorate'].includes(this.app.state.selected)?this.app.state.selected:'shovel');}
  create(){
-  const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6-(u.touch&&w>h&&h<170?44:0);
-  const healthWidth=Math.min(140,w-96),barX=left+21,barW=healthWidth-21;
-  const meters=u.add.graphics();p.add(meters);meterFrame(meters,barX,top+4,barW);meterFrame(meters,barX,top+36,barW);
-  this.health=u.add.rectangle(barX+4,top+8,barW-8,9,0xce4438).setOrigin(0);this.energy=u.add.rectangle(barX+4,top+40,barW-8,9,0xe6b642).setOrigin(0);p.add([this.health,this.energy]);this.healthWidth=this.energyWidth=barW-8;
-  this.healthShine=u.add.rectangle(barX+4,top+8,barW-8,2,0xee6950).setOrigin(0);this.energyShine=u.add.rectangle(barX+4,top+40,barW-8,2,0xffda68).setOrigin(0);p.add([this.healthShine,this.energyShine]);
-  const badges=u.add.graphics();p.add(badges);meterBadge(badges,left,top);meterBadge(badges,left,top+32);
-  const heart=u.add.graphics();p.add(heart);heart.setScale(2).setPosition(left+6,top+6);meterGlyph(heart,'heart',0xcf4939);
-  const bolt=u.add.graphics();p.add(bolt);bolt.setScale(2).setPosition(left+6,top+38);meterGlyph(bolt,'bolt',0xffd45a);
-  this.waterWindow=text(u,p,left,top+64,'',6,UI_COLORS.cream);
-  panel(u,p,right-76,top,76,37);this.clock=text(u,p,right-38,top+7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,p,right-38,top+23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
-  panel(u,p,right-70,top+40,70,18,UI_COLORS.selected);this.money=text(u,p,right-35,top+45,'60c',8).setOrigin(.5,0);
+  const u=this.ui,w=u.w,h=u.h,p=this.root,s=this.app.state,top=u.safe.top+6,left=u.safe.left+6,right=w-u.safe.right-6-(u.touch&&w>h&&h<150?36:0),scale=u.touch?.75:1;
+  const healthWidth=Math.min(u.touch?120:140,w-96),barX=21,barW=healthWidth-21;
+  const vitals=u.add.container(left,top).setScale(scale);p.add(vitals);
+  const meters=u.add.graphics();vitals.add(meters);meterFrame(meters,barX,4,barW);meterFrame(meters,barX,36,barW);
+  this.health=u.add.rectangle(barX+4,8,barW-8,9,0xce4438).setOrigin(0);this.energy=u.add.rectangle(barX+4,40,barW-8,9,0xe6b642).setOrigin(0);vitals.add([this.health,this.energy]);this.healthWidth=this.energyWidth=barW-8;
+  this.healthShine=u.add.rectangle(barX+4,8,barW-8,2,0xee6950).setOrigin(0);this.energyShine=u.add.rectangle(barX+4,40,barW-8,2,0xffda68).setOrigin(0);vitals.add([this.healthShine,this.energyShine]);
+  const badges=u.add.graphics();vitals.add(badges);meterBadge(badges,0,0);meterBadge(badges,0,32);
+  const heart=u.add.graphics();vitals.add(heart);heart.setScale(2).setPosition(6,6);meterGlyph(heart,'heart',0xcf4939);
+  const bolt=u.add.graphics();vitals.add(bolt);bolt.setScale(2).setPosition(6,38);meterGlyph(bolt,'bolt',0xffd45a);
+  this.waterWindow=text(u,p,left,top+(u.touch?50:64),'',6,UI_COLORS.cream);
+  const clockGroup=u.add.container(right,top).setScale(scale);p.add(clockGroup);
+  panel(u,clockGroup,-76,0,76,37);this.clock=text(u,clockGroup,-38,7,'6:00 am',10).setOrigin(.5,0);this.day=text(u,clockGroup,-38,23,'Day 1',8,UI_COLORS.gold).setOrigin(.5,0);
+  panel(u,clockGroup,-70,40,70,18,UI_COLORS.selected);this.money=text(u,clockGroup,-35,45,'60c',8).setOrigin(.5,0);
   if(this.app.placement?.draft){this.slots=[];this.placementSignature=this.app.placement.draft.direction+':'+this.app.placement.quote().message;placementControls(u,p);return;}
   const layout=hudLayout(u,s.area==='forest',s.selected==='axe',s.selected),{cell,x,y,gap}=layout;this.slots=[];
   for(const [i,id]of layout.ids.entries()){

@@ -1,3 +1,11 @@
+# v0.18.3 — compact phone HUD and wider landscape view (2026-10-12)
+
+The mobile status bars/clock, toolbar, joystick and Jump/Use controls now occupy less screen space. Toolbar/action targets are up to 48 CSS pixels (at least 44 in verified layouts), with a 96px joystick. Landscape phone zoom is 0.75 instead of 1, showing one-third more world in each direction; portrait and desktop camera framing retain their previous values. Safe-area positioning, rotation, farming, house entry and saved progression remain usable.
+
+Refresh the running Wi-Fi preview and Continue to try the revised proportions. The Mac/server must stay running on the same Wi-Fi. Local checks: 292 tests, both builds and 33 native browser cases pass. See [mobile proportions verification](docs/verification/mobile-proportions/README.md). Physical-phone acceptance of the revised layout remains with the user; this update is local only.
+
+---
+
 # v0.18.2 — green-screen startup fix (2026-10-12)
 
 The rotation touch-cancel wrapper now checks that Phaser created a TouchManager before installing its listener. Browsers without touch input can start normally again. Refresh the existing local preview to load the fix; saved games remain intact.

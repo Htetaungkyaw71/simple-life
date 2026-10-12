@@ -1,3 +1,11 @@
+# v0.18.3 — compact gameplay HUD and landscape camera
+
+The UI scene remains at 2× logical pixels. Only noninteractive mobile vitals/clock containers use an additional .75 presentation scale; hit-tested toolbar/action controls are redrawn at 24 logical units, and the joystick uses a 24-unit radius. Touch coordinate conversion and read-only snapshots remain consistent with the existing 2× scene. Portrait toolbar and landscape joystick/action reservations move inward/down to release gameplay space; navigation/crop-panel floors track these positions. Menus retain their previous readable sizing.
+
+displayZoom accepts optional coarse-pointer capability. Compact landscape views (width below 1000, or coarse pointer with height below 600) use .75; other views retain the existing 1/1.5 rules. WorldScene supplies the actual media capability outdoors/indoors and uses existing follow/bounds/room handling. At 844px width this exposes about 1125 world units versus the prior 844; a 1440px desktop at 1.5 exposes 960. Actual phone dimensions differ, so this is a landscape framing choice rather than a universal phone/desktop coverage guarantee.
+
+---
+
 # v0.18.2 — optional TouchManager at startup
 
 Phaser InputManager leaves `touch` null on devices without touch capability. The ready handler guards `touch?.target` before accessing/replacing onTouchCancel, allowing non-touch scene startup to continue. The scoped cancellation wrapper remains active on touch devices. Native startup checks explicitly set hasTouch/isMobile false for desktop and true for portrait/landscape phone profiles in both renderers, and use ordinary inputs with fresh saves.

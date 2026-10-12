@@ -1,3 +1,9 @@
+# v0.18.3 — mobile HUD proportions
+
+Existing original code-drawn meters/frames/glyphs and the licensed font/art are reused with smaller mobile rendering dimensions. The supplied phone screenshot is a layout reference only; no reference pixels enter runtime. No new asset, dependency or licence change. The runtime audit retains 28 unchanged approved WAVs, eight byte-identical allowed art files and existing dependency notices; captures/test saves stay outside source/build.
+
+---
+
 # v0.18.1 — mobile rotation and silent travel
 
 No new asset or dependency. The previously reviewed sfx-gate.wav is removed from production after the user rejected the location-change sound; 28 approved WAVs and eight unchanged allowlisted art files remain, with their existing source records and dependency notices. UI changes are original project code; no atlas/raster/audio bytes are edited. Generated mobile QA screenshots/test saves remain outside the commit.

@@ -20,7 +20,7 @@ export class FarmGuide {
   const view=u.app.scene.cameras.main.worldView,way=city?cityWaypoint(s,view):farmWaypoint(s,view);this.way=way;this.waypoint.setVisible(!!way);if(!way)return;
   // Ray from player to the real transition, clipped to a safe gameplay rectangle.
   const cam=u.app.scene.cameras.main,px=(s.position.x-view.x)*cam.zoom/2,py=(s.position.y-view.y)*cam.zoom/2;
-  const bounds={left:u.safe.left+12,right:u.w-u.safe.right-12,top:u.safe.top+(expanded?112:80),bottom:u.h-u.safe.bottom-(u.touch&&u.w<u.h?146:u.touch?80:76)};
+  const bounds={left:u.safe.left+12,right:u.w-u.safe.right-12,top:u.safe.top+(expanded?112:80),bottom:u.h-u.safe.bottom-(u.touch&&u.w<u.h?116:u.touch?64:76)};
   const candidates=[];if(way.dx>0)candidates.push((bounds.right-px)/way.dx);if(way.dx<0)candidates.push((bounds.left-px)/way.dx);if(way.dy>0)candidates.push((bounds.bottom-py)/way.dy);if(way.dy<0)candidates.push((bounds.top-py)/way.dy);
   const t=Math.min(...candidates.filter(v=>v>=0));const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   this.waypoint.setPosition(Math.round(clamp(px+way.dx*t,bounds.left,bounds.right)),Math.round(clamp(py+way.dy*t,bounds.top,bounds.bottom)));

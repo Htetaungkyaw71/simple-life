@@ -1,3 +1,15 @@
+# v0.18.3 — user-requested smaller mobile HUD and wider camera (2026-10-12)
+
+The supplied physical-phone screenshot confirms responsive landscape gameplay but shows oversized controls. Mobile vitals/clock now render at 75% of their prior dimensions, with shorter health/energy bars; toolbar/Jump/Use targets are 48 CSS pixels where space permits and stay at least 44 in verified layouts; joystick diameter is 96 instead of 120. Portrait toolbar and landscape reserved space/guide/crop-panel placement follow the smaller controls. The separate fullscreen canvas UI, menu sizes and original art remain.
+
+Landscape compact phones use camera zoom **0.75 instead of 1**, showing **33⅓% more world width/height** at the same viewport. Short coarse-pointer landscape devices wider than 1000px also receive this framing. Desktop and portrait zoom values retain their existing behavior. Indoor/outdoor farmer scale remains matched, and room/collision/save logic is preserved.
+
+Checks: **292 tests**, both **138-module builds**, **21 rotation/farming/menu/travel cases + eight fresh desktop/touch startup/save cases + four supplemental safe-area/house cases** pass in native Chrome. Supplementary cases use 844×335 with 59px side/21px bottom margins and coarse-pointer 1080×390 with 44px side/21px bottom margins, in Canvas/WebGL; native taps verify compact targets, camera coverage, house entry and indoor save/reload. Inspected desktop, portrait, landscape Farm/Home and indoor captures. Audit: **40 files / 11,719,637 bytes / 28 unchanged approved WAVs / eight unchanged art files / full notices**, clean whitespace. Evidence: [mobile proportions verification](verification/mobile-proportions/README.md).
+
+Updated local LAN preview remains **http://192.168.100.7:4198/**, with Mac preview **http://127.0.0.1:4196/**. Refresh/Continue retains each origin's save. The supplied image verifies prior responsiveness on the user's phone; revised physical-phone appearance/comfort and other engines remain human checks. No deployment/push, new asset/dependency/backend or user-save editing.
+
+---
+
 # v0.18.2 — blank startup fixed and Wi-Fi preview ready (2026-10-12)
 
 Reproduced the user's green screen in fresh native desktop Chrome: the v0.18.1 ready handler dereferenced `game.input.touch.onTouchCancel` when TouchManager was null, throwing before scenes started. A guard skips the touch-only wrapper when no touch target exists. The previous standard fresh checks preceded that last wrapper change; final touch-only rotation checks missed this desktop regression. No gameplay/save/asset changes.

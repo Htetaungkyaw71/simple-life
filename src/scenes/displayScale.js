@@ -1,2 +1,5 @@
-// Closer three-quarter framing; integer source pixels (3px desktop / 2px compact).
-export function displayZoom(width,height) { return width>=1000&&height>=640?1.5:1; }
+// Landscape phones need more world around their shorter, touch-covered viewport.
+export function displayZoom(width,height,coarse=false) {
+ if(width>height&&(width<1000||coarse&&height<600))return .75;
+ return width>=1000&&height>=640?1.5:1;
+}

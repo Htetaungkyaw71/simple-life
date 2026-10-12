@@ -1,3 +1,7 @@
+# v0.18.3 — mobile proportions assistance
+
+Codex assisted smaller phone HUD rendering/hit areas, wider landscape camera framing, existing regression maintenance and native browser verification from the user's gameplay screenshot. No screenshot art was copied or new external asset/dependency introduced. User approval of actual phone appearance remains separate from browser checks. Evidence: verification/mobile-proportions/README.md.
+
 # v0.18.2 — startup correction assistance
 
 Codex diagnosed and fixed the null TouchManager crash introduced by the previous touch-handling patch, authored fresh desktop/touch Canvas/WebGL startup/input/save checks and enabled the requested local Wi-Fi preview. Existing art/audio/dependencies remain unchanged. No deployment/push or user-save editing; physical phone testing remains with the user. Evidence: verification/startup-lan/README.md.

@@ -32,7 +32,7 @@ export class CropInfo {
   const left=u.safe.left+6,right=u.w-u.safe.right-6-this.w,top=u.safe.top+(this.compact?66:80);
   // Candidate positions avoid the farmer, inspected sprite/soil and existing HUD.
   // On short landscape displays use a side; portrait uses the upper clear band.
-  const short=u.touch&&u.w>u.h&&u.h<240;const floor=u.h-u.safe.bottom-(short?49:u.touch?78:48);
+  const short=u.touch&&u.w>u.h&&u.h<240;const floor=u.h-u.safe.bottom-(short?40:u.touch?78:48);
   const bottom=short?floor-this.h:Math.min(this.hud.promptY-4-this.h,floor-this.h);
   const candidates=[{x:Math.floor((u.w-this.w)/2),y:bottom},{x:left,y:bottom},{x:right,y:bottom},{x:left,y:top},{x:right,y:top}];
   const chosen=candidates.find(p=>p.y>=top&&p.x>=left&&p.x+this.w<=u.w-u.safe.right-6&&p.y+this.h<=floor&&!avoid.some(b=>intersects({...p,w:this.w,h:this.h},b)));

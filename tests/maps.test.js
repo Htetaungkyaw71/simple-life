@@ -3,9 +3,11 @@ import assert from 'node:assert/strict';
 import {LOCATIONS,walkable} from '../src/data/locations.js';
 import {MAPS,MAP_SIZE} from '../src/data/mapLayouts.js';
 import {displayZoom} from '../src/scenes/displayScale.js';
-test('closer reference framing keeps useful coverage and crisp source pixels',()=>{
+test('desktop framing and wider landscape phone framing keep useful coverage',()=>{
  const z=displayZoom(1280,720);assert.equal(z,1.5);assert.ok(1280/z/32>26);assert.ok(64*z/720>=.10&&64*z/720<=.15);
- for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){const zoom=displayZoom(w,h);assert.ok(Number.isInteger(zoom*2));assert.ok(64*zoom/h<.17);assert.ok(w/zoom<MAP_SIZE.width&&h/zoom<MAP_SIZE.height);}
+ for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){const zoom=displayZoom(w,h);assert.ok(Number.isInteger(zoom*4));assert.ok(64*zoom/h<.17);assert.ok(w/zoom<MAP_SIZE.width&&h/zoom<MAP_SIZE.height);}
+ assert.ok(844/displayZoom(844,390)>1440/displayZoom(1440,900));assert.equal(displayZoom(390,844),1);
+ assert.equal(displayZoom(1080,390,true),.75);assert.equal(displayZoom(1080,390,false),1);
 });
 test('expanded areas connect every interaction and decorative district',()=>{
  const step=16;

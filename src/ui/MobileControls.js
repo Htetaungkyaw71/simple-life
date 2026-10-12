@@ -4,7 +4,7 @@ import {pixels} from './statusArt.js';
 // Native pixel circles share the cream/olive HUD palette.
 function disc(g,x,y,r,color){g.fillStyle(color);for(let dy=-r;dy<=r;dy++){const half=Math.floor(Math.sqrt(r*r-dy*dy));g.fillRect(Math.round(x-half),Math.round(y+dy),half*2+1,1);}}
 export function mobileControls(ui,parent){
- const app=ui.app,portrait=ui.w<ui.h,r=30,cx=ui.safe.left+39,cy=ui.h-ui.safe.bottom-39,g=ui.add.graphics();parent.add(g);
+ const app=ui.app,portrait=ui.w<ui.h,r=24,cx=ui.safe.left+31,cy=ui.h-ui.safe.bottom-31,g=ui.add.graphics();parent.add(g);
  let pointerId=null,knob={x:0,y:0};
  const paint=()=>{g.clear();disc(g,cx+1,cy+2,r,UI_COLORS.ink);disc(g,cx,cy,r,UI_COLORS.edge);disc(g,cx,cy,r-2,UI_COLORS.panel);disc(g,cx,cy,r-5,0xd4d9af);disc(g,cx+knob.x,cy+knob.y,12,UI_COLORS.ink);disc(g,cx+knob.x,cy+knob.y,10,pointerId===null?UI_COLORS.cream:UI_COLORS.selected);};
  const reset=()=>{pointerId=null;knob={x:0,y:0};app.input.stick={x:0,y:0};paint();};
@@ -12,13 +12,13 @@ export function mobileControls(ui,parent){
  const control={id:'move-stick',label:'Move',x:cx-r,y:cy-r,w:r*2,h:r*2,box:g,move,reset,release:p=>{if(p.id===pointerId)reset();}};ui.controls.push(control);
  g.setInteractive({hitArea:{cx,cy,r},hitAreaCallback:(a,x,y)=>Math.hypot(x-a.cx,y-a.cy)<=a.r});
  g.on('pointerdown',(p,x,y,event)=>{event.stopPropagation();if(pointerId!==null)return;pointerId=p.id;move(p);});paint();
- const right=ui.w-ui.safe.right,actions=portrait?[[right-79,cy-14],[right-39,cy-14]]:[[right-39,ui.h-ui.safe.bottom-86],[right-39,ui.h-ui.safe.bottom-39]];
+ const right=ui.w-ui.safe.right,actions=portrait?[[right-62,cy-12],[right-30,cy-12]]:[[right-30,ui.h-ui.safe.bottom-66],[right-30,ui.h-ui.safe.bottom-30]];
  const glyph=name=>(g,x,y,c)=>pixels(g,name,x,y-4,c);
- const jump=button(ui,parent,'Jump',...actions[0],28,28,()=>app.scene.jump(),{id:'jump',glyph:glyph('jump'),disabled:app.state.area==='interior'});
- const attack=button(ui,parent,'Use',...actions[1],28,28,()=>{
+ const jump=button(ui,parent,'Jump',...actions[0],24,24,()=>app.scene.jump(),{id:'jump',glyph:glyph('jump'),disabled:app.state.area==='interior'});
+ const attack=button(ui,parent,'Use',...actions[1],24,24,()=>{
   const c=app.scene.context();if(c&&c.type!=='hint')app.use();else if(!c&&app.state.selected==='axe'&&app.state.area!=='interior')app.attack();else app.ui.feedback(c?.label||'Move closer to use');
  },{id:'attack',glyph:glyph('use'),sound:false});
- for(const b of [jump,attack]){b.caption=text(ui,parent,b.x+b.w/2,b.y+19,b.label,6,b.disabled?UI_COLORS.muted:UI_COLORS.light).setOrigin(.5,0);}
+ for(const b of [jump,attack]){b.caption=text(ui,parent,b.x+b.w/2,b.y+16,b.label,6,b.disabled?UI_COLORS.muted:UI_COLORS.light).setOrigin(.5,0);}
  control.updateAction=c=>{const label=app.state.selected==='axe'&&(!c||['hunt','chop'].includes(c.type))&&app.state.area!=='interior'?'Hit':'Use';attack.label=label;attack.caption.setText(label);};
  return control;
 }

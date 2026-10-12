@@ -1,3 +1,9 @@
+# v0.18.3 — mobile HUD/camera assistance, 2026-10-12
+
+Codex used the user's supplied phone screenshot to assess oversized gameplay HUD coverage, adjusted existing HUD/layout/joystick dimensions and landscape camera framing, extended the existing camera regression, and checked native desktop/touch gameplay/rotation/safe-area/house/save behavior. Original code art and approved assets remain reused; no screenshot pixels imported, new media/dependency/backend, subagent, deployment, push or existing user-save editing. Revised physical-phone visual/comfort acceptance remains with the user. Evidence: verification/mobile-proportions/README.md.
+
+---
+
 # v0.18.2 — startup correction and phone preview assistance, 2026-10-12
 
 Codex reproduced and corrected its previous unguarded touch-handler change, which threw on non-touch browsers before scene startup. Assistance includes a minimal optional-manager guard, fresh native Chrome tests with explicit touch/non-touch capability in both renderers, LAN preview setup at the user's request, runtime/build/test verification and documentation. No subagent, new asset/dependency, public deployment, push or existing user-save modification. Mobile profiles are browser emulation; the physical phone remains a human check.

@@ -92,7 +92,7 @@ export class WorldScene extends Phaser.Scene {
     this.input.on('pointerup',()=>{this.placementPointer=null;});
   }
   resize(){
-    const cam=this.cameras.main;cam.setZoom(displayZoom(this.scale.width,this.scale.height));const size=MAPS[this.app.state?.area||'farm'].size||MAP_SIZE;cam.setBounds(-Math.max(0,(this.scale.width-size.width)/2),-Math.max(0,(this.scale.height-size.height)/2),Math.max(size.width,this.scale.width),Math.max(size.height,this.scale.height));cam.roundPixels=true;
+    const cam=this.cameras.main,coarse=matchMedia('(pointer:coarse)').matches;cam.setZoom(displayZoom(this.scale.width,this.scale.height,coarse));const size=MAPS[this.app.state?.area||'farm'].size||MAP_SIZE;cam.setBounds(-Math.max(0,(this.scale.width-size.width)/2),-Math.max(0,(this.scale.height-size.height)/2),Math.max(size.width,this.scale.width),Math.max(size.height,this.scale.height));cam.roundPixels=true;
     if(this.app.state?.area==='interior'){
       const old={w:ROOM.width,h:ROOM.height},p=this.app.state.position;
       if(syncInterior(this.scale.width,this.scale.height)){
@@ -100,7 +100,7 @@ export class WorldScene extends Phaser.Scene {
         if(this.app.placement.original){this.app.placement.draft=null;this.app.placement.original=null;}
         const packed=resizeRoomDecor(this.app.state,{width:old.w,height:old.h});this.app.state.position=nearestSafe('interior',{x:p.x*ROOM.width/old.w,y:p.y*ROOM.height/old.h},this.app.state);this.build();this.app.save();if(packed)this.app.ui.toast(packed+' room pieces packed in Bag / Gear');return;
       }
-      const zoom=displayZoom(this.scale.width,this.scale.height);cam.setZoom(zoom);const vw=this.scale.width/zoom,vh=this.scale.height/zoom;
+      const zoom=displayZoom(this.scale.width,this.scale.height,coarse);cam.setZoom(zoom);const vw=this.scale.width/zoom,vh=this.scale.height/zoom;
       cam.setBounds(-Math.max(8,(vw-ROOM.width)/2),-Math.max(24,(vh-ROOM.height)/2),Math.max(vw,ROOM.width+16),Math.max(vh,ROOM.height+48));
       if(this.scale.width>=1000&&this.scale.height>=600){cam.stopFollow();cam.centerOn(ROOM.width/2,ROOM.height/2);return;}
     }
