@@ -1,3 +1,9 @@
+# v0.18.2 — fresh non-touch startup and LAN preview (2026-10-12)
+
+Reproduced and corrected the null TouchManager exception behind the blank green screen. **292 tests**, both **138-module builds**, runtime audit **40 files / 11,719,438 bytes / 28 approved WAVs / eight unchanged art files / full notices**, and **eight fresh Canvas/WebGL startup/input/save cases** pass through the Wi-Fi preview URL. Explicit non-touch desktop capability is now part of the native startup regression, alongside portrait/landscape touch and non-cancelable touch cancellation. No fixtures or user-save mutation; clean console/network/whitespace and inspected gameplay captures. Local/LAN endpoints return HTTP 200. Physical phones remain unverified. Methods and commands: [verification/startup-lan/README.md](verification/startup-lan/README.md).
+
+---
+
 # v0.18.1 — mobile touch rotation and silent travel (2026-10-12)
 
 Full suite: **292 pass / 0 fail**; normal/playtest 138-module builds pass. Four standard fresh and 21 native rotation/travel cases pass; the runtime audit verifies 40 files / 11,719,411 bytes / 28 approved WAVs / eight unchanged art files. Safe-area/shifted-canvas input checks are included. Both production modes, current runtime audit and native browser evidence are recorded in [verification/mobile-rotation/README.md](verification/mobile-rotation/README.md). Public deployment and user save remain untouched. Physical-phone verification is still required.

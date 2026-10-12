@@ -1,3 +1,11 @@
+# v0.18.2 — optional TouchManager at startup
+
+Phaser InputManager leaves `touch` null on devices without touch capability. The ready handler guards `touch?.target` before accessing/replacing onTouchCancel, allowing non-touch scene startup to continue. The scoped cancellation wrapper remains active on touch devices. Native startup checks explicitly set hasTouch/isMobile false for desktop and true for portrait/landscape phone profiles in both renderers, and use ordinary inputs with fresh saves.
+
+Phone preview: `npm run preview -- --host 0.0.0.0 --port 4198 --strictPort` exposes the existing static dist on LAN. Vite prints the current Network URL; the Mac and phone must share a reachable local network. This does not deploy the game or add a backend.
+
+---
+
 # v0.18.1 — rotation input lifecycle
 
 UI layouts remember their physical viewport dimensions and call Phaser InputPlugin.resetPointers on a changed size, reclaiming touches whose release was cancelled during rotation. The orientation handler also resets movement/pointers, then schedules canvas fitting immediately and after 250ms. Fitting compares real canvas bounds as well as logical size and refreshes Phaser's displayScale when the canvas moves without resizing. Window resize, orientationchange/screen.orientation change and visualViewport resize/scroll supplement an optional host ResizeObserver; all listeners/frames/timers are removed on destruction. A scoped wrapper of the pinned TouchManager.onTouchCancel preserves its processing/capture behavior while checking event.cancelable before preventDefault. Vendor source is untouched.

@@ -1,3 +1,7 @@
+# v0.18.2 — startup correction assistance
+
+Codex diagnosed and fixed the null TouchManager crash introduced by the previous touch-handling patch, authored fresh desktop/touch Canvas/WebGL startup/input/save checks and enabled the requested local Wi-Fi preview. Existing art/audio/dependencies remain unchanged. No deployment/push or user-save editing; physical phone testing remains with the user. Evidence: verification/startup-lan/README.md.
+
 # v0.18.1 — follow-up AI assistance
 
 Codex assisted removal of the location-change cue, inspection of pinned Phaser input/scale code, responsive short-landscape UI, touch-pointer/bounds/cancellation repairs, regression tests, isolated native touch verification and documentation. No generative media, third-party asset download, dependency/backend, public-save mutation, push or deployment. Human device/listening/visual and official declarations remain separate.

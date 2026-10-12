@@ -173,7 +173,9 @@ const game=new Phaser.Game({type:new URLSearchParams(location.search).get('rende
 game.events.once('ready',()=>{
   // Phaser 3.90 captures touchcancel without checking cancelable. A rotation's
   // non-cancelable event still needs processing, without preventDefault warnings.
-  const touch=game.input.touch,original=touch.onTouchCancel;
+  const touch=game.input.touch;
+  if(!touch?.target)return;
+  const original=touch.onTouchCancel;
   touch.target.removeEventListener('touchcancel',original);
   touch.onTouchCancel=event=>{const capture=touch.capture;touch.capture=capture&&event.cancelable;try{original(event);}finally{touch.capture=capture;}app.ui.resetMovement();};
   touch.target.addEventListener('touchcancel',touch.onTouchCancel,{passive:false});

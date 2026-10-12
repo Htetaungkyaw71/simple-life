@@ -1,3 +1,13 @@
+# v0.18.2 — blank startup fixed and Wi-Fi preview ready (2026-10-12)
+
+Reproduced the user's green screen in fresh native desktop Chrome: the v0.18.1 ready handler dereferenced `game.input.touch.onTouchCancel` when TouchManager was null, throwing before scenes started. A guard skips the touch-only wrapper when no touch target exists. The previous standard fresh checks preceded that last wrapper change; final touch-only rotation checks missed this desktop regression. No gameplay/save/asset changes.
+
+Checks: **292 tests / 0 fail**, normal and separate playtest **138-module builds**, and **eight fresh native browser cases** through **http://192.168.100.7:4198/**. Canvas/WebGL each pass explicit non-touch 1280×720/1440×900 and touch 390×844/844×390 profiles: title, Controls, new game, intro skip, real movement, touch cancellation, Pause/Save and Continue/reload, with no console warnings/errors or failed/external requests. Runtime audit: **40 files / 11,719,438 bytes / 28 unchanged approved WAVs / eight unchanged art files / full notices**. Gameplay screenshots inspected at desktop and landscape phone sizes. Both the existing Mac preview and Wi-Fi preview return HTTP 200. Evidence: [startup verification](verification/startup-lan/README.md).
+
+LAN preview binds all local interfaces on port 4198 for the user's requested phone test, while the Mac preview remains at http://127.0.0.1:4196/. Phone access requires the same Wi-Fi and the running Mac/server. Physical phones/other engines remain unverified; no public deployment, push, dependency, backend or asset added. Historical v0.18.1 results below do not certify its final non-touch startup.
+
+---
+
 # v0.18.1 — user-requested silent travel and mobile landscape (2026-10-12)
 
 Removed the outdoor travel gate cue from the gameplay call and central playback/preload/build allowlist. Door, action, sleep/wake, progression and nature audio retain their current behavior. Rotation resets cancelled Phaser touch pointers and movement, and refreshes the actual canvas hit-test bounds after browser layout settles, even when its logical size is unchanged. Explicit window/orientation/visual-viewport resize/scroll listeners supplement the parent ResizeObserver, with cleanup and a fallback for unavailable observers. The pinned Phaser touchcancel callback is guarded against preventDefault on non-cancelable events without changing vendor files or disabling other touch capture.

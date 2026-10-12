@@ -1,3 +1,11 @@
+# v0.18.2 — green-screen startup fix (2026-10-12)
+
+The rotation touch-cancel wrapper now checks that Phaser created a TouchManager before installing its listener. Browsers without touch input can start normally again. Refresh the existing local preview to load the fix; saved games remain intact.
+
+For phone testing, run `npm run build`, then `npm run preview -- --host 0.0.0.0 --port 4198 --strictPort`. Open Vite's displayed Network URL on a phone using the same Wi-Fi, keeping the Mac/server running. The existing public deployment is unchanged. Checks: 292 tests, both builds, and eight fresh Canvas/WebGL desktop/touch startup, movement and save/reload cases pass. See [startup verification](docs/verification/startup-lan/README.md).
+
+---
+
 # v0.18.1 — silent travel and mobile rotation (2026-10-12)
 
 Home/Farm/City/Forest crossings no longer play a gate sound. Rotate the phone freely: cancelled touches are released, canvas touch bounds are refreshed after rotation/browser-bar movement, and short landscape menus retain reachable controls. Landscape Bag pages use wider rows; very short Journal pages show the current step and its directions. All tools remain available in Bag / Gear. Refresh the local preview and Continue to retain progress. This update is local only; the public deployment is unchanged.

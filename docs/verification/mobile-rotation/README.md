@@ -1,5 +1,7 @@
 # v0.18.1 mobile rotation and silent travel — 2026-10-12
 
+Correction recorded in v0.18.2: the standard fresh checks below preceded the last touchcancel wrapper change. That final change was covered only by touch-capable contexts and introduced a null TouchManager startup exception on non-touch desktop browsers. The new [startup regression](../startup-lan/README.md) reproduces the failure and verifies its guard in both touch and non-touch profiles. These historical results do not establish final v0.18.1 desktop startup.
+
 Before changes, native short-landscape probing reproduced clipped start controls at 844×300, 667×280 and 568×256; ordinary 844×390 touch rotation worked in Chrome, so the user's exact physical-device freeze is not claimed reproduced. The existing resize handler could skip touch-bound refresh when the canvas moved without changing size, and UI layout reset the stick without reclaiming cancelled Phaser pointer slots. The follow-up closes those lifecycle gaps and fixes the observed menu overflow.
 
 ## Reproduction
