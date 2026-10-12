@@ -24,5 +24,5 @@ try{for(const language of ['mm','en'])for(const renderer of ['canvas','webgl'])f
   assert.ok(day.y-(time.y+time.h)>=4,'clock rows have breathing room');assert.ok(Math.abs((time.y+day.y+day.h)/2-center(panel))<=1,'time/day block is centered');assert.ok(Math.abs(center(money)-center(coins))<=1,'coins vertically centered');
   for(const t of [time,day,money])for(const c of v.controls)assert.ok(!(t.x<c.x+c.w&&t.x+t.w>c.x&&t.y<c.y+c.h&&t.y+t.h>c.y),'clock clear of '+c.id);
   assert.deepEqual(errors,[]);await p.screenshot({path:out+'/'+name+'-'+i+'.png'});records.push({name,fixture,result:'PASS',time,day,money,panel,coins});
- }console.log('PASS clock',name);}catch(e){await p.screenshot({path:out+'/'+name+'-failure.png'});await writeFile(out+'/failure.json',JSON.stringify({error:e.stack,snapshot:await snap()},null,2));throw e;}finally{await ctx.close();}
+ }console.log('PASS clock',name);}catch(e){await p.screenshot({path:out+'/'+name+'-failure.png'});await writeFile(out+'/failure.json',JSON.stringify({error:e.stack,snapshot:await snap().catch(()=>null)},null,2));throw e;}finally{await ctx.close();}
 }await writeFile(out+'/results.json',JSON.stringify({result:'PASS',records},null,2));}finally{await browser.close();}

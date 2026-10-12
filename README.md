@@ -1,6 +1,6 @@
 # v0.19.3 — centered clock and coin rows (2026-10-12)
 
-Clock/day rows now center as one measured block, and coins center inside their own panel. Both languages retain their native font sizes and whole-pixel positions, with clear row spacing and internal padding. Refresh and Continue at the existing [playtest](https://simple-life-playtest.vercel.app/). Verification and release status: [clock alignment](docs/verification/clock-alignment/README.md).
+Clock/day rows now center as one measured block, and coins center inside their own panel. Both languages retain their native font sizes and whole-pixel positions, with clear row spacing and internal padding. Published on the existing [playtest](https://simple-life-playtest.vercel.app/). Refresh and Continue. Verification and release status: [clock alignment](docs/verification/clock-alignment/README.md).
 
 ---
 
