@@ -2,7 +2,7 @@
 
 House entry and exit are silent. The unused door sample is excluded from runtime. This release includes the responsive mobile trade panels, icon-only Jump/Use/Map controls, native Thaleah/m5x7 fonts, mobile rotation/startup fixes and larger phone interior from the preceding local updates. The established public playtest keeps its once-per-save test coins and browser-local progress.
 
-Release checks and publishing status: [silent doors verification](docs/verification/silent-doors/README.md). Playtest URL: [Simple Life](https://simple-life-playtest.vercel.app/). Refresh and Continue after the release is published.
+Release checks and publishing status: [silent doors verification](docs/verification/silent-doors/README.md). Playtest URL: [Simple Life](https://simple-life-playtest.vercel.app/). Published v0.18.6: refresh and Continue at the same URL.
 
 ---
 

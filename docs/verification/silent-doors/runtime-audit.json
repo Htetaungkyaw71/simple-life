@@ -1,0 +1,254 @@
+{
+  "result": "PASS",
+  "licensedSamples": 27,
+  "runtimeAudio": 27,
+  "artUnchanged": true,
+  "runtimeNoticesPresent": true,
+  "productionFiles": 43,
+  "productionBytes": 11712035,
+  "files": [
+    {
+      "id": "sfx-ui-hover",
+      "seconds": 0.055011337868480725,
+      "peak": 0.37467574083681754,
+      "rms": 0.09999989904329558,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.26382732627338523,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-ui-back",
+      "seconds": 0.36,
+      "peak": 0.4713888973662526,
+      "rms": 0.0999999902457302,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.11910031434064765,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-menu-open",
+      "seconds": 0.41002267573696144,
+      "peak": 0.4227423932615131,
+      "rms": 0.09999986458135308,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.1441456343272195,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-menu-close",
+      "seconds": 0.41002267573696144,
+      "peak": 0.4618060853907895,
+      "rms": 0.09999989386148089,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.16320200201422205,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-notification",
+      "seconds": 0.58,
+      "peak": 0.500015259254738,
+      "rms": 0.08587482686911363,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.270245368816187,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-hoe-dig",
+      "seconds": 0.24,
+      "peak": 0.500015259254738,
+      "rms": 0.08679144752008996,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.09838862269966768,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-seed-plant",
+      "seconds": 0.2,
+      "peak": 0.47248756370738854,
+      "rms": 0.10000005594199039,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.04481704153569141,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-watering",
+      "seconds": 1.32,
+      "peak": 0.500015259254738,
+      "rms": 0.08811755793960642,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.17254676961577184,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-harvest-pop",
+      "seconds": 0.5900226757369614,
+      "peak": 0.39280373546555986,
+      "rms": 0.0999999328730429,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.1401617481002228,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-bush-rustle",
+      "seconds": 0.41002267573696144,
+      "peak": 0.4618060853907895,
+      "rms": 0.09999991446856649,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.3328543961912904,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-buy",
+      "seconds": 0.78,
+      "peak": 0.4750205999938963,
+      "rms": 0.09999998477075936,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.1691354106265449,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-sell-coins",
+      "seconds": 0.6500226757369615,
+      "peak": 0.4957426679280984,
+      "rms": 0.09999993607401257,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.3340977202673422,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-jingle-quest-complete",
+      "seconds": 1.5500226757369615,
+      "peak": 0.45362712485122225,
+      "rms": 0.10000004363644073,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.12528580584124266,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-pickup-item",
+      "seconds": 0.47002267573696144,
+      "peak": 0.500015259254738,
+      "rms": 0.09851081723019554,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.11972533341471582,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-axe-chop",
+      "seconds": 0.22,
+      "peak": 0.500015259254738,
+      "rms": 0.07801266455392084,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.06001495406964324,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-rock-break",
+      "seconds": 0.28,
+      "peak": 0.500015259254738,
+      "rms": 0.0849102803780555,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.3240150151066622,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-place-item",
+      "seconds": 0.22,
+      "peak": 0.500015259254738,
+      "rms": 0.0815166773477504,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.05935666982024661,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-eat",
+      "seconds": 0.4950113378684807,
+      "peak": 0.500015259254738,
+      "rms": 0.05779601101320291,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.2592553483687868,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-pickup-rare",
+      "seconds": 0.82,
+      "peak": 0.500015259254738,
+      "rms": 0.06514383835799044,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.21435071871089809,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-chest-open",
+      "seconds": 0.9,
+      "peak": 0.500015259254738,
+      "rms": 0.06828895622419841,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.14241981261635153,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-sleep",
+      "seconds": 2.9700226757369617,
+      "peak": 0.500015259254738,
+      "rms": 0.0812550271227355,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.11225501266518127,
+      "clipped": 0
+    },
+    {
+      "id": "cozyMusic",
+      "seconds": 68.0,
+      "peak": 0.4000061037018952,
+      "rms": 0.066139133906427,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.032471694082461006,
+      "clipped": 0
+    },
+    {
+      "id": "forestDay",
+      "seconds": 29.9,
+      "peak": 0.4000061037018952,
+      "rms": 0.04495295435522296,
+      "boundaryStep": 0.009094515823847165,
+      "normalStep99": 0.24238013855403148,
+      "clipped": 0
+    },
+    {
+      "id": "night",
+      "seconds": 29.9,
+      "peak": 0.4000061037018952,
+      "rms": 0.046187789601421295,
+      "boundaryStep": 0.0011597033600878933,
+      "normalStep99": 0.1782280953398236,
+      "clipped": 0
+    },
+    {
+      "id": "water",
+      "seconds": 29.9,
+      "peak": 0.4000061037018952,
+      "rms": 0.06905093643687837,
+      "boundaryStep": 0.028412732322153397,
+      "normalStep99": 0.14328440198980683,
+      "clipped": 0
+    },
+    {
+      "id": "fountain",
+      "seconds": 29.9,
+      "peak": 0.4000061037018952,
+      "rms": 0.0748322858289404,
+      "boundaryStep": 0.0024719992675557717,
+      "normalStep99": 0.2424085207678457,
+      "clipped": 0
+    },
+    {
+      "id": "sfx-rooster",
+      "seconds": 8.306938775510204,
+      "peak": 0.34781945249794,
+      "rms": 0.079999996619577,
+      "boundaryStep": 0.0,
+      "normalStep99": 0.15631580553605762,
+      "clipped": 0
+    }
+  ]
+}

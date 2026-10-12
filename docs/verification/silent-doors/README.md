@@ -12,6 +12,14 @@ The hosted playtest keeps explicit VITE_PLAYTEST=true mode and its once-per-save
 
 Eight house round-trip cases pass: Canvas/WebGL at desktop 1280×720, portrait 390×844 and landscape 844×390 / 568×256. Actual keyboard/touch exit and re-entry create no door one-shot or request; Save/reload preserves inventory and coins. Two fresh explicit-playtest cases pass on desktop and portrait phone, including all 43 runtime file hashes, Axe controls, phone jump and Continue. Disposable contexts only; clean console and requests.
 
+## Published release
+
+Promoted READY deployment **dpl_DM5fxxja4RkwSqMgP2Troo3GppU3**, source checkpoint **3a4bb0e**, to the existing [public game](https://simple-life-playtest.vercel.app/). The plain URL returns **200** without login/query and keeps **noindex, nofollow, noarchive**. Project/team and generated/preview protection are unchanged. CLI authenticated staged index/bundle requests return 200 and exactly match release hashes; the CLI curl wrapper required global options to be omitted and the linked stage used as its working directory. The CLI generated its supported automation access token; no token is recorded in this evidence. No access policy or public-save changes.
+
+Public native checks: **two fresh desktop/phone startup/control/reload cases**, **three desktop/portrait/landscape silent house round trips**, and **two landscape Buy Seeds/Market cases** all pass. All **43 public runtime files** match the exact stage hashes. The mobile trade cases check all **12 seeds / 24 sale items**, full details, quantities/quotes, actual stock/coin changes, paused time, rotation, Save and Continue. House checks observe zero door one-shots or sample requests. Public playtest fresh balance is **100060c**; reload does not repeat the gift. Consoles and requests are clean.
+
+Records: deployment.json, deployment-files.json, runtime-audit.json, local-house-checks.json, public-hosted-checks.json, public-house-checks.json and public-trade-checks.json. Refresh and Continue at the same public origin. No Git push, new paid service/backend or organizer submission.
+
 ## Reproduction
 
 ```sh

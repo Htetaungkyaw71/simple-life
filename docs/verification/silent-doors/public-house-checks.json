@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "method": "Native Chrome mouse/keyboard/touch, isolated fixture saves, actual warmed Web Audio one-shot observer, house exit/re-entry and save/reload; no door sample request.",
+  "results": [
+    {
+      "renderer": "canvas",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS",
+      "silentExit": true,
+      "silentEntry": true,
+      "saveReload": true
+    },
+    {
+      "renderer": "canvas",
+      "width": 390,
+      "height": 844,
+      "result": "PASS",
+      "silentExit": true,
+      "silentEntry": true,
+      "saveReload": true
+    },
+    {
+      "renderer": "canvas",
+      "width": 844,
+      "height": 390,
+      "result": "PASS",
+      "silentExit": true,
+      "silentEntry": true,
+      "saveReload": true
+    }
+  ]
+}

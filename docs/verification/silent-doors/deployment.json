@@ -1,0 +1,33 @@
+{
+  "release": "0.18.6",
+  "sourceCommit": "3a4bb0e",
+  "deploymentId": "dpl_DM5fxxja4RkwSqMgP2Troo3GppU3",
+  "readyState": "READY",
+  "target": "production",
+  "projectId": "prj_yAUSg3ycEwhd7xCyR5izuTPSUnRh",
+  "projectName": "simple-life-playtest",
+  "teamId": "team_N7fzv8ro0kcyz4cs9Pt3Mnm2",
+  "publicURL": "https://simple-life-playtest.vercel.app/",
+  "deploymentURL": "https://simple-life-playtest-alj8i40oi-htetaungkyaw71s-projects.vercel.app",
+  "protection": {
+    "deploymentType": "prod_deployment_urls_and_all_previews"
+  },
+  "protectionPreserved": true,
+  "mode": "explicit VITE_PLAYTEST=true; +100000c once per save",
+  "publicHTTPStatus": 200,
+  "robots": "noindex, nofollow, noarchive",
+  "runtimeFiles": 43,
+  "runtimeBytes": 11712035,
+  "audioFiles": 27,
+  "stagedAuthenticatedHTTP": 200,
+  "stagedIndexSHA256": "a9c72bbe4d591c699d01d1b4fc04b6ebcc2e11f28076bf7a9f3b70484eb5ac71",
+  "stagedBundleSHA256": "85ac7c6c4c49b4c5f87a4fd240873c9e80a722a9de44120ea866fe04af15c0d2",
+  "publicNativeCases": {
+    "freshDesktopPhone": 2,
+    "silentHouseDesktopPortraitLandscape": 3,
+    "landscapeBuySell": 2
+  },
+  "publicAllRuntimeHashes": "PASS",
+  "noSourcePush": true,
+  "verificationStorage": "Disposable Chrome contexts only; no user-profile saves."
+}

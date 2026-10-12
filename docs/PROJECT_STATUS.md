@@ -6,6 +6,8 @@ The user explicitly authorizes deploying the accumulated local changes to the ex
 
 296 tests and both 137-module builds pass. Audit: 43 runtime files / 11,712,035 bytes, 27 approved WAVs, unchanged art/fonts and full notices. Native exit/re-entry/save and fresh hosted-build checks use disposable Chrome desktop/touch contexts. Final release evidence and device limits: [silent doors verification](verification/silent-doors/README.md).
 
+Published **READY dpl_DM5fxxja4RkwSqMgP2Troo3GppU3**, source checkpoint **3a4bb0e**, to **[Simple Life](https://simple-life-playtest.vercel.app/)**. Public 200 without login, preserved noindex/protection, all 43 runtime hashes verified. Public fresh desktop/phone **two cases**, silent house desktop/portrait/landscape **three cases**, and responsive landscape buy/sell **two cases** pass, including Save/Continue, native controls and transactions. Local silent-house **eight cases** pass across both renderers. No Git push; original save origin remains. Physical-phone/Safari touch comfort and subjective acceptance remain user checks.
+
 ---
 
 # v0.18.5 — silent house entry, responsive mobile trading and icon controls (2026-10-12)
