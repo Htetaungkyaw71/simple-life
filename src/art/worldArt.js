@@ -60,15 +60,15 @@ function object(scene,p){
 }
 // Myanmar runs are measured after shaping; reserve separate text/arrow rows.
 function myanmarSign(scene,p,value,list){
- const t=worldText(scene,0,p.y+4,value,6).setDepth(p.y+65);
- const width=Math.max(32,Math.ceil(t.displayWidth/2)+8),height=Math.ceil(t.displayHeight/2)+18;
- const left=p.x+16-width,center=p.x+16;
+ const t=worldText(scene,0,p.y+8,value,6).setDepth(p.y+65);
+ const width=2*Math.ceil(Math.max(32,t.displayWidth/2+8)/2),height=Math.ceil(t.displayHeight/2)+18;
+ const center=p.x+(p.name==='farm-sign'?24:32),left=center-width,direction=p.direction??2;
  const g=scene.add.graphics().setPosition(left,p.y).setScale(2).setDepth(p.y+64);
  g.fillStyle(0x544249).fillRect(width/2-3,height-3,6,13);g.fillStyle(0xa8794e).fillRect(width/2-2,height-2,4,12);
  g.fillStyle(0x544249).fillRect(0,0,width,height);g.fillStyle(0xa8794e).fillRect(1,1,width-2,height-2);
  g.fillStyle(0xd6ad73).fillRect(2,2,width-4,2).fillRect(2,height-3,width-4,1);
- t.setX(Math.round(center-t.displayWidth/2));pixelArrow(g,p.direction||2,Math.floor(width/2),height-9,0xffedcc);
- list.push({board:{x:left+4,y:p.y+4,w:width*2-8,h:height*2-8},text:t});return g;
+ t.setX(Math.round(center-t.displayWidth/2));pixelArrow(g,direction,width/2,height-9,0xffedcc);
+ list.push({board:{x:left+4,y:p.y+4,w:width*2-8,h:height*2-8},text:t,direction,arrow:{x:center,y:p.y+(height-9)*2},postX:center});return g;
 }
 function farmSign(scene,p){
  if(scene.app.language?.current==='mm')return myanmarSign(scene,p,'FARM',scene.farmSigns);

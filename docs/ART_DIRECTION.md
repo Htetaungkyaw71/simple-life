@@ -1,3 +1,9 @@
+# v0.19.2 — balanced Burmese direction signs
+
+Keep the smaller Burmese font. Center sign text and arrow rows above their original world post, reserve visible top padding, and use even native board widths so the stem and arrow have integer coordinates. Preserve all eight authored directions including right (0). English sign styling remains unchanged.
+
+---
+
 # v0.19.1 — restrained Burmese scale and world signs
 
 Supersedes v0.19.0 sizes: Burmese body 8 logical pixels, headings 12/24, world captions 7/8. Keep integer texture resolution and scale, full-run Noto shaping, existing padding/leading and nearest sampling. World signs fit measured text and separate directional arrows. No animal nameplate or Tree word; retain useful combat warnings/health and tree hit segments. Seed Aid uses Myanmar copy when selected. English/art/audio unchanged.

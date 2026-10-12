@@ -1,3 +1,9 @@
+# v0.19.2 — unchanged sign/font assets
+
+Sign geometry and arrow selection reuse existing procedural art and the unchanged licensed Noto font. No asset, dependency or licence addition; source evidence remains unchanged.
+
+---
+
 # v0.19.1 — unchanged licensed runtime assets
 
 Text/layout/nameplate changes reuse the byte-identical local Noto Sans Myanmar UI font and previous art/audio. No new asset, licence, dependency or remote runtime request. Font/source/OFL evidence remains assets/licenses/myanmar-font/SOURCE_RECORD.md.

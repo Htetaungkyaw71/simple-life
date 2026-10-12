@@ -1,3 +1,9 @@
+# v0.19.2 — correct sign direction and centered alignment (2026-10-12)
+
+Burmese City signs preserve right direction 0. Text, arrows and boards center on the original post; extra top spacing keeps text off the bevel. Even native board widths keep posts/arrows on whole pixels. Existing saves, English signs and other game systems are preserved.
+
+---
+
 # v0.19.1 — smaller Burmese text and clean world labels (2026-10-12)
 
 Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. Burmese body text is smaller, world road/Farm signs size their boards from shaped text, and the Seed Aid caption is translated. Wildlife has no nameplates; tree work shows only hit progress and its Wood reward. Menus keep full Unicode shaping, integer sizes/scale, leading, padding and paginated copy. Save data, gameplay, audio and English styling are preserved.

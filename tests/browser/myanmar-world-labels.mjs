@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {newState} from '../../src/systems/state.js';
+import {MAPS} from '../../src/data/mapLayouts.js';
 import {LOCATIONS} from '../../src/data/locations.js';
 import {VEGETATION} from '../../src/data/vegetation.js';
 import {ANIMAL_SPAWNS} from '../../src/data/wildlife.js';
@@ -13,7 +14,7 @@ try{for(const language of ['en','mm'])for(const [width,height]of [[1280,720],[39
  try{await p.goto(base+'?qa');await p.waitForFunction(()=>window.__simpleLife?.snapshot().controls.length);await click('language-'+language);await click('Continue');if(area==='home'){await p.keyboard.down('ArrowUp');await p.waitForTimeout(80);await p.keyboard.up('ArrowUp');}await p.waitForTimeout(250);const v=await snap();
  assert.equal(v.animalNames,false,'wildlife must not create nameplates');
  for(const {board:b,text:t}of [...v.roadSigns,...v.farmSigns]){assert.ok(t.x>=b.x&&t.y>=b.y&&t.x+t.w<=b.x+b.w&&t.y+t.h<=b.y+b.h,JSON.stringify({b,t}));}
- if(language==='mm'){if(area==='city'){const aid=v.worldTexts.find(t=>t.source==='SEED AID');assert.ok(aid);assert.equal(aid.text,'မျိုးစေ့အကူအညီ');assert.equal(aid.size,7);}if(area==='home'){assert.ok(v.treeProgress,'nearby tree meter');assert.match(v.treeProgress.label,/^\d\/3$/);}}
+ if(language==='mm'){assert.deepEqual(v.roadSigns.map(s=>s.direction),MAPS[area].props.filter(s=>s.name==='road-sign').map(s=>s.direction));for(const s of [...v.roadSigns,...v.farmSigns]){assert.ok(Math.abs(s.text.x+s.text.w/2-s.postX)<=1,'text centered on post');assert.equal(s.arrow.x,s.postX,'arrow centered');assert.equal(s.board.x+s.board.w/2,s.postX,'board centered');assert.ok(s.text.y+s.text.h<=s.arrow.y-8,'separate rows');}if(area==='city'){const aid=v.worldTexts.find(t=>t.source==='SEED AID');assert.ok(aid);assert.equal(aid.text,'မျိုးစေ့အကူအညီ');assert.equal(aid.size,7);}if(area==='home'){assert.ok(v.treeProgress,'nearby tree meter');assert.match(v.treeProgress.label,/^\d\/3$/);}}
  if(area==='forest')assert.ok(v.wildlife.some(a=>a.visible),'visible wildlife');assert.deepEqual(errors,[]);await p.screenshot({path:out+'/'+name+'.png'});results.push({name,result:'PASS'});console.log('PASS world',name);
  }catch(e){await p.screenshot({path:out+'/'+name+'-failure.png'});await writeFile(out+'/'+name+'-failure.json',JSON.stringify({error:e.stack,snapshot:await snap().catch(()=>null)},null,2));throw e;}finally{await c.close();}
 }await writeFile(out+'/results.json',JSON.stringify({result:'PASS',results},null,2));}finally{await browser.close();}

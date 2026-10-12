@@ -1,3 +1,9 @@
+# v0.19.2 — City sign arrow and alignment repair (2026-10-12)
+
+The user reports City pointing down and poorly aligned Burmese signs. Replaced the erroneous direction || 2 fallback with direction ?? 2, preserving right (0), and centered boards/text/arrows on the original Farm/Road post anchors. Even native board widths prevent half-pixel post geometry; text moves down four world pixels for top-bevel breathing room while staying separate from the arrow row. No gameplay/save/collision/font/asset/audio changes. 302 tests and normal/explicit-playtest builds pass. Browser and release evidence: verification/sign-alignment/README.md.
+
+---
+
 # v0.19.1 — Burmese readability and removed nature nameplates (2026-10-12)
 
 User follow-up: remove animal/tree names; reduce Burmese font size; fix world-sign overflow and translate Seed Aid. Removed hostile and woodland nameplate objects while preserving health bars and attack warning. Tree meter displays only n/3 and the existing Wood reward. Burmese UI uses 8px body / 12px headings / 24px large headings, world text 7/8px, integer scale/resolution with unchanged local Noto shaping/nearest sampling. Burmese signs measure shaped text and reserve a separate direction-arrow row. Oversized words wrap at Unicode grapheme boundaries. Standalone Seed Aid maps to မျိုးစေ့အကူအညီ. No save/economy/audio/asset/dependency change.

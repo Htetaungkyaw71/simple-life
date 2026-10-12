@@ -1,3 +1,9 @@
+# v0.19.2 — sign-direction and alignment assistance, 2026-10-12
+
+Codex corrected the right-direction zero fallback, original post anchoring, whole-pixel board width and text spacing. Browser checks use disposable saves, including rendered arrow-pixel assertions and sign alignment checks; approved art/fonts/licences remain unchanged. Existing authorized playtest project only; no source push/backend/new asset or organizer submission.
+
+---
+
 # v0.19.1 — user-requested Burmese layout and nature-label repair, 2026-10-12
 
 Codex reduced Burmese text sizes, corrected world-sign geometry and Seed Aid translation, removed wildlife nameplates/tree name text, added Unicode grapheme wrapping and verified affected browser flows using disposable saves. Advised on progression/achievements from existing story systems, supplied judging PDF and official competition webpage; no new progression system, dependency, generated media or external runtime asset. Same approved Noto font and existing licence evidence apply. The previously authorized existing public-playtest update remains within the same project/origin; no source push or organizer submission.
