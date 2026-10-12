@@ -4,7 +4,7 @@ The two skull caves are removed. One sealed cave in eastern Dark Forest is marke
 
 Breaking grants a one-time 200c cache and releases up to three spirits outdoors each night from 7 pm to 6 am. Use the existing Axe; dispersed spirits return after five active seconds. The house interior is safe. NPCs and merchants reach home by 7 pm. Repair the cave with 600c, 48 Wood, 32 Stone and 20 Meat (an offering), contributed in stages. Contributions save; completing them permanently ends the curse and records Curse Breaker. Pause > Cursed cave shows the quest and saved progress. Normal farming, Journal, equipment, sleep and saves remain.
 
-Checks and release: [cursed cave verification](docs/verification/cursed-cave/README.md).
+Published on the existing [playtest](https://simple-life-playtest.vercel.app/): refresh and Continue. Checks and release: [cursed cave verification](docs/verification/cursed-cave/README.md).
 
 ---
 

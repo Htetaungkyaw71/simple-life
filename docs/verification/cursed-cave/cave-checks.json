@@ -1,0 +1,124 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "name": "en-canvas-1280",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "en-canvas-390",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "en-canvas-568",
+      "result": "PASS",
+      "warningPages": 5,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "en-canvas-844",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "en-webgl-1280",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "en-webgl-390",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "en-webgl-568",
+      "result": "PASS",
+      "warningPages": 5,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "en-webgl-844",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true,
+      "run": "First seven completed native-input cases; remaining nine rechecked after bootstrap-guard repair. Same final CavePanel code."
+    },
+    {
+      "name": "mm-canvas-1280",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-canvas-390",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-canvas-568",
+      "result": "PASS",
+      "warningPages": 5,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-canvas-844",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-webgl-1280",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-webgl-390",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-webgl-568",
+      "result": "PASS",
+      "warningPages": 5,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-webgl-844",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    }
+  ]
+}

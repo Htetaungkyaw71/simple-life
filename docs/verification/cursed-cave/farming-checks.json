@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "width": 390,
+      "height": 844,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    },
+    {
+      "width": 568,
+      "height": 256,
+      "status": "watered",
+      "result": "PASS",
+      "journal": true
+    }
+  ]
+}

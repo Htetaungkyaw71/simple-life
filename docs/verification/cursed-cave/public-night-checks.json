@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "name": "canvas-844",
+      "result": "PASS",
+      "nativeAxe": true,
+      "pausedRespawn": true,
+      "noGhostLoot": true,
+      "safeHouse": true,
+      "NPCsHomeAt19": true
+    },
+    {
+      "name": "webgl-844",
+      "result": "PASS",
+      "nativeAxe": true,
+      "pausedRespawn": true,
+      "noGhostLoot": true,
+      "safeHouse": true,
+      "NPCsHomeAt19": true
+    }
+  ]
+}

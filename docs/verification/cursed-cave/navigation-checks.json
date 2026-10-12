@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "lang": "mm",
+      "result": "PASS",
+      "rotationResetsWarning": true,
+      "remoteReadOnlyProgress": true
+    },
+    {
+      "lang": "en",
+      "result": "PASS",
+      "rotationResetsWarning": true,
+      "remoteReadOnlyProgress": true
+    }
+  ]
+}

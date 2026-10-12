@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "name": "canvas-1280",
+      "result": "PASS",
+      "nativeAxe": true,
+      "pausedRespawn": true,
+      "noGhostLoot": true,
+      "safeHouse": true,
+      "NPCsHomeAt19": true
+    },
+    {
+      "name": "canvas-844",
+      "result": "PASS",
+      "nativeAxe": true,
+      "pausedRespawn": true,
+      "noGhostLoot": true,
+      "safeHouse": true,
+      "NPCsHomeAt19": true
+    },
+    {
+      "name": "webgl-1280",
+      "result": "PASS",
+      "nativeAxe": true,
+      "pausedRespawn": true,
+      "noGhostLoot": true,
+      "safeHouse": true,
+      "NPCsHomeAt19": true
+    },
+    {
+      "name": "webgl-844",
+      "result": "PASS",
+      "nativeAxe": true,
+      "pausedRespawn": true,
+      "noGhostLoot": true,
+      "safeHouse": true,
+      "NPCsHomeAt19": true
+    }
+  ]
+}

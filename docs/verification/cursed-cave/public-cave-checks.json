@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "name": "mm-canvas-390",
+      "result": "PASS",
+      "warningPages": 2,
+      "repairSaved": true,
+      "achievementSaved": true
+    },
+    {
+      "name": "mm-webgl-568",
+      "result": "PASS",
+      "warningPages": 5,
+      "repairSaved": true,
+      "achievementSaved": true
+    }
+  ]
+}
