@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "sourcePoseCellsChecked": 2144,
+  "allSourceAnatomyPixelsRetained": true,
+  "nativePixelsAtInteger3xWorldScale": true,
+  "preservedNonPersonTownCells": 698,
+  "baselineCommit": "35303c0",
+  "appearanceSize": [
+    960,
+    1248
+  ],
+  "townSize": [
+    1024,
+    1910
+  ],
+  "townCells": 922,
+  "runtimeSourceArchivesExcluded": true
+}

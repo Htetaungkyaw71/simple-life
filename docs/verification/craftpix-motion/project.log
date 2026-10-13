@@ -1,0 +1,24 @@
+Vercel CLI 63.1.2
+> Found Project htetaungkyaw71s-projects/simple-life-playtest [2s]
+
+  General
+
+    ID				prj_yAUSg3ycEwhd7xCyR5izuTPSUnRh
+    Name			simple-life-playtest
+    Owner			htetaungkyaw71's projects
+    Created At			11 October 2026 14:45:57 [2d ago]
+    Root Directory		.
+    Node.js Version		24.x
+
+  Framework Settings
+
+    Framework Preset		Other
+    Build Command		`npm run vercel-build` or `npm run build`
+    Output Directory		`public` if it exists, or `.`
+    Install Command		`yarn install`, `pnpm install`, `npm install`, or `bun install`
+
+  Sandbox
+
+    Region			iad1
+    Failover Regions		None
+
