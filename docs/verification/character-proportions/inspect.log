@@ -1,0 +1,40 @@
+Vercel CLI 63.1.2
+Fetching deployment "simple-life-playtest-dt0y8sl2s-htetaungkyaw71s-projects.vercel.app" in htetaungkyaw71s-projects
+> Fetched deployment "simple-life-playtest-dt0y8sl2s-htetaungkyaw71s-projects.vercel.app" in htetaungkyaw71s-projects [1s]
+
+  General
+
+    id		dpl_BJfoFNobXrMM1GRyuCod8VkEQPVn
+    name	simple-life-playtest
+    target	production
+    status	● Ready
+    url		https://simple-life-playtest-dt0y8sl2s-htetaungkyaw71s-projects.vercel.app
+    created	Tue Oct 13 2026 18:53:01 GMT+0630 (Myanmar Time) [36s ago]
+
+
+  Build Machine
+
+    requested build machine basic
+    actual assigned cores   unavailable
+    selection type          fixed
+    selection source        plan-default
+
+
+  Duration
+
+    build duration	unavailable
+    post-build duration	unavailable
+    billable duration	unavailable
+    CPU Minutes Usage	unavailable
+
+
+  Aliases
+
+    ╶ https://simple-life-playtest-htetaungkyaw71s-projects.vercel.app
+    
+
+  Builds
+
+    ╶ .        [0ms]
+    
+
