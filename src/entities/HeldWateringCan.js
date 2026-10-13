@@ -1,5 +1,5 @@
 // Hand anchors are native farmer pixels relative to the grounded feet.
-const HANDS={down:[10,-18],up:[-10,-18],left:[-3,-18],right:[3,-18]};
+const HANDS={down:[9,-18],up:[-9,-18],left:[-3,-18],right:[3,-18]};
 export function wateringCanPose(position,direction,scale,height=0,pouring=false,bob=0){
  const [hx,hy]=HANDS[direction]||HANDS.down,flip=direction==='left'||direction==='up';
  return {x:Math.round(position.x+hx*scale),y:Math.round(position.y+(hy+bob)*scale-height),flip,originX:flip?13/16:3/16,rotation:(flip?-1:1)*(pouring?.55:0),depth:Math.round(position.y)+(direction==='up'?-1:1)};

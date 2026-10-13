@@ -1,3 +1,11 @@
+# v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
+
+The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale.
+
+317 tests and normal/explicit playtest builds pass. Three local style profiles pass purchases, four facings, rotation, held tools and saved appearance. Two native motion profiles (English desktop and Burmese phone landscape) pass: all 20 styles and eight town variants have four distinct arm/foot poses, no transparent central waist pixels and one connected silhouette in each standing/walking frame. Actual keyboard/touch movement and town walking cycle all four frames with clean consoles. Depth checks and public release verification are recorded below when complete. Physical-phone/Safari comfort and human art acceptance remain checks. No source push or competition submission.
+
+---
+
 # v0.21.2 — smaller characters and active limbs (2026-10-13)
 
 Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.

@@ -22,13 +22,20 @@ try{for(const [width,height,lang]of [[1280,720,'en'],[844,390,'mm']]){
    const check=(id,row,frames)=>{
     const changes=(a,b,x0,y0,x1,y1)=>{let count=0;for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const i=(y*w+x)*4;if(a.slice(i,i+4).some((v,k)=>v!==b[i+k]))count++;}return count;};
     const a=frames[1],b=frames[3],arms=changes(a,b,0,row<2?34:39,w,57),feet=changes(a,b,0,58,w,h),face=changes(frames[0],a,0,0,w,30);
-    const unique=new Set(frames.slice(1).map(f=>Array.from(f).join(','))).size;return {id,row,arms,feet,face,unique};
+    const unique=new Set(frames.slice(1).map(f=>Array.from(f).join(','))).size;
+    const seams=frames.map(f=>{
+     let waistHoles=0;for(let y=50;y<=52;y++)for(let x=18;x<22;x++)if(!f[(y*w+x)*4+3])waistHoles++;
+     const unseen=new Set();for(let i=0;i<w*h;i++)if(f[i*4+3])unseen.add(i);let parts=0;
+     while(unseen.size){parts++;const stack=[unseen.values().next().value];unseen.delete(stack[0]);while(stack.length){const i=stack.pop(),x=i%w,y=Math.floor(i/w);for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){if(x+dx<0||x+dx>=w||y+dy<0||y+dy>=h)continue;const j=(y+dy)*w+x+dx;if(unseen.delete(j))stack.push(j);}}}
+     return {waistHoles,parts};
+    });
+    return {id,row,arms,feet,face,unique,seams};
    };
    for(let style=0;style<20;style++)for(let row=0;row<4;row++){const frames=[];for(let f=0;f<5;f++){const index=style*36+row*9+f;frames.push(appearance.getImageData((index%18)*w,Math.floor(index/18)*h,w,h).data);}rows.push(check('style-'+style,row,frames));}
    for(let npc=0;npc<8;npc++)for(const [row,dir]of ['down','up','left','right'].entries()){const frames=[];for(let f=0;f<5;f++){const r=meta.frames[`town-person-${npc}-${dir}-${f}`].frame;frames.push(town.getImageData(r.x,r.y,w,h).data);}rows.push(check('npc-'+npc,row,frames));}
    return rows;
   },{w:PEOPLE.width,h:PEOPLE.height});
-  for(const v of art){assert.ok(v.arms>=12,JSON.stringify(v));assert.ok(v.feet>=16,JSON.stringify(v));assert.equal(v.face,0,JSON.stringify(v));assert.equal(v.unique,4,JSON.stringify(v));}
+  for(const v of art){assert.ok(v.arms>=12,JSON.stringify(v));assert.ok(v.feet>=16,JSON.stringify(v));assert.equal(v.face,0,JSON.stringify(v));assert.equal(v.unique,4,JSON.stringify(v));for(const s of v.seams){assert.equal(s.waistHoles,0,JSON.stringify(v));assert.equal(s.parts,1,JSON.stringify(v));}}
   const directions=[];
   for(const [dir,key,dx,dy]of [['left','a',-1,0],['right','d',1,0],['up','w',0,-1],['down','s',0,1]]){
    await start(fixture('home',{x:480,y:800}));

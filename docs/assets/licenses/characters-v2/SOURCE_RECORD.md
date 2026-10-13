@@ -1,3 +1,11 @@
+# v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
+
+The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale.
+
+Source PNGs, source hashes and six prompts below remain unchanged. Native seam repair preserves a two-row hip/hem overlap when the body rises, then composites source garment edges behind side forearms. Contact leg spread is zero, recovery knee/lift smaller and extra far-leg darkening removed. A nearest 40→36 horizontal native conversion centers the ink with two transparent columns on each side; runtime/world/UI scaling stays integer. Only detached outline/cuff specks up to eight pixels are removed, with an assertion for larger disconnected parts. All 720 appearance frames and 160 town-person cells are regenerated; frame metadata and the 698 unrelated town cells remain. No new image generation or external asset. [Verification](../../../verification/character-seams/README.md).
+
+---
+
 # v0.21.2 native scale and articulated walking update
 
 Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.

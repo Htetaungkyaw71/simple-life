@@ -1,3 +1,11 @@
+# v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
+
+The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale.
+
+[Playtest](https://simple-life-playtest.vercel.app/). Refresh and Continue to retain progress. [Checks](docs/verification/character-seams/README.md).
+
+---
+
 # v0.21.2 — smaller people and visible walk cycles (2026-10-13)
 
 Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.

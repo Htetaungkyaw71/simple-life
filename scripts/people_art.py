@@ -77,18 +77,28 @@ def walk_pose(base,row,frame,skirt=False):
   # upper sleeve/shoulder attached, and move elbow, forearm and hand.
   arm_box=(21,39,30,57) if row==2 else (10,39,19,57)
   arms=[cut_region(body,arm_box)]
-  # Fill only the garment behind the detached forearm with adjacent
-  # source torso pixels; the moving hand no longer leaves a hole.
+  # Reconstruct the occluded garment through the hips from the visible
+  # trouser/skirt silhouette below the hand. A fixed narrow edge left
+  # missing pixels at the waist when the forearm swung away.
   x0,y0,x1,y1=arm_box
+  donor_y=58
+  opaque=[x for x in range(WIDTH) if base.getpixel((x,donor_y))[3]]
+  donor_edge=max(opaque) if row==2 else min(opaque)
+  shoulder_edge=23 if row==2 else 17
   for y in range(y0,y1):
-   edge=x0-1 if row==2 else x1
+   t=max(0,min(1,(y-45)/12));edge=round(shoulder_edge+(donor_edge-shoulder_edge)*t)
+   color=base.getpixel((WIDTH//2,y))
+   if not color[3]:color=base.getpixel((WIDTH//2,donor_y))
    for x in range(x0,x1):
-    inside=x<=23 if row==2 else x>=17
-    if inside and base.getpixel((x,y))[3]:body.putpixel((x,y),base.getpixel((edge,y)))
- legs=cut_region(body,(0,leg_y,WIDTH,HEIGHT))
+    inside=x<=edge if row==2 else x>=edge
+    if inside:body.putpixel((x,y),color)
+ # Keep two source rows of hip/hem overlap under the torso. Without this,
+ # its one-pixel rise separates the entire waist from both legs.
+ legs=Image.new('RGBA',base.size);legs.paste(body.crop((0,leg_y,WIDTH,HEIGHT)),(0,leg_y))
+ body.paste((0,0,0,0),(0,leg_y+2,WIDTH,HEIGHT))
  # A one-pixel rise during the passing poses gives a gentle body bob.
  bob=-1 if passing else 0
- out=Image.new('RGBA',base.size);out.alpha_composite(body,(0,bob))
+ out=Image.new('RGBA',base.size)
  halves=[]
  for left in [True,False]:
   box=(0,leg_y,WIDTH//2,HEIGHT) if left else (WIDTH//2,leg_y,WIDTH,HEIGHT)
@@ -96,10 +106,11 @@ def walk_pose(base,row,frame,skirt=False):
  if row<2:
   for side,part in enumerate(halves):
    forward=(side==0)==(phase>0)
-   lift=(3 if not forward else 0) if not passing else (5 if not forward else 0)
-   spread=(-1 if side==0 else 1)*(1 if not passing else 0)
+   lift=(2 if not forward else 0) if not passing else (3 if not forward else 0)
+   spread=0
    knee=(1 if side==0 else -1) if passing and not forward else spread
    out.alpha_composite(bend_limb(part,leg_y,61 if not skirt else 67,HEIGHT,knee,spread,lift))
+  out.alpha_composite(body,(0,bob))
   for side,part in enumerate(arms):
    forward=(side==0)!=(phase>0);lift=0 if forward else 4
    swing=(-2 if side==0 else 2) if forward else (1 if side==0 else -1)
@@ -109,26 +120,49 @@ def walk_pose(base,row,frame,skirt=False):
   # and brings the planted leg beneath the torso, rather than sliding.
   for side,part in enumerate(halves):
    direction=phase*(1 if side==0 else -1)
-   dx=direction*(4 if not passing else 1)
+   dx=direction*(3 if not passing else 1)
    recovering=direction>0 if row==2 else direction<0
-   lift=1 if not passing else (4 if recovering else 0)
-   knee=round(dx/2) if not passing else ((-4 if row==2 else 4) if recovering else 0)
-   if side==0:
-    # Far leg is a little darker so both legs read when they overlap.
-    alpha=part.getchannel('A');rgb=part.convert('RGB').point(lambda v:round(v*.84));part=rgb.convert('RGBA');part.putalpha(alpha)
+   lift=1 if not passing else (3 if recovering else 0)
+   knee=round(dx/2) if not passing else ((-2 if row==2 else 2) if recovering else 0)
    out.alpha_composite(bend_limb(part,leg_y,61 if not skirt else 67,HEIGHT,knee,dx,lift))
+  out.alpha_composite(body,(0,bob))
   part=arms[0];swing=(phase if row==2 else -phase)*(3 if not passing else 1)
   out.alpha_composite(bend_limb(part,39,47,57,round(swing/2),swing,2 if phase>0 else 0),(0,bob))
  return out
 
+def connected_person(im):
+ # Discard tiny detached outline/cloth specks created at a moving joint.
+ # Keep the actual connected character; never add a dark patch over a gap.
+ ink={(x,y) for y in range(HEIGHT) for x in range(WIDTH) if im.getpixel((x,y))[3]}
+ groups=[]
+ while ink:
+  stack=[ink.pop()];group=[]
+  while stack:
+   x,y=stack.pop();group.append((x,y))
+   for dx in [-1,0,1]:
+    for dy in [-1,0,1]:
+     n=(x+dx,y+dy)
+     if n in ink:ink.remove(n);stack.append(n)
+  groups.append(group)
+ for group in sorted(groups,key=len,reverse=True)[1:]:
+  assert len(group)<=8,('Detached limb must be repaired, not discarded',len(group))
+  for p in group:im.putpixel(p,(0,0,0,0))
+ return im
+
+def slim_pose(im):
+ # About 10% slimmer ink; retain 40x72 cells, height and foot anchors.
+ # Native nearest pixels only; no fractional runtime sprite scaling.
+ narrow=im.resize((36,HEIGHT),Image.Resampling.NEAREST)
+ out=Image.new('RGBA',im.size);out.alpha_composite(narrow,(2,0));return connected_person(out)
+
 def cell(outfit,hair,row,frame,extra=-1):
  im=pixel_pose(outfit,hair,row,extra).copy()
  skirt=outfit=='plum' or extra==2
- if frame in [1,2,3,4]:return walk_pose(im,row,frame,skirt)
+ if frame in [1,2,3,4]:return slim_pose(walk_pose(im,row,frame,skirt))
  if frame in [6,7,8]:
   amount={6:1,7:3,8:2}[frame];legs=cut_region(im,(0,65 if skirt else 52,WIDTH,HEIGHT))
   im.alpha_composite(bend_limb(legs,65 if skirt else 52,67 if skirt else 61,HEIGHT,0,0,amount))
- return im
+ return slim_pose(im)
 
 def sheet(outfit,hair,extra=-1):
  im=Image.new('RGBA',(WIDTH*9,HEIGHT*4))

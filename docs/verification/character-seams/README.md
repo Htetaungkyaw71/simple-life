@@ -1,0 +1,7 @@
+# v0.21.3 character seam verification
+
+The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale.
+
+317 tests and normal/explicit playtest builds pass. Three local style profiles pass purchases, four facings, rotation, held tools and saved appearance. Two native motion profiles (English desktop and Burmese phone landscape) pass: all 20 styles and eight town variants have four distinct arm/foot poses, no transparent central waist pixels and one connected silhouette in each standing/walking frame. Actual keyboard/touch movement and town walking cycle all four frames with clean consoles. Depth checks and public release verification are recorded below when complete. Physical-phone/Safari comfort and human art acceptance remain checks.
+
+All browser fixtures use disposable contexts. Native pose preview: walk-right.gif, using actual processed runtime pixels at integer 3×. Seam checks cover 560 standing/walk texture frames per browser profile, including all four directions. Source art and runtime audit: assets/licenses/characters-v2/SOURCE_RECORD.md and asset-audit.json. No source push or competition submission.

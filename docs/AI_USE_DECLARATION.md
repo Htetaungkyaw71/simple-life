@@ -1,3 +1,9 @@
+# v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
+
+Codex assisted with native sprite-joint repair, thinner silhouettes, motion checks and the authorized same-project playtest update. Six previously disclosed generated source sheets remain the art source; no new generation or third-party art. Source and exact prompt evidence remain in assets/licenses/characters-v2/SOURCE_RECORD.md.
+
+---
+
 # v0.21.2 — character scale and walking refinement (2026-10-13)
 
 Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
