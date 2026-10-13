@@ -1,3 +1,11 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+Player and eight town NPCs now use original Szadiart 3 Direction NPC Characters artwork. Native proportions, faces, colours and all opaque source pixels are preserved. Only baked alpha-77 ground shadows are removed; a fixed 24×40 crop and mirrored side view support the existing four directions. World scale is integer 2× with nearest filtering. Players use four authored idle poses at 6 fps and four walk poses at 10 fps; NPCs use four walk slots at the existing 120 ms cadence. Movement speed and controls remain. The pack has no authored running, jumping or tool-action animations; existing jump/tool effects use unchanged source poses and world motion.
+
+scripts/people_art.py performs deterministic local packing into the established runtime texture paths. appearance has 20×48 cells in a 960×960 sheet; town has 858 cells in 1024×1910 (160 people / 698 retained props). PEOPLE centralizes rig dimensions, cadence and five-row wading crop. PEOPLE_STYLE_HANDS holds each complete style’s original hand-pixel centres; runtime tools select the style via appearanceIndex. Legacy runStart/runFrames field names refer to the authored walk cycle to preserve callers. Phaser world/UI architecture and allowlist remain.
+
+---
+
 # v0.22.1 — human proportions and clearer character artwork (2026-10-13)
 
 The user-verified appearance failure justifies a people-art revision only. people_art.py consistently maps source body rows into a taller 24×36 rig, redraws original small heads/hair and garment details, and packs the unchanged 96-frame style layout (40 physical columns). PEOPLE scale becomes 2; UI preview sizes, water cropping and tool centres use this configuration. Controller, cadence, four facing rows, jump selection, resident routes, collision geometry and pure gameplay/save systems remain.

@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "exactOriginalArtCells": 1120,
+  "opaqueSourcePixelsPreserved": 384711,
+  "onlyAlpha77ShadowsRemoved": 41439,
+  "exactOpaqueSkinGrips": 960,
+  "nativeCell": [
+    24,
+    40
+  ],
+  "worldIntegerScale": 2,
+  "preservedNonPersonTownCells": 698,
+  "baselineCommit": "ffaa375",
+  "appearanceSize": [
+    960,
+    960
+  ],
+  "townSize": [
+    1024,
+    1910
+  ],
+  "townCells": 858,
+  "mirroredSideOnly": true
+}

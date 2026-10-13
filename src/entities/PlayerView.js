@@ -12,8 +12,8 @@ export class PlayerView {
     this.wateringCan=new HeldWateringCan(scene);
     for(const [row,dir]of DIRECTIONS.entries()){
       const walk=`${this.character}-${dir}`,idle=`${this.character}-${dir}-idle`;
-      if(!scene.anims.exists(walk))scene.anims.create({key:walk,frames:Array.from({length:PEOPLE.runFrames},(_,n)=>({key:texture,frame:offset+row*PEOPLE.columns+PEOPLE.runStart+n})),frameRate:12,repeat:-1});
-      if(!scene.anims.exists(idle))scene.anims.create({key:idle,frames:Array.from({length:PEOPLE.idleFrames[row]},(_,n)=>({key:texture,frame:offset+row*PEOPLE.columns+n})),frameRate:8,repeat:-1});
+      if(!scene.anims.exists(walk))scene.anims.create({key:walk,frames:Array.from({length:PEOPLE.runFrames},(_,n)=>({key:texture,frame:offset+row*PEOPLE.columns+PEOPLE.runStart+n})),frameRate:PEOPLE.moveFrameRate,repeat:-1});
+      if(!scene.anims.exists(idle))scene.anims.create({key:idle,frames:Array.from({length:PEOPLE.idleFrames[row]},(_,n)=>({key:texture,frame:offset+row*PEOPLE.columns+n})),frameRate:PEOPLE.idleFrameRate,repeat:-1});
     }
   }
   face(dx,dy){if(Math.abs(dx)+Math.abs(dy)<1)return;this.direction=movementFacing(dx,dy,this.direction);this.pose(false);}

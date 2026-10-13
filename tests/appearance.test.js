@@ -30,9 +30,9 @@ test('town stylists expose native contextual shops and keep existing curfew',()=
  const s=newState();visit(s,'clothes');const people=residentsFor('city',s);assert.equal(residentContext(people,s.position).category,'clothes');visit(s,'hair');assert.equal(residentContext(residentsFor('city',s),s.position).category,'hair');s.minute=1139;assert.equal(styleServiceOpen(s,'hair'),false);s.minute=1140;assert.equal(residentContext(residentsFor('city',s),s.position),null);
 });
 test('every outfit/hair combination maps to a complete source-backed animation rig',()=>{
- const png=readFileSync('public/assets/pixel/processed/appearance.png');assert.equal(png.readUInt32BE(16),960);assert.equal(png.readUInt32BE(20),1728);
+ const png=readFileSync('public/assets/pixel/processed/appearance.png');assert.equal(png.readUInt32BE(16),960);assert.equal(png.readUInt32BE(20),960);
  const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames;
- const indexes=new Set();for(const outfit of OUTFIT_IDS)for(const hair of HAIRCUT_IDS){const start=appearanceFrame({outfit,hair});assert.ok(start>=0&&start+PEOPLE.frames<=1920);indexes.add(start);}assert.equal(indexes.size,20);
+ const indexes=new Set();for(const outfit of OUTFIT_IDS)for(const hair of HAIRCUT_IDS){const start=appearanceFrame({outfit,hair});assert.ok(start>=0&&start+PEOPLE.frames<=960);indexes.add(start);}assert.equal(indexes.size,20);
  for(let i=0;i<8;i++)for(const dir of ['down','up','left','right'])for(let f=0;f<=PEOPLE.walkFrames;f++){const r=frames[`town-person-${i}-${dir}-${f}`].frame;assert.equal(r.w,PEOPLE.width);assert.equal(r.h,PEOPLE.height);}
 });
 test('appearance previews and actions fit desktop and phone canvas panels',()=>{
@@ -40,5 +40,5 @@ test('appearance previews and actions fit desktop and phone canvas panels',()=>{
   const u=recorder(w,h),s=newState();s.money=200;visit(s,'clothes');const app={ui:u,state:s,input:{},paused:false,sound(){},transact(fn){fn(s);},scene:{build(){}}};u.app=app;const page=new AppearancePanel(app);
   for(const category of ['clothes','hair'])for(let i=0;i<(category==='clothes'?5:4);i++){page.open(category,i);const b=u.menuBounds;for(const c of u.controls){assert.ok(c.x*2>=b.x&&c.y*2>=b.y);assert.ok((c.x+c.w)*2<=b.x+b.w&&(c.y+c.h)*2<=b.y+b.h);for(const d of u.controls.filter(d=>d!==c)){const overlap=Math.min(c.x+c.w,d.x+d.w)-Math.max(c.x,d.x)>0&&Math.min(c.y+c.h,d.y+d.h)-Math.max(c.y,d.y)>0;assert.equal(overlap,false,`${w} ${h}: ${c.id}/${d.id}`);}}}
  }
- for(const key of ['Wardrobe','Haircuts','Buy & wear','Change haircut','Chestnut braid','Teal overalls'])assert.ok(MM_APPEARANCE[key]);
+ for(const key of ['Wardrobe','Looks','Buy & wear','Change look','Autumn look','Worker outfit'])assert.ok(MM_APPEARANCE[key]);
 });

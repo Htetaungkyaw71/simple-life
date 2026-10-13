@@ -1,3 +1,11 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+Five outfits and four complete looks replace independently layered hair/clothes. Original complete source presets are never redrawn or recoloured. The wardrobe and Town stylist menus describe Outfits / Looks; their English/Myanmar text remains localized. Existing appearance IDs, purchase prices, ownership, balance and schema-19 saves remain, so a saved appearance maps to its corresponding complete preset. The default brown-haired teal worker differs from the town cast. Depth, grounded shadows, collision footprints and water/reflection integration remain.
+
+Schema stays 19. Internal hair IDs midnight/copper/chestnut/golden map respectively to source variants 0/1/2/3, displayed as Classic/Coastal/Autumn/Evening look. Existing owned hair IDs become owned complete looks at the same prices. No save wipe, migration coin grant or gameplay state change.
+
+---
+
 # v0.21.0 — additive schema 19 appearance
 
 Keep `simple-life.save.v1` and accept schemas 1–19. `appearance={outfit,hair,owned}` uses known catalog IDs. Legacy boy defaults worker/midnight; girl defaults gardener/chestnut. Both starter outfits are always owned. Paid ownership is deduplicated and unknown IDs dropped; a selected outfit must be owned. Invalid selected styles fall back to defaults. Unknown hair IDs default by character. Coins, crops, inventory, story, home, Forest, Stash Bag and existing migrations remain. A repeated normalization is idempotent. Retired curse data stays omitted. No cloud save or personal account.

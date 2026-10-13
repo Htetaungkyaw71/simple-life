@@ -35,7 +35,7 @@ export function stepResident(n,area,delta,player,state=null){
 }
 export function residentContext(residents,player){
  const n=residents.filter(n=>n.visible!==false&&!n.kind&&Math.hypot(player.x-n.position.x,player.y-n.position.y)<58).sort((a,b)=>Math.hypot(player.x-a.position.x,player.y-a.position.y)-Math.hypot(player.x-b.position.x,player.y-b.position.y))[0];
- if(n?.service&&n.mode==='work')return {type:'appearanceShop',category:n.service,...n.position,residentId:n.id,label:n.service==='clothes'?'Clothes / Nell':'Barber / Sol'};
+ if(n?.service&&n.mode==='work')return {type:'appearanceShop',category:n.service,...n.position,residentId:n.id,label:n.service==='clothes'?'Clothes / Nell':'Stylist / Sol'};
  return n?{type:'dialog',...n.position,residentId:n.id,label:'Talk to '+n.name,title:n.name,body:n.body}:null;
 }
 

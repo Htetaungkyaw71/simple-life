@@ -1,0 +1,14 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+Player and eight town NPCs now use original Szadiart 3 Direction NPC Characters artwork. Native proportions, faces, colours and all opaque source pixels are preserved. Only baked alpha-77 ground shadows are removed; a fixed 24×40 crop and mirrored side view support the existing four directions. World scale is integer 2× with nearest filtering. Players use four authored idle poses at 6 fps and four walk poses at 10 fps; NPCs use four walk slots at the existing 120 ms cadence. Movement speed and controls remain. The pack has no authored running, jumping or tool-action animations; existing jump/tool effects use unchanged source poses and world motion.
+
+Five outfits and four complete looks replace independently layered hair/clothes. Original complete source presets are never redrawn or recoloured. The wardrobe and Town stylist menus describe Outfits / Looks; their English/Myanmar text remains localized. Existing appearance IDs, purchase prices, ownership, balance and schema-19 saves remain, so a saved appearance maps to its corresponding complete preset. The default brown-haired teal worker differs from the town cast. Depth, grounded shadows, collision footprints and water/reflection integration remain.
+
+317 tests and normal/playtest builds pass. Native audit preserves all opaque source pixels, verifies all 960 hand grips and retains 698 unrelated town frames. Run audit-assets.py with bundled Python/Pillow from the project root.
+
+Browser checks use disposable save fixtures and isolated contexts, never the user’s profile: appearance.mjs tests desktop English, landscape Myanmar and portrait Myanmar/WebGL, purchases, owned presets, rotation, tools, jumping and saved appearance; character-motion.mjs checks all 112 player/NPC direction cycles plus actual keyboard/touch movement and NPC movement; pseudo-depth.mjs checks indoors, occlusion, crop depth, bridges, ground shadows, wading/reflections and save reload.
+
+Source art is unchanged apart from shadow removal, fixed crop and side mirroring. The pack supplies four idle/walk frames, no running/jump/action animation. Human visual acceptance and physical mobile Safari remain separate checks. Publication evidence is appended after verification. No source push or competition submission.
+
+317 tests and both 151-module normal/explicit playtest builds pass. Three appearance profiles (English desktop, Myanmar landscape and Myanmar portrait WebGL) pass purchases, complete preset selection, four facings, tools, jumping, rotation and reload. Two motion profiles pass all 112 native direction cycles and actual keyboard/touch/NPC movement. Three depth profiles pass indoors, occlusion, crops, bridges, shadows, water/reflections and save reload. Browser consoles are clean. Runtime audit: 46 files / 12,190,638 bytes / 27 unchanged WAVs, source archives excluded and dependency notices verified.
+

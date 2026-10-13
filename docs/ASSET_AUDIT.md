@@ -1,3 +1,11 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+Current people are third-party art by Szadi art. under the included custom License for Everyone, not CC0 or original project artwork. It permits personal/commercial game use and modification, with standalone art resale and logo/trademark use excluded; credit is optional and provided. Untouched licence, six selected PNG sheets, archive/file hashes and integration evidence are in [source record](assets/licenses/characters-szadiart/SOURCE_RECORD.md). Source ZIP/PSD and unused files remain excluded from runtime. Previous CraftPix and generated-art evidence remains historical provenance.
+
+317 tests and the normal 151-module build pass. Native asset audit verifies 1,120 cells / 384,711 opaque source pixels, 960 skin-pixel tool grips and all 698 unchanged nonperson town cells. Browser and publication checks are recorded in [verification](verification/szadiart-people/README.md). Physical phones/Safari and human artwork acceptance remain unverified.
+
+---
+
 # v0.22.1 — human proportions and clearer character artwork (2026-10-13)
 
 The new audit checks 2,144 retargeted people cells and every mapped body-alpha pixel. It intentionally does not claim original-head retention: heads are redrawn. All 698 other town cells are byte-exact against 25dbc1e. Appearance 960×1728 and town 1024×1970 remain below 4096px. Native cells are 24×36, runtime world scale 2; all texture alpha is 0/255. Verification: verification/character-proportions.

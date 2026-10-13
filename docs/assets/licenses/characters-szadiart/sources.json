@@ -1,0 +1,39 @@
+{
+  "officialPage": "https://szadiart.itch.io/3-direction-npc-characters",
+  "archive": "NPC_Characters_v1.0.zip",
+  "sha256": "b228936980a7a069e492fd91f707be495e759dc3fd90b73422d3dc8c6d0c4865",
+  "selectedFiles": [
+    {
+      "path": "Female1.png",
+      "sha256": "356774c3c04d1555ddcc8eed08de7387d49f1347887d98734e14cc86ec16c5ab"
+    },
+    {
+      "path": "Female2.png",
+      "sha256": "9dbbfc7fabf9c35c5e4d2a027fe1c437fd4cb84f5d3937284ee5338ad298e7b7"
+    },
+    {
+      "path": "Male1.png",
+      "sha256": "ddf562e4ebfcb0ab428f60bd35cdbd7afdbca580b2a0985283c47e6e65df5e0e"
+    },
+    {
+      "path": "Male2.png",
+      "sha256": "6333f13728032d0b3e58739907215085cebd099e8d07a268d38c9a03eda0a0e0"
+    },
+    {
+      "path": "Male3.png",
+      "sha256": "657d48cf828ece5769fa65b1d8a0309e0006abbc9bccd3496dec72cb0c9b8ab1"
+    },
+    {
+      "path": "Male4.png",
+      "sha256": "05c67c4734e25f33a1aa6bd4747c92ac7268770f74faf083005e0ac01e4f0239"
+    },
+    {
+      "path": "_INFO.txt",
+      "sha256": "fb67803aa83f9de586f6340cbb20ba424743dcf85924cd447a0bfb81f2f89eb9"
+    },
+    {
+      "path": "_license.txt",
+      "sha256": "a2a32655b6f1d54cb5a7b2c1c3a718064b09b98367421b29e04c58caf9e2a9a1"
+    }
+  ]
+}

@@ -1,3 +1,13 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+Player and eight town NPCs now use original Szadiart 3 Direction NPC Characters artwork. Native proportions, faces, colours and all opaque source pixels are preserved. Only baked alpha-77 ground shadows are removed; a fixed 24×40 crop and mirrored side view support the existing four directions. World scale is integer 2× with nearest filtering. Players use four authored idle poses at 6 fps and four walk poses at 10 fps; NPCs use four walk slots at the existing 120 ms cadence. Movement speed and controls remain. The pack has no authored running, jumping or tool-action animations; existing jump/tool effects use unchanged source poses and world motion.
+
+Five outfits and four complete looks replace independently layered hair/clothes. Original complete source presets are never redrawn or recoloured. The wardrobe and Town stylist menus describe Outfits / Looks; their English/Myanmar text remains localized. Existing appearance IDs, purchase prices, ownership, balance and schema-19 saves remain, so a saved appearance maps to its corresponding complete preset. The default brown-haired teal worker differs from the town cast. Depth, grounded shadows, collision footprints and water/reflection integration remain.
+
+[Playtest](https://simple-life-playtest.vercel.app/). Refresh and Continue to keep progress. [Checks](docs/verification/szadiart-people/README.md).
+
+---
+
 # v0.22.1 — human proportions and clearer character artwork (2026-10-13)
 
 Revised player and all eight NPC designs after the user accepted movement but rejected the squat appearance. Smaller original pixel heads have warm faces, small dark eyes and asymmetric hair; longer torso/legs and defined ivory sleeves, overall straps, vest/jacket seams, dress hems and boots make people easier to read. Every CraftPix source body pose uses the same fixed vertical row mapping (1.8 offline), with no independent limb displacement or invented gait. Run remains eight phases at 12 fps, NPC walking six phases at 8.33 fps, and idle retains its supplied phase counts. Native 24×36 cells render at integer 2× world scale; standing boy ink is 62 world pixels instead of 66. Source-derived tool grips use native pixel centres. Appearance IDs, prices, saved ownership, schema 19, movement speed, collision footprints, shadows and depth remain.

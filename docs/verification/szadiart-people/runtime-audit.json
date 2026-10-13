@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "runtimeFiles": 46,
+  "bytes": 12190638,
+  "wavs": 27,
+  "sourceArchivesAndUnusedPacksExcluded": true,
+  "dependencyNoticesVerified": true,
+  "runtimeArtByteExact": true,
+  "unchangedAudioHashes": true
+}

@@ -13965,7 +13965,7 @@
         "x": 330,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -13973,11 +13973,11 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-down-1": {
@@ -13985,7 +13985,7 @@
         "x": 356,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -13993,11 +13993,11 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-down-2": {
@@ -14005,7 +14005,7 @@
         "x": 382,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14013,11 +14013,11 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-down-3": {
@@ -14025,7 +14025,7 @@
         "x": 408,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14033,11 +14033,11 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-down-4": {
@@ -14045,7 +14045,7 @@
         "x": 434,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14053,59 +14053,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-down-5": {
-      "frame": {
-        "x": 460,
-        "y": 1676,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-down-6": {
-      "frame": {
-        "x": 486,
-        "y": 1676,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-up-0": {
       "frame": {
-        "x": 512,
+        "x": 460,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14113,19 +14073,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-up-1": {
       "frame": {
-        "x": 538,
+        "x": 486,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14133,19 +14093,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-up-2": {
       "frame": {
-        "x": 564,
+        "x": 512,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14153,19 +14113,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-up-3": {
       "frame": {
-        "x": 590,
+        "x": 538,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14173,19 +14133,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-up-4": {
       "frame": {
-        "x": 616,
+        "x": 564,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14193,59 +14153,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-up-5": {
-      "frame": {
-        "x": 642,
-        "y": 1676,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-up-6": {
-      "frame": {
-        "x": 668,
-        "y": 1676,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-left-0": {
       "frame": {
-        "x": 694,
+        "x": 590,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14253,19 +14173,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-left-1": {
       "frame": {
-        "x": 720,
+        "x": 616,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14273,19 +14193,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-left-2": {
       "frame": {
-        "x": 746,
+        "x": 642,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14293,19 +14213,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-left-3": {
       "frame": {
-        "x": 772,
+        "x": 668,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14313,19 +14233,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-left-4": {
       "frame": {
-        "x": 798,
+        "x": 694,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14333,59 +14253,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-left-5": {
-      "frame": {
-        "x": 824,
-        "y": 1676,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-left-6": {
-      "frame": {
-        "x": 850,
-        "y": 1676,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-right-0": {
       "frame": {
-        "x": 876,
+        "x": 720,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14393,19 +14273,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-right-1": {
       "frame": {
-        "x": 902,
+        "x": 746,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14413,19 +14293,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-right-2": {
       "frame": {
-        "x": 928,
+        "x": 772,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14433,19 +14313,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-right-3": {
       "frame": {
-        "x": 954,
+        "x": 798,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14453,19 +14333,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-0-right-4": {
       "frame": {
-        "x": 980,
+        "x": 824,
         "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14473,59 +14353,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-right-5": {
-      "frame": {
-        "x": 0,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-0-right-6": {
-      "frame": {
-        "x": 26,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-down-0": {
       "frame": {
-        "x": 52,
-        "y": 1742,
+        "x": 850,
+        "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14533,19 +14373,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-down-1": {
       "frame": {
-        "x": 78,
-        "y": 1742,
+        "x": 876,
+        "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14553,19 +14393,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-down-2": {
       "frame": {
-        "x": 104,
-        "y": 1742,
+        "x": 902,
+        "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14573,19 +14413,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-down-3": {
       "frame": {
-        "x": 130,
-        "y": 1742,
+        "x": 928,
+        "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14593,19 +14433,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-down-4": {
       "frame": {
-        "x": 156,
-        "y": 1742,
+        "x": 954,
+        "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14613,59 +14453,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-down-5": {
-      "frame": {
-        "x": 182,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-down-6": {
-      "frame": {
-        "x": 208,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-up-0": {
       "frame": {
-        "x": 234,
-        "y": 1742,
+        "x": 980,
+        "y": 1676,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14673,19 +14473,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-up-1": {
       "frame": {
-        "x": 260,
+        "x": 0,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14693,19 +14493,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-up-2": {
       "frame": {
-        "x": 286,
+        "x": 26,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14713,19 +14513,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-up-3": {
       "frame": {
-        "x": 312,
+        "x": 52,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14733,19 +14533,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-up-4": {
       "frame": {
-        "x": 338,
+        "x": 78,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14753,59 +14553,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-up-5": {
-      "frame": {
-        "x": 364,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-up-6": {
-      "frame": {
-        "x": 390,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-left-0": {
       "frame": {
-        "x": 416,
+        "x": 104,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14813,19 +14573,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-left-1": {
       "frame": {
-        "x": 442,
+        "x": 130,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14833,19 +14593,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-left-2": {
       "frame": {
-        "x": 468,
+        "x": 156,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14853,19 +14613,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-left-3": {
       "frame": {
-        "x": 494,
+        "x": 182,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14873,19 +14633,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-left-4": {
       "frame": {
-        "x": 520,
+        "x": 208,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14893,59 +14653,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-left-5": {
-      "frame": {
-        "x": 546,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-left-6": {
-      "frame": {
-        "x": 572,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-right-0": {
       "frame": {
-        "x": 598,
+        "x": 234,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14953,19 +14673,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-right-1": {
       "frame": {
-        "x": 624,
+        "x": 260,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14973,19 +14693,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-right-2": {
       "frame": {
-        "x": 650,
+        "x": 286,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -14993,19 +14713,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-right-3": {
       "frame": {
-        "x": 676,
+        "x": 312,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15013,19 +14733,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-1-right-4": {
       "frame": {
-        "x": 702,
+        "x": 338,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15033,59 +14753,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-right-5": {
-      "frame": {
-        "x": 728,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-1-right-6": {
-      "frame": {
-        "x": 754,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-down-0": {
       "frame": {
-        "x": 780,
+        "x": 364,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15093,19 +14773,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-down-1": {
       "frame": {
-        "x": 806,
+        "x": 390,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15113,19 +14793,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-down-2": {
       "frame": {
-        "x": 832,
+        "x": 416,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15133,19 +14813,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-down-3": {
       "frame": {
-        "x": 858,
+        "x": 442,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15153,19 +14833,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-down-4": {
       "frame": {
-        "x": 884,
+        "x": 468,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15173,59 +14853,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-down-5": {
-      "frame": {
-        "x": 910,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-down-6": {
-      "frame": {
-        "x": 936,
-        "y": 1742,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-up-0": {
       "frame": {
-        "x": 962,
+        "x": 494,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15233,19 +14873,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-up-1": {
       "frame": {
-        "x": 988,
+        "x": 520,
         "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15253,19 +14893,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-up-2": {
       "frame": {
-        "x": 0,
-        "y": 1780,
+        "x": 546,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15273,19 +14913,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-up-3": {
       "frame": {
-        "x": 26,
-        "y": 1780,
+        "x": 572,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15293,19 +14933,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-up-4": {
       "frame": {
-        "x": 52,
-        "y": 1780,
+        "x": 598,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15313,59 +14953,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-up-5": {
-      "frame": {
-        "x": 78,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-up-6": {
-      "frame": {
-        "x": 104,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-left-0": {
       "frame": {
-        "x": 130,
-        "y": 1780,
+        "x": 624,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15373,19 +14973,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-left-1": {
       "frame": {
-        "x": 156,
-        "y": 1780,
+        "x": 650,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15393,19 +14993,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-left-2": {
       "frame": {
-        "x": 182,
-        "y": 1780,
+        "x": 676,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15413,19 +15013,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-left-3": {
       "frame": {
-        "x": 208,
-        "y": 1780,
+        "x": 702,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15433,19 +15033,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-left-4": {
       "frame": {
-        "x": 234,
-        "y": 1780,
+        "x": 728,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15453,59 +15053,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-left-5": {
-      "frame": {
-        "x": 260,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-left-6": {
-      "frame": {
-        "x": 286,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-right-0": {
       "frame": {
-        "x": 312,
-        "y": 1780,
+        "x": 754,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15513,19 +15073,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-right-1": {
       "frame": {
-        "x": 338,
-        "y": 1780,
+        "x": 780,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15533,19 +15093,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-right-2": {
       "frame": {
-        "x": 364,
-        "y": 1780,
+        "x": 806,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15553,19 +15113,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-right-3": {
       "frame": {
-        "x": 390,
-        "y": 1780,
+        "x": 832,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15573,19 +15133,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-2-right-4": {
       "frame": {
-        "x": 416,
-        "y": 1780,
+        "x": 858,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15593,59 +15153,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-right-5": {
-      "frame": {
-        "x": 442,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-2-right-6": {
-      "frame": {
-        "x": 468,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-down-0": {
       "frame": {
-        "x": 494,
-        "y": 1780,
+        "x": 884,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15653,19 +15173,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-down-1": {
       "frame": {
-        "x": 520,
-        "y": 1780,
+        "x": 910,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15673,19 +15193,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-down-2": {
       "frame": {
-        "x": 546,
-        "y": 1780,
+        "x": 936,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15693,19 +15213,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-down-3": {
       "frame": {
-        "x": 572,
-        "y": 1780,
+        "x": 962,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15713,19 +15233,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-down-4": {
       "frame": {
-        "x": 598,
-        "y": 1780,
+        "x": 988,
+        "y": 1742,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15733,59 +15253,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-down-5": {
-      "frame": {
-        "x": 624,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-down-6": {
-      "frame": {
-        "x": 650,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-up-0": {
       "frame": {
-        "x": 676,
-        "y": 1780,
+        "x": 0,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15793,19 +15273,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-up-1": {
       "frame": {
-        "x": 702,
-        "y": 1780,
+        "x": 26,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15813,19 +15293,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-up-2": {
       "frame": {
-        "x": 728,
-        "y": 1780,
+        "x": 52,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15833,19 +15313,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-up-3": {
       "frame": {
-        "x": 754,
-        "y": 1780,
+        "x": 78,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15853,19 +15333,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-up-4": {
       "frame": {
-        "x": 780,
-        "y": 1780,
+        "x": 104,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15873,59 +15353,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-up-5": {
-      "frame": {
-        "x": 806,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-up-6": {
-      "frame": {
-        "x": 832,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-left-0": {
       "frame": {
-        "x": 858,
-        "y": 1780,
+        "x": 130,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15933,19 +15373,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-left-1": {
       "frame": {
-        "x": 884,
-        "y": 1780,
+        "x": 156,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15953,19 +15393,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-left-2": {
       "frame": {
-        "x": 910,
-        "y": 1780,
+        "x": 182,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15973,19 +15413,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-left-3": {
       "frame": {
-        "x": 936,
-        "y": 1780,
+        "x": 208,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -15993,19 +15433,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-left-4": {
       "frame": {
-        "x": 962,
-        "y": 1780,
+        "x": 234,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16013,59 +15453,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-left-5": {
-      "frame": {
-        "x": 988,
-        "y": 1780,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-left-6": {
-      "frame": {
-        "x": 0,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-right-0": {
       "frame": {
-        "x": 26,
-        "y": 1818,
+        "x": 260,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16073,19 +15473,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-right-1": {
       "frame": {
-        "x": 52,
-        "y": 1818,
+        "x": 286,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16093,19 +15493,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-right-2": {
       "frame": {
-        "x": 78,
-        "y": 1818,
+        "x": 312,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16113,19 +15513,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-right-3": {
       "frame": {
-        "x": 104,
-        "y": 1818,
+        "x": 338,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16133,19 +15533,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-3-right-4": {
       "frame": {
-        "x": 130,
-        "y": 1818,
+        "x": 364,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16153,59 +15553,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-right-5": {
-      "frame": {
-        "x": 156,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-3-right-6": {
-      "frame": {
-        "x": 182,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-down-0": {
       "frame": {
-        "x": 208,
-        "y": 1818,
+        "x": 390,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16213,19 +15573,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-down-1": {
       "frame": {
-        "x": 234,
-        "y": 1818,
+        "x": 416,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16233,19 +15593,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-down-2": {
       "frame": {
-        "x": 260,
-        "y": 1818,
+        "x": 442,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16253,19 +15613,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-down-3": {
       "frame": {
-        "x": 286,
-        "y": 1818,
+        "x": 468,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16273,19 +15633,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-down-4": {
       "frame": {
-        "x": 312,
-        "y": 1818,
+        "x": 494,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16293,59 +15653,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-down-5": {
-      "frame": {
-        "x": 338,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-down-6": {
-      "frame": {
-        "x": 364,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-up-0": {
       "frame": {
-        "x": 390,
-        "y": 1818,
+        "x": 520,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16353,19 +15673,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-up-1": {
       "frame": {
-        "x": 416,
-        "y": 1818,
+        "x": 546,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16373,19 +15693,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-up-2": {
       "frame": {
-        "x": 442,
-        "y": 1818,
+        "x": 572,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16393,19 +15713,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-up-3": {
       "frame": {
-        "x": 468,
-        "y": 1818,
+        "x": 598,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16413,19 +15733,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-up-4": {
       "frame": {
-        "x": 494,
-        "y": 1818,
+        "x": 624,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16433,59 +15753,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-up-5": {
-      "frame": {
-        "x": 520,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-up-6": {
-      "frame": {
-        "x": 546,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-left-0": {
       "frame": {
-        "x": 572,
-        "y": 1818,
+        "x": 650,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16493,19 +15773,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-left-1": {
       "frame": {
-        "x": 598,
-        "y": 1818,
+        "x": 676,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16513,19 +15793,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-left-2": {
       "frame": {
-        "x": 624,
-        "y": 1818,
+        "x": 702,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16533,19 +15813,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-left-3": {
       "frame": {
-        "x": 650,
-        "y": 1818,
+        "x": 728,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16553,19 +15833,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-left-4": {
       "frame": {
-        "x": 676,
-        "y": 1818,
+        "x": 754,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16573,59 +15853,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-left-5": {
-      "frame": {
-        "x": 702,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-left-6": {
-      "frame": {
-        "x": 728,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-right-0": {
       "frame": {
-        "x": 754,
-        "y": 1818,
+        "x": 780,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16633,19 +15873,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-right-1": {
       "frame": {
-        "x": 780,
-        "y": 1818,
+        "x": 806,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16653,19 +15893,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-right-2": {
       "frame": {
-        "x": 806,
-        "y": 1818,
+        "x": 832,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16673,19 +15913,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-right-3": {
       "frame": {
-        "x": 832,
-        "y": 1818,
+        "x": 858,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16693,39 +15933,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-4-right-4": {
       "frame": {
-        "x": 858,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-right-5": {
-      "frame": {
         "x": 884,
-        "y": 1818,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16733,39 +15953,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-4-right-6": {
-      "frame": {
-        "x": 910,
-        "y": 1818,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-down-0": {
       "frame": {
-        "x": 936,
-        "y": 1818,
+        "x": 910,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16773,19 +15973,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-down-1": {
       "frame": {
-        "x": 962,
-        "y": 1818,
+        "x": 936,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16793,19 +15993,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-down-2": {
       "frame": {
-        "x": 988,
-        "y": 1818,
+        "x": 962,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16813,19 +16013,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-down-3": {
       "frame": {
-        "x": 0,
-        "y": 1856,
+        "x": 988,
+        "y": 1784,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16833,19 +16033,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-down-4": {
       "frame": {
-        "x": 26,
-        "y": 1856,
+        "x": 0,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16853,59 +16053,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-down-5": {
-      "frame": {
-        "x": 52,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-down-6": {
-      "frame": {
-        "x": 78,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-up-0": {
       "frame": {
-        "x": 104,
-        "y": 1856,
+        "x": 26,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16913,19 +16073,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-up-1": {
       "frame": {
-        "x": 130,
-        "y": 1856,
+        "x": 52,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16933,19 +16093,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-up-2": {
       "frame": {
-        "x": 156,
-        "y": 1856,
+        "x": 78,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16953,19 +16113,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-up-3": {
       "frame": {
-        "x": 182,
-        "y": 1856,
+        "x": 104,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16973,19 +16133,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-up-4": {
       "frame": {
-        "x": 208,
-        "y": 1856,
+        "x": 130,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -16993,59 +16153,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-up-5": {
-      "frame": {
-        "x": 234,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-up-6": {
-      "frame": {
-        "x": 260,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-left-0": {
       "frame": {
-        "x": 286,
-        "y": 1856,
+        "x": 156,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17053,19 +16173,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-left-1": {
       "frame": {
-        "x": 312,
-        "y": 1856,
+        "x": 182,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17073,19 +16193,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-left-2": {
       "frame": {
-        "x": 338,
-        "y": 1856,
+        "x": 208,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17093,19 +16213,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-left-3": {
       "frame": {
-        "x": 364,
-        "y": 1856,
+        "x": 234,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17113,19 +16233,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-left-4": {
       "frame": {
-        "x": 390,
-        "y": 1856,
+        "x": 260,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17133,59 +16253,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-left-5": {
-      "frame": {
-        "x": 416,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-left-6": {
-      "frame": {
-        "x": 442,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-right-0": {
       "frame": {
-        "x": 468,
-        "y": 1856,
+        "x": 286,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17193,19 +16273,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-right-1": {
       "frame": {
-        "x": 494,
-        "y": 1856,
+        "x": 312,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17213,19 +16293,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-right-2": {
       "frame": {
-        "x": 520,
-        "y": 1856,
+        "x": 338,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17233,19 +16313,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-right-3": {
       "frame": {
-        "x": 546,
-        "y": 1856,
+        "x": 364,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17253,19 +16333,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-5-right-4": {
       "frame": {
-        "x": 572,
-        "y": 1856,
+        "x": 390,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17273,59 +16353,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-right-5": {
-      "frame": {
-        "x": 598,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-5-right-6": {
-      "frame": {
-        "x": 624,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-down-0": {
       "frame": {
-        "x": 650,
-        "y": 1856,
+        "x": 416,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17333,19 +16373,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-down-1": {
       "frame": {
-        "x": 676,
-        "y": 1856,
+        "x": 442,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17353,19 +16393,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-down-2": {
       "frame": {
-        "x": 702,
-        "y": 1856,
+        "x": 468,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17373,19 +16413,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-down-3": {
       "frame": {
-        "x": 728,
-        "y": 1856,
+        "x": 494,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17393,19 +16433,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-down-4": {
       "frame": {
-        "x": 754,
-        "y": 1856,
+        "x": 520,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17413,59 +16453,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-down-5": {
-      "frame": {
-        "x": 780,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-down-6": {
-      "frame": {
-        "x": 806,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-up-0": {
       "frame": {
-        "x": 832,
-        "y": 1856,
+        "x": 546,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17473,19 +16473,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-up-1": {
       "frame": {
-        "x": 858,
-        "y": 1856,
+        "x": 572,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17493,19 +16493,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-up-2": {
       "frame": {
-        "x": 884,
-        "y": 1856,
+        "x": 598,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17513,19 +16513,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-up-3": {
       "frame": {
-        "x": 910,
-        "y": 1856,
+        "x": 624,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17533,19 +16533,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-up-4": {
       "frame": {
-        "x": 936,
-        "y": 1856,
+        "x": 650,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17553,59 +16553,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-up-5": {
-      "frame": {
-        "x": 962,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-up-6": {
-      "frame": {
-        "x": 988,
-        "y": 1856,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-left-0": {
       "frame": {
-        "x": 0,
-        "y": 1894,
+        "x": 676,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17613,19 +16573,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-left-1": {
       "frame": {
-        "x": 26,
-        "y": 1894,
+        "x": 702,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17633,19 +16593,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-left-2": {
       "frame": {
-        "x": 52,
-        "y": 1894,
+        "x": 728,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17653,19 +16613,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-left-3": {
       "frame": {
-        "x": 78,
-        "y": 1894,
+        "x": 754,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17673,19 +16633,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-left-4": {
       "frame": {
-        "x": 104,
-        "y": 1894,
+        "x": 780,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17693,59 +16653,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-left-5": {
-      "frame": {
-        "x": 130,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-left-6": {
-      "frame": {
-        "x": 156,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-right-0": {
       "frame": {
-        "x": 182,
-        "y": 1894,
+        "x": 806,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17753,19 +16673,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-right-1": {
       "frame": {
-        "x": 208,
-        "y": 1894,
+        "x": 832,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17773,19 +16693,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-right-2": {
       "frame": {
-        "x": 234,
-        "y": 1894,
+        "x": 858,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17793,19 +16713,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-right-3": {
       "frame": {
-        "x": 260,
-        "y": 1894,
+        "x": 884,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17813,19 +16733,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-6-right-4": {
       "frame": {
-        "x": 286,
-        "y": 1894,
+        "x": 910,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17833,59 +16753,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-right-5": {
-      "frame": {
-        "x": 312,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-6-right-6": {
-      "frame": {
-        "x": 338,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-down-0": {
       "frame": {
-        "x": 364,
-        "y": 1894,
+        "x": 936,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17893,19 +16773,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-down-1": {
       "frame": {
-        "x": 390,
-        "y": 1894,
+        "x": 962,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17913,19 +16793,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-down-2": {
       "frame": {
-        "x": 416,
-        "y": 1894,
+        "x": 988,
+        "y": 1826,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17933,19 +16813,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-down-3": {
       "frame": {
-        "x": 442,
-        "y": 1894,
+        "x": 0,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17953,19 +16833,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-down-4": {
       "frame": {
-        "x": 468,
-        "y": 1894,
+        "x": 26,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -17973,59 +16853,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-down-5": {
-      "frame": {
-        "x": 494,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-down-6": {
-      "frame": {
-        "x": 520,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-up-0": {
       "frame": {
-        "x": 546,
-        "y": 1894,
+        "x": 52,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18033,19 +16873,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-up-1": {
       "frame": {
-        "x": 572,
-        "y": 1894,
+        "x": 78,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18053,19 +16893,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-up-2": {
       "frame": {
-        "x": 598,
-        "y": 1894,
+        "x": 104,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18073,19 +16913,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-up-3": {
       "frame": {
-        "x": 624,
-        "y": 1894,
+        "x": 130,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18093,19 +16933,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-up-4": {
       "frame": {
-        "x": 650,
-        "y": 1894,
+        "x": 156,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18113,59 +16953,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-up-5": {
-      "frame": {
-        "x": 676,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-up-6": {
-      "frame": {
-        "x": 702,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-left-0": {
       "frame": {
-        "x": 728,
-        "y": 1894,
+        "x": 182,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18173,19 +16973,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-left-1": {
       "frame": {
-        "x": 754,
-        "y": 1894,
+        "x": 208,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18193,19 +16993,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-left-2": {
       "frame": {
-        "x": 780,
-        "y": 1894,
+        "x": 234,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18213,19 +17013,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-left-3": {
       "frame": {
-        "x": 806,
-        "y": 1894,
+        "x": 260,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18233,19 +17033,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-left-4": {
       "frame": {
-        "x": 832,
-        "y": 1894,
+        "x": 286,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18253,59 +17053,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-left-5": {
-      "frame": {
-        "x": 858,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-left-6": {
-      "frame": {
-        "x": 884,
-        "y": 1894,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-right-0": {
       "frame": {
-        "x": 910,
-        "y": 1894,
+        "x": 312,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18313,19 +17073,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-right-1": {
       "frame": {
-        "x": 936,
-        "y": 1894,
+        "x": 338,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18333,19 +17093,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-right-2": {
       "frame": {
-        "x": 962,
-        "y": 1894,
+        "x": 364,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18353,19 +17113,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-right-3": {
       "frame": {
-        "x": 988,
-        "y": 1894,
+        "x": 390,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18373,19 +17133,19 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
+        "h": 40
       }
     },
     "town-person-7-right-4": {
       "frame": {
-        "x": 0,
-        "y": 1932,
+        "x": 416,
+        "y": 1868,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "rotated": false,
       "trimmed": false,
@@ -18393,51 +17153,11 @@
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 36
+        "h": 40
       },
       "sourceSize": {
         "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-right-5": {
-      "frame": {
-        "x": 26,
-        "y": 1932,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
-      }
-    },
-    "town-person-7-right-6": {
-      "frame": {
-        "x": 52,
-        "y": 1932,
-        "w": 24,
-        "h": 36
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 36
-      },
-      "sourceSize": {
-        "w": 24,
-        "h": 36
+        "h": 40
       }
     }
   },
@@ -18445,7 +17165,7 @@
     "image": "town.png",
     "size": {
       "w": 1024,
-      "h": 1970
+      "h": 1910
     }
   }
 }

@@ -1,18 +1,18 @@
 export const OUTFITS={
- worker:{name:'Teal overalls',price:0},
- gardener:{name:'Olive overalls',price:0},
- copper:{name:'Copper vest',price:90},
- plum:{name:'Plum dress',price:120},
- forest:{name:'Forest jacket',price:150},
+ worker:{name:'Worker outfit',price:0},
+ gardener:{name:'Garden outfit',price:0},
+ copper:{name:'Copper outfit',price:90},
+ plum:{name:'Plum outfit',price:120},
+ forest:{name:'Forest outfit',price:150},
 };
 export const HAIRCUTS={
- midnight:{name:'Midnight cut',price:30},
- copper:{name:'Copper sweep',price:45},
- chestnut:{name:'Chestnut braid',price:50},
- golden:{name:'Golden waves',price:60},
+ midnight:{name:'Classic look',price:30},
+ copper:{name:'Coastal look',price:45},
+ chestnut:{name:'Autumn look',price:50},
+ golden:{name:'Evening look',price:60},
 };
 export const OUTFIT_IDS=Object.keys(OUTFITS),HAIRCUT_IDS=Object.keys(HAIRCUTS);
-export const PEOPLE={width:24,height:36,scale:2,toolScale:1,columns:24,frames:96,originY:1,idleFrames:[12,4,12,12],runStart:12,runFrames:8,jumpStart:20,walkFrames:6};
+export const PEOPLE={width:24,height:40,scale:2,toolScale:1,columns:12,frames:48,originY:1,idleFrames:[4,4,4,4],runStart:4,runFrames:4,jumpStart:8,walkFrames:4,moveFrameRate:10,idleFrameRate:6,wadeRows:5};
 export const STYLE_SERVICES={clothes:{resident:'city-nell',name:'Nell',x:1568,y:1040},hair:{resident:'city-sol',name:'Sol',x:472,y:1040}};
 export const freshAppearance=character=>({outfit:character==='girl'?'gardener':'worker',hair:character==='girl'?'chestnut':'midnight',owned:['worker','gardener']});
 export const appearanceIndex=a=>Math.max(0,OUTFIT_IDS.indexOf(a?.outfit))*HAIRCUT_IDS.length+Math.max(0,HAIRCUT_IDS.indexOf(a?.hair));

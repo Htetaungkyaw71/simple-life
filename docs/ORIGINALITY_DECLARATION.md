@@ -1,3 +1,11 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+Current people are third-party art by Szadi art. under the included custom License for Everyone, not CC0 or original project artwork. It permits personal/commercial game use and modification, with standalone art resale and logo/trademark use excluded; credit is optional and provided. Untouched licence, six selected PNG sheets, archive/file hashes and integration evidence are in [source record](assets/licenses/characters-szadiart/SOURCE_RECORD.md). Source ZIP/PSD and unused files remain excluded from runtime. Previous CraftPix and generated-art evidence remains historical provenance.
+
+OpenAI Codex assisted with pack inspection, original frame packing/mirroring, appearance/save compatibility, tool-grip extraction, bilingual menu labels, browser and pixel audits, documentation and the authorized existing playtest update. Character artwork is Szadiart’s original work; Codex did not generate, redraw, deform or recolour it. No subagents, image-generation service, new dependency/backend or source push. Prior AI-art/code history remains disclosed.
+
+---
+
 # v0.22.1 — human proportions and clearer character artwork (2026-10-13)
 
 The current body poses are retargeted licensed CraftPix art. Small heads/hair/garment pixel designs and integration are Codex-assisted original code. Reference screenshots inform proportions only; no screenshot pixels copied. No exclusive-copyright or human-eligibility certification.

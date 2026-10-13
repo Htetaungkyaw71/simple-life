@@ -1,4 +1,8 @@
 export const MM_APPEARANCE={
+ Outfits:'ဝတ်စုံများ',Looks:'ပုံစံများ','Town stylist':'မြို့ပုံစံဆိုင်','Stylist / Sol':'ပုံစံဆိုင် / Sol',
+ 'Worker outfit':'အလုပ်ဝတ်စုံ','Garden outfit':'ဥယျာဉ်ဝတ်စုံ','Copper outfit':'ကြေးရောင်ဝတ်စုံ','Plum outfit':'ခရမ်းရောင်ဝတ်စုံ','Forest outfit':'တောဝတ်စုံ',
+ 'Classic look':'မူလပုံစံ','Coastal look':'ကမ်းခြေပုံစံ','Autumn look':'ဆောင်းဦးပုံစံ','Evening look':'ညနေပုံစံ','Change look':'ပုံစံပြောင်း',
+ 'Complete looks / hair and colours.':'ဆံပင်နှင့် အရောင်ပါ ပုံစံအပြည့်။',
  Wardrobe:'အဝတ်ဗီရို',Clothes:'အဝတ်အစား',Haircuts:'ဆံပင်ပုံစံ','Town barber':'မြို့ဆံပင်ဆိုင်',
  'Teal overalls':'စိမ်းပြာ အလုပ်ဝတ်စုံ','Olive overalls':'စိမ်းညို အလုပ်ဝတ်စုံ','Copper vest':'ကြေးရောင် အပေါ်အင်္ကျီ','Plum dress':'ခရမ်းရောင် ဝတ်စုံ','Forest jacket':'တောစိမ်းရောင် အင်္ကျီ',
  'Midnight cut':'အနက်ရောင် ဆံတို','Copper sweep':'ကြေးရောင် ဆံတို','Chestnut braid':'အညိုရောင် ကျစ်ဆံမြီး','Golden waves':'ရွှေရောင် ဆံရှည်',

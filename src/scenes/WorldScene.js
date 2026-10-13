@@ -140,7 +140,7 @@ export class WorldScene extends Phaser.Scene {
     }
     for(const n of this.residents.people){if(!n.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
       if(Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)>=72)return {...n.position,type:'hint',label:'Walk closer'};
-      if(n.service)return Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)<58&&n.mode==='work'&&s.minute>=420&&s.minute<1140?{...n.position,type:'appearanceShop',category:n.service,label:n.service==='clothes'?'Clothes / Nell':'Barber / Sol'}:{...n.position,type:'hint',label:'Walk closer'};
+      if(n.service)return Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)<58&&n.mode==='work'&&s.minute>=420&&s.minute<1140?{...n.position,type:'appearanceShop',category:n.service,label:n.service==='clothes'?'Clothes / Nell':'Stylist / Sol'}:{...n.position,type:'hint',label:'Walk closer'};
       if(n.kind){const c=LOCATIONS[s.area].interactions.find(c=>c.type===n.kind);if(c.approach){const [x,y,w,h]=c.approach;if(s.position.x<x||s.position.x>x+w||s.position.y<y||s.position.y>y+h)return {...n.position,type:'hint',label:'Walk closer'};}return n.mode==='work'&&shopOpen(s,n.kind)?c:{...n.position,type:'hint',label:'Shop closed'};}
       return {...n.position,type:'dialog',residentId:n.id,label:'Talk to '+n.name,title:n.name,body:n.body};
     }

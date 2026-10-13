@@ -1,3 +1,9 @@
+# v0.23.0 — original Szadiart people (2026-10-13)
+
+OpenAI Codex assisted with pack inspection, original frame packing/mirroring, appearance/save compatibility, tool-grip extraction, bilingual menu labels, browser and pixel audits, documentation and the authorized existing playtest update. Character artwork is Szadiart’s original work; Codex did not generate, redraw, deform or recolour it. No subagents, image-generation service, new dependency/backend or source push. Prior AI-art/code history remains disclosed.
+
+---
+
 # v0.22.1 — human proportions and clearer character artwork (2026-10-13)
 
 Codex assistance covers native proportion/head/clothing code, held-tool alignment, audits/browser checks and the existing authorized playtest update. CraftPix is the licensed body-pose source, not claimed as project-original or AI-generated. No image generation/model training/subagents used. This technical evidence does not certify human declarations or eligibility.

@@ -52,8 +52,8 @@ test('held tools move with opposing animated hands and return to the standing gr
  const u=recorder(),s=newState();u.app={state:s,paused:false};s.selected='water';const held=new HeldWateringCan(u);
  for(const dir of ['down','up','left','right']){
   held.update({x:100,y:100},dir,1);const standing={x:held.can.x,y:held.can.y},poses=[];
-  for(const frame of [12,13,14,15,16,17,18,19]){held.update({x:100,y:100},dir,1,0,true,frame);poses.push({x:held.can.x,y:held.can.y});assert.equal(held.hand.x,held.can.x);assert.equal(held.hand.y,held.can.y);assert.ok(Math.hypot(held.can.x-100,held.can.y-100)<48);}
-  assert.ok(new Set(poses.map(p=>p.x+','+p.y)).size>=4);assert.notDeepEqual(poses[0],poses[2]);
+  for(const frame of [4,5,6,7]){held.update({x:100,y:100},dir,1,0,true,frame);poses.push({x:held.can.x,y:held.can.y});assert.equal(held.hand.x,held.can.x);assert.equal(held.hand.y,held.can.y);assert.ok(Math.hypot(held.can.x-100,held.can.y-100)<48);}
+  assert.ok(new Set(poses.map(p=>p.x+','+p.y)).size>=2);assert.notDeepEqual(poses[0],poses[2]);
   held.update({x:100,y:100},dir,1,0,false,0);assert.deepEqual({x:held.can.x,y:held.can.y},standing);
  }
 });
