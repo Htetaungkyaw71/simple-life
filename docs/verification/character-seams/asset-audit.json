@@ -1,0 +1,16 @@
+{
+  "runtimeFiles": 46,
+  "bytes": 12626804,
+  "wavs": 27,
+  "preservedAtlasCells": 698,
+  "townFrames": 858,
+  "atlasSize": [
+    1024,
+    2284
+  ],
+  "appearanceSize": [
+    720,
+    2880
+  ],
+  "sourceSheetsExcluded": true
+}

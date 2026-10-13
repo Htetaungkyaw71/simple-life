@@ -1,0 +1,48 @@
+Vercel CLI 63.1.2
+Deploying simple-life-playtest
+Uploading [--------------------] (0.0B/1.3MB)
+Uploading [=====---------------] (333.0KB/1.3MB)
+Uploading [==========----------] (662.6KB/1.3MB)
+Uploading [===============-----] (982.6KB/1.3MB)
+Uploading [====================] (1.3MB/1.3MB)
+  Inspect         https://vercel.com/htetaungkyaw71s-projects/simple-life-playtest/B5RBrpnB1Cjyo2jpMVcmE9CaKhyN
+▲ Production      https://simple-life-playtest-2mmb3esjp-htetaungkyaw71s-projects.vercel.app
+Building…
+[2K[1A[2K[G▲ Production      https://simple-life-playtest-2mmb3esjp-htetaungkyaw71s-projects.vercel.app
+Completing…
+▲ Aliased         https://simple-life-playtest-htetaungkyaw71s-projects.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_B5RBrpnB1Cjyo2jpMVcmE9CaKhyN",
+    "url": "https://simple-life-playtest-2mmb3esjp-htetaungkyaw71s-projects.vercel.app",
+    "productionUrl": "https://simple-life-playtest-htetaungkyaw71s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/htetaungkyaw71s-projects/simple-life-playtest/B5RBrpnB1Cjyo2jpMVcmE9CaKhyN",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_B5RBrpnB1Cjyo2jpMVcmE9CaKhyN",
+    "buildMachine": {
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment simple-life-playtest-2mmb3esjp-htetaungkyaw71s-projects.vercel.app ready. Production URL: https://simple-life-playtest-htetaungkyaw71s-projects.vercel.app",
+  "next": [
+    {
+      "command": "vercel curl https://simple-life-playtest-htetaungkyaw71s-projects.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect simple-life-playtest-2mmb3esjp-htetaungkyaw71s-projects.vercel.app --scope htetaungkyaw71s-projects",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope htetaungkyaw71s-projects",
+      "when": "Promote to production"
+    }
+  ]
+}
