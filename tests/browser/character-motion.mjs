@@ -15,13 +15,13 @@ try{for(const [width,height,lang]of [[1280,720,'en'],[844,390,'mm']]){
  try{
   await start(fixture('home',{x:480,y:600}));assert.equal((await snap()).player.nativeHeight,PEOPLE.height);
   // Test pixels themselves, not merely a changing animation index. Both arm
-  // and foot regions must change; contact poses retain the approved face.
+  // and foot regions must change; eight/six actual source motion phases remain distinct.
   const art=await p.evaluate(async({w,h})=>{
    const load=async path=>{const im=new Image();im.src=new URL(path,location.href);await im.decode();const c=new OffscreenCanvas(im.width,im.height),g=c.getContext('2d',{willReadFrequently:true});g.drawImage(im,0,0);return g;};
    const appearance=await load('/assets/pixel/processed/appearance.png'),town=await load('/assets/pixel/processed/town.png'),meta=await(await fetch('/assets/pixel/processed/town.json')).json(),rows=[];
    const check=(id,row,frames)=>{
     const changes=(a,b,x0,y0,x1,y1)=>{let count=0;for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const i=(y*w+x)*4;if(a.slice(i,i+4).some((v,k)=>v!==b[i+k]))count++;}return count;};
-    const a=frames[0],b=frames[Math.floor(frames.length/2)],arms=changes(a,b,0,14,w,22),feet=changes(a,b,0,21,w,h);
+    const a=frames[0],b=frames[Math.floor(frames.length/2)],arms=changes(a,b,0,Math.floor(h*.4),w,Math.floor(h*.8)),feet=changes(a,b,0,Math.floor(h*.8),w,h);
     const unique=new Set(frames.map(f=>Array.from(f).join(','))).size;
     const ink=frames.map(f=>Array.from(f).filter((v,i)=>i%4===3&&v>0).length);
     return {id,row,arms,feet,unique,ink};

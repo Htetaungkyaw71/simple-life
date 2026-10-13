@@ -30,7 +30,7 @@ test('town stylists expose native contextual shops and keep existing curfew',()=
  const s=newState();visit(s,'clothes');const people=residentsFor('city',s);assert.equal(residentContext(people,s.position).category,'clothes');visit(s,'hair');assert.equal(residentContext(residentsFor('city',s),s.position).category,'hair');s.minute=1139;assert.equal(styleServiceOpen(s,'hair'),false);s.minute=1140;assert.equal(residentContext(residentsFor('city',s),s.position),null);
 });
 test('every outfit/hair combination maps to a complete source-backed animation rig',()=>{
- const png=readFileSync('public/assets/pixel/processed/appearance.png');assert.equal(png.readUInt32BE(16),960);assert.equal(png.readUInt32BE(20),1248);
+ const png=readFileSync('public/assets/pixel/processed/appearance.png');assert.equal(png.readUInt32BE(16),960);assert.equal(png.readUInt32BE(20),1728);
  const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames;
  const indexes=new Set();for(const outfit of OUTFIT_IDS)for(const hair of HAIRCUT_IDS){const start=appearanceFrame({outfit,hair});assert.ok(start>=0&&start+PEOPLE.frames<=1920);indexes.add(start);}assert.equal(indexes.size,20);
  for(let i=0;i<8;i++)for(const dir of ['down','up','left','right'])for(let f=0;f<=PEOPLE.walkFrames;f++){const r=frames[`town-person-${i}-${dir}-${f}`].frame;assert.equal(r.w,PEOPLE.width);assert.equal(r.h,PEOPLE.height);}

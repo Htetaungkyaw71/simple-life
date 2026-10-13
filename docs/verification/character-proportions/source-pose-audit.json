@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "poseCellsChecked": 2144,
+  "mappedBodyPixelsChecked": 388519,
+  "everyRetargetedBodyPixelRetained": true,
+  "headsRedrawn": true,
+  "nativeCell": [
+    24,
+    36
+  ],
+  "worldScale": 2,
+  "preservedNonPersonTownCells": 698,
+  "baselineCommit": "25dbc1e",
+  "appearanceSize": [
+    960,
+    1728
+  ],
+  "townSize": [
+    1024,
+    1970
+  ],
+  "townCells": 922
+}

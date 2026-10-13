@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+This revision supersedes the v0.22.0 geometry below. Original PNGs/archive hashes/licence evidence are unchanged. Each supplied body pose uses one global source-y mapping: output y = 35 - round((44 - source y) × 1.8); each source row occupies its mapped interval. Source x uses fixed offset 20. Original small heads, faces, hair and garment accents follow the source neck/torso position. This is offline nearest pixel retargeting, not unchanged source anatomy/head retention and not synthetic independent limb animation. Every run/walk phase remains supplied. Native 24×36 cells render at integer 2×; standing boy ink 62px. Appearance 960×1728, town 1024×1970, boy/girl 576×144. Native-centred source grips are generated in world units. All 20 combinations, eight residents, frame layout, timings, identity/price/save IDs remain. Body-alpha, nonperson preservation, runtime previews and browser evidence: ../../../verification/character-proportions/README.md.
+
+---
+
 # CraftPix character bases — supplied 2026-10-13
 
 Official sources:

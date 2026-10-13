@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+The current body poses are retargeted licensed CraftPix art. Small heads/hair/garment pixel designs and integration are Codex-assisted original code. Reference screenshots inform proportions only; no screenshot pixels copied. No exclusive-copyright or human-eligibility certification.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 Current character poses are adapted CraftPix licensed third-party art, not exclusively original project art. Original native garments/hair/hat code and integration are Codex-assisted. Screenshots describe intended style only and supply no copied pixels. All other source-specific licences and previous AI records remain. This is a provenance statement, not a signed eligibility or exclusive-copyright declaration.

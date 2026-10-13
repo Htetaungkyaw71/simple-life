@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+Codex assistance covers native proportion/head/clothing code, held-tool alignment, audits/browser checks and the existing authorized playtest update. CraftPix is the licensed body-pose source, not claimed as project-original or AI-generated. No image generation/model training/subagents used. This technical evidence does not certify human declarations or eligibility.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 Codex assistance covers source research, native pose dressing/packing, animation/tool/UI integration, audits, isolated browser tests and the authorized existing playtest update. CraftPix authored the base animation poses; project additions are AI-assisted code. No image generation/model training/subagent used in this revision. This technical provenance does not certify human competition eligibility or signatures.

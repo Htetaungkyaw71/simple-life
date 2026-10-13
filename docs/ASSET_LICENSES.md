@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+Character body poses remain adapted user-supplied CraftPix male/female four-direction unarmed bases under custom Freebie Products licence section 2. The fixed offline body-row retarget and original small heads/hair/garment details are Codex-assisted native pixel code. This revision uses no image generation or model training. Source/rights evidence remains under assets/licenses/characters-craftpix; runtime allowlist is unchanged and excludes all raw parts/archives/previews. Other 698 town cells retain their established pixels/licences.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 Active player and town people use user-supplied CraftPix free male/female four-direction bases under CraftPix Freebie Products section 2, adapted with original native clothing/hair/hat pixels. This custom licence permits game use, modification and game distribution; it is not CC0. Standalone art resale/export and AI model training/development are excluded. This integration is local game sprite processing, with no generative-image/model-training use. Credits identify CraftPix and Codex-assisted additions. Selected native PNGs, untouched licence pointers, archive hashes and path/frame evidence: [source record](assets/licenses/characters-craftpix/SOURCE_RECORD.md). Vendor ZIPs, sword/death/hurt assets, PSD/Aseprite, reference previews and unused packs are excluded from the unchanged runtime allowlist. The 698 other town cells preserve their established pixels/licences.

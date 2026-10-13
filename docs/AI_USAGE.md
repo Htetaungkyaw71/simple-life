@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+OpenAI Codex assisted with screenshot diagnosis, consistent body-proportion retargeting, original native heads/hair/clothing, pixel-centred hand grips, runtime integration, isolated browser and asset QA, documentation and the authorized existing playtest update. CraftPix supplies licensed body poses. No subagents, image-generation service, model training, new dependency/backend or source push. Prior generated-art history remains disclosed.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 OpenAI Codex assisted with source/licence research, ZIP integrity and native frame inspection, original garment/hair/hat masks, complete cycle integration, generated source-grip coordinates, texture-memory optimization, regression tests/browser QA, documentation and the authorized existing playtest update. No subagents, image-generation service, model training, new dependency, backend or source push. CraftPix base art is third-party licensed art, not claimed as AI-generated/original project art. Retired generated sheets and earlier prompts remain disclosed.

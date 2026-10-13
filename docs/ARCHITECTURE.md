@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+The user-verified appearance failure justifies a people-art revision only. people_art.py consistently maps source body rows into a taller 24×36 rig, redraws original small heads/hair and garment details, and packs the unchanged 96-frame style layout (40 physical columns). PEOPLE scale becomes 2; UI preview sizes, water cropping and tool centres use this configuration. Controller, cadence, four facing rows, jump selection, resident routes, collision geometry and pure gameplay/save systems remain.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 The verified synthetic gait failure justifies replacing the people packing implementation. `scripts/people_art.py` reads the selected unarmed body/head PNGs, maps CraftPix front/right/left/back rows to down/up/left/right, adds native garments/hair and packs 96 frames per appearance (24 per direction). Native textures avoid a redundant 3× baked sheet; 960×1248 appearance data uses about 4.8 MB decoded instead of 43.1 MB. PEOPLE centralizes row stride, action offsets and native/world scale. PlayerView runs eight poses; ResidentView uses six native walk frames. Source-derived grip coordinates are generated in peopleHands.js in world units; tools retain 1× scale. Appearance/title/selection previews retain their prior physical sizes and whole native pixels. Water hides two native foot rows; reflection and feet depth remain. Gameplay speed, collision footprint, save schema 19 and pure cosmetic transactions are unchanged.

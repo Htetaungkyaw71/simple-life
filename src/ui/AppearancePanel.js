@@ -14,7 +14,7 @@ export class AppearancePanel{
   text(u,u.root,x+12,y+8,u.menu.title,short?8:12,UI_COLORS.light,inner-28,true,short?'body':'heading');button(u,u.root,'X',x+w-32,y+7,22,22,()=>u.close(),{id:'style-close'});
   const tabY=y+(short?30:36),bw=Math.floor((inner-4)/2);for(const [i,[label,type]]of [['Clothes','clothes'],['Haircuts','hair']].entries()){const c=button(u,u.root,label,x+12+i*(bw+4),tabY,bw,short?24:26,()=>this.open(type),{id:'style-tab-'+type});if(category===type)c.box.setFillStyle(UI_COLORS.selected);}
   const top=tabY+(short?28:32),bottom=y+h-36,previewW=short?64:76,previewH=short?46:88,px=x+12;
-  // UI root is 2x: effective preview pixels remain strict 3x/6x native.
+  // UI root is 2x: effective preview pixels remain strict 2x/4x native.
   panel(u,u.root,px,top,previewW,previewH,0xe4e9c6,'plain');const preview={...s.appearance,[category==='clothes'?'outfit':'hair']:id};u.root.add(u.add.sprite(px+previewW/2,top+previewH-4,'appearance',appearanceFrame(preview)).setOrigin(.5,1).setScale(PEOPLE.scale*(short?.5:1)));
   const tx=px+previewW+8,tw=inner-previewW-8;let cy=top;
   for(const line of [d.name,(q.current?'Selected':q.owned?'Owned / free':d.price+'c')+' / '+s.money+'c']){const t=text(u,u.root,tx,cy,line,8,UI_COLORS.light,tw);cy+=t.height+3;}

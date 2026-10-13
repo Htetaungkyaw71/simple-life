@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+The new audit checks 2,144 retargeted people cells and every mapped body-alpha pixel. It intentionally does not claim original-head retention: heads are redrawn. All 698 other town cells are byte-exact against 25dbc1e. Appearance 960×1728 and town 1024×1970 remain below 4096px. Native cells are 24×36, runtime world scale 2; all texture alpha is 0/255. Verification: verification/character-proportions.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 The character source audit checks all 1,920 appearance cells and 224 NPC cells against the exact supplied unarmed silhouettes: every original anatomy pixel is retained. Integer 3× world rendering uses native 24×26 source cells. Appearance is 960×1248; town is 1024×1910 with 922 cells. All 698 unrelated town cells are byte-exact against baseline 35303c0. Runtime allowlist and final file hashes are recorded in verification/craftpix-motion; no source archives/unused packs enter production.

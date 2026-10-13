@@ -1,3 +1,9 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+Body animation poses: CraftPix supplied male/female four-direction unarmed bases, custom freebie licence section 2. Proportion adaptation and original heads/clothing/hair: Simple Life, Codex-assisted code. No copied reference pixels, new source or image generation.
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 Player/NPC base poses: CraftPix, Free Base 4-Direction Male/Female Character Pixel Art, custom Freebie Products licence section 2. Clothing, hair and hat adaptation: Simple Life, Codex-assisted native pixel code. Credit details and original archive/PNG fingerprints: assets/licenses/characters-craftpix/SOURCE_RECORD.md. Previous generated characters are retired provenance, not current runtime art.

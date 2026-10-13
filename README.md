@@ -1,3 +1,11 @@
+# v0.22.1 — human proportions and clearer character artwork (2026-10-13)
+
+Revised player and all eight NPC designs after the user accepted movement but rejected the squat appearance. Smaller original pixel heads have warm faces, small dark eyes and asymmetric hair; longer torso/legs and defined ivory sleeves, overall straps, vest/jacket seams, dress hems and boots make people easier to read. Every CraftPix source body pose uses the same fixed vertical row mapping (1.8 offline), with no independent limb displacement or invented gait. Run remains eight phases at 12 fps, NPC walking six phases at 8.33 fps, and idle retains its supplied phase counts. Native 24×36 cells render at integer 2× world scale; standing boy ink is 62 world pixels instead of 66. Source-derived tool grips use native pixel centres. Appearance IDs, prices, saved ownership, schema 19, movement speed, collision footprints, shadows and depth remain.
+
+[Playtest](https://simple-life-playtest.vercel.app/). Refresh and Continue to retain progress. [Checks](docs/verification/character-proportions/README.md).
+
+---
+
 # v0.22.0 — native run and walk animations (2026-10-13)
 
 Player movement uses the complete eight-pose CraftPix unarmed run cycle at 12 fps. NPCs keep the six-pose walk cycle at 8.33 fps. Idle uses all twelve supplied front/side poses and four back poses at 8 fps. The previous cut-and-warp animation is retired. Clothing and hair are drawn on the original poses; arms, feet and head positions are never mechanically deformed. Native 24×26 frames render at integer 3× world scale (66-pixel standing ink height, 78-pixel padded cell). All 20 outfit/hair combinations and eight town variants retain their identities, prices and schema-19 appearance saves. Jump selects three tucked poses from the actual run sheet; it is an adaptation, not a supplied jump animation.

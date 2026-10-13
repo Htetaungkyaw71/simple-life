@@ -3792,7 +3792,7 @@
   "characterFrames": {
     "size": [
       24,
-      26
+      36
     ],
     "columns": 24,
     "rows": [
@@ -3841,13 +3841,12 @@
     "appearanceSheets": 20,
     "source": "CraftPix four-direction unarmed bases; original clothing/hair adaptation",
     "sourceRecord": "docs/assets/licenses/characters-craftpix/SOURCE_RECORD.md",
-    "nativeCrop": [
-      20,
-      18,
-      44,
-      44
+    "sourceFrame": [
+      64,
+      64
     ],
-    "worldIntegerScale": 3
+    "bodyRowStretch": 1.8,
+    "worldIntegerScale": 2
   },
   "modifications": "Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.",
   "townResidents": {
@@ -3907,7 +3906,7 @@
     "source": "docs/assets/licenses/characters-craftpix/SOURCE_RECORD.md",
     "cells": [
       24,
-      26
+      36
     ],
     "variants": 8,
     "walkFrames": 6
