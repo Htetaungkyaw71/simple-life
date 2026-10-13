@@ -13,6 +13,7 @@ export class CustomizationPanel {
   {label:'Craft / materials',id:'customize-craft',preview:decorationThumb('bench'),action:()=>this.app.resourcePanel.decorations()},
   {label:'House designs',id:'customize-houses',preview:homePreview(this.s.home.design),action:()=>this.houses()},
   {label:'Trees & garden',id:'customize-garden',preview:decorationThumb('blossom'),action:()=>this.decorations('garden')},
+  {label:'Wardrobe',id:'customize-wardrobe',preview:(u,p,cx,cy)=>{const g=u.add.graphics();p.add(g);g.fillStyle(0x547680).fillRect(cx-4,cy-5,8,12).fillRect(cx-7,cy-5,14,4);g.fillStyle(0xf5eccb).fillRect(cx-1,cy-5,2,2);},action:()=>this.app.appearancePanel.open()},
   {label:'Room furniture',id:'customize-furniture',preview:decorationThumb('bookcase'),action:()=>this.decorations('furniture')},
  ]});}
  houses(index=0,inside=false){const ids=[...HOME_IDS,'starter'],id=ids[index],d=HOMES[id],q=houseQuote(this.s,id),current=this.s.home.design===id;

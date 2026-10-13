@@ -79,7 +79,7 @@ test('food heals at full energy, caps both stats and never wastes a full/dead/in
 test('schema 1–11 migrates safely; new bounded records reject forged IDs and preserve market salts',()=>{
  for(let version=1;version<=11;version++){
   const raw=newState('girl');raw.version=version;raw.money=123;raw.inventory.wood=6;delete raw.inventory.stone;delete raw.inventory.meat;delete raw.forest.woodland;delete raw.forest.stones;
-  const s=validate(raw);assert.equal(s.version,18);assert.equal(s.money,123);assert.equal(s.inventory.wood,6);assert.equal(s.inventory.stone,0);assert.equal(s.inventory.meat,0);assert.equal(Object.keys(s.forest.woodland).length,128);
+  const s=validate(raw);assert.equal(s.version,19);assert.equal(s.money,123);assert.equal(s.inventory.wood,6);assert.equal(s.inventory.stone,0);assert.equal(s.inventory.meat,0);assert.equal(Object.keys(s.forest.woodland).length,128);
  }
  const raw=forest(),n=WOODLAND_WILDLIFE[0];raw.inventory.meat=Infinity;raw.inventory.stone=-2;raw.forest.stones=['forged',forestStones()[0].id,forestStones()[0].id];raw.forest.woodland[n.id].position={x:-1000,y:NaN};raw.forest.woodland.forged={health:999};
  const s=validate(raw);assert.equal(s.inventory.meat,0);assert.equal(s.inventory.stone,0);assert.equal(Object.keys(s.forest.woodland).length,128);assert.equal(s.forest.stones.length,1);assert.ok(walkable('forest',s.forest.woodland[n.id].position.x,s.forest.woodland[n.id].position.y));

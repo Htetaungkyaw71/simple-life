@@ -13,7 +13,7 @@ test('removed earth bank is walkable and jumping retains cooldown and grounded r
  assert.ok(FOREST_MAP.ledges.length>0);
  assert.equal(beginJump(s,r,{x:0,y:-1}),true);assert.equal(beginJump(s,r,{x:0,y:-1}),false);
  for(let n=0;n<5;n++)stepJump(s,r,50);assert.ok(jumpPose(r).height>0);assert.ok(s.position.y<p.y);
- const loaded=validate({...s,position:groundedPosition(s,r)});assert.deepEqual(loaded.position,p);assert.equal(loaded.version,18);
+ const loaded=validate({...s,position:groundedPosition(s,r)});assert.deepEqual(loaded.position,p);assert.equal(loaded.version,19);
  for(let n=0;n<7;n++)stepJump(s,r,50);assert.equal(r.active,null);assert.ok(s.position.y<p.y-60);assert.ok(walkable('forest',s.position.x,s.position.y));
  assert.equal(beginJump(s,r,{x:0,y:-1}),false,'cooldown');for(let n=0;n<6;n++)stepJump(s,r,50);assert.equal(beginJump(s,r,{x:0,y:0}),true);
 });
@@ -22,7 +22,7 @@ test('jump cannot tunnel through tree trunks, cave pillars or bounds and never g
  {const s=forest(p),r=jumpRuntime();assert.ok(beginJump(s,r,{x:0,y:-1}));for(let n=0;n<12;n++)stepJump(s,r,50);assert.ok(s.position.y>=y+h+12);}
  const cave=FOREST_MAP.props.find(p=>p.name==='cave-mouth'&&walkable('forest',p.x+18,p.y+100));assert.ok(cave);const cs=forest({x:cave.x+18,y:cave.y+100}),cr=jumpRuntime();assert.ok(beginJump(cs,cr,{x:0,y:-1}));for(let n=0;n<12;n++)stepJump(cs,cr,50);assert.ok(cs.position.y>=cave.y+96,'cave pillar blocks the whole swept path');
  const invalid=forest({x:x+w/2,y:y+h/2});assert.equal(beginJump(invalid,jumpRuntime(),{x:0,y:-1}),false);
- const s=forest(nearestSafe('forest',{x:32,y:48})),r=jumpRuntime();beginJump(s,r,{x:-1,y:-1});for(let n=0;n<12;n++)stepJump(s,r,50);assert.ok(walkable('forest',s.position.x,s.position.y));assert.equal(s.health,100);assert.equal(s.energy,100);assert.equal(s.version,18);
+ const s=forest(nearestSafe('forest',{x:32,y:48})),r=jumpRuntime();beginJump(s,r,{x:-1,y:-1});for(let n=0;n<12;n++)stepJump(s,r,50);assert.ok(walkable('forest',s.position.x,s.position.y));assert.equal(s.health,100);assert.equal(s.energy,100);assert.equal(s.version,19);
  const indoors=Object.assign(newState(),{area:'interior'});assert.equal(beginJump(indoors,jumpRuntime(),{x:0,y:1}),false);
 });
 test('interrupting a leap returns safely to its grounded origin without losing progress',()=>{

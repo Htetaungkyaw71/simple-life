@@ -1,3 +1,9 @@
+# v0.21.0 character/style disclosure
+
+OpenAI Codex assisted with native character sprite adaptation, clothing/barber code, translation, tests and documentation. Built-in image generation supplied one original design guide, excluded from runtime. CC0 body sources, modifications, prompt summary and guide hashes are recorded in assets/licenses/characters/SOURCE_RECORD.md. No reference screenshot pixels are redistributed.
+
+---
+
 # v0.19.0 — localization assistance disclosure
 
 Codex authored the English/Myanmar dictionaries and onboarding copy, presentation code, checks and records. Noto's original Unicode glyphs retain their authorship/OFL licence. This records AI assistance truthfully for human review; it is not a certified native-speaker translation or a signed competition declaration. See AI_USAGE.md and assets/licenses/myanmar-font/SOURCE_RECORD.md.

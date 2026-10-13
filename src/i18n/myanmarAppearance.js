@@ -1,0 +1,10 @@
+export const MM_APPEARANCE={
+ Wardrobe:'အဝတ်ဗီရို',Clothes:'အဝတ်အစား',Haircuts:'ဆံပင်ပုံစံ','Town barber':'မြို့ဆံပင်ဆိုင်',
+ 'Teal overalls':'စိမ်းပြာ အလုပ်ဝတ်စုံ','Olive overalls':'စိမ်းညို အလုပ်ဝတ်စုံ','Copper vest':'ကြေးရောင် အပေါ်အင်္ကျီ','Plum dress':'ခရမ်းရောင် ဝတ်စုံ','Forest jacket':'တောစိမ်းရောင် အင်္ကျီ',
+ 'Midnight cut':'အနက်ရောင် ဆံတို','Copper sweep':'ကြေးရောင် ဆံတို','Chestnut braid':'အညိုရောင် ကျစ်ဆံမြီး','Golden waves':'ရွှေရောင် ဆံရှည်',
+ 'Buy & wear':'ဝယ်ပြီးဝတ်','Change haircut':'ဆံပင်ပြောင်း',Wear:'ဝတ်',Selected:'ရွေးထားသည်','Owned / free':'ပိုင်ပြီး / အခမဲ့',
+ 'Clothes / Nell':'အဝတ်ဆိုင် / Nell','Barber / Sol':'ဆံပင်ဆိုင် / Sol','Buy once. Wear owned outfits for free.':'တစ်ခါဝယ်ပြီး အခမဲ့ပြန်ဝတ်နိုင်သည်။',
+ 'Pay for each different haircut.':'ဆံပင်ပုံစံပြောင်းတိုင်း ဒင်္ဂါးပေးရမည်။','Buy from Nell / east City commons.':'မြို့အရှေ့ဘက် Nell ထံဝယ်ပါ။','Visit Sol / west City lane.':'မြို့အနောက်ဘက် Sol ထံသွားပါ။',
+ 'Open / 7 am - 7 pm':'နံနက် ၇ မှ ညနေ ၇ အထိ','Not enough coins':'ဒင်္ဂါးမလုံလောက်ပါ','Style changed':'ပုံစံပြောင်းပြီးပြီ','Already wearing this style':'ဤပုံစံကို ဝတ်ထားပြီးဖြစ်သည်','Visit the town stylist / 7 am - 7 pm':'မြို့ဆိုင်သို့ နံနက် ၇ မှ ညနေ ၇ အတွင်းသွားပါ။',
+ 'Character artists':'ဇာတ်ကောင်ဖန်တီးသူများ','Character base':'ဇာတ်ကောင်မူရင်း','CC0 licence':'CC0 လိုင်စင်',
+};

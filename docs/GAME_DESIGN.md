@@ -1,3 +1,9 @@
+# v0.21.0 — optional personal style
+
+Nell sells three paid outfits at east City commons (90/120/150c); Sol changes hair at west City lane (30/45/50/60c). Open 07:00–19:00, requiring the same close approach as talking to residents. The two starter outfits are already owned. Clothing purchases are permanent and free to re-equip through Home & garden → Wardrobe; each different haircut is a new paid service. Players can preview all combinations before committing. Current styles cannot charge twice, unavailable purchases disable their action, and coins/style/ownership save together. Cosmetics do not change damage, movement, farming yields, Journal achievement or progression. Existing main goals, NPC curfew and postponed cave remain.
+
+---
+
 # v0.20.2 — current view with stronger depth
 
 The design stays 2D with a three-quarter top-down pixel-art view. Depth comes from native shaded sprites, ground contact, feet-based sorting, raised bridge layers and player visibility behind trees. The user explicitly chooses this direction over changing projection. Walking, collisions, jumping distance/height, farm care, day/night, NPC curfew, trade, story and local saves remain unchanged. The cursed cave stays removed.

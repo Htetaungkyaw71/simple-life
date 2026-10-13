@@ -1,3 +1,9 @@
+# v0.21.0 — explicit cosmetic-service scope
+
+The latest user authorizes taller player/NPC designs, hair/clothing customization and coin-paid town services. This supersedes the historic unrelated-system restriction only for these cosmetics; preserve farming/City/Forest/story/depth/curfew and the postponed cave. Master prompt and four competition PDFs remain reference requirements and do not override this explicit scope. Preserve fullscreen separate canvas UI, local saves and the runtime allowlist; document third-party CC0 source and generated-guide/code/translation assistance. No competition submission, source push or human eligibility/rights certification.
+
+---
+
 # v0.20.1 — user postpones cave challenge
 
 The latest user request removes the optional cursed cave and ghosts for now, superseding the v0.20.0 feature scope. Established gameplay, local-only runtime assets, provenance/AI disclosure, separate canvas UI and save continuity remain. Keep the separately requested 7 pm NPC schedule. Historical feature records are reference history; no source push or competition submission is authorized by this removal.

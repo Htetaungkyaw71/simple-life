@@ -1,3 +1,9 @@
+# v0.21.0 — optional appearance coin sink
+
+Two starter outfits are free. Paid clothes cost 90c (Copper vest), 120c (Plum dress), 150c (Forest jacket), owned permanently. Haircuts cost 30c/45c/50c/60c per different selected style. Previewing is free; insufficient coins, closed/distant/wrong service and repeated selected-style actions leave balance unchanged. Cosmetics grant no combat/farming advantage and add no main quest requirement. Existing progression economics remain. Long-term price comfort remains human playtesting.
+
+---
+
 # v0.20.1 — optional curse economy retired
 
 No new cave cache rewards, repair costs or respawning spirit damage apply. Existing saved wallet and inventory values remain; removal neither refunds prior contributions nor reverses previously earned coins. Existing farming, wildlife drops, food, 25% Stash Bag recovery, normal 60c starting balance and explicit once-per-save playtest gift remain.

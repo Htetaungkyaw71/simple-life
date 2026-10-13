@@ -1,3 +1,13 @@
+# v0.21.0 — taller characters, clothes and haircuts (2026-10-13)
+
+The player and eight town character variants now use taller 24×40 native pixel frames adapted from diamonddmgirl/Cabbit CC0 bases. Smaller heads, long trousers and distinct overalls, vest, dress and jacket designs retain the existing top-down view, feet depth, shadows and native pixel filtering.
+
+Approach Nell (shirt icon, east City commons) to buy clothes, or Sol (scissors icon, west City lane) for a paid haircut, between 7 am and 7 pm. Five outfits and four hairstyles combine independently; the two starter outfits are free and new clothes cost 90/120/150 coins. Hair changes cost 30/45/50/60 coins. Owned outfits can be switched free through Home & garden → Wardrobe. Preview before buying; the current style and unavailable purchases are disabled. Appearance and owned clothes survive Continue; schemas 1–18 migrate to schema 19 with existing progress intact. English/Myanmar canvas UI and phone rotation remain supported.
+
+Source/licence and AI design guide: [character evidence](docs/assets/licenses/characters/SOURCE_RECORD.md). Verification: [appearance checks](docs/verification/appearance/README.md).
+
+---
+
 # v0.20.2 — clearer 2.5D depth (2026-10-13)
 
 Keep the current three-quarter top-down view and native pixel art. Grounded pixel shadows now follow the player, residents and wildlife; jumping raises the sprite while its shadow stays on the ground. Plants sort at their visible feet, and raised bridge rails sort independently of their flat deck. Tall trees reveal the player behind their full silhouette and stay opaque in front. Maps, collisions, saves, gameplay and mobile camera framing retain their established behavior.

@@ -1,3 +1,9 @@
+# v0.21.0 character provenance
+
+Active character bodies derive from disclosed CC0 diamonddmgirl/Cabbit bases, with original AI-assisted native clothing/hair/eye/jump details. Supplied screenshots are style references only. A generated design guide is disclosed separately and excluded from production; no claim of exclusive copyright is made for generated imagery. Established mixed-atlas/environment/font/audio licences remain documented. This record is provenance, not a human eligibility or rights certification.
+
+---
+
 # v0.16.1 — third-party audio source separation
 
 Current background music and selected effects/ambience are third-party sounds by HuntSounds and Spaceyyy (formerly Bramble & Byte), used with documented game-use permissions and credited modifications. The original ending cue and synthesis fallback remain Codex-assisted project source. New star/arrow glyphs and integration/control code are Codex-assisted original source. Source evidence: assets/licenses/cozy-audio. This is a provenance record, not a signed human originality declaration.

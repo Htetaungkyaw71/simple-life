@@ -1,8 +1,8 @@
-"""Update twelve original planted seeds; append adapted farmer NPCs in-place."""
+"""Update twelve planted seeds and regenerate current tall CC0-derived people."""
 from pathlib import Path
 from PIL import Image
 import json
-from matched_residents_art import add_matched_residents_art
+from people_art import update_atlas
 from garden_tools_art import add_garden_tools_art, CROPS
 
 out=Path('public/assets/pixel/processed')
@@ -13,7 +13,7 @@ for c in CROPS:
     items[c+'-item']=atlas.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h']))
 add_garden_tools_art(items)
 assets={c+'-seed':items[c+'-seed'] for c in CROPS}
-provenance=add_matched_residents_art(assets,out)
+
 x=0;y=max(f['frame']['y']+f['frame']['h'] for f in meta['frames'].values())+2;row=0
 for name,im in assets.items():
     if name in meta['frames']:
@@ -24,7 +24,8 @@ for name,im in assets.items():
     atlas.paste(im,(x,y));meta['frames'][name]={'frame':{'x':x,'y':y,'w':im.width,'h':im.height},'rotated':False,'trimmed':False,'spriteSourceSize':{'x':0,'y':0,'w':im.width,'h':im.height},'sourceSize':{'w':im.width,'h':im.height}}
     x+=im.width+2;row=max(row,im.height)
 atlas.save(out/'town.png');(out/'town.json').write_text(json.dumps(meta,indent=2)+'\n')
-manifest=json.loads((out/'manifest.json').read_text());manifest['matchedResidents']=provenance
+manifest=json.loads((out/'manifest.json').read_text())
 manifest['plantedSeeds']='Original ground-level seed grains and soil mound; inventory packets stay in menus.'
 (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-print('Matched characters:',160,'atlas frames:',len(meta['frames']))
+update_atlas()
+print('Updated seeds and regenerated current 24x40 people')

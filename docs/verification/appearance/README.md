@@ -1,0 +1,9 @@
+# v0.21.0 — taller people and town style verification
+
+**316 unit tests pass**, normal and explicit playtest builds pass (**150 modules**). The tested playtest contains **46 files / 12,069,484 bytes / 27 WAVs**. One runtime appearance sheet adds 20 outfit/hair combinations. All 698 non-character atlas cells are byte-identical; 38 retained runtime files match the previous release. Source/CC0/AI guide evidence: ../../assets/licenses/characters/SOURCE_RECORD.md.
+
+Six isolated native-input Chromium profiles pass: English 1280×720, 1440×900, 1024×768 and 640×360; Myanmar landscape 844×390 and WebGL portrait 390×844. Actual keyboard/mouse/touch controls verify town approach, all five outfit previews, 90c clothing purchase, 45c haircut, current-action disabled, four-direction movement, jump frame offsets/shadows, reload/Continue, held watering can, free owned outfit switching, remote haircut disabled, panel/text bounds, rotation while paused and fresh Girl startup through the established Start fresh confirmation. No browser warnings/errors. Pure tests verify insufficient coins, invalid IDs, wrong locations/closed/commuting shops, migration/idempotence, unique ownership and all 720 animation slots. Local style records/screenshots and test/build logs are here.
+
+Three further native Canvas/WebGL profiles retain house entry, tree/crop sorting, raised City/Forest bridge rails, movement, water reflection/wading/shadow and saved state: local-depth-checks.json. The exact staged playtest passes fresh Mac/phone startup, equipment put-away, native Jump, audio, local save/reload/Continue and all 46 HTTP/file hashes: stage-fresh-checks.json. These are disposable profiles, not user browser saves.
+
+Publishing/hosted verification will update this record with the exact release. Physical phones, Safari/WebKit/other engines, native-speaker wording and long-term cosmetic prices remain human review.

@@ -45,14 +45,14 @@ export class WorldScene extends Phaser.Scene {
     const base=import.meta.env.BASE_URL+'assets/pixel/';
     this.load.atlas('world',base+'world.png',base+'world.json');
     this.load.atlas('town',base+'processed/town.png',base+'processed/town.json');
-    for(const char of ['boy','girl'])this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:24,frameHeight:32});
+    for(const char of ['boy','girl','appearance'])this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:24,frameHeight:40});
     this.load.bitmapFont('pixel',base+'font.png',base+'font.xml');
     for(const name of ['thaleah','m5x7'])this.load.bitmapFont(name,base+'fonts/'+name+'.png',base+'fonts/'+name+'.xml');
     const loading=this.add.graphics();loading.fillStyle(0xe1d7ad).fillRect(20,20,120,4);
     this.load.on('complete',()=>loading.destroy());
   }
   create(){
-    for(const name of ['world','town','boy','girl','pixel','thaleah','m5x7'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    for(const name of ['world','town','boy','girl','appearance','pixel','thaleah','m5x7'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
     this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,Q,K,M,J,SHIFT,B,R');
     for(const key of Object.keys(KEY_ACTIONS))this.keys[key].on('down',(_,event)=>{const action=keyboardAction(key,this.app.state?.area,{paused:this.app.paused,repeat:event?.repeat,transitioning:this.app.transitioning});if(action==='jump')this.jump();else if(action==='attack')this.app.attack();else if(action==='map')this.app.wildernessMap.open();else if(action==='bag')this.app.bagPanel.open('seeds');});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
@@ -139,13 +139,14 @@ export class WorldScene extends Phaser.Scene {
     }
     for(const n of this.residents.people){if(!n.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
       if(Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)>=72)return {...n.position,type:'hint',label:'Walk closer'};
+      if(n.service)return Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)<58&&n.mode==='work'&&s.minute>=420&&s.minute<1140?{...n.position,type:'appearanceShop',category:n.service,label:n.service==='clothes'?'Clothes / Nell':'Barber / Sol'}:{...n.position,type:'hint',label:'Walk closer'};
       if(n.kind){const c=LOCATIONS[s.area].interactions.find(c=>c.type===n.kind);if(c.approach){const [x,y,w,h]=c.approach;if(s.position.x<x||s.position.x>x+w||s.position.y<y||s.position.y>y+h)return {...n.position,type:'hint',label:'Walk closer'};}return n.mode==='work'&&shopOpen(s,n.kind)?c:{...n.position,type:'hint',label:'Shop closed'};}
       return {...n.position,type:'dialog',residentId:n.id,label:'Talk to '+n.name,title:n.name,body:n.body};
     }
     const c=this.context();if(c&&!['plot','dig','waterGround','chop','gatherGrass','placeGrass','placeDecoration','reclaimDecoration','hunt'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
     return null;
   }
-  context(){if(!this.app.state)return null;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||this.residents?.context(this.app.state.position);}
+  context(){if(!this.app.state)return null;const resident=this.residents?.context(this.app.state.position);if(resident?.type==='appearanceShop')return resident;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||resident;}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   jump(){
     const a=this.app;if(!a.state||a.paused||a.transitioning||a.placement.draft||document.hidden)return;

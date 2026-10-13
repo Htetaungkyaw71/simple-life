@@ -1,3 +1,9 @@
+# v0.21.0 — character/style implementation assistance, 2026-10-13
+
+OpenAI Codex assisted with the user-authorized tall character redesign, free-licence source research, CC0 base pixel adaptation, original hair/clothes/eye/jump masks, native animations/tool/water integration, pure clothing/barber transactions, schema migration, English/Myanmar canvas layout/translation, isolated browser checks and documentation. The built-in image_gen tool produced one original design guide (not a runtime sprite sheet); prompt summary/tool/file/source hashes are disclosed in assets/licenses/characters/SOURCE_RECORD.md. Runtime sprites are deterministic native adaptations of licensed poses, not copied reference screenshots. No subagents, new dependencies, backend, user-profile save editing or source push. Existing friend playtest update remains authorized on its established project/origin.
+
+---
+
 # v0.20.2 — 2.5D presentation assistance, 2026-10-13
 
 OpenAI Codex assisted with the user-selected existing-view depth refinement: original generated contact shadows and bridge rails, plant feet sorting, tall-crown overlap, code integration, unit/native-input browser verification, documentation and the previously authorized same-origin friend playtest update. The user selected preserving the current view; referenced games describe the broad style only and supply no copied pixels/layouts. No subagents, image-generation service, new dependency, backend or user-profile save editing. Source/provenance: assets/licenses/pseudo-depth.md; verification: verification/pseudo-depth/README.md.

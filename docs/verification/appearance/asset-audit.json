@@ -1,0 +1,11 @@
+{
+  "files": 46,
+  "bytes": 12069484,
+  "wav": 27,
+  "retainedRuntimeFilesIdentical": 38,
+  "nonCharacterAtlasCellsIdentical": 698,
+  "newRuntimeAssets": [
+    "assets/pixel/processed/appearance.png"
+  ],
+  "townFrames": 858
+}

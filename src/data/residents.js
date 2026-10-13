@@ -11,3 +11,7 @@ export const MERCHANT_RESIDENTS=[
  {...resident('clara','Clara',2,432,306,'',[]),kind:'seed',home:3},
  {...resident('niko','Niko',3,896,306,'',[]),kind:'sell',home:5},
 ];
+
+// Fixed town stylists retain their existing homes and 19:00 curfew.
+RESIDENTS.city.find(n=>n.id==='city-nell').service='clothes';
+RESIDENTS.city.find(n=>n.id==='city-sol').service='hair';

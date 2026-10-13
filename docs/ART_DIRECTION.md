@@ -1,3 +1,9 @@
+# v0.21.0 — reference-inspired tall native people
+
+The user authorizes adapting free CC0 character bases with taller proportions and coin-paid appearance choices. Use 24×40 cells at fixed world 2× scale, smaller heads, visible native eyes, restrained warm outlines, long legs and different clothing/hair silhouettes. Retain the current three-quarter map view, ground anchors, shadows, canopy occlusion and nearest filtering. Source body poses are CC0 diamonddmgirl/Cabbit; original native clothing/hair masks and jump poses are AI-assisted project art. The generated design guide is provenance/reference only, never runtime imagery. Five outfits × four haircuts and eight matching town variants share the rig. No pixels from the supplied screenshots are copied. SOURCE_RECORD: assets/licenses/characters/SOURCE_RECORD.md.
+
+---
+
 # v0.20.2 — user-selected 2.5D depth polish
 
 The user chooses the existing view with improved shadows, layers and walking behind objects. Retain three-quarter pixel sprites, map axes, palette, existing house architecture and camera zoom. Original cached native contact-shadow pixels use fixed 2× scale and nearest filtering, with no smoothed ellipse. Keep shadows on the ground above soil/rugs, dim them while airborne, hide them while wading and retain water reflection. Upright plants sort at registered feet. Bridge decks stay opaque and at ground depth; original raised rails/posts sort at their foot, using short side sections. Tree occlusion tests full sprite bounds behind the trunk and restores opacity in front. No isometric projection, 3D engine, perspective skew or new external art.

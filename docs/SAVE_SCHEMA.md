@@ -1,3 +1,9 @@
+# v0.21.0 — additive schema 19 appearance
+
+Keep `simple-life.save.v1` and accept schemas 1–19. `appearance={outfit,hair,owned}` uses known catalog IDs. Legacy boy defaults worker/midnight; girl defaults gardener/chestnut. Both starter outfits are always owned. Paid ownership is deduplicated and unknown IDs dropped; a selected outfit must be owned. Invalid selected styles fall back to defaults. Unknown hair IDs default by character. Coins, crops, inventory, story, home, Forest, Stash Bag and existing migrations remain. A repeated normalization is idempotent. Retired curse data stays omitted. No cloud save or personal account.
+
+---
+
 # v0.20.1 — retired curse data, schema 18 retained
 
 Continue accepts v0.20.0 saves under the unchanged key and schema. Normalization omits curse data regardless of sealed/broken/restored stage, contributions or ghost timers. Saving the continued state retires that record. Current money and inventory are preserved exactly: no new reward, charge or contribution refund occurs. Farm/crop/story/home/Forest progress and all valid outdoor Stash Bags remain. No ghosts can resume from old saves.

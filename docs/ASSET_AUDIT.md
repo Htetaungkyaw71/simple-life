@@ -1,3 +1,9 @@
+# v0.21.0 — CC0 character runtime audit
+
+Normal and explicit playtest builds contain exactly **46 files / 12,069,484 bytes / 27 WAVs** (playtest byte count). Only processed/appearance.png is added; boy/girl and 160 town-person cells change. All 698 other atlas cells are byte-identical, and 38 retained runtime files outside the application/atlas/character/HTML change set match the prior release. Town atlas has 858 named cells at 1024×1966. Runtime allowlist excludes the CC0 source PNG/unused portraits, source captures, generated design guide, PDFs, vendor archives and verification screenshots. No new dependency/font/audio or remote asset. Checks/hashes: verification/appearance/asset-audit.json and deployment-files.json. Provenance: assets/licenses/characters/SOURCE_RECORD.md.
+
+---
+
 # v0.20.2 — depth rendering runtime audit
 
 Normal and explicit playtest builds transform 145 modules. The stage contains 45 files / 12,012,852 bytes / 27 approved WAVs. All 43 retained non-HTML/application-JS assets are byte-identical to v0.20.1. Pixel shadows are cached local generated textures and rails are native Graphics; they add no distributed asset files. No source, docs, QA screenshots, unused pack/vendor files or credentials enter runtime. Manifest: verification/pseudo-depth/deployment-files.json.

@@ -1,3 +1,9 @@
+# v0.21.0 — CC0 taller character bases
+
+Active people derive from diamonddmgirl **24x32 Bases** (https://opengameart.org/content/24x32-bases-0), based on Cabbit CC0 bases (https://opengameart.org/content/24x32-bases). Both pages explicitly grant CC0. Local original PNG, both page captures, CC0 text, hashes, modifications and AI guide record: [character source evidence](assets/licenses/characters/SOURCE_RECORD.md). Native 24×40 adaptations replace boy/girl and 160 town-person cells; one appearance PNG contains 20 combinations. Original AI-assisted hair/clothes/eye/jump details add no third-party pack restriction. The generated guide and unused source portraits are excluded from production. Both creators are voluntarily credited in-game. All 698 other atlas cells are byte-identical after repacking, retaining their established licences, including legacy mixed-atlas cells. Mana Seed is excluded due to its GenAI restriction. Fonts/audio/dependency licences remain unchanged.
+
+---
+
 # v0.20.2 — original pixel shadows and bridge rail source
 
 Original procedural contact-shadow pixels and raised bridge rails are authored in GroundShadow.js and BridgeView.js with disclosed Codex assistance. These generated local textures/graphics add no runtime files, copied pixels, outside image, npm dependency or new licence. Existing art/font/audio licences and Credits remain. Creation/source record: assets/licenses/pseudo-depth.md.

@@ -1,3 +1,11 @@
+# v0.21.0 — taller people and town appearance services (2026-10-13)
+
+Implemented user-authorized taller 24×40 CC0-derived player/NPC sprites, five outfit/four haircut combinations, paid town stylists, free owned-clothing changes through Home & garden → Wardrobe, English/Myanmar responsive previews and schema-19 saves/migrations. Existing depth, grounded tools/jump/water, silent doors, 19:00 curfew and postponed cave remain. Nell/Sol use their existing work locations/homes; purchases require coins, proximity, service hours and the stylist still being at work.
+
+316 tests and the normal build pass. Six initial desktop/phone profiles passed purchases/save/rotation; three depth profiles pass house, trees, crops, bridges, water/reflection and saves. Final six-profile enlarged-preview/text-bound/four-direction/fresh-girl checks pass with clean consoles. The exact staged playtest also passes fresh desktop/phone gameplay, audio, save/Continue and all 46 runtime hashes. The authorized existing friend-playtest update is prepared. Physical phones, other engines, native-speaker phrasing and long-term prices remain human checks. Character source/AI guide record: assets/licenses/characters/SOURCE_RECORD.md. Final evidence: verification/appearance/README.md.
+
+---
+
 # v0.20.2 — user-selected 2.5D depth refinement (2026-10-13)
 
 Preserve the current three-quarter view and native assets; improve ground shadows for the player/residents/wildlife, ground-vs-jump separation, plant feet sorting, raised bridge rail layers and full-height tree occlusion. Water reflection/wading remains. Maps, geometry/collision, camera framing, farming/economy/story/audio/saves and silent doors are unchanged. The cursed cave remains removed; NPCs still return at 19:00. Original generated graphics and AI assistance are documented without new runtime assets/dependencies.

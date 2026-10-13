@@ -1,3 +1,4 @@
+import {restoreAppearance} from './appearance.js';
 import {HOMES} from '../data/homes.js';
 import {restoreStory} from './story.js';
 import {VEGETATION} from '../data/vegetation.js';
@@ -23,8 +24,9 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
+  s.appearance=restoreAppearance(raw.appearance,raw.character);
   if(raw.version>=18&&raw.home){s.home.owned=Object.keys(HOMES).filter(id=>id==='starter'||Array.isArray(raw.home.owned)&&raw.home.owned.includes(id));s.home.design=s.home.owned.includes(raw.home.design)?raw.home.design:'starter';}
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.ownsCopperCan=raw.ownsCopperCan===true;
