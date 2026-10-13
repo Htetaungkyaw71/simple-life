@@ -1,3 +1,9 @@
+# v0.25.0 — girl farmer rig (2026-10-13)
+
+Starter appearance index 6 (Garden outfit/Autumn look) resolves to the girl texture with the shared FARMER rig; index 0 still resolves to the approved male. Both preload as 48×48 sprites, and title/selection/wardrobe previews use the same feet anchor. GIRL_HANDS supplies each pose's actual opaque skin-pixel centres. Existing rig-aware water cropping/reflection, depth and grounded jump arc require no new system. scripts/generated_girl.py reproduces native conversion/packing and the reusable PNG/ZIP/GIF exports. people_art.py calls both approved farmer packers when rebuilding legacy assets. Source, archives and previews stay outside the runtime allowlist. No dependency, gameplay speed, collision, economy or save-schema change.
+
+---
+
 # v0.24.0 — per-player visual rig
 
 `playerVisual` resolves the approved farmer to the existing boy texture for Worker/Classic, with 48×48 cells and originY=40/48. Legacy appearances/NPCs keep their 24×40 rig. A shared rig drives actual player frames and UI previews; source hand coordinates are injected into held tools. Water cropping uses the native ground row, and flipped reflection origin accounts for transparent padding. Save schema/physics remain unchanged. Native RGBA packing never resamples source art. Repacking Szadiart assets also calls the farmer packer to preserve the approved boy texture.

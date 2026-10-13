@@ -3842,7 +3842,193 @@
     ],
     "mirroredRow": 3,
     "shadowRemovedAlpha": 77,
-    "originalArtPreserved": true
+    "originalArtPreserved": true,
+    "generatedGirl": {
+      "tool": "OpenAI built-in image_gen",
+      "sourceSha256": "ccbc02ca9fc4614ee9f1833dca31a1a5213a43abdbba08089c3e3c67ecd89bba",
+      "nativeSheetSha256": "a7b72c9943de71b2f1e2c4553373d2c2669fc8306c420791c9c24c33443c7520",
+      "sourceSize": [
+        1881,
+        836
+      ],
+      "cellSize": [
+        48,
+        48
+      ],
+      "visibleIdleHeights": [
+        30,
+        29,
+        29,
+        28
+      ],
+      "sourceScale": 6.5,
+      "conversion": "nearest sampling, alpha threshold 128, shared 32-colour palette, waist registration",
+      "anchors": [
+        [
+          [
+            121,
+            212
+          ],
+          [
+            338,
+            212
+          ],
+          [
+            542,
+            212
+          ],
+          [
+            746,
+            212
+          ],
+          [
+            951,
+            212
+          ],
+          [
+            1148,
+            212
+          ],
+          [
+            1356,
+            212
+          ],
+          [
+            1553,
+            212
+          ],
+          [
+            1753,
+            212
+          ]
+        ],
+        [
+          [
+            121,
+            417
+          ],
+          [
+            328,
+            417
+          ],
+          [
+            537,
+            417
+          ],
+          [
+            744,
+            417
+          ],
+          [
+            948,
+            417
+          ],
+          [
+            1152,
+            417
+          ],
+          [
+            1351,
+            417
+          ],
+          [
+            1554,
+            417
+          ],
+          [
+            1754,
+            417
+          ]
+        ],
+        [
+          [
+            111,
+            622
+          ],
+          [
+            334,
+            622
+          ],
+          [
+            533,
+            622
+          ],
+          [
+            744,
+            622
+          ],
+          [
+            939,
+            622
+          ],
+          [
+            1147,
+            622
+          ],
+          [
+            1343,
+            622
+          ],
+          [
+            1548,
+            622
+          ],
+          [
+            1753,
+            622
+          ]
+        ],
+        [
+          [
+            139,
+            826
+          ],
+          [
+            332,
+            826
+          ],
+          [
+            535,
+            826
+          ],
+          [
+            742,
+            826
+          ],
+          [
+            945,
+            826
+          ],
+          [
+            1148,
+            826
+          ],
+          [
+            1350,
+            826
+          ],
+          [
+            1543,
+            826
+          ],
+          [
+            1753,
+            826
+          ]
+        ]
+      ],
+      "directions": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ],
+      "idleFramesPerDirection": 1,
+      "runFramesPerDirection": 8,
+      "runFps": 16,
+      "groundRow": 40,
+      "jump": "Existing world arc uses passing run poses; no separately authored jump animation."
+    }
   },
   "modifications": "Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.",
   "townResidents": {

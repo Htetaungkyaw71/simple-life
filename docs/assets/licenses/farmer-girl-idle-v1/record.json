@@ -1,0 +1,27 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "reference-guided generation and one targeted revision",
+  "reference": "docs/assets/licenses/characters-pixellab/source/Idle/rotations/south.png",
+  "referenceSha256": "72c606a9761977542d405a07523906e8fd529d04d15872e414861ef25dec6758",
+  "output": "output/art/farmer-girl-idle-v1.png",
+  "outputSha256": "b3af6aa5b0e2ed5013629aa87d28a1e0f5daea3c02f854b7c7e7f0b4db96bfb3",
+  "size": [
+    1246,
+    1263
+  ],
+  "modeRGBA": "RGBA",
+  "alphaRange": [
+    0,
+    255
+  ],
+  "visibleAlpha128Bounds": [
+    472,
+    270,
+    790,
+    1088
+  ],
+  "transparentPixels": 1392269,
+  "sourceBytesCopiedUnchanged": true,
+  "status": "Front-facing idle design preview; native 32x32 cleanup and animation not yet supplied.",
+  "runtimeChanged": false
+}

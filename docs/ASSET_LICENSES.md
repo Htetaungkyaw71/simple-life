@@ -1,3 +1,17 @@
+# v0.25.0 — farmer girl runtime art (2026-10-13)
+
+The girl starter texture and four running directions use original OpenAI-generated output, adapted to native pixels with Codex assistance. [Source/terms record](assets/licenses/farmer-girl-v1/SOURCE_RECORD.md) retains the exact prompt, original generated sheet, conversion script details and hashes. OpenAI service output terms apply; this is not CC0 or a guarantee of exclusive copyright. Style references are the authorized girl design and user's approved PixelLab male. Existing PixelLab male and Szadiart people/scenery licences remain. Source art, PNG export pack, ZIP, prompts and QA previews never enter the production build.
+
+---
+
+# Farmer girl idle design candidate — 2026-10-13
+
+The farmer girl candidate is original AI-generated output from OpenAI built-in image generation, using the user-approved PixelLab male farmer as a style/proportion reference. Service output terms apply; it is not CC0, commissioned human art or a claim of exclusive copyright. Exact prompts/hashes are in output/art/farmer-girl-idle-v1-prompts.txt and farmer-girl-idle-v1-record.json. It remains outside runtime and does not replace any currently licensed player/NPC textures.
+
+Art provenance evidence is also retained under [farmer-girl-idle-v1](assets/licenses/farmer-girl-idle-v1/record.json), alongside the exact prompt set.
+
+---
+
 # v0.24.0 — approved PixelLab farmer (2026-10-13)
 
 Worker/Classic player art is now user-generated PixelLab output. PixelLab Terms of Service sections 1.3/3.3 permit game use and output modification/distribution, subject to applicable laws and the linked Open RAIL-M terms; training other models requires permission. Public terms/licence, exact PNGs/metadata, archive/file hashes and packing details are in [source record](assets/licenses/characters-pixellab/SOURCE_RECORD.md). These are custom output-use terms, not CC0. Other looks and eight NPCs retain their existing Szadiart licences. Source archives, unused diagonals and evidence never enter the unchanged runtime asset allowlist.

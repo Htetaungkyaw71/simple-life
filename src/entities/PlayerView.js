@@ -3,6 +3,7 @@ import {HeldWateringCan} from './HeldWateringCan.js';
 import {groundShadow,SHADOW_DEPTH} from '../art/GroundShadow.js';
 import {playerVisual} from '../data/appearance.js';
 import {FARMER_HANDS} from '../data/farmerHands.js';
+import {GIRL_HANDS} from '../data/girlHands.js';
 const DIRECTIONS=['down','up','left','right'];
 export class PlayerView {
   constructor(scene,character){
@@ -10,7 +11,7 @@ export class PlayerView {
     this.frameOffset=offset;this.texture=texture;this.rig=rig;
     this.scene=scene;
     this.sprite=scene.add.sprite(0,0,texture,offset).setOrigin(.5,rig.originY).setScale(rig.scale);this.anchor=scene.add.zone(0,0,1,1);this.shadow=groundShadow(scene,0,0,28,8);this.direction='down';this.character=key;
-    this.wateringCan=new HeldWateringCan(scene,texture==='boy'?FARMER_HANDS:null);
+    this.wateringCan=new HeldWateringCan(scene,texture==='boy'?FARMER_HANDS:texture==='girl'?GIRL_HANDS:null);
     for(const [row,dir]of DIRECTIONS.entries()){
       const walk=`${this.character}-${dir}`,idle=`${this.character}-${dir}-idle`;
       if(!scene.anims.exists(walk))scene.anims.create({key:walk,frames:Array.from({length:rig.runFrames},(_,n)=>({key:texture,frame:offset+row*rig.columns+rig.runStart+n})),frameRate:rig.moveFrameRate,repeat:-1});

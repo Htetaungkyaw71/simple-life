@@ -8,6 +8,7 @@ import {walkable} from '../../src/data/locations.js';
 import {FARM_PLOTS} from '../../src/data/farms.js';
 const {chromium}=await import('/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
 const base=process.env.GAME_URL||'http://127.0.0.1:4196/',out=process.env.QA_OUT||'/private/tmp/simple-life-pseudo-depth';await mkdir(out,{recursive:true});
+const character=process.env.QA_CHARACTER==='girl'?'girl':'boy';
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true}),records=[];
 const routeClear=t=>{for(const [dx,dy]of [[0,-46],[-60,-46],[-60,54],[0,54]])if(!walkable('home',t.x+dx,t.y+dy))return false;return true;};
 const tree=VEGETATION.home.trees.find(routeClear);assert.ok(tree);
@@ -17,7 +18,7 @@ try{for(const [renderer,lang,width,height]of [['canvas','en',1280,720],['canvas'
  p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(['warning','error'].includes(m.type()))errors.push(m.text());});
  const snap=()=>p.evaluate(()=>{const v=window.__simpleLife.snapshot();return Object.fromEntries(['state','controls','rendering','camera','jump','water','paused','input'].map(k=>[k,v[k]]));});
  const click=async id=>{const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,id);await(width<1000?p.touchscreen.tap(c.x+c.w/2,c.y+c.h/2):p.mouse.click(c.x+c.w/2,c.y+c.h/2));await p.waitForTimeout(150);};
- const fixture=(area,position)=>{const s=newState();Object.assign(s,{area,position,day:8,minute:720,money:235,testingCoinGrant:TESTING_COIN_GRANT,starterSeedsClaimed:true,forestTutorialComplete:true,nightWarningSeen:true,hasVisitedFarm:true});s.story.intro='seen';return s;};
+ const fixture=(area,position)=>{const s=newState(character);Object.assign(s,{area,position,day:8,minute:720,money:235,testingCoinGrant:TESTING_COIN_GRANT,starterSeedsClaimed:true,forestTutorialComplete:true,nightWarningSeen:true,hasVisitedFarm:true});s.story.intro='seen';return s;};
  const start=async s=>{const url=new URL(base);url.searchParams.set('qa','');url.searchParams.set('renderer',renderer);for(let i=0;i<3;i++){try{await p.goto(url.href);break;}catch(e){if(i===2||!e.message.includes('ERR_CONNECTION_RESET'))throw e;}}await p.waitForFunction(()=>{try{return !!window.__simpleLife?.snapshot().controls.length;}catch{return false;}});await p.evaluate(s=>localStorage.setItem('simple-life.save.v1',JSON.stringify(s)),s);await click('language-'+lang);await click('Continue');};
  const move=async(key,ms)=>{
   if(width>=1000){await p.keyboard.down(key);await p.waitForTimeout(ms);await p.keyboard.up(key);}
@@ -37,6 +38,6 @@ try{for(const [renderer,lang,width,height]of [['canvas','en',1280,720],['canvas'
   const forestBridge=MAPS.forest.bridges.find(b=>b.axis!=='vertical');assert.ok(forestBridge);await start(fixture('forest',{x:forestBridge.x+forestBridge.w/2,y:forestBridge.y+forestBridge.h/2}));v=await snap();assert.ok(v.rendering.rails.some(r=>r.depth===forestBridge.y+forestBridge.h));assert.equal(v.water.wading,false);assert.equal(v.rendering.player.shadow.visible,true);await capture('forest-bridge');const beforeX=v.state.position.x;await move('d',200);assert.ok((await snap()).state.position.x>beforeX);
   await start(fixture('city',{x:bridge.x-24,y:80}));v=await snap();assert.equal(v.water.wading,true);assert.equal(v.rendering.player.shadow.visible,false);assert.equal(v.water.reflection,true);await capture('water');
   await click('pause');assert.equal((await snap()).rendering.player.shadow.visible,false);await click('Save');await click('Resume');await p.reload();await p.waitForFunction(()=>{try{return !!window.__simpleLife?.snapshot().controls.length;}catch{return false;}});await click('language-'+lang);await click('Continue');v=await snap();assert.equal(v.state.money,235);assert.equal(v.state.area,'city');assert.equal(v.state.health,100);assert.equal(v.state.energy,100);assert.deepEqual(errors,[]);
-  records.push({name,result:'PASS',groundAndJumpShadow:true,frontBackTree:true,cropDepth:true,layeredBridge:true,waterReflection:true,saveReload:true,errors});console.log('PASS depth',name);
+  records.push({character,name,result:'PASS',groundAndJumpShadow:true,frontBackTree:true,cropDepth:true,layeredBridge:true,waterReflection:true,saveReload:true,errors});console.log('PASS depth',name);
  }catch(e){await capture('failure');await writeFile(out+'/failure.json',JSON.stringify({error:e.stack,snapshot:await snap().catch(()=>null),tree,errors},null,2));throw e;}finally{await ctx.close();}
 }await writeFile(out+'/results.json',JSON.stringify({result:'PASS',url:base,records},null,2)+'\n');}finally{await browser.close();}

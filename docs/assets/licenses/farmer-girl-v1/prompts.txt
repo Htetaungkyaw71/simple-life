@@ -1,0 +1,12 @@
+Use case: stylized-concept
+Asset type: production pixel-art character sprite sheet for a low top-down farming RPG.
+Input 1 is the approved female farmer identity reference. Input 2 is the male farmer reference for native pixel density and adult proportions.
+Create a complete consistent sprite sheet of ONE female farmer: brown ponytail, warm tan skin, ivory rolled-sleeve shirt, olive overalls, brown boots. Preserve her face, ponytail, outfit and muted palette in every frame. Slim adult body, modest small head, clear empty hands and boots, low top-down view.
+Exact layout: 9 evenly spaced columns and 4 evenly spaced rows; 36 separate full-body sprites, each centered in its identical cell. Column 1 in every row is standing idle with hands relaxed. Columns 2 through 9 are EIGHT successive different frames of a smooth looping RUN, alternating bent knees, planted and lifted boots, opposite arm swings and a gentle one-pixel vertical bounce. A light natural jog, not full sprint and not a stationary sliding idle image. First and last running frames join in a seamless cycle.
+Row 1 faces SOUTH (toward camera).
+Row 2 faces NORTH (away from camera; back of hair and ponytail, no visible face).
+Row 3 faces WEST (left profile; nose and toes point LEFT).
+Row 4 faces EAST (right profile; nose and toes point RIGHT).
+Keep all rows EXACTLY aligned with no labels or separators. Generous transparent gutters between sprites. Entire bodies, ponytails, arms and boots visible, no overlaps or clipping.
+Pixel density: each sprite approximately 30 logical pixels tall and 14–16 logical pixels wide inside a logical 48x48 cell, intended to be reduced to native game pixels. Render crisp uniform square pixel blocks, minimal flat colour clusters, 2–3 shades per material, selective dark outlines, tiny dark eyes. Low-resolution game sprites, not high-resolution pixel-style illustrations. Every sprite has same scale, head/body proportions and palette.
+Genuine transparent alpha background. No checkerboard, white background, scenery, text, numbers, grid lines, ground shadows, props, weapons, hats, extra characters or decorative objects. One complete 9-column x 4-row sprite sheet only.

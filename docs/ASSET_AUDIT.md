@@ -1,3 +1,9 @@
+# v0.25.0 — farmer girl native asset audit
+
+Four generated idle poses and 32 running poses are packed into 48 cells. All eight run images differ in every direction, with genuine arm and foot pixel changes and 48 opaque skin-pixel grips. Native alpha is binary and the shared palette has 32 colours. Male, legacy appearance and town PNG/JSON are byte-identical to the preceding commit. Runtime remains 46 files with 27 WAVs; raw generated output, prompts, export ZIPs and previews are excluded. [Evidence](verification/farmer-girl/native-audit.json).
+
+---
+
 # v0.24.0 — approved PixelLab farmer
 
 Native audit verifies 41 source hashes, 48 packed cells with 14,142 nontransparent pixels, 32 unique original run PNGs and 48 source skin-pixel grips. Idle is translated into a padded run cell; no RGBA pixel is altered. Four other people assets (appearance, girl, town PNG/JSON) match v0.23.0 byte-for-byte. Runtime remains 46 allowlisted files, with 27 unchanged WAVs, dependency notices and raw/evidence exclusion verified. [Evidence](verification/pixellab-farmer/README.md).

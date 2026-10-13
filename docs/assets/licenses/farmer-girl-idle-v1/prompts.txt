@@ -1,0 +1,17 @@
+Built-in image_gen, transparent_background=true.
+
+Initial generation (approved male farmer used as style reference):
+Use case: stylized-concept
+Asset type: one original female farmer idle sprite for the Simple Life pixel-art farming game.
+Input image 1: style and proportion reference ONLY — the user's approved male farmer, a 32x32 native pixel sprite. Create a new female character, not a sheet containing the reference.
+Primary request: An original young adult female farmer matching the reference's pixel scale, slim adult proportions, modest small head, longer legs, muted colours and low top-down RPG perspective. Brown ponytail, warm tan skin, ivory rolled-sleeve shirt, olive overalls and brown boots. Tiny dark pixel eyes, clearly visible hands, narrow shoulders, connected waist and legs. Simple crisp pixel clusters, minimal shading and thin selective outlines.
+Composition: ONE full-body south-facing idle pose only, standing naturally with empty hands relaxed near her sides. Entire hair and boots visible, centred in a square transparent canvas. Match the reference's approximately 30-pixel visible character height and narrow silhouette on a logical 32x32 pixel grid. Keep coarse native pixel geometry, not dense high-resolution pixel-style illustration. If displayed enlarged, use uniform square pixel blocks with hard edges, no smoothing or antialiasing.
+Background: genuine transparent alpha, including around the hair and between the legs; no painted checkerboard.
+Avoid: extra poses or characters, scenery, text, labels, ground shadows, props, hats, weapons, huge eyes, oversized chibi head, bulky body, gradients, fine line art or glossy shading.
+
+Targeted revision (female draft as edit target, male farmer as style reference):
+Use case: style-transfer
+Image 1 is the female farmer edit target. Image 2 is the approved male farmer style and proportion reference, at native 32x32 pixels.
+Revise ONLY the female farmer's pixel density and head/eye proportions to match image 2 much more closely. Retain her brown ponytail, warm tan skin, ivory rolled sleeves, olive overalls, brown boots, front-facing idle stance and empty hands. Reduce the head and hair mass about 25 percent relative to her body; use tiny dark pixel eyes instead of the large white cartoon eyes. Keep the slim adult torso and longer legs.
+Render the entire single character using a coarse logical 32x32 grid with approximately 30 pixels of visible height and 14–16 pixels of width, like the reference. Each logical pixel is a uniform hard square; use minimal flat colour clusters with only two or three shade levels per material. No finely subdivided pixel blocks or detailed hair texture. This is low-resolution game art, not an elaborate pixel-style illustration.
+Genuine transparent alpha background, clean empty transparent space everywhere outside the one character, no faint stray pixels, no shadows, labels, scenery, props or extra poses. Entire ponytail and both boots visible.

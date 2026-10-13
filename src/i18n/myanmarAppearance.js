@@ -1,4 +1,5 @@
 export const MM_APPEARANCE={
+ 'Boy / user-generated PixelLab':'ယောက်ျားလေး / PixelLab ဖြင့်ဖန်တီးထားသည်','Girl / OpenAI image generation':'မိန်းကလေး / OpenAI ဖြင့်ဖန်တီးထားသည်','Native pixels / Codex-assisted.':'ဂိမ်းပစ်ဇယ်များ / Codex ကူညီထားသည်။',
  'Farmer art':'လယ်သမားပုံ','PixelLab terms':'PixelLab စည်းမျဉ်းများ','Farmer / user-generated PixelLab':'လယ်သမား / PixelLab ဖြင့်ဖန်တီးထားသည်','Other people / Szadi art.':'အခြားဇာတ်ကောင် / Szadi art.','Original exported pixels.':'ထုတ်ယူထားသော မူရင်းပစ်ဇယ်များ။','Local packing / Codex-assisted.':'ပုံစုစည်းမှု / Codex ကူညီထားသည်။',
  Outfits:'ဝတ်စုံများ',Looks:'ပုံစံများ','Town stylist':'မြို့ပုံစံဆိုင်','Stylist / Sol':'ပုံစံဆိုင် / Sol',
  'Worker outfit':'အလုပ်ဝတ်စုံ','Garden outfit':'ဥယျာဉ်ဝတ်စုံ','Copper outfit':'ကြေးရောင်ဝတ်စုံ','Plum outfit':'ခရမ်းရောင်ဝတ်စုံ','Forest outfit':'တောဝတ်စုံ',

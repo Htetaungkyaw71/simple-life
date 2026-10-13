@@ -1,3 +1,9 @@
+# v0.25.0 — generated farmer girl (2026-10-13)
+
+Use the user-requested brown ponytail, tan skin, ivory rolled sleeves, olive overalls and brown boots for the girl starter look (Garden/Autumn). Four generated directional idles and 32 generated running poses are adapted to native 48×48 cells with a 30-pixel front-facing ink height, shared ground row 40, 32-colour palette and integer 2× rendering. Source sheet and prompt are retained; nearest sampling/palette adaptation is disclosed. Body geometry is not cut into independently shifted parts; source arm/leg changes supply the cycle at 16 fps. Original male, other complete presets, NPCs, camera/depth and physics remain. Three passing run frames support the existing jump arc; no new authored jump/tool-use cycle is claimed.
+
+---
+
 # v0.24.0 — approved PixelLab farmer (2026-10-13)
 
 The user-approved PixelLab farmer replaces the existing free Worker outfit / Classic look. All four native running directions use eight unique exported frames at 16 fps. Original RGBA pixels and slim proportions remain unchanged, rendered at integer 2× with nearest filtering. Static idle frames are padded into the larger 48×48 run canvas; shared ground row 40 keeps feet, shadows, tools and shallow-water cropping aligned. Title, character choice and wardrobe previews show the same approved farmer.

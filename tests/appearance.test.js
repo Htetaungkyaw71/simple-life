@@ -4,12 +4,23 @@ import {readFileSync} from 'node:fs';
 import {newState} from '../src/systems/state.js';
 import {validate} from '../src/systems/save.js';
 import {changeAppearance,styleQuote,styleServiceOpen} from '../src/systems/appearance.js';
-import {appearanceFrame,STYLE_SERVICES,OUTFIT_IDS,HAIRCUT_IDS,PEOPLE} from '../src/data/appearance.js';
+import {appearanceFrame,STYLE_SERVICES,OUTFIT_IDS,HAIRCUT_IDS,PEOPLE,FARMER,playerVisual} from '../src/data/appearance.js';
 import {residentContext,residentsFor} from '../src/systems/residents.js';
 import {AppearancePanel} from '../src/ui/AppearancePanel.js';
 import {recorder} from './helpers/uiRecorder.js';
 import {MM_APPEARANCE} from '../src/i18n/myanmarAppearance.js';
 const visit=(s,category)=>Object.assign(s,{area:'city',minute:600,position:{...STYLE_SERVICES[category]}});
+test('both starter looks use directional farmer rigs and survive old saves and wardrobe changes',()=>{
+ for(const character of ['boy','girl']){
+  const s=newState(character),visual=playerVisual(s.appearance,character);
+  assert.equal(visual.texture,character);assert.equal(visual.rig,FARMER);
+  assert.equal(playerVisual(null,character).texture,character);
+  s.money=311;s.inventory.tomato=8;const loaded=validate(JSON.parse(JSON.stringify(s)));
+  assert.deepEqual(playerVisual(loaded.appearance,loaded.character),visual);assert.equal(loaded.money,311);assert.equal(loaded.inventory.tomato,8);
+  visit(loaded,'clothes');changeAppearance(loaded,'clothes','copper');assert.equal(playerVisual(loaded.appearance,character).rig,PEOPLE);
+  changeAppearance(loaded,'clothes',s.appearance.outfit);assert.deepEqual(playerVisual(loaded.appearance,character),visual);assert.equal(loaded.money,221);
+ }
+});
 test('outfit purchase is atomic; owned clothes equip free outside town',()=>{
  const s=newState();s.money=89;visit(s,'clothes');const before=structuredClone(s);assert.equal(styleQuote(s,'clothes','copper').ok,false);changeAppearance(s,'clothes','copper');assert.deepEqual(s,before);
  s.money=90;changeAppearance(s,'clothes','copper');assert.equal(s.money,0);assert.equal(s.appearance.outfit,'copper');assert.equal(s.appearance.owned.filter(x=>x==='copper').length,1);

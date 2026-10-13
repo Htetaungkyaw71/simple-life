@@ -1,3 +1,15 @@
+# v0.25.0 — generated farmer girl and running poses (2026-10-13)
+
+OpenAI built-in image_gen generated a 9×4 sheet from the approved girl design and male pixel-scale reference: four idle poses and 32 running poses. Codex implemented nearest native conversion, shared palette/waist registration, packing, source skin-pixel hand grips, starter-look routing, UI preview/credit updates, export packaging and local QA. Model-version metadata was not exposed by the image tool. AI-generated artwork is adapted, not unchanged high-resolution output or human-drawn art. Exact prompt and original RGBA source/hashes are under assets/licenses/farmer-girl-v1. Existing male and NPC assets remain. No external plugin, runtime generation, backend, source push or deployment.
+
+---
+
+# Farmer girl idle design candidate — 2026-10-13
+
+OpenAI built-in image_gen produced one original front-facing female farmer idle candidate, referencing the user-approved PixelLab male farmer. One targeted revision requested a smaller head/eyes and coarser pixel density. The selected RGBA PNG is copied unchanged to output/art/farmer-girl-idle-v1.png; exact prompts and reference/output hashes accompany it. This is AI-generated concept art, not native 32x32-ready animation. No runtime replacement or deployment was requested or performed.
+
+---
+
 # v0.24.0 — approved PixelLab farmer (2026-10-13)
 
 The user generated and approved the farmer and four eight-frame running directions with PixelLab. OpenAI Codex assisted with prompt/settings advice, trial/tool research, export inspection, byte-preserving packing, ground registration, hand-grip extraction, appearance/UI/water integration and isolated browser QA. PixelLab supplied the actual art and motion; Codex did not redraw, recolour, resample or deform it. Existing Szadiart NPC/other-look pixels remain. No subagents, new dependency/backend, runtime API calls, model training or source push. The account screenshot's secret was not used or retained; the user was advised to rotate it.

@@ -46,7 +46,7 @@ export class WorldScene extends Phaser.Scene {
     const base=import.meta.env.BASE_URL+'assets/pixel/';
     this.load.atlas('world',base+'world.png',base+'world.json');
     this.load.atlas('town',base+'processed/town.png',base+'processed/town.json');
-    for(const char of ['boy','girl','appearance']){const rig=char==='boy'?FARMER:PEOPLE;this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:rig.width,frameHeight:rig.height});}
+    for(const char of ['boy','girl','appearance']){const rig=char==='appearance'?PEOPLE:FARMER;this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:rig.width,frameHeight:rig.height});}
     this.load.bitmapFont('pixel',base+'font.png',base+'font.xml');
     for(const name of ['thaleah','m5x7'])this.load.bitmapFont(name,base+'fonts/'+name+'.png',base+'fonts/'+name+'.xml');
     const loading=this.add.graphics();loading.fillStyle(0xe1d7ad).fillRect(20,20,120,4);

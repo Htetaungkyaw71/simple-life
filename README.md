@@ -1,3 +1,11 @@
+# v0.25.0 — farmer girl sprites (2026-10-13)
+
+The new brown-ponytail farmer girl is playable in the local project. Choose Play as Girl, or equip the free Garden outfit / Autumn look in the wardrobe. Four directional idle poses and eight-frame running cycles use native pixels, the same padded 48×48 rig and 16 fps cadence as the approved male farmer. Front idle art is 30 pixels tall; source art is generated with OpenAI imagegen and adapted to a shared 32-colour palette. Tools follow each real hand pixel. Other complete looks and town NPCs retain their established art.
+
+[Local preview](http://127.0.0.1:4201/) while its preview server runs. [Sprites and animation export](output/art/farmer-girl-v1.zip), [generation/source record](docs/assets/licenses/farmer-girl-v1/SOURCE_RECORD.md) and [verification](docs/verification/farmer-girl/README.md). Build/saves remain local; this version has not been published.
+
+---
+
 # v0.24.0 — approved PixelLab farmer (2026-10-13)
 
 The user-approved PixelLab farmer replaces the existing free Worker outfit / Classic look. All four native running directions use eight unique exported frames at 16 fps. Original RGBA pixels and slim proportions remain unchanged, rendered at integer 2× with nearest filtering. Static idle frames are padded into the larger 48×48 run canvas; shared ground row 40 keeps feet, shadows, tools and shallow-water cropping aligned. Title, character choice and wardrobe previews show the same approved farmer.
