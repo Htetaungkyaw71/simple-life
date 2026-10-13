@@ -1,5 +1,3 @@
-import {CurseView} from '../art/CurseView.js';
-import {stepCurse,nearCave} from '../systems/curse.js';
 import {wateringPreview} from '../systems/wateringCan.js';
 import {simulationActive} from '../systems/time.js';
 import {placedDecorationAt} from '../systems/settlement.js';
@@ -118,7 +116,7 @@ export class WorldScene extends Phaser.Scene {
     this.marker=this.add.image(0,0,'world','marker').setScale(2).setDepth(10001).setVisible(false);
     this.treeProgress=new TreeProgressView(this);this.placementView=new PlacementView(this);
     this.lastGroundTap=null;this.jumping=jumpRuntime();this.grass=new GrassView(this,MAPS[s?.area||'farm']);
-    this.combat=combatRuntime();this.forestView=new ForestView(this);this.curseView=new CurseView(this);
+    this.combat=combatRuntime();this.forestView=new ForestView(this);
     this.residents=new ResidentView(this,s?.area||'farm');
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
     drawHomeKeepsake(this,s);const light=worldLight(s||{area:'home',minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);
@@ -134,8 +132,6 @@ export class WorldScene extends Phaser.Scene {
   renderWetGround(){const s=this.app.state;if(!s)return;const signature=(s.wetGround||[]).filter(p=>p.area===s.area&&(s.area!=='farm'||p.farm===(s.currentFarm||0))).map(p=>p.x+','+p.y).join(';');if(signature!==this.wetSignature){this.wetSignature=signature;drawWetGround(this,this.wetPatches);if(s.area==='farm')drawPlots(this,s.plots,this.plots);}}
   touchContext(world){
     const s=this.app.state;
-    if(s.selected==='axe')for(const [i,g]of this.curseView.ghosts.entries())if(g.sprite.visible&&g.sprite.getBounds().contains(world.x,world.y)){const spirit=s.curse.ghosts[i];return Math.hypot(spirit.position.x-s.position.x,spirit.position.y-s.position.y)<80?{type:'hunt',id:spirit.id,...spirit.position}:{...spirit.position,type:'hint',label:'Walk closer'};}
-    if(nearCave(s)&&this.curseView.cave?.getBounds().contains(world.x,world.y))return {type:'cursedCave',...s.position};
     if(s.area==='forest'&&s.selected==='axe')for(const n of [...this.forestView.animals,...this.forestView.woodland.animals]){
       if(!n.sprite.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
       const id=n.definition?.id||n.id,animal=s.forest.animals[id]||s.forest.woodland[id];
@@ -166,8 +162,7 @@ export class WorldScene extends Phaser.Scene {
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
       else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=forestPortalTravel(s,this.time.now,this.travelReady||0)||readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
-    if(!a.paused&&!document.hidden){a.resolveAttack(delta);const wild=stepCombat(s,this.combat,delta),curse=wild.dead?{}:stepCurse(s,this.combat,delta),result={...wild,...curse};if(curse.beganNight){a.ui.toast('The curse awakens / ghosts return until 6 am.');a.save();}if(curse.dawn){a.ui.toast('Dawn / the spirits retreat until 7 pm.');a.save();}if(result.warning)a.sound('animal:warning');if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
-    this.curseView.update(this.combat.now);
+    if(!a.paused&&!document.hidden){a.resolveAttack(delta);const result=stepCombat(s,this.combat,delta);if(result.warning)a.sound('animal:warning');if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
     this.portal?.update(this.time.now);
     this.player?.update(s.position,dx,dy,jumpPose(this.jumping),intent);
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}

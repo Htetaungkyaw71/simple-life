@@ -1,3 +1,11 @@
+# v0.20.1 — cursed cave postponed (2026-10-13)
+
+The sealed/cursed cave, spirits, warning, map marker, repair quest and Curse Breaker achievement are removed at the user’s request. The previously removed skull caves remain absent. Existing saves continue with current coins, inventory, farms, story and Stash Bags; retired curse records are ignored and omitted on the next save. NPCs and merchants still return home by 7 pm. Implementation history is retained in Git for a later feature request.
+
+Checks and release: [cave removal verification](docs/verification/curse-removal/README.md).
+
+---
+
 # v0.20.0 — optional cursed cave (2026-10-12)
 
 The two skull caves are removed. One sealed cave in eastern Dark Forest is marked on the Forest map. Visiting it is harmless. Inspect it to read a pictured English/Myanmar warning, then explicitly choose Break seal. An untouched seal never causes attacks.

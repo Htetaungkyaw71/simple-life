@@ -1,3 +1,9 @@
+# v0.20.1 — feature retirement assistance, 2026-10-13
+
+OpenAI Codex assisted with the user-requested removal of the last sealed/cursed cave feature, source integration cleanup, regression checks for legacy saves/night combat/Stash Bags, isolated native-input browser verification, documentation and the previously authorized same-origin friend playtest update. The implementation is recoverable through local Git history. No subagent, new art service, dependency, user-profile save editing, source push or competition submission. Checks/release evidence: verification/curse-removal/README.md.
+
+---
+
 # v0.20.0 — cursed cave assistance, 2026-10-12
 
 OpenAI Codex assisted with the user's explicit curse-cave implementation request: original cave/spirit pixel source, data-driven pure mechanics, saved staged repairs and quest achievement, 7 pm resident/shop timing, reusable outdoor stash handling, English/Myanmar pictured warning and responsive UI, automated unit/native-input browser verification, documentation and the authorized same-origin playtest update. The earlier user concept and screenshot informed the mechanic and removed object; no screenshot pixels or series assets were copied. No image-generation service, new downloaded art/audio/font/dependency, backend, source push or subagent was used. Existing licensed assets/fonts/audio and Credits remain. Burmese phrasing and final art/difficulty acceptance remain human review. Disposable browser contexts never modify the user's browser saves. Creation evidence: assets/licenses/cursed-cave.md; checks/release evidence: verification/cursed-cave/README.md.

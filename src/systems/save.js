@@ -1,4 +1,3 @@
-import {restoreCurse} from './curse.js';
 import {HOMES} from '../data/homes.js';
 import {restoreStory} from './story.js';
 import {VEGETATION} from '../data/vegetation.js';
@@ -150,7 +149,6 @@ export function validate(raw) {
       else if(resized&&Object.hasOwn(DECORATIONS,d.type)&&!DECORATIONS[d.type].outdoors&&Number.isInteger(d.x)&&Number.isInteger(d.y)&&d.x>=0&&d.x<=oldRoom.width&&d.y>=0&&d.y<=oldRoom.height)s.inventory[DECORATIONS[d.type].item]=Math.min(9999,s.inventory[DECORATIONS[d.type].item]+1);}
     s.position=nearestSafe(s.area,s.position,s);
   }
-  s.curse=restoreCurse(raw,s);
   restoreStory(raw,s);
   return s;
 }

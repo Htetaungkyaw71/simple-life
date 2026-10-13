@@ -1,3 +1,9 @@
+# v0.20.1 — cursed cave deferred
+
+The user postpones the optional cursed cave. Remove its object, warning/confirmation, nighttime spirits, repair contributions, map marker and achievement. Do not restore the previously removed skull caves. Keep the established farming, exploration, animal combat and five Journal chapters. NPCs and shops retain 19:00 return/closure; lighting and sleep retain established timing.
+
+---
+
 # v0.20.0 — optional curse choice and repair achievement
 
 One sealed cave lies in eastern Dark Forest, marked on the Forest map. No curse occurs without an explicit pictured, paged warning and deliberate Break seal. The one-time 200c cache is the temptation. From 19:00 to 06:00 while broken, up to three tattered spirits pursue outdoors; the existing Axe disperses them with three hits, with no loot, and they re-form after five active seconds. They use solid-ground movement, arrival/attack telegraphs, 12 damage and shared 750ms invulnerability. The farmer can outrun them; the interior and daytime are safe. NPCs reach actual home doors by 19:00. Sleep/night lighting retain established 20:00 rules.

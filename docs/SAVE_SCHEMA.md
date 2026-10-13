@@ -1,3 +1,9 @@
+# v0.20.1 — retired curse data, schema 18 retained
+
+Continue accepts v0.20.0 saves under the unchanged key and schema. Normalization omits curse data regardless of sealed/broken/restored stage, contributions or ghost timers. Saving the continued state retires that record. Current money and inventory are preserved exactly: no new reward, charge or contribution refund occurs. Farm/crop/story/home/Forest progress and all valid outdoor Stash Bags remain. No ghosts can resume from old saves.
+
+---
+
 # v0.20.0 — additive schema 18 curse record
 
 The existing save key/version remain. Missing or invalid curse data defaults to harmless `sealed`. Known stages are sealed/broken/restored; bounded paid money/Wood/Stone/Meat amounts persist independently of current stock. Only fully funded repair records restore as `restored`, with permanent Curse Breaker evidence through restoredDay/stage. Three known ghost IDs preserve health, active-time respawn/arrival/windup/recovery and safe outdoor positions. Interior/unsafe/unknown positions are discarded; timers clamp to defined maxima. A single night key continues across midnight and resets at dawn/new night. No pending UI confirmation is saved; reloading before Break seal remains harmless.

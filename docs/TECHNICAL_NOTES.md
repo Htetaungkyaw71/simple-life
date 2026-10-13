@@ -1,3 +1,9 @@
+# v0.20.1 — cave retirement
+
+Five feature modules are removed and the normal/playtest build returns to 143 modules. Save normalization drops legacy curse data while preserving established gameplay fields. Generated cave textures and the specific cave collider/map marker are gone. NPC curfew and recoverable outdoor bags remain. Full checks/device limits: verification/curse-removal/README.md.
+
+---
+
 # v0.20.0 — optional cave implementation
 
 Data/pure systems own cave guards, repair spends, timer bounds and nightly pursuit. Saved ghost timers are active milliseconds, clamped per simulation step consistently with existing combat; menus/hidden tabs do not advance them. Midnight retains the current night; dawn/new nights clear/reset ghosts. Scene changes relocate outdoor spirits with an arrival telegraph; the interior clears visible ghosts. Axe targeting prefers a valid close spirit before nearby cave/vegetation, preserving contextual mobile Hit. Repair/cache mutations happen before saves, preventing repeat-click rewards. Legacy records default sealed; restored records require full paid costs. Reuse existing stash recovery for all outdoor areas; validate farm domain.

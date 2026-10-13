@@ -1,3 +1,9 @@
+# v0.20.1 — cave removal runtime audit
+
+The feature’s generated textures are removed from source/runtime. Normal and explicit playtest builds each transform 143 modules. The staged playtest has 45 files / 12,010,253 bytes / 27 WAVs; all 43 retained non-HTML/application-JS files are byte-identical to v0.20.0, including fonts, licensed art, audio and notices. No source, documents, vendor archives or credentials enter the stage. Fingerprints: verification/curse-removal/deployment-files.json.
+
+---
+
 # v0.20.0 — generated cave/spirit pixels
 
 The cave and spirits are original in-memory generated textures; no runtime file/allowlist entry is added. Normal/explicit-playtest builds retain 45 runtime files, 27 approved WAVs and byte-identical existing art/fonts/audio/licence notices. Runtime stage excludes source, documents, QA captures, vendor archives, unused packs and credentials. Fingerprints/counts: verification/cursed-cave/deployment-files.json. Full release checks and limits: verification/cursed-cave/README.md.

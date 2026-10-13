@@ -1,3 +1,5 @@
+> Historical v0.20.0 evidence. The feature is withdrawn at the user’s request in v0.20.1; see [removal verification](../curse-removal/README.md).
+
 # v0.20.0 — optional cursed cave verification
 
 312 unit tests pass. Normal build passes (148 modules). Pure regressions cover harmless legacy/sealed states, explicit/proximity guarded one-time cache, reachable solid cave, at most three safe spawns, 19:00/06:00 boundaries and midnight continuity, existing Axe energy/cooldown, no ghost loot, exact 5000ms saved respawn, shared invulnerability, interior safety, partial paid resources, restored achievement persistence and 25% recoverable outdoor/farm-domain coin bags. Schedule tests verify all NPC routes reach actual doors by 19:00 and shop boundaries are 07:00–19:00. Existing farming/economy/Journal/save/asset tests remain.

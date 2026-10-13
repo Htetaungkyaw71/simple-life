@@ -31,7 +31,7 @@ export class Interface extends Phaser.Scene {
   }
   close(){if(this.menu)this.app.sound('ui:close');this.menu=null;this.app.paused=false;this.app.input={};Object.values(this.app.scene.keys).forEach(k=>k.reset());this.layout();}
   highlight(){const choices=this.controls.filter(c=>!c.disabled);choices.forEach((c,i)=>c.box.setStrokeStyle(i===this.focus?2:1,i===this.focus?UI_COLORS.gold:UI_COLORS.edge));}
-  drawMenu(){if(['curse','language','getting-started','trade','wilderness','bag','resources','audio','intro','journal','completion'].includes(this.menu.kind)){this.menu.draw?.();return;}drawModal(this);}
+  drawMenu(){if(['language','getting-started','trade','wilderness','bag','resources','audio','intro','journal','completion'].includes(this.menu.kind)){this.menu.draw?.();return;}drawModal(this);}
   languageMenu(back){this.modal('','Language','',[],'language');if(this.app.myanmarFontReady===false)this.app.language.current='en';this.menu.draw=()=>drawLanguageMenu(this,language=>{this.app.language.select(language);document.documentElement.lang=language==='mm'?'my':'en';if(this.app.state)this.app.scene.build();back();});this.menu.escape=()=>{};this.layout();}
   gettingStarted(page=0,back=()=>this.close()){this.modal('','How to play','',[],'getting-started');this.menu.draw=()=>drawGettingStarted(this,page,p=>this.gettingStarted(p,back),back);this.menu.escape=back;this.layout();}
   title(){

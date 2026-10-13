@@ -1,3 +1,11 @@
+# v0.20.1 — cursed cave postponed at user request (2026-10-13)
+
+Removed the sealed/cursed cave, ghosts, warning, repair/contribution quest, map marker and Curse Breaker achievement. Removed the specific cave collider; previously removed skull objects stay absent. The separately requested 19:00 NPC/merchant schedule remains. Existing save normalization ignores retired curse data and preserves current wallet, inventory, crops, farms, home, story and Forest progress. Existing outdoor Stash Bags remain recoverable. Prior implementation and asset provenance remain in local Git/history for a later request.
+
+Checks so far: 306 tests pass, normal and explicit playtest builds pass (143 modules), runtime allowlist audit passes (45 files / 12,010,253 bytes / 27 unchanged WAVs / 43 retained files identical). Four desktop/touch Canvas/WebGL profiles pass legacy save/nighttime/recovery/cave/menu/reload/curfew/house checks in English and Burmese, with clean consoles. Evidence: verification/curse-removal/README.md. Physical phones and other engines remain unverified. The previously authorized same-origin playtest update is in progress. No source push or competition submission.
+
+---
+
 # v0.20.0 — user-authorized cursed cave (2026-10-12)
 
 Replaced both rendered Dark Forest skull caves with one original sealed stone arch at the eastern clearing. A native cave image accompanies paged English/Myanmar information, an explicit pictured warning and a guarded Break seal choice. Visiting, inspecting, swinging and canceling are harmless. The final warning repeats that breaking releases the curse; every warning page precedes confirmation, and viewport/language changes reset reading. The Forest map marks its location. Pause > Cursed cave provides remote information and repair progress; contributions require proximity to the entrance.

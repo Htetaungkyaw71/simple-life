@@ -1,4 +1,3 @@
-import {CURSE_GHOST,curseNight} from '../data/cursedCave.js';
 import {recordStory} from './story.js';
 import {AXE} from '../data/items.js';
 import {WOODLAND_WILDLIFE,WOODLAND_BY_ID,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
@@ -27,14 +26,14 @@ export function displace(area,p,dx,dy,territory=false,radius=territory?16:12,sta
  return moved;
 }
 export function attackTarget(s,direction,targetId=null){
- if(s.area==='interior')return null;
- const box=attackBox(s.position,direction),ghosts=s.curse?.stage==='broken'&&curseNight(s)?s.curse.ghosts.filter(g=>g.area===s.area&&g.position&&g.health>0&&!g.respawn&&!g.arrival):[],animals=s.area==='forest'?[...Object.values(s.forest.animals),...Object.values(s.forest.woodland)].filter(a=>ANIMAL_BY_ID[a.id]||WOODLAND_BY_ID[a.id]):[];
- return [...ghosts,...animals].filter(a=>a.health>0&&(!targetId||a.id===targetId)&&hitInside(box,a.position)&&lineClear(s.area,s.position,a.position,0,s)).sort((a,b)=>Math.hypot(a.position.x-s.position.x,a.position.y-s.position.y)-Math.hypot(b.position.x-s.position.x,b.position.y-s.position.y))[0]||null;
+ if(s.area!=='forest')return null;
+ const box=attackBox(s.position,direction);
+ return [...Object.values(s.forest.animals),...Object.values(s.forest.woodland)].filter(a=>(ANIMAL_BY_ID[a.id]||WOODLAND_BY_ID[a.id])&&a.health>0&&(!targetId||a.id===targetId)&&hitInside(box,a.position)&&lineClear('forest',s.position,a.position,0,s)).sort((a,b)=>Math.hypot(a.position.x-s.position.x,a.position.y-s.position.y)-Math.hypot(b.position.x-s.position.x,b.position.y-s.position.y))[0]||null;
 }
 export function huntContext(s,direction,target=null){
  if(s.selected!=='axe')return null;
  const a=attackTarget(s,direction);
- return a&&(!target||Math.hypot(a.position.x-target.x,a.position.y-target.y)<48)?{type:'hunt',id:a.id,...a.position,label:'Axe / '+(a.id.startsWith('curse-ghost-')?'Restless spirit':SPECIES[a.species]?.name||WOODLAND_BY_ID[a.id].name)}:null;
+ return a&&(!target||Math.hypot(a.position.x-target.x,a.position.y-target.y)<48)?{type:'hunt',id:a.id,...a.position,label:'Axe / '+(SPECIES[a.species]?.name||WOODLAND_BY_ID[a.id].name)}:null;
 }
 export function attack(s,r,direction,targetId=null){
  const weapon=AXE;
@@ -45,12 +44,6 @@ export function attack(s,r,direction,targetId=null){
  if(target?.health===1&&(s.inventory.meat+meat>9999||target.species==='boar'&&s.inventory.wildHide>=9999))return {ok:false,message:'Bag full / make room for the drop.'};
  s.energy-=target?weapon.energy:0;r.nextAttack=r.now+weapon.cooldown;
  const box=attackBox(s.position,direction),result={ok:true,weapon:'axe',box,hit:false,defeated:false};
- if(target?.id.startsWith('curse-ghost-')){
-  result.hit=true;result.ghost=true;result.animalId=target.id;target.health--;
-  target.windup=0;target.recovery=300;
-  if(!target.health){target.respawn=CURSE_GHOST.respawn;result.defeated=true;}
-  return result;
- }
  if(s.area==='forest'){
   if(target){
    const definition=ANIMAL_BY_ID[target.id],p=target.position,len=Math.hypot(p.x-s.position.x,p.y-s.position.y)||1;

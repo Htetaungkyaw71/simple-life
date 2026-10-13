@@ -1,3 +1,9 @@
+# v0.20.1 — cave artwork removed from active source
+
+CurseArt.js and CurseView.js are removed, so their generated cave/spirit textures are absent from runtime. Historical provenance remains at assets/licenses/cursed-cave.md and in commits 55fbdbd/0125255. No new art/audio/font/dependency or licence is introduced; existing runtime assets and Credits remain.
+
+---
+
 # v0.20.0 — cave/ghost source record
 
 Original code-authored native pixels in src/art/CurseArt.js generate three 48×52 cave states and two 20×26 spirit poses in memory. Simple Life project work with disclosed Codex assistance; no external image/source URL, copied screenshot, image-model output or exclusive ownership claim. The warning uses those same textures. Source/Git evidence: docs/assets/licenses/cursed-cave.md. Previously licensed skull frame remains in the existing approved atlas/source evidence but is no longer rendered. Existing approved fonts/art/audio/dependency evidence and visible Credits remain. No new downloaded file, npm package or runtime allowlist entry.

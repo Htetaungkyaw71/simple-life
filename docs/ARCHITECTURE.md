@@ -1,3 +1,9 @@
+# v0.20.1 — retire optional curse composition
+
+Removed cursedCave/curse/CurseArt/CurseView/CavePanel modules and their world, combat, context, map and UI integrations. Combat again targets only Forest wildlife. New states omit curse; the existing allowlisted save normalization ignores legacy curse records. Retain general outdoor Stash Bag validation/rendering/recovery so released saves keep recoverable coins. The 19:00 NPC/merchant schedule and safe house-door context priority remain.
+
+---
+
 # v0.20.0 — cursed cave composition
 
 `data/cursedCave.js` owns the location, costs, times and bounded ghost defaults. `systems/curse.js` supplies pure guarded seal/repair/save and active-time pursuit functions. Existing combat targets spirits before nearby wildlife, uses the same Axe/cooldown/energy/invulnerability and never creates ghost loot. WorldScene runs curse logic only in active simulation, routes ghost impacts to CurseView, and keeps the interior safe. CurseView draws original generated nearest-filtered textures; CavePanel uses those same textures in responsive paged canvas UI. Interface owns the panel separately from world rendering. SaveService validates an additive schema-18 curse record; restored repairs serve as the achievement record. Stash recovery extends established state/rendering/context guards to each outdoor domain rather than introducing a second recovery system.

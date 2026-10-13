@@ -1,4 +1,3 @@
-import {CURSED_CAVE} from '../data/cursedCave.js';
 import {storyMarker} from '../systems/story.js';
 import {keepsakePixels} from './KeepsakeArt.js';
 import {FOREST_PORTAL} from '../data/forestLandmarks.js';
@@ -37,7 +36,6 @@ export class WildernessMap {
   const exit=mapPoint({x:FOREST_ENTRANCE.x,y:FOREST_SIZE.height},rect,FOREST_SIZE);
   pixelArrow(g,2,exit.x,exit.y-7,UI_COLORS.wood);text(u,u.root,exit.x+9,exit.y+(mm?-1:3),'Home',5,UI_COLORS.ink);
   const marker=storyMarker(this.app.state),destination=marker&&TREASURES.find(t=>t.id===marker.id);if(destination){const p=mapPoint(destination,rect,FOREST_SIZE);keepsakePixels(g,p.x-8,p.y-8);if(!mm)text(u,u.root,p.x,p.y+9,'Sun cache',5,UI_COLORS.gold).setOrigin(.5,0);}
-  const cave=mapPoint(CURSED_CAVE.approach,rect,FOREST_SIZE);g.fillStyle(0x35462e).fillRect(cave.x-4,cave.y-3,8,7).fillStyle(0x929777).fillRect(cave.x-3,cave.y-2,6,6).fillStyle(this.app.state.curse.stage==='broken'?0xa45d4f:0xe3bc70).fillRect(cave.x-1,cave.y,2,4);
   const player=mapPoint(this.app.state.position,rect,FOREST_SIZE),facing=this.app.scene.player?.direction||'down';
   pixelArrow(g,facingIndex[facing],player.x+1,player.y+1,UI_COLORS.ink);pixelArrow(g,facingIndex[facing],player.x,player.y,0xfff5cc);
   text(u,u.root,rect.x+mw-9,rect.y+5,'N',6,UI_COLORS.wood);pixelArrow(g,6,rect.x+mw-8,rect.y+17,UI_COLORS.wood);

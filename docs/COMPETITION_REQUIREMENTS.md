@@ -1,3 +1,9 @@
+# v0.20.1 — user postpones cave challenge
+
+The latest user request removes the optional cursed cave and ghosts for now, superseding the v0.20.0 feature scope. Established gameplay, local-only runtime assets, provenance/AI disclosure, separate canvas UI and save continuity remain. Keep the separately requested 7 pm NPC schedule. Historical feature records are reference history; no source push or competition submission is authorized by this removal.
+
+---
+
 # v0.20.0 — explicit optional cave scope
 
 The latest user authorizes a new cursed-cave challenge and 7 pm NPC return, superseding historical limits on unrelated encounters only for this feature. Master/four competition PDFs have been reviewed as reference requirements; they do not override user scope. The curse is opt-in after pictured English/Myanmar warning and explicit seal destruction. Existing gameplay and architecture remain. Record original code-authored art and AI-assisted design/translation/code/QA; no third-party image, dependency, weapon, backend or remote runtime is introduced. The established public friend playtest update remains authorized on its existing project/origin; no source push, organizer submission or human rights/eligibility certification.

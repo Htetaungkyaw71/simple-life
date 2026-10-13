@@ -1,3 +1,9 @@
+# v0.20.1 — cave/spirit visuals retired
+
+No sealed/broken/restored cave or spirit textures are generated or rendered. The former cave clearing remains open without a skull replacement or hidden collider. Existing trees, habitats, camera, font sizes, nearest filtering and licensed atlases remain. Historical original-art evidence is retained for provenance and later recovery from Git.
+
+---
+
 # v0.20.0 — original sealed cave and restless spirits
 
 The user requests removal of the skull cave. Retain its clearing/tree identities, omit both skull silhouettes and render one original 48×52 native stone arch with an amber seal, broken embers/rubble and restored green/gold details. World scale is 3×; the warning reuses the actual cave texture at 1× or 2×. Spirits use two original 20×26 tattered robe poses, cream/sage palette and amber eyes at 2×. Whole pixel coordinates, nearest filtering and existing action warning/health marks remain. No animal/tree nameplates or downloaded art are added. Responsive warning content and repair cards paginate at existing native font sizes, without clipping into footer actions. Creation record: assets/licenses/cursed-cave.md.
