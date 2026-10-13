@@ -1,3 +1,9 @@
+# v0.24.0 — approved PixelLab farmer
+
+Native audit verifies 41 source hashes, 48 packed cells with 14,142 nontransparent pixels, 32 unique original run PNGs and 48 source skin-pixel grips. Idle is translated into a padded run cell; no RGBA pixel is altered. Four other people assets (appearance, girl, town PNG/JSON) match v0.23.0 byte-for-byte. Runtime remains 46 allowlisted files, with 27 unchanged WAVs, dependency notices and raw/evidence exclusion verified. [Evidence](verification/pixellab-farmer/README.md).
+
+---
+
 # v0.23.0 — original Szadiart people (2026-10-13)
 
 Current people are third-party art by Szadi art. under the included custom License for Everyone, not CC0 or original project artwork. It permits personal/commercial game use and modification, with standalone art resale and logo/trademark use excluded; credit is optional and provided. Untouched licence, six selected PNG sheets, archive/file hashes and integration evidence are in [source record](assets/licenses/characters-szadiart/SOURCE_RECORD.md). Source ZIP/PSD and unused files remain excluded from runtime. Previous CraftPix and generated-art evidence remains historical provenance.

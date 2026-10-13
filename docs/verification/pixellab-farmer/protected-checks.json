@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "deployment": "dpl_7KpeRdwfQmMdWWAy2VUdS8HBXwj4",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "d2431d8dd66668402341e07ae7f7fc2507736c56687885a49173b305b7d8454a",
+      "bytes": 588
+    },
+    {
+      "path": "assets/index-CHBSLPmz.js",
+      "sha256": "3e4e402410e5b9ccb5d29ef8a1512a0efd26c330980c9d75c8df1b0d746bbefb",
+      "bytes": 446141
+    },
+    {
+      "path": "assets/pixel/processed/boy.png",
+      "sha256": "0480e455a201c11c97fc8d95e9866a85bc4f963f7ac58d64a417e0679448d094",
+      "bytes": 14116
+    }
+  ]
+}

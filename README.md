@@ -4,6 +4,8 @@ The user-approved PixelLab farmer replaces the existing free Worker outfit / Cla
 
 Other complete looks and all eight town NPCs retain the existing Szadiart artwork and motion. Appearance IDs, prices, ownership, schema-19 saves, controls and movement speed remain. Jump uses genuine passing run poses with the existing arc; no authored jump/tool cycle was supplied. Source records disclose user-generated PixelLab AI art and public output-use terms. Runtime allowlist stays unchanged; no remote assets/services or source archives ship.
 
+[Play the updated game](https://simple-life-playtest.vercel.app/). Refresh and Continue. Equip Worker outfit / Classic look to use the approved farmer. [Verification](docs/verification/pixellab-farmer/README.md).
+
 ---
 
 # v0.23.0 — original Szadiart people (2026-10-13)

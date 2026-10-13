@@ -1,3 +1,9 @@
+# v0.24.0 — per-player visual rig
+
+`playerVisual` resolves the approved farmer to the existing boy texture for Worker/Classic, with 48×48 cells and originY=40/48. Legacy appearances/NPCs keep their 24×40 rig. A shared rig drives actual player frames and UI previews; source hand coordinates are injected into held tools. Water cropping uses the native ground row, and flipped reflection origin accounts for transparent padding. Save schema/physics remain unchanged. Native RGBA packing never resamples source art. Repacking Szadiart assets also calls the farmer packer to preserve the approved boy texture.
+
+---
+
 # v0.20.2 — depth rendering
 
 Two small rendering modules add cached nearest-filtered pixel shadows and pure crown overlap. Rails are short foot-sorted Graphics sections; decks remain opaque. No asset files, geometry/collision or save format changes. Tests and browser/device limits: verification/pseudo-depth/README.md.

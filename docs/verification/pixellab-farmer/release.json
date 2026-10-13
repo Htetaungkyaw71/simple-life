@@ -1,0 +1,27 @@
+{
+  "version": "0.24.0",
+  "sourceCommit": "f93b48d10ce2eaa56152aee9c45eb96411aa5343",
+  "deploymentId": "dpl_7KpeRdwfQmMdWWAy2VUdS8HBXwj4",
+  "deploymentUrl": "https://simple-life-playtest-5o8cf7nvv-htetaungkyaw71s-projects.vercel.app",
+  "publicUrl": "https://simple-life-playtest.vercel.app/",
+  "readyState": "READY",
+  "target": "production",
+  "projectId": "prj_yAUSg3ycEwhd7xCyR5izuTPSUnRh",
+  "teamId": "team_N7fzv8ro0kcyz4cs9Pt3Mnm2",
+  "tests": 317,
+  "buildModules": 152,
+  "runtimeFiles": 46,
+  "runtimeBytes": 12199891,
+  "audioFilesUnchanged": 27,
+  "protectedChecks": "HTML, app and farmer PNG byte-exact",
+  "publicChecks": "Fresh desktop/phone; all 46 files byte-exact; both keyboard/touch movement and original hand grips; eight unique frames per direction",
+  "errorLogScan": "No logs found",
+  "deploymentAccess": "Initial slug-scoped upload rejected; explicit verified team ID succeeded",
+  "sourcePushed": false,
+  "limitations": [
+    "Physical phones and Safari unverified",
+    "Human visual acceptance of in-game rendering pending",
+    "Only Worker/Classic receives approved farmer; other looks/NPCs retain Szadiart",
+    "No supplied jump/tool action animation"
+  ]
+}

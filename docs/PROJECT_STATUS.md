@@ -6,6 +6,8 @@ Other complete looks and all eight town NPCs retain the existing Szadiart artwor
 
 317 tests and both 152-module normal/explicit playtest builds pass. Native audit verifies 41 source hashes, 48 byte-exact cells, 32 original run frames and 48 skin-pixel tool grips. Other looks, girl and NPC assets match v0.23.0 byte-for-byte. Three appearance profiles, two keyboard/touch motion profiles and three depth profiles pass with clean consoles. Runtime allowlist stays 46 files / 12,199,891 bytes / 27 unchanged WAVs; dependency notices and archive exclusion pass. See [verification](verification/pixellab-farmer/README.md). Physical phones/Safari and human artwork acceptance remain unverified.
 
+Published READY dpl_7KpeRdwfQmMdWWAy2VUdS8HBXwj4 from source f93b48d to https://simple-life-playtest.vercel.app/. Protected HTML/application/farmer texture and public HTML/all 46 runtime files match the tested stage. Two fresh public profiles pass start, gear, Jump, Save/Continue and audio; two live movement profiles observe all eight running phases with native hand/tool alignment and clean consoles. Deployment error query found no logs. Initial upload authorization failure resolved by the explicit verified team ID. No source push or competition submission.
+
 ---
 
 # v0.23.0 — original Szadiart people (2026-10-13)
