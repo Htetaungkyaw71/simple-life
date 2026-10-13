@@ -1,3 +1,11 @@
+# v0.21.1 — approved character correction (2026-10-13)
+
+Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
+
+Final verification and publication results are being collected in verification/character-fix. Physical-phone/Safari comfort, native-speaker review and long-term cosmetic pricing remain human checks.
+
+---
+
 # v0.21.0 — taller people and town appearance services (2026-10-13)
 
 Implemented user-authorized taller 24×40 CC0-derived player/NPC sprites, five outfit/four haircut combinations, paid town stylists, free owned-clothing changes through Home & garden → Wardrobe, English/Myanmar responsive previews and schema-19 saves/migrations. Existing depth, grounded tools/jump/water, silent doors, 19:00 curfew and postponed cave remain. Nell/Sol use their existing work locations/homes; purchases require coins, proximity, service hours and the stylist still being at work.

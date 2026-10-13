@@ -1,3 +1,11 @@
+# v0.21.1 — character correction disclosure (2026-10-13)
+
+Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
+
+OpenAI image generation produced six transparent source sheets using the approved generated reference. Codex assisted with alpha-pose extraction, nearest packing, mechanical walk/jump frames, rig/tool/UI integration, checks and documentation. Exact prompts, outputs and SHA-256 evidence: assets/licenses/characters-v2/SOURCE_RECORD.md. No reference screenshot pixels copied, no CC0 body used in current people, no subagents or new dependencies. No exclusive-copyright or eligibility certification claim. Existing same-project friend playtest update is authorized; no source push or competition submission.
+
+---
+
 # v0.21.0 — character/style implementation assistance, 2026-10-13
 
 OpenAI Codex assisted with the user-authorized tall character redesign, free-licence source research, CC0 base pixel adaptation, original hair/clothes/eye/jump masks, native animations/tool/water integration, pure clothing/barber transactions, schema migration, English/Myanmar canvas layout/translation, isolated browser checks and documentation. The built-in image_gen tool produced one original design guide (not a runtime sprite sheet); prompt summary/tool/file/source hashes are disclosed in assets/licenses/characters/SOURCE_RECORD.md. Runtime sprites are deterministic native adaptations of licensed poses, not copied reference screenshots. No subagents, new dependencies, backend, user-profile save editing or source push. Existing friend playtest update remains authorized on its established project/origin.

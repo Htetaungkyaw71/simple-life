@@ -1,3 +1,11 @@
+# v0.21.1 — original generated character replacement
+
+Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
+
+Active bodies no longer derive from the retired CC0 bases. Original generated project art and exact prompts/hashes are documented in [source record](assets/licenses/characters-v2/SOURCE_RECORD.md). No claim of exclusive copyright for generated imagery. Older licence entries describe historical releases. All 698 other atlas cells retain their pixels/licences; fonts/audio/dependencies remain unchanged. In-game credits identify current people as original generated artwork. Source sheets, guide and prompts stay outside the runtime allowlist.
+
+---
+
 # v0.21.0 — CC0 taller character bases
 
 Active people derive from diamonddmgirl **24x32 Bases** (https://opengameart.org/content/24x32-bases-0), based on Cabbit CC0 bases (https://opengameart.org/content/24x32-bases). Both pages explicitly grant CC0. Local original PNG, both page captures, CC0 text, hashes, modifications and AI guide record: [character source evidence](assets/licenses/characters/SOURCE_RECORD.md). Native 24×40 adaptations replace boy/girl and 160 town-person cells; one appearance PNG contains 20 combinations. Original AI-assisted hair/clothes/eye/jump details add no third-party pack restriction. The generated guide and unused source portraits are excluded from production. Both creators are voluntarily credited in-game. All 698 other atlas cells are byte-identical after repacking, retaining their established licences, including legacy mixed-atlas cells. Mana Seed is excluded due to its GenAI restriction. Fonts/audio/dependency licences remain unchanged.

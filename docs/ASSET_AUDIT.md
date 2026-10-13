@@ -1,3 +1,9 @@
+# v0.21.1 — original detailed people runtime audit
+
+Normal and explicit playtest builds pass (150 modules). Runtime is 46 files / 13,007,818 bytes / 27 WAVs. 858 town frames occupy 1024×2414; the appearance texture is 864×3200, within 4096 dimensions. All 698 non-person atlas cells are byte-identical to v0.21.0. New source sheets/prompts and documents stay excluded from runtime; no dependency/font/audio changes or remote assets. Evidence: verification/character-fix/asset-audit.json and deployment-files.json.
+
+---
+
 # v0.21.0 — CC0 character runtime audit
 
 Normal and explicit playtest builds contain exactly **46 files / 12,069,484 bytes / 27 WAVs** (playtest byte count). Only processed/appearance.png is added; boy/girl and 160 town-person cells change. All 698 other atlas cells are byte-identical, and 38 retained runtime files outside the application/atlas/character/HTML change set match the prior release. Town atlas has 858 named cells at 1024×1966. Runtime allowlist excludes the CC0 source PNG/unused portraits, source captures, generated design guide, PDFs, vendor archives and verification screenshots. No new dependency/font/audio or remote asset. Checks/hashes: verification/appearance/asset-audit.json and deployment-files.json. Provenance: assets/licenses/characters/SOURCE_RECORD.md.

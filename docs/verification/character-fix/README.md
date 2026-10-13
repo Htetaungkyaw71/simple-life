@@ -1,0 +1,5 @@
+# v0.21.1 character correction verification
+
+316 unit tests pass; normal and explicit friend-playtest builds pass with 150 modules. Four native desktop/touch profiles (1280 English, 844 Burmese landscape, 390 Burmese WebGL portrait and 640 short landscape) pass five outfits, paid clothes/hair, four walking facings, jump, held tool, reload, free owned outfits, rotation and fresh Girl startup. Three depth profiles pass house entry, trees, crops, bridges, water/reflection, shadow/jump and Save/Continue. All consoles are clean. Screenshots show actual game sprites and previews, not concept art.
+
+The runtime audit preserves all 698 non-person atlas cells, retains 46 files/27 WAVs, and excludes six large source sheets/prompts. Source provenance: ../../assets/licenses/characters-v2/SOURCE_RECORD.md. Schema 19, economy/services and previous gameplay are retained. Walking/jump frames mechanically adjust the source poses; idle holds standing. Physical-device/Safari comfort, native-speaker phrasing and long-term cosmetic pricing remain human checks. Publication results pending final same-project update. No source push or competition submission.

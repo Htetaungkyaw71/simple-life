@@ -1,0 +1,56 @@
+
+> simple-life@0.21.1 build:playtest
+> VITE_PLAYTEST=true vite build --outDir /private/tmp/simple-life-v0211-runtime --emptyOutDir
+
+vite v6.4.3 building for production...
+transforming...
+✓ 150 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../../private/tmp/simple-life-v0211-runtime/index.html                                           0.59 kB │ gzip:   0.36 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/font.png                                0.79 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/fonts/m5x7.png                          1.35 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/fonts/thaleah.png                       1.53 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-ui-hover.wav                   2.47 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/fonts/myanmar-license.json              4.62 kB │ gzip:   2.05 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/world.png                               7.82 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-seed-plant.wav                 8.86 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-axe-chop.wav                   9.75 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-place-item.wav                 9.75 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/font.xml                               10.28 kB │ gzip:   0.75 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-hoe-dig.wav                   10.63 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/fonts/m5x7.xml                         10.95 kB │ gzip:   0.89 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/fonts/thaleah.xml                      10.95 kB │ gzip:   0.86 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-rock-break.wav                12.39 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-ui-back.wav                   15.92 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/world.json                             16.25 kB │ gzip:   0.85 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-menu-open.wav                 18.13 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-menu-close.wav                18.13 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-bush-rustle.wav               18.13 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-pickup-item.wav               20.77 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-eat.wav                       21.87 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-notification.wav              25.62 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-harvest-pop.wav               26.06 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-sell-coins.wav                28.71 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/processed/boy.png                      32.26 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/processed/girl.png                     33.37 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-buy.wav                       34.44 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-pickup-rare.wav               36.21 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-chest-open.wav                39.73 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-watering.wav                  58.26 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-jingle-quest-complete.wav     68.40 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-sleep.wav                    131.02 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/fonts/noto-myanmar.ttf                199.68 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/processed/town.json                   292.71 kB │ gzip:   9.04 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/sfx-rooster.wav                  366.38 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/processed/town.png                    536.31 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/pixel/processed/appearance.png              675.48 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/forest-day.wav                 1,318.63 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/night.wav                      1,318.63 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/river.wav                      1,318.63 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/fountain.wav                   1,318.63 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/audio/cozy/music.wav                      2,998.84 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/index-DuO74lxp.css                            0.54 kB │ gzip:   0.29 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/index-BKJMLpAZ.js                           433.39 kB │ gzip: 144.30 kB
+../../../../private/tmp/simple-life-v0211-runtime/assets/phaser-D75MrIe-.js                        1,483.96 kB │ gzip: 338.63 kB
+✓ built in 18.57s

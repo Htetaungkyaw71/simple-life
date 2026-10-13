@@ -1,3 +1,11 @@
+# v0.21.1 — characters match the approved guide (2026-10-13)
+
+Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
+
+Source and exact image-generation prompts: [character record](docs/assets/licenses/characters-v2/SOURCE_RECORD.md). [Public playtest](https://simple-life-playtest.vercel.app/). Final checks: docs/verification/character-fix/README.md.
+
+---
+
 # v0.21.0 — taller characters, clothes and haircuts (2026-10-13)
 
 The player and eight town character variants now use taller 24×40 native pixel frames adapted from diamonddmgirl/Cabbit CC0 bases. Smaller heads, long trousers and distinct overalls, vest, dress and jacket designs retain the existing top-down view, feet depth, shadows and native pixel filtering.

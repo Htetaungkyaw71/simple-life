@@ -1,3 +1,9 @@
+# v0.21.1 — reference sprite packing
+
+PEOPLE defines a 48×80 rig at world scale 1. Appearance sprite indexes still reserve 36 frames per style; the 864×3200 image wraps at 18 physical columns while animation direction still has nine logical frames. Atlas cells share the rig, frame dimensions drive water/reflection cropping, and tools use updated native hand anchors. UI root 2× gives net 1× short and 2× full preview pixels. Pure transactions and schema 19 are unchanged. Source packing/provenance: scripts/people_art.py and assets/licenses/characters-v2/SOURCE_RECORD.md.
+
+---
+
 # v0.21.0 — data-driven appearance and local shops
 
 `data/appearance.js` defines native rig dimensions, catalogs/prices and town service points; pure `systems/appearance.js` guards proximity, opening hours, funds, ownership and atomic appearance changes. Schema 19 normalization accepts schemas 1–19, deduplicates known owned outfits and defaults legacy styles by character. AppearancePanel draws responsive previews and actions in the existing Phaser UI scene. WorldScene prioritizes nearby working stylists over incidental grass contexts; direct taps use the same service check. Nell/Sol retain their existing homes/commutes and 19:00 curfew. PlayerView selects a 36-frame offset within the single local appearance sheet; ResidentView uses 24×40 town cells. Held tools and water cropping/reflection follow the taller rig. No runtime network, DOM HUD, backend or new dependency.

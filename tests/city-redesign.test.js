@@ -27,7 +27,7 @@ test('fourfold City has connected bridge landings, service approaches and new di
 });
 test('residents use native directional cells and collision-safe dry routes at Home and City',()=>{
  const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames;
- for(const [area,list]of Object.entries(RESIDENTS))for(const n of list){assert.ok(walkable(area,n.x,n.y,8),n.name);for(const direction of ['down','up','left','right'])for(let f=0;f<5;f++){const cell=frames[`town-person-${n.art}-${direction}-${f}`];assert.equal(cell.frame.w,24);assert.equal(cell.frame.h,40);}
+ for(const [area,list]of Object.entries(RESIDENTS))for(const n of list){assert.ok(walkable(area,n.x,n.y,8),n.name);for(const direction of ['down','up','left','right'])for(let f=0;f<5;f++){const cell=frames[`town-person-${n.art}-${direction}-${f}`];assert.equal(cell.frame.w,48);assert.equal(cell.frame.h,80);}
   for(let i=0;i<n.route.length;i++){const a=n.route[i],b=n.route[(i+1)%n.route.length],d=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let step=0;step<=d;step+=2){const t=d?step/d:0,p={x:a[0]+(b[0]-a[0])*t,y:a[1]+(b[1]-a[1])*t};assert.ok(walkable(area,p.x,p.y,8),n.name);assert.equal(waterAt(MAPS[area],p),false,n.name);}}
  }
 });

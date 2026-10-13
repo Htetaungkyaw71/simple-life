@@ -8,7 +8,7 @@ export class PlayerView {
     const index=appearanceIndex(scene.app.state?.appearance),texture=scene.app.state?.appearance?'appearance':character,offset=texture==='appearance'?index*36:0;
     this.frameOffset=offset;this.texture=texture;
     this.scene=scene;
-    this.sprite=scene.add.sprite(0,0,texture,offset).setOrigin(.5,PEOPLE.originY).setScale(2);this.anchor=scene.add.zone(0,0,1,1);this.shadow=groundShadow(scene,0,0,28,8);this.direction='down';this.character=texture==='appearance'?`avatar-${index}`:character;
+    this.sprite=scene.add.sprite(0,0,texture,offset).setOrigin(.5,PEOPLE.originY).setScale(PEOPLE.scale);this.anchor=scene.add.zone(0,0,1,1);this.shadow=groundShadow(scene,0,0,32,8);this.direction='down';this.character=texture==='appearance'?`avatar-${index}`:character;
     this.wateringCan=new HeldWateringCan(scene);
     for(const [row,dir]of DIRECTIONS.entries()){
       const walk=`${this.character}-${dir}`,idle=`${this.character}-${dir}-idle`;

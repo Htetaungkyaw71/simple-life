@@ -207,7 +207,7 @@ add_hunting_resources_art(assets)
 from home_interior_art import add_home_interior_art
 add_home_interior_art(assets)
 for n in range(4):assets.pop('boar'+str(n),None)
-atlas=Image.new('RGBA',(1024,2048));frames={};x=y=rowh=0;wildlife_cells={}
+atlas=Image.new('RGBA',(1024,4096));frames={};x=y=rowh=0;wildlife_cells={}
 for name,im in assets.items():
  if name in wildlife:
   key=(im.size,im.tobytes())
@@ -215,7 +215,8 @@ for name,im in assets.items():
   wildlife_cells[key]=name
  if x+im.width>1024:x=0;y+=rowh+2;rowh=0
  atlas.alpha_composite(im,(x,y));frames[name]={'frame':dict(x=x,y=y,w=im.width,h=im.height),'rotated':False,'trimmed':False,'spriteSourceSize':dict(x=0,y=0,w=im.width,h=im.height),'sourceSize':dict(w=im.width,h=im.height)};x+=im.width+2;rowh=max(rowh,im.height)
-assert y+rowh<=2048
-atlas.save(OUT/'town.png');(OUT/'town.json').write_text(json.dumps({'frames':frames,'meta':{'image':'town.png','size':{'w':1024,'h':2048}}},indent=2))
+assert y+rowh+2<=4096
+atlas=atlas.crop((0,0,1024,y+rowh+2))
+atlas.save(OUT/'town.png');(OUT/'town.json').write_text(json.dumps({'frames':frames,'meta':{'image':'town.png','size':{'w':1024,'h':atlas.height}}},indent=2))
 (OUT/'manifest.json').write_text(json.dumps({'pack':'Serene Village revamped 1.9','creator':'LimeZu','license':'CC BY 4.0','sourceRectangles':source,'sourceAliases':{'tree':'tree0','flowers':'flowers0'},'derivedAdditions':{'guava-tree':'LimeZu tree0 plus original Guava clusters','mango-tree':'LimeZu tree0 plus original Mango clusters','snow-pine':'LimeZu tree0 with original snow palette','acacia-tree':'LimeZu tree0 with original dry palette'},'atlasComposition':'LimeZu CC BY 4.0 environment, Pipoya custom game-use human residents, Craftpix Freebie Products section 2, original environment replacements, original forest trees/undergrowth, and other original additions; licences apply per source.', 'townResidents':town_residents,'matchedResidents':matched_residents,'originalHouses':[n for n in assets if n.startswith('house-village-')],'cityOriginalAdditions':[n for n in assets if n.startswith('city-')],'cityAdaptations':'LimeZu houses: muted terracotta roofs, cream timber facades, arched doors, windows, flower boxes and ivy; original alpha retained.','suppliedEnvironment':supplied_environment,'suppliedCharacters':supplied_characters,'craftpixFrames':craftpix,'wildlifeFrames':wildlife,'originalAdditions':[n for n in assets if n not in supplied_environment and n not in craftpix and n not in wildlife and n not in ['guava-tree','mango-tree','snow-pine','acacia-tree'] and n not in source and not n.startswith(('door','resident-','town-person-')) and n not in ['tree','flowers']],'characterFrames':supplied_characters,'modifications':'Extracted/repacked; selected green pixels gently adjusted toward jade; original missing sprites/furniture.'},indent=2))
-print('Packed',len(assets),'frames, CC0-derived people 24x40 / 36 frames each')
+print('Packed',len(assets),'frames, Original generated people 48x80 / 36 frames each')

@@ -29,11 +29,11 @@ test('the actual held can uses an existing native frame, follows every facing an
  const u=recorder(),s=newState();u.app={state:s,paused:false};s.selected='water';const held=new HeldWateringCan(u);
  const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames;
  assert.ok(frames[held.can.frame]);assert.equal(held.can.texture,'town');assert.equal(frames[held.can.frame].frame.w,16);
- for(const dir of ['down','up','left','right']){held.update({x:100,y:100},dir,2,0);const p=wateringCanPose({x:100,y:100},dir,2);assert.equal(held.can.x,p.x);assert.equal(held.can.y,p.y);assert.equal(held.can.flipX,p.flip);assert.ok(held.can.visible);assert.ok(Math.hypot(held.hand.x-100,held.hand.y-100)<32);}
- held.update({x:100,y:100},'right',2,12);assert.equal(held.can.y,wateringCanPose({x:100,y:100},'right',2).y-12,'jump keeps the hand and can together');
- held.pour();held.update({x:100,y:100},'right',2);assert.ok(held.can.rotation>0);u.app.paused=true;u.time.now+=100;held.update({x:100,y:100},'right',2);assert.equal(held.remaining,650);
- u.app.paused=false;for(let i=0;i<7;i++){u.time.now+=100;held.update({x:100,y:100},'right',2);}assert.equal(held.can.rotation,0);assert.equal(held.remaining,0);
- s.selected='seed';held.update({x:100,y:100},'right',2);assert.equal(held.can.visible,false);assert.equal(held.hand.visible,false);
+ for(const dir of ['down','up','left','right']){held.update({x:100,y:100},dir,1,0);const p=wateringCanPose({x:100,y:100},dir,1);assert.equal(held.can.x,p.x);assert.equal(held.can.y,p.y);assert.equal(held.can.flipX,p.flip);assert.ok(held.can.visible);assert.ok(Math.hypot(held.hand.x-100,held.hand.y-100)<32);}
+ held.update({x:100,y:100},'right',1,12);assert.equal(held.can.y,wateringCanPose({x:100,y:100},'right',1).y-12,'jump keeps the hand and can together');
+ held.pour();held.update({x:100,y:100},'right',1);assert.ok(held.can.rotation>0);u.app.paused=true;u.time.now+=100;held.update({x:100,y:100},'right',1);assert.equal(held.remaining,650);
+ u.app.paused=false;for(let i=0;i<7;i++){u.time.now+=100;held.update({x:100,y:100},'right',1);}assert.equal(held.can.rotation,0);assert.equal(held.remaining,0);
+ s.selected='seed';held.update({x:100,y:100},'right',1);assert.equal(held.can.visible,false);assert.equal(held.hand.visible,false);
 });
 test('pouring reuses the hand can and starts droplets at its spout rather than spawning a target object',()=>{
  const u=recorder();u.app={state:{selected:'water'},paused:false};const held=new HeldWateringCan(u),drops=[],tweens=[];

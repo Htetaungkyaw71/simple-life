@@ -1,0 +1,234 @@
+{
+  "files": [
+    {
+      "path": "assets/audio/cozy/forest-day.wav",
+      "bytes": 1318634,
+      "sha256": "a32a77832902ba00fd2a25d87ae5100d183607754f1671d17fad5fae7663d58c"
+    },
+    {
+      "path": "assets/audio/cozy/fountain.wav",
+      "bytes": 1318634,
+      "sha256": "5d4f37a160e2f8697571bbe5510d059465d1c7b5f977a14a07fcbf9523ead6d1"
+    },
+    {
+      "path": "assets/audio/cozy/music.wav",
+      "bytes": 2998844,
+      "sha256": "38925425f59487bb22981b278fd0558b5e07b31d385f00669ea1bf8e1fc46d8c"
+    },
+    {
+      "path": "assets/audio/cozy/night.wav",
+      "bytes": 1318634,
+      "sha256": "ebef3a2e213643bf7a4b88cfdc414be9bc09285da3899436f4edc2d26883c448"
+    },
+    {
+      "path": "assets/audio/cozy/river.wav",
+      "bytes": 1318634,
+      "sha256": "60342a14e4e0acd3a217b3f4f90541fd7654493fb210d910daf150005f52b979"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-axe-chop.wav",
+      "bytes": 9746,
+      "sha256": "9a1898a0d97cee75d5cbba2e7f1c79d9a4cad0690dd375bccd5488d98f0562d6"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-bush-rustle.wav",
+      "bytes": 18126,
+      "sha256": "20332599545bd0c9e0ae4c4757d117df1c9b50338797cfa20e707a08c85d93df"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-buy.wav",
+      "bytes": 34442,
+      "sha256": "5d6302035a804f3aeaf99a297de5e977e979261487821fa7f9c0a32bf967be3b"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-chest-open.wav",
+      "bytes": 39734,
+      "sha256": "444567827b35bef23469ca7a897b58cb6c1ef620bcb3172f942eb501b6255266"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-eat.wav",
+      "bytes": 21874,
+      "sha256": "c20dfc848d8f9d07291f8af489a1c47c44784fa1da8118682a0eefe584f19239"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-harvest-pop.wav",
+      "bytes": 26064,
+      "sha256": "e83b668849e40d58f059aad73e8ed88fe3b1cdeee658828504ee7cc571826375"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-hoe-dig.wav",
+      "bytes": 10628,
+      "sha256": "d3b40ef095fb569318ec221a4b8fe0fa695fb0e8a13b59050435bc269d0e1729"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-jingle-quest-complete.wav",
+      "bytes": 68400,
+      "sha256": "1339141e8b39307a8a4202627ae398c8f06ea47d06648e6c4f344e3ef369163d"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-menu-close.wav",
+      "bytes": 18126,
+      "sha256": "7dd46b51e461bb5b32a0c73398d3bf13ab5da16acda3328d5814f6afc084954a"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-menu-open.wav",
+      "bytes": 18126,
+      "sha256": "bc79a6cabb226b0b5d1f9a83ba934ad4e0306a508ad3ffe63e2ed670becbfa9b"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-notification.wav",
+      "bytes": 25622,
+      "sha256": "077685fbb9b2b94f2d3b347190b75cd8331c6892972102597b9d1a7216c868b1"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-pickup-item.wav",
+      "bytes": 20772,
+      "sha256": "d80d046935b831d9a2d352ade50992585c7d40eae7e23ca3edc57b147f277728"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-pickup-rare.wav",
+      "bytes": 36206,
+      "sha256": "34b9a657ee73667f1e3c849cc0c56396825dddf0aa22f5336b5e019d97909cdf"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-place-item.wav",
+      "bytes": 9746,
+      "sha256": "28eb7ab52c238e7225f0e1506c35351175d42d71061900e6fbe1001941a0d2f9"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-rock-break.wav",
+      "bytes": 12392,
+      "sha256": "3e1955b9f82a04161d9c723f45d914df7287012ab3d1ee76e69de5708132014b"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-rooster.wav",
+      "bytes": 366380,
+      "sha256": "17e4e54dc1598dce94c287311f6e9e2abd363bb2adec17e755d816e684df96e5"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-seed-plant.wav",
+      "bytes": 8864,
+      "sha256": "74924fe76fd240634595d79db40f8116ae033b1d571edf220f656d5e2ae436d1"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-sell-coins.wav",
+      "bytes": 28710,
+      "sha256": "47953289e6923a07ff6948f16b7a328f9c27175d14b94733b057035dbe2f36d8"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-sleep.wav",
+      "bytes": 131022,
+      "sha256": "04bea42af130aea596531a765010f7cdc43df75663c3954133b1c188362b852c"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-ui-back.wav",
+      "bytes": 15920,
+      "sha256": "b6e63b6d955c9985141529cbf0d4a07d93ee5d395091a494bfafc966dce1dc25"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-ui-hover.wav",
+      "bytes": 2470,
+      "sha256": "bbbf4e80e4e13e2d2ec07b38674deb77a3acac7a72505fe34e5209b48e6962f9"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-watering.wav",
+      "bytes": 58256,
+      "sha256": "92b57cbf759d7d87bf9d3abb16793a19e65d096e270a154538d75fed93a3dd1b"
+    },
+    {
+      "path": "assets/index-BKJMLpAZ.js",
+      "bytes": 433390,
+      "sha256": "0d70bcb597d2642b4ea65cd352779df0fc08a9a668b6754d47fd3af69c03aa32"
+    },
+    {
+      "path": "assets/index-DuO74lxp.css",
+      "bytes": 538,
+      "sha256": "4f9075c4b1f0041ae565b6925ed336dce90805c21a871f5e1a3529f473e32978"
+    },
+    {
+      "path": "assets/phaser-D75MrIe-.js",
+      "bytes": 1483957,
+      "sha256": "a8b25402f87572d4fdc35730b6069049b23733740690781c6e5312721a0312d8"
+    },
+    {
+      "path": "assets/pixel/font.png",
+      "bytes": 791,
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1"
+    },
+    {
+      "path": "assets/pixel/font.xml",
+      "bytes": 10278,
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d"
+    },
+    {
+      "path": "assets/pixel/fonts/m5x7.png",
+      "bytes": 1354,
+      "sha256": "6f3ae0190a7b62b68105812fd0dab4e66361520305bddfcb73a9fbddf476dc63"
+    },
+    {
+      "path": "assets/pixel/fonts/m5x7.xml",
+      "bytes": 10946,
+      "sha256": "2e8b99ee8d0cbf21cfb2928019b907da3dae8d7369fa4d933860ad4eff7e4880"
+    },
+    {
+      "path": "assets/pixel/fonts/myanmar-license.json",
+      "bytes": 4615,
+      "sha256": "8d8bd41e07609be11760f6cf9aad5ae6ced94b0cfcb7b0c370570fbe4b3c9704"
+    },
+    {
+      "path": "assets/pixel/fonts/noto-myanmar.ttf",
+      "bytes": 199680,
+      "sha256": "d3fa6e33ca7a4aeb8cb65dfe19ec608c49ef629f2b37585c23d5c80b0bd1e1bf"
+    },
+    {
+      "path": "assets/pixel/fonts/thaleah.png",
+      "bytes": 1528,
+      "sha256": "4b0b3c082b584e69138dcef4a7650b0d3e764d54f01effb624e1511cc2524ee8"
+    },
+    {
+      "path": "assets/pixel/fonts/thaleah.xml",
+      "bytes": 10952,
+      "sha256": "6ed78c8e255224421daffec7f5077c904191ff781942e93563abe4e0f625e89c"
+    },
+    {
+      "path": "assets/pixel/processed/appearance.png",
+      "bytes": 675476,
+      "sha256": "2419b05542630ca72904d9cbad2563d0fdd8ff9f52ed6806b13da3f3a8b474a6"
+    },
+    {
+      "path": "assets/pixel/processed/boy.png",
+      "bytes": 32258,
+      "sha256": "9648b1c2769701ee8e3dece4b599cb4de5f695ad0185ecb734c1d490c7ddde26"
+    },
+    {
+      "path": "assets/pixel/processed/girl.png",
+      "bytes": 33369,
+      "sha256": "6fe196d7dbeaa9e7fa830b1fb8abf374ebf99a9900c16fe8aa1d3c3f69ea7818"
+    },
+    {
+      "path": "assets/pixel/processed/town.json",
+      "bytes": 292707,
+      "sha256": "3772108ec2945da39865b90311789d29a57709f2eb0c9b9f5ed32121db3868ff"
+    },
+    {
+      "path": "assets/pixel/processed/town.png",
+      "bytes": 536313,
+      "sha256": "57c4cb9899427caabfac848b047086b0b6004acf2f3eb757ee3f99d4ee49f255"
+    },
+    {
+      "path": "assets/pixel/world.json",
+      "bytes": 16253,
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2"
+    },
+    {
+      "path": "assets/pixel/world.png",
+      "bytes": 7819,
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721"
+    },
+    {
+      "path": "index.html",
+      "bytes": 588,
+      "sha256": "54fd1df2e270330a44b6bfc6c8e2f4f9e456bc72dfe9ef0b59a90977334fd940"
+    }
+  ]
+}

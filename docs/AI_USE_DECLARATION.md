@@ -1,3 +1,11 @@
+# v0.21.1 — character correction disclosure (2026-10-13)
+
+Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
+
+OpenAI image generation produced six transparent source sheets using the approved generated reference. Codex assisted with alpha-pose extraction, nearest packing, mechanical walk/jump frames, rig/tool/UI integration, checks and documentation. Exact prompts, outputs and SHA-256 evidence: assets/licenses/characters-v2/SOURCE_RECORD.md. No reference screenshot pixels copied, no CC0 body used in current people, no subagents or new dependencies. No exclusive-copyright or eligibility certification claim. Existing same-project friend playtest update is authorized; no source push or competition submission.
+
+---
+
 # v0.21.0 character/style disclosure
 
 OpenAI Codex assisted with native character sprite adaptation, clothing/barber code, translation, tests and documentation. Built-in image generation supplied one original design guide, excluded from runtime. CC0 body sources, modifications, prompt summary and guide hashes are recorded in assets/licenses/characters/SOURCE_RECORD.md. No reference screenshot pixels are redistributed.

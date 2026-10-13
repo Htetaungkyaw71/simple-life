@@ -12,7 +12,7 @@ export function titleBackdrop(u){
  const river=u.add.graphics();root.add(river);river.fillStyle(0x719889).fillRect(0,h-33,w,33).fillStyle(0xa9c4ab).fillRect(0,h-32,w,3);
  for(let n=0;n<100;n++){const seed=groundHash(n,3,246);river.fillStyle(n%4?0xbed4b8:0x92b3a2,.7).fillRect(seed%Math.max(1,w),h-28+(seed>>>8)%25,5+seed%14,1);}
  const haze=u.add.graphics();root.add(haze);haze.fillStyle(0xffefc4,.4).fillRect(Math.floor(w*.25),0,Math.ceil(w*.5),h-34);
- if(w>300){root.add(u.add.sprite(40,h-34,'boy',0).setOrigin(.5,1).setScale(3));root.add(u.add.sprite(w-40,h-34,'girl',0).setOrigin(.5,1).setScale(3));}
+ if(w>300){root.add(u.add.sprite(40,h-34,'boy',0).setOrigin(.5,1).setScale(2));root.add(u.add.sprite(w-40,h-34,'girl',0).setOrigin(.5,1).setScale(2));}
 }
 export function drawModal(u){
  const {kicker,title,body:fullBody,buttons,kind}=u.menu,w=u.w,h=u.h,isTitle=kind==='title';
@@ -24,7 +24,7 @@ export function drawModal(u){
  const heading=isTitle?(short?'SIMPLE LIFE':'SIMPLE\nLIFE'):title;
  const tm=text(u,u.root,0,0,heading,size,UI_COLORS.light,pw-24,!isTitle),th=tm.height;tm.destroy();
  let bm=text(u,u.root,0,0,body,h<200?6:7,UI_COLORS.muted,pw-24),bh=body?bm.height:0;
- const grid=short&&buttons.length>1||(title==='Paused'||kicker==='ART & CREDITS')&&buttons.length>=6,choose=kind==='choose'?(short?46:58):0,step=h<200?24:28;
+ const grid=short&&buttons.length>1||(title==='Paused'||kicker==='ART & CREDITS')&&buttons.length>=6,choose=kind==='choose'?(short?52:66):0,step=h<200?24:28;
  const fixed=(short?10:14)+th+(isTitle?12:short?4:6)+choose+(grid?Math.ceil(buttons.length/2):buttons.length)*step+8,available=h-u.safe.top-u.safe.bottom-12-fixed;
  let bodyPages=1,bodyDetails=null;
  if(body&&available<42){bodyDetails=body;body='';bm.setText('');bh=0;}
@@ -37,7 +37,7 @@ export function drawModal(u){
  if(isTitle){text(u,u.root,w/2+2,y+11,heading,size,UI_COLORS.ink).setOrigin(.5,0).setCenterAlign();text(u,u.root,w/2,y+9,heading,size,UI_COLORS.cream).setOrigin(.5,0).setCenterAlign();const leaf=u.add.graphics();u.root.add(leaf);pixels(leaf,'leaf',Math.round(w/2-pw/3),y+8,UI_COLORS.edge);}
  else text(u,u.root,w/2,y+10,title,size,UI_COLORS.light,pw-24,true).setOrigin(.5,0).setCenterAlign();
  let cy=y+(short?10:14)+th+(isTitle?12:short?4:6);
- if(choose){for(const [i,char]of ['boy','girl'].entries()){const sx=w/2+(i?35:-35);u.root.add(u.add.sprite(sx,cy+20,char,0));if(!short)text(u,u.root,sx,cy+42,char,7).setOrigin(.5,0);}cy+=choose;}
+ if(choose){for(const [i,char]of ['boy','girl'].entries()){const sx=w/2+(i?35:-35);u.root.add(u.add.sprite(sx,cy+24,char,0).setScale(.5));if(!short)text(u,u.root,sx,cy+46,char,7).setOrigin(.5,0);}cy+=choose;}
  if(body){text(u,u.root,x+12,cy,body,h<200?6:7,UI_COLORS.muted,pw-24);cy+=bh+(short?4:6);}
  if(bodyPages>1){button(u,u.root,(u.menu.bodyPage||0)+1+' / '+bodyPages+' >',x+12,cy,pw-24,22,()=>{u.menu.bodyPage=((u.menu.bodyPage||0)+1)%bodyPages;u.layout();},{id:'modal-text-next'});cy+=26;}
  if(bodyDetails){button(u,u.root,'?',x+pw-34,y+5,22,22,()=>{const previous=u.menu;u.modal(kicker,title,bodyDetails,[['Back',()=>{u.menu=previous;u.layout();}]]);},{id:'modal-body-details'});}

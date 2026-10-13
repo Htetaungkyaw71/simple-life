@@ -1,3 +1,9 @@
+# v0.21.1 — approved character detail
+
+Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00. Use transparent silhouettes, native integer world scale, 1×/2× effective UI previews and grounded feet. Source images provide actual artwork; no procedural stick-body replacement. Source record: assets/licenses/characters-v2/SOURCE_RECORD.md.
+
+---
+
 # v0.21.0 — reference-inspired tall native people
 
 The user authorizes adapting free CC0 character bases with taller proportions and coin-paid appearance choices. Use 24×40 cells at fixed world 2× scale, smaller heads, visible native eyes, restrained warm outlines, long legs and different clothing/hair silhouettes. Retain the current three-quarter map view, ground anchors, shadows, canopy occlusion and nearest filtering. Source body poses are CC0 diamonddmgirl/Cabbit; original native clothing/hair masks and jump poses are AI-assisted project art. The generated design guide is provenance/reference only, never runtime imagery. Five outfits × four haircuts and eight matching town variants share the rig. No pixels from the supplied screenshots are copied. SOURCE_RECORD: assets/licenses/characters/SOURCE_RECORD.md.
