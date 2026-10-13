@@ -1,3 +1,4 @@
+import {groundShadow,SHADOW_DEPTH} from './GroundShadow.js';
 import {worldText} from '../i18n/myanmarText.js';
 import {nightBands} from './nightBands.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
@@ -20,7 +21,7 @@ export class ForestView {
     const sprite=scene.add.image(node.x,node.y-22,'town',FOODS[node.item].icon).setScale(2).setDepth(node.y+1);
     this.nodes.push({node,sprite});
    }
-   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:scene.add.ellipse(0,0,Math.min(64,SPECIES[a.species].body*2.5),10,0x253324,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080)};});
+   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:groundShadow(scene,0,0,Math.min(64,SPECIES[a.species].body*2.5),10,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080)};});
    this.woodland=new WoodlandView(scene);
    this.stones=forestStones().map(node=>({node,sprite:scene.add.image(node.x,node.y,'town','loose-stones').setOrigin(.5,1).setScale(2).setDepth(node.y)}));
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
@@ -45,7 +46,7 @@ export class ForestView {
     const action=runtime.mode==='charge'?'run':runtime.mode==='warning'?'attack':moving?'walk':'idle';
     const pose=combatAnimalVisual(b.species,action,entry.direction,r.now,entry.lastSide);
     entry.sprite.setVisible(visible).setPosition(Math.round(p.x/2)*2,Math.round(p.y/2)*2).setDepth(p.y).setFlipX(pose.flipX).setFrame(pose.frame).setOrigin(.5,pose.originY);
-    entry.shadow.setVisible(visible).setPosition(entry.sprite.x,entry.sprite.y-2).setDepth(p.y-.1);
+    entry.shadow.setVisible(visible).setPosition(entry.sprite.x,entry.sprite.y-2).setDepth(SHADOW_DEPTH);
     const top=entry.sprite.displayHeight*entry.sprite.originY;
     entry.warning.setPosition(p.x,p.y-top-20).setDepth(p.y+1).setVisible(visible&&runtime.mode==='warning');
     entry.health.clear().setDepth(p.y+1);

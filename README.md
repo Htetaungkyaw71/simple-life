@@ -1,3 +1,11 @@
+# v0.20.2 — clearer 2.5D depth (2026-10-13)
+
+Keep the current three-quarter top-down view and native pixel art. Grounded pixel shadows now follow the player, residents and wildlife; jumping raises the sprite while its shadow stays on the ground. Plants sort at their visible feet, and raised bridge rails sort independently of their flat deck. Tall trees reveal the player behind their full silhouette and stay opaque in front. Maps, collisions, saves, gameplay and mobile camera framing retain their established behavior.
+
+Checks and release: [2.5D depth verification](docs/verification/pseudo-depth/README.md).
+
+---
+
 # v0.20.1 — cursed cave postponed (2026-10-13)
 
 The sealed/cursed cave, spirits, warning, map marker, repair quest and Curse Breaker achievement are removed at the user’s request. The previously removed skull caves remain absent. Existing saves continue with current coins, inventory, farms, story and Stash Bags; retired curse records are ignored and omitted on the next save. NPCs and merchants still return home by 7 pm. Implementation history is retained in Git for a later feature request.

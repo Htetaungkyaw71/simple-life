@@ -1,3 +1,9 @@
+# v0.20.2 — original pixel shadows and bridge rail source
+
+Original procedural contact-shadow pixels and raised bridge rails are authored in GroundShadow.js and BridgeView.js with disclosed Codex assistance. These generated local textures/graphics add no runtime files, copied pixels, outside image, npm dependency or new licence. Existing art/font/audio licences and Credits remain. Creation/source record: assets/licenses/pseudo-depth.md.
+
+---
+
 # v0.20.1 — cave artwork removed from active source
 
 CurseArt.js and CurseView.js are removed, so their generated cave/spirit textures are absent from runtime. Historical provenance remains at assets/licenses/cursed-cave.md and in commits 55fbdbd/0125255. No new art/audio/font/dependency or licence is introduced; existing runtime assets and Credits remain.

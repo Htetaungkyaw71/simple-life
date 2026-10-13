@@ -1,3 +1,9 @@
+# v0.20.2 — current view with stronger depth
+
+The design stays 2D with a three-quarter top-down pixel-art view. Depth comes from native shaded sprites, ground contact, feet-based sorting, raised bridge layers and player visibility behind trees. The user explicitly chooses this direction over changing projection. Walking, collisions, jumping distance/height, farm care, day/night, NPC curfew, trade, story and local saves remain unchanged. The cursed cave stays removed.
+
+---
+
 # v0.20.1 — cursed cave deferred
 
 The user postpones the optional cursed cave. Remove its object, warning/confirmation, nighttime spirits, repair contributions, map marker and achievement. Do not restore the previously removed skull caves. Keep the established farming, exploration, animal combat and five Journal chapters. NPCs and shops retain 19:00 return/closure; lighting and sleep retain established timing.

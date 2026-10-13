@@ -1,3 +1,11 @@
+# v0.20.2 — user-selected 2.5D depth refinement (2026-10-13)
+
+Preserve the current three-quarter view and native assets; improve ground shadows for the player/residents/wildlife, ground-vs-jump separation, plant feet sorting, raised bridge rail layers and full-height tree occlusion. Water reflection/wading remains. Maps, geometry/collision, camera framing, farming/economy/story/audio/saves and silent doors are unchanged. The cursed cave remains removed; NPCs still return at 19:00. Original generated graphics and AI assistance are documented without new runtime assets/dependencies.
+
+310 tests and both 145-module builds pass. Three desktop/touch Canvas/WebGL profiles pass shadows/jump, tree/crop depth, City and horizontal Forest bridges, wading/reflection including paused-water shadow, native movement and Save/reload/Continue, with clean consoles. Runtime audit passes: 45 files / 12,012,852 bytes / 27 WAVs / all 43 retained assets byte-identical. Final Burmese phone house-entry/interior-shadow and upright plant checks pass. The same-origin public playtest release is in progress. Evidence/limits: verification/pseudo-depth/README.md. No source push or competition submission.
+
+---
+
 # v0.20.1 — cursed cave postponed at user request (2026-10-13)
 
 Removed the sealed/cursed cave, ghosts, warning, repair/contribution quest, map marker and Curse Breaker achievement. Removed the specific cave collider; previously removed skull objects stay absent. The separately requested 19:00 NPC/merchant schedule remains. Existing save normalization ignores retired curse data and preserves current wallet, inventory, crops, farms, home, story and Forest progress. Existing outdoor Stash Bags remain recoverable. Prior implementation and asset provenance remain in local Git/history for a later request.

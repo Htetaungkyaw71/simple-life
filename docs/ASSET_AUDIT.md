@@ -1,3 +1,9 @@
+# v0.20.2 — depth rendering runtime audit
+
+Normal and explicit playtest builds transform 145 modules. The stage contains 45 files / 12,012,852 bytes / 27 approved WAVs. All 43 retained non-HTML/application-JS assets are byte-identical to v0.20.1. Pixel shadows are cached local generated textures and rails are native Graphics; they add no distributed asset files. No source, docs, QA screenshots, unused pack/vendor files or credentials enter runtime. Manifest: verification/pseudo-depth/deployment-files.json.
+
+---
+
 # v0.20.1 — cave removal runtime audit
 
 The feature’s generated textures are removed from source/runtime. Normal and explicit playtest builds each transform 143 modules. The staged playtest has 45 files / 12,010,253 bytes / 27 WAVs; all 43 retained non-HTML/application-JS files are byte-identical to v0.20.0, including fonts, licensed art, audio and notices. No source, documents, vendor archives or credentials enter the stage. Fingerprints: verification/curse-removal/deployment-files.json.

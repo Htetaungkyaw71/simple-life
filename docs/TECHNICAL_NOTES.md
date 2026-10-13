@@ -1,3 +1,9 @@
+# v0.20.2 — depth rendering
+
+Two small rendering modules add cached nearest-filtered pixel shadows and pure crown overlap. Rails are short foot-sorted Graphics sections; decks remain opaque. No asset files, geometry/collision or save format changes. Tests and browser/device limits: verification/pseudo-depth/README.md.
+
+---
+
 # v0.20.1 — cave retirement
 
 Five feature modules are removed and the normal/playtest build returns to 143 modules. Save normalization drops legacy curse data while preserving established gameplay fields. Generated cave textures and the specific cave collider/map marker are gone. NPC curfew and recoverable outdoor bags remain. Full checks/device limits: verification/curse-removal/README.md.

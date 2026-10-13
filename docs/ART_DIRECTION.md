@@ -1,3 +1,9 @@
+# v0.20.2 — user-selected 2.5D depth polish
+
+The user chooses the existing view with improved shadows, layers and walking behind objects. Retain three-quarter pixel sprites, map axes, palette, existing house architecture and camera zoom. Original cached native contact-shadow pixels use fixed 2× scale and nearest filtering, with no smoothed ellipse. Keep shadows on the ground above soil/rugs, dim them while airborne, hide them while wading and retain water reflection. Upright plants sort at registered feet. Bridge decks stay opaque and at ground depth; original raised rails/posts sort at their foot, using short side sections. Tree occlusion tests full sprite bounds behind the trunk and restores opacity in front. No isometric projection, 3D engine, perspective skew or new external art.
+
+---
+
 # v0.20.1 — cave/spirit visuals retired
 
 No sealed/broken/restored cave or spirit textures are generated or rendered. The former cave clearing remains open without a skull replacement or hidden collider. Existing trees, habitats, camera, font sizes, nearest filtering and licensed atlases remain. Historical original-art evidence is retained for provenance and later recovery from Git.

@@ -1,3 +1,9 @@
+# v0.20.2 — rendering-only depth refinement
+
+GroundShadow.js caches original native pixel textures and places contact shadows on a shared floor/deck layer. Player/NPC/wildlife views share this helper; WaterView suppresses dry-ground shadow while preserving its reflection. Existing feet-based actor/object sorting remains. Registered upright plant details use vegetation feet instead of the terrain depth. BridgeView adds independently foot-sorted native rail sections, reused by cityBridge. occlusion.js computes full visible-crown overlap separately from the ground sorting anchor. Main QA snapshots expose read-only rendering data for actual browser assertions. Pure gameplay, collision/maps, schema and separate canvas UI remain.
+
+---
+
 # v0.20.1 — retire optional curse composition
 
 Removed cursedCave/curse/CurseArt/CurseView/CavePanel modules and their world, combat, context, map and UI integrations. Combat again targets only Forest wildlife. New states omit curse; the existing allowlisted save normalization ignores legacy curse records. Retain general outdoor Stash Bag validation/rendering/recovery so released saves keep recoverable coins. The 19:00 NPC/merchant schedule and safe house-door context priority remain.

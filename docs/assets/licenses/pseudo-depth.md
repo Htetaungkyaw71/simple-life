@@ -1,0 +1,3 @@
+# Original 2.5D rendering additions — 2026-10-13
+
+User direction: keep the current view, improve shadows/layers and walking behind objects. Codex-assisted original source in src/art/GroundShadow.js (native symmetric contact pixels) and src/art/BridgeView.js (raised timber rails/posts). Alpha and whole-pixel geometry are generated locally in memory; no outside image, screenshot extraction, downloaded bitmap or new distributed file. Source authorship/AI assistance is disclosed without asserting human-only creation or exclusive ownership. Existing sprites and atlases retain their original source/licence evidence and Credits. Engine/dependency evidence remains under docs/licenses.
