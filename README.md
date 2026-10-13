@@ -4,6 +4,8 @@ The player and eight town character variants now use taller 24×40 native pixel 
 
 Approach Nell (shirt icon, east City commons) to buy clothes, or Sol (scissors icon, west City lane) for a paid haircut, between 7 am and 7 pm. Five outfits and four hairstyles combine independently; the two starter outfits are free and new clothes cost 90/120/150 coins. Hair changes cost 30/45/50/60 coins. Owned outfits can be switched free through Home & garden → Wardrobe. Preview before buying; the current style and unavailable purchases are disabled. Appearance and owned clothes survive Continue; schemas 1–18 migrate to schema 19 with existing progress intact. English/Myanmar canvas UI and phone rotation remain supported.
 
+Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. 316 tests, both builds, six local style profiles, three depth profiles and published desktop/phone checks pass.
+
 Source/licence and AI design guide: [character evidence](docs/assets/licenses/characters/SOURCE_RECORD.md). Verification: [appearance checks](docs/verification/appearance/README.md).
 
 ---

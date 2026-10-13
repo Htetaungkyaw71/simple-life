@@ -1,0 +1,19 @@
+{
+  "release": "0.21.0",
+  "sourceCommit": "66681383b31d8e01d35ae9ed152e8a0942c9fd26",
+  "projectId": "prj_yAUSg3ycEwhd7xCyR5izuTPSUnRh",
+  "teamId": "team_N7fzv8ro0kcyz4cs9Pt3Mnm2",
+  "deploymentId": "dpl_F6rmbXePZXuyRzHqZxRdaPHENrur",
+  "deploymentURL": "https://simple-life-playtest-osg7dtper-htetaungkyaw71s-projects.vercel.app",
+  "publicURL": "https://simple-life-playtest.vercel.app/",
+  "ready": true,
+  "protectedStageBundleExact": true,
+  "applicationSHA256": "b334ad56fd1a1c4666c99370c1125d2ae970c9554dfddb56835845e914674389",
+  "publicRuntimeFilesExact": 46,
+  "browserErrors": [],
+  "unitTests": 316,
+  "buildModules": 150,
+  "physicalPhonesVerified": false,
+  "sourcePush": false,
+  "competitionSubmission": false
+}
