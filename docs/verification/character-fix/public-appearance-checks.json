@@ -1,0 +1,28 @@
+[
+  {
+    "width": 1280,
+    "height": 720,
+    "lang": "en",
+    "renderer": "canvas",
+    "clothesCost": 90,
+    "hairCost": 45,
+    "balance": 865,
+    "reload": true,
+    "ownedFree": true,
+    "remotePurchaseDisabled": true,
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "lang": "mm",
+    "renderer": "canvas",
+    "clothesCost": 90,
+    "hairCost": 45,
+    "balance": 865,
+    "reload": true,
+    "ownedFree": true,
+    "remotePurchaseDisabled": true,
+    "errors": []
+  }
+]

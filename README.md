@@ -2,7 +2,7 @@
 
 Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
 
-Source and exact image-generation prompts: [character record](docs/assets/licenses/characters-v2/SOURCE_RECORD.md). [Public playtest](https://simple-life-playtest.vercel.app/). Final checks: docs/verification/character-fix/README.md.
+Source and exact image-generation prompts: [character record](docs/assets/licenses/characters-v2/SOURCE_RECORD.md). [Public playtest](https://simple-life-playtest.vercel.app/). 316 tests, both builds and local/public desktop/mobile checks pass. [Verification](docs/verification/character-fix/README.md). Refresh and Continue to retain your progress.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.
 
-Final verification and publication results are being collected in verification/character-fix. Physical-phone/Safari comfort, native-speaker review and long-term cosmetic pricing remain human checks.
+316 unit tests and both 150-module builds pass. Four local desktop/phone style profiles and three depth profiles pass with clean consoles. Published READY dpl_H2fDuqmGSdsY8sN9ygEYBA3tuEn7, source 5b9038a, on https://simple-life-playtest.vercel.app/. Protected application/public HTML and all 46 public runtime files match the tested stage. Fresh public desktop/phone startup, audio, gear, Jump and Save/Continue pass. Public English desktop/Burmese landscape outfit/hair purchases, four facings, reload, free owned outfits, rotation and fresh Girl startup pass with clean consoles. Static error query found no logs. Runtime 46 files / 13,007,818 bytes / 27 WAVs; all 698 non-person atlas cells preserved. Source art/prompts: assets/licenses/characters-v2/SOURCE_RECORD.md. Evidence: verification/character-fix/README.md. Physical phones/Safari, native-speaker review and long-term cosmetic pricing remain human checks. No source push or competition submission.
 
 ---
 
