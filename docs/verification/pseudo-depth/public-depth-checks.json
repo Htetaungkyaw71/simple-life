@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "url": "https://simple-life-playtest.vercel.app/",
+  "records": [
+    {
+      "name": "canvas-en-1280",
+      "result": "PASS",
+      "groundAndJumpShadow": true,
+      "frontBackTree": true,
+      "cropDepth": true,
+      "layeredBridge": true,
+      "waterReflection": true,
+      "saveReload": true,
+      "errors": []
+    },
+    {
+      "name": "canvas-mm-844",
+      "result": "PASS",
+      "groundAndJumpShadow": true,
+      "frontBackTree": true,
+      "cropDepth": true,
+      "layeredBridge": true,
+      "waterReflection": true,
+      "saveReload": true,
+      "errors": []
+    }
+  ]
+}

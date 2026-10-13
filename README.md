@@ -2,7 +2,7 @@
 
 Keep the current three-quarter top-down view and native pixel art. Grounded pixel shadows now follow the player, residents and wildlife; jumping raises the sprite while its shadow stays on the ground. Plants sort at their visible feet, and raised bridge rails sort independently of their flat deck. Tall trees reveal the player behind their full silhouette and stay opaque in front. Maps, collisions, saves, gameplay and mobile camera framing retain their established behavior.
 
-Checks and release: [2.5D depth verification](docs/verification/pseudo-depth/README.md).
+Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. 310 tests, both builds and desktop/phone browser checks pass. Checks and release: [2.5D depth verification](docs/verification/pseudo-depth/README.md).
 
 ---
 

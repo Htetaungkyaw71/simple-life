@@ -1,6 +1,6 @@
 # v0.20.2 — 2.5D presentation assistance, 2026-10-13
 
-OpenAI Codex assisted with the user-selected existing-view depth refinement: original generated contact shadows and bridge rails, plant feet sorting, tall-crown overlap, code integration, unit/native-input browser verification and documentation. The user selected preserving the current view; referenced games describe the broad style only and supply no copied pixels/layouts. No subagents, image-generation service, new dependency, backend or user-profile save editing. Source/provenance: assets/licenses/pseudo-depth.md; verification: verification/pseudo-depth/README.md.
+OpenAI Codex assisted with the user-selected existing-view depth refinement: original generated contact shadows and bridge rails, plant feet sorting, tall-crown overlap, code integration, unit/native-input browser verification, documentation and the previously authorized same-origin friend playtest update. The user selected preserving the current view; referenced games describe the broad style only and supply no copied pixels/layouts. No subagents, image-generation service, new dependency, backend or user-profile save editing. Source/provenance: assets/licenses/pseudo-depth.md; verification: verification/pseudo-depth/README.md.
 
 ---
 
