@@ -3791,8 +3791,8 @@
   ],
   "characterFrames": {
     "size": [
-      48,
-      80
+      40,
+      72
     ],
     "columns": 9,
     "rows": [
@@ -3876,8 +3876,8 @@
     "license": "Original generated project art; AI assistance disclosed; no exclusive copyright claim",
     "source": "docs/assets/licenses/characters-v2/SOURCE_RECORD.md",
     "cells": [
-      48,
-      80
+      40,
+      72
     ],
     "variants": 8
   },

@@ -48,3 +48,12 @@ test('soil has rounded transparent edges and coordinate-continuous mottling inst
  const colours=new Set();for(let y=0;y<24;y++)for(let x=0;x<24;x++){const i=(y*24+x)*4;assert.equal(a[i+3],255);colours.add(a.slice(i,i+3).join(','));if(x>=12)assert.deepEqual(a.slice(i,i+4),b.slice((y*24+x-12)*4,(y*24+x-12)*4+4));assert.ok(wet[i]<=a[i]);}
  assert.ok(colours.size>25);assert.equal(edge[3],0,'corner reveals underlying grass');assert.equal(edge[(12*24+12)*4+3],255);assert.notDeepEqual(a,b);
 });
+test('held tools move with opposing animated hands and return to the standing grip',()=>{
+ const u=recorder(),s=newState();u.app={state:s,paused:false};s.selected='water';const held=new HeldWateringCan(u);
+ for(const dir of ['down','up','left','right']){
+  held.update({x:100,y:100},dir,1);const standing={x:held.can.x,y:held.can.y},poses=[];
+  for(const frame of [1,2,3,4]){held.update({x:100,y:100},dir,1,0,true,frame);poses.push({x:held.can.x,y:held.can.y});assert.equal(held.hand.x,held.can.x);assert.equal(held.hand.y,held.can.y);assert.ok(Math.hypot(held.can.x-100,held.can.y-100)<32);}
+  assert.equal(new Set(poses.map(p=>p.x+','+p.y)).size,4);assert.notDeepEqual(poses[0],poses[2]);
+  held.update({x:100,y:100},dir,1,0,false,0);assert.deepEqual({x:held.can.x,y:held.can.y},standing);
+ }
+});

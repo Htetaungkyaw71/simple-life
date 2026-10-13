@@ -1,3 +1,11 @@
+# v0.21.2 — smaller characters and active limbs (2026-10-13)
+
+Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
+
+317 tests and both 150-module builds pass. Four style profiles and three depth profiles pass. Final English desktop/Burmese mobile native motion checks pass: every style/NPC has distinct arm/foot pixels, all four player walk frames appear, stopped player uses standing, and a moving town resident cycles all four poses. Consoles are clean. Runtime 46 files / 12,678,948 bytes / 27 WAVs; all 698 non-person cells preserved. Evidence: verification/character-motion. Existing same-project public update pending. Physical phones/Safari comfort and native-speaker review remain human checks.
+
+---
+
 # v0.21.1 — approved character correction (2026-10-13)
 
 Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.

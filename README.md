@@ -1,3 +1,11 @@
+# v0.21.2 — smaller people and visible walk cycles (2026-10-13)
+
+Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
+
+[Playtest](https://simple-life-playtest.vercel.app/). Source and animation details: docs/assets/licenses/characters-v2/SOURCE_RECORD.md. Checks and limits: docs/verification/character-motion/README.md.
+
+---
+
 # v0.21.1 — characters match the approved guide (2026-10-13)
 
 Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00.

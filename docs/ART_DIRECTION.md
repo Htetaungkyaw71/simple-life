@@ -1,3 +1,11 @@
+# v0.21.2 — character scale and walking refinement (2026-10-13)
+
+Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
+
+Codex assisted with the editable native-sprite packing/animation code, joint offsets, palette simplification, hand synchronization, tests and documentation. The six previously disclosed original generated source sheets are retained; no new generation or third-party asset. Source/prompt/hash record: assets/licenses/characters-v2/SOURCE_RECORD.md. No new dependency, runtime asset path, economy rule, save schema, source push or competition submission. AI assistance and established mixed-atlas licences remain disclosed; no exclusive-copyright claim.
+
+---
+
 # v0.21.1 — approved character detail
 
 Active people now use original OpenAI-generated artwork based on the user-approved guide, packed into 48×80 nearest-filtered native sprites. Fuller hair, visible eyes, layered clothing and boots replace the rejected thin 24×40 adaptations. Player world scale 1× retains approximate previous physical height. Five outfits/four hairs and eight town variants retain frame indexes, schema-19 saves, paid clothing/barber services and free owned outfits. The cave remains postponed and NPC curfew remains 19:00. Use transparent silhouettes, native integer world scale, 1×/2× effective UI previews and grounded feet. Source images provide actual artwork; no procedural stick-body replacement. Source record: assets/licenses/characters-v2/SOURCE_RECORD.md.

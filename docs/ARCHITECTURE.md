@@ -1,3 +1,11 @@
+# v0.21.2 — character scale and walking refinement (2026-10-13)
+
+Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
+
+Codex assisted with the editable native-sprite packing/animation code, joint offsets, palette simplification, hand synchronization, tests and documentation. The six previously disclosed original generated source sheets are retained; no new generation or third-party asset. Source/prompt/hash record: assets/licenses/characters-v2/SOURCE_RECORD.md. No new dependency, runtime asset path, economy rule, save schema, source push or competition submission. AI assistance and established mixed-atlas licences remain disclosed; no exclusive-copyright claim.
+
+---
+
 # v0.21.1 — reference sprite packing
 
 PEOPLE defines a 48×80 rig at world scale 1. Appearance sprite indexes still reserve 36 frames per style; the 864×3200 image wraps at 18 physical columns while animation direction still has nine logical frames. Atlas cells share the rig, frame dimensions drive water/reflection cropping, and tools use updated native hand anchors. UI root 2× gives net 1× short and 2× full preview pixels. Pure transactions and schema 19 are unchanged. Source packing/provenance: scripts/people_art.py and assets/licenses/characters-v2/SOURCE_RECORD.md.

@@ -1,3 +1,9 @@
+# v0.21.2 — smaller articulated character atlas
+
+Normal and explicit playtest builds pass with 150 modules. Runtime has 46 files / 12,678,948 bytes / 27 WAVs. The appearance texture is 720×2880; all 858 atlas cells fit 1024×2284. All 698 non-person atlas cells preserve their exact RGBA pixels. No new runtime path, dependency, font or audio. Source sheets, art/motion previews and prompts remain excluded. Fingerprints: verification/character-motion/deployment-files.json.
+
+---
+
 # v0.21.1 — original detailed people runtime audit
 
 Normal and explicit playtest builds pass (150 modules). Runtime is 46 files / 13,007,818 bytes / 27 WAVs. 858 town frames occupy 1024×2414; the appearance texture is 864×3200, within 4096 dimensions. All 698 non-person atlas cells are byte-identical to v0.21.0. New source sheets/prompts and documents stay excluded from runtime; no dependency/font/audio changes or remote assets. Evidence: verification/character-fix/asset-audit.json and deployment-files.json.

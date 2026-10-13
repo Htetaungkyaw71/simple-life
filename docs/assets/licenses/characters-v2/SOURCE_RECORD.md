@@ -1,3 +1,11 @@
+# v0.21.2 native scale and articulated walking update
+
+Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
+
+The existing source PNGs/hashes/prompts below are unchanged. `scripts/people_art.py` now reduces poses to at most 36×64 within 40×72 frames, quantizes each identity using one 32-colour palette shared by all facings, preserves alpha and applies nearest native joint/row deformation. Arm/leg extraction keeps shoulders/hips attached; side forearms uncover restored garment pixels; dress hems stay intact while visible feet step. Contact faces remain identical to standing. Four moving frames are distinct in both arm and foot regions for all 20 styles and eight town variants. The 720-frame appearance PNG is now 720×2880. Far-leg shading aids side-view separation. Source artwork remains original generated project art. No new image generation, proprietary screenshot sampling or external asset. This is a compact four-pose pixel walk cycle, with separate standing and tucked-leg jump poses.
+
+---
+
 # v0.21.1 original reference-matched characters — 2026-10-13
 
 User approved the generated eight-person guide and requested fixing the thin in-game result. Built-in OpenAI `image_gen.imagegen` generated six original transparent source sheets from that approved guide. The exact six prompts are in [prompts.json](prompts.json); retained local outputs are in source/. No commercial-game screenshot pixels or third-party CC0 body pixels are in the active replacement people. The older CC0 adaptation is retired and its evidence remains historical. Established environment/legacy atlas licences remain independently applicable. These generated project assets carry no new third-party pack restriction; AI use is disclosed, with no claim of exclusive copyright or certification of competition eligibility.
