@@ -1,3 +1,9 @@
+# v0.24.0 — approved PixelLab farmer (2026-10-13)
+
+The user generated and approved the farmer and four eight-frame running directions with PixelLab. OpenAI Codex assisted with prompt/settings advice, trial/tool research, export inspection, byte-preserving packing, ground registration, hand-grip extraction, appearance/UI/water integration and isolated browser QA. PixelLab supplied the actual art and motion; Codex did not redraw, recolour, resample or deform it. Existing Szadiart NPC/other-look pixels remain. No subagents, new dependency/backend, runtime API calls, model training or source push. The account screenshot's secret was not used or retained; the user was advised to rotate it.
+
+---
+
 # v0.23.0 — original Szadiart people (2026-10-13)
 
 OpenAI Codex assisted with pack inspection, original frame packing/mirroring, appearance/save compatibility, tool-grip extraction, bilingual menu labels, browser and pixel audits, documentation and the authorized existing playtest update. Character artwork is Szadiart’s original work; Codex did not generate, redraw, deform or recolour it. No subagents, image-generation service, new dependency/backend or source push. Prior AI-art/code history remains disclosed.

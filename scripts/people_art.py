@@ -6,6 +6,7 @@ from pathlib import Path
 from functools import lru_cache
 from PIL import Image
 import json
+from pixellab_people import write_farmer
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'docs/assets/licenses/characters-szadiart/source'
 OUT=ROOT/'public/assets/pixel/processed'
@@ -70,8 +71,8 @@ def write_people():
     for f in range(COLUMNS):
      appearance.alpha_composite(cell(outfit,hair,row,f),((index%40)*WIDTH,(index//40)*HEIGHT));index+=1
  appearance.save(OUT/'appearance.png');sheet('worker','midnight').save(OUT/'boy.png');sheet('gardener','chestnut').save(OUT/'girl.png')
- write_grips()
- return {'size':[WIDTH,HEIGHT],'columns':COLUMNS,'rows':DIRECTIONS,'idle':[0,1,2,3],'move':[4,5,6,7],'walk':[4,5,6,7],'jump':[8,9,10],'appearanceSheets':20,'source':'Szadiart original finished character presets','sourceRecord':'docs/assets/licenses/characters-szadiart/SOURCE_RECORD.md','nativeCrop':[4,2,28,42],'worldIntegerScale':WORLD_SCALE,'sourceRows':SOURCE_ROWS,'mirroredRow':3,'shadowRemovedAlpha':77,'originalArtPreserved':True}
+ write_grips();farmer=write_farmer()
+ return {'approvedFarmer':farmer,'size':[WIDTH,HEIGHT],'columns':COLUMNS,'rows':DIRECTIONS,'idle':[0,1,2,3],'move':[4,5,6,7],'walk':[4,5,6,7],'jump':[8,9,10],'appearanceSheets':20,'source':'Szadiart original finished character presets','sourceRecord':'docs/assets/licenses/characters-szadiart/SOURCE_RECORD.md','nativeCrop':[4,2,28,42],'worldIntegerScale':WORLD_SCALE,'sourceRows':SOURCE_ROWS,'mirroredRow':3,'shadowRemovedAlpha':77,'originalArtPreserved':True}
 
 def grip(family,variant,row,frame):
  im=source_cell(family,variant,row,source_frame(frame));side=-1 if row in [1,3] else 1

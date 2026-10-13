@@ -1,3 +1,4 @@
+import {FARMER} from '../src/data/appearance.js';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -126,6 +127,6 @@ test('partial chopping survives days/travel, stays per farm and rejects forged p
  raw.version=14;assert.equal(validate(raw).vegetation['farm:0'].treeHits,undefined);assert.deepEqual(validate(raw).vegetation['farm:1'].trees,[n.id]);
 });
 test('blocked movement still turns toward a trunk, while an active axe swing retains its facing',()=>{
- const u=recorder(),sprite=u.add.sprite(0,0,'boy',0);sprite.play=()=>sprite;const p={scene:{app:{state:{selected:'axe'},pendingAttack:null}},direction:'down',sprite,anchor:u.add.container(),shadow:u.add.container(),wateringCan:{remaining:0,update(){}} ,pose(){}};
+ const u=recorder(),sprite=u.add.sprite(0,0,'boy',0);sprite.play=()=>sprite;const p={rig:FARMER,scene:{app:{state:{selected:'axe'},pendingAttack:null}},direction:'down',sprite,anchor:u.add.container(),shadow:u.add.container(),wateringCan:{remaining:0,update(){}} ,pose(){}};
  PlayerView.prototype.update.call(p,{x:100,y:100},0,0,{height:0,frame:null},{x:0,y:-1});assert.equal(p.direction,'up');assert.equal(p.anchor.x,100);p.scene.app.pendingAttack={};PlayerView.prototype.update.call(p,{x:100,y:100},0,0,{height:0,frame:null},{x:1,y:0});assert.equal(p.direction,'up');
 });

@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "sourceHashes": 41,
+  "exactSourceCells": 48,
+  "nontransparentPixels": 14142,
+  "originalRunFrames": 32,
+  "uniqueFramesPerDirection": 8,
+  "handGrips": 48,
+  "unchangedLegacyAndNpcAssets": [
+    "appearance.png",
+    "girl.png",
+    "town.png",
+    "town.json"
+  ],
+  "resizeOrRecolor": false,
+  "sharedGroundRow": 40,
+  "idleTranslation": [
+    8,
+    9
+  ],
+  "runFps": 16
+}

@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {newState} from '../../src/systems/state.js';
-import {PEOPLE} from '../../src/data/appearance.js';
+import {PEOPLE,FARMER} from '../../src/data/appearance.js';
+import {FARMER_HANDS} from '../../src/data/farmerHands.js';
 import {TESTING_COIN_GRANT} from '../../src/systems/testingCredit.js';
 const {chromium}=await import('/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
 const url=process.env.GAME_URL||'http://127.0.0.1:4196/',out=process.env.QA_OUT||'/private/tmp/simple-life-character-motion';await mkdir(out,{recursive:true});
@@ -10,10 +11,10 @@ try{for(const [width,height,lang]of [[1280,720,'en'],[844,390,'mm']]){
  const ctx=await browser.newContext({viewport:{width,height},hasTouch:width<1000}),p=await ctx.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(['warning','error'].includes(m.type()))errors.push(m.text());});
  const snap=()=>p.evaluate(()=>{const s=window.__simpleLife.snapshot();return {state:s.state,controls:s.controls,player:s.player,residents:s.residents,rendering:s.rendering,camera:s.camera};});
  const click=async id=>{const c=(await snap()).controls.find(c=>c.id===id);assert.ok(c&&!c.disabled,id);await(width<1000?p.touchscreen.tap(c.x+c.w/2,c.y+c.h/2):p.mouse.click(c.x+c.w/2,c.y+c.h/2));await p.waitForTimeout(200);};
- const fixture=(area,position)=>{const s=newState();Object.assign(s,{area,position,minute:600,money:1000,testingCoinGrant:TESTING_COIN_GRANT,starterSeedsClaimed:true,hasVisitedFarm:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';return s;};
+ const fixture=(area,position)=>{const s=newState();Object.assign(s,{area,position,minute:600,money:1000,testingCoinGrant:TESTING_COIN_GRANT,starterSeedsClaimed:true,hasVisitedFarm:true,forestTutorialComplete:true,nightWarningSeen:true,selected:'water'});s.story.intro='seen';return s;};
  const start=async s=>{const u=new URL(url);u.searchParams.set('qa','');await p.goto(u.href);await p.waitForFunction(()=>{try{return !!window.__simpleLife?.snapshot().controls.length;}catch{return false;}});await p.evaluate(s=>localStorage.setItem('simple-life.save.v1',JSON.stringify(s)),s);await click('language-'+lang);await click('Continue');};
  try{
-  await start(fixture('home',{x:480,y:600}));assert.equal((await snap()).player.nativeHeight,PEOPLE.height);
+  await start(fixture('home',{x:480,y:600}));assert.equal((await snap()).player.nativeHeight,FARMER.height);
   // Test pixels themselves, not merely a changing animation index. Both arm
   // and foot regions must change; all four actual source phases are retained (the artist repeats one back pose for Rowan).
   const art=await p.evaluate(async({w,h,rig})=>{
@@ -37,13 +38,14 @@ try{for(const [width,height,lang]of [[1280,720,'en'],[844,390,'mm']]){
    const before=(await snap()).state.position,frames=new Set();let cdp;
    if(width>=1000)await p.keyboard.down(key);else{const c=(await snap()).controls.find(c=>c.id==='move-stick');cdp=await ctx.newCDPSession(p);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:c.x+c.w*(.5+dx*.3),y:c.y+c.h*(.5+dy*.3)}]});}
    try{
-    const observed=await p.evaluate(rig=>new Promise(resolve=>{const frames=[],until=performance.now()+800;function collect(){const s=window.__simpleLife.snapshot();frames.push({frame:Number(s.player.frame)%rig.columns,direction:s.player.direction});if(performance.now()>=until)resolve(frames);else requestAnimationFrame(collect);}requestAnimationFrame(collect);}),PEOPLE);
-    for(const sample of observed)if(sample.frame>=PEOPLE.runStart&&sample.frame<PEOPLE.runStart+PEOPLE.runFrames){frames.add(sample.frame);assert.equal(sample.direction,dir);}
+    const observed=await p.evaluate(rig=>new Promise(resolve=>{const frames=[],until=performance.now()+800;function collect(){const s=window.__simpleLife.snapshot();frames.push({frame:Number(s.player.frame)%rig.columns,direction:s.player.direction,position:s.state.position,tool:s.heldTool});if(performance.now()>=until)resolve(frames);else requestAnimationFrame(collect);}requestAnimationFrame(collect);}),FARMER);
+    for(const sample of observed)if(sample.frame>=FARMER.runStart&&sample.frame<FARMER.runStart+FARMER.runFrames){frames.add(sample.frame);assert.equal(sample.direction,dir);assert.ok(sample.tool.visible);
+     const [hx,hy]=FARMER_HANDS[dir][sample.frame];assert.ok(Math.abs(sample.tool.x-Math.round(sample.position.x)-hx)<=1);assert.ok(Math.abs(sample.tool.y-Math.round(sample.position.y)-hy)<=1);}
 
     await p.screenshot({path:`${out}/${width}-${dir}-jogging.png`});
    }finally{if(cdp){await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await cdp.detach();}else await p.keyboard.up(key);}
 
-   const after=(await snap()).state.position;assert.ok(Math.hypot(after.x-before.x,after.y-before.y)>10);for(const f of Array.from({length:PEOPLE.runFrames},(_,i)=>PEOPLE.runStart+i))assert.ok(frames.has(f),JSON.stringify({dir,frames:[...frames]}));await p.waitForTimeout(100);assert.ok(Number((await snap()).player.frame)%PEOPLE.columns<PEOPLE.runStart);directions.push({dir,frames:[...frames]});
+   const after=(await snap()).state.position;assert.ok(Math.hypot(after.x-before.x,after.y-before.y)>10);for(const f of Array.from({length:FARMER.runFrames},(_,i)=>FARMER.runStart+i))assert.ok(frames.has(f),JSON.stringify({dir,frames:[...frames]}));await p.waitForTimeout(100);assert.ok(Number((await snap()).player.frame)%FARMER.columns<FARMER.runStart);directions.push({dir,frames:[...frames]});
   }
   await start(fixture('city',{x:700,y:700}));await p.waitForTimeout(1600);const npcFrames=new Set(),positions=[];
   for(let i=0;i<16;i++){await p.waitForTimeout(80);const n=(await snap()).residents.find(n=>n.id==='city-june');assert.ok(n.visible&&n.moving);npcFrames.add(n.frame);positions.push([n.x,n.y]);}

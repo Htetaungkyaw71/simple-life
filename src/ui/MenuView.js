@@ -1,4 +1,4 @@
-import {PEOPLE} from '../data/appearance.js';
+import {PEOPLE,FARMER} from '../data/appearance.js';
 import {button,panel,text,UI_COLORS} from './pixelWidgets.js';
 import {groundHash} from '../art/groundSurface.js';
 import {pixels} from './statusArt.js';
@@ -13,7 +13,7 @@ export function titleBackdrop(u){
  const river=u.add.graphics();root.add(river);river.fillStyle(0x719889).fillRect(0,h-33,w,33).fillStyle(0xa9c4ab).fillRect(0,h-32,w,3);
  for(let n=0;n<100;n++){const seed=groundHash(n,3,246);river.fillStyle(n%4?0xbed4b8:0x92b3a2,.7).fillRect(seed%Math.max(1,w),h-28+(seed>>>8)%25,5+seed%14,1);}
  const haze=u.add.graphics();root.add(haze);haze.fillStyle(0xffefc4,.4).fillRect(Math.floor(w*.25),0,Math.ceil(w*.5),h-34);
- if(w>300){root.add(u.add.sprite(40,h-34,'boy',0).setOrigin(.5,1).setScale(PEOPLE.scale*2));root.add(u.add.sprite(w-40,h-34,'girl',0).setOrigin(.5,1).setScale(PEOPLE.scale*2));}
+ if(w>300){root.add(u.add.sprite(40,h-34,'boy',0).setOrigin(.5,FARMER.originY).setScale(FARMER.scale*2));root.add(u.add.sprite(w-40,h-34,'girl',0).setOrigin(.5,1).setScale(PEOPLE.scale*2));}
 }
 export function drawModal(u){
  const {kicker,title,body:fullBody,buttons,kind}=u.menu,w=u.w,h=u.h,isTitle=kind==='title';

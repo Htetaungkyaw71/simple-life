@@ -1,3 +1,9 @@
+# v0.24.0 — approved PixelLab farmer (2026-10-13)
+
+Worker/Classic player art is now user-generated PixelLab output. PixelLab Terms of Service sections 1.3/3.3 permit game use and output modification/distribution, subject to applicable laws and the linked Open RAIL-M terms; training other models requires permission. Public terms/licence, exact PNGs/metadata, archive/file hashes and packing details are in [source record](assets/licenses/characters-pixellab/SOURCE_RECORD.md). These are custom output-use terms, not CC0. Other looks and eight NPCs retain their existing Szadiart licences. Source archives, unused diagonals and evidence never enter the unchanged runtime asset allowlist.
+
+---
+
 # v0.23.0 — original Szadiart people (2026-10-13)
 
 Current people are third-party art by Szadi art. under the included custom License for Everyone, not CC0 or original project artwork. It permits personal/commercial game use and modification, with standalone art resale and logo/trademark use excluded; credit is optional and provided. Untouched licence, six selected PNG sheets, archive/file hashes and integration evidence are in [source record](assets/licenses/characters-szadiart/SOURCE_RECORD.md). Source ZIP/PSD and unused files remain excluded from runtime. Previous CraftPix and generated-art evidence remains historical provenance.

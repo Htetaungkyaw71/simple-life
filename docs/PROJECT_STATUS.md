@@ -1,3 +1,13 @@
+# v0.24.0 — approved PixelLab farmer (2026-10-13)
+
+The user-approved PixelLab farmer replaces the existing free Worker outfit / Classic look. All four native running directions use eight unique exported frames at 16 fps. Original RGBA pixels and slim proportions remain unchanged, rendered at integer 2× with nearest filtering. Static idle frames are padded into the larger 48×48 run canvas; shared ground row 40 keeps feet, shadows, tools and shallow-water cropping aligned. Title, character choice and wardrobe previews show the same approved farmer.
+
+Other complete looks and all eight town NPCs retain the existing Szadiart artwork and motion. Appearance IDs, prices, ownership, schema-19 saves, controls and movement speed remain. Jump uses genuine passing run poses with the existing arc; no authored jump/tool cycle was supplied. Source records disclose user-generated PixelLab AI art and public output-use terms. Runtime allowlist stays unchanged; no remote assets/services or source archives ship.
+
+317 tests and both 152-module normal/explicit playtest builds pass. Native audit verifies 41 source hashes, 48 byte-exact cells, 32 original run frames and 48 skin-pixel tool grips. Other looks, girl and NPC assets match v0.23.0 byte-for-byte. Three appearance profiles, two keyboard/touch motion profiles and three depth profiles pass with clean consoles. Runtime allowlist stays 46 files / 12,199,891 bytes / 27 unchanged WAVs; dependency notices and archive exclusion pass. See [verification](verification/pixellab-farmer/README.md). Physical phones/Safari and human artwork acceptance remain unverified.
+
+---
+
 # v0.23.0 — original Szadiart people (2026-10-13)
 
 Player and eight town NPCs now use original Szadiart 3 Direction NPC Characters artwork. Native proportions, faces, colours and all opaque source pixels are preserved. Only baked alpha-77 ground shadows are removed; a fixed 24×40 crop and mirrored side view support the existing four directions. World scale is integer 2× with nearest filtering. Players use four authored idle poses at 6 fps and four walk poses at 10 fps; NPCs use four walk slots at the existing 120 ms cadence. Movement speed and controls remain. The pack has no authored running, jumping or tool-action animations; existing jump/tool effects use unchanged source poses and world motion.

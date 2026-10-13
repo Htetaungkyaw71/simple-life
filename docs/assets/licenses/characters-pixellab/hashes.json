@@ -1,0 +1,211 @@
+{
+  "archive": "A_young_adult_male_farme-Idle (1).zip",
+  "archiveSha256": "6042677a86c0e2cfa39cf8b929129b4ab8394a85cba5da054458622f81acdf40",
+  "files": [
+    {
+      "path": "Idle/rotations/south.png",
+      "sha256": "72c606a9761977542d405a07523906e8fd529d04d15872e414861ef25dec6758",
+      "bytes": 840
+    },
+    {
+      "path": "Idle/rotations/south-east.png",
+      "sha256": "aa9686f87dbe49685df60024252e3080aba8e5a65078520678cca80971f512f4",
+      "bytes": 835
+    },
+    {
+      "path": "Idle/rotations/east.png",
+      "sha256": "7b21ec1d94cc78725fd551f210e6188f26e39546267372f144e6ddd2d8046cb9",
+      "bytes": 639
+    },
+    {
+      "path": "Idle/rotations/north-east.png",
+      "sha256": "92f774c36fbd3a7ef3bae3f5dfe2f81c51e5abc9d13a8a2a9a1f3c7d31b54569",
+      "bytes": 670
+    },
+    {
+      "path": "Idle/rotations/north.png",
+      "sha256": "96253cd2194b8a03eab7680e3fabb9cc46581b7ddae7b98104cd16c02dc1d236",
+      "bytes": 652
+    },
+    {
+      "path": "Idle/rotations/north-west.png",
+      "sha256": "f8679ac75f6581dd9be215d70de2506a9669de1eff2012c767c27c642a22f19c",
+      "bytes": 683
+    },
+    {
+      "path": "Idle/rotations/west.png",
+      "sha256": "c3c89a6cbcf7af0b6aadce6f73da29a816b824ecde180c3fb27912b8044974f1",
+      "bytes": 609
+    },
+    {
+      "path": "Idle/rotations/south-west.png",
+      "sha256": "fc5ad2ff9c3fc6fa9bc3262dbfc03ba5ca0b8d56d8676abd9a5fcc2253987295",
+      "bytes": 873
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_000.png",
+      "sha256": "badef970266ff91bb07e77347dbab978d1e442c022e42f9fc690c7a80e11156a",
+      "bytes": 811
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_001.png",
+      "sha256": "c3148258233fb866ae2860506d7749167251ec6bbd20e9f200b8e59d61203278",
+      "bytes": 872
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_002.png",
+      "sha256": "b109c2fe872cc6ad503f20c4d3219992ed23af055d042a4679ce2a909f805281",
+      "bytes": 825
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_003.png",
+      "sha256": "e6af5859edb8c29bc2cb44b544891943fb32ff0d89c7853d498ba809c5e2aaf1",
+      "bytes": 678
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_004.png",
+      "sha256": "19ce9365ff306617632e605b7130bc0c0862f045d60b341097d3340e32866fd5",
+      "bytes": 803
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_005.png",
+      "sha256": "3490e953c84ff10163cd25c2aea9493ffd77f887fc8f364fa349d1ecebc20b45",
+      "bytes": 918
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_006.png",
+      "sha256": "d3de8efb5b82fdc52ba8a95ab7dd94c185228dda0e3dad4aef72497f16cad62e",
+      "bytes": 793
+    },
+    {
+      "path": "Idle/animations/Running/east/frame_007.png",
+      "sha256": "a564de24185351b5a1296058ef70a17efcb1f28518c408286393650c13bd57da",
+      "bytes": 719
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_000.png",
+      "sha256": "623dca913f7dc78aa97bf2499f75502fa3f556b23d97143023045d891691540f",
+      "bytes": 809
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_001.png",
+      "sha256": "bb8b91f9019c406b47cb6ee575c70f681bdd7db0a03d44e540073ee2388e3d3d",
+      "bytes": 878
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_002.png",
+      "sha256": "92e409ede11058c85843c06d17f567e20c3439f457b33a13bd5a8f70ab0e77ca",
+      "bytes": 818
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_003.png",
+      "sha256": "0f24814eab86c9d04b71d78058cdfe11cae1fb1d5fd23ea31cf41bb176f86897",
+      "bytes": 660
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_004.png",
+      "sha256": "9761e0b17b1dcbc3be47fb602bc5323c8e0801e71fda9dad07c97f5a1756fd54",
+      "bytes": 786
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_005.png",
+      "sha256": "b35ad18b0b78da89c90b96705aebb27009f8184237c5ebd6e859d442dbac6411",
+      "bytes": 902
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_006.png",
+      "sha256": "b17fb482ff388a2d5411f713c35794f31e55c711b6a4bb7fbe020262212dbecb",
+      "bytes": 776
+    },
+    {
+      "path": "Idle/animations/Running/west/frame_007.png",
+      "sha256": "c6d1b183b1b545ed29a10a9fdd4cfae5dac754363c8c9dba26278ca05a3f8d74",
+      "bytes": 703
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_000.png",
+      "sha256": "7686bf444af4e570773f386466bdeb994856dfc008326f4d35dc569ec8a0c37d",
+      "bytes": 742
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_001.png",
+      "sha256": "ad5b82b2eb34c07671821c35c0b717616c51df6be09e9cb62226ff8ac158db4e",
+      "bytes": 742
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_002.png",
+      "sha256": "59c54f6fe1c6c6ad303ac47a4660df9cac8563c7977ef571e1e5dddfe34b6313",
+      "bytes": 735
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_003.png",
+      "sha256": "afc19b82c756576686dd085e82609c301c9b7c2b94a79d36dc2dbf8f280f3684",
+      "bytes": 762
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_004.png",
+      "sha256": "f3038463f70faebc7a3f53a05c532bb141a823c6f1c6cc89d3aa58f94b90306f",
+      "bytes": 712
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_005.png",
+      "sha256": "786a5935e36dca2b063f5a27865814832fcca7c105df53880a58d3b8737e3e2c",
+      "bytes": 721
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_006.png",
+      "sha256": "c064768d22f7d8da1e3dfba97da971bf17f42d0b6b707b4e8031788b7ebeb540",
+      "bytes": 757
+    },
+    {
+      "path": "Idle/animations/Running/north/frame_007.png",
+      "sha256": "bdbd48d860c5b2ef09e0be707eebec3d1004e162bb70bbcd50efa746c85e491c",
+      "bytes": 762
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_000.png",
+      "sha256": "9ea74da07ac5be0d62cc07b76a3924f9b4392fe6b28b447a9463559f646aacb6",
+      "bytes": 1004
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_001.png",
+      "sha256": "a3fa1fd9f1467ce4c93c4b44dcb05375d1ea0675217f4c90c555941ca2dd1edd",
+      "bytes": 899
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_002.png",
+      "sha256": "54056d6b47c2ab86ff2216e2bd20dc5e677136b10a198554e190d5e4f056b53d",
+      "bytes": 921
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_003.png",
+      "sha256": "26f84c409337abc1c63202fdb648f7719cf3e2ff9b01fd337af4f23b452b547a",
+      "bytes": 884
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_004.png",
+      "sha256": "11eb8a67ff3426cbf18abc87708a86bd37f6d9fa2d8869b4596514489bae4617",
+      "bytes": 915
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_005.png",
+      "sha256": "3bd971bd5ae4d8d09822236e58afaf29a7bedd14d7045a7cf5cb5fd74bd20f75",
+      "bytes": 913
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_006.png",
+      "sha256": "1cdccd3a06ed02a21da48258e1da7f3b106a3126e57ca69bdc16c11990d3cf88",
+      "bytes": 886
+    },
+    {
+      "path": "Idle/animations/Running/south/frame_007.png",
+      "sha256": "be80dcc0f2d8c26236a2adfc4d35279d0a16065ce70fc72b1c28ffe2c5a20174",
+      "bytes": 885
+    },
+    {
+      "path": "metadata.json",
+      "sha256": "886693c9276729fcdf73d0dd2a2a90d0cd1204afa0af08c3dc1f79c44cc2ed3f",
+      "bytes": 3948
+    }
+  ]
+}

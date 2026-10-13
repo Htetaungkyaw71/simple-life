@@ -1,4 +1,4 @@
-import {OUTFITS,HAIRCUTS,OUTFIT_IDS,HAIRCUT_IDS,appearanceFrame,PEOPLE} from '../data/appearance.js';
+import {OUTFITS,HAIRCUTS,OUTFIT_IDS,HAIRCUT_IDS,playerVisual} from '../data/appearance.js';
 import {styleQuote,changeAppearance,styleServiceOpen} from '../systems/appearance.js';
 import {button,panel,text,UI_COLORS} from './pixelWidgets.js';
 import {inputGate} from '../systems/inputGate.js';
@@ -15,7 +15,7 @@ export class AppearancePanel{
   const tabY=y+(short?30:36),bw=Math.floor((inner-4)/2);for(const [i,[label,type]]of [['Outfits','clothes'],['Looks','hair']].entries()){const c=button(u,u.root,label,x+12+i*(bw+4),tabY,bw,short?24:26,()=>this.open(type),{id:'style-tab-'+type});if(category===type)c.box.setFillStyle(UI_COLORS.selected);}
   const top=tabY+(short?28:32),bottom=y+h-36,previewW=short?64:76,previewH=short?46:88,px=x+12;
   // UI root is 2x: effective preview pixels remain strict 2x/4x native.
-  panel(u,u.root,px,top,previewW,previewH,0xe4e9c6,'plain');const preview={...s.appearance,[category==='clothes'?'outfit':'hair']:id};u.root.add(u.add.sprite(px+previewW/2,top+previewH-4,'appearance',appearanceFrame(preview)).setOrigin(.5,1).setScale(PEOPLE.scale*(short?.5:1)));
+  panel(u,u.root,px,top,previewW,previewH,0xe4e9c6,'plain');const preview={...s.appearance,[category==='clothes'?'outfit':'hair']:id},{texture,offset,rig}=playerVisual(preview,s.character);u.root.add(u.add.sprite(px+previewW/2,top+previewH-4,texture,offset).setOrigin(.5,rig.originY).setScale(rig.scale*(short?.5:1)));
   const tx=px+previewW+8,tw=inner-previewW-8;let cy=top;
   for(const line of [d.name,(q.current?'Selected':q.owned?'Owned / free':d.price+'c')+' / '+s.money+'c']){const t=text(u,u.root,tx,cy,line,8,UI_COLORS.light,tw);cy+=t.height+3;}
   const navY=short?top+previewH+2:top+previewH+6,navW=26;

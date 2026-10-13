@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {newState} from '../../src/systems/state.js';
-import {appearanceFrame,PEOPLE} from '../../src/data/appearance.js';
+import {appearanceFrame,PEOPLE,FARMER} from '../../src/data/appearance.js';
 import {TESTING_COIN_GRANT} from '../../src/systems/testingCredit.js';
 const {chromium}=await import('/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
 const url=process.env.GAME_URL||'http://127.0.0.1:4196/',out=process.env.QA_OUT||'/private/tmp/simple-life-appearance';await mkdir(out,{recursive:true});
@@ -18,7 +18,7 @@ try{for(const [width,height,lang,renderer]of [[1280,720,'en','canvas'],[1440,900
  const bounds=async()=>{const v=await snap(),b=v.menuBounds;assert.ok(b);for(const c of v.controls){assert.ok(c.x>=b.x-1&&c.y>=b.y-1&&c.x+c.w<=b.x+b.w+1&&c.y+c.h<=b.y+b.h+1,c.id);}for(const t of v.texts){assert.ok(t.x>=b.x-1&&t.y>=b.y-1&&t.x+t.w<=b.x+b.w+1&&t.y+t.h<=b.y+b.h+1,JSON.stringify({text:t,b}));}return v;};
  const shot=part=>p.screenshot({path:out+'/'+name+'-'+part+'.png'});
  try{
-  await start(fixture('city',{x:1568,y:1080}));let v=await snap();assert.equal(v.context?.category,'clothes',JSON.stringify({context:v.context,position:v.state.position,minute:v.state.minute}));assert.equal(v.player.nativeHeight,PEOPLE.height);assert.equal(v.player.texture,'appearance');await shot('town');await interact();await bounds();
+  await start(fixture('city',{x:1568,y:1080}));let v=await snap();assert.equal(v.context?.category,'clothes',JSON.stringify({context:v.context,position:v.state.position,minute:v.state.minute}));assert.equal(v.player.nativeHeight,FARMER.height);assert.equal(v.player.texture,'boy');await shot('town');await interact();await bounds();
   // Inspect every catalogue entry through native touch/mouse controls.
   for(let i=0;i<5;i++){await bounds();await shot('outfit-'+i);await click('style-next');}await click('style-next');await click('style-next');await click('style-apply');v=await snap();assert.equal(v.state.money,910);assert.equal(v.state.appearance.outfit,'copper');assert.equal(v.controls.find(c=>c.id==='style-apply').disabled,true);await click('style-back');
   const saved=structuredClone(v.state);saved.position={x:472,y:1080};await start(saved);v=await snap();assert.equal(v.context.category,'hair');await interact();await click('style-tab-hair');await click('style-next');await bounds();await shot('haircut');await click('style-apply');v=await snap();assert.equal(v.state.money,865);assert.equal(v.state.appearance.hair,'copper');await click('style-back');

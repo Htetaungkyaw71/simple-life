@@ -4138,5 +4138,17 @@
       "source": "scripts/original_environment_art.py",
       "license": "Original project work; competition use authorized by user; no exclusive-copyright claim"
     }
-  ]
+  ],
+  "approvedFarmer": {
+    "sourceRecord": "docs/assets/licenses/characters-pixellab/SOURCE_RECORD.md",
+    "texture": "boy",
+    "cell": [
+      48,
+      48
+    ],
+    "groundRow": 40,
+    "runFrames": 8,
+    "runFps": 16,
+    "sourcePixelsPreserved": true
+  }
 }

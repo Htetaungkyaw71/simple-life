@@ -17,3 +17,9 @@ export const STYLE_SERVICES={clothes:{resident:'city-nell',name:'Nell',x:1568,y:
 export const freshAppearance=character=>({outfit:character==='girl'?'gardener':'worker',hair:character==='girl'?'chestnut':'midnight',owned:['worker','gardener']});
 export const appearanceIndex=a=>Math.max(0,OUTFIT_IDS.indexOf(a?.outfit))*HAIRCUT_IDS.length+Math.max(0,HAIRCUT_IDS.indexOf(a?.hair));
 export const appearanceFrame=(a,frame=0)=>appearanceIndex(a)*PEOPLE.frames+frame;
+// PixelLab's run canvas has padding: row 40 is the shared native ground plane.
+export const FARMER={...PEOPLE,width:48,height:48,originY:40/48,idleFrames:[1,1,1,1],runStart:1,runFrames:8,jumpStart:9,moveFrameRate:16};
+export function playerVisual(appearance,character='boy'){
+ const farmer=appearance?appearanceIndex(appearance)===0:character==='boy';
+ return farmer?{texture:'boy',offset:0,rig:FARMER,key:'farmer'}:appearance?{texture:'appearance',offset:appearanceFrame(appearance),rig:PEOPLE,key:`avatar-${appearanceIndex(appearance)}`}:{texture:character,offset:0,rig:PEOPLE,key:character};
+}
