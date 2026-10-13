@@ -1,4 +1,5 @@
 import {wateringCanPose} from '../entities/HeldWateringCan.js';
+import {PEOPLE} from '../data/appearance.js';
 import {FountainView} from './FountainView.js';
 import {shopOpen} from '../systems/market.js';
 import {CROPS} from '../data/crops.js';
@@ -26,7 +27,7 @@ export class Atmosphere {
  refill(position){for(let i=0;i<6;i++){const drop=this.scene.add.rectangle(position.x-12+i*4,position.y-12,2,4,0xade8ed).setDepth(position.y+1);this.scene.tweens.add({targets:drop,y:drop.y-18-(i%3)*4,alpha:0,duration:450+i*35,onComplete:()=>drop.destroy()});}}
  farming(action,x,y,crop='tomato'){
   if(action==='water'){this.pour(x,y);this.bounce(x,y);return;}
-  this.bounce(x,y);if(action==='plant'){const dent=this.scene.add.ellipse(x,y+3,14,6,0x79573f).setDepth(y-1);this.scene.tweens.add({targets:dent,alpha:0,duration:400,onComplete:()=>dent.destroy()});const seed=this.scene.add.image(x,y-24,'town',CROPS[crop].seedIcon).setScale(1).setDepth(y+20);this.scene.tweens.add({targets:seed,y:y+3,scaleX:.3,scaleY:.3,alpha:0,duration:250,onComplete:()=>seed.destroy()});const player=this.scene.player;if(player){const pose=wateringCanPose(this.scene.app.state.position,player.direction,2),hand=this.scene.add.rectangle(pose.x,pose.y,4,4,0xf1b7ad).setDepth(pose.depth+2);this.scene.tweens.add({targets:hand,y:pose.y+8,duration:110,yoyo:true,onComplete:()=>hand.destroy()});}}
+  this.bounce(x,y);if(action==='plant'){const dent=this.scene.add.ellipse(x,y+3,14,6,0x79573f).setDepth(y-1);this.scene.tweens.add({targets:dent,alpha:0,duration:400,onComplete:()=>dent.destroy()});const seed=this.scene.add.image(x,y-24,'town',CROPS[crop].seedIcon).setScale(1).setDepth(y+20);this.scene.tweens.add({targets:seed,y:y+3,scaleX:.3,scaleY:.3,alpha:0,duration:250,onComplete:()=>seed.destroy()});const player=this.scene.player;if(player){const pose=wateringCanPose(this.scene.app.state.position,player.direction,PEOPLE.toolScale),hand=this.scene.add.rectangle(pose.x,pose.y,4,4,0xf1b7ad).setDepth(pose.depth+2);this.scene.tweens.add({targets:hand,y:pose.y+8,duration:110,yoyo:true,onComplete:()=>hand.destroy()});}}
   const color=action==='water'?0x9cdce2:action==='harvest'?0xe87651:0xd7b789;
   for(let i=0;i<7;i++){const bit=this.scene.add.rectangle(x-12+i*4,y+8,2,action==='water'?4:2,color).setDepth(y+30);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*3,y:y-10-(i%3)*5,alpha:0,duration:350+i*25,onComplete:()=>bit.destroy()});}
   if(action==='harvest'){const fruit=this.scene.add.image(x,y-12,'town',CROPS[crop].icon).setScale(2).setDepth(y+40);this.scene.tweens.add({targets:fruit,x:this.scene.app.state.position.x,y:this.scene.app.state.position.y-42,alpha:0,duration:600,onComplete:()=>fruit.destroy()});}

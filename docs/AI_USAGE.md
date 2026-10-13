@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+OpenAI Codex assisted with source/licence research, ZIP integrity and native frame inspection, original garment/hair/hat masks, complete cycle integration, generated source-grip coordinates, texture-memory optimization, regression tests/browser QA, documentation and the authorized existing playtest update. No subagents, image-generation service, model training, new dependency, backend or source push. CraftPix base art is third-party licensed art, not claimed as AI-generated/original project art. Retired generated sheets and earlier prompts remain disclosed.
+
+---
+
 # v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
 
 Codex assisted with source-pixel seam diagnosis, native hip overlap/garment reconstruction, gentler limb motion, horizontal silhouette narrowing, held-tool anchoring, browser regression checks, documentation and the authorized existing playtest update. No new image generation, third-party art, dependency or subagent. Existing generated character source/prompts remain disclosed in assets/licenses/characters-v2/SOURCE_RECORD.md.

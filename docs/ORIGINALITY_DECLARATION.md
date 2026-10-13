@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+Current character poses are adapted CraftPix licensed third-party art, not exclusively original project art. Original native garments/hair/hat code and integration are Codex-assisted. Screenshots describe intended style only and supply no copied pixels. All other source-specific licences and previous AI records remain. This is a provenance statement, not a signed eligibility or exclusive-copyright declaration.
+
+---
+
 # v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
 
 This revision derives people from the retained original generated project sheets through documented native packing/joint code. No supplied screenshot pixels, proprietary character sprites or new third-party packs are copied. Established environment/legacy atlas licences remain separate. AI assistance is disclosed; this is provenance, not an exclusive-copyright or competition-eligibility certification.

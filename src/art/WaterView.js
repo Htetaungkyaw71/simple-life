@@ -21,7 +21,7 @@ export class WaterView {
   }
   const wet=!this.scene.jumping?.active&&waterAt(this.map,p),sprite=this.scene.player?.sprite;
   this.scene.player?.shadow?.setVisible(!wet);
-  this.wade.clear().setVisible(wet);if(sprite){if(wet)sprite.setCrop(0,0,sprite.frame.width,sprite.frame.height-4);else sprite.setCrop();}
+  this.wade.clear().setVisible(wet);if(sprite){if(wet)sprite.setCrop(0,0,sprite.frame.width,sprite.frame.height-2);else sprite.setCrop();}
   if(wet){const x=Math.round(p.x/2)*2,y=Math.round(p.y/2)*2,spread=moving?(phase%4)*2:2,g=this.wade;g.setDepth(p.y+1).fillStyle(0x6b908d,.85).fillRect(x-12,y-6,24,6).fillStyle(0xd8dac3,.7).fillRect(x-16-spread,y-6,10,2).fillRect(x+6+spread,y-6,10,2).fillRect(x-6,y-2+spread,12,2);}
   this.reflection.setVisible(wet);this.reflectionMask.clear();
   if(wet&&sprite){

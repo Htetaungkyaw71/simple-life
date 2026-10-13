@@ -12,7 +12,7 @@ export const HAIRCUTS={
  golden:{name:'Golden waves',price:60},
 };
 export const OUTFIT_IDS=Object.keys(OUTFITS),HAIRCUT_IDS=Object.keys(HAIRCUTS);
-export const PEOPLE={width:40,height:72,scale:1,columns:9,frames:36,originY:1};
+export const PEOPLE={width:24,height:26,scale:3,toolScale:1,columns:24,frames:96,originY:1,idleFrames:[12,4,12,12],runStart:12,runFrames:8,jumpStart:20,walkFrames:6};
 export const STYLE_SERVICES={clothes:{resident:'city-nell',name:'Nell',x:1568,y:1040},hair:{resident:'city-sol',name:'Sol',x:472,y:1040}};
 export const freshAppearance=character=>({outfit:character==='girl'?'gardener':'worker',hair:character==='girl'?'chestnut':'midnight',owned:['worker','gardener']});
 export const appearanceIndex=a=>Math.max(0,OUTFIT_IDS.indexOf(a?.outfit))*HAIRCUT_IDS.length+Math.max(0,HAIRCUT_IDS.indexOf(a?.hair));

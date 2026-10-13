@@ -1,3 +1,11 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+Player movement uses the complete eight-pose CraftPix unarmed run cycle at 12 fps. NPCs keep the six-pose walk cycle at 8.33 fps. Idle uses all twelve supplied front/side poses and four back poses at 8 fps. The previous cut-and-warp animation is retired. Clothing and hair are drawn on the original poses; arms, feet and head positions are never mechanically deformed. Native 24×26 frames render at integer 3× world scale (66-pixel standing ink height, 78-pixel padded cell). All 20 outfit/hair combinations and eight town variants retain their identities, prices and schema-19 appearance saves. Jump selects three tucked poses from the actual run sheet; it is an adaptation, not a supplied jump animation.
+
+[Playtest](https://simple-life-playtest.vercel.app/). Refresh and Continue to keep progress. [Checks](docs/verification/craftpix-motion/README.md).
+
+---
+
 # v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
 
 The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale.

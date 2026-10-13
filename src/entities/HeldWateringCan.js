@@ -1,17 +1,15 @@
-// Hand anchors are native farmer pixels relative to the grounded feet.
-const HANDS={down:[9,-18],up:[-9,-18],left:[-3,-18],right:[3,-18]};
+import {PEOPLE_HANDS} from '../data/peopleHands.js';
+// Native source grips relative to the shared ground plane.
+const HANDS=Object.fromEntries(Object.entries(PEOPLE_HANDS).map(([dir,poses])=>[dir,poses[0]]));
 export function wateringCanPose(position,direction,scale,height=0,pouring=false,bob=0){
  const [hx,hy]=HANDS[direction]||HANDS.down,flip=direction==='left'||direction==='up';
  return {x:Math.round(position.x+hx*scale),y:Math.round(position.y+(hy+bob)*scale-height),flip,originX:flip?13/16:3/16,rotation:(flip?-1:1)*(pouring?.55:0),depth:Math.round(position.y)+(direction==='up'?-1:1)};
 }
 
-// Match the planted/passing limb poses in scripts/people_art.py.
+// Match every authored idle/run/jump grip instead of a synthetic four-step bob.
 export function walkingHandOffset(direction,frame){
- if(![1,2,3,4].includes(frame))return {x:0,y:0};
- const positive=frame<3,passing=frame===2||frame===4,bob=passing?-1:0;
- if(direction==='left'||direction==='right')return {x:(direction==='left'?1:-1)*(positive?1:-1)*(passing?1:3),y:bob-(positive?2:0)};
- const left=direction==='up',forward=left!==positive;
- return {x:forward?(left?-2:2):(left?1:-1),y:bob-(forward?0:4)};
+ const poses=PEOPLE_HANDS[direction]||PEOPLE_HANDS.down,[x,y]=poses[frame]||poses[0],[bx,by]=poses[0];
+ return {x:x-bx,y:y-by};
 }
 export const AXE_SWING_MS=420;
 // Slow lift, quick cut, then settle back into the reference resting pose.
@@ -46,7 +44,7 @@ export class HeldWateringCan {
   const tool=this.scene.app.state?.selected,visible=['water','shovel','axe'].includes(tool)&&!this.scene.app.transitioning;
   if(this.lastTool!==tool){this.remaining=0;this.lastTool=tool;}
   this.can.setVisible(visible);this.hand.setVisible(visible&&tool!=='axe');if(!visible){this.remaining=0;return;}
-  const hand=moving&&!this.remaining?walkingHandOffset(direction,walkFrame):{x:0,y:0},p=wateringCanPose(position,direction,scale,height,this.remaining>0);
+  const hand=!this.remaining?walkingHandOffset(direction,walkFrame):{x:0,y:0},p=wateringCanPose(position,direction,scale,height,this.remaining>0);
   p.x+=hand.x*scale;p.y+=hand.y*scale;
   if(tool!=='water'){p.originX=p.flip?12/16:4/16;p.rotation=(p.flip?-1:1)*(this.remaining?(.9*this.remaining/420):0);}
   if(tool==='axe'){

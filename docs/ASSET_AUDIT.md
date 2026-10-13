@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+The character source audit checks all 1,920 appearance cells and 224 NPC cells against the exact supplied unarmed silhouettes: every original anatomy pixel is retained. Integer 3× world rendering uses native 24×26 source cells. Appearance is 960×1248; town is 1024×1910 with 922 cells. All 698 unrelated town cells are byte-exact against baseline 35303c0. Runtime allowlist and final file hashes are recorded in verification/craftpix-motion; no source archives/unused packs enter production.
+
+---
+
 # v0.21.2 — smaller articulated character atlas
 
 Normal and explicit playtest builds pass with 150 modules. Runtime has 46 files / 12,678,948 bytes / 27 WAVs. The appearance texture is 720×2880; all 858 atlas cells fit 1024×2284. All 698 non-person atlas cells preserve their exact RGBA pixels. No new runtime path, dependency, font or audio. Source sheets, art/motion previews and prompts remain excluded. Fingerprints: verification/character-motion/deployment-files.json.

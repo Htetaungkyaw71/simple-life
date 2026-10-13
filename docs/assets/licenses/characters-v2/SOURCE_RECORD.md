@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+These generated character sheets are retired from active player/NPC rendering in v0.22.0. They remain historical provenance; the current user-selected CraftPix source is documented in ../characters-craftpix/SOURCE_RECORD.md. No new generation occurred.
+
+---
+
 # v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
 
 The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale.

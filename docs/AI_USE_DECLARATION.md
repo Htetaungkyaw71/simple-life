@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+Codex assistance covers source research, native pose dressing/packing, animation/tool/UI integration, audits, isolated browser tests and the authorized existing playtest update. CraftPix authored the base animation poses; project additions are AI-assisted code. No image generation/model training/subagent used in this revision. This technical provenance does not certify human competition eligibility or signatures.
+
+---
+
 # v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
 
 Codex assisted with native sprite-joint repair, thinner silhouettes, motion checks and the authorized same-project playtest update. Six previously disclosed generated source sheets remain the art source; no new generation or third-party art. Source and exact prompt evidence remain in assets/licenses/characters-v2/SOURCE_RECORD.md.

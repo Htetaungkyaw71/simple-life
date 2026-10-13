@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+Active player and town people use user-supplied CraftPix free male/female four-direction bases under CraftPix Freebie Products section 2, adapted with original native clothing/hair/hat pixels. This custom licence permits game use, modification and game distribution; it is not CC0. Standalone art resale/export and AI model training/development are excluded. This integration is local game sprite processing, with no generative-image/model-training use. Credits identify CraftPix and Codex-assisted additions. Selected native PNGs, untouched licence pointers, archive hashes and path/frame evidence: [source record](assets/licenses/characters-craftpix/SOURCE_RECORD.md). Vendor ZIPs, sword/death/hurt assets, PSD/Aseprite, reference previews and unused packs are excluded from the unchanged runtime allowlist. The 698 other town cells preserve their established pixels/licences.
+
+---
+
 # v0.21.3 — joined walking sprites and slimmer characters (2026-10-13)
 
 The passing torso previously rose one pixel above the legs, exposing a transparent waist row. The animation now overlaps two native hip rows and restores the side garment behind moving forearms. Softer knee lift and closer foot placement reduce the exaggerated gait; the added dark far-leg tint is removed. Native artwork is about 10% narrower, with unchanged 40×72 cells, 64-pixel standing height and integer 1× world scale. The six original generated source sheets, prompt record and SHA-256 evidence remain unchanged: [character source record](assets/licenses/characters-v2/SOURCE_RECORD.md). Updated processed people remain original generated project artwork; 698 other town cells retain their separate established licences. No new asset/dependency/licence or screenshot sampling. Source sheets and QA previews remain excluded from the runtime allowlist.

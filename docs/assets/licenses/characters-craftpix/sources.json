@@ -1,0 +1,108 @@
+[
+  {
+    "sex": "male",
+    "archive": "craftpix-net-555940-free-base-4-direction-male-character-pixel-art.zip",
+    "sha256": "c6c45db00c7a1a623e3721174db968409488963bb2ba239f05a4abfb9f7db3aa",
+    "source": "https://craftpix.net/freebies/free-base-4-direction-male-character-pixel-art/",
+    "files": [
+      {
+        "archivePath": "PNG/Unarmed/Without_shadow/Unarmed_Idle_without_shadow.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Idle_without_shadow.png",
+        "sha256": "aefad5e0900791fe8be411399b26a1e287283c4636a9921fc1024c23e802b850"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Without_shadow/Unarmed_Run_without_shadow.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Run_without_shadow.png",
+        "sha256": "bc2f7e4d6af27b894363d918154243565f9d41be4ded887de95ec939dda1dcbd"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Without_shadow/Unarmed_Walk_without_shadow.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Walk_without_shadow.png",
+        "sha256": "07538f1ad5f77fd07a6fe112e87071c91cba19850ac6bf3630fb308556953de4"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Idle3_head.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Idle3_head.png",
+        "sha256": "3ec269c51ab016e5aaf02f8f34f050549c3611edbf880928cb886d66ac94e268"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Walk2_body.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Walk2_body.png",
+        "sha256": "3506a78eefe96e5f6359cbdc84d7562488f80350d6b4612a31dbbe600c9e1b71"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Run2_body.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Run2_body.png",
+        "sha256": "51e7a0a032d3ecfce00b291b239e3a314e092f70436b7623a29bfb90f7cd7ffd"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Run3_head.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Run3_head.png",
+        "sha256": "6ea96848d4b80db7100a83399df940b877f5f831ec8220dd5b6db0112017c84a"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Walk3_head.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Walk3_head.png",
+        "sha256": "dcb5db67c48d6f4cc630dc6d13aaee5bbcbc61d587fe2fff68458784926747a3"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Idle2_body.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/male/Unarmed_Idle2_body.png",
+        "sha256": "89cb5f6bc9912cefe72a60b7524e88801e6b6825d86ca9ae6a0af5f906a59a7c"
+      }
+    ]
+  },
+  {
+    "sex": "female",
+    "archive": "craftpix-net-419402-free-base-4-direction-female-character-pixel-art.zip",
+    "sha256": "f704e7852273d5f0111435ae86975fa981354d699dff1f594934f6a32d9821ad",
+    "source": "https://craftpix.net/freebies/free-base-4-direction-female-character-pixel-art/",
+    "files": [
+      {
+        "archivePath": "PNG/Unarmed/Without_shadow/Unarmed_Idle_without_shadow.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Idle_without_shadow.png",
+        "sha256": "e298ba49fe89a30430a7ecaed8095583349b65c2ca4abffc3c07d2f00ab6efab"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Without_shadow/Unarmed_Run_without_shadow.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Run_without_shadow.png",
+        "sha256": "11fea8d06b64247250ac20af5f7c2d6c6aa9e62c2f4dea7677a22ee2373a1ee5"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Without_shadow/Unarmed_Walk_without_shadow.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Walk_without_shadow.png",
+        "sha256": "3b77faab3b5cde395842aee5ad87a44cc9ea03b0b85189b84f5f5478578671ea"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Idle3_head.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Idle3_head.png",
+        "sha256": "464b0211116f5770f93e446e9c10387fbbd938945233f7f14d2cdd82599b6fa0"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Walk2_body.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Walk2_body.png",
+        "sha256": "2746a528a5e50f0cf0ddd07f6ed253770af9a1cf83dda27a54bc793fcc131d7b"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Run2_body.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Run2_body.png",
+        "sha256": "ac80b33579f745e1c7b1fad926912e1756d02b9ac3ed19d8cf83efff36d27670"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Run3_head.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Run3_head.png",
+        "sha256": "bfd98176cb26f2a4ea288326fd469a1ab35f257e4a98ffc01c1e879dceb0d3fd"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Walk3_head.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Walk3_head.png",
+        "sha256": "656f18db1c8a33de1df2720f87d9ed2201038337aadd685e1f83e376e4abb317"
+      },
+      {
+        "archivePath": "PNG/Unarmed/Parts/Unarmed_Idle2_body.png",
+        "local": "docs/assets/licenses/characters-craftpix/source/female/Unarmed_Idle2_body.png",
+        "sha256": "9647e326bec2200a6a05956a58023b6ac303355c13ca7a424dfae89bc50ed2f3"
+      }
+    ]
+  }
+]

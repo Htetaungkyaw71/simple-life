@@ -1,3 +1,9 @@
+# v0.22.0 — native run and walk animations (2026-10-13)
+
+Player/NPC base poses: CraftPix, Free Base 4-Direction Male/Female Character Pixel Art, custom Freebie Products licence section 2. Clothing, hair and hat adaptation: Simple Life, Codex-assisted native pixel code. Credit details and original archive/PNG fingerprints: assets/licenses/characters-craftpix/SOURCE_RECORD.md. Previous generated characters are retired provenance, not current runtime art.
+
+---
+
 # v0.19.0 — Myanmar font credit
 
 Noto Sans Myanmar UI Regular by The Noto Project Authors / Google, Copyright 2021 Google Inc., SIL Open Font License 1.1. Official source: https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMyanmarUI . Original TTF used locally without modification; complete licence and SHA-256 evidence: assets/licenses/myanmar-font. The credit is accessible in-game alongside existing Thaleah/m5x7 and creator credits.
