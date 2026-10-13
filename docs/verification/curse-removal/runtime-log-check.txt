@@ -1,0 +1,3 @@
+Vercel CLI 63.1.2 — exact deployment error logs, --since 1h --no-follow.
+No logs found for htetaungkyaw71s-projects/simple-life-playtest.
+Static hosting has no server function logs; browser errors are recorded in local/public QA records.

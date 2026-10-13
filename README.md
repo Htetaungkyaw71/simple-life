@@ -2,7 +2,7 @@
 
 The sealed/cursed cave, spirits, warning, map marker, repair quest and Curse Breaker achievement are removed at the user’s request. The previously removed skull caves remain absent. Existing saves continue with current coins, inventory, farms, story and Stash Bags; retired curse records are ignored and omitted on the next save. NPCs and merchants still return home by 7 pm. Implementation history is retained in Git for a later feature request.
 
-Checks and release: [cave removal verification](docs/verification/curse-removal/README.md).
+Published on [Simple Life](https://simple-life-playtest.vercel.app/): refresh and Continue. 306 tests, both builds, desktop/phone browser checks and public runtime hashes pass. Checks and release: [cave removal verification](docs/verification/curse-removal/README.md).
 
 ---
 

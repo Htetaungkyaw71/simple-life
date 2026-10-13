@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "url": "https://simple-life-playtest.vercel.app/",
+  "records": [
+    {
+      "name": "canvas-en-1280",
+      "result": "PASS",
+      "legacySave": true,
+      "noGhostDamage": true,
+      "stashRecovery": true,
+      "noCave": true,
+      "pauseBounds": true,
+      "reload": true,
+      "NPCsHomeAt19": true,
+      "houseEntry": true,
+      "errors": []
+    },
+    {
+      "name": "canvas-mm-568",
+      "result": "PASS",
+      "legacySave": true,
+      "noGhostDamage": true,
+      "stashRecovery": true,
+      "noCave": true,
+      "pauseBounds": true,
+      "reload": true,
+      "NPCsHomeAt19": true,
+      "houseEntry": true,
+      "errors": []
+    }
+  ]
+}
