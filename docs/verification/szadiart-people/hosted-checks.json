@@ -1,0 +1,394 @@
+{
+  "result": "PASS",
+  "url": "https://simple-life-playtest.vercel.app/",
+  "protectedDirectStatus": 200,
+  "publicDirectWithoutLogin": true,
+  "friendShareWithoutLogin": false,
+  "fixtures": "Fresh New Game in disposable browser contexts; no fixture injection or user-profile storage.",
+  "records": [
+    {
+      "mobile": false,
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "freshGame": true,
+      "putAway": true,
+      "reload": true,
+      "jump": false,
+      "audio": {
+        "muted": false,
+        "preferences": {
+          "master": 0.5,
+          "music": 0.5,
+          "ambience": 0.25,
+          "effects": 0.75,
+          "muted": false
+        },
+        "context": "running",
+        "unlocked": true,
+        "focused": true,
+        "profile": {
+          "music": {},
+          "layers": {
+            "forestDay": 0.5463652400000131,
+            "night": 0.05810432333331908
+          },
+          "flavour": "home",
+          "night": 0.08939126666664474,
+          "fire": 0
+        },
+        "loops": [
+          {
+            "key": "ambience:night",
+            "gain": 0.059836963333319254,
+            "retiring": false
+          },
+          {
+            "key": "ambience:forestDay",
+            "gain": 0.5395658000000128,
+            "retiring": false
+          }
+        ],
+        "voices": 0,
+        "pending": 0,
+        "buffers": 27,
+        "failures": [],
+        "unavailable": false
+      },
+      "canvasCount": 1,
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "freshGame": true,
+      "putAway": true,
+      "reload": true,
+      "jump": true,
+      "audio": {
+        "muted": false,
+        "preferences": {
+          "master": 0.5,
+          "music": 0.5,
+          "ambience": 0.25,
+          "effects": 0.75,
+          "muted": false
+        },
+        "context": "running",
+        "unlocked": true,
+        "focused": true,
+        "profile": {
+          "music": {},
+          "layers": {
+            "forestDay": 0.3551920000000015,
+            "night": 0.26520866666666504
+          },
+          "flavour": "home",
+          "night": 0.4080133333333308,
+          "fire": 0
+        },
+        "loops": [
+          {
+            "key": "ambience:forestDay",
+            "gain": 0.35079864000000016,
+            "retiring": false
+          },
+          {
+            "key": "ambience:night",
+            "gain": 0.26996813999999986,
+            "retiring": false
+          }
+        ],
+        "voices": 0,
+        "pending": 0,
+        "buffers": 27,
+        "failures": [],
+        "unavailable": false
+      },
+      "canvasCount": 1,
+      "errors": []
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/audio/cozy/forest-day.wav",
+      "status": 200,
+      "bytes": 1318634,
+      "sha256": "a32a77832902ba00fd2a25d87ae5100d183607754f1671d17fad5fae7663d58c"
+    },
+    {
+      "path": "assets/audio/cozy/fountain.wav",
+      "status": 200,
+      "bytes": 1318634,
+      "sha256": "5d4f37a160e2f8697571bbe5510d059465d1c7b5f977a14a07fcbf9523ead6d1"
+    },
+    {
+      "path": "assets/audio/cozy/music.wav",
+      "status": 200,
+      "bytes": 2998844,
+      "sha256": "38925425f59487bb22981b278fd0558b5e07b31d385f00669ea1bf8e1fc46d8c"
+    },
+    {
+      "path": "assets/audio/cozy/night.wav",
+      "status": 200,
+      "bytes": 1318634,
+      "sha256": "ebef3a2e213643bf7a4b88cfdc414be9bc09285da3899436f4edc2d26883c448"
+    },
+    {
+      "path": "assets/audio/cozy/river.wav",
+      "status": 200,
+      "bytes": 1318634,
+      "sha256": "60342a14e4e0acd3a217b3f4f90541fd7654493fb210d910daf150005f52b979"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-axe-chop.wav",
+      "status": 200,
+      "bytes": 9746,
+      "sha256": "9a1898a0d97cee75d5cbba2e7f1c79d9a4cad0690dd375bccd5488d98f0562d6"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-bush-rustle.wav",
+      "status": 200,
+      "bytes": 18126,
+      "sha256": "20332599545bd0c9e0ae4c4757d117df1c9b50338797cfa20e707a08c85d93df"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-buy.wav",
+      "status": 200,
+      "bytes": 34442,
+      "sha256": "5d6302035a804f3aeaf99a297de5e977e979261487821fa7f9c0a32bf967be3b"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-chest-open.wav",
+      "status": 200,
+      "bytes": 39734,
+      "sha256": "444567827b35bef23469ca7a897b58cb6c1ef620bcb3172f942eb501b6255266"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-eat.wav",
+      "status": 200,
+      "bytes": 21874,
+      "sha256": "c20dfc848d8f9d07291f8af489a1c47c44784fa1da8118682a0eefe584f19239"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-harvest-pop.wav",
+      "status": 200,
+      "bytes": 26064,
+      "sha256": "e83b668849e40d58f059aad73e8ed88fe3b1cdeee658828504ee7cc571826375"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-hoe-dig.wav",
+      "status": 200,
+      "bytes": 10628,
+      "sha256": "d3b40ef095fb569318ec221a4b8fe0fa695fb0e8a13b59050435bc269d0e1729"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-jingle-quest-complete.wav",
+      "status": 200,
+      "bytes": 68400,
+      "sha256": "1339141e8b39307a8a4202627ae398c8f06ea47d06648e6c4f344e3ef369163d"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-menu-close.wav",
+      "status": 200,
+      "bytes": 18126,
+      "sha256": "7dd46b51e461bb5b32a0c73398d3bf13ab5da16acda3328d5814f6afc084954a"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-menu-open.wav",
+      "status": 200,
+      "bytes": 18126,
+      "sha256": "bc79a6cabb226b0b5d1f9a83ba934ad4e0306a508ad3ffe63e2ed670becbfa9b"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-notification.wav",
+      "status": 200,
+      "bytes": 25622,
+      "sha256": "077685fbb9b2b94f2d3b347190b75cd8331c6892972102597b9d1a7216c868b1"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-pickup-item.wav",
+      "status": 200,
+      "bytes": 20772,
+      "sha256": "d80d046935b831d9a2d352ade50992585c7d40eae7e23ca3edc57b147f277728"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-pickup-rare.wav",
+      "status": 200,
+      "bytes": 36206,
+      "sha256": "34b9a657ee73667f1e3c849cc0c56396825dddf0aa22f5336b5e019d97909cdf"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-place-item.wav",
+      "status": 200,
+      "bytes": 9746,
+      "sha256": "28eb7ab52c238e7225f0e1506c35351175d42d71061900e6fbe1001941a0d2f9"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-rock-break.wav",
+      "status": 200,
+      "bytes": 12392,
+      "sha256": "3e1955b9f82a04161d9c723f45d914df7287012ab3d1ee76e69de5708132014b"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-rooster.wav",
+      "status": 200,
+      "bytes": 366380,
+      "sha256": "17e4e54dc1598dce94c287311f6e9e2abd363bb2adec17e755d816e684df96e5"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-seed-plant.wav",
+      "status": 200,
+      "bytes": 8864,
+      "sha256": "74924fe76fd240634595d79db40f8116ae033b1d571edf220f656d5e2ae436d1"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-sell-coins.wav",
+      "status": 200,
+      "bytes": 28710,
+      "sha256": "47953289e6923a07ff6948f16b7a328f9c27175d14b94733b057035dbe2f36d8"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-sleep.wav",
+      "status": 200,
+      "bytes": 131022,
+      "sha256": "04bea42af130aea596531a765010f7cdc43df75663c3954133b1c188362b852c"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-ui-back.wav",
+      "status": 200,
+      "bytes": 15920,
+      "sha256": "b6e63b6d955c9985141529cbf0d4a07d93ee5d395091a494bfafc966dce1dc25"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-ui-hover.wav",
+      "status": 200,
+      "bytes": 2470,
+      "sha256": "bbbf4e80e4e13e2d2ec07b38674deb77a3acac7a72505fe34e5209b48e6962f9"
+    },
+    {
+      "path": "assets/audio/cozy/sfx-watering.wav",
+      "status": 200,
+      "bytes": 58256,
+      "sha256": "92b57cbf759d7d87bf9d3abb16793a19e65d096e270a154538d75fed93a3dd1b"
+    },
+    {
+      "path": "assets/index-B1pOv62L.js",
+      "status": 200,
+      "bytes": 444203,
+      "sha256": "746499f037c11b0bbdc26dac91a0d498b182458a34d4ac178f5902c6d7d8c02d"
+    },
+    {
+      "path": "assets/index-DuO74lxp.css",
+      "status": 200,
+      "bytes": 538,
+      "sha256": "4f9075c4b1f0041ae565b6925ed336dce90805c21a871f5e1a3529f473e32978"
+    },
+    {
+      "path": "assets/phaser-D75MrIe-.js",
+      "status": 200,
+      "bytes": 1483957,
+      "sha256": "a8b25402f87572d4fdc35730b6069049b23733740690781c6e5312721a0312d8"
+    },
+    {
+      "path": "assets/pixel/font.png",
+      "status": 200,
+      "bytes": 791,
+      "sha256": "e70ea2b8598e3ef93845ad8227c5cb36a6dd23fec4d972a4d7c539d9d84226a1"
+    },
+    {
+      "path": "assets/pixel/font.xml",
+      "status": 200,
+      "bytes": 10278,
+      "sha256": "75fe618e34654c3891fd5357ef45dce3ba4f1701363bc9d0e53349e07eeb244d"
+    },
+    {
+      "path": "assets/pixel/fonts/m5x7.png",
+      "status": 200,
+      "bytes": 1354,
+      "sha256": "6f3ae0190a7b62b68105812fd0dab4e66361520305bddfcb73a9fbddf476dc63"
+    },
+    {
+      "path": "assets/pixel/fonts/m5x7.xml",
+      "status": 200,
+      "bytes": 10946,
+      "sha256": "2e8b99ee8d0cbf21cfb2928019b907da3dae8d7369fa4d933860ad4eff7e4880"
+    },
+    {
+      "path": "assets/pixel/fonts/myanmar-license.json",
+      "status": 200,
+      "bytes": 4615,
+      "sha256": "8d8bd41e07609be11760f6cf9aad5ae6ced94b0cfcb7b0c370570fbe4b3c9704"
+    },
+    {
+      "path": "assets/pixel/fonts/noto-myanmar.ttf",
+      "status": 200,
+      "bytes": 199680,
+      "sha256": "d3fa6e33ca7a4aeb8cb65dfe19ec608c49ef629f2b37585c23d5c80b0bd1e1bf"
+    },
+    {
+      "path": "assets/pixel/fonts/thaleah.png",
+      "status": 200,
+      "bytes": 1528,
+      "sha256": "4b0b3c082b584e69138dcef4a7650b0d3e764d54f01effb624e1511cc2524ee8"
+    },
+    {
+      "path": "assets/pixel/fonts/thaleah.xml",
+      "status": 200,
+      "bytes": 10952,
+      "sha256": "6ed78c8e255224421daffec7f5077c904191ff781942e93563abe4e0f625e89c"
+    },
+    {
+      "path": "assets/pixel/processed/appearance.png",
+      "status": 200,
+      "bytes": 136964,
+      "sha256": "6310326b6f23b127001ff9b493af2edc6e1636ae431aa2d264996fccfea42df1"
+    },
+    {
+      "path": "assets/pixel/processed/boy.png",
+      "status": 200,
+      "bytes": 6801,
+      "sha256": "44c93b0348376d00832952556d0da472258115c0f6cc0f8a63927e51d418c117"
+    },
+    {
+      "path": "assets/pixel/processed/girl.png",
+      "status": 200,
+      "bytes": 7777,
+      "sha256": "761bdfabafe20692181ddd82069d383f40aa74975729e114a02c665c541d21ce"
+    },
+    {
+      "path": "assets/pixel/processed/town.json",
+      "status": 200,
+      "bytes": 292711,
+      "sha256": "5d32e6fd5857b456334bf6f425ee0acc19e511ae5401f0d0b21feb11fadfd899"
+    },
+    {
+      "path": "assets/pixel/processed/town.png",
+      "status": 200,
+      "bytes": 297877,
+      "sha256": "f41a17bef15ad45cc5d76f86b4fe05dbeb7cc853d3c9f28f5d4f5b96ced323bb"
+    },
+    {
+      "path": "assets/pixel/world.json",
+      "status": 200,
+      "bytes": 16253,
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2"
+    },
+    {
+      "path": "assets/pixel/world.png",
+      "status": 200,
+      "bytes": 7819,
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721"
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 588,
+      "sha256": "75958abfe343fccef37f74d4590f44e71b647c604fc59c61ce9a80b861ef0bdd"
+    }
+  ]
+}

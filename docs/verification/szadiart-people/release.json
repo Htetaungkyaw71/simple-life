@@ -1,0 +1,17 @@
+{
+  "version": "0.23.0",
+  "sourceCommit": "2f4173e46852166773376d50ac51abccc4e992cf",
+  "deploymentId": "dpl_9ZWASx5s2seBpijuWaneZ9yiATni",
+  "protectedURL": "https://simple-life-playtest-8w29xxdoj-htetaungkyaw71s-projects.vercel.app",
+  "publicURL": "https://simple-life-playtest.vercel.app/",
+  "protectedHtmlAppArtByteExact": true,
+  "publicHtmlAnd46RuntimeFilesByteExact": true,
+  "publicFreshContinueProfiles": 2,
+  "publicMotionProfiles": 2,
+  "runtimeBytes": 12190638,
+  "runtimeFiles": 46,
+  "normalStartCoins": 60,
+  "explicitPlaytestStartCoins": 100060,
+  "sourcePush": false,
+  "competitionSubmission": false
+}

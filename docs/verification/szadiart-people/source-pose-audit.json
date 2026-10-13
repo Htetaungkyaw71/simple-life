@@ -1,5 +1,6 @@
 {
   "result": "PASS",
+  "verifiedSourceHashes": 8,
   "exactOriginalArtCells": 1120,
   "opaqueSourcePixelsPreserved": 384711,
   "onlyAlpha77ShadowsRemoved": 41439,

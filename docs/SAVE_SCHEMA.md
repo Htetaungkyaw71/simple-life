@@ -2,7 +2,7 @@
 
 Five outfits and four complete looks replace independently layered hair/clothes. Original complete source presets are never redrawn or recoloured. The wardrobe and Town stylist menus describe Outfits / Looks; their English/Myanmar text remains localized. Existing appearance IDs, purchase prices, ownership, balance and schema-19 saves remain, so a saved appearance maps to its corresponding complete preset. The default brown-haired teal worker differs from the town cast. Depth, grounded shadows, collision footprints and water/reflection integration remain.
 
-Schema stays 19. Internal hair IDs midnight/copper/chestnut/golden map respectively to source variants 0/1/2/3, displayed as Classic/Coastal/Autumn/Evening look. Existing owned hair IDs become owned complete looks at the same prices. No save wipe, migration coin grant or gameplay state change.
+Schema stays 19. Internal hair IDs midnight/copper/chestnut/golden map respectively to source variants 0/1/2/3, displayed as Classic/Coastal/Autumn/Evening look. Owned outfit IDs remain free to equip. The selected hair ID becomes the selected complete look; each different look still costs its established stylist price, with no new ownership list. No save wipe, migration coin grant or gameplay state change.
 
 ---
 

@@ -1,9 +1,13 @@
 from pathlib import Path
 from PIL import Image
-import sys,subprocess,json,io
+import sys,subprocess,json,io,hashlib
 sys.path.insert(0,'scripts')
 from people_art import SOURCE,OUT,WIDTH,HEIGHT,COLUMNS,OUTFITS,HAIRS,SOURCE_ROWS,NPCS,FAMILIES,VARIANTS
 out=Path('docs/verification/szadiart-people')
+record=json.loads((SOURCE.parent/'sources.json').read_text())
+for entry in record['selectedFiles']:
+ p=(SOURCE if entry['path'].endswith('.png') else SOURCE.parent)/entry['path']
+ assert hashlib.sha256(p.read_bytes()).hexdigest()==entry['sha256'],entry['path']
 app=Image.open(OUT/'appearance.png').convert('RGBA');town=Image.open(OUT/'town.png').convert('RGBA');meta=json.loads((OUT/'town.json').read_text())
 oldmeta=json.loads(subprocess.check_output(['git','show','ffaa375:public/assets/pixel/processed/town.json']));old=Image.open(io.BytesIO(subprocess.check_output(['git','show','ffaa375:public/assets/pixel/processed/town.png']))).convert('RGBA');preserved=0
 for n,r in oldmeta['frames'].items():
@@ -40,7 +44,7 @@ for npc,(family,variant) in enumerate(NPCS):
   for f in range(5):
    r=meta['frames'][f'town-person-{npc}-{dir}-{f}']['frame'];verify(town.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h'])),family,variant,row,0 if f==0 else f+3)
 assert preserved==698 and max(app.size)<=4096 and max(town.size)<=4096
-result={'result':'PASS','exactOriginalArtCells':count,'opaqueSourcePixelsPreserved':ink,'onlyAlpha77ShadowsRemoved':shadows,'exactOpaqueSkinGrips':grips,'nativeCell':[WIDTH,HEIGHT],'worldIntegerScale':2,'preservedNonPersonTownCells':preserved,'baselineCommit':'ffaa375','appearanceSize':app.size,'townSize':town.size,'townCells':len(meta['frames']),'mirroredSideOnly':True}
+result={'result':'PASS','verifiedSourceHashes':len(record['selectedFiles']),'exactOriginalArtCells':count,'opaqueSourcePixelsPreserved':ink,'onlyAlpha77ShadowsRemoved':shadows,'exactOpaqueSkinGrips':grips,'nativeCell':[WIDTH,HEIGHT],'worldIntegerScale':2,'preservedNonPersonTownCells':preserved,'baselineCommit':'ffaa375','appearanceSize':app.size,'townSize':town.size,'townCells':len(meta['frames']),'mirroredSideOnly':True}
 (out/'source-pose-audit.json').write_text(json.dumps(result,indent=2)+'\n');print(result)
 frames=[]
 for f in range(4):

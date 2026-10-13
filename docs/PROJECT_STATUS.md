@@ -8,6 +8,8 @@ Five outfits and four complete looks replace independently layered hair/clothes.
 
 Native asset audit verifies 1,120 cells / 384,711 opaque source pixels, 960 skin-pixel tool grips and all 698 unchanged nonperson town cells. Browser and publication checks are recorded in [verification](verification/szadiart-people/README.md). Physical phones/Safari and human artwork acceptance remain unverified.
 
+Published READY dpl_9ZWASx5s2seBpijuWaneZ9yiATni from source 2f4173e to https://simple-life-playtest.vercel.app/. Protected HTML/application/character texture and public HTML/all 46 runtime files match the tested stage. Public fresh desktop/phone-sized flows pass gear, Jump and Save/Continue; two live motion profiles observe all four walk slots and clean consoles. Deployment error query found no logs. No source push or competition submission. Physical phones/Safari and human visual acceptance remain unverified.
+
 ---
 
 # v0.22.1 — human proportions and clearer character artwork (2026-10-13)

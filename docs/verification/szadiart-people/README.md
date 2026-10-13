@@ -12,3 +12,6 @@ Source art is unchanged apart from shadow removal, fixed crop and side mirroring
 
 317 tests and both 151-module normal/explicit playtest builds pass. Three appearance profiles (English desktop, Myanmar landscape and Myanmar portrait WebGL) pass purchases, complete preset selection, four facings, tools, jumping, rotation and reload. Two motion profiles pass all 112 native direction cycles and actual keyboard/touch/NPC movement. Three depth profiles pass indoors, occlusion, crops, bridges, shadows, water/reflections and save reload. Browser consoles are clean. Runtime audit: 46 files / 12,190,638 bytes / 27 unchanged WAVs, source archives excluded and dependency notices verified.
 
+
+Published READY dpl_9ZWASx5s2seBpijuWaneZ9yiATni from source 2f4173e to https://simple-life-playtest.vercel.app/. Protected HTML/application/character texture and public HTML/all 46 runtime files match the tested stage. Public fresh desktop/phone-sized flows pass gear, Jump and Save/Continue; two live motion profiles observe all four walk slots and clean consoles. Deployment error query found no logs. No source push or competition submission. Physical phones/Safari and human visual acceptance remain unverified.
+
