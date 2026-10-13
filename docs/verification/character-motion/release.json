@@ -1,0 +1,13 @@
+{
+  "version": "0.21.2",
+  "sourceCommit": "d3d0c7f301d5b1331812c742cac10b9f91211fc7",
+  "deploymentId": "dpl_EzqtBYorjEp3EnWDpZzyBCdKojsv",
+  "deploymentURL": "https://simple-life-playtest-h10tmtyow-htetaungkyaw71s-projects.vercel.app",
+  "publicURL": "https://simple-life-playtest.vercel.app/",
+  "readyState": "READY",
+  "protectedApplicationByteExact": true,
+  "publicHTMLByteExact": true,
+  "publicRuntimeFilesByteExact": 46,
+  "sourcePush": false,
+  "competitionSubmission": false
+}

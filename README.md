@@ -2,7 +2,7 @@
 
 Characters now use 40×72 native cells at integer 1× world scale, with a 64-pixel visible height instead of 76 (about 16% smaller). A stable 32-colour identity palette simplifies shading; the far leg receives a small additional shade. Faces, hair, clothes and boots retain the approved source art. Four walking poses use contact/passing steps, opposing arms, bent recovering knees and a one-pixel passing bob. Both player and NPC sprites share the poses; held tools follow the animated grip. Standing, jump, feet anchors, depth and local appearance/saves remain.
 
-[Playtest](https://simple-life-playtest.vercel.app/). Source and animation details: docs/assets/licenses/characters-v2/SOURCE_RECORD.md. Checks and limits: docs/verification/character-motion/README.md.
+[Playtest](https://simple-life-playtest.vercel.app/). Source and animation details: docs/assets/licenses/characters-v2/SOURCE_RECORD.md. 317 tests, both builds and desktop/mobile browser checks pass locally and on the published game. [Verification](docs/verification/character-motion/README.md). Refresh and Continue to keep your progress.
 
 ---
 
