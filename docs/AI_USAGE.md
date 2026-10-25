@@ -1,3 +1,11 @@
+# 2026-10-25 — supplied crop-sheet runtime integration
+
+At the user's explicit request, OpenAI Codex integrated nine supplied AI-assisted Pixel Snapper plant sheets into the existing Phaser atlas in one crop batch. Assistance covered source/crop-ID matching, native-grid and palette audits, a conservative region-based background/base cleanup, plant-connectivity safeguards, bottom-centred frame packing, existing-key atlas replacement, data-driven visual scale/sign offsets, source and rights records, an atlas alpha/key regression, and isolated live-Chromium farm/harvest verification. Tomato and its icons were left unchanged; green pepper was skipped because no matching crop ID/key family exists.
+
+No image-generation model, redraw, repaint, interpolation, palette conversion, external download, new dependency, backend, remote runtime asset, subagent, deployment, publication or push was used. Gameplay rules, watering state selection, growth timing, saves, crop IDs and sprite keys were not changed. The user's live browser save was not read or modified; browser checks used disposable localStorage contexts. Human review remains responsible for final visual and competition-rights acceptance. Evidence: [crop browser verification](verification/crop-sheets-v1/README.md) and the nine per-crop records linked from `docs/ASSET_LICENSES.md`.
+
+---
+
 # 2026-10-24 — user-supplied Strawberry sheet audit
 
 Codex inspected and deterministically staged the user's supplied AI-assisted Pixel Snapper Strawberry strip. Assistance covered native-grid/palette measurement, exact magenta/fringe removal, repeated baked ground-mask removal from stages 2–8, binary-alpha validation, bottom-centred packing, review-page comparison, scale/marker geometry analysis, tests/build/browser verification and documentation. The retained plant colours are source-exact; no image-generation model, redraw, repaint, interpolation, blur, palette conversion, external download, new dependency, subagent or runtime atlas integration was used.

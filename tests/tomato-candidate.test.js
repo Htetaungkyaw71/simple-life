@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {CROPS,CROP_IDS} from '../src/data/crops.js';
+import {CROPS} from '../src/data/crops.js';
 
 const TOMATO_KEYS=['seed','sprout','young','flowering','ripe','dry','wilted','dead'].map(state=>'tomato-'+state);
 
 test('approved Tomato Candidate B uses native frames and visual-only crop metadata',async()=>{
  assert.equal(CROPS.tomato.visualScale,1);
  assert.equal(CROPS.tomato.signOffsetY,-86);
- for(const id of CROP_IDS.filter(id=>id!=='tomato')){
+ for(const id of ['cucumber','sweetPotato']){
   assert.equal(CROPS[id].visualScale,2,id);
   assert.equal(CROPS[id].signOffsetY,-54,id);
  }

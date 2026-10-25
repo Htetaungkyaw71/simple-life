@@ -1,0 +1,363 @@
+{
+  "crop": "pumpkin",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_42_44-pixel-snapper.png",
+  "sourceSha256": "962e8f5495bb12366190ee64869649c15a276825f2b32d4758f613c510219b57",
+  "sourceSize": [
+    429,
+    130
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    255,
+    3,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "pumpkin-seed",
+      "x": 7,
+      "y": 78,
+      "width": 30,
+      "height": 15
+    },
+    {
+      "key": "pumpkin-sprout",
+      "x": 49,
+      "y": 73,
+      "width": 22,
+      "height": 18
+    },
+    {
+      "key": "pumpkin-young",
+      "x": 79,
+      "y": 68,
+      "width": 48,
+      "height": 23
+    },
+    {
+      "key": "pumpkin-flowering",
+      "x": 134,
+      "y": 55,
+      "width": 55,
+      "height": 37
+    },
+    {
+      "key": "pumpkin-ripe",
+      "x": 195,
+      "y": 55,
+      "width": 61,
+      "height": 38
+    },
+    {
+      "key": "pumpkin-dry",
+      "x": 261,
+      "y": 57,
+      "width": 50,
+      "height": 36
+    },
+    {
+      "key": "pumpkin-wilted",
+      "x": 317,
+      "y": 67,
+      "width": 55,
+      "height": 26
+    },
+    {
+      "key": "pumpkin-dead",
+      "x": 379,
+      "y": 72,
+      "width": 44,
+      "height": 21
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      0,
+      1
+    ],
+    "homogeneousTouchedBlocks": 212,
+    "touchedBlocks": 1990,
+    "homogeneousRatio": 0.10653266331658291,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        118,
+        25,
+        97,
+        255,
+        29
+      ],
+      [
+        190,
+        26,
+        174,
+        255,
+        28
+      ],
+      [
+        244,
+        9,
+        241,
+        255,
+        975
+      ],
+      [
+        255,
+        3,
+        253,
+        255,
+        48676
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 82,
+    "soil": {
+      "valid": true,
+      "method": "no broad repeated bottom-connected ground region detected; plant pixels preserved",
+      "bandTop": 80,
+      "baseline": 92,
+      "sourceCentres": [
+        15,
+        9,
+        20,
+        25,
+        42,
+        24,
+        30,
+        7
+      ],
+      "maskPixelCount": 0,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 273,
+          "removedPixels": 0,
+          "opaqueAfter": 273,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 184,
+          "removedPixels": 0,
+          "opaqueAfter": 184,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 603,
+          "removedPixels": 0,
+          "opaqueAfter": 603,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1105,
+          "removedPixels": 0,
+          "opaqueAfter": 1105,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1479,
+          "removedPixels": 0,
+          "opaqueAfter": 1479,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1215,
+          "removedPixels": 0,
+          "opaqueAfter": 1215,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 776,
+          "removedPixels": 0,
+          "opaqueAfter": 776,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 427,
+          "removedPixels": 0,
+          "opaqueAfter": 427,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": [
+        "no removable repeated base region detected"
+      ]
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      61,
+      38
+    ],
+    "path": "docs/assets/licenses/pumpkin-import-v1/candidate-b.png",
+    "sha256": "d7bb4db125e08e0e00c82387ee16a6bce760fd488e636cedeefcf583d667eb9d",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "placements": [
+      {
+        "trimmedWidth": 30,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 5,
+        "frameX": 0,
+        "pasteX": 15,
+        "pasteY": 23,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 22,
+        "trimmedHeight": 18,
+        "uniqueOpaqueColors": 9,
+        "frameX": 61,
+        "pasteX": 19,
+        "pasteY": 20,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 48,
+        "trimmedHeight": 23,
+        "uniqueOpaqueColors": 12,
+        "frameX": 122,
+        "pasteX": 6,
+        "pasteY": 15,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 55,
+        "trimmedHeight": 37,
+        "uniqueOpaqueColors": 14,
+        "frameX": 183,
+        "pasteX": 3,
+        "pasteY": 1,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 61,
+        "trimmedHeight": 38,
+        "uniqueOpaqueColors": 16,
+        "frameX": 244,
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 50,
+        "trimmedHeight": 36,
+        "uniqueOpaqueColors": 10,
+        "frameX": 305,
+        "pasteX": 5,
+        "pasteY": 2,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 55,
+        "trimmedHeight": 26,
+        "uniqueOpaqueColors": 7,
+        "frameX": 366,
+        "pasteX": 3,
+        "pasteY": 12,
+        "anchorX": 30.5,
+        "anchorY": 38
+      },
+      {
+        "trimmedWidth": 44,
+        "trimmedHeight": 21,
+        "uniqueOpaqueColors": 8,
+        "frameX": 427,
+        "pasteX": 8,
+        "pasteY": 17,
+        "anchorX": 30.5,
+        "anchorY": 38
+      }
+    ],
+    "maxTrimmedStage": [
+      61,
+      38
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/pumpkin-import-v1/cleaned-source.png",
+    "sha256": "978c5d170ee26444296af495df6487429386e10dd2f2b64fa9e2ead455605f8a"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/pumpkin-import-v1/source.png",
+    "sha256": "962e8f5495bb12366190ee64869649c15a276825f2b32d4758f613c510219b57"
+  },
+  "keys": [
+    "pumpkin-seed",
+    "pumpkin-sprout",
+    "pumpkin-young",
+    "pumpkin-flowering",
+    "pumpkin-ripe",
+    "pumpkin-dry",
+    "pumpkin-wilted",
+    "pumpkin-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4544,
+    "frameSize": [
+      61,
+      38
+    ],
+    "installedKeys": [
+      "pumpkin-seed",
+      "pumpkin-sprout",
+      "pumpkin-young",
+      "pumpkin-flowering",
+      "pumpkin-ripe",
+      "pumpkin-dry",
+      "pumpkin-wilted",
+      "pumpkin-dead"
+    ]
+  }
+}

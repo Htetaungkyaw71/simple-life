@@ -1,3 +1,21 @@
+# 2026-10-25 — supplied crop sheets integrated
+
+Checkpoint commit `cd6e69f` preserves the complete pre-import workspace. Nine clean native sheets are now active in the existing Strawberry, Carrot, Corn, Chili, Eggplant, Watermelon, Pumpkin, Grape and Blueberry frame families. All 72 atlas keys retain their names, use strict binary alpha and share one bottom-centred frame per crop. All nine render at scale 1; ripe-height-derived sign offsets keep the 36-world-pixel water/basket/warning sign immediately above the plant. Tomato is unchanged. Green pepper was skipped because the codebase has no matching crop ID/key prefix.
+
+The deterministic importer and crop atlas source functions now preserve these supplied candidates on future crop regeneration. No gameplay, watering-state selection, growth duration, save schema, plot footprint, item icon, crop ID or sprite key changed, and `tomato-debug.html` was not modified. The old 24×32 assumptions in farm-refresh checks and the unrelated City-shop atlas-preservation test were updated to defer to atlas metadata or exclude the newly authorized crop rectangles.
+
+Verification:
+
+- Python source compilation passed for the importer and crop atlas helpers.
+- Focused crop/atlas/City preservation tests pass 9/9.
+- Full suite is 420/422. The only failures are the two documented pre-existing assertions: barber/grass provenance drift and the Pixel Snapper manifest's stale 49-frame expectation versus 50 actual frames. There are no new failures.
+- `npm run build` passes with 194 modules; the production runtime remains local-only.
+- Live Google Chrome canvas checks pass for all nine crops: all eight stages on dry and watered soil, crop info, `E / Water`, water/basket/warning markers, harvesting, yield and fly-to-player effects. Representative tall Corn, wide Watermelon/Pumpkin and declining-stage screenshots were visually inspected. Evidence: [screenshots and results](verification/crop-sheets-v1/README.md).
+
+Limitations: physical devices and non-Chromium browsers were not tested in this pass. Final source-rights and competition-eligibility acceptance remains with the human team. No push, publication or deployment was performed.
+
+---
+
 # 2026-10-24 — approved Tomato snapped icons integrated
 
 Imported only the approved `tomato-item` and `tomato-seed-item` candidates into the runtime town atlas as native 24×24 binary-alpha frames. The retained source pixels are exact and unscaled. Tomato-only visual metadata applies a `2/3` display factor so toolbar, Bag, trade panels, crop info, planting, and harvest-flight effects keep their established visual footprint; every other crop remains at scale 1. The atlas installer verified that every non-target frame retained its existing metadata and pixels. Gameplay, saves, crop timing, sprite keys, and all other icons are unchanged. Per the user's instruction, no test suite or production build was run.

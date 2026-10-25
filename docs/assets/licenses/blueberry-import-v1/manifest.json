@@ -1,0 +1,354 @@
+{
+  "crop": "blueberry",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_43_05-pixel-snapper.png",
+  "sourceSha256": "c6055d424350fb4cdb2c83d486a8625dd021126a073bdcacb68815b120437269",
+  "sourceSize": [
+    368,
+    119
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    252,
+    4,
+    252,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "blueberry-seed",
+      "x": 9,
+      "y": 82,
+      "width": 30,
+      "height": 16
+    },
+    {
+      "key": "blueberry-sprout",
+      "x": 53,
+      "y": 75,
+      "width": 22,
+      "height": 22
+    },
+    {
+      "key": "blueberry-young",
+      "x": 87,
+      "y": 57,
+      "width": 39,
+      "height": 40
+    },
+    {
+      "key": "blueberry-flowering",
+      "x": 134,
+      "y": 38,
+      "width": 37,
+      "height": 59
+    },
+    {
+      "key": "blueberry-ripe",
+      "x": 177,
+      "y": 24,
+      "width": 43,
+      "height": 73
+    },
+    {
+      "key": "blueberry-dry",
+      "x": 229,
+      "y": 38,
+      "width": 38,
+      "height": 59
+    },
+    {
+      "key": "blueberry-wilted",
+      "x": 274,
+      "y": 49,
+      "width": 38,
+      "height": 48
+    },
+    {
+      "key": "blueberry-dead",
+      "x": 321,
+      "y": 74,
+      "width": 36,
+      "height": 23
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      1,
+      1
+    ],
+    "homogeneousTouchedBlocks": 175,
+    "touchedBlocks": 2210,
+    "homogeneousRatio": 0.07918552036199095,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        161,
+        23,
+        153,
+        255,
+        9
+      ],
+      [
+        223,
+        24,
+        219,
+        255,
+        52
+      ],
+      [
+        252,
+        4,
+        252,
+        255,
+        35959
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 279,
+    "soil": {
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 84,
+      "baseline": 96,
+      "sourceCentres": [
+        14,
+        10,
+        18,
+        18,
+        20,
+        18,
+        19,
+        17
+      ],
+      "maskPixelCount": 137,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 305,
+          "removedPixels": 0,
+          "opaqueAfter": 305,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 229,
+          "removedPixels": 0,
+          "opaqueAfter": 229,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 779,
+          "removedPixels": 0,
+          "opaqueAfter": 779,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1488,
+          "removedPixels": 0,
+          "opaqueAfter": 1488,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 2043,
+          "removedPixels": 0,
+          "opaqueAfter": 2043,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1432,
+          "removedPixels": 0,
+          "opaqueAfter": 1432,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 1061,
+          "removedPixels": 0,
+          "opaqueAfter": 1061,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 435,
+          "removedPixels": 0,
+          "opaqueAfter": 435,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      43,
+      73
+    ],
+    "path": "docs/assets/licenses/blueberry-import-v1/candidate-b.png",
+    "sha256": "ee0fb1d9931895e45226731b9f67b2fdb5db20434481bbef6f75de5c5820b5ad",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "placements": [
+      {
+        "trimmedWidth": 30,
+        "trimmedHeight": 16,
+        "uniqueOpaqueColors": 5,
+        "frameX": 0,
+        "pasteX": 6,
+        "pasteY": 57,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 22,
+        "trimmedHeight": 22,
+        "uniqueOpaqueColors": 7,
+        "frameX": 43,
+        "pasteX": 10,
+        "pasteY": 51,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 40,
+        "uniqueOpaqueColors": 11,
+        "frameX": 86,
+        "pasteX": 2,
+        "pasteY": 33,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 37,
+        "trimmedHeight": 59,
+        "uniqueOpaqueColors": 11,
+        "frameX": 129,
+        "pasteX": 3,
+        "pasteY": 14,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 43,
+        "trimmedHeight": 73,
+        "uniqueOpaqueColors": 15,
+        "frameX": 172,
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 38,
+        "trimmedHeight": 59,
+        "uniqueOpaqueColors": 12,
+        "frameX": 215,
+        "pasteX": 2,
+        "pasteY": 14,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 38,
+        "trimmedHeight": 48,
+        "uniqueOpaqueColors": 12,
+        "frameX": 258,
+        "pasteX": 2,
+        "pasteY": 25,
+        "anchorX": 21.5,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 36,
+        "trimmedHeight": 23,
+        "uniqueOpaqueColors": 6,
+        "frameX": 301,
+        "pasteX": 3,
+        "pasteY": 50,
+        "anchorX": 21.5,
+        "anchorY": 73
+      }
+    ],
+    "maxTrimmedStage": [
+      43,
+      73
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/blueberry-import-v1/cleaned-source.png",
+    "sha256": "bb1855e765d58ec60ad32e58e3249b02f3554c0d8e254f8fa5736375b12ae2db"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/blueberry-import-v1/source.png",
+    "sha256": "c6055d424350fb4cdb2c83d486a8625dd021126a073bdcacb68815b120437269"
+  },
+  "keys": [
+    "blueberry-seed",
+    "blueberry-sprout",
+    "blueberry-young",
+    "blueberry-flowering",
+    "blueberry-ripe",
+    "blueberry-dry",
+    "blueberry-wilted",
+    "blueberry-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4661,
+    "frameSize": [
+      43,
+      73
+    ],
+    "installedKeys": [
+      "blueberry-seed",
+      "blueberry-sprout",
+      "blueberry-young",
+      "blueberry-flowering",
+      "blueberry-ripe",
+      "blueberry-dry",
+      "blueberry-wilted",
+      "blueberry-dead"
+    ]
+  }
+}

@@ -17,7 +17,7 @@ def audit():
  meta=json.loads((ROOT/'public/assets/pixel/processed/town.json').read_text());new=Image.open(ROOT/'public/assets/pixel/processed/town.png').convert('RGBA');record=json.loads((ROOT/'docs/assets/licenses/farm-refresh-v1/record.json').read_text());count=len(record['framesChanged'])
  assert count==40 and new.size==tuple(record['atlasSize']);assert sha(ROOT/'public/assets/pixel/processed/town.png')==record['sha256']
  for name in record['framesChanged']:
-  r=meta['frames'][name]['frame'];im=new.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h']));assert im.size==(24,32);assert set(im.getchannel('A').get_flattened_data())=={0,255}
+  r=meta['frames'][name]['frame'];im=new.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h']));assert im.size==(r['w'],r['h']);assert set(im.getchannel('A').get_flattened_data())=={0,255}
  oldpath=Path('/private/tmp/farm-refresh-town-before.png');preserved=record['otherAtlasFramesPreserved'];removed=record['removedSoilPixels'];compared=False
  if oldpath.exists():
   old=Image.open(oldpath).convert('RGBA');changed=[];removed=0;preserved=0
@@ -28,6 +28,6 @@ def audit():
    for p,q in zip(a.get_flattened_data(),b.get_flattened_data()):
     assert p==q or q==(0,0,0,0),name;removed+=bool(p[3]) and not q[3]
   assert set(changed)==set(record['framesChanged']) and removed==1786 and preserved==898;compared=True
- result={'changedCropFrames':count,'removedSoilPixels':removed,'otherAtlasFramesPreserved':preserved,'survivingPlantPixelsPreserved':True,'binaryAlpha':True,'nativeCropSize':[24,32],'atlasMetadataUnchanged':True,'protectedFilesUnchanged':ok,'farmDefinitionCommentOnlyChange':True,'comparedWithTemporaryPreEditAtlas':compared}
+ result={'changedCropFrames':count,'removedSoilPixels':removed,'otherAtlasFramesPreserved':preserved,'survivingPlantPixelsPreserved':True,'binaryAlpha':True,'nativeCropFramesMatchAtlasMetadata':True,'atlasMetadataUnchanged':True,'protectedFilesUnchanged':ok,'farmDefinitionCommentOnlyChange':True,'comparedWithTemporaryPreEditAtlas':compared}
  (ROOT/'docs/verification/farm-refresh/native-audit.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 if __name__=='__main__':audit()

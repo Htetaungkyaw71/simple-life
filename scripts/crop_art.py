@@ -1,12 +1,17 @@
 """Crop atlas sources for Simple Life, including the approved Tomato import."""
 from pathlib import Path
 from PIL import Image, ImageDraw
+from import_sheet import candidate_frames
 
 ROOT=Path(__file__).resolve().parents[1]
 TOMATO_IMPORT=ROOT/'docs/assets/licenses/tomato-import-v1/candidate-b-runtime.png'
 TOMATO_ITEM_IMPORT=ROOT/'docs/assets/licenses/tomato-icons-v1/tomato-item-candidate.png'
 TOMATO_SEED_ITEM_IMPORT=ROOT/'docs/assets/licenses/tomato-icons-v1/tomato-seed-item-candidate.png'
 TOMATO_STATES=('seed','sprout','young','flowering','ripe','dry','wilted','dead')
+CITY_CROP_IMPORTS={
+    crop:ROOT/'docs/assets/licenses'/f'{crop}-import-v1'
+    for crop in ('strawberry','carrot','corn')
+}
 
 def _imported_tomato_frames():
     """Return the approved source-native 48x70 frames without resampling."""
@@ -239,6 +244,11 @@ def add_city_crop_art(assets):
                     for x,y in [(7,17),(16,22)]:
                         d.rounded_rectangle((x-2,y-4,x+2,y+4),radius=1,fill='#7f6950');d.rectangle((x-1,y-3,x+1,y+3),fill='#eac76d');d.point((x,y-2),fill='#fff0b0');d.line((x-3,y+4,x-2,y),fill=green)
             assets[crop+'-'+state]=im
+    # Verified native sheets replace only the existing plant keys. Item icons
+    # remain unchanged because this import pass covers plant artwork only.
+    for crop,record_dir in CITY_CROP_IMPORTS.items():
+        for state,frame in candidate_frames(record_dir).items():
+            assets[crop+'-'+state]=frame
     for crop in ('tomato','strawberry','carrot','corn'):
         im=Image.new('RGBA',(16,16));d=ImageDraw.Draw(im)
         if crop in ('tomato','strawberry'):

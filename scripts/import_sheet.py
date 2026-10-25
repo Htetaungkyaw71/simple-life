@@ -1,18 +1,25 @@
-"""Verify, clean and stage a horizontal pixel-art crop sheet for review.
+"""Verify, clean, pack, and optionally install horizontal crop sheets.
 
-This tool never writes the runtime atlas. It keeps source colors byte-exact,
-removes only keyed magenta/base pixels, and uses nearest-neighbour resizing.
+The importer is deliberately lossless for retained plant pixels: it never
+rescales, repaints, or palette-converts source artwork. Background cleanup is
+limited to magenta-family pixels connected to the canvas boundary. Ground
+cleanup uses a repeated, bottom-connected spatial region rather than a global
+colour replacement. Runtime installation is a separate batch operation so the
+atlas is rewritten once after every crop has passed validation.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
-from collections import Counter
+from collections import Counter, deque
 from pathlib import Path
 from statistics import median
 
 from PIL import Image
+
+
+STATES = ("seed", "sprout", "young", "flowering", "ripe", "dry", "wilted", "dead")
 
 
 def parse_size(value: str) -> tuple[int, int]:
@@ -50,6 +57,22 @@ def occupied_columns(image: Image.Image, background: tuple[int, int, int, int]) 
     return runs
 
 
+def occupied_alpha_columns(image: Image.Image) -> list[tuple[int, int]]:
+    pixels = image.load()
+    columns = [x for x in range(image.width) if any(pixels[x, y][3] for y in range(image.height))]
+    if not columns:
+        return []
+    runs: list[tuple[int, int]] = []
+    start = previous = columns[0]
+    for x in columns[1:]:
+        if x > previous + 1:
+            runs.append((start, previous))
+            start = x
+        previous = x
+    runs.append((start, previous))
+    return runs
+
+
 def alpha_bbox(image: Image.Image) -> tuple[int, int, int, int] | None:
     return image.getchannel("A").getbbox()
 
@@ -72,141 +95,280 @@ def two_by_two_score(image: Image.Image, background: tuple[int, int, int, int]) 
     return best
 
 
-def source_bounds(image: Image.Image, runs: list[tuple[int, int]], background: tuple[int, int, int, int]) -> list[dict]:
+def source_bounds(image: Image.Image, runs: list[tuple[int, int]], background: tuple[int, int, int, int] | None = None) -> list[dict]:
     pixels = image.load()
     result = []
     for x0, x1 in runs:
-        points = [(x, y) for y in range(image.height) for x in range(x0, x1 + 1) if pixels[x, y] != background]
-        min_x = min(x for x, _ in points)
-        max_x = max(x for x, _ in points)
-        min_y = min(y for _, y in points)
-        max_y = max(y for _, y in points)
-        result.append({"x": min_x, "y": min_y, "width": max_x - min_x + 1, "height": max_y - min_y + 1})
+        points = [
+            (x, y)
+            for y in range(image.height)
+            for x in range(x0, x1 + 1)
+            if pixels[x, y][3] and (background is None or pixels[x, y] != background)
+        ]
+        result.append({
+            "x": min(x for x, _ in points),
+            "y": min(y for _, y in points),
+            "width": max(x for x, _ in points) - min(x for x, _ in points) + 1,
+            "height": max(y for _, y in points) - min(y for _, y in points) + 1,
+        })
     return result
 
 
-def clean_magenta(image: Image.Image) -> tuple[Image.Image, list[list[int]]]:
+def clean_magenta(image: Image.Image) -> tuple[Image.Image, list[list[int]], int]:
+    """Remove only background-family pixels reachable from the canvas boundary.
+
+    Pixel Snapper occasionally wraps a magenta sheet in a near-white matte. The
+    matte is accepted only when connected to the outer edge, so white flowers
+    and highlights inside a plant remain untouched.
+    """
     cleaned = image.copy()
     pixels = cleaned.load()
-    removed = Counter()
+    queue: deque[tuple[int, int]] = deque()
+    matte: set[tuple[int, int]] = set()
+    for x in range(cleaned.width):
+        queue.extend(((x, 0), (x, cleaned.height - 1)))
     for y in range(cleaned.height):
-        for x in range(cleaned.width):
-            pixel = pixels[x, y]
-            if is_magenta(pixel):
-                removed[pixel] += 1
-                pixels[x, y] = (0, 0, 0, 0)
-    return cleaned, [list(color) + [count] for color, count in sorted(removed.items())]
+        queue.extend(((0, y), (cleaned.width - 1, y)))
+    while queue:
+        point = queue.popleft()
+        if point in matte:
+            continue
+        x, y = point
+        pixel = pixels[x, y]
+        if not (pixel[3] and min(pixel[:3]) >= 235):
+            continue
+        matte.add(point)
+        for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
+            for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
+                if (nx, ny) not in matte:
+                    queue.append((nx, ny))
+    magenta: set[tuple[int, int]] = set()
+    queue.clear()
+    for x in range(cleaned.width):
+        queue.extend(((x, 0), (x, cleaned.height - 1)))
+    for y in range(cleaned.height):
+        queue.extend(((0, y), (cleaned.width - 1, y)))
+    for x, y in matte:
+        for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
+            for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
+                queue.append((nx, ny))
+    while queue:
+        point = queue.popleft()
+        if point in magenta or point in matte:
+            continue
+        x, y = point
+        if not is_magenta(pixels[x, y]):
+            continue
+        magenta.add(point)
+        for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
+            for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
+                if (nx, ny) not in magenta:
+                    queue.append((nx, ny))
+    seen = matte | magenta
+    removed = Counter(pixels[x, y] for x, y in seen)
+    for point in seen:
+        pixels[point] = (0, 0, 0, 0)
+    remaining_magenta = sum(
+        is_magenta(pixels[x, y])
+        for y in range(cleaned.height)
+        for x in range(cleaned.width)
+    )
+    return cleaned, [list(color) + [count] for color, count in sorted(removed.items())], remaining_magenta
 
 
 def stage_images(image: Image.Image, runs: list[tuple[int, int]]) -> list[Image.Image]:
     return [image.crop((x0, 0, x1 + 1, image.height)) for x0, x1 in runs]
 
 
-def opaque_span(image: Image.Image, y: int) -> tuple[int, int] | None:
-    alpha = image.getchannel("A")
-    xs = [x for x in range(image.width) if alpha.getpixel((x, y))]
-    return (min(xs), max(xs)) if xs else None
+def component_sets(points: set[tuple[int, int]]) -> list[set[tuple[int, int]]]:
+    remaining = set(points)
+    components: list[set[tuple[int, int]]] = []
+    while remaining:
+        start = remaining.pop()
+        component = {start}
+        queue = deque([start])
+        while queue:
+            x, y = queue.popleft()
+            for ny in range(y - 1, y + 2):
+                for nx in range(x - 1, x + 2):
+                    point = (nx, ny)
+                    if point in remaining:
+                        remaining.remove(point)
+                        component.add(point)
+                        queue.append(point)
+        components.append(component)
+    return components
+
+
+def opaque_count(image: Image.Image) -> int:
+    return sum(bool(alpha) for alpha in image.getchannel("A").get_flattened_data())
+
+
+def connected_shape_count(image: Image.Image) -> int:
+    points = {
+        (x, y)
+        for y in range(image.height)
+        for x in range(image.width)
+        if image.getpixel((x, y))[3]
+    }
+    return len(component_sets(points))
 
 
 def remove_soil_mounds(stages: list[Image.Image]) -> tuple[list[Image.Image], dict]:
-    if len(stages) < 3:
-        return stages, {"removedPixels": 0, "reason": "fewer than three stages"}
+    """Remove the repeated bottom-connected base region from stages 2-8.
 
-    reference_indices = list(range(1, len(stages) - 1))
-    reference_bottoms = []
-    reference_centres = {}
-    for index in reference_indices:
-        bbox = alpha_bbox(stages[index])
-        if not bbox:
-            continue
-        bottom = bbox[3] - 1
-        reference_bottoms.append(bottom)
-        span = opaque_span(stages[index], bottom)
-        reference_centres[index] = (span[0] + span[1]) // 2 if span else (bbox[0] + bbox[2] - 1) // 2
-    mound_bottom = round(median(reference_bottoms))
-    mound_top = mound_bottom - 8
+    Pixels are compared at aligned bottom-centre offsets. A pixel enters the
+    mask only when the same exact source pixel repeats in at least three stages
+    and belongs to a broad component connected to the base line. This keeps the
+    mask spatial/region based and prevents a plant-colour match elsewhere from
+    deleting stems, vines, roots, or distressed leaves.
+    """
+    if len(stages) != len(STATES):
+        return stages, {"valid": False, "reason": f"expected {len(STATES)} stages"}
 
-    # Union of the repeated nine-row mound footprints. This deletes base art
-    # without recoloring any plant pixel and works even when a stem overlaps it.
-    mound_offsets: set[tuple[int, int]] = set()
-    for index in reference_indices:
-        stage = stages[index]
-        centre = reference_centres[index]
-        alpha = stage.getchannel("A")
-        for y in range(mound_top, min(mound_bottom + 1, stage.height)):
+    boxes = [alpha_bbox(stage) for stage in stages]
+    if any(box is None for box in boxes):
+        return stages, {"valid": False, "reason": "empty stage before ground cleanup"}
+    bottoms = [box[3] - 1 for box in boxes if box]
+    baseline = round(median(bottoms))
+    band_top = max(0, baseline - 12)
+    centres = []
+    for stage, box, bottom in zip(stages, boxes, bottoms):
+        span = [x for x in range(stage.width) if stage.getpixel((x, bottom))[3]]
+        centres.append((min(span) + max(span)) // 2 if span else (box[0] + box[2] - 1) // 2)
+
+    repeated: Counter[tuple[int, int]] = Counter()
+    repeated_colors: dict[tuple[int, int], Counter] = {}
+    for index, stage in enumerate(stages[1:], start=1):
+        centre = centres[index]
+        stage_bottom = bottoms[index]
+        stage_top = max(0, stage_bottom - 12)
+        for y in range(stage_top, min(stage.height, stage_bottom + 1)):
             for x in range(stage.width):
-                if alpha.getpixel((x, y)):
-                    mound_offsets.add((x - centre, y - mound_top))
+                pixel = stage.getpixel((x, y))
+                if pixel[3]:
+                    point = (x - centre, y - stage_bottom)
+                    repeated[point] += 1
+                    repeated_colors.setdefault(point, Counter())[pixel] += 1
+    candidates = {point for point, count in repeated.items() if count >= 5}
+    components = component_sets(candidates)
+    ground_components = []
+    for component in components:
+        xs = [x for x, _ in component]
+        ys = [y for _, y in component]
+        if max(ys) >= -1 and max(xs) - min(xs) + 1 >= 8 and len(component) >= 18:
+            ground_components.append(component)
+    region = set().union(*ground_components) if ground_components else set()
+    if not region:
+        stage_reports = [{
+            "stage": STATES[index],
+            "opaqueBefore": opaque_count(stage),
+            "removedPixels": 0,
+            "opaqueAfter": opaque_count(stage),
+            "removedRatio": 0.0,
+            "over25Percent": False,
+            "cleanupRolledBackToProtectPlant": False,
+        } for index, stage in enumerate(stages)]
+        return [stage.copy() for stage in stages], {
+            "valid": True,
+            "method": "no broad repeated bottom-connected ground region detected; plant pixels preserved",
+            "bandTop": band_top,
+            "baseline": baseline,
+            "sourceCentres": centres,
+            "maskPixelCount": 0,
+            "removedPixels": 0,
+            "stages": stage_reports,
+            "over25PercentStages": [],
+            "deadConnectedComponents": connected_shape_count(stages[-1]),
+            "reason": None,
+            "warnings": ["no removable repeated base region detected"],
+        }
 
     cleaned = [stage.copy() for stage in stages]
-    removed = 0
-    centres = []
+    stage_reports = []
+    total_removed = 0
     for index, stage in enumerate(cleaned):
-        bbox = alpha_bbox(stage)
-        if not bbox:
-            centres.append(stage.width // 2)
-            continue
-        if index in reference_centres:
-            centre = reference_centres[index]
-        else:
-            centre = (bbox[0] + bbox[2] - 1) // 2
-        centres.append(centre)
-        if index == 0:
-            continue
-        pixels = stage.load()
-        for dx, dy in mound_offsets:
-            x, y = centre + dx, mound_top + dy
-            if 0 <= x < stage.width and 0 <= y < stage.height and pixels[x, y][3]:
-                pixels[x, y] = (0, 0, 0, 0)
-                removed += 1
+        before = opaque_count(stage)
+        removed = 0
+        if index:
+            centre = centres[index]
+            pixels = stage.load()
+            stage_bottom = bottoms[index]
+            stage_top = max(0, stage_bottom - 12)
+            # Preserve narrow plant paths entering the base band from above.
+            # This is positional protection, not a colour whitelist.
+            ingress = {
+                x
+                for x in range(stage.width)
+                if any(
+                    stage.getpixel((x, y))[3]
+                    for y in range(max(0, stage_top - 3), stage_top + 1)
+                )
+            }
+            protected = {
+                (x, y)
+                for x in range(stage.width)
+                for y in range(stage_top, min(stage.height, stage_bottom + 1))
+                if stage.getpixel((x, y))[3] and any(abs(x - root_x) <= 1 for root_x in ingress)
+            }
+            for dx, dy in region:
+                x, y = centre + dx, stage_bottom + dy
+                if not (0 <= x < stage.width and 0 <= y < stage.height):
+                    continue
+                if not pixels[x, y][3] or (x, y) in protected:
+                    continue
+                dominant, occurrences = repeated_colors[(dx, dy)].most_common(1)[0]
+                if occurrences >= 5 and pixels[x, y] == dominant:
+                    pixels[x, y] = (0, 0, 0, 0)
+                    removed += 1
+        rolled_back = False
+        before_components = connected_shape_count(stages[index])
+        after_components = connected_shape_count(stage)
+        if after_components > before_components:
+            cleaned[index] = stages[index].copy()
+            stage = cleaned[index]
+            removed = 0
+            rolled_back = True
+        after = opaque_count(stage)
+        ratio = removed / max(1, before)
+        stage_reports.append({
+            "stage": STATES[index],
+            "opaqueBefore": before,
+            "removedPixels": removed,
+            "opaqueAfter": after,
+            "removedRatio": ratio,
+            "over25Percent": ratio > 0.25,
+            "cleanupRolledBackToProtectPlant": rolled_back,
+        })
+        total_removed += removed
 
+    dead_components = connected_shape_count(cleaned[-1])
     return cleaned, {
-        "removedPixels": removed,
-        "moundTop": mound_top,
-        "moundBottom": mound_bottom,
+        "valid": True,
+        "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+        "bandTop": band_top,
+        "baseline": baseline,
         "sourceCentres": centres,
-        "maskPixelCount": len(mound_offsets),
+        "maskPixelCount": len(region),
+        "removedPixels": total_removed,
+        "stages": stage_reports,
+        "over25PercentStages": [row["stage"] for row in stage_reports if row["over25Percent"]],
+        "deadConnectedComponents": dead_components,
+        "reason": None,
+        "warnings": [] if dead_components == 1 else [f"dead source remains {dead_components} proximity-connected components after ground removal"],
     }
 
 
-def remove_isolated_pixels(stages: list[Image.Image]) -> tuple[list[Image.Image], int]:
-    cleaned = [stage.copy() for stage in stages]
-    removed = 0
-    for stage in cleaned:
-        alpha = stage.getchannel("A")
-        pixels = stage.load()
-        isolated = []
-        for y in range(stage.height):
-            for x in range(stage.width):
-                if not alpha.getpixel((x, y)):
-                    continue
-                neighbours = (
-                    (nx, ny)
-                    for ny in range(max(0, y - 1), min(stage.height, y + 2))
-                    for nx in range(max(0, x - 1), min(stage.width, x + 2))
-                    if (nx, ny) != (x, y)
-                )
-                if not any(alpha.getpixel(point) for point in neighbours):
-                    isolated.append((x, y))
-        for point in isolated:
-            pixels[point] = (0, 0, 0, 0)
-        removed += len(isolated)
-    return cleaned, removed
-
-
-def pack_frames(stages: list[Image.Image], frame_size: tuple[int, int]) -> tuple[Image.Image, list[dict]]:
-    frame_width, frame_height = frame_size
+def pack_frames(stages: list[Image.Image]) -> tuple[Image.Image, list[dict], tuple[int, int]]:
+    boxes = [alpha_bbox(stage) for stage in stages]
+    if any(box is None for box in boxes):
+        raise ValueError("a stage is empty after cleaning")
+    sprites = [stage.crop(box) for stage, box in zip(stages, boxes)]
+    frame_width = max(sprite.width for sprite in sprites)
+    frame_height = max(sprite.height for sprite in sprites)
     sheet = Image.new("RGBA", (frame_width * len(stages), frame_height))
     placements = []
-    for index, stage in enumerate(stages):
-        bbox = alpha_bbox(stage)
-        if not bbox:
-            raise ValueError(f"stage {index + 1} is empty after cleaning")
-        sprite = stage.crop(bbox)
-        if sprite.width > frame_width or sprite.height > frame_height:
-            raise ValueError(
-                f"stage {index + 1} ({sprite.width}x{sprite.height}) does not fit {frame_width}x{frame_height}"
-            )
+    for index, sprite in enumerate(sprites):
         x = index * frame_width + (frame_width - sprite.width) // 2
         y = frame_height - sprite.height
         sheet.alpha_composite(sprite, (x, y))
@@ -217,127 +379,224 @@ def pack_frames(stages: list[Image.Image], frame_size: tuple[int, int]) -> tuple
             "frameX": index * frame_width,
             "pasteX": x - index * frame_width,
             "pasteY": y,
-            "anchorX": frame_width // 2,
-            "anchorY": frame_height - 1,
+            "anchorX": frame_width / 2,
+            "anchorY": frame_height,
         })
-    return sheet, placements
+    return sheet, placements, (frame_width, frame_height)
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True, type=Path)
-    parser.add_argument("--crop", required=True)
-    parser.add_argument("--frame-count", required=True, type=int)
-    parser.add_argument("--frame-size", required=True, type=parse_size, help="Candidate A frame, e.g. 24x48")
-    parser.add_argument("--keys", required=True, help="Comma-separated runtime keys in source order")
-    parser.add_argument("--output-dir", required=True, type=Path)
-    parser.add_argument("--grid-scale", type=int, default=2)
-    args = parser.parse_args()
-
+def import_sheet(args: argparse.Namespace) -> dict:
     keys = [key.strip() for key in args.keys.split(",") if key.strip()]
     if len(keys) != args.frame_count:
         raise ValueError(f"expected {args.frame_count} keys, got {len(keys)}")
+    if args.frame_count != len(STATES):
+        raise ValueError(f"runtime crop import requires {len(STATES)} stages")
 
-    source = Image.open(args.input).convert("RGBA")
+    original = Image.open(args.input)
+    original_alpha = sorted(set(original.convert("RGBA").getchannel("A").get_flattened_data()))
+    source = original.convert("RGBA")
     colors = Counter(source.get_flattened_data())
     background = colors.most_common(1)[0][0]
-    runs = occupied_columns(source, background)
+    transparent, removed_magenta, remaining_magenta = clean_magenta(source)
+    runs = occupied_alpha_columns(transparent)
     if len(runs) != args.frame_count:
         raise ValueError(f"expected {args.frame_count} separated stages, found {len(runs)}")
 
-    raw_bounds = source_bounds(source, runs, background)
+    raw_bounds = source_bounds(transparent, runs)
     grid = two_by_two_score(source, background)
-    candidate_a_eligible = args.grid_scale == 2 and grid["ratio"] >= 0.98
+    grid_valid = original_alpha in ([255], [0, 255]) and len(colors) <= 64 and background[3] == 255
+    if not grid_valid:
+        raise ValueError(
+            f"sheet is not a clean hard-pixel grid: colors={len(colors)}, alpha={original_alpha}, background={background}"
+        )
 
-    transparent, removed_magenta = clean_magenta(source)
     stages, soil = remove_soil_mounds(stage_images(transparent, runs))
-    stages, isolated_removed = remove_isolated_pixels(stages)
-    max_width = max(alpha_bbox(stage)[2] - alpha_bbox(stage)[0] for stage in stages)
-    max_height = max(alpha_bbox(stage)[3] - alpha_bbox(stage)[1] for stage in stages)
-    candidate_b_size = (
-        max(args.frame_size[0] * args.grid_scale, max_width),
-        max_height,
-    )
-    candidate_b, placements_b = pack_frames(stages, candidate_b_size)
+    if not soil.get("valid"):
+        raise ValueError(soil.get("reason", "ground cleanup validation failed"))
+    candidate, placements, frame_size = pack_frames(stages)
+    alpha_values = sorted(set(candidate.getchannel("A").get_flattened_data()))
+    if alpha_values != [0, 255]:
+        raise ValueError(f"output alpha is not binary: {alpha_values}")
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     cleaned_source_path = args.output_dir / "cleaned-source.png"
-    candidate_b_path = args.output_dir / "candidate-b.png"
+    candidate_path = args.output_dir / "candidate-b.png"
+    evidence_path = args.output_dir / "source.png"
+    evidence_path.write_bytes(args.input.read_bytes())
     cleaned_source = Image.new("RGBA", source.size)
     for stage, (x0, _) in zip(stages, runs):
         cleaned_source.alpha_composite(stage, (x0, 0))
     cleaned_source.save(cleaned_source_path)
-    candidate_b.save(candidate_b_path)
+    candidate.save(candidate_path)
 
-    candidate_a_path = None
-    placements_a = None
-    if candidate_a_eligible:
-        candidate_a_path = args.output_dir / "candidate-a.png"
-        candidate_a = candidate_b.resize(
-            (args.frame_size[0] * args.frame_count, args.frame_size[1]), Image.Resampling.NEAREST
-        )
-        candidate_a.save(candidate_a_path)
-        placements_a = [{
-            "frameX": index * args.frame_size[0],
-            "anchorX": args.frame_size[0] // 2,
-            "anchorY": args.frame_size[1] - 1,
-        } for index in range(args.frame_count)]
-
-    alpha_values = sorted(set(candidate_b.getchannel("A").get_flattened_data()))
-    candidate_b_colors = set(candidate_b.get_flattened_data())
+    candidate_colors = set(candidate.get_flattened_data())
     manifest = {
         "crop": args.crop,
         "source": str(args.input),
         "sourceSha256": sha256(args.input),
         "sourceSize": list(source.size),
         "sourceUniqueColors": len(colors),
-        "sourceAlphaValues": sorted(set(pixel[3] for pixel in colors)),
+        "sourceAlphaValues": original_alpha,
         "background": list(background),
         "sourceStageBounds": [{"key": key, **bounds} for key, bounds in zip(keys, raw_bounds)],
         "grid": {
             "nativePixelGrid": True,
+            "cleanPixelGrid": grid_valid,
             "requestedScale": args.grid_scale,
             "best2x2Offset": grid["offset"],
             "homogeneousTouchedBlocks": grid["homogeneous"],
             "touchedBlocks": grid["touched"],
             "homogeneousRatio": grid["ratio"],
+            "interpretation": "native 1px hard-edged art; no reduction or resampling performed",
         },
         "cleanup": {
+            "method": "boundary-connected magenta plus repeated bottom-connected ground region",
             "removedMagentaColors": removed_magenta,
+            "remainingInteriorMagentaPixels": remaining_magenta,
             "soil": soil,
-            "isolatedNonMagentaPixelsRemoved": isolated_removed,
             "alphaValues": alpha_values,
             "colorsRepainted": 0,
-        },
-        "candidateA": {
-            "available": candidate_a_eligible,
-            "frameSize": list(args.frame_size),
-            "path": str(candidate_a_path) if candidate_a_path else None,
-            "placements": placements_a,
-            "reason": None if candidate_a_eligible else (
-                "Source is native 1px art, not a uniform 2x enlargement: "
-                f"only {grid['homogeneous']}/{grid['touched']} non-background 2x2 blocks are homogeneous."
-            ),
+            "pixelsResampled": 0,
+            "paletteConversions": 0,
         },
         "candidateB": {
             "available": True,
-            "frameSize": list(candidate_b_size),
-            "path": str(candidate_b_path),
-            "sha256": sha256(candidate_b_path),
-            "uniqueColors": len(candidate_b_colors),
-            "uniqueOpaqueColors": len({pixel for pixel in candidate_b_colors if pixel[3]}),
-            "placements": placements_b,
-            "maxTrimmedStage": [max_width, max_height],
+            "frameSize": list(frame_size),
+            "path": str(candidate_path),
+            "sha256": sha256(candidate_path),
+            "uniqueColors": len(candidate_colors),
+            "uniqueOpaqueColors": len({pixel for pixel in candidate_colors if pixel[3]}),
+            "placements": placements,
+            "maxTrimmedStage": list(frame_size),
         },
-        "cleanedSource": {
-            "path": str(cleaned_source_path),
-            "sha256": sha256(cleaned_source_path),
-        },
+        "cleanedSource": {"path": str(cleaned_source_path), "sha256": sha256(cleaned_source_path)},
+        "evidenceSource": {"path": str(evidence_path), "sha256": sha256(evidence_path)},
         "keys": keys,
     }
     manifest_path = args.output_dir / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps(manifest, indent=2))
+    return manifest
+
+
+def atlas_record(frame: dict) -> dict:
+    width, height = frame["w"], frame["h"]
+    return {
+        "frame": frame,
+        "rotated": False,
+        "trimmed": False,
+        "spriteSourceSize": {"x": 0, "y": 0, "w": width, "h": height},
+        "sourceSize": {"w": width, "h": height},
+    }
+
+
+def candidate_frames(record_dir: Path) -> dict[str, Image.Image]:
+    """Load one verified candidate strip for source-pipeline regeneration."""
+    manifest = json.loads((record_dir / "manifest.json").read_text())
+    frame_width, frame_height = manifest["candidateB"]["frameSize"]
+    sheet = Image.open(manifest["candidateB"]["path"]).convert("RGBA")
+    if sheet.size != (frame_width * len(STATES), frame_height):
+        raise ValueError(f"unexpected candidate size for {manifest['crop']}: {sheet.size}")
+    if sorted(set(sheet.getchannel("A").get_flattened_data())) != [0, 255]:
+        raise ValueError(f"non-binary alpha in {manifest['crop']}")
+    return {
+        state: sheet.crop((index * frame_width, 0, (index + 1) * frame_width, frame_height))
+        for index, state in enumerate(STATES)
+    }
+
+
+def install_atlas(args: argparse.Namespace) -> None:
+    if not args.record_dir:
+        raise ValueError("--record-dir is required for --install-atlas")
+    atlas_path = args.atlas_png
+    metadata_path = args.atlas_json
+    old_atlas = Image.open(atlas_path).convert("RGBA")
+    metadata = json.loads(metadata_path.read_text())
+    records = []
+    for directory in args.record_dir:
+        manifest = json.loads((directory / "manifest.json").read_text())
+        sheet = Image.open(manifest["candidateB"]["path"]).convert("RGBA")
+        frame_width, frame_height = manifest["candidateB"]["frameSize"]
+        if sheet.size != (frame_width * len(STATES), frame_height):
+            raise ValueError(f"unexpected candidate size for {manifest['crop']}: {sheet.size}")
+        if sorted(set(sheet.getchannel("A").get_flattened_data())) != [0, 255]:
+            raise ValueError(f"non-binary alpha in {manifest['crop']}")
+        records.append((directory, manifest, sheet, frame_width, frame_height))
+
+    gap = 2
+    reusable = all(
+        all(
+            metadata["frames"].get(key, {}).get("frame", {}).get("w") == frame_width
+            and metadata["frames"].get(key, {}).get("frame", {}).get("h") == frame_height
+            for key in manifest["keys"]
+        )
+        for _, manifest, _, frame_width, frame_height in records
+    )
+    extra_height = 0 if reusable else sum(frame_height + gap for _, _, _, _, frame_height in records) + gap
+    atlas = Image.new("RGBA", (old_atlas.width, old_atlas.height + extra_height))
+    atlas.paste(old_atlas, (0, 0))
+    y = old_atlas.height + gap
+    installed = []
+    for directory, manifest, sheet, frame_width, frame_height in records:
+        row_width = len(STATES) * (frame_width + gap) - gap
+        if row_width > atlas.width:
+            raise ValueError(f"{manifest['crop']} row width {row_width} exceeds atlas width {atlas.width}")
+        if reusable:
+            y = metadata["frames"][manifest["keys"][0]]["frame"]["y"]
+        for index, key in enumerate(manifest["keys"]):
+            old = metadata["frames"].get(key, {}).get("frame")
+            if old:
+                atlas.paste((0, 0, 0, 0), (old["x"], old["y"], old["x"] + old["w"], old["y"] + old["h"]))
+            image = sheet.crop((index * frame_width, 0, (index + 1) * frame_width, frame_height))
+            x = index * (frame_width + gap)
+            atlas.paste(image, (x, y))
+            metadata["frames"][key] = atlas_record({"x": x, "y": y, "w": frame_width, "h": frame_height})
+        manifest["runtimeAtlas"] = {
+            "image": str(atlas_path),
+            "metadata": str(metadata_path),
+            "rowY": y,
+            "frameSize": [frame_width, frame_height],
+            "installedKeys": manifest["keys"],
+        }
+        (directory / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+        installed.append({"crop": manifest["crop"], "frameSize": [frame_width, frame_height], "rowY": y})
+        if not reusable:
+            y += frame_height + gap
+    if not reusable:
+        atlas = atlas.crop((0, 0, old_atlas.width, y))
+    atlas.save(atlas_path)
+    metadata["meta"]["size"] = {"w": atlas.width, "h": atlas.height}
+    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
+    print(json.dumps({
+        "atlas": str(atlas_path),
+        "oldSize": list(old_atlas.size),
+        "newSize": list(atlas.size),
+        "installed": installed,
+        "nonTargetFrameCoordinatesPreserved": True,
+    }, indent=2))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", type=Path)
+    parser.add_argument("--crop")
+    parser.add_argument("--frame-count", type=int, default=len(STATES))
+    parser.add_argument("--frame-size", type=parse_size, help="Legacy expected size; retained for command compatibility")
+    parser.add_argument("--keys", help="Comma-separated runtime keys in source order")
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--grid-scale", type=int, default=1)
+    parser.add_argument("--install-atlas", action="store_true")
+    parser.add_argument("--record-dir", action="append", type=Path)
+    parser.add_argument("--atlas-png", type=Path, default=Path("public/assets/pixel/processed/town.png"))
+    parser.add_argument("--atlas-json", type=Path, default=Path("public/assets/pixel/processed/town.json"))
+    args = parser.parse_args()
+    if args.install_atlas:
+        install_atlas(args)
+        return
+    missing = [name for name in ("input", "crop", "keys", "output_dir") if getattr(args, name) is None]
+    if missing:
+        parser.error("missing required import arguments: " + ", ".join("--" + name.replace("_", "-") for name in missing))
+    import_sheet(args)
 
 
 if __name__ == "__main__":

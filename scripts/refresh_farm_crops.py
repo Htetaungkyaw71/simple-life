@@ -14,8 +14,8 @@ def refresh():
   r=v['frame'];before[key]=digest(atlas.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h'])))
  for c in CROPS:
   for stage in STAGES:
-   key=c+'-'+stage;r=meta['frames'][key]['frame'];im=assets[key].convert('RGBA');assert im.size==(r['w'],r['h'])==(24,32)
-   old=atlas.crop((r['x'],r['y'],r['x']+24,r['y']+32));assert all(not b[3] or b==a for a,b in zip(old.get_flattened_data(),im.get_flattened_data())),key+' changed plant pixels'
+   key=c+'-'+stage;r=meta['frames'][key]['frame'];im=assets[key].convert('RGBA');assert im.size==(r['w'],r['h'])
+   old=atlas.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h']));assert all(not b[3] or b==a for a,b in zip(old.get_flattened_data(),im.get_flattened_data())),key+' changed plant pixels'
    removed+=sum(bool(a[3]) and not b[3] for a,b in zip(old.get_flattened_data(),im.get_flattened_data()))
    if old.tobytes()!=im.tobytes():changed.append(key)
    atlas.paste(im,(r['x'],r['y']))

@@ -1,8 +1,12 @@
 """Original crop/item/tool pixels for the user-authorized free-bed farming update.
 Reference screenshots inform soil/foliage density only; no source pixels sampled.
 """
+from pathlib import Path
 from PIL import Image,ImageDraw
+from import_sheet import candidate_frames
+ROOT=Path(__file__).resolve().parents[1]
 NEW_CROPS=('chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato')
+IMPORTED_CROPS=('chili','eggplant','watermelon','pumpkin','grape','blueberry')
 COLOURS={'chili':('#b14e37','#e9894d'),'eggplant':('#5b485e','#92788e'),'cucumber':('#4f7041','#98ac58'),'watermelon':('#476945','#98aa62'),'pumpkin':('#b16c38','#e1a650'),'grape':('#695575','#a391ae'),'blueberry':('#516275','#8b9aab'),'sweetPotato':('#8a5551','#c78c67')}
 def fruit(d,c,x,y,small=False):
  dark,light=COLOURS[c];r=2 if small else 5
@@ -35,6 +39,10 @@ def add_farm_crop_art(assets):
     if stage=='ripe':
      for x,y in ([(6,25),(18,27)] if vine else [(6,18),(17,22)]):fruit(d,c,x,y,small=True)
    assets[c+'-'+stage]=im
+ # Verified native sheets replace only the six existing plant-key families.
+ # Cucumber and Sweet Potato keep their established code-native artwork.
+ for crop in IMPORTED_CROPS:
+  for state,frame in candidate_frames(ROOT/'docs/assets/licenses'/f'{crop}-import-v1').items():assets[crop+'-'+state]=frame
  shovel=Image.new('RGBA',(16,16));d=ImageDraw.Draw(shovel);d.line((4,2,11,10),fill='#504734',width=3);d.line((4,2,11,10),fill='#bb9363');d.polygon([(9,8),(13,7),(15,11),(12,15),(8,12)],fill='#444d43');d.polygon([(10,9),(13,8),(14,11),(12,13),(9,11)],fill='#b1b5a2');assets['shovel-item']=shovel
  # Metal watering can: open handle, curved tank, long spout and perforated rose.
  can=Image.new('RGBA',(16,16));d=ImageDraw.Draw(can)
@@ -50,7 +58,7 @@ def add_farm_crop_art(assets):
  mapping={'#344b40':'#384329','#699458':'#829448','#3f8055':'#738b42','#8cbd69':'#b0bd6c','#66985a':'#829448','#a7c575':'#b0bd6c','#528b64':'#718644','#63975e':'#7a9046','#8dc06c':'#adbb64','#5b9167':'#708344','#82b572':'#9cae59'}
  from PIL import ImageColor
  mapping={ImageColor.getrgb(k):ImageColor.getrgb(v) for k,v in mapping.items()}
- for key in [n for n in assets if any(n.startswith(c+'-') for c in ('tomato','strawberry','carrot','corn'))]:
+ for key in [n for n in assets if any(n.startswith(c+'-') for c in ('tomato','strawberry','carrot','corn')) and n.endswith('-item')]:
   im=assets[key];im.putdata([(*mapping.get(p[:3],p[:3]),p[3]) for p in im.getdata()])
 
  # Shared utility tools and larger crop emblems also cover the original four crops.

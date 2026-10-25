@@ -19,10 +19,10 @@
   "sourceStageBounds": [
     {
       "key": "strawberry-seed",
-      "x": 8,
+      "x": 10,
       "y": 82,
-      "width": 34,
-      "height": 16
+      "width": 30,
+      "height": 15
     },
     {
       "key": "strawberry-sprout",
@@ -43,7 +43,7 @@
       "x": 123,
       "y": 50,
       "width": 41,
-      "height": 45
+      "height": 44
     },
     {
       "key": "strawberry-ripe",
@@ -76,165 +76,244 @@
   ],
   "grid": {
     "nativePixelGrid": true,
-    "requestedScale": 2,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
     "best2x2Offset": [
       0,
       0
     ],
     "homogeneousTouchedBlocks": 98,
     "touchedBlocks": 1778,
-    "homogeneousRatio": 0.05511811023622047
+    "homogeneousRatio": 0.05511811023622047,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
     "removedMagentaColors": [
       [
         180,
         19,
         169,
         255,
-        163
+        147
       ],
       [
         254,
         3,
         253,
         255,
-        37632
+        37372
       ]
     ],
+    "remainingInteriorMagentaPixels": 276,
     "soil": {
-      "removedPixels": 1053,
-      "moundTop": 86,
-      "moundBottom": 94,
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 82,
+      "baseline": 94,
       "sourceCentres": [
-        16,
+        14,
         9,
         19,
         18,
         20,
         19,
         36,
-        19
+        18
       ],
-      "maskPixelCount": 313
+      "maskPixelCount": 144,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 287,
+          "removedPixels": 0,
+          "opaqueAfter": 287,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 164,
+          "removedPixels": 0,
+          "opaqueAfter": 164,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 571,
+          "removedPixels": 0,
+          "opaqueAfter": 571,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1090,
+          "removedPixels": 0,
+          "opaqueAfter": 1090,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1535,
+          "removedPixels": 0,
+          "opaqueAfter": 1535,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1200,
+          "removedPixels": 0,
+          "opaqueAfter": 1200,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 900,
+          "removedPixels": 0,
+          "opaqueAfter": 900,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 415,
+          "removedPixels": 0,
+          "opaqueAfter": 415,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
     },
-    "isolatedNonMagentaPixelsRemoved": 2,
     "alphaValues": [
       0,
       255
     ],
-    "colorsRepainted": 0
-  },
-  "candidateA": {
-    "available": false,
-    "frameSize": [
-      24,
-      48
-    ],
-    "path": null,
-    "placements": null,
-    "reason": "Source is native 1px art, not a uniform 2x enlargement: only 98/1778 non-background 2x2 blocks are homogeneous."
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
   },
   "candidateB": {
     "available": true,
     "frameSize": [
-      48,
-      38
+      46,
+      47
     ],
     "path": "docs/assets/licenses/strawberry-import-v1/candidate-b.png",
-    "sha256": "ae88b004cb85efbc7fd53df7e667c12760c08f80c60d49d1da23aee1bbbcccfb",
-    "uniqueColors": 15,
-    "uniqueOpaqueColors": 14,
+    "sha256": "cb21af699dc3de84365b56b323ee3a7d9fa2b81762716af5eaec9b82d6976fdc",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
     "placements": [
       {
         "trimmedWidth": 30,
         "trimmedHeight": 15,
         "uniqueOpaqueColors": 7,
         "frameX": 0,
-        "pasteX": 9,
-        "pasteY": 23,
-        "anchorX": 24,
-        "anchorY": 37
+        "pasteX": 8,
+        "pasteY": 32,
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
         "trimmedWidth": 19,
-        "trimmedHeight": 11,
-        "uniqueOpaqueColors": 5,
-        "frameX": 48,
-        "pasteX": 14,
-        "pasteY": 27,
-        "anchorX": 24,
-        "anchorY": 37
+        "trimmedHeight": 19,
+        "uniqueOpaqueColors": 9,
+        "frameX": 46,
+        "pasteX": 13,
+        "pasteY": 28,
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
         "trimmedWidth": 38,
-        "trimmedHeight": 27,
-        "uniqueOpaqueColors": 8,
-        "frameX": 96,
-        "pasteX": 5,
-        "pasteY": 11,
-        "anchorX": 24,
-        "anchorY": 37
+        "trimmedHeight": 35,
+        "uniqueOpaqueColors": 10,
+        "frameX": 92,
+        "pasteX": 4,
+        "pasteY": 12,
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
         "trimmedWidth": 41,
-        "trimmedHeight": 36,
-        "uniqueOpaqueColors": 13,
-        "frameX": 144,
-        "pasteX": 3,
-        "pasteY": 2,
-        "anchorX": 24,
-        "anchorY": 37
+        "trimmedHeight": 44,
+        "uniqueOpaqueColors": 15,
+        "frameX": 138,
+        "pasteX": 2,
+        "pasteY": 3,
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
         "trimmedWidth": 46,
-        "trimmedHeight": 38,
-        "uniqueOpaqueColors": 14,
-        "frameX": 192,
-        "pasteX": 1,
+        "trimmedHeight": 47,
+        "uniqueOpaqueColors": 16,
+        "frameX": 184,
+        "pasteX": 0,
         "pasteY": 0,
-        "anchorX": 24,
-        "anchorY": 37
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
         "trimmedWidth": 40,
-        "trimmedHeight": 35,
-        "uniqueOpaqueColors": 13,
-        "frameX": 240,
-        "pasteX": 4,
+        "trimmedHeight": 44,
+        "uniqueOpaqueColors": 15,
+        "frameX": 230,
+        "pasteX": 3,
         "pasteY": 3,
-        "anchorX": 24,
-        "anchorY": 37
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
         "trimmedWidth": 41,
-        "trimmedHeight": 25,
-        "uniqueOpaqueColors": 8,
-        "frameX": 288,
-        "pasteX": 3,
-        "pasteY": 13,
-        "anchorX": 24,
-        "anchorY": 37
+        "trimmedHeight": 35,
+        "uniqueOpaqueColors": 10,
+        "frameX": 276,
+        "pasteX": 2,
+        "pasteY": 12,
+        "anchorX": 23.0,
+        "anchorY": 47
       },
       {
-        "trimmedWidth": 38,
+        "trimmedWidth": 40,
         "trimmedHeight": 18,
-        "uniqueOpaqueColors": 6,
-        "frameX": 336,
-        "pasteX": 5,
-        "pasteY": 20,
-        "anchorX": 24,
-        "anchorY": 37
+        "uniqueOpaqueColors": 8,
+        "frameX": 322,
+        "pasteX": 3,
+        "pasteY": 29,
+        "anchorX": 23.0,
+        "anchorY": 47
       }
     ],
     "maxTrimmedStage": [
       46,
-      38
+      47
     ]
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/strawberry-import-v1/cleaned-source.png",
-    "sha256": "45f41417c0a0648b2fb2019f636a11ba9b9d0c871fa91f1702ebedd1d9a29899"
+    "sha256": "f2bd36ed4edca50389d3b6803ebff17b298749b5c1884fc7ddf47955aa016de0"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/strawberry-import-v1/source.png",
+    "sha256": "8a1b78c74396cb4dd0a9acd6718fde236ad9636e0852f02351075be57c40f4bf"
   },
   "keys": [
     "strawberry-seed",
@@ -245,5 +324,24 @@
     "strawberry-dry",
     "strawberry-wilted",
     "strawberry-dead"
-  ]
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4143,
+    "frameSize": [
+      46,
+      47
+    ],
+    "installedKeys": [
+      "strawberry-seed",
+      "strawberry-sprout",
+      "strawberry-young",
+      "strawberry-flowering",
+      "strawberry-ripe",
+      "strawberry-dry",
+      "strawberry-wilted",
+      "strawberry-dead"
+    ]
+  }
 }

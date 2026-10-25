@@ -1,0 +1,361 @@
+{
+  "crop": "carrot",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_41_51-pixel-snapper.png",
+  "sourceSha256": "1b77592a8c6eb5678405bdaa313e3f240a9f1cebe7cda4d85d4a8b5e94ed17e6",
+  "sourceSize": [
+    361,
+    117
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    254,
+    4,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "carrot-seed",
+      "x": 10,
+      "y": 79,
+      "width": 26,
+      "height": 14
+    },
+    {
+      "key": "carrot-sprout",
+      "x": 52,
+      "y": 75,
+      "width": 22,
+      "height": 16
+    },
+    {
+      "key": "carrot-young",
+      "x": 86,
+      "y": 60,
+      "width": 37,
+      "height": 31
+    },
+    {
+      "key": "carrot-flowering",
+      "x": 128,
+      "y": 43,
+      "width": 42,
+      "height": 48
+    },
+    {
+      "key": "carrot-ripe",
+      "x": 175,
+      "y": 34,
+      "width": 41,
+      "height": 58
+    },
+    {
+      "key": "carrot-dry",
+      "x": 222,
+      "y": 46,
+      "width": 37,
+      "height": 46
+    },
+    {
+      "key": "carrot-wilted",
+      "x": 268,
+      "y": 59,
+      "width": 37,
+      "height": 33
+    },
+    {
+      "key": "carrot-dead",
+      "x": 315,
+      "y": 75,
+      "width": 39,
+      "height": 20
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      0,
+      0
+    ],
+    "homogeneousTouchedBlocks": 83,
+    "touchedBlocks": 1497,
+    "homogeneousRatio": 0.055444221776887105,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        115,
+        31,
+        81,
+        255,
+        31
+      ],
+      [
+        171,
+        35,
+        139,
+        255,
+        37
+      ],
+      [
+        220,
+        29,
+        205,
+        255,
+        89
+      ],
+      [
+        254,
+        4,
+        253,
+        255,
+        37174
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 133,
+    "soil": {
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 79,
+      "baseline": 91,
+      "sourceCentres": [
+        13,
+        9,
+        17,
+        21,
+        19,
+        18,
+        15,
+        2
+      ],
+      "maskPixelCount": 107,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 236,
+          "removedPixels": 0,
+          "opaqueAfter": 236,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 140,
+          "removedPixels": 0,
+          "opaqueAfter": 140,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 440,
+          "removedPixels": 0,
+          "opaqueAfter": 440,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 847,
+          "removedPixels": 0,
+          "opaqueAfter": 847,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1214,
+          "removedPixels": 0,
+          "opaqueAfter": 1214,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 941,
+          "removedPixels": 0,
+          "opaqueAfter": 941,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 701,
+          "removedPixels": 0,
+          "opaqueAfter": 701,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 387,
+          "removedPixels": 0,
+          "opaqueAfter": 387,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      42,
+      58
+    ],
+    "path": "docs/assets/licenses/carrot-import-v1/candidate-b.png",
+    "sha256": "90dbdc25944a0c5e5cffa4554144d75102f953cb3c7239130c496a6aec664ec6",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "placements": [
+      {
+        "trimmedWidth": 26,
+        "trimmedHeight": 14,
+        "uniqueOpaqueColors": 8,
+        "frameX": 0,
+        "pasteX": 8,
+        "pasteY": 44,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 22,
+        "trimmedHeight": 16,
+        "uniqueOpaqueColors": 5,
+        "frameX": 42,
+        "pasteX": 10,
+        "pasteY": 42,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 37,
+        "trimmedHeight": 31,
+        "uniqueOpaqueColors": 10,
+        "frameX": 84,
+        "pasteX": 2,
+        "pasteY": 27,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 42,
+        "trimmedHeight": 48,
+        "uniqueOpaqueColors": 15,
+        "frameX": 126,
+        "pasteX": 0,
+        "pasteY": 10,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 41,
+        "trimmedHeight": 58,
+        "uniqueOpaqueColors": 16,
+        "frameX": 168,
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 37,
+        "trimmedHeight": 46,
+        "uniqueOpaqueColors": 14,
+        "frameX": 210,
+        "pasteX": 2,
+        "pasteY": 12,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 37,
+        "trimmedHeight": 33,
+        "uniqueOpaqueColors": 12,
+        "frameX": 252,
+        "pasteX": 2,
+        "pasteY": 25,
+        "anchorX": 21.0,
+        "anchorY": 58
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 20,
+        "uniqueOpaqueColors": 8,
+        "frameX": 294,
+        "pasteX": 1,
+        "pasteY": 38,
+        "anchorX": 21.0,
+        "anchorY": 58
+      }
+    ],
+    "maxTrimmedStage": [
+      42,
+      58
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/carrot-import-v1/cleaned-source.png",
+    "sha256": "2db4bbebe06cc4dc7141b092bc2d6aa7ffbfc3f92689043d718050bf45999887"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/carrot-import-v1/source.png",
+    "sha256": "1b77592a8c6eb5678405bdaa313e3f240a9f1cebe7cda4d85d4a8b5e94ed17e6"
+  },
+  "keys": [
+    "carrot-seed",
+    "carrot-sprout",
+    "carrot-young",
+    "carrot-flowering",
+    "carrot-ripe",
+    "carrot-dry",
+    "carrot-wilted",
+    "carrot-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4192,
+    "frameSize": [
+      42,
+      58
+    ],
+    "installedKeys": [
+      "carrot-seed",
+      "carrot-sprout",
+      "carrot-young",
+      "carrot-flowering",
+      "carrot-ripe",
+      "carrot-dry",
+      "carrot-wilted",
+      "carrot-dead"
+    ]
+  }
+}

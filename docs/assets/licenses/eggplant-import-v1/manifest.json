@@ -1,0 +1,363 @@
+{
+  "crop": "eggplant",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_43_30-pixel-snapper.png",
+  "sourceSha256": "ae8f829cbdde4f5b7ec7472d3d293613668ecbd117d5339affdfff587db9b47d",
+  "sourceSize": [
+    375,
+    123
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    254,
+    4,
+    252,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "eggplant-seed",
+      "x": 8,
+      "y": 89,
+      "width": 30,
+      "height": 15
+    },
+    {
+      "key": "eggplant-sprout",
+      "x": 50,
+      "y": 80,
+      "width": 26,
+      "height": 21
+    },
+    {
+      "key": "eggplant-young",
+      "x": 86,
+      "y": 55,
+      "width": 38,
+      "height": 44
+    },
+    {
+      "key": "eggplant-flowering",
+      "x": 130,
+      "y": 36,
+      "width": 45,
+      "height": 63
+    },
+    {
+      "key": "eggplant-ripe",
+      "x": 180,
+      "y": 30,
+      "width": 44,
+      "height": 71
+    },
+    {
+      "key": "eggplant-dry",
+      "x": 230,
+      "y": 36,
+      "width": 42,
+      "height": 64
+    },
+    {
+      "key": "eggplant-wilted",
+      "x": 281,
+      "y": 47,
+      "width": 39,
+      "height": 54
+    },
+    {
+      "key": "eggplant-dead",
+      "x": 325,
+      "y": 85,
+      "width": 47,
+      "height": 21
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      0,
+      0
+    ],
+    "homogeneousTouchedBlocks": 367,
+    "touchedBlocks": 2544,
+    "homogeneousRatio": 0.14426100628930819,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        134,
+        40,
+        123,
+        255,
+        431
+      ],
+      [
+        196,
+        49,
+        195,
+        255,
+        127
+      ],
+      [
+        253,
+        247,
+        252,
+        255,
+        1500
+      ],
+      [
+        254,
+        4,
+        252,
+        255,
+        36967
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 274,
+    "soil": {
+      "valid": true,
+      "method": "no broad repeated bottom-connected ground region detected; plant pixels preserved",
+      "bandTop": 88,
+      "baseline": 100,
+      "sourceCentres": [
+        15,
+        12,
+        17,
+        22,
+        22,
+        18,
+        20,
+        3
+      ],
+      "maskPixelCount": 0,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 301,
+          "removedPixels": 0,
+          "opaqueAfter": 301,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 228,
+          "removedPixels": 0,
+          "opaqueAfter": 228,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 668,
+          "removedPixels": 0,
+          "opaqueAfter": 668,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1321,
+          "removedPixels": 0,
+          "opaqueAfter": 1321,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1612,
+          "removedPixels": 0,
+          "opaqueAfter": 1612,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1401,
+          "removedPixels": 0,
+          "opaqueAfter": 1401,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 1093,
+          "removedPixels": 0,
+          "opaqueAfter": 1093,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 476,
+          "removedPixels": 0,
+          "opaqueAfter": 476,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": [
+        "no removable repeated base region detected"
+      ]
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      47,
+      71
+    ],
+    "path": "docs/assets/licenses/eggplant-import-v1/candidate-b.png",
+    "sha256": "38b75f41e97df4228aff88266b70a838cb7d841c66b07dc60fedc9658ac9ea02",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "placements": [
+      {
+        "trimmedWidth": 30,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 8,
+        "frameX": 0,
+        "pasteX": 8,
+        "pasteY": 56,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 26,
+        "trimmedHeight": 21,
+        "uniqueOpaqueColors": 7,
+        "frameX": 47,
+        "pasteX": 10,
+        "pasteY": 50,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 38,
+        "trimmedHeight": 44,
+        "uniqueOpaqueColors": 12,
+        "frameX": 94,
+        "pasteX": 4,
+        "pasteY": 27,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 45,
+        "trimmedHeight": 63,
+        "uniqueOpaqueColors": 16,
+        "frameX": 141,
+        "pasteX": 1,
+        "pasteY": 8,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 44,
+        "trimmedHeight": 71,
+        "uniqueOpaqueColors": 16,
+        "frameX": 188,
+        "pasteX": 1,
+        "pasteY": 0,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 42,
+        "trimmedHeight": 64,
+        "uniqueOpaqueColors": 16,
+        "frameX": 235,
+        "pasteX": 2,
+        "pasteY": 7,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 54,
+        "uniqueOpaqueColors": 13,
+        "frameX": 282,
+        "pasteX": 4,
+        "pasteY": 17,
+        "anchorX": 23.5,
+        "anchorY": 71
+      },
+      {
+        "trimmedWidth": 47,
+        "trimmedHeight": 21,
+        "uniqueOpaqueColors": 7,
+        "frameX": 329,
+        "pasteX": 0,
+        "pasteY": 50,
+        "anchorX": 23.5,
+        "anchorY": 71
+      }
+    ],
+    "maxTrimmedStage": [
+      47,
+      71
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/eggplant-import-v1/cleaned-source.png",
+    "sha256": "fc36fea011a97c87b781d25b0ebbafd95c6f713306b9161b839b46e9cc3d40ca"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/eggplant-import-v1/source.png",
+    "sha256": "ae8f829cbdde4f5b7ec7472d3d293613668ecbd117d5339affdfff587db9b47d"
+  },
+  "keys": [
+    "eggplant-seed",
+    "eggplant-sprout",
+    "eggplant-young",
+    "eggplant-flowering",
+    "eggplant-ripe",
+    "eggplant-dry",
+    "eggplant-wilted",
+    "eggplant-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4423,
+    "frameSize": [
+      47,
+      71
+    ],
+    "installedKeys": [
+      "eggplant-seed",
+      "eggplant-sprout",
+      "eggplant-young",
+      "eggplant-flowering",
+      "eggplant-ripe",
+      "eggplant-dry",
+      "eggplant-wilted",
+      "eggplant-dead"
+    ]
+  }
+}

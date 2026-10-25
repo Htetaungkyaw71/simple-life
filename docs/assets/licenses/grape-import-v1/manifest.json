@@ -1,0 +1,361 @@
+{
+  "crop": "grape",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_43_00-pixel-snapper.png",
+  "sourceSha256": "d19784d3623cd37762c095257a72334cc73a5714ad5e28e733cfbde57dc811d0",
+  "sourceSize": [
+    370,
+    123
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    252,
+    4,
+    252,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "grape-seed",
+      "x": 11,
+      "y": 89,
+      "width": 29,
+      "height": 14
+    },
+    {
+      "key": "grape-sprout",
+      "x": 56,
+      "y": 81,
+      "width": 20,
+      "height": 19
+    },
+    {
+      "key": "grape-young",
+      "x": 93,
+      "y": 51,
+      "width": 32,
+      "height": 50
+    },
+    {
+      "key": "grape-flowering",
+      "x": 133,
+      "y": 33,
+      "width": 39,
+      "height": 68
+    },
+    {
+      "key": "grape-ripe",
+      "x": 181,
+      "y": 26,
+      "width": 40,
+      "height": 75
+    },
+    {
+      "key": "grape-dry",
+      "x": 230,
+      "y": 33,
+      "width": 38,
+      "height": 68
+    },
+    {
+      "key": "grape-wilted",
+      "x": 278,
+      "y": 44,
+      "width": 42,
+      "height": 57
+    },
+    {
+      "key": "grape-dead",
+      "x": 337,
+      "y": 44,
+      "width": 20,
+      "height": 57
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      1,
+      0
+    ],
+    "homogeneousTouchedBlocks": 99,
+    "touchedBlocks": 2239,
+    "homogeneousRatio": 0.04421616793211255,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        111,
+        24,
+        111,
+        255,
+        199
+      ],
+      [
+        151,
+        25,
+        171,
+        255,
+        194
+      ],
+      [
+        212,
+        31,
+        210,
+        255,
+        127
+      ],
+      [
+        252,
+        4,
+        252,
+        255,
+        37958
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 114,
+    "soil": {
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 88,
+      "baseline": 100,
+      "sourceCentres": [
+        13,
+        9,
+        12,
+        18,
+        19,
+        17,
+        27,
+        9
+      ],
+      "maskPixelCount": 112,
+      "removedPixels": 2,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 267,
+          "removedPixels": 0,
+          "opaqueAfter": 267,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 162,
+          "removedPixels": 0,
+          "opaqueAfter": 162,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 706,
+          "removedPixels": 0,
+          "opaqueAfter": 706,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": true
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1360,
+          "removedPixels": 0,
+          "opaqueAfter": 1360,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1543,
+          "removedPixels": 0,
+          "opaqueAfter": 1543,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1377,
+          "removedPixels": 0,
+          "opaqueAfter": 1377,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": true
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 1143,
+          "removedPixels": 0,
+          "opaqueAfter": 1143,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 474,
+          "removedPixels": 2,
+          "opaqueAfter": 472,
+          "removedRatio": 0.004219409282700422,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      42,
+      75
+    ],
+    "path": "docs/assets/licenses/grape-import-v1/candidate-b.png",
+    "sha256": "ac0e8af0177b912b013d696ceaed76acba8e6f1286734469f2bbcd2d247671a8",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "placements": [
+      {
+        "trimmedWidth": 29,
+        "trimmedHeight": 14,
+        "uniqueOpaqueColors": 5,
+        "frameX": 0,
+        "pasteX": 6,
+        "pasteY": 61,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 20,
+        "trimmedHeight": 19,
+        "uniqueOpaqueColors": 5,
+        "frameX": 42,
+        "pasteX": 11,
+        "pasteY": 56,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 32,
+        "trimmedHeight": 50,
+        "uniqueOpaqueColors": 14,
+        "frameX": 84,
+        "pasteX": 5,
+        "pasteY": 25,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 68,
+        "uniqueOpaqueColors": 15,
+        "frameX": 126,
+        "pasteX": 1,
+        "pasteY": 7,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 40,
+        "trimmedHeight": 75,
+        "uniqueOpaqueColors": 15,
+        "frameX": 168,
+        "pasteX": 1,
+        "pasteY": 0,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 38,
+        "trimmedHeight": 68,
+        "uniqueOpaqueColors": 11,
+        "frameX": 210,
+        "pasteX": 2,
+        "pasteY": 7,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 42,
+        "trimmedHeight": 57,
+        "uniqueOpaqueColors": 11,
+        "frameX": 252,
+        "pasteX": 0,
+        "pasteY": 18,
+        "anchorX": 21.0,
+        "anchorY": 75
+      },
+      {
+        "trimmedWidth": 20,
+        "trimmedHeight": 57,
+        "uniqueOpaqueColors": 8,
+        "frameX": 294,
+        "pasteX": 11,
+        "pasteY": 18,
+        "anchorX": 21.0,
+        "anchorY": 75
+      }
+    ],
+    "maxTrimmedStage": [
+      42,
+      75
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/grape-import-v1/cleaned-source.png",
+    "sha256": "9069b6a79c004dae4f9ccd70861699dde9c7a5a624d3f3d3e901ccf68681ad35"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/grape-import-v1/source.png",
+    "sha256": "d19784d3623cd37762c095257a72334cc73a5714ad5e28e733cfbde57dc811d0"
+  },
+  "keys": [
+    "grape-seed",
+    "grape-sprout",
+    "grape-young",
+    "grape-flowering",
+    "grape-ripe",
+    "grape-dry",
+    "grape-wilted",
+    "grape-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4584,
+    "frameSize": [
+      42,
+      75
+    ],
+    "installedKeys": [
+      "grape-seed",
+      "grape-sprout",
+      "grape-young",
+      "grape-flowering",
+      "grape-ripe",
+      "grape-dry",
+      "grape-wilted",
+      "grape-dead"
+    ]
+  }
+}

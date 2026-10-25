@@ -1,0 +1,368 @@
+{
+  "crop": "watermelon",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_42_34-pixel-snapper.png",
+  "sourceSha256": "9a5f7ee424ffead6a52c81fc54235cbcaa2d04d414f83f44298de0a024aa8a1d",
+  "sourceSize": [
+    367,
+    122
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    253,
+    4,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "watermelon-seed",
+      "x": 10,
+      "y": 77,
+      "width": 25,
+      "height": 14
+    },
+    {
+      "key": "watermelon-sprout",
+      "x": 44,
+      "y": 75,
+      "width": 19,
+      "height": 15
+    },
+    {
+      "key": "watermelon-young",
+      "x": 70,
+      "y": 66,
+      "width": 41,
+      "height": 25
+    },
+    {
+      "key": "watermelon-flowering",
+      "x": 117,
+      "y": 52,
+      "width": 46,
+      "height": 39
+    },
+    {
+      "key": "watermelon-ripe",
+      "x": 168,
+      "y": 47,
+      "width": 56,
+      "height": 46
+    },
+    {
+      "key": "watermelon-dry",
+      "x": 230,
+      "y": 53,
+      "width": 39,
+      "height": 39
+    },
+    {
+      "key": "watermelon-wilted",
+      "x": 275,
+      "y": 66,
+      "width": 44,
+      "height": 26
+    },
+    {
+      "key": "watermelon-dead",
+      "x": 324,
+      "y": 74,
+      "width": 35,
+      "height": 18
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      1,
+      1
+    ],
+    "homogeneousTouchedBlocks": 61,
+    "touchedBlocks": 1806,
+    "homogeneousRatio": 0.033776301218161685,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        100,
+        30,
+        87,
+        255,
+        32
+      ],
+      [
+        152,
+        32,
+        138,
+        255,
+        28
+      ],
+      [
+        202,
+        28,
+        190,
+        255,
+        86
+      ],
+      [
+        242,
+        12,
+        239,
+        255,
+        720
+      ],
+      [
+        253,
+        4,
+        253,
+        255,
+        38372
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 215,
+    "soil": {
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 78,
+      "baseline": 90,
+      "sourceCentres": [
+        12,
+        9,
+        23,
+        21,
+        28,
+        5,
+        41,
+        21
+      ],
+      "maskPixelCount": 181,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 209,
+          "removedPixels": 0,
+          "opaqueAfter": 209,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 170,
+          "removedPixels": 0,
+          "opaqueAfter": 170,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 514,
+          "removedPixels": 0,
+          "opaqueAfter": 514,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1063,
+          "removedPixels": 0,
+          "opaqueAfter": 1063,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1625,
+          "removedPixels": 0,
+          "opaqueAfter": 1625,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 935,
+          "removedPixels": 0,
+          "opaqueAfter": 935,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 724,
+          "removedPixels": 0,
+          "opaqueAfter": 724,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 296,
+          "removedPixels": 0,
+          "opaqueAfter": 296,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      56,
+      46
+    ],
+    "path": "docs/assets/licenses/watermelon-import-v1/candidate-b.png",
+    "sha256": "75715dd70802b7282dfc0d78b5d8b948260151869e98189f1dfcfdfe5c1141b8",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "placements": [
+      {
+        "trimmedWidth": 25,
+        "trimmedHeight": 14,
+        "uniqueOpaqueColors": 7,
+        "frameX": 0,
+        "pasteX": 15,
+        "pasteY": 32,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 19,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 8,
+        "frameX": 56,
+        "pasteX": 18,
+        "pasteY": 31,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 41,
+        "trimmedHeight": 25,
+        "uniqueOpaqueColors": 11,
+        "frameX": 112,
+        "pasteX": 7,
+        "pasteY": 21,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 46,
+        "trimmedHeight": 39,
+        "uniqueOpaqueColors": 15,
+        "frameX": 168,
+        "pasteX": 5,
+        "pasteY": 7,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 56,
+        "trimmedHeight": 46,
+        "uniqueOpaqueColors": 16,
+        "frameX": 224,
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 39,
+        "uniqueOpaqueColors": 12,
+        "frameX": 280,
+        "pasteX": 8,
+        "pasteY": 7,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 44,
+        "trimmedHeight": 26,
+        "uniqueOpaqueColors": 10,
+        "frameX": 336,
+        "pasteX": 6,
+        "pasteY": 20,
+        "anchorX": 28.0,
+        "anchorY": 46
+      },
+      {
+        "trimmedWidth": 35,
+        "trimmedHeight": 18,
+        "uniqueOpaqueColors": 9,
+        "frameX": 392,
+        "pasteX": 10,
+        "pasteY": 28,
+        "anchorX": 28.0,
+        "anchorY": 46
+      }
+    ],
+    "maxTrimmedStage": [
+      56,
+      46
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/watermelon-import-v1/cleaned-source.png",
+    "sha256": "783dd07868f6a358a02c6ab6b15637fc47397950849a72b59ca04b6bc5ec6fc6"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/watermelon-import-v1/source.png",
+    "sha256": "9a5f7ee424ffead6a52c81fc54235cbcaa2d04d414f83f44298de0a024aa8a1d"
+  },
+  "keys": [
+    "watermelon-seed",
+    "watermelon-sprout",
+    "watermelon-young",
+    "watermelon-flowering",
+    "watermelon-ripe",
+    "watermelon-dry",
+    "watermelon-wilted",
+    "watermelon-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4496,
+    "frameSize": [
+      56,
+      46
+    ],
+    "installedKeys": [
+      "watermelon-seed",
+      "watermelon-sprout",
+      "watermelon-young",
+      "watermelon-flowering",
+      "watermelon-ripe",
+      "watermelon-dry",
+      "watermelon-wilted",
+      "watermelon-dead"
+    ]
+  }
+}

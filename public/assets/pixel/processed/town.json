@@ -2002,482 +2002,482 @@
     },
     "strawberry-seed": {
       "frame": {
-        "x": 768,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-sprout": {
       "frame": {
-        "x": 794,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 48,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-young": {
       "frame": {
-        "x": 820,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 96,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-flowering": {
       "frame": {
-        "x": 846,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 144,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-ripe": {
       "frame": {
-        "x": 872,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 192,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-dry": {
       "frame": {
-        "x": 898,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 240,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-wilted": {
       "frame": {
-        "x": 924,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 288,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "strawberry-dead": {
       "frame": {
-        "x": 950,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 336,
+        "y": 4143,
+        "w": 46,
+        "h": 47
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 46,
+        "h": 47
       }
     },
     "carrot-seed": {
       "frame": {
-        "x": 976,
-        "y": 132,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-sprout": {
       "frame": {
-        "x": 0,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 44,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-young": {
       "frame": {
-        "x": 26,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 88,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-flowering": {
       "frame": {
-        "x": 52,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 132,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-ripe": {
       "frame": {
-        "x": 78,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 176,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-dry": {
       "frame": {
-        "x": 104,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 220,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-wilted": {
       "frame": {
-        "x": 130,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 264,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "carrot-dead": {
       "frame": {
-        "x": 156,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 308,
+        "y": 4192,
+        "w": 42,
+        "h": 58
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 58
       }
     },
     "corn-seed": {
       "frame": {
-        "x": 182,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-sprout": {
       "frame": {
-        "x": 208,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 44,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-young": {
       "frame": {
-        "x": 234,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 88,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-flowering": {
       "frame": {
-        "x": 260,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 132,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-ripe": {
       "frame": {
-        "x": 286,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 176,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-dry": {
       "frame": {
-        "x": 312,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 220,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-wilted": {
       "frame": {
-        "x": 338,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 264,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "corn-dead": {
       "frame": {
-        "x": 364,
-        "y": 182,
-        "w": 24,
-        "h": 32
+        "x": 308,
+        "y": 4252,
+        "w": 42,
+        "h": 91
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 91
       }
     },
     "tomato-item": {
@@ -9522,162 +9522,162 @@
     },
     "chili-seed": {
       "frame": {
-        "x": 902,
-        "y": 842,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-sprout": {
       "frame": {
-        "x": 928,
-        "y": 842,
-        "w": 24,
-        "h": 32
+        "x": 43,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-young": {
       "frame": {
-        "x": 954,
-        "y": 842,
-        "w": 24,
-        "h": 32
+        "x": 86,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-flowering": {
       "frame": {
-        "x": 980,
-        "y": 842,
-        "w": 24,
-        "h": 32
+        "x": 129,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-ripe": {
       "frame": {
-        "x": 0,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 172,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-dry": {
       "frame": {
-        "x": 26,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 215,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-wilted": {
       "frame": {
-        "x": 52,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 258,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "chili-dead": {
       "frame": {
-        "x": 78,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 301,
+        "y": 4345,
+        "w": 41,
+        "h": 76
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 41,
+        "h": 76
       }
     },
     "eggplant-item": {
@@ -9722,162 +9722,162 @@
     },
     "eggplant-seed": {
       "frame": {
-        "x": 140,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-sprout": {
       "frame": {
-        "x": 166,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 49,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-young": {
       "frame": {
-        "x": 192,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 98,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-flowering": {
       "frame": {
-        "x": 218,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 147,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-ripe": {
       "frame": {
-        "x": 244,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 196,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-dry": {
       "frame": {
-        "x": 270,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 245,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-wilted": {
       "frame": {
-        "x": 296,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 294,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "eggplant-dead": {
       "frame": {
-        "x": 322,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 343,
+        "y": 4423,
+        "w": 47,
+        "h": 71
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 47,
+        "h": 71
       }
     },
     "cucumber-item": {
@@ -10122,162 +10122,162 @@
     },
     "watermelon-seed": {
       "frame": {
-        "x": 628,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-sprout": {
       "frame": {
-        "x": 654,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 58,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-young": {
       "frame": {
-        "x": 680,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 116,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-flowering": {
       "frame": {
-        "x": 706,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 174,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-ripe": {
       "frame": {
-        "x": 732,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 232,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-dry": {
       "frame": {
-        "x": 758,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 290,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-wilted": {
       "frame": {
-        "x": 784,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 348,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "watermelon-dead": {
       "frame": {
-        "x": 810,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 406,
+        "y": 4496,
+        "w": 56,
+        "h": 46
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 56,
+        "h": 46
       }
     },
     "pumpkin-item": {
@@ -10322,162 +10322,162 @@
     },
     "pumpkin-seed": {
       "frame": {
-        "x": 872,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-sprout": {
       "frame": {
-        "x": 898,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 63,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-young": {
       "frame": {
-        "x": 924,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 126,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-flowering": {
       "frame": {
-        "x": 950,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 189,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-ripe": {
       "frame": {
-        "x": 976,
-        "y": 972,
-        "w": 24,
-        "h": 32
+        "x": 252,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-dry": {
       "frame": {
-        "x": 0,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 315,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-wilted": {
       "frame": {
-        "x": 26,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 378,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "pumpkin-dead": {
       "frame": {
-        "x": 52,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 441,
+        "y": 4544,
+        "w": 61,
+        "h": 38
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 61,
+        "h": 38
       }
     },
     "grape-item": {
@@ -10522,162 +10522,162 @@
     },
     "grape-seed": {
       "frame": {
-        "x": 114,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-sprout": {
       "frame": {
-        "x": 140,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 44,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-young": {
       "frame": {
-        "x": 166,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 88,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-flowering": {
       "frame": {
-        "x": 192,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 132,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-ripe": {
       "frame": {
-        "x": 218,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 176,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-dry": {
       "frame": {
-        "x": 244,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 220,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-wilted": {
       "frame": {
-        "x": 270,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 264,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "grape-dead": {
       "frame": {
-        "x": 296,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 308,
+        "y": 4584,
+        "w": 42,
+        "h": 75
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 42,
+        "h": 75
       }
     },
     "blueberry-item": {
@@ -10722,162 +10722,162 @@
     },
     "blueberry-seed": {
       "frame": {
-        "x": 358,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 0,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-sprout": {
       "frame": {
-        "x": 384,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 45,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-young": {
       "frame": {
-        "x": 410,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 90,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-flowering": {
       "frame": {
-        "x": 436,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 135,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-ripe": {
       "frame": {
-        "x": 462,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 180,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-dry": {
       "frame": {
-        "x": 488,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 225,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-wilted": {
       "frame": {
-        "x": 514,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 270,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "blueberry-dead": {
       "frame": {
-        "x": 540,
-        "y": 1006,
-        "w": 24,
-        "h": 32
+        "x": 315,
+        "y": 4661,
+        "w": 43,
+        "h": 73
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       },
       "sourceSize": {
-        "w": 24,
-        "h": 32
+        "w": 43,
+        "h": 73
       }
     },
     "sweetPotato-item": {
@@ -21225,7 +21225,7 @@
     "image": "town.png",
     "size": {
       "w": 1024,
-      "h": 4141
+      "h": 4736
     },
     "matchingNpcBaseHeight": 1910
   }
