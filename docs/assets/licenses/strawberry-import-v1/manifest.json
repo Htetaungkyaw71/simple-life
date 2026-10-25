@@ -206,9 +206,134 @@
       0,
       255
     ],
-    "colorsRepainted": 0,
+    "colorsRepainted": 4,
     "pixelsResampled": 0,
     "paletteConversions": 0
+  },
+  "paletteRemap": {
+    "method": "exact per-pixel RGBA lookup; no filtering, resampling, or palette-mode conversion",
+    "selector": {
+      "hueDegrees": [
+        60.0,
+        170.0
+      ],
+      "greenChannelDominant": true,
+      "stages": [
+        "sprout",
+        "young",
+        "flowering",
+        "ripe"
+      ],
+      "protectedStages": [
+        "seed",
+        "dry",
+        "wilted",
+        "dead"
+      ]
+    },
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    },
+    "lookup": [
+      {
+        "from": [
+          15,
+          74,
+          26,
+          255
+        ],
+        "to": [
+          21,
+          68,
+          24,
+          255
+        ]
+      },
+      {
+        "from": [
+          33,
+          130,
+          39,
+          255
+        ],
+        "to": [
+          49,
+          119,
+          44,
+          255
+        ]
+      },
+      {
+        "from": [
+          84,
+          157,
+          30,
+          255
+        ],
+        "to": [
+          99,
+          143,
+          44,
+          255
+        ]
+      },
+      {
+        "from": [
+          132,
+          196,
+          24,
+          255
+        ],
+        "to": [
+          145,
+          177,
+          43,
+          255
+        ]
+      }
+    ],
+    "changedPixels": 2185,
+    "stages": [
+      {
+        "stage": "seed",
+        "changedPixels": 0
+      },
+      {
+        "stage": "sprout",
+        "changedPixels": 139
+      },
+      {
+        "stage": "young",
+        "changedPixels": 470
+      },
+      {
+        "stage": "flowering",
+        "changedPixels": 678
+      },
+      {
+        "stage": "ripe",
+        "changedPixels": 898
+      },
+      {
+        "stage": "dry",
+        "changedPixels": 0
+      },
+      {
+        "stage": "wilted",
+        "changedPixels": 0
+      },
+      {
+        "stage": "dead",
+        "changedPixels": 0
+      }
+    ],
+    "ripeGreenContrast": {
+      "greenLightnessMin": 17.45,
+      "greenLightnessMax": 43.14,
+      "greenLightnessSpan": 25.69
+    }
   },
   "candidateB": {
     "available": true,
@@ -217,9 +342,9 @@
       47
     ],
     "path": "docs/assets/licenses/strawberry-import-v1/candidate-b.png",
-    "sha256": "cb21af699dc3de84365b56b323ee3a7d9fa2b81762716af5eaec9b82d6976fdc",
-    "uniqueColors": 17,
-    "uniqueOpaqueColors": 16,
+    "sha256": "e0b0804a9d121a4ef1ca1f9df014bd6d8dbc102445721a21131661ebbdde8b9b",
+    "uniqueColors": 21,
+    "uniqueOpaqueColors": 20,
     "placements": [
       {
         "trimmedWidth": 30,
@@ -305,11 +430,28 @@
     "maxTrimmedStage": [
       46,
       47
-    ]
+    ],
+    "anchor": {
+      "method": "median of weighted bottom-six-row visual centres for sprout, young, flowering, and ripe",
+      "anchorX": 23.0,
+      "anchorY": 47,
+      "perStageBaseCenters": {
+        "seed": 23.0,
+        "sprout": 22.539,
+        "young": 24.057,
+        "flowering": 22.036,
+        "ripe": 23.203,
+        "dry": 23.492,
+        "wilted": 28.059,
+        "dead": 22.235
+      }
+    },
+    "prePalettePath": "docs/assets/licenses/strawberry-import-v1/candidate-b-pre-palette.png",
+    "prePaletteSha256": "cb21af699dc3de84365b56b323ee3a7d9fa2b81762716af5eaec9b82d6976fdc"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/strawberry-import-v1/cleaned-source.png",
-    "sha256": "f2bd36ed4edca50389d3b6803ebff17b298749b5c1884fc7ddf47955aa016de0"
+    "sha256": "8386b6daae4013c7e6478babfdd99593d941feecc0996a1aebe4d485b3cfc855"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/strawberry-import-v1/source.png",
@@ -328,7 +470,7 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 4143,
+    "rowY": 4810,
     "frameSize": [
       46,
       47

@@ -220,9 +220,148 @@
       0,
       255
     ],
-    "colorsRepainted": 0,
+    "colorsRepainted": 5,
     "pixelsResampled": 0,
     "paletteConversions": 0
+  },
+  "paletteRemap": {
+    "method": "exact per-pixel RGBA lookup; no filtering, resampling, or palette-mode conversion",
+    "selector": {
+      "hueDegrees": [
+        60.0,
+        170.0
+      ],
+      "greenChannelDominant": true,
+      "stages": [
+        "sprout",
+        "young",
+        "flowering",
+        "ripe"
+      ],
+      "protectedStages": [
+        "seed",
+        "dry",
+        "wilted",
+        "dead"
+      ]
+    },
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    },
+    "lookup": [
+      {
+        "from": [
+          10,
+          43,
+          7,
+          255
+        ],
+        "to": [
+          17,
+          39,
+          11,
+          255
+        ]
+      },
+      {
+        "from": [
+          30,
+          115,
+          10,
+          255
+        ],
+        "to": [
+          48,
+          103,
+          22,
+          255
+        ]
+      },
+      {
+        "from": [
+          68,
+          161,
+          14,
+          255
+        ],
+        "to": [
+          88,
+          145,
+          30,
+          255
+        ]
+      },
+      {
+        "from": [
+          109,
+          190,
+          19,
+          255
+        ],
+        "to": [
+          126,
+          171,
+          38,
+          255
+        ]
+      },
+      {
+        "from": [
+          146,
+          213,
+          29,
+          255
+        ],
+        "to": [
+          160,
+          193,
+          49,
+          255
+        ]
+      }
+    ],
+    "changedPixels": 2499,
+    "stages": [
+      {
+        "stage": "seed",
+        "changedPixels": 0
+      },
+      {
+        "stage": "sprout",
+        "changedPixels": 162
+      },
+      {
+        "stage": "young",
+        "changedPixels": 463
+      },
+      {
+        "stage": "flowering",
+        "changedPixels": 963
+      },
+      {
+        "stage": "ripe",
+        "changedPixels": 911
+      },
+      {
+        "stage": "dry",
+        "changedPixels": 0
+      },
+      {
+        "stage": "wilted",
+        "changedPixels": 0
+      },
+      {
+        "stage": "dead",
+        "changedPixels": 0
+      }
+    ],
+    "ripeGreenContrast": {
+      "greenLightnessMin": 9.8,
+      "greenLightnessMax": 47.45,
+      "greenLightnessSpan": 37.65
+    }
   },
   "candidateB": {
     "available": true,
@@ -231,9 +370,9 @@
       75
     ],
     "path": "docs/assets/licenses/grape-import-v1/candidate-b.png",
-    "sha256": "ac0e8af0177b912b013d696ceaed76acba8e6f1286734469f2bbcd2d247671a8",
-    "uniqueColors": 17,
-    "uniqueOpaqueColors": 16,
+    "sha256": "484c6d3101e2eda4c57a3f244ca6a5b924571512a656b9bad4cb6b1a70c589ad",
+    "uniqueColors": 18,
+    "uniqueOpaqueColors": 17,
     "placements": [
       {
         "trimmedWidth": 29,
@@ -242,7 +381,7 @@
         "frameX": 0,
         "pasteX": 6,
         "pasteY": 61,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -252,7 +391,7 @@
         "frameX": 42,
         "pasteX": 11,
         "pasteY": 56,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -262,7 +401,7 @@
         "frameX": 84,
         "pasteX": 5,
         "pasteY": 25,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -272,7 +411,7 @@
         "frameX": 126,
         "pasteX": 1,
         "pasteY": 7,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -282,7 +421,7 @@
         "frameX": 168,
         "pasteX": 1,
         "pasteY": 0,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -292,7 +431,7 @@
         "frameX": 210,
         "pasteX": 2,
         "pasteY": 7,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -302,7 +441,7 @@
         "frameX": 252,
         "pasteX": 0,
         "pasteY": 18,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       },
       {
@@ -312,18 +451,35 @@
         "frameX": 294,
         "pasteX": 11,
         "pasteY": 18,
-        "anchorX": 21.0,
+        "anchorX": 20.5,
         "anchorY": 75
       }
     ],
     "maxTrimmedStage": [
       42,
       75
-    ]
+    ],
+    "anchor": {
+      "method": "median of weighted bottom-six-row visual centres for sprout, young, flowering, and ripe",
+      "anchorX": 20.5,
+      "anchorY": 75,
+      "perStageBaseCenters": {
+        "seed": 20.207,
+        "sprout": 20.5,
+        "young": 17.836,
+        "flowering": 20.487,
+        "ripe": 21.284,
+        "dry": 20.533,
+        "wilted": 21.596,
+        "dead": 20.278
+      }
+    },
+    "prePalettePath": "docs/assets/licenses/grape-import-v1/candidate-b-pre-palette.png",
+    "prePaletteSha256": "ac0e8af0177b912b013d696ceaed76acba8e6f1286734469f2bbcd2d247671a8"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/grape-import-v1/cleaned-source.png",
-    "sha256": "9069b6a79c004dae4f9ccd70861699dde9c7a5a624d3f3d3e901ccf68681ad35"
+    "sha256": "c08d0510b7cb0acb8c146ff09a65291daf6e98eb4d4c58268c6f2fdf3da7b96d"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/grape-import-v1/source.png",
@@ -342,7 +498,7 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 4584,
+    "rowY": 5251,
     "frameSize": [
       42,
       75

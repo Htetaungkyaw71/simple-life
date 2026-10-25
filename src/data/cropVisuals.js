@@ -4,18 +4,23 @@ export const CROP_ICON_SCALES=Object.freeze({
  'tomato-seed-item':2/3,
 });
 
-// The sign is 36 world pixels tall. `-16 - ripeVisibleHeight` places its
-// bottom edge directly above the ripe plant when the plant stays anchored at
-// plot y + 20 with origin (.5, 1).
+export const DEFAULT_CROP_BASE_OFFSET_Y=0;
+
+// Native-frame anchors are measured from each frame's left edge. The sign is
+// 36 world pixels tall, so `baseOffsetY - ripeVisibleHeight - 36` places its
+// bottom edge directly above the ripe plant without overlap.
 export const CROP_RENDER_METADATA=Object.freeze({
- tomato:Object.freeze({visualScale:1,signOffsetY:-86}),
- strawberry:Object.freeze({visualScale:1,signOffsetY:-63}),
- carrot:Object.freeze({visualScale:1,signOffsetY:-74}),
- corn:Object.freeze({visualScale:1,signOffsetY:-107}),
- chili:Object.freeze({visualScale:1,signOffsetY:-92}),
- eggplant:Object.freeze({visualScale:1,signOffsetY:-87}),
- watermelon:Object.freeze({visualScale:1,signOffsetY:-62}),
- pumpkin:Object.freeze({visualScale:1,signOffsetY:-54}),
- grape:Object.freeze({visualScale:1,signOffsetY:-91}),
- blueberry:Object.freeze({visualScale:1,signOffsetY:-89}),
+ tomato:Object.freeze({visualScale:1,anchorX:23.5,baseOffsetY:0,signOffsetY:-106}),
+ strawberry:Object.freeze({visualScale:1,anchorX:23,baseOffsetY:2,signOffsetY:-81}),
+ carrot:Object.freeze({visualScale:1,anchorX:20,baseOffsetY:0,signOffsetY:-94}),
+ corn:Object.freeze({visualScale:1,anchorX:22,baseOffsetY:0,signOffsetY:-127}),
+ chili:Object.freeze({visualScale:1,anchorX:20,baseOffsetY:0,signOffsetY:-112}),
+ eggplant:Object.freeze({visualScale:1,anchorX:23,baseOffsetY:0,signOffsetY:-107}),
+ watermelon:Object.freeze({visualScale:1,anchorX:28.5,baseOffsetY:3,signOffsetY:-79}),
+ pumpkin:Object.freeze({visualScale:1,anchorX:29.5,baseOffsetY:4,signOffsetY:-70}),
+ grape:Object.freeze({visualScale:1,anchorX:20.5,baseOffsetY:0,signOffsetY:-111}),
+ blueberry:Object.freeze({visualScale:1,anchorX:21,baseOffsetY:2,signOffsetY:-107}),
+ sweetPotato:Object.freeze({visualScale:1,anchorX:29.5,baseOffsetY:3,signOffsetY:-78}),
+ // Preserve the only non-imported crop's established rendering exactly.
+ cucumber:Object.freeze({visualScale:2,anchorX:12,baseOffsetY:20,signOffsetY:-54}),
 });

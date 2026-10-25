@@ -1,3 +1,9 @@
+# 2026-10-25 — item-icon review-sheet disclosure
+
+OpenAI built-in image generation produced three separate 4×3 icon-board sources from two user-supplied pixel references. Codex performed deterministic Pillow-only native-pixel cleanup and packing, preserved the generated originals, prompts, hashes and output-use record, and kept all outputs review-only outside production. Human review and final rights/competition acceptance remain required. [Evidence](assets/licenses/item-icon-sheets-v1/SOURCE_RECORD.md).
+
+---
+
 # 2026-10-24 — Strawberry Pixel Snapper review disclosure
 
 The user supplied an AI-assisted Pixel Snapper Strawberry growth sheet. Codex made no image-generation call and did not redraw or repaint it. Deterministic review processing removes only keyed magenta/fringe pixels, the repeated baked ground/base mask outside the seed stage and two isolated pixels; retained colours remain exact. The cleaned 48×38-frame candidate, source record and development-only comparison remain outside runtime pending human approval. [Evidence and limitations](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md).

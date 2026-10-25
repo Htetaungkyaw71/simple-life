@@ -1,4 +1,8 @@
-# Strawberry runtime plant-sheet import
+# Strawberry palette-and-anchor update — 2026-10-25
+
+This section supersedes the source-exact color and old sign-offset statements below. The clean 46×47 strip was regenerated from `candidate-b-pre-palette.png` with the deterministic exact-RGBA green lookup in `scripts/import_sheet.py`: `SATURATION_SCALE=0.78`, 8° toward olive and `LIGHTNESS_SCALE=0.94` for bright greens. It changes 2,185 living-stage pixels while seed/dry/wilted/dead, all alpha, and all geometry remain exact. Shared bottom-row metadata is `anchorX: 23`, scale 1, `baseOffsetY: 2`, `signOffsetY: -81`. Full lookup, anchor samples and runtime hashes are in `manifest.json`.
+
+# Historical Strawberry runtime plant-sheet import
 
 ## Source and status
 

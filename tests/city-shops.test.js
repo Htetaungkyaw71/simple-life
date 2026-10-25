@@ -20,7 +20,7 @@ import {commutePath} from '../src/systems/commute.js';
 const map=MAPS.city;
 test('approved shop integration and native Pixel Snapper cottage retain every unrelated earlier frame record',()=>{
  const old=JSON.parse(readFileSync('output/art/city-shops-v1/before-town.json')),current=JSON.parse(readFileSync('public/assets/pixel/processed/town.json'));
- const imported=new Set(['strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry'].flatMap(crop=>['seed','sprout','young','flowering','ripe','dry','wilted','dead'].map(stage=>`${crop}-${stage}`)));
+ const imported=new Set(['strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato'].flatMap(crop=>['seed','sprout','young','flowering','ripe','dry','wilted','dead'].map(stage=>`${crop}-${stage}`)));
  for(const [key,frame]of Object.entries(old.frames).filter(([key])=>!key.startsWith('tomato-')&&!imported.has(key)))assert.deepEqual(current.frames[key],frame,key);
  for(const key of ['seed','sprout','young','flowering','ripe','dry','wilted','dead'])assert.deepEqual([current.frames['tomato-'+key].frame.w,current.frames['tomato-'+key].frame.h],[48,70]);
  assert.equal(Object.keys(current.frames).length,Object.keys(old.frames).length+10);

@@ -1,4 +1,8 @@
-# Grape runtime plant-sheet import
+# Grape palette-and-anchor update — 2026-10-25
+
+This section supersedes the old source-exact color/sign metadata below. The 42×75 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,499 pixels with geometry and binary alpha unchanged. Its ripe greens retain a 37.65-point lightness span. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. Runtime metadata: scale 1, `anchorX: 20.5`, `baseOffsetY: 0`, `signOffsetY: -111`. Exact evidence is in `manifest.json`.
+
+# Historical Grape runtime plant-sheet import
 
 ## Source and status
 

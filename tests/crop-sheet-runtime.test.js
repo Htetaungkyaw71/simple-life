@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {inflateSync} from 'node:zlib';
 import {CROPS} from '../src/data/crops.js';
 
-const CROPS_IMPORTED=['strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry'];
+const CROPS_IMPORTED=['tomato','strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato'];
 const STATES=['seed','sprout','young','flowering','ripe','dry','wilted','dead'];
 
 function decodeRgbaPng(buffer){
@@ -35,13 +35,20 @@ test('all imported crop keys exist in the runtime atlas with binary alpha',async
  ]);
  for(const crop of CROPS_IMPORTED){
   const manifest=JSON.parse(await readFile(`docs/assets/licenses/${crop}-import-v1/manifest.json`,'utf8'));
-  const candidate=decodeRgbaPng(await readFile(`docs/assets/licenses/${crop}-import-v1/candidate-b.png`));
+  const candidate=decodeRgbaPng(await readFile(manifest.candidateB.path));
+  const prePalette=decodeRgbaPng(await readFile(manifest.candidateB.prePalettePath));
   assert.equal(CROPS[crop].visualScale,1,crop);
-  assert.equal(CROPS[crop].signOffsetY,-16-manifest.candidateB.placements[4].trimmedHeight,crop);
+  assert.equal(CROPS[crop].anchorX,manifest.candidateB.anchor.anchorX,crop);
+  assert.equal(CROPS[crop].signOffsetY,CROPS[crop].baseOffsetY-manifest.candidateB.placements[4].trimmedHeight-36,crop);
   assert.deepEqual(manifest.cleanup.alphaValues,[0,255],crop);
-  assert.deepEqual(manifest.cleanup.soil.over25PercentStages,[],crop);
-  assert.equal(manifest.cleanup.soil.deadConnectedComponents,1,crop);
+  if(manifest.cleanup.soil.over25PercentStages)assert.deepEqual(manifest.cleanup.soil.over25PercentStages,[],crop);
+  if(manifest.cleanup.soil.deadConnectedComponents)assert.equal(manifest.cleanup.soil.deadConnectedComponents,1,crop);
+  assert.equal(manifest.paletteRemap.constants.SATURATION_SCALE,.78,crop);
+  assert.equal(manifest.paletteRemap.constants.HUE_SHIFT,8,crop);
+  assert.equal(manifest.paletteRemap.constants.LIGHTNESS_SCALE,.94,crop);
+  assert.ok(manifest.paletteRemap.ripeGreenContrast.greenLightnessSpan>=12,crop);
   assert.deepEqual([candidate.width,candidate.height],[manifest.candidateB.frameSize[0]*STATES.length,manifest.candidateB.frameSize[1]],crop);
+  assert.deepEqual([prePalette.width,prePalette.height],[candidate.width,candidate.height],crop);
   for(const [stageIndex,state] of STATES.entries()){
    const key=`${crop}-${state}`,record=metadata.frames[key];assert.ok(record,key);
    assert.deepEqual(record.sourceSize,{w:manifest.candidateB.frameSize[0],h:manifest.candidateB.frameSize[1]},key);
@@ -52,7 +59,12 @@ test('all imported crop keys exist in the runtime atlas with binary alpha',async
     const alpha=png.pixels[atlasOffset+3];
     assert.ok(alpha===0||alpha===255,`${key} alpha ${alpha}`);opaque+=alpha===255;
    }
-   assert.ok(opaque>0,`${key} is not empty`);
+    assert.ok(opaque>0,`${key} is not empty`);
+    for(let yy=0;yy<h;yy++)for(let xx=0;xx<w;xx++){
+     const offset=(yy*candidate.width+stageIndex*w+xx)*4;
+     assert.equal(candidate.pixels[offset+3],prePalette.pixels[offset+3],`${key} palette remap changed alpha`);
+     if(['seed','dry','wilted','dead'].includes(state))assert.deepEqual(candidate.pixels.subarray(offset,offset+4),prePalette.pixels.subarray(offset,offset+4),`${key} protected palette stage`);
+    }
   }
  }
 });

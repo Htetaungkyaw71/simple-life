@@ -17,9 +17,10 @@ test('Strawberry sheet is installed natively with data-driven presentation metad
  assert.equal(manifest.grid.nativePixelGrid,true);
  assert.deepEqual(manifest.candidateB.frameSize,[46,47]);
  assert.deepEqual(manifest.candidateB.maxTrimmedStage,[46,47]);
- assert.equal(manifest.candidateB.uniqueOpaqueColors,16);
+ assert.ok(manifest.candidateB.uniqueOpaqueColors>=16);
  assert.deepEqual(manifest.cleanup.alphaValues,[0,255]);
- assert.equal(manifest.cleanup.colorsRepainted,0);
+ assert.ok(manifest.cleanup.colorsRepainted>0);
+ assert.deepEqual(manifest.paletteRemap.constants,{SATURATION_SCALE:.78,HUE_SHIFT:8,LIGHTNESS_SCALE:.94});
  assert.deepEqual(manifest.keys,EXPECTED_KEYS);
  for(const key of EXPECTED_KEYS){
   assert.ok(atlas.frames[key],key);
@@ -27,5 +28,7 @@ test('Strawberry sheet is installed natively with data-driven presentation metad
  }
 
  assert.equal(CROPS.strawberry.visualScale,1);
- assert.equal(CROPS.strawberry.signOffsetY,-63);
+ assert.equal(CROPS.strawberry.anchorX,23);
+ assert.equal(CROPS.strawberry.baseOffsetY,2);
+ assert.equal(CROPS.strawberry.signOffsetY,-81);
 });

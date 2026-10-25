@@ -1,3 +1,21 @@
+# 2026-10-25 — three item-icon sheets ready for review
+
+Created three separate review-only 4×3 icon sheets in the user's requested order: seed packets, harvested crop produce, and fruit/food. Each final is a native 192×144 RGB PNG with twelve 48×48 cells, exact `#FF00FF` background, centered 17–24×21–24 or 19×24 sprites, nearest-neighbour pixels, no pure/near black, and no text, frame, shadow, soil or ground. The three generated originals, exact prompt set, deterministic processor, source copies, final copies, hashes and per-cell validation are preserved under `output/art/item-icon-sheets-v1/` and `docs/assets/licenses/item-icon-sheets-v1/`.
+
+The work is intentionally not integrated: `public/`, the Phaser atlas, gameplay, UI, saves, dependencies and production asset allowlist are unchanged pending user approval. `npm run build` passes with 194 modules. The full suite remains 420/422; the only failures are the same documented pre-existing barber/grass provenance assertion and stale Pixel Snapper 49-versus-50 frame-count assertion. Browser verification loaded the review page plus all three separate PNGs with HTTP 200 and visually inspected each sheet at native and nearest-neighbour enlarged scale; the browser's automatic favicon request was the only 404. No deployment, publication or push was performed.
+
+---
+
+# 2026-10-25 — Sweet Potato and crop palette/anchor correction
+
+Checkpoint commit `525e668` preserves the workspace immediately before this pass. Sweet Potato is now imported from the supplied native 8-stage strip under the existing `sweetPotato-*` keys. Tomato plus the ten supplied imports use unchanged frame geometry, binary alpha and sprite keys, with deterministic world-matched living greens and one shared per-crop base-column anchor. Plant bases now land at the plot center through data-driven `baseOffsetY`; low/wide crops use only small 2–4px visual nudges. Cucumber is explicitly pinned to its established scale/offset so this visual-only pass does not move the non-imported crop. Green pepper remains skipped because the crop registry has no matching ID.
+
+The atlas was rewritten once after all candidates passed validation. Gameplay, watering state selection, growth timing, save data, plot spacing/footprints, soil rendering, crop info behavior, harvest behavior, item icons and sprite keys are unchanged. Signs are ripe-height-derived and receive enough visual depth to remain readable across crop rows. `tomato-debug.html` was not changed.
+
+Verification: `npm run build` passes with 194 modules. The full suite is 420/422; the only failures are the two documented pre-existing barber/grass provenance and stale Pixel Snapper 49-versus-50 frame-count assertions. The new 88-frame atlas/alpha/palette/anchor regression passes. Live Google Chrome checks pass for all 11 crop families across eight stages on dry and watered soil, water/basket/warning signs, crop info, `E / Water`, harvest yield/animation/fly-to-player, the mixed whole-farm comparison and isolated watered ripe plots. Evidence and the Chromium-only limitation are recorded in [crop-palette-anchor-v1](verification/crop-palette-anchor-v1/README.md). No push, publication or deployment was performed.
+
+---
+
 # 2026-10-25 — supplied crop sheets integrated
 
 Checkpoint commit `cd6e69f` preserves the complete pre-import workspace. Nine clean native sheets are now active in the existing Strawberry, Carrot, Corn, Chili, Eggplant, Watermelon, Pumpkin, Grape and Blueberry frame families. All 72 atlas keys retain their names, use strict binary alpha and share one bottom-centred frame per crop. All nine render at scale 1; ripe-height-derived sign offsets keep the 36-world-pixel water/basket/warning sign immediately above the plant. Tomato is unchanged. Green pepper was skipped because the codebase has no matching crop ID/key prefix.

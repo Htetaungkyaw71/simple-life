@@ -1,0 +1,517 @@
+{
+  "crop": "sweetPotato",
+  "source": "assets-src/ChatGPT_Image_25_Oct_2026__15_15_15-pixel-snapper.png",
+  "sourceSha256": "3b28ca231610f2e01288b51786cb5a1ac52ee261c86653a8d8b297cec59e0d20",
+  "sourceSize": [
+    412,
+    123
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    254,
+    4,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "sweetPotato-seed",
+      "x": 7,
+      "y": 83,
+      "width": 29,
+      "height": 15
+    },
+    {
+      "key": "sweetPotato-sprout",
+      "x": 45,
+      "y": 80,
+      "width": 20,
+      "height": 15
+    },
+    {
+      "key": "sweetPotato-young",
+      "x": 75,
+      "y": 73,
+      "width": 40,
+      "height": 25
+    },
+    {
+      "key": "sweetPotato-flowering",
+      "x": 124,
+      "y": 60,
+      "width": 57,
+      "height": 39
+    },
+    {
+      "key": "sweetPotato-ripe",
+      "x": 187,
+      "y": 55,
+      "width": 58,
+      "height": 45
+    },
+    {
+      "key": "sweetPotato-dry",
+      "x": 251,
+      "y": 57,
+      "width": 50,
+      "height": 43
+    },
+    {
+      "key": "sweetPotato-wilted",
+      "x": 308,
+      "y": 69,
+      "width": 52,
+      "height": 31
+    },
+    {
+      "key": "sweetPotato-dead",
+      "x": 366,
+      "y": 84,
+      "width": 39,
+      "height": 15
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      0,
+      1
+    ],
+    "homogeneousTouchedBlocks": 265,
+    "touchedBlocks": 1876,
+    "homogeneousRatio": 0.14125799573560768,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        113,
+        21,
+        83,
+        255,
+        68
+      ],
+      [
+        169,
+        25,
+        158,
+        255,
+        17
+      ],
+      [
+        222,
+        39,
+        211,
+        255,
+        90
+      ],
+      [
+        254,
+        4,
+        253,
+        255,
+        44049
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 386,
+    "soil": {
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 86,
+      "baseline": 98,
+      "sourceCentres": [
+        13,
+        9,
+        24,
+        12,
+        32,
+        24,
+        37,
+        3
+      ],
+      "maskPixelCount": 140,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 278,
+          "removedPixels": 0,
+          "opaqueAfter": 278,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 121,
+          "removedPixels": 0,
+          "opaqueAfter": 121,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 450,
+          "removedPixels": 0,
+          "opaqueAfter": 450,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1238,
+          "removedPixels": 0,
+          "opaqueAfter": 1238,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1682,
+          "removedPixels": 0,
+          "opaqueAfter": 1682,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1397,
+          "removedPixels": 0,
+          "opaqueAfter": 1397,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 958,
+          "removedPixels": 0,
+          "opaqueAfter": 958,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 328,
+          "removedPixels": 0,
+          "opaqueAfter": 328,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 5,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "paletteRemap": {
+    "method": "exact per-pixel RGBA lookup; no filtering, resampling, or palette-mode conversion",
+    "selector": {
+      "hueDegrees": [
+        60.0,
+        170.0
+      ],
+      "greenChannelDominant": true,
+      "stages": [
+        "sprout",
+        "young",
+        "flowering",
+        "ripe"
+      ],
+      "protectedStages": [
+        "seed",
+        "dry",
+        "wilted",
+        "dead"
+      ]
+    },
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    },
+    "lookup": [
+      {
+        "from": [
+          25,
+          27,
+          15,
+          255
+        ],
+        "to": [
+          25,
+          26,
+          16,
+          255
+        ]
+      },
+      {
+        "from": [
+          40,
+          73,
+          24,
+          255
+        ],
+        "to": [
+          47,
+          68,
+          29,
+          255
+        ]
+      },
+      {
+        "from": [
+          82,
+          128,
+          38,
+          255
+        ],
+        "to": [
+          92,
+          118,
+          48,
+          255
+        ]
+      },
+      {
+        "from": [
+          117,
+          169,
+          47,
+          255
+        ],
+        "to": [
+          128,
+          156,
+          60,
+          255
+        ]
+      },
+      {
+        "from": [
+          168,
+          174,
+          70,
+          255
+        ],
+        "to": [
+          163,
+          156,
+          81,
+          255
+        ]
+      }
+    ],
+    "changedPixels": 2529,
+    "stages": [
+      {
+        "stage": "seed",
+        "changedPixels": 0
+      },
+      {
+        "stage": "sprout",
+        "changedPixels": 121
+      },
+      {
+        "stage": "young",
+        "changedPixels": 417
+      },
+      {
+        "stage": "flowering",
+        "changedPixels": 841
+      },
+      {
+        "stage": "ripe",
+        "changedPixels": 1150
+      },
+      {
+        "stage": "dry",
+        "changedPixels": 0
+      },
+      {
+        "stage": "wilted",
+        "changedPixels": 0
+      },
+      {
+        "stage": "dead",
+        "changedPixels": 0
+      }
+    ],
+    "ripeGreenContrast": {
+      "greenLightnessMin": 8.24,
+      "greenLightnessMax": 42.35,
+      "greenLightnessSpan": 34.12
+    }
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      58,
+      45
+    ],
+    "path": "docs/assets/licenses/sweetPotato-import-v1/candidate-b.png",
+    "sha256": "cbef3bddfc1931486846e2b6121789ed182a8d880a4fc8f5a485f20b442c8979",
+    "uniqueColors": 21,
+    "uniqueOpaqueColors": 20,
+    "placements": [
+      {
+        "trimmedWidth": 29,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 8,
+        "frameX": 0,
+        "pasteX": 14,
+        "pasteY": 30,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 20,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 5,
+        "frameX": 58,
+        "pasteX": 19,
+        "pasteY": 30,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 40,
+        "trimmedHeight": 25,
+        "uniqueOpaqueColors": 9,
+        "frameX": 116,
+        "pasteX": 9,
+        "pasteY": 20,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 57,
+        "trimmedHeight": 39,
+        "uniqueOpaqueColors": 15,
+        "frameX": 174,
+        "pasteX": 0,
+        "pasteY": 6,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 58,
+        "trimmedHeight": 45,
+        "uniqueOpaqueColors": 16,
+        "frameX": 232,
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 50,
+        "trimmedHeight": 43,
+        "uniqueOpaqueColors": 15,
+        "frameX": 290,
+        "pasteX": 4,
+        "pasteY": 2,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 52,
+        "trimmedHeight": 31,
+        "uniqueOpaqueColors": 13,
+        "frameX": 348,
+        "pasteX": 3,
+        "pasteY": 14,
+        "anchorX": 29.5,
+        "anchorY": 45
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 12,
+        "frameX": 406,
+        "pasteX": 9,
+        "pasteY": 30,
+        "anchorX": 29.5,
+        "anchorY": 45
+      }
+    ],
+    "maxTrimmedStage": [
+      58,
+      45
+    ],
+    "anchor": {
+      "method": "median of weighted bottom-six-row visual centres for sprout, young, flowering, and ripe",
+      "anchorX": 29.5,
+      "anchorY": 45,
+      "perStageBaseCenters": {
+        "seed": 28.211,
+        "sprout": 28.071,
+        "young": 27.392,
+        "flowering": 31.005,
+        "ripe": 32.387,
+        "dry": 29.034,
+        "wilted": 28.188,
+        "dead": 25.174
+      }
+    },
+    "prePalettePath": "docs/assets/licenses/sweetPotato-import-v1/candidate-b-pre-palette.png",
+    "prePaletteSha256": "f6ef06d289d363dd64beae34b8332f51fd882a4a88cf8a8e0bf80be8117efb13"
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/sweetPotato-import-v1/cleaned-source.png",
+    "sha256": "8ffb8000a2fdfc6f8bc16f387171a92ba590a50393c8c9633dbe67a4efa60bda"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/sweetPotato-import-v1/source.png",
+    "sha256": "3b28ca231610f2e01288b51786cb5a1ac52ee261c86653a8d8b297cec59e0d20"
+  },
+  "keys": [
+    "sweetPotato-seed",
+    "sweetPotato-sprout",
+    "sweetPotato-young",
+    "sweetPotato-flowering",
+    "sweetPotato-ripe",
+    "sweetPotato-dry",
+    "sweetPotato-wilted",
+    "sweetPotato-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 5403,
+    "frameSize": [
+      58,
+      45
+    ],
+    "installedKeys": [
+      "sweetPotato-seed",
+      "sweetPotato-sprout",
+      "sweetPotato-young",
+      "sweetPotato-flowering",
+      "sweetPotato-ripe",
+      "sweetPotato-dry",
+      "sweetPotato-wilted",
+      "sweetPotato-dead"
+    ]
+  }
+}

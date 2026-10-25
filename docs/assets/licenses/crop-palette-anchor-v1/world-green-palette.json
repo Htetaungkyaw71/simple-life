@@ -1,0 +1,24 @@
+{
+  "atlas": "public/assets/pixel/processed/town.png",
+  "sampledFrameCount": 35,
+  "sampledGreenPixels": 14035,
+  "uniqueGreenColors": 409,
+  "selectorHueDegrees": [60.0, 170.0],
+  "weightedPercentiles": {
+    "p10": {"hue": 66.6, "saturation": 24.2, "lightness": 18.8},
+    "p25": {"hue": 74.1, "saturation": 27.8, "lightness": 31.2},
+    "p50": {"hue": 86.0, "saturation": 30.0, "lightness": 43.5},
+    "p75": {"hue": 109.7, "saturation": 33.3, "lightness": 52.5},
+    "p90": {"hue": 162.1, "saturation": 38.5, "lightness": 55.3}
+  },
+  "sampledFrames": [
+    "grass", "grass0", "grass1", "grass2", "grass3",
+    "grass-detail0", "grass-detail1", "grass-detail2", "grass-detail3",
+    "bush", "nature-bush-leafy", "nature-bush-berry", "nature-bush-flower", "nature-bush-small",
+    "tree0", "tree1", "tree2", "tree3", "tree", "tree-tall", "tree-wide",
+    "guava-tree", "mango-tree", "acacia-tree", "palm-tree", "willow-tree",
+    "tall-grass-0-0", "tall-grass-0-1", "tall-grass-0-2",
+    "tall-grass-1-0", "tall-grass-1-1", "tall-grass-1-2",
+    "tall-grass-2-0", "tall-grass-2-1", "tall-grass-2-2"
+  ]
+}

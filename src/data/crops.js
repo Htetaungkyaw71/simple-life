@@ -1,11 +1,11 @@
 import {DECORATIONS} from './settlement.js';
 import {FOREST_ITEMS,MEAT,GRILLED_MEAT,FOODS,FOOD_IDS} from './items.js';
-import {CROP_ICON_SCALES,CROP_RENDER_METADATA} from './cropVisuals.js';
+import {CROP_ICON_SCALES,CROP_RENDER_METADATA,DEFAULT_CROP_BASE_OFFSET_Y} from './cropVisuals.js';
 export const LEGACY_GROWTH_DAYS={tomato:1,strawberry:2,carrot:2,corn:2,chili:1,eggplant:2,cucumber:1,watermelon:2,pumpkin:2,grape:2,blueberry:2,sweetPotato:1};
 export const WATER_WINDOWS=[{id:'daily',start:0,end:1440,label:'Once daily'}];
 const crop=(id,name,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,description)=>({
  id,name,category:'field',seedKey:id==='tomato'?'seed':id+'Seed',produceKey:id,seedPrice,sellPrice,growthDays,harvestYield,energyRestored,regrow:false,unlock:null,description,
- visualScale:CROP_RENDER_METADATA[id]?.visualScale??2,signOffsetY:CROP_RENDER_METADATA[id]?.signOffsetY??-54,iconScale:1,seedIconScale:1,
+ visualScale:CROP_RENDER_METADATA[id]?.visualScale??2,anchorX:CROP_RENDER_METADATA[id]?.anchorX??null,baseOffsetY:CROP_RENDER_METADATA[id]?.baseOffsetY??DEFAULT_CROP_BASE_OFFSET_Y,signOffsetY:CROP_RENDER_METADATA[id]?.signOffsetY??-54,iconScale:1,seedIconScale:1,
  watering:['daily'],growthStages:Array.from({length:growthDays+1},(_,i)=>i===growthDays?'Ripe':i===0?'Seed / sprout':i/growthDays>=.6?'Flowering':'Young plant'),stageCount:growthDays+1,stages:['seed','sprout','young','flowering','ripe'],icon:id+'-item',seedIcon:id+'-seed-item',
  sprites:Object.fromEntries(['seed','sprout','young','flowering','ripe','dry','wilted','dead'].map(key=>[key,id+'-'+key])),
 });

@@ -1,0 +1,717 @@
+{
+  "sheetSize": [
+    192,
+    144
+  ],
+  "cellSize": 48,
+  "sheets": [
+    {
+      "source": "output/art/item-icon-sheets-v1/image-1-seed-packets-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "output": "output/art/item-icon-sheets-v1/image-1-seed-packets.png",
+      "outputSize": [
+        192,
+        144
+      ],
+      "sha256": "74d53cef0604338ac791dbeb2614e23d82afa1a7df8e8ac290df4f2adfb13f5a",
+      "background": "#FF00FF",
+      "backgroundPixels": 22224,
+      "uniqueColors": 210,
+      "pureBlackPixels": 0,
+      "nearBlackPixels": 0,
+      "icons": [
+        {
+          "index": 1,
+          "cell": [
+            0,
+            0
+          ],
+          "bounds": [
+            14,
+            12,
+            33,
+            36
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 2,
+          "cell": [
+            1,
+            0
+          ],
+          "bounds": [
+            62,
+            12,
+            81,
+            36
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 3,
+          "cell": [
+            2,
+            0
+          ],
+          "bounds": [
+            110,
+            12,
+            129,
+            36
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 4,
+          "cell": [
+            3,
+            0
+          ],
+          "bounds": [
+            158,
+            12,
+            177,
+            36
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 5,
+          "cell": [
+            0,
+            1
+          ],
+          "bounds": [
+            14,
+            60,
+            33,
+            84
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 6,
+          "cell": [
+            1,
+            1
+          ],
+          "bounds": [
+            62,
+            60,
+            81,
+            84
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 7,
+          "cell": [
+            2,
+            1
+          ],
+          "bounds": [
+            110,
+            60,
+            129,
+            84
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 8,
+          "cell": [
+            3,
+            1
+          ],
+          "bounds": [
+            158,
+            60,
+            177,
+            84
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 9,
+          "cell": [
+            0,
+            2
+          ],
+          "bounds": [
+            14,
+            108,
+            33,
+            132
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 10,
+          "cell": [
+            1,
+            2
+          ],
+          "bounds": [
+            62,
+            108,
+            81,
+            132
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        },
+        {
+          "index": 11,
+          "cell": [
+            2,
+            2
+          ],
+          "bounds": [
+            110,
+            108,
+            129,
+            132
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 17
+        },
+        {
+          "index": 12,
+          "cell": [
+            3,
+            2
+          ],
+          "bounds": [
+            158,
+            108,
+            177,
+            132
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 18
+        }
+      ]
+    },
+    {
+      "source": "output/art/item-icon-sheets-v1/image-2-harvested-produce-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "output": "output/art/item-icon-sheets-v1/image-2-harvested-produce.png",
+      "outputSize": [
+        192,
+        144
+      ],
+      "sha256": "9af632d0d17a3ceb58c7d9c9bd6471051ce5c2f34f5e0b746a44f553a1e8a47f",
+      "background": "#FF00FF",
+      "backgroundPixels": 23984,
+      "uniqueColors": 163,
+      "pureBlackPixels": 0,
+      "nearBlackPixels": 0,
+      "icons": [
+        {
+          "index": 1,
+          "cell": [
+            0,
+            0
+          ],
+          "bounds": [
+            12,
+            12,
+            36,
+            35
+          ],
+          "size": [
+            24,
+            23
+          ],
+          "colors": 14
+        },
+        {
+          "index": 2,
+          "cell": [
+            1,
+            0
+          ],
+          "bounds": [
+            62,
+            12,
+            81,
+            36
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 3,
+          "cell": [
+            2,
+            0
+          ],
+          "bounds": [
+            108,
+            12,
+            131,
+            36
+          ],
+          "size": [
+            23,
+            24
+          ],
+          "colors": 13
+        },
+        {
+          "index": 4,
+          "cell": [
+            3,
+            0
+          ],
+          "bounds": [
+            157,
+            12,
+            178,
+            36
+          ],
+          "size": [
+            21,
+            24
+          ],
+          "colors": 13
+        },
+        {
+          "index": 5,
+          "cell": [
+            0,
+            1
+          ],
+          "bounds": [
+            15,
+            60,
+            32,
+            84
+          ],
+          "size": [
+            17,
+            24
+          ],
+          "colors": 13
+        },
+        {
+          "index": 6,
+          "cell": [
+            1,
+            1
+          ],
+          "bounds": [
+            62,
+            60,
+            82,
+            84
+          ],
+          "size": [
+            20,
+            24
+          ],
+          "colors": 13
+        },
+        {
+          "index": 7,
+          "cell": [
+            2,
+            1
+          ],
+          "bounds": [
+            109,
+            60,
+            130,
+            84
+          ],
+          "size": [
+            21,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 8,
+          "cell": [
+            3,
+            1
+          ],
+          "bounds": [
+            157,
+            60,
+            178,
+            84
+          ],
+          "size": [
+            21,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 9,
+          "cell": [
+            0,
+            2
+          ],
+          "bounds": [
+            12,
+            108,
+            35,
+            132
+          ],
+          "size": [
+            23,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 10,
+          "cell": [
+            1,
+            2
+          ],
+          "bounds": [
+            62,
+            108,
+            81,
+            132
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 11,
+          "cell": [
+            2,
+            2
+          ],
+          "bounds": [
+            108,
+            109,
+            132,
+            131
+          ],
+          "size": [
+            24,
+            22
+          ],
+          "colors": 12
+        },
+        {
+          "index": 12,
+          "cell": [
+            3,
+            2
+          ],
+          "bounds": [
+            156,
+            108,
+            180,
+            132
+          ],
+          "size": [
+            24,
+            24
+          ],
+          "colors": 14
+        }
+      ]
+    },
+    {
+      "source": "output/art/item-icon-sheets-v1/image-3-fruit-food-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "output": "output/art/item-icon-sheets-v1/image-3-fruit-food.png",
+      "outputSize": [
+        192,
+        144
+      ],
+      "sha256": "23f6ff0dda8288d0f20bf1355013c24216b1d073186aef4b4ff2d5e9ddaeece1",
+      "background": "#FF00FF",
+      "backgroundPixels": 23964,
+      "uniqueColors": 167,
+      "pureBlackPixels": 0,
+      "nearBlackPixels": 0,
+      "icons": [
+        {
+          "index": 1,
+          "cell": [
+            0,
+            0
+          ],
+          "bounds": [
+            12,
+            13,
+            36,
+            34
+          ],
+          "size": [
+            24,
+            21
+          ],
+          "colors": 14
+        },
+        {
+          "index": 2,
+          "cell": [
+            1,
+            0
+          ],
+          "bounds": [
+            61,
+            12,
+            83,
+            36
+          ],
+          "size": [
+            22,
+            24
+          ],
+          "colors": 13
+        },
+        {
+          "index": 3,
+          "cell": [
+            2,
+            0
+          ],
+          "bounds": [
+            110,
+            12,
+            130,
+            36
+          ],
+          "size": [
+            20,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 4,
+          "cell": [
+            3,
+            0
+          ],
+          "bounds": [
+            156,
+            12,
+            180,
+            36
+          ],
+          "size": [
+            24,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 5,
+          "cell": [
+            0,
+            1
+          ],
+          "bounds": [
+            15,
+            60,
+            32,
+            84
+          ],
+          "size": [
+            17,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 6,
+          "cell": [
+            1,
+            1
+          ],
+          "bounds": [
+            60,
+            60,
+            83,
+            84
+          ],
+          "size": [
+            23,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 7,
+          "cell": [
+            2,
+            1
+          ],
+          "bounds": [
+            108,
+            61,
+            132,
+            83
+          ],
+          "size": [
+            24,
+            22
+          ],
+          "colors": 13
+        },
+        {
+          "index": 8,
+          "cell": [
+            3,
+            1
+          ],
+          "bounds": [
+            159,
+            60,
+            176,
+            84
+          ],
+          "size": [
+            17,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 9,
+          "cell": [
+            0,
+            2
+          ],
+          "bounds": [
+            14,
+            108,
+            33,
+            132
+          ],
+          "size": [
+            19,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 10,
+          "cell": [
+            1,
+            2
+          ],
+          "bounds": [
+            62,
+            108,
+            82,
+            132
+          ],
+          "size": [
+            20,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 11,
+          "cell": [
+            2,
+            2
+          ],
+          "bounds": [
+            109,
+            108,
+            130,
+            132
+          ],
+          "size": [
+            21,
+            24
+          ],
+          "colors": 14
+        },
+        {
+          "index": 12,
+          "cell": [
+            3,
+            2
+          ],
+          "bounds": [
+            158,
+            108,
+            178,
+            132
+          ],
+          "size": [
+            20,
+            24
+          ],
+          "colors": 14
+        }
+      ]
+    }
+  ]
+}

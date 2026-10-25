@@ -222,9 +222,148 @@
       0,
       255
     ],
-    "colorsRepainted": 0,
+    "colorsRepainted": 5,
     "pixelsResampled": 0,
     "paletteConversions": 0
+  },
+  "paletteRemap": {
+    "method": "exact per-pixel RGBA lookup; no filtering, resampling, or palette-mode conversion",
+    "selector": {
+      "hueDegrees": [
+        60.0,
+        170.0
+      ],
+      "greenChannelDominant": true,
+      "stages": [
+        "sprout",
+        "young",
+        "flowering",
+        "ripe"
+      ],
+      "protectedStages": [
+        "seed",
+        "dry",
+        "wilted",
+        "dead"
+      ]
+    },
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    },
+    "lookup": [
+      {
+        "from": [
+          21,
+          83,
+          29,
+          255
+        ],
+        "to": [
+          28,
+          76,
+          28,
+          255
+        ]
+      },
+      {
+        "from": [
+          51,
+          138,
+          31,
+          255
+        ],
+        "to": [
+          69,
+          126,
+          43,
+          255
+        ]
+      },
+      {
+        "from": [
+          89,
+          176,
+          31,
+          255
+        ],
+        "to": [
+          107,
+          160,
+          47,
+          255
+        ]
+      },
+      {
+        "from": [
+          125,
+          202,
+          36,
+          255
+        ],
+        "to": [
+          141,
+          184,
+          54,
+          255
+        ]
+      },
+      {
+        "from": [
+          160,
+          219,
+          50,
+          255
+        ],
+        "to": [
+          166,
+          196,
+          57,
+          255
+        ]
+      }
+    ],
+    "changedPixels": 2644,
+    "stages": [
+      {
+        "stage": "seed",
+        "changedPixels": 0
+      },
+      {
+        "stage": "sprout",
+        "changedPixels": 220
+      },
+      {
+        "stage": "young",
+        "changedPixels": 543
+      },
+      {
+        "stage": "flowering",
+        "changedPixels": 1007
+      },
+      {
+        "stage": "ripe",
+        "changedPixels": 874
+      },
+      {
+        "stage": "dry",
+        "changedPixels": 0
+      },
+      {
+        "stage": "wilted",
+        "changedPixels": 0
+      },
+      {
+        "stage": "dead",
+        "changedPixels": 0
+      }
+    ],
+    "ripeGreenContrast": {
+      "greenLightnessMin": 20.39,
+      "greenLightnessMax": 49.61,
+      "greenLightnessSpan": 29.22
+    }
   },
   "candidateB": {
     "available": true,
@@ -233,9 +372,9 @@
       71
     ],
     "path": "docs/assets/licenses/eggplant-import-v1/candidate-b.png",
-    "sha256": "38b75f41e97df4228aff88266b70a838cb7d841c66b07dc60fedc9658ac9ea02",
-    "uniqueColors": 17,
-    "uniqueOpaqueColors": 16,
+    "sha256": "976dea642c7e651cecae866ccd99741f0ff11b114f7a36ede2f3fefe20198555",
+    "uniqueColors": 22,
+    "uniqueOpaqueColors": 21,
     "placements": [
       {
         "trimmedWidth": 30,
@@ -244,7 +383,7 @@
         "frameX": 0,
         "pasteX": 8,
         "pasteY": 56,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -254,7 +393,7 @@
         "frameX": 47,
         "pasteX": 10,
         "pasteY": 50,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -264,7 +403,7 @@
         "frameX": 94,
         "pasteX": 4,
         "pasteY": 27,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -274,7 +413,7 @@
         "frameX": 141,
         "pasteX": 1,
         "pasteY": 8,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -284,7 +423,7 @@
         "frameX": 188,
         "pasteX": 1,
         "pasteY": 0,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -294,7 +433,7 @@
         "frameX": 235,
         "pasteX": 2,
         "pasteY": 7,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -304,7 +443,7 @@
         "frameX": 282,
         "pasteX": 4,
         "pasteY": 17,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       },
       {
@@ -314,18 +453,35 @@
         "frameX": 329,
         "pasteX": 0,
         "pasteY": 50,
-        "anchorX": 23.5,
+        "anchorX": 23.0,
         "anchorY": 71
       }
     ],
     "maxTrimmedStage": [
       47,
       71
-    ]
+    ],
+    "anchor": {
+      "method": "median of weighted bottom-six-row visual centres for sprout, young, flowering, and ripe",
+      "anchorX": 23.0,
+      "anchorY": 71,
+      "perStageBaseCenters": {
+        "seed": 23.5,
+        "sprout": 23.0,
+        "young": 22.0,
+        "flowering": 24.0,
+        "ripe": 23.5,
+        "dry": 21.921,
+        "wilted": 24.771,
+        "dead": 20.174
+      }
+    },
+    "prePalettePath": "docs/assets/licenses/eggplant-import-v1/candidate-b-pre-palette.png",
+    "prePaletteSha256": "38b75f41e97df4228aff88266b70a838cb7d841c66b07dc60fedc9658ac9ea02"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/eggplant-import-v1/cleaned-source.png",
-    "sha256": "fc36fea011a97c87b781d25b0ebbafd95c6f713306b9161b839b46e9cc3d40ca"
+    "sha256": "d609812cf68f73b4c6137c8130b5d954fe5fc36be889eff156aa33daef68c09c"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/eggplant-import-v1/source.png",
@@ -344,7 +500,7 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 4423,
+    "rowY": 5090,
     "frameSize": [
       47,
       71

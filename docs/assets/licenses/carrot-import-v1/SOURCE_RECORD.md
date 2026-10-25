@@ -1,4 +1,8 @@
-# Carrot runtime plant-sheet import
+# Carrot palette-and-anchor update — 2026-10-25
+
+This section supersedes the old source-exact color/sign metadata below. The 42×58 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,140 pixels with geometry and binary alpha unchanged. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. Runtime metadata: scale 1, `anchorX: 20`, `baseOffsetY: 0`, `signOffsetY: -94`. Exact evidence is in `manifest.json`.
+
+# Historical Carrot runtime plant-sheet import
 
 ## Source and status
 

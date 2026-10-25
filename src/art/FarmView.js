@@ -49,9 +49,10 @@ export function drawFarmBeds(scene,group){
   group.add(scene.add.image(b.x-24,b.y-24,soilTexture(scene,bedMask(b,beds),wet,b,wet?bedMask(b,watered):0)).setOrigin(0).setScale(2).setDepth(2));
   if(!p?.crop)continue;
   const definition=CROPS[p.crop];
-  const plant=scene.add.image(b.x,b.y+20,'town',definition.sprites[cropVisual(p,s)]).setOrigin(.5,1).setScale(definition.visualScale).setDepth(b.y+20);group.add(plant);
+  const plantBaseY=b.y+definition.baseOffsetY;
+  const plant=scene.add.image(b.x,plantBaseY,'town',definition.sprites[cropVisual(p,s)]);plant.setOrigin(definition.anchorX==null ? .5 : definition.anchorX/plant.frame.width,1).setScale(definition.visualScale).setDepth(plantBaseY);group.add(plant);
   if(p.growth>=CROPS[p.crop].growthDays&&missed(p)<4&&scene.tweens){const bob=scene.tweens.add({targets:plant,y:plant.y-2,duration:700,yoyo:true,repeat:-1});plant.once('destroy',()=>bob.remove());}
-  const mark=cropMarker(p,s);if(mark){const g=scene.add.graphics().setPosition(b.x-14,b.y+definition.signOffsetY).setScale(2).setDepth(b.y+22);g.fillStyle(0x4e4936).fillRect(0,0,14,16).fillRect(5,16,4,2);g.fillStyle(0xf3eccf).fillRect(1,1,12,14).fillRect(6,15,2,2);if(mark==='warning')g.fillStyle(0xbd5040).fillRect(6,3,2,7).fillRect(6,12,2,2);else pixels(g,mark,3,3,mark==='drop'?0x608596:0x76874d);if(mark==='drop'){g.fillStyle(0xc0d2c2).fillRect(5,8,1,3);}group.add(g);}
+  const mark=cropMarker(p,s);if(mark){const g=scene.add.graphics().setPosition(b.x-14,b.y+definition.signOffsetY).setScale(2).setDepth(plantBaseY+50);g.fillStyle(0x4e4936).fillRect(0,0,14,16).fillRect(5,16,4,2);g.fillStyle(0xf3eccf).fillRect(1,1,12,14).fillRect(6,15,2,2);if(mark==='warning')g.fillStyle(0xbd5040).fillRect(6,3,2,7).fillRect(6,12,2,2);else pixels(g,mark,3,3,mark==='drop'?0x608596:0x76874d);if(mark==='drop'){g.fillStyle(0xc0d2c2).fillRect(5,8,1,3);}group.add(g);}
  }
 }
 export function drawWetGround(scene,group){

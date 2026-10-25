@@ -1,4 +1,8 @@
-# Pumpkin runtime plant-sheet import
+# Pumpkin palette-and-anchor update — 2026-10-25
+
+This section supersedes the old source-exact color/sign metadata below. The 61×38 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,220 pixels with geometry and binary alpha unchanged. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. The wide-vine base audit gives scale 1, `anchorX: 29.5`, `baseOffsetY: 4`, `signOffsetY: -70`. Exact evidence is in `manifest.json`.
+
+# Historical Pumpkin runtime plant-sheet import
 
 ## Source and status
 

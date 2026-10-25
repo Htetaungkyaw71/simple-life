@@ -7,8 +7,8 @@ import {CROPS} from '../../src/data/crops.js';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
 const base=process.env.GAME_URL||'http://127.0.0.1:43864/';
-const out=process.env.QA_OUT||'docs/verification/crop-sheets-v1';
-const allCrops=['strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry'];
+const out=process.env.QA_OUT||'docs/verification/crop-palette-anchor-v1/stages';
+const allCrops=['tomato','strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato'];
 const crops=process.env.QA_FILTER?allCrops.filter(crop=>new RegExp(process.env.QA_FILTER).test(crop)):allCrops;
 const stages=['seed','sprout','young','flowering','ripe','dry','wilted','dead'];
 const orderedPlots=FARM_PLOTS.slice(0,16).map((plot,index)=>({...plot,index})).sort((a,b)=>a.y-b.y||a.x-b.x);
@@ -57,8 +57,11 @@ async function openFixture(state){
  const snapshot=()=>page.evaluate(()=>window.__simpleLife.snapshot());
  const title=await snapshot(),button=title.controls.find(control=>control.id==='Continue'||control.id.startsWith('Continue / Day'));
  assert.ok(button&&!button.disabled,'Continue control');
- await page.mouse.click(button.x+button.w/2,button.y+button.h/2);
- await page.waitForFunction(()=>window.__simpleLife?.snapshot().state?.area==='farm'&&!window.__simpleLife.snapshot().paused,undefined,{timeout:45000});
+ for(let attempt=0;attempt<3;attempt++){
+  await page.mouse.click(button.x+button.w/2,button.y+button.h/2);
+  try{await page.waitForFunction(()=>window.__simpleLife?.snapshot().state?.area==='farm'&&!window.__simpleLife.snapshot().paused,undefined,{timeout:20000});break;}
+  catch(error){if(attempt===2)throw error;}
+ }
  await page.waitForTimeout(250);
  return {context,page,snapshot,errors,requests};
 }

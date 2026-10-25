@@ -1,4 +1,8 @@
-# Eggplant runtime plant-sheet import
+# Eggplant palette-and-anchor update — 2026-10-25
+
+This section supersedes the old source-exact color/sign metadata below. The 47×71 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,644 pixels with geometry and binary alpha unchanged. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. Runtime metadata: scale 1, `anchorX: 23`, `baseOffsetY: 0`, `signOffsetY: -107`. Exact evidence is in `manifest.json`.
+
+# Historical Eggplant runtime plant-sheet import
 
 ## Source and status
 

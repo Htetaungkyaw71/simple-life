@@ -137,7 +137,9 @@
       0,
       255
     ],
-    "colorsRepainted": 0
+    "colorsRepainted": 4,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
   },
   "candidateA": {
     "available": false,
@@ -155,86 +157,113 @@
       48,
       70
     ],
-    "path": "docs/assets/licenses/tomato-import-v1/candidate-b.png",
-    "sha256": "595f33842c39c3743a9422b96a6ac10187aa7a75116cc67064a5eb29a0d70041",
+    "path": "docs/assets/licenses/tomato-import-v1/candidate-b-runtime.png",
+    "sha256": "98001056f21104264f505275ed2bc9c9a47ff1141a3841d78f241f0892183eb4",
     "placements": [
       {
         "trimmedWidth": 30,
         "trimmedHeight": 16,
+        "uniqueOpaqueColors": 7,
         "frameX": 0,
         "pasteX": 9,
         "pasteY": 54,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 21,
         "trimmedHeight": 14,
+        "uniqueOpaqueColors": 5,
         "frameX": 48,
         "pasteX": 13,
         "pasteY": 56,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 34,
         "trimmedHeight": 45,
+        "uniqueOpaqueColors": 11,
         "frameX": 96,
         "pasteX": 7,
         "pasteY": 25,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 41,
         "trimmedHeight": 61,
+        "uniqueOpaqueColors": 12,
         "frameX": 144,
         "pasteX": 3,
         "pasteY": 9,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 39,
         "trimmedHeight": 70,
+        "uniqueOpaqueColors": 12,
         "frameX": 192,
         "pasteX": 4,
         "pasteY": 0,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 33,
         "trimmedHeight": 61,
+        "uniqueOpaqueColors": 11,
         "frameX": 240,
         "pasteX": 7,
         "pasteY": 9,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 36,
         "trimmedHeight": 50,
+        "uniqueOpaqueColors": 7,
         "frameX": 288,
         "pasteX": 6,
         "pasteY": 20,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       },
       {
         "trimmedWidth": 44,
         "trimmedHeight": 20,
+        "uniqueOpaqueColors": 7,
         "frameX": 336,
         "pasteX": 2,
         "pasteY": 50,
-        "anchorX": 24,
-        "anchorY": 69
+        "anchorX": 23.5,
+        "anchorY": 70
       }
     ],
     "maxTrimmedStage": [
       44,
       70
-    ]
+    ],
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
+    "anchor": {
+      "method": "median of weighted bottom-six-row visual centres for sprout, young, flowering, and ripe",
+      "anchorX": 23.5,
+      "anchorY": 70,
+      "perStageBaseCenters": {
+        "seed": 23.895,
+        "sprout": 22.568,
+        "young": 22.0,
+        "flowering": 25.301,
+        "ripe": 24.34,
+        "dry": 20.111,
+        "wilted": 29.048,
+        "dead": 23.511
+      }
+    },
+    "prePalettePath": "docs/assets/licenses/tomato-import-v1/candidate-b-pre-palette.png",
+    "prePaletteSha256": "96d27a6a49e5e6d50a60156435bbf7f674e4f5c33eca89c2e9f138481ad18b2a"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/tomato-import-v1/cleaned-source.png",
@@ -249,5 +278,149 @@
     "tomato-dry",
     "tomato-wilted",
     "tomato-dead"
-  ]
+  ],
+  "paletteRemap": {
+    "method": "exact per-pixel RGBA lookup; no filtering, resampling, or palette-mode conversion",
+    "selector": {
+      "hueDegrees": [
+        60.0,
+        170.0
+      ],
+      "greenChannelDominant": true,
+      "stages": [
+        "sprout",
+        "young",
+        "flowering",
+        "ripe"
+      ],
+      "protectedStages": [
+        "seed",
+        "dry",
+        "wilted",
+        "dead"
+      ]
+    },
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    },
+    "lookup": [
+      {
+        "from": [
+          19,
+          73,
+          24,
+          255
+        ],
+        "to": [
+          27,
+          67,
+          25,
+          255
+        ]
+      },
+      {
+        "from": [
+          50,
+          132,
+          35,
+          255
+        ],
+        "to": [
+          67,
+          121,
+          46,
+          255
+        ]
+      },
+      {
+        "from": [
+          87,
+          165,
+          40,
+          255
+        ],
+        "to": [
+          103,
+          151,
+          54,
+          255
+        ]
+      },
+      {
+        "from": [
+          131,
+          194,
+          42,
+          255
+        ],
+        "to": [
+          144,
+          177,
+          59,
+          255
+        ]
+      }
+    ],
+    "changedPixels": 2255,
+    "stages": [
+      {
+        "stage": "seed",
+        "changedPixels": 0
+      },
+      {
+        "stage": "sprout",
+        "changedPixels": 136
+      },
+      {
+        "stage": "young",
+        "changedPixels": 350
+      },
+      {
+        "stage": "flowering",
+        "changedPixels": 797
+      },
+      {
+        "stage": "ripe",
+        "changedPixels": 972
+      },
+      {
+        "stage": "dry",
+        "changedPixels": 0
+      },
+      {
+        "stage": "wilted",
+        "changedPixels": 0
+      },
+      {
+        "stage": "dead",
+        "changedPixels": 0
+      }
+    ],
+    "ripeGreenContrast": {
+      "greenLightnessMin": 18.04,
+      "greenLightnessMax": 46.27,
+      "greenLightnessSpan": 28.24
+    }
+  },
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 4738,
+    "frameSize": [
+      48,
+      70
+    ],
+    "installedKeys": [
+      "tomato-seed",
+      "tomato-sprout",
+      "tomato-young",
+      "tomato-flowering",
+      "tomato-ripe",
+      "tomato-dry",
+      "tomato-wilted",
+      "tomato-dead"
+    ]
+  }
 }
