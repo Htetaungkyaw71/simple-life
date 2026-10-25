@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "tool": "OpenAI built-in imagegen",
+  "modelVersion": "not exposed",
+  "sources": {
+    "attack.png": "3acf8aaa7c085cf95e7046ae044040ea868993c3034aaab833562b90b3ae6967",
+    "base.png": "aa3aef15660f1f540c1e2bde80a3e55caf6e36239b63f7e720370de49893191f",
+    "chopping.png": "788b9403f144441900afd06f8a84aba05e2c9a607d7653005cf5075107c65165",
+    "digging.png": "f553b3064c5f749a534276394bf407f11f2d070fbef5a19315e785a7f9b54644",
+    "harvesting.png": "e0d6f27757fe229b71888663d8054cfa17bbc7c94416a9f4aadcec693705c258",
+    "idle-eye-fix.png": "b1798088f8efc2998b3b02f7e56deed6ac19f00e3d75031be9485f546bb8f8f0",
+    "idle.png": "c54c970cf6c98f60bf10844137099b2835be12ccbbe6a99b208fc47368b165c9",
+    "jumping.png": "15cdcaccab66d7cea5ee7c6fec0c3b6d593e4105d1439b37bd18796228a2ddcb",
+    "run_east.png": "066f1d5f44c5d2601d29cbcd4b8007fbf9df934271cdf2a9e01c974806bf865e",
+    "run_frontback.png": "8f800fb0ce08b6dd058d6454a79cd7954ab870aea12566580b903ba8c4d8009a",
+    "watering.png": "b0869e579a990369500aaa18d8e5030bfd76f31b8bb160fc52116584f75e08e8"
+  },
+  "sourceDirectory": "output/art/farmer-girl-v2/source",
+  "selectedIdle": "idle-eye-fix.png",
+  "references": {
+    "bodyStyle": "Approved original male farmer v2 and its extension; existing female v1 identity cue.",
+    "poseGuides": "Male idle/run/harvest/dig/chop/water/axe/jump sheets; preserve phase choreography while replacing identity.",
+    "tools": "Reuse the existing original generated axe/shovel/can views, evidence ../farmer-boy-extension-v1."
+  },
+  "conversion": "Authored whole-body poses with male pose guides and new female identity; alpha threshold128 preserving partially opaque handles/face edges; nearest native sampling; one action-wide standing-equivalent scale; torso registration; boot registration for jump; shared existing32-colour palette; west run mirrors east. No limb warps or procedural replacement poses.",
+  "sizeCorrection": "Display scale1.45 matches the41-pixel female standing silhouette to the40-pixel male at1.5; approximately59.45 versus60world units. Hand grips are re-extracted at the actual female scale.",
+  "eyeCorrection": "Imagegen edited the idle source; both front open eyes are one native column by two rows in phases0,1,3, with fixed whole-frame grid registration.",
+  "idleFrontGridPhaseX": 0.25,
+  "offlineDependencies": "Existing bundled Pillow12.3.0 and pngjs7.0.0; evidence docs/licenses/Pillow-LICENSE.txt and docs/licenses/farmer-approved-export. No runtime dependency.",
+  "runtimeSha256": "1f85f41fdc9c9d1a3a937a774e32b31747700eb559bbc0c1f45bf3cb8db9b33a"
+}

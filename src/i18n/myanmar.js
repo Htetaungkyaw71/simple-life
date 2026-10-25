@@ -332,11 +332,16 @@ Make it your own|မိမိစိတ်ကြိုက် အလှဆင်�
 Home & garden|အိမ်နှင့်ဥယျာဉ်
 Craft / materials|ပစ္စည်းဖြင့်ဖန်တီး
 House designs|အိမ်ပုံစံများ
+Green Bay cottage|စိမ်းလန်းအိမ်ငယ်
+Blue Slate cottage|အပြာရောင်အမိုးအိမ်ငယ်
+Green|အစိမ်း
+Blue|အပြာ
+Olive roof, warm cream walls and a matching green interior.|သံလွင်စိမ်းအမိုး၊ နို့နှစ်ရောင်နံရံနှင့် လိုက်ဖက်သော အစိမ်းရောင်အတွင်းခန်း။
+Blue slate roof, pale walls and a matching cool-blue interior.|ကျောက်ပြားပြာအမိုး၊ ဖျော့ရောင်နံရံနှင့် လိုက်ဖက်သော အပြာရောင်အတွင်းခန်း။
 Trees & garden|သစ်ပင်နှင့်ဥယျာဉ်
 Room furniture|အခန်းပရိဘောဂ
 Furniture & room decor|ပရိဘောဂနှင့်အခန်းအလှဆင်
 Craft / Wood & Stone|ဖန်တီး / သစ်သားနှင့်ကျောက်
-House designs / 8 to buy|ဝယ်နိုင်သော အိမ်ပုံစံ 8 မျိုး
 Trees & garden scenery|သစ်ပင်နှင့်ဥယျာဉ်အလှဆင်
 Furniture & room decor|ပရိဘောဂနှင့်အခန်းအလှဆင်
 YOUR HOME|သင့်အိမ်
@@ -345,6 +350,7 @@ Owned|ရှိပြီးပြီ
 Selected|ရွေးထားသည်
 Owned / free|ရှိပြီးပြီ / အခမဲ့
 Use design|ဤပုံစံသုံးမည်
+Use|သုံးမည်
 Confirm purchase|ဝယ်မည်
 Buy one|တစ်ခုဝယ်မည်
 Price / Your coins|ဈေး / သင့်ဒင်္ဂါး
@@ -356,11 +362,15 @@ Your current Home. Door and bed stay in place.|ယခုသင့်အိမ်
 Owned. Switch to this design for free.|ရှိပြီးပြီ။ အခမဲ့ဤပုံစံသို့ ပြောင်းနိုင်သည်။
 Includes exterior, decor and a furnished interior.|အိမ်အပြင်နှင့် ပရိဘောဂပါဝင်သည်။
 Visit Home or Farm to customize.|အလှဆင်ရန် အိမ် သို့မဟုတ် လယ်ယာသို့သွားပါ။
+Choose your home design or change your wardrobe.|အိမ်ပုံစံရွေးပါ သို့မဟုတ် အဝတ်ဗီရိုမှ အဝတ်အစားပြောင်းပါ။
+Includes exterior and a color-matched furnished interior.|အပြင်ပုံစံနှင့် အရောင်လိုက်ဖက်သော ပရိဘောဂပါအတွင်းခန်း ပါဝင်သည်။
 Visit Home or Farm to buy pieces.|ပစ္စည်းဝယ်ရန် အိမ် သို့မဟုတ် လယ်ယာသို့သွားပါ။
 Craft with materials or buy with coins. Pieces stay in Bag.|ပစ္စည်းဖြင့်ဖန်တီးပါ သို့မဟုတ် ဒင်္ဂါးဖြင့်ဝယ်ပါ။ အိတ်တွင်ထားသည်။
 Place, turn and move this piece whenever you like.|ဤပစ္စည်းကို နေရာချ၊ လှည့်၊ ရွှေ့နိုင်သည်။
 Outdoor piece / place outside at Home or Farm.|အပြင်သုံးပစ္စည်း / အိမ် သို့မဟုတ် လယ်ယာအပြင်၌ချပါ။
 Visit Home or Farm to craft decorations.|အလှဆင်ဖန်တီးရန် အိမ် သို့မဟုတ် လယ်ယာသို့သွားပါ။
+Craft here; place inside your house.|ဤနေရာ၌ဖန်တီးပြီး အိမ်အတွင်း၌ချပါ။
+A wooden dining table for inside your house.|အိမ်အတွင်းသုံး သစ်သားထမင်းစားပွဲ။
 Craft here; place outdoors at Home or Farm.|ဤနေရာ၌ဖန်တီးပြီး အိမ်၊ လယ်ယာအပြင်၌ချပါ။
 Need materials. Tap decor to move or remove.|ပစ္စည်းလိုသည်။ အလှဆင်ကိုနှိပ်၍ ရွှေ့၊ ဖယ်နိုင်သည်။
 More objects|နောက်ပစ္စည်းများ
@@ -387,7 +397,8 @@ Garden bench|ဥယျာဉ်ထိုင်ခုံ
 Flower planter|ပန်းစိုက်ပုံး
 Wood fence|သစ်သားခြံစည်းရိုး
 Stone path|ကျောက်လမ်း
-Picnic table|ပျော်ပွဲစားစားပွဲ
+Place inside your house.|အိမ်အတွင်း၌ချပါ။
+Dining table|ထမင်းစားပွဲ
 Garden barrel|ဥယျာဉ်စည်ပုံး
 Lantern post|မီးတိုင်
 Shade oak|အရိပ်သစ်ပင်
@@ -474,11 +485,11 @@ THE WILD FOREST|တောရိုင်းခရီး
 HOME AGAIN|အိမ်ပြန်ချိန်
 Home crate / beside the front steps to the southeast.|အိမ်ရှေ့လှေကား အရှေ့တောင်ဘက်ရှိ သေတ္တာမှယူပါ။
 Plant a crop|သီးနှံစိုက်ပါ
-Follow the south FARM sign. Bag / Seeds / Tomato; use a bed.|တောင်ဘက်လယ်ယာလမ်းသွားပါ။ အိတ် / မျိုးစေ့ / ခရမ်းချဉ်သီးရွေးပြီး စိုက်ခင်း၌သုံးပါ။
+Follow the south road. Bag / Seeds / Tomato; use a bed.|တောင်ဘက်လယ်ယာလမ်းသွားပါ။ အိတ် / မျိုးစေ့ / ခရမ်းချဉ်သီးရွေးပြီး စိုက်ခင်း၌သုံးပါ။
 Water a crop|သီးနှံရေလောင်းပါ
 Select Water. Once daily; three watered midnights for Tomato.|ရေလောင်းဘူးရွေးပါ။ တစ်နေ့တစ်ကြိမ်ရေလောင်းပြီး 3 ညကျော်လျှင် ခရမ်းချဉ်သီးရသည်။
 Visit City while crops grow|သီးနှံကြီးထွားချိန် မြို့သွားပါ
-Follow the east CITY sign from Home. Shops open at 7 am.|အိမ်မှ အရှေ့ဘက်မြို့လမ်းသွားပါ။ နံနက် 7 နာရီတွင် ဆိုင်ဖွင့်သည်။
+Follow the east road from Home. Shops open at 7 am.|အိမ်မှ အရှေ့ဘက်မြို့လမ်းသွားပါ။ နံနက် 7 နာရီတွင် ဆိုင်ဖွင့်သည်။
 Speak to a resident|မြို့သားနှင့်စကားပြောပါ
 Put tools away. Talk to a neighbour near the City square.|ကိရိယာသိမ်းပါ။ မြို့ရင်ပြင်ရှိ အိမ်နီးချင်းနှင့် စကားပြောပါ။
 Collect Wood|သစ်သားစုပါ
@@ -539,7 +550,7 @@ Your goal|သင့်ရည်မှန်းချက်
 A quieter life|အေးချမ်းသောဘဝ
 Grow crops, sell your harvest, and help the town. Follow the Journal to recover Grandfather's Keepsake and bring it home.|သီးနှံစိုက်၊ ရောင်းချပြီး မြို့အတွက်ကူညီပါ။ မှတ်တမ်းအတိုင်း အဘိုး၏အမှတ်တရပစ္စည်းယူ၍ အိမ်ပြန်လာပါ။
 Your first job|ပထမဆုံးလုပ်ရန်
-Walk to the crate beside your front steps. Use it to collect 3 free Tomato seeds. Then follow the south FARM sign.|အိမ်ရှေ့လှေကားဘေးသေတ္တာသို့သွား၍ မျိုးစေ့ 3 စေ့ယူပါ။ ထို့နောက် တောင်ဘက်လယ်ယာလမ်းသွားပါ။
+Walk to the crate beside your front steps. Use it to collect 3 free Tomato seeds. Then follow the south road.|အိမ်ရှေ့လှေကားဘေးသေတ္တာသို့သွား၍ မျိုးစေ့ 3 စေ့ယူပါ။ ထို့နောက် တောင်ဘက်လယ်ယာလမ်းသွားပါ။
 The farming loop|စိုက်ပျိုးမှုအဆင့်များ
 Choose seeds in Bag, then use an empty bed. Select the watering can and water once each day. Sleep at Home; after 3 watered nights, harvest Tomato and sell to Niko in City.|အိတ်မှမျိုးစေ့ရွေးပြီး စိုက်ခင်းအလွတ်၌သုံးပါ။ ရေလောင်းဘူးရွေး၍ နေ့စဉ်တစ်ကြိမ်ရေလောင်းပါ။ အိမ်၌အိပ်ပါ။ 3 ညပြီးလျှင် ခရမ်းချဉ်သီးရိတ်၍ မြို့ရှိ Niko ထံရောင်းပါ။
 Circle: move. Star: use the nearby object or selected tool. Arrow: jump outdoors. Bag: seeds, tools and food. Menu: Journal, save and language.|စက်ဝိုင်းဖြင့်ရွှေ့ပါ။ ကြယ်ဖြင့် အနီးရှိအရာ သို့မဟုတ် ကိရိယာသုံးပါ။ မြားဖြင့်အပြင်၌ခုန်ပါ။ အိတ်တွင် မျိုးစေ့၊ ကိရိယာ၊ အစားအစာရှိသည်။ မီနူးတွင် မှတ်တမ်း၊ သိမ်းခြင်းနှင့်ဘာသာစကားရှိသည်။

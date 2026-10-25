@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simple Life / Tomato Pixel Review</title>
+  <style>
+    :root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#263e38;color:#fff3d2}
+    *{box-sizing:border-box}body{margin:0;padding:24px;background:#263e38}main{max-width:1800px;margin:auto}h1{margin:0 0 6px;font-size:20px}p{margin:0 0 22px;color:#c7d6aa;font-size:13px}.section{margin:24px 0;padding:16px;border:2px solid #172c29;background:#314b3d;box-shadow:0 0 0 2px #587257}h2{margin:0 0 14px;font-size:14px;color:#f3cf73}h3{margin:18px 0 8px;font-size:12px;color:#eef1d3}.notice{padding:10px;border:1px solid #8c7451;background:#263e38;color:#f1cf86;font-size:11px;line-height:1.5}.scale-row{display:flex;align-items:flex-start;gap:18px;margin:18px 0;overflow-x:auto;padding-bottom:8px}.scale-label{position:sticky;left:0;z-index:2;min-width:42px;padding:4px;background:#314b3d;color:#f3cf73}.frame{display:grid;justify-items:center;gap:7px;min-width:max-content}.frame-label{max-width:160px;text-align:center;font-size:11px;color:#eef1d3}.soil-pair{display:flex;align-items:flex-end;gap:4px}.soil-swatch{display:grid;justify-items:center;gap:3px}.soil-swatch span{font-size:9px;color:#c7d6aa}.pixel{display:block;image-rendering:pixelated;image-rendering:crisp-edges;background:#94512f}.strip{display:grid;gap:8px;justify-items:start;margin:12px 0;overflow-x:auto}.strip strong{font-size:11px;color:#c7d6aa}.icons{display:flex;flex-wrap:wrap;gap:24px}.icon-pair{display:grid;grid-template-columns:auto auto;gap:8px 14px;align-items:end;padding:10px;background:#263e38}.icon-pair strong{grid-column:1/-1;font-size:11px;color:#c7d6aa}.candidate-icons .pixel,.slot-preview .pixel{background:#f3eccf}.slot-preview{display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px;margin-top:16px}.error{color:#ff9d7f;white-space:pre-wrap}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Tomato runtime pixel review</h1>
+  <p>Development-only page. Current frames are read directly from the town atlas; dry and watered soil pixels come from the live FarmView generator. Studies are derived in memory and have no runtime keys.</p>
+  <section class="section">
+    <h2>Plant frames on actual dry and watered farm soil</h2>
+    <div id="stages">Loading atlas…</div>
+  </section>
+  <section class="section">
+    <h2>Snapped-sheet candidates / review only / not in runtime atlas</h2>
+    <div id="candidate-a" class="notice">Loading import audit…</div>
+    <h3>Candidate B / original native pixels / largest-stage frame / rendered at 1×</h3>
+    <div id="candidate-b-stages">Loading candidate…</div>
+  </section>
+  <section class="section">
+    <h2>Candidate B farm row / real 48 px plot spacing / eight Tomatoes + current Carrot</h2>
+    <div id="candidate-b-row"></div>
+  </section>
+  <section class="section">
+    <h2>Strawberry Candidate B / review only / not in runtime atlas</h2>
+    <p>Original native pixels at 1×, 3× and 6× on the live dry and watered Farm soil. The common frame is bottom-centred at the largest cleaned stage.</p>
+    <div id="strawberry-candidate-stages">Loading strawberry candidate…</div>
+    <h3>Real 48 px farm row / Strawberry 1× / Tomato 1× / Carrot 2×</h3>
+    <div id="strawberry-farm-row"></div>
+    <div id="strawberry-marker-audit" class="notice"></div>
+  </section>
+  <section class="section">
+    <h2>Farm-row mockup / real runtime scale / Tomato 1× / soil 2× / 48 px spacing</h2>
+    <div id="farm-row"></div>
+  </section>
+  <section class="section">
+    <h2>Previous version / current version</h2>
+    <div id="comparison"></div>
+  </section>
+  <section class="section">
+    <h2>Current 16×16 runtime icon comparison</h2>
+    <div id="icons" class="icons"></div>
+  </section>
+  <section class="section">
+    <h2>Snapped 24×24 Tomato icon candidates / review only / not in runtime atlas</h2>
+    <p>The first Tomato is selected for tomato-item. The second remains an unused alternate. Candidate files are padded only; retained source pixels are unchanged.</p>
+    <div id="candidate-icons" class="icons candidate-icons"></div>
+    <h3>Real UI-scale slot mockups / candidate fitted to the existing 16 px display footprint</h3>
+    <div id="icon-slots" class="slot-preview"></div>
+  </section>
+  <pre id="error" class="error"></pre>
+</main>
+<script type="module">
+  import {soilPixels} from '/src/art/FarmView.js';
+  import {CROPS} from '/src/data/crops.js';
+
+  const atlasUrl='/assets/pixel/processed/town.png';
+  const metaUrl='/assets/pixel/processed/town.json';
+  const previousUrl='/docs/assets/licenses/tomato-redesign-v3/previous-runtime-frames.png';
+  const candidateBUrl='/docs/assets/licenses/tomato-import-v1/candidate-b.png';
+  const importManifestUrl='/docs/assets/licenses/tomato-import-v1/manifest.json';
+  const strawberryCandidateUrl='/docs/assets/licenses/strawberry-import-v1/candidate-b.png';
+  const strawberryManifestUrl='/docs/assets/licenses/strawberry-import-v1/manifest.json';
+  const tomatoItemCandidateUrl='/docs/assets/licenses/tomato-icons-v1/tomato-item-candidate.png';
+  const tomatoItemAlternateUrl='/docs/assets/licenses/tomato-icons-v1/tomato-item-alternate.png';
+  const tomatoSeedCandidateUrl='/docs/assets/licenses/tomato-icons-v1/tomato-seed-item-candidate.png';
+  const stages=[
+    ['tomato-seed','seed'],['tomato-sprout','sprout'],['tomato-young','young / seedling'],
+    ['tomato-flowering','flowering'],['tomato-ripe','ripe'],['tomato-dry','dry'],
+    ['tomato-wilted','wilted'],['tomato-dead','dead'],
+  ];
+  const hex=source=>source.match(/[a-f\d]{2}/gi).map(value=>parseInt(value,16));
+  const equal=(data,index,rgb)=>data[index]===rgb[0]&&data[index+1]===rgb[1]&&data[index+2]===rgb[2]&&data[index+3]!==0;
+  const makeCanvas=(w,h,scale=1)=>{const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;canvas.className='pixel';canvas.style.width=`${w*scale}px`;canvas.style.height=`${h*scale}px`;return canvas;};
+  const loadImage=src=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=src;});
+
+  try{
+    const [meta,atlas,previous,candidateB,importManifest,strawberryCandidate,strawberryManifest,tomatoItemCandidate,tomatoItemAlternate,tomatoSeedCandidate]=await Promise.all([
+      fetch(metaUrl).then(response=>response.json()),loadImage(atlasUrl),loadImage(previousUrl),
+      loadImage(candidateBUrl),fetch(importManifestUrl).then(response=>response.json()),
+      loadImage(strawberryCandidateUrl),fetch(strawberryManifestUrl).then(response=>response.json()),
+      loadImage(tomatoItemCandidateUrl),loadImage(tomatoItemAlternateUrl),loadImage(tomatoSeedCandidateUrl),
+    ]);
+    const frame=name=>{
+      const source=meta.frames[name]?.frame;if(!source)throw new Error(`Missing atlas frame: ${name}`);
+      const canvas=makeCanvas(source.w,source.h);canvas.getContext('2d').drawImage(atlas,source.x,source.y,source.w,source.h,0,0,source.w,source.h);return canvas;
+    };
+    const derived=(name,mode)=>{
+      const canvas=frame(name),ctx=canvas.getContext('2d'),image=ctx.getImageData(0,0,canvas.width,canvas.height),data=image.data;
+      const flowers=['#c98a1a','#f5d442','#fff0a0'].map(hex);
+      const greenFruit=['#193f2a','#286139','#408744','#69ad50','#a2d166'].map(hex);
+      const ripe=['#6a1d24','#a3292c','#d63b34','#f06a4a','#ffe3cf'].map(hex);
+      if(mode==='vegetative'){for(let i=0;i<data.length;i+=4)if(flowers.some(color=>equal(data,i,color)))data[i+3]=0;for(const [x,y] of [[7,19],[7,20]])data[(y*canvas.width+x)*4+3]=0;}
+      if(mode==='green-fruit')for(let i=0;i<data.length;i+=4){const index=ripe.findIndex(color=>equal(data,i,color));if(index>=0){const color=greenFruit[Math.min(index,greenFruit.length-1)];data[i]=color[0];data[i+1]=color[1];data[i+2]=color[2];}}
+      ctx.putImageData(image,0,0);return canvas;
+    };
+    const runtimeFrames=stages.map(([key,label])=>[label,frame(key)]);
+    const studies=[['vegetative (study)',derived('tomato-flowering','vegetative')],['green fruit (study)',derived('tomato-ripe','green-fruit')]];
+    const displayFrames=[...runtimeFrames,...studies];
+    const soilCanvas=wet=>{const soil=makeCanvas(24,24),ctx=soil.getContext('2d'),pixels=ctx.createImageData(24,24);pixels.data.set(soilPixels(15,wet,0,0,15));ctx.putImageData(pixels,0,0);return soil;};
+    const drySoil=soilCanvas(false),wateredSoil=soilCanvas(true);
+    const runtimeScale=CROPS.tomato.visualScale,runtimeWidth=48,runtimeHeight=70,runtimeSoilY=runtimeHeight-44,runtimeCompositeHeight=runtimeSoilY+48;
+    const composite=(plant,scale,wet=false)=>{const canvas=makeCanvas(runtimeWidth,runtimeCompositeHeight,scale),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(wet?wateredSoil:drySoil,0,0,24,24,0,runtimeSoilY,48,48);ctx.drawImage(plant,0,0,plant.width,plant.height,(runtimeWidth-plant.width*runtimeScale)/2,runtimeHeight-plant.height*runtimeScale,plant.width*runtimeScale,plant.height*runtimeScale);return canvas;};
+    const stageRoot=document.querySelector('#stages');stageRoot.textContent='';
+    for(const scale of [1,3,6]){
+      const row=document.createElement('div');row.className='scale-row';const tag=document.createElement('strong');tag.className='scale-label';tag.textContent=`${scale}×`;row.append(tag);
+      for(const [label,plant] of displayFrames){
+        const cell=document.createElement('div');cell.className='frame';const pair=document.createElement('div');pair.className='soil-pair';
+        for(const [wet,soilLabel] of [[false,'dry'],[true,'watered']]){const swatch=document.createElement('div');swatch.className='soil-swatch';swatch.append(composite(plant,scale,wet));const soilCaption=document.createElement('span');soilCaption.textContent=soilLabel;swatch.append(soilCaption);pair.append(swatch);}
+        cell.append(pair);const caption=document.createElement('span');caption.className='frame-label';caption.textContent=label;cell.append(caption);row.append(cell);
+      }
+      stageRoot.append(row);
+    }
+    const [candidateWidth,candidateHeight]=importManifest.candidateB.frameSize;
+    const candidateFrame=index=>{const canvas=makeCanvas(candidateWidth,candidateHeight),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(candidateB,index*candidateWidth,0,candidateWidth,candidateHeight,0,0,candidateWidth,candidateHeight);return canvas;};
+    const candidateFrames=stages.map(([,label],index)=>[label,candidateFrame(index)]);
+    const soilY=candidateHeight-44,candidateCompositeHeight=soilY+48;
+    const candidateComposite=(plant,scale,wet=false)=>{const canvas=makeCanvas(candidateWidth,candidateCompositeHeight,scale),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(wet?wateredSoil:drySoil,0,0,24,24,0,soilY,48,48);ctx.drawImage(plant,0,0);return canvas;};
+    const candidateA=document.querySelector('#candidate-a');
+    candidateA.textContent=importManifest.candidateA.available
+      ? 'Candidate A available: clean 2:1 nearest-neighbour reduction into 24×48.'
+      : `Candidate A unavailable: ${importManifest.candidateA.reason}`;
+    const candidateRoot=document.querySelector('#candidate-b-stages');candidateRoot.textContent='';
+    for(const scale of [1,3,6]){
+      const row=document.createElement('div');row.className='scale-row';const tag=document.createElement('strong');tag.className='scale-label';tag.textContent=`${scale}×`;row.append(tag);
+      for(const [label,plant] of candidateFrames){
+        const cell=document.createElement('div');cell.className='frame';const pair=document.createElement('div');pair.className='soil-pair';
+        for(const [wet,soilLabel] of [[false,'dry'],[true,'watered']]){const swatch=document.createElement('div');swatch.className='soil-swatch';swatch.append(candidateComposite(plant,scale,wet));const soilCaption=document.createElement('span');soilCaption.textContent=soilLabel;swatch.append(soilCaption);pair.append(swatch);}
+        cell.append(pair);const caption=document.createElement('span');caption.className='frame-label';caption.textContent=label;cell.append(caption);row.append(cell);
+      }
+      candidateRoot.append(row);
+    }
+    const candidateRow=makeCanvas(48*9,candidateCompositeHeight),candidateRowContext=candidateRow.getContext('2d');candidateRowContext.imageSmoothingEnabled=false;
+    candidateFrames.forEach(([,plant],index)=>{candidateRowContext.drawImage(index%2?wateredSoil:drySoil,0,0,24,24,index*48,soilY,48,48);candidateRowContext.drawImage(plant,index*48,0);});
+    const carrot=frame('carrot-ripe');candidateRowContext.drawImage(drySoil,0,0,24,24,8*48,soilY,48,48);candidateRowContext.drawImage(carrot,0,0,24,32,8*48,candidateHeight-64,48,64);document.querySelector('#candidate-b-row').append(candidateRow);
+    const [strawberryWidth,strawberryHeight]=strawberryManifest.candidateB.frameSize;
+    const strawberryFrame=index=>{const canvas=makeCanvas(strawberryWidth,strawberryHeight),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(strawberryCandidate,index*strawberryWidth,0,strawberryWidth,strawberryHeight,0,0,strawberryWidth,strawberryHeight);return canvas;};
+    const strawberryFrames=stages.map(([,label],index)=>[label,strawberryFrame(index)]);
+    const strawberrySoilY=strawberryHeight-44,strawberryCompositeHeight=strawberrySoilY+48;
+    const strawberryComposite=(plant,scale,wet=false)=>{const canvas=makeCanvas(strawberryWidth,strawberryCompositeHeight,scale),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(wet?wateredSoil:drySoil,0,0,24,24,0,strawberrySoilY,48,48);ctx.drawImage(plant,0,0);return canvas;};
+    const strawberryRoot=document.querySelector('#strawberry-candidate-stages');strawberryRoot.textContent='';
+    for(const scale of [1,3,6]){
+      const row=document.createElement('div');row.className='scale-row';const tag=document.createElement('strong');tag.className='scale-label';tag.textContent=`${scale}×`;row.append(tag);
+      for(const [label,plant] of strawberryFrames){
+        const cell=document.createElement('div');cell.className='frame';const pair=document.createElement('div');pair.className='soil-pair';
+        for(const [wet,soilLabel] of [[false,'dry'],[true,'watered']]){const swatch=document.createElement('div');swatch.className='soil-swatch';swatch.append(strawberryComposite(plant,scale,wet));const soilCaption=document.createElement('span');soilCaption.textContent=soilLabel;swatch.append(soilCaption);pair.append(swatch);}
+        cell.append(pair);const caption=document.createElement('span');caption.className='frame-label';caption.textContent=label;cell.append(caption);row.append(cell);
+      }
+      strawberryRoot.append(row);
+    }
+    const comparisonBaseline=70,comparisonSoilY=comparisonBaseline-44;
+    const strawberryFarmRow=makeCanvas(48*3,comparisonBaseline+4),strawberryFarmContext=strawberryFarmRow.getContext('2d');strawberryFarmContext.imageSmoothingEnabled=false;
+    [drySoil,wateredSoil,drySoil].forEach((soil,index)=>strawberryFarmContext.drawImage(soil,0,0,24,24,index*48,comparisonSoilY,48,48));
+    strawberryFarmContext.drawImage(strawberryFrame(4),0,comparisonBaseline-strawberryHeight);
+    const tomatoRipe=frame('tomato-ripe');strawberryFarmContext.drawImage(tomatoRipe,48+(48-tomatoRipe.width*CROPS.tomato.visualScale)/2,comparisonBaseline-tomatoRipe.height*CROPS.tomato.visualScale,tomatoRipe.width*CROPS.tomato.visualScale,tomatoRipe.height*CROPS.tomato.visualScale);
+    strawberryFarmContext.drawImage(carrot,0,0,carrot.width,carrot.height,96+(48-carrot.width*CROPS.carrot.visualScale)/2,comparisonBaseline-carrot.height*CROPS.carrot.visualScale,carrot.width*CROPS.carrot.visualScale,carrot.height*CROPS.carrot.visualScale);
+    document.querySelector('#strawberry-farm-row').append(strawberryFarmRow);
+    const proposedScale=1,proposedSignOffsetY=-54,markerHeight=36,plantTop=20-strawberryHeight*proposedScale,markerBottom=proposedSignOffsetY+markerHeight;
+    document.querySelector('#strawberry-marker-audit').textContent=`Proposed runtime metadata: visualScale ${proposedScale}; signOffsetY ${proposedSignOffsetY}. The ${strawberryHeight}px ripe frame starts at y ${plantTop} relative to the plot centre; the 2× water/basket/warning sign ends at y ${markerBottom}, so it sits directly above the plant with ${plantTop-markerBottom}px overlap.`;
+    const farmRow=makeCanvas(48*8,runtimeCompositeHeight),farmContext=farmRow.getContext('2d');farmContext.imageSmoothingEnabled=false;
+    runtimeFrames.forEach(([,plant],index)=>{farmContext.drawImage(index%2?wateredSoil:drySoil,0,0,24,24,index*48,runtimeSoilY,48,48);farmContext.drawImage(plant,index*48+(48-plant.width*runtimeScale)/2,runtimeHeight-plant.height*runtimeScale,plant.width*runtimeScale,plant.height*runtimeScale);});document.querySelector('#farm-row').append(farmRow);
+    const strip=(source,fromAtlas=false)=>{const canvas=makeCanvas(48*8,runtimeCompositeHeight,2),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;runtimeFrames.forEach(([,plant],index)=>{ctx.drawImage(drySoil,0,0,24,24,index*48,runtimeSoilY,48,48);if(fromAtlas)ctx.drawImage(plant,index*48+(48-plant.width*runtimeScale)/2,runtimeHeight-plant.height*runtimeScale,plant.width*runtimeScale,plant.height*runtimeScale);else ctx.drawImage(source,index*24,0,24,32,index*48,runtimeHeight-64,48,64);});return canvas;};
+    const comparison=document.querySelector('#comparison');for(const [label,canvas] of [['before',strip(previous)],['after',strip(null,true)]]){const item=document.createElement('div');item.className='strip';const title=document.createElement('strong');title.textContent=label;item.append(title,canvas);comparison.append(item);}
+    const iconRoot=document.querySelector('#icons');
+    for(const [title,names] of [['Produce',['tomato-item','carrot-item']],['Seed packet',['tomato-seed-item','carrot-seed-item']]]){
+      const group=document.createElement('div');group.className='icon-pair';const heading=document.createElement('strong');heading.textContent=`${title}: Tomato / Carrot`;group.append(heading);
+      for(const scale of [1,8])for(const name of names){const cell=document.createElement('div');cell.className='frame';const source=frame(name),canvas=makeCanvas(16,16,scale);canvas.getContext('2d').drawImage(source,0,0);cell.append(canvas);const caption=document.createElement('span');caption.className='frame-label';caption.textContent=`${name} ${scale}×`;cell.append(caption);group.append(cell);}
+      iconRoot.append(group);
+    }
+    const candidateIconRoot=document.querySelector('#candidate-icons');
+    const framedIcon=(source,scale)=>{const canvas=makeCanvas(24,24,scale),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;if(source.width===16)ctx.drawImage(source,4,4);else ctx.drawImage(source,0,0);return canvas;};
+    for(const [title,candidate,carrotIcon] of [['Produce: selected Tomato / Carrot',tomatoItemCandidate,frame('carrot-item')],['Seed packet: Tomato / Carrot',tomatoSeedCandidate,frame('carrot-seed-item')]]){
+      const group=document.createElement('div');group.className='icon-pair';const heading=document.createElement('strong');heading.textContent=title;group.append(heading);
+      for(const scale of [1,2,8])for(const [label,source]of [['Tomato',candidate],['Carrot',carrotIcon]]){const cell=document.createElement('div');cell.className='frame';cell.append(framedIcon(source,scale));const caption=document.createElement('span');caption.className='frame-label';caption.textContent=`${label} ${scale}×`;cell.append(caption);group.append(cell);}
+      candidateIconRoot.append(group);
+    }
+    const alternate=document.createElement('div');alternate.className='icon-pair';const alternateTitle=document.createElement('strong');alternateTitle.textContent='Unused second Tomato variety';alternate.append(alternateTitle);for(const scale of [1,2,8]){const cell=document.createElement('div');cell.className='frame';cell.append(framedIcon(tomatoItemAlternate,scale));const caption=document.createElement('span');caption.className='frame-label';caption.textContent=`alternate ${scale}×`;cell.append(caption);alternate.append(cell);}candidateIconRoot.append(alternate);
+    const slotCanvas=(size,source)=>{const canvas=makeCanvas(size,size,2),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.fillStyle='#423a32';ctx.fillRect(1,2,size-1,size-2);ctx.fillRect(0,0,size,size-2);ctx.fillStyle='#c6d799';ctx.fillRect(1,1,size-2,size-4);ctx.fillStyle='#fffbe5';ctx.fillRect(2,2,size-4,size-6);ctx.fillStyle='#d3d8ae';ctx.fillRect(2,size-5,size-4,1);ctx.drawImage(source,Math.floor((size-16)/2),Math.floor((size-16)/2),16,16);return canvas;};
+    const slotRoot=document.querySelector('#icon-slots');
+    for(const [title,size,items]of [['Toolbar / 32 logical px / game 2×',32,[['Tomato packet',tomatoSeedCandidate],['Carrot packet',frame('carrot-seed-item')]]],['Bag / 48 logical px / game 2×',48,[['Tomato',tomatoItemCandidate],['Carrot',frame('carrot-item')],['Tomato packet',tomatoSeedCandidate],['Carrot packet',frame('carrot-seed-item')]]]]){const group=document.createElement('div');group.className='icon-pair';const heading=document.createElement('strong');heading.textContent=title;group.append(heading);for(const [label,source]of items){const cell=document.createElement('div');cell.className='frame';cell.append(slotCanvas(size,source));const caption=document.createElement('span');caption.className='frame-label';caption.textContent=label;cell.append(caption);group.append(cell);}slotRoot.append(group);}
+  }catch(error){document.querySelector('#stages').textContent='';document.querySelector('#error').textContent=String(error?.stack||error);}
+</script>
+</body>
+</html>

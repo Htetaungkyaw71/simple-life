@@ -1,0 +1,68 @@
+{
+  "scope": "Proposal 02 only; no integration.",
+  "method": "Original procedural binary-mask surfaces, consistent shallow curb extrusion, flat contact shade, shaped border and grouped existing planting. No new AI image generation.",
+  "inputs": [
+    {
+      "path": "public/assets/pixel/processed/town.png",
+      "sha256": "547e04c74d1d6c90d9a8485a789bd844a856d42ca70d1ee830a09e8d144d71c8"
+    },
+    {
+      "path": "public/assets/pixel/processed/town.json",
+      "sha256": "6fc09351ebfcef2a05c4090901b094086def213524688ac440d470d54850c8be"
+    },
+    {
+      "path": "public/assets/pixel/processed/boy.png",
+      "sha256": "4e0bed0e70c3e155ea6b458ca41a3524f44023f5b1eefacbe39ec5ca8250fd5c"
+    },
+    {
+      "path": "public/assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721"
+    },
+    {
+      "path": "public/assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "output/previews/city-road-layout-v2/fountain-gameplay.png",
+      "size": [
+        1146,
+        804
+      ],
+      "sha256": "c193b56f3836742a3d8ffd8ca3fbe32205c85609bc81ed909c7cd1e5126197b9"
+    },
+    {
+      "path": "output/previews/city-road-layout-v2/terrace-gameplay.png",
+      "size": [
+        1146,
+        804
+      ],
+      "sha256": "2543b8588337856c5c1185dc6843ef4d31bd5a5376ac2a3cca1c562410678a9a"
+    },
+    {
+      "path": "output/previews/city-road-layout-v2/overview.png",
+      "size": [
+        1280,
+        896
+      ],
+      "sha256": "a66b39c538d4d0d521e54118e6579cd9e7767490934135d80415247933616ca1"
+    },
+    {
+      "path": "output/previews/city-road-layout-v2/network-plan.png",
+      "size": [
+        1280,
+        896
+      ],
+      "sha256": "ad515c7ddcf60c91c11b6b8c6074fea1e8aecb7ba752dc3e0384da754534dee7"
+    },
+    {
+      "path": "output/previews/city-road-layout-v2/proposed-city-full.png",
+      "size": [
+        2560,
+        1792
+      ],
+      "sha256": "b9165fb26a9d44ce77ba0f435862e88469002d21376805e08430471d3469809a"
+    }
+  ]
+}

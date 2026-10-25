@@ -10,11 +10,12 @@ import {waterAt} from '../src/data/water.js';
 import {newState} from '../src/systems/state.js';
 import {validate} from '../src/systems/save.js';
 import {houseSolids} from '../src/data/geometry.js';
+import {cityRoads} from '../src/data/cityPlacement.js';
 
 test('larger cottages and sunflower pots stay clear of every paved City road',()=>{
- const m=MAPS.city,roads=[...m.paths,...m.paving,...m.squares.map(([x,y,w,h])=>[x+12,y+12,w-24,h-24])];
+ const m=MAPS.city,roads=cityRoads(m);
  const hit=(a,b)=>a[0]<b[0]+b[2]&&a[0]+a[2]>b[0]&&a[1]<b[1]+b[3]&&a[1]+a[3]>b[1];
- for(const b of m.buildings)for(const r of roads)assert.ok(!houseSolids(b.x,b.y,b.name).some(s=>hit(s,r)),b.name+' overlaps street');
+ for(const b of m.buildings.filter(b=>b.name.startsWith('house'))){const solids=b.solidRows?b.solidRows.map(([x,y,w,h])=>[b.x+x,b.y+y,w,h]):houseSolids(b.x,b.y,b.name);for(const r of roads)assert.ok(!solids.some(s=>hit(s,r)),b.name+' overlaps street');}
  for(const p of m.props.filter(p=>p.name==='city-flowerpot'))for(const r of roads)assert.ok(!hit([p.x,p.y,40,64],r),'flowerpot overlaps street');
 });
 

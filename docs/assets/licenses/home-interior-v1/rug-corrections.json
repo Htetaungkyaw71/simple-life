@@ -1,0 +1,14 @@
+[
+  {
+    "id": "02-rug-bedside",
+    "prompt": "Use case: background-extraction. Edit the supplied rug image only. Preserve this exact rug design, colours, textile details, fringe, rectangle, orientation and full source resolution. REMOVE ALL BACKGROUND, SOFT GROUND SHADOW, COLOURED HALO, GLOW, VIGNETTE AND SHADOW-GRADIENT pixels around the rug/fringe. The result must be one isolated rug on truly empty transparent RGBA, with clean crisp pixel-art edge alpha and fully opaque rug pixels. There must be no shadow or soft haze around it at all. Do not repaint or add any motif, text, other object, floor or backdrop. Keep complete fringe and generous transparent padding. Transparent means alpha ZERO outside the rug silhouette, not a painted black, white or checker background.",
+    "path": "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/02-rug-bedside.png",
+    "selectedPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-98635315-882a-432d-bf7f-7dd00107e1ff.png"
+  },
+  {
+    "id": "05-rug-dining-large",
+    "prompt": "Use case: background-extraction. Edit the supplied rug image only. Preserve this exact rug design, colours, textile details, fringe, rectangle, orientation and full source resolution. REMOVE ALL BACKGROUND, SOFT GROUND SHADOW, COLOURED HALO, GLOW, VIGNETTE AND SHADOW-GRADIENT pixels around the rug/fringe. The result must be one isolated rug on truly empty transparent RGBA, with clean crisp pixel-art edge alpha and fully opaque rug pixels. There must be no shadow or soft haze around it at all. Do not repaint or add any motif, text, other object, floor or backdrop. Keep complete fringe and generous transparent padding. Transparent means alpha ZERO outside the rug silhouette, not a painted black, white or checker background.\nAlso redraw this rug's overall rectangle with the dining reference's substantial depth: width-to-height about110:84 (approximately4:3), NOT a shallow2:1 runner. Retain its original warm palette and restrained border family while giving the rug enough depth for a table plus near/far benches. Long axis stays horizontal; no furniture or floor.",
+    "path": "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/05-rug-dining-large.png",
+    "selectedPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-43f4b024-20e2-4466-a55c-b484e54252f3.png"
+  }
+]

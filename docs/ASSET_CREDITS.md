@@ -1,3 +1,185 @@
+# 2026-10-24 — Strawberry snapped-sheet review
+
+User-supplied AI-assisted Pixel Snapper Strawberry growth sheet, staged by Codex with deterministic transparency/base cleanup and source-exact retained colours. Review-only; not in the production atlas. [Source record](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md). This credit does not claim human authorship, exclusivity or independently verified competition rights.
+
+---
+
+# 2026-10-23 — Mystical Forest River welcome
+
+Welcome background / OpenAI built-in image generation, directed and integrated by Codex for Simple Life. The user's screenshots guided composition and palette only; no reference pixels or UI were extracted. [Prompt, hash and source record](assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md). AI-generated project artwork; no CC0, exclusivity or human-only authorship claim.
+
+---
+
+# 2026-10-21 barber chair and grass v2
+
+User-supplied AI-assisted Pixel Snapper barber chair and grass, integrated with deterministic magenta removal, nearest-neighbor size matching and two code-derived grass bend phases by OpenAI Codex. Exact provenance and limitations: [barber-grass-v2 source record](assets/licenses/barber-grass-v2/SOURCE_RECORD.md). This credit does not claim human authorship, exclusivity or independently verified competition rights.
+
+# v0.43.4 fountain animation review assets
+
+User-supplied AI-assisted Pixel Snapper fountain, animated locally by Codex with deterministic Pillow/NumPy pixel edits. No new external artwork or image generation was used. Review files and provenance: [fountain-animation-v1](assets/licenses/fountain-animation-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.43.1 — clothing rack and barber-chair review
+
+- `snapper-clothing-rack-v3`: user-supplied AI-assisted Pixel Snapper image, integrated unchanged. [Source record](assets/licenses/clothing-rack-v3/SOURCE_RECORD.md).
+- Barber-chair review v2: OpenAI built-in image-generation output directed by Codex; review-only and not in production. [Source record](assets/licenses/barber-chair-review-v2/SOURCE_RECORD.md).
+- Fountain composition reuses the already credited fountain, pots, grass and flowers; no new artwork or third-party source.
+
+---
+
+# v0.43.0 — approved clothing and barber objects
+
+- Clothing cabinet, wrapping counter, fitting corner, full-length mirror and display table; barber worktop, coat hooks and storage cabinet: user-supplied AI-assisted Pixel Snapper outputs, integrated unchanged at runtime scale. [Source record](assets/licenses/shop-interior-pixel-snapper-v1/SOURCE_RECORD.md).
+- Existing shop window, clothing rack, barber mirror/chair and room materials retain their prior credits. Muted green rugs are original code-native Phaser geometry. No new third-party source or dependency.
+
+---
+
+# v0.42.9 — wood and shop review sources
+
+- `snapper-wood-item`: user-supplied AI-assisted Pixel Snapper log bundle, packed unchanged and scaled locally by Phaser. [Source record](assets/licenses/pixel-snapper-wood-v1/SOURCE_RECORD.md).
+- Clothing/barber review assets: OpenAI built-in image generation directed by Codex from user-approved room concepts; not integrated. [Source record](assets/licenses/shop-interior-assets-review-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.2 — Pixel Snapper cottage
+
+- `city-review-cottage-terracotta-snapper`: prior OpenAI-generated cottage processed and supplied by the user through Pixel Snapper; exact-white alpha conversion and integration by Codex. AI-generated/user-adapted, not hand-drawn or CC0. [Source record](assets/licenses/city-cottage-snapper-v2/SOURCE_RECORD.md).
+
+---
+
+# v0.42.1 — terracotta City cottage
+
+- `city-review-cottage-terracotta`: OpenAI built-in image-generation output selected by the user; deterministic native adaptation and integration by Codex. AI-assisted, not hand-drawn or CC0. Original, prompt summary, terms, hashes and modifications: [source record](assets/licenses/city-cottage-terracotta-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.41.0 — City shops and garden
+
+Integrated the previously disclosed AI-generated/Codex-adapted proposal02art unchanged: café, barber, clothing exterior, two cottages, golden flowerpot, barber chair/mirror and clothing rack. All old furniture/character/fountain art retains its existing source credits. [Exact source/terms/manifest](assets/licenses/city-shops-v1/SOURCE_RECORD.md). No new third-party downloads or dependencies.
+
+---
+
+# v0.38.0 — outdoor prop collection
+
+Original OpenAI imagegen/Codex-assisted outdoor lamp, bench, blank direction sign, mailbox, crate, barrel, horizontal/vertical fence, closed gate, well, bush, rock cluster, broadleaf tree, cream-flower terracotta pot and empty market stall. Approved planter is reused unchanged. [Generation, source, adaptation and terms record](assets/licenses/outdoor-collection-v1/SOURCE_RECORD.md). Previous third-party and original asset credits remain applicable; no reference-game pixel extraction.
+
+---
+
+# v0.37.0 — home collection and architecture
+
+Home furniture/decor / original OpenAI built-in image generation; native adaptation, room raster/placement and integration / Codex-assisted Simple Life project source. [Provenance and exact prompts](assets/licenses/home-interior-v1/SOURCE_RECORD.md). The approved table design is reused. The reference game's pixels/layout are not copied. Existing farmer/NPC/environment/font/audio creator attribution remains. No generated review source or screenshot crop is a new runtime network asset.
+
+---
+
+# v0.36.3 — native dining-table candidate (2026-10-15)
+
+Original OpenAI imagegen output, directed/adapted by Codex following the human's native32×24 and interior-camera instructions. [Prompts, hashes, terms and transformations](assets/licenses/table-native-v1/SOURCE_RECORD.md). No reference-game artwork is extracted; existing protected art retains its prior credits. Earlier chunky/walnut candidates are documented in their source records and remain preserved.
+
+---
+
+# v0.36.0 — cedar props (2026-10-15)
+
+Original OpenAI imagegen outputs, directed and adapted by Codex following the human-approved cedar bench style. Forty-eight selected source assets; approved bench reused exactly. [Prompts, provenance, hashes, terms and native adaptations](assets/licenses/cedar-props-v1/SOURCE_RECORD.md). Generated/adapted disclosure; no reference-game pixels extracted. All earlier protected artwork credits remain applicable.
+
+---
+
+# v0.35.3 — single original cedar bench (2026-10-15)
+
+One Home bench sample: original OpenAI built-in imagegen output and Codex-assisted native conversion/integration, with two targeted source edits. [Complete evidence](assets/licenses/bench-cedar-v1/SOURCE_RECORD.md). All other credited artwork remains unchanged. Pending user visual review.
+
+---
+
+# v0.35.2 — prop camera/quality refinement (2026-10-15)
+
+Original OpenAI imagegen outputs, Codex-assisted native conversion and game integration: 28 selected sources, one fireplace correction, 41 revised town frames. Consistent overhead furniture/street-object views; material ramps and separate seating directions. User-provided Plant Tales room is a general visual guide only; none of its assets/layout/text are extracted. [Complete evidence](assets/licenses/props-v3/SOURCE_RECORD.md). Unchanged licensed art retains its original attribution.
+
+---
+
+# v0.35.1 — clean overhead furniture (2026-10-15)
+
+Main furniture sprites and directional views: original built-in OpenAI image generation, with Codex-assisted native colour/alpha conversion, bookcase content correction and rug ground-fit adaptation. Other recent props reuse documented props-v1 generated sources with shared native treatment. [Prompts/hashes/terms](assets/licenses/props-v2/SOURCE_RECORD.md). Existing in-game OpenAI/Codex nature-and-prop credits apply; untouched source-family attribution remains.
+
+---
+
+# v0.35.0 — layered pixel scenery (2026-10-15)
+
+Snowy pine and the refreshed furniture, garden decorations, public seating, lamps, tents, home furnishings and selected woodland props: original built-in OpenAI image generation with Codex-assisted native conversion and disclosed original direction/colour adaptations. [Prompt/source/hash/terms evidence](assets/licenses/props-v1/SOURCE_RECORD.md). Existing pack attributions apply to untouched art. In-game More art → Forest & licences discloses OpenAI nature/prop generation and Codex adaptation. No Plant Tales sprite, tile, map or character pixels are used.
+
+---
+
+# v0.34.0 — young tree and shrub artwork (2026-10-15)
+
+Young tree/shrub: original OpenAI built-in image generation, with Codex-assisted native adaptation and cosmetic fruit/flower overlays. [Source/prompts](assets/licenses/nature-v2/SOURCE_RECORD.md). Water contact effects/bridge masks: original project code with Codex assistance. Earlier asset credits remain applicable; no outside-game pixel extraction.
+
+---
+
+# v0.33.0 — nature artwork (2026-10-15)
+
+Broadleaf/palm/pine/grass: original OpenAI built-in image generation, adapted to native pixels and integrated with Codex assistance. Derived variants/bending/fruit crowns are disclosed in the [source record](assets/licenses/nature-v1/SOURCE_RECORD.md). Existing bush, fern, terrain and other environment attributions remain. No reference-game pixels extracted.
+
+---
+
+# v0.32.0 — Farm spacing and soil restoration (2026-10-15)
+
+Existing original procedural soil, licensed terrain/notice-board artwork and Codex-assisted geometry, interaction, translation and save code. No new raster art or external pixel extraction; existing credits remain.
+
+---
+
+# v0.31.1 — undug Farm ground (2026-10-15)
+
+Existing project terrain and procedural bed material, with Codex-assisted map/system changes. Removed fallow overlays; no new artwork or external reference pixels. Previous asset credits remain applicable.
+
+---
+
+# v0.31.0 — wider farm sites (2026-10-15)
+
+Original project procedural soil, adapted with Codex assistance into lighter fallow areas. No new raster art or reference-game pixel extraction; all existing character/crop/environment PNGs retain prior credits. [Source record](assets/licenses/farm-layout-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.30.1 — Farm presentation cleanup (2026-10-15)
+
+Original project code-authored soil/crop art, adapted with Codex assistance: shallow turf edges, warmer soil and removal of baked soil discs from40crop frames. Existing plant pixels remain unchanged. No new image generation or external-game pixel extraction. [Source/export record](assets/licenses/farm-refresh-v1/SOURCE_RECORD.md). Existing environment and character credits remain.
+
+---
+
+# v0.30.0 — original matching NPC artwork (2026-10-14)
+
+Nell/Sol directional idle/walking: OpenAI built-in imagegen, Codex-assisted whole-pose native sampling, palette matching and atlas packing, based on human-approved own-project standing designs. West walk mirrors east; profile idle stays neutral; Nell uses settling rather than an unreadable blink. [Source/prompts/evidence](assets/licenses/npc-matching-animated-v1/SOURCE_RECORD.md). Clara seed merchant: original generated four-view standing design, native adaptation by Codex, pending review outside runtime. [Source/prompt/evidence](assets/licenses/npc-clara-v1/SOURCE_RECORD.md). Model versions not exposed. No external-game pixel input; original purchased/CC0 pack credits remain.
+
+---
+
+# Nell & Sol standing designs — 2026-10-14
+
+Original OpenAI built-in imagegen artwork, Codex-assisted native conversion/packing and local design preview. User-approved farmer art supplies style/proportion reference; no external-game pixels. [Exact prompts, hashes and rights record](assets/licenses/npc-matching-v1/SOURCE_RECORD.md). Eight standing frames are awaiting user appearance review; existing NPC runtime credits remain unchanged.
+
+---
+
+# Farmer accessories — v0.29.0 (2026-10-14)
+
+Straw hat, round glasses and canvas backpack: original OpenAI built-in imagegen artwork, Codex-assisted native export and frame registration, using the user-approved farmer pair as style reference. Clothing/hair variants adapt the same documented generated farmer pixels. [Prompts/sources/rights evidence](assets/licenses/farmer-cosmetics-v1/SOURCE_RECORD.md). Existing farmer/NPC/environment/font/audio credits remain. No source archive or unused artwork ships.
+
+---
+
+# v0.28.1 — matching female farmer, corrected size and eyes (2026-10-14)
+
+New female idle/run/harvest/dig/chop/water/axe/jump artwork: OpenAI built-in imagegen, native adaptation/integration assisted by Codex. [Female v2 provenance](assets/licenses/farmer-girl-v2/SOURCE_RECORD.md). Shared carried tools retain their male-extension provenance. Current in-game Farmer art credits already disclose OpenAI generation and Codex assistance for both farmers. Existing male, other people and environment credits remain.
+
+---
+
+# v0.27.0 — male jump and held tools (2026-10-14)
+
+New male jump/axe/shovel/watering-can images: OpenAI built-in imagegen, native adaptation/integration assisted by Codex. [Extension provenance](assets/licenses/farmer-boy-extension-v1/SOURCE_RECORD.md). Existing original male body/action art is preserved. Current in-game Farmer art credits already disclose OpenAI generation and Codex assistance; female, Szadi art. residents and environment credits remain.
+
+---
+
+# v0.26.0 — revised male farmer (2026-10-14)
+
+Worker/Classic boy and Garden/Autumn girl: original OpenAI image generation, native adaptation and integration assisted by Codex. The supplied boy v2 poses are copied without altering their native pixels. [Boy provenance](assets/licenses/farmer-boy-revised-v2/SOURCE_RECORD.md). Other complete looks and town NPCs: Szadi art. Prior PixelLab male/source evidence is historical and retained. In-game English/Myanmar Farmer art credits identify both current generated farmers and link OpenAI output terms.
+
+---
+
 # v0.25.0 — farmer girl (2026-10-13)
 
 Girl starter art and running poses: OpenAI built-in image generation, from the user's requested design and approved farmer references. Native pixel conversion/integration: Codex-assisted. [Source record](assets/licenses/farmer-girl-v1/SOURCE_RECORD.md). Boy: user-generated PixelLab. Other complete looks and town people: Szadi art. In-game Farmer art credits disclose both generated farmers in English/Myanmar.
@@ -196,3 +378,9 @@ Current town atlas: **150 frames** (15 added). Existing licensed environment and
 | River, timber bridges, animated stepped waterfalls, cave floors, habitat palettes, exploration map | Original project data/Graphics/Canvas source | Codex assistance recorded in AI_USAGE.md | Uses the established bitmap font and licensed grass/tree palette family; no new downloaded asset or smooth filter |
 
 Detailed creation record: assets/licenses/wilderness-expansion.md. Atlas now **252 frames at 1024²**, adding 100 original and two derived frames. Existing farmer sheets and original boar remain; same eight-file runtime allowlist. No new npm dependency, font, audio, external image service or remote runtime asset. Existing dependency/license evidence under docs/licenses remains unchanged.
+
+## User-supplied City fountain island — 2026-10-21
+
+City fountain island: ChatGPT-generated artwork supplied by the user and integrated at the user's request, with deterministic Pillow/numpy transparency cleanup and water-only animation by OpenAI Codex. Full source hashes, copies, processing details and limitations: `assets/licenses/fountain-island-user-v2/SOURCE_RECORD.md`. This credit does not claim human authorship, exclusivity or independently verified competition rights.
+
+Current eight-frame water-loop evidence and processor: `assets/licenses/fountain-island-water-v5/SOURCE_RECORD.md` and `scripts/animate_user_fountain_water_v5.py`. The animation uses only the supplied source palette and changes no non-water or rim-guard pixels.

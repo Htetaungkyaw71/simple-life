@@ -1,0 +1,345 @@
+{
+  "date": "2026-10-21",
+  "status": "review-only feasibility test; nothing integrated",
+  "largestObservedCleanLogicalAxisPx": 49,
+  "recommendedSingleGenerationLimitPx": 50,
+  "targetTreePx": [
+    175,
+    225
+  ],
+  "targetPalmPx": [
+    176,
+    256
+  ],
+  "verdict": "one clean generation is not large enough; modular fixed-seed composition is feasible",
+  "fixedSeed": 20261021,
+  "assembledTreePx": [
+    175,
+    225
+  ],
+  "runtimeScale": 1,
+  "modules": {
+    "leaf-small": {
+      "rawCanvasPx": [
+        1254,
+        1254
+      ],
+      "rawSourceSha256": "aef47a6d1489fc77067bf3b848d58d0995fc13355f33924db29948e593ee9402",
+      "detectedCellPx": 32,
+      "detectedCleanLogicalSize": [
+        27,
+        23
+      ],
+      "finalCanvasPx": [
+        32,
+        24
+      ],
+      "runtimeScale": 1,
+      "componentsBeforeCleanup": 1,
+      "objectCount": 1,
+      "pinholesFilled": 0,
+      "binaryAlpha": true,
+      "onlyLockedPalette": true,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "processing": "logical-cell majority vote, palette lock, no point sampling/dither/blur/antialias",
+      "sha256": "39d01224c1097215b3ae5383ffad6e4e2bc5456c86a85df8340683c8f890a361"
+    },
+    "leaf-medium": {
+      "rawCanvasPx": [
+        1536,
+        1024
+      ],
+      "rawSourceSha256": "dbf361dbfe5f9d9e420e3874c9c5e3ab50dd3065618e514d395e4d09d0c5651d",
+      "detectedCellPx": 26,
+      "detectedCleanLogicalSize": [
+        40,
+        24
+      ],
+      "finalCanvasPx": [
+        42,
+        32
+      ],
+      "runtimeScale": 1,
+      "componentsBeforeCleanup": 1,
+      "objectCount": 1,
+      "pinholesFilled": 0,
+      "binaryAlpha": true,
+      "onlyLockedPalette": true,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "processing": "logical-cell majority vote, palette lock, no point sampling/dither/blur/antialias",
+      "sha256": "515468734952b42d800ce1821b2206b04c1f133356b6a14ca6fef37e6c0eaf7a"
+    },
+    "leaf-large": {
+      "rawCanvasPx": [
+        1355,
+        1161
+      ],
+      "rawSourceSha256": "d91128f6078f5f29c441c6ab6a3f30d20c05c2150390fd1acaae0d83c5efe401",
+      "detectedCellPx": 26,
+      "detectedCleanLogicalSize": [
+        44,
+        30
+      ],
+      "finalCanvasPx": [
+        50,
+        40
+      ],
+      "runtimeScale": 1,
+      "componentsBeforeCleanup": 1,
+      "objectCount": 1,
+      "pinholesFilled": 0,
+      "binaryAlpha": true,
+      "onlyLockedPalette": true,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "processing": "logical-cell majority vote, palette lock, no point sampling/dither/blur/antialias",
+      "sha256": "4c6e8cc61e36b566e26dfb2ace487114dffe9219630d015cdec3627f7db71a90"
+    },
+    "trunk-branching": {
+      "rawCanvasPx": [
+        1060,
+        1484
+      ],
+      "rawSourceSha256": "bab8261349ec9b01c1e5f431b057a03936dc56fff9222f0dd4a565a63ed4c806",
+      "detectedCellPx": 23,
+      "detectedCleanLogicalSize": [
+        19,
+        45
+      ],
+      "finalCanvasPx": [
+        34,
+        50
+      ],
+      "runtimeScale": 1,
+      "componentsBeforeCleanup": 1,
+      "objectCount": 1,
+      "pinholesFilled": 0,
+      "binaryAlpha": true,
+      "onlyLockedPalette": true,
+      "usedColors": [
+        "#3B4028",
+        "#5A3528",
+        "#744733",
+        "#925B3D",
+        "#B47D55",
+        "#C49A70"
+      ],
+      "processing": "logical-cell majority vote, palette lock, no point sampling/dither/blur/antialias",
+      "sha256": "6b862cac7d57d54b19ea71250dd338bcf40afa0eda5601f05f553d240b35daeb"
+    },
+    "trunk-pale": {
+      "rawCanvasPx": [
+        1006,
+        1563
+      ],
+      "rawSourceSha256": "aef911ca63defce6ddefb2bf4bced2c3ca79e4ef723a5b19ac15dd12eb63d82b",
+      "detectedCellPx": 27,
+      "detectedCleanLogicalSize": [
+        11,
+        45
+      ],
+      "finalCanvasPx": [
+        26,
+        50
+      ],
+      "runtimeScale": 1,
+      "componentsBeforeCleanup": 1,
+      "objectCount": 1,
+      "pinholesFilled": 0,
+      "binaryAlpha": true,
+      "onlyLockedPalette": true,
+      "usedColors": [
+        "#3B4028",
+        "#746B58",
+        "#9A9178",
+        "#B8AF94",
+        "#D0C7AB"
+      ],
+      "processing": "logical-cell majority vote, palette lock, no point sampling/dither/blur/antialias",
+      "sha256": "0b72a775b9d16b2ddd9141c1900b6445e3f673e4d7cc22b33a76de746f8c70b3"
+    },
+    "root-flare": {
+      "rawCanvasPx": [
+        1563,
+        1006
+      ],
+      "rawSourceSha256": "fb8d73a2bb6011850dbba482ac2aebb730e6c84c7b969cf232dacde61233deb7",
+      "detectedCellPx": 25,
+      "detectedCleanLogicalSize": [
+        32,
+        24
+      ],
+      "finalCanvasPx": [
+        52,
+        28
+      ],
+      "runtimeScale": 1,
+      "componentsBeforeCleanup": 1,
+      "objectCount": 1,
+      "pinholesFilled": 0,
+      "binaryAlpha": true,
+      "onlyLockedPalette": true,
+      "usedColors": [
+        "#3B4028",
+        "#5A3528",
+        "#744733",
+        "#925B3D",
+        "#B47D55",
+        "#C49A70"
+      ],
+      "processing": "logical-cell majority vote, palette lock, no point sampling/dither/blur/antialias",
+      "sha256": "cf2a07a0658e9aee34c7e7acdc91a7f2b88fc2920c460b1dfc27abea48347c35"
+    }
+  },
+  "placements": [
+    {
+      "module": "trunk-branching",
+      "centerX": 88,
+      "bottomY": 211,
+      "flip": false
+    },
+    {
+      "module": "trunk-branching",
+      "centerX": 88,
+      "bottomY": 174,
+      "flip": true
+    },
+    {
+      "module": "trunk-branching",
+      "centerX": 88,
+      "bottomY": 137,
+      "flip": false
+    },
+    {
+      "module": "root-flare",
+      "centerX": 88,
+      "bottomY": 225,
+      "flip": false
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 88,
+      "bottomY": 69,
+      "flip": true
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 55,
+      "bottomY": 84,
+      "flip": true
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 121,
+      "bottomY": 85,
+      "flip": false
+    },
+    {
+      "module": "leaf-medium",
+      "centerX": 35,
+      "bottomY": 106,
+      "flip": true
+    },
+    {
+      "module": "leaf-medium",
+      "centerX": 70,
+      "bottomY": 107,
+      "flip": true
+    },
+    {
+      "module": "leaf-medium",
+      "centerX": 106,
+      "bottomY": 108,
+      "flip": true
+    },
+    {
+      "module": "leaf-medium",
+      "centerX": 140,
+      "bottomY": 107,
+      "flip": false
+    },
+    {
+      "module": "leaf-medium",
+      "centerX": 88,
+      "bottomY": 94,
+      "flip": true
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 88,
+      "bottomY": 119,
+      "flip": false
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 52,
+      "bottomY": 128,
+      "flip": false
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 91,
+      "bottomY": 132,
+      "flip": false
+    },
+    {
+      "module": "leaf-large",
+      "centerX": 128,
+      "bottomY": 130,
+      "flip": true
+    },
+    {
+      "module": "leaf-small",
+      "centerX": 25,
+      "bottomY": 132,
+      "flip": true
+    },
+    {
+      "module": "leaf-small",
+      "centerX": 151,
+      "bottomY": 133,
+      "flip": false
+    },
+    {
+      "module": "leaf-small",
+      "centerX": 74,
+      "bottomY": 151,
+      "flip": false
+    },
+    {
+      "module": "leaf-small",
+      "centerX": 111,
+      "bottomY": 150,
+      "flip": false
+    }
+  ],
+  "outputs": {
+    "assembled-test-tree.png": "eaba6551457b008caec81f95266ae2248a01fa985ab5dba648f311869877cadf",
+    "assembled-tree-fit-1x.png": "3e0cee95d00835794a9494ee1a6903ed8e164faf37d503774d951171a0db2f49",
+    "assembled-tree-fit-3x.png": "a95c6331b075a6f8c1e34070c770ae892cc830f6639e49d0dfaaf6af74b9a5f1",
+    "leaf-large.png": "4c6e8cc61e36b566e26dfb2ace487114dffe9219630d015cdec3627f7db71a90",
+    "leaf-medium.png": "515468734952b42d800ce1821b2206b04c1f133356b6a14ca6fef37e6c0eaf7a",
+    "leaf-small.png": "39d01224c1097215b3ae5383ffad6e4e2bc5456c86a85df8340683c8f890a361",
+    "root-flare.png": "cf2a07a0658e9aee34c7e7acdc91a7f2b88fc2920c460b1dfc27abea48347c35",
+    "tree-modules-3x.png": "d28a1b134bd836a5b7cb2486bf0315997b5593d8e94bcb529ea88609e096757a",
+    "trunk-branching.png": "6b862cac7d57d54b19ea71250dd338bcf40afa0eda5601f05f553d240b35daeb",
+    "trunk-pale.png": "0b72a775b9d16b2ddd9141c1900b6445e3f673e4d7cc22b33a76de746f8c70b3"
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html><html><head><meta charset="utf-8"><title>NPC integration browser QA</title>
+<style>body{margin:12px;background:#25332d;color:#f4edd9;font:14px system-ui}button,select{font:inherit;padding:7px;margin:3px}iframe{border:0;display:block;max-width:none}pre{white-space:pre-wrap}#stage{overflow:auto;max-height:850px}</style></head>
+<body><h1>NPC integration browser QA</h1><p>Isolated local fixtures on port 4215. This page is excluded from production.</p>
+<label>Viewport <select id="profile"><option value="desktop">Desktop 1280×720</option><option value="phone">Phone 390×844</option><option value="landscape">Landscape 640×360</option></select></label>
+<button id="run">Run NPC checks</button><button id="show">Show Nell</button><button id="jump">Show Sol</button><button id="nellshop">Show Nell shop</button><pre id="status">Ready</pre><div id="stage"></div>
+<script type="module">
+import {newState} from '/src/systems/state.js';
+import {GIRL_V2_HANDS,GIRL_CARRY_ANGLES} from '/src/data/revisedGirl.js';
+import {FARM_PLOTS} from '/src/data/farms.js';
+const carryProfile={hands:GIRL_V2_HANDS,angles:GIRL_CARRY_ANGLES};
+import {farmerCarryPose} from '/src/systems/farmerCarry.js';
+import {characterFrame} from '/src/systems/characterAnimation.js';
+import {BOY_FARMER} from '/src/data/appearance.js';
+import {VEGETATION} from '/src/data/vegetation.js';
+import {walkable} from '/src/data/locations.js';
+import {contextFor} from '/src/systems/context.js';
+const status=document.querySelector('#status'),stage=document.querySelector('#stage');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const fixture=(tool='hand',action=null,character='girl')=>{
+ const s=newState(character);Object.assign(s,{area:'home',position:{x:480,y:800},selected:tool,minute:600,money:311,starterSeedsClaimed:true,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';
+ if(action){s.area='farm';s.position={x:696,y:152};s.ownsCopperCan=true;}
+ if(action==='harvesting'){const bed=FARM_PLOTS[0];s.area='farm';s.position={x:bed.x,y:bed.y+16};s.plots[0]={crop:'tomato',growth:3,wateredDay:1,missedDays:0,lastEvaluatedDay:0};}
+ if(action==='attack'){s.area='forest';s.position={x:936,y:4428};}
+ if(action==='chopping')for(const n of VEGETATION.farm.trees){s.position={x:n.x,y:n.y-48};if(walkable('farm',s.position.x,s.position.y,12,false,s)&&contextFor(s)?.id===n.id)break;}
+ return s;
+};
+let frame,win,records=[];
+const snapshot=()=>{try{return win.__simpleLife?.snapshot();}catch{return null;}};
+async function until(fn,message,ms=6000){const end=performance.now()+ms;while(performance.now()<end){const v=fn();if(v)return v;await sleep(20);}throw Error('Timed out: '+message);}
+function key(code,down=true){const names={KeyA:'a',KeyD:'d',KeyW:'w',KeyS:'s',KeyE:'e',KeyK:'k',Space:' ',DigitTwo:'2',DigitFour:'4',DigitFive:'5',DigitSix:'6'};const codes={KeyA:65,KeyD:68,KeyW:87,KeyS:83,KeyE:69,KeyK:75,Space:32,DigitTwo:50,DigitFour:52,DigitFive:53,DigitSix:54};win.dispatchEvent(new win.KeyboardEvent(down?'keydown':'keyup',{key:names[code],code,keyCode:codes[code],which:codes[code],bubbles:true}));}
+async function tap(code){key(code);await sleep(35);key(code,false);}
+async function click(id){const c=await until(()=>snapshot()?.controls.find(c=>c.id===id&&!c.disabled),id);const canvas=win.document.querySelector('canvas'),rect=canvas.getBoundingClientRect();const x=rect.left+c.x+c.w/2,y=rect.top+c.y+c.h/2;
+ for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(240);}
+async function start(state){
+ assert(location.port==='4215','Run only on isolated port4215, preserving the normal game save.');
+ frame?.remove();localStorage.setItem('simple-life.save.v1',JSON.stringify(state));
+ frame=document.createElement('iframe');const profile=document.querySelector('#profile').value,phone=profile!=='desktop',landscape=profile==='landscape';frame.width=landscape?640:phone?390:1280;frame.height=landscape?360:phone?844:720;localStorage.setItem('simple-life.language.v1',phone?'mm':'en');frame.title='Isolated game';frame.src='/?qa';stage.append(frame);win=frame.contentWindow;
+ await until(()=>snapshot()?.controls.length,'game boot');
+ if(snapshot().controls.some(c=>c.id==='language-en'))await click(phone?'language-mm':'language-en');
+ await click('Continue');await until(()=>snapshot()?.player&&!snapshot().paused,'playing');
+}
+
+
+const record=label=>{records.push(label);status.textContent='Running…\n'+records.join('\n');};
+function cityFixture(id,minute=600){const s=fixture();s.area='city';s.position={x:id==='nell'?1604:508,y:1076};s.minute=minute;s.money=1000;s.appearance.ownedAccessories=['straw'];s.appearance.accessories={hat:'straw',glasses:null,bag:null};return s;}
+const npcs=()=>snapshot().residents.filter(n=>['city-nell','city-sol'].includes(n.id));
+async function shop(id){await start(cityFixture(id));await tap('KeyE');await until(()=>snapshot()?.menu==='appearance',id+' shop');}
+function tabs(expected){const actual=snapshot().controls.filter(c=>c.id.startsWith('style-tab-')).map(c=>c.id.slice(10));assert(JSON.stringify(actual)===JSON.stringify(expected),'merchant categories: '+actual);const bounds=snapshot().menuBounds;for(const c of snapshot().controls.filter(c=>c.id.startsWith('style-')))assert(c.x>=bounds.x&&c.y>=bounds.y&&c.x+c.w<=bounds.x+bounds.w+1&&c.y+c.h<=bounds.y+bounds.h+1,'button in panel '+c.id);}
+document.querySelector('#run').onclick=async()=>{try{
+ records=[];await shop('nell');tabs(['clothes','accessories']);
+ assert(npcs().every(n=>n.nativeWidth===64&&n.nativeHeight===64&&n.scale===1.5&&n.originY===.875),'matching native resident rigs');
+ assert(snapshot().residents.filter(n=>['city-clara','city-eli'].includes(n.id)).every(n=>n.nativeWidth===24&&n.nativeHeight===40),'legacy shared variants retained');
+ const frozen=npcs().map(n=>n.frame).join();await sleep(250);assert(frozen===npcs().map(n=>n.frame).join(),'menu pauses NPC animations');record('two matching NPC rigs, legacy neighbours and pause');
+ await click('style-next');await click('style-next');await click('style-apply');tabs(['clothes','accessories']);assert(snapshot().state.money===910,'outfit purchase cost');
+ await click('style-tab-accessories');tabs(['clothes','accessories']);await click('style-next');await click('style-apply');assert(snapshot().state.money===870,'glasses cost');record('Nell: outfits/extras only, buy and navigate');await click('style-close');
+ const sol=structuredClone(snapshot().state);sol.position={x:472,y:1040};await start(sol);await tap('KeyE');await until(()=>snapshot()?.menu==='appearance','Sol shop');tabs(['hair']);
+ for(let i=0;i<3;i++)await click('style-next');await click('style-apply');tabs(['hair']);assert(snapshot().state.money===810,'hair price');assert(snapshot().state.appearance.hair==='golden','hair applied');assert(snapshot().state.appearance.accessories.hat==='straw','hat remains equipped');record('Sol: hair only; equipment stays owned and worn');await click('style-close');
+ const retained=structuredClone(snapshot().state);await start(retained);assert(snapshot().state.money===810&&snapshot().state.appearance.hair==='golden'&&snapshot().state.appearance.accessories.hat==='straw','Continue retains purchases');record('Continue retains wallet, hair and extras');
+ const phases=new Set();const end=performance.now()+4450;while(performance.now()<end){for(const n of npcs())if(n.id==='city-sol')phases.add(n.frame.split('-').at(-1));await sleep(15);}assert(phases.size===4,'four idle timing phases');record('complete idle cycle');
+ await start(cityFixture('nell',1130));const walk=new Set();const untilTime=performance.now()+1000;while(performance.now()<untilTime){for(const n of npcs()){assert(n.visible&&n.moving&&n.frame.includes('-walking-'),'authored walking on commute '+JSON.stringify({minute:snapshot().state.minute,n}));walk.add(n.frame.split('-').at(-1));}await sleep(15);}assert(walk.size===6,'six walk phases');record('evening commute with six authored phases');
+ await start(cityFixture('nell',1140));assert(npcs().every(n=>!n.visible&&!n.markerVisible),'home after curfew');await tap('KeyE');assert(snapshot().menu!=='appearance','closed shop');record('7pm curfew and shop closing');
+ await shop('sol');status.textContent='PASS '+document.querySelector('#profile').value+'\n'+records.join('\n');
+}catch(e){status.textContent='FAIL '+e.stack+'\nCompleted: '+records.join(', ');console.error(e);}};
+document.querySelector('#show').onclick=async()=>{await start(cityFixture('nell'));status.textContent='Nell / matching farmer scale';};
+document.querySelector('#nellshop').onclick=async()=>{await shop('nell');status.textContent='Nell / clothes and accessories only';};
+document.querySelector('#jump').onclick=async()=>{await shop('sol');status.textContent='Sol / hair only; equipped hat hidden in preview';};
+</script></body></html>

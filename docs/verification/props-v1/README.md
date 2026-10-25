@@ -1,0 +1,13 @@
+# Layered pixel props verification — 2026-10-15
+
+User story: Continue with the approved farmer → view richer overhead scenery → craft/buy a piece → see the same sprite in the catalog and placement preview → turn/place → save/Continue with ownership and position intact. Snow trees should show bright caps, dark needles and warm bark without double whitening. This is an offline Phaser game; there is no API/backend boundary.
+
+All **354 tests pass**, and `npm run build` succeeds. New regressions cover every decoration in four directions resolving a valid local frame, authored upright side/rear views, thumbnail bounds in compact/full preview areas and snow preserving native colour separation. Existing farming, collision, placement, price, inventory and save regressions remain green. No new dependency.
+
+`node scripts/check_props.mjs` passes: **42** old cells replaced in place; **12** frames appended; **904** non-target cells retain exact RGBA pixels; every old frame keeps exact metadata/coordinates. Selected raw hashes match, changed/new cells have binary alpha, and snow has separately measurable cap/needle/bark pixels. Atlas **1024×2564 / 958 frames**. [Audit](pixel-audit.json), [export](export.json), [source evidence/prompts](../../assets/licenses/props-v1/SOURCE_RECORD.md).
+
+Desktop **1280×720 English** and phone-size **390×844 Myanmar** browser fixtures pass on isolated port 4216. Real canvas mouse/key controls exercise material crafting, four turns, placement, save/Continue, blossom/vase purchase, themed interior, City props and snow texture selection. [Desktop result](desktop-checks.txt), [phone result](phone-checks.txt), [phone catalog](phone-furniture.jpg), [interior](interior.jpg), [snow](snow-tree.jpg), [town](city-props.jpg). Screenshots are disposable fixture views, not the user's saved farm. No test writes to the user's 4215/4205 save.
+
+Production preview on 4205 serves **assets/index-DZSj2X0j.js**, one fullscreen canvas, clean console and **46 allowlisted files**. Raw sources, backup atlases, native gallery, source scripts, QA pages and vendor archives do not ship. Production language/title boot is checked without Continue/save replacement. No publication, source push or competition submission.
+
+Limitations: phone viewport and Myanmar controls are simulated; physical-device touch/other engines and performance benchmarking are not covered. The reference supplies general pixel-object perspective and materials; this is original generated/adapted artwork, not an exact reproduction. Rear bench, end-on fence and short interior seats are original code-native extensions; right views mirror the corresponding upright sprite. Broad existing houses/terrain/crops/characters keep their established art and licences.

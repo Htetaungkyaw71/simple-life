@@ -1,0 +1,365 @@
+{
+  "date": "2026-10-21",
+  "status": "review only; not integrated",
+  "cameraZoom": 1.5,
+  "newAssetRuntimeScale": 1,
+  "lockedPalette": [
+    "#3B4028",
+    "#53582D",
+    "#6A7138",
+    "#858B49",
+    "#A1A35C"
+  ],
+  "checks": {
+    "wide": {
+      "rawSourceSha256": "5901e82059179111e89518f02bdb15b99f44bd8df2eb78bb469c4fb1b6f9e96d",
+      "rawCanvasPxBeforeAnyResize": [
+        1491,
+        1055
+      ],
+      "detectedCellPx": 19,
+      "nativeLogicalSize": [
+        48,
+        32
+      ],
+      "sourceObjectBoundsPx": [
+        296,
+        233,
+        1217,
+        838
+      ],
+      "sourceObjectSizePx": [
+        921,
+        605
+      ],
+      "topCandidates": [
+        {
+          "cell": 19,
+          "score": 0.472512,
+          "runSupport": 0.589051,
+          "edgePeriodicity": 0.224866,
+          "native": [
+            48,
+            32
+          ]
+        },
+        {
+          "cell": 18,
+          "score": 0.395129,
+          "runSupport": 0.533115,
+          "edgePeriodicity": 0.189799,
+          "native": [
+            51,
+            34
+          ]
+        },
+        {
+          "cell": 20,
+          "score": 0.375253,
+          "runSupport": 0.471922,
+          "edgePeriodicity": 0.169832,
+          "native": [
+            46,
+            30
+          ]
+        },
+        {
+          "cell": 17,
+          "score": 0.311953,
+          "runSupport": 0.493218,
+          "edgePeriodicity": 0.185267,
+          "native": [
+            54,
+            36
+          ]
+        },
+        {
+          "cell": 21,
+          "score": 0.244796,
+          "runSupport": 0.295409,
+          "edgePeriodicity": 0.137241,
+          "native": [
+            44,
+            29
+          ]
+        }
+      ],
+      "majorityVoteLogicalGrid": [
+        48,
+        32
+      ],
+      "finalCanvasPx": [
+        48,
+        34
+      ],
+      "runtimeScale": 1,
+      "objectCount": 1,
+      "componentSizes": [
+        912
+      ],
+      "binaryAlpha": true,
+      "noMagentaOrPink": true,
+      "onlyLockedColors": true,
+      "usesLightestHighlight": true,
+      "isolatedInteriorColorPixels": 0,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "processing": "detected-grid majority vote; no point sampling, filtering, dithering or antialiasing",
+      "cleanup": {
+        "componentsBeforeLargest": 1,
+        "componentSizesBeforeLargest": [
+          912
+        ],
+        "pinholesFilled": 0,
+        "interiorSpecklesReplaced": 47
+      },
+      "sha256": "c921f11a05b6bc377132e5db66fe2ecff531d7a85138b5ba2acbdb0232b36815"
+    },
+    "tall": {
+      "rawSourceSha256": "ac1c50a9b3348865b93a05b18385c8a8e45ab93dedc8cd385eed039c498bc93b",
+      "rawCanvasPxBeforeAnyResize": [
+        1254,
+        1254
+      ],
+      "detectedCellPx": 20,
+      "nativeLogicalSize": [
+        33,
+        49
+      ],
+      "sourceObjectBoundsPx": [
+        306,
+        156,
+        962,
+        1138
+      ],
+      "sourceObjectSizePx": [
+        656,
+        982
+      ],
+      "topCandidates": [
+        {
+          "cell": 20,
+          "score": 0.449959,
+          "runSupport": 0.659869,
+          "edgePeriodicity": 0.173822,
+          "native": [
+            33,
+            49
+          ]
+        },
+        {
+          "cell": 19,
+          "score": 0.404648,
+          "runSupport": 0.68874,
+          "edgePeriodicity": 0.152514,
+          "native": [
+            35,
+            52
+          ]
+        },
+        {
+          "cell": 21,
+          "score": 0.389668,
+          "runSupport": 0.539928,
+          "edgePeriodicity": 0.11724,
+          "native": [
+            31,
+            47
+          ]
+        },
+        {
+          "cell": 22,
+          "score": 0.314976,
+          "runSupport": 0.403969,
+          "edgePeriodicity": 0.125864,
+          "native": [
+            30,
+            45
+          ]
+        },
+        {
+          "cell": 18,
+          "score": 0.268288,
+          "runSupport": 0.558212,
+          "edgePeriodicity": 0.138528,
+          "native": [
+            36,
+            55
+          ]
+        }
+      ],
+      "majorityVoteLogicalGrid": [
+        33,
+        49
+      ],
+      "finalCanvasPx": [
+        30,
+        48
+      ],
+      "runtimeScale": 1,
+      "objectCount": 1,
+      "componentSizes": [
+        855
+      ],
+      "binaryAlpha": true,
+      "noMagentaOrPink": true,
+      "onlyLockedColors": true,
+      "usesLightestHighlight": true,
+      "isolatedInteriorColorPixels": 0,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "processing": "detected-grid majority vote; no point sampling, filtering, dithering or antialiasing",
+      "cleanup": {
+        "componentsBeforeLargest": 2,
+        "componentSizesBeforeLargest": [
+          853,
+          1
+        ],
+        "pinholesFilled": 2,
+        "interiorSpecklesReplaced": 40
+      },
+      "sha256": "404131cf34dce2c2962ce1ce012f1b16567a7db73ca9d4c4c3519b0ebbbd7cd9"
+    },
+    "small": {
+      "rawSourceSha256": "14fee1fefd79b7ef3b00b082ce7200435102763cc33e8185e3310e588158447b",
+      "rawCanvasPxBeforeAnyResize": [
+        1254,
+        1254
+      ],
+      "detectedCellPx": 20,
+      "nativeLogicalSize": [
+        37,
+        37
+      ],
+      "sourceObjectBoundsPx": [
+        255,
+        267,
+        1000,
+        1001
+      ],
+      "sourceObjectSizePx": [
+        745,
+        734
+      ],
+      "topCandidates": [
+        {
+          "cell": 20,
+          "score": 0.592477,
+          "runSupport": 0.780876,
+          "edgePeriodicity": 0.192129,
+          "native": [
+            37,
+            37
+          ]
+        },
+        {
+          "cell": 19,
+          "score": 0.571051,
+          "runSupport": 0.805455,
+          "edgePeriodicity": 0.146955,
+          "native": [
+            39,
+            39
+          ]
+        },
+        {
+          "cell": 21,
+          "score": 0.464817,
+          "runSupport": 0.624141,
+          "edgePeriodicity": 0.126252,
+          "native": [
+            35,
+            35
+          ]
+        },
+        {
+          "cell": 18,
+          "score": 0.373666,
+          "runSupport": 0.588621,
+          "edgePeriodicity": 0.138924,
+          "native": [
+            41,
+            41
+          ]
+        },
+        {
+          "cell": 22,
+          "score": 0.358987,
+          "runSupport": 0.454328,
+          "edgePeriodicity": 0.156387,
+          "native": [
+            34,
+            33
+          ]
+        }
+      ],
+      "majorityVoteLogicalGrid": [
+        37,
+        37
+      ],
+      "finalCanvasPx": [
+        38,
+        38
+      ],
+      "runtimeScale": 1,
+      "objectCount": 1,
+      "componentSizes": [
+        786
+      ],
+      "binaryAlpha": true,
+      "noMagentaOrPink": true,
+      "onlyLockedColors": true,
+      "usesLightestHighlight": true,
+      "isolatedInteriorColorPixels": 0,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "processing": "detected-grid majority vote; no point sampling, filtering, dithering or antialiasing",
+      "cleanup": {
+        "componentsBeforeLargest": 1,
+        "componentSizesBeforeLargest": [
+          785
+        ],
+        "pinholesFilled": 1,
+        "interiorSpecklesReplaced": 55
+      },
+      "sha256": "9a2a65ee46d608f25233e071a7f44b80c5bcb253bf6d4234e8296ff9b806af91"
+    }
+  },
+  "zoomAnalysis": {
+    "scale1AtZoom1_5": "one source pixel maps to 1.5 screen pixels, so nearest sampling alternates one- and two-screen-pixel runs",
+    "integerOption": 2,
+    "worldViewChange": "world viewport width and height become 75% of the current zoom-1.5 view; visible world area becomes 56.25%",
+    "ui": "separate UI scene stays viewport-anchored; world-relative HUD pointers must continue using camera zoom",
+    "existingFractionalAssetScales": [
+      0.45,
+      0.7,
+      1.1,
+      1.66
+    ]
+  },
+  "futureTreeStage": "generate a new final-size scale-1 palm as the fourth tree asset; do not recolor the old scale-1.66 palm",
+  "outputs": {
+    "camera-zoom-1_5-proof.png": "b73910e7145c3b8e2f0c31a549ba824a22d3b24f44c1633558b54c6312001c1f",
+    "clump-small.png": "9a2a65ee46d608f25233e071a7f44b80c5bcb253bf6d4234e8296ff9b806af91",
+    "clump-tall.png": "404131cf34dce2c2962ce1ce012f1b16567a7db73ca9d4c4c3519b0ebbbd7cd9",
+    "clump-wide.png": "c921f11a05b6bc377132e5db66fe2ecff531d7a85138b5ba2acbdb0232b36815",
+    "clumps-alone-3x.png": "d4cf0f95dc7ec0ede6d51207cfd9af21955417dba4743e285d8e3a196f926199",
+    "clumps-fit-new-lawn-1x.png": "d868776239f87eabecd0aea6a704a933b7803c8d51b313aefdfeea283e085f0b",
+    "clumps-fit-new-lawn-3x.png": "ee20337ce603c7c754e2e08fd728f74123bde0a24e45fa973db36adc386bc3c0"
+  }
+}

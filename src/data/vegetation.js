@@ -11,8 +11,8 @@ const GROUND_PLANTS={
 export const isGrass=p=>Object.hasOwn(GROUND_PLANTS,p.name);
 // Coordinate identities survive save/load and are independent of camera/display sprites.
 export const VEGETATION=Object.fromEntries(Object.entries(MAPS).map(([area,map])=>{
- const trees=map.props.filter(isTree).map(p=>({id:`tree:${p.name}:${p.x}:${p.y}`,x:p.x+32,y:p.y+90,prop:p}));
- const grass=[...(map.grass||[]),...[...map.details,...map.props].filter(isGrass).map(p=>{const [w,h]=GROUND_PLANTS[p.name];return {id:`grass:${p.name}:${p.x}:${p.y}`,x:p.x+w,y:p.y+h*2,prop:p,dry:p.name==='dry-grass',variant:0};})];
+ const trees=map.props.filter(isTree).map(p=>({id:p.vegetationId||`tree:${p.name}:${p.x}:${p.y}`,x:p.x+32,y:p.y+90,prop:p}));
+ const grass=[...(map.grass||[]),...[...map.details,...map.props].filter(isGrass).map(p=>{const [w,h]=GROUND_PLANTS[p.name],[x,y]=p.landscapeVisual?.foot??[p.x+w,p.y+h*2];return {id:p.vegetationId||`grass:${p.name}:${p.x}:${p.y}`,x,y,prop:p,dry:p.name==='dry-grass',variant:0};})];
  const boxes=new Map();for(const t of trees){const wide=t.prop.name==='tree-wide';boxes.set([t.prop.x+(wide?26:22),t.prop.y+76,wide?42:20,16].join(','),t.id);}
  for(const n of grass)if(n.prop?.name==='bamboo-clump')boxes.set([n.prop.x+20,n.prop.y+48,20,16].join(','),n.id);
  const buckets=new Map();for(const node of [...trees,...grass]){const key=Math.floor(node.x/128)+':'+Math.floor(node.y/128);if(!buckets.has(key))buckets.set(key,[]);buckets.get(key).push(node);}

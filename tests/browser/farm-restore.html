@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Restore farm ground browser QA</title>
+<style>body{margin:12px;background:#25332d;color:#f4edd9;font:14px system-ui}button,select{font:inherit;padding:7px;margin:3px}iframe{border:0;display:block;max-width:none}pre{white-space:pre-wrap}#stage{overflow:auto;max-height:850px}</style></head>
+<body><h1>Restore farm ground browser QA</h1><p>Isolated local fixtures on port 4216. This page is excluded from production.</p>
+<label>Viewport <select id="profile"><option value="desktop">Desktop 1280×720</option><option value="phone">Phone 390×844</option><option value="landscape">Landscape 640×360</option></select></label>
+<button id="run">Run restore checks</button><button id="show">Starter field</button><button id="restore-demo">Restore grass preview</button><button id="jump">Other growing areas</button><button id="nellshop">Former roads</button><pre id="status">Ready</pre><div id="stage"></div>
+<script type="module">
+import {newState} from '/src/systems/state.js';
+import {GIRL_V2_HANDS,GIRL_CARRY_ANGLES} from '/src/data/revisedGirl.js';
+import {FARM_PLOTS,FIELDS} from '/src/data/farms.js';
+import {visiblePlots} from '/src/systems/expansion.js';
+const carryProfile={hands:GIRL_V2_HANDS,angles:GIRL_CARRY_ANGLES};
+import {farmerCarryPose} from '/src/systems/farmerCarry.js';
+import {characterFrame} from '/src/systems/characterAnimation.js';
+import {BOY_FARMER} from '/src/data/appearance.js';
+import {VEGETATION} from '/src/data/vegetation.js';
+import {walkable} from '/src/data/locations.js';
+import {nextDay} from '/src/systems/time.js';
+import {usePlot} from '/src/systems/farming.js';
+import {CROPS,CROP_IDS} from '/src/data/crops.js';
+import {MAPS} from '/src/data/mapLayouts.js';
+import {contextFor} from '/src/systems/context.js';
+const status=document.querySelector('#status'),stage=document.querySelector('#stage');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const fixture=(tool='hand',action=null,character='girl')=>{
+ const s=newState(character);Object.assign(s,{area:'home',position:{x:480,y:800},selected:tool,minute:600,money:311,starterSeedsClaimed:true,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';
+ if(action){s.area='farm';s.position={x:696,y:152};s.ownsCopperCan=true;}
+ if(action==='harvesting'){const bed=FARM_PLOTS[0];s.area='farm';s.position={x:bed.x,y:bed.y+16};s.plots[0]={crop:'tomato',growth:3,wateredDay:1,missedDays:0,lastEvaluatedDay:0};}
+ if(action==='attack'){s.area='forest';s.position={x:936,y:4428};}
+ if(action==='chopping')for(const n of VEGETATION.farm.trees){s.position={x:n.x,y:n.y-48};if(walkable('farm',s.position.x,s.position.y,12,false,s)&&contextFor(s)?.id===n.id)break;}
+ return s;
+};
+let frame,win,records=[];
+const snapshot=()=>{try{return win.__simpleLife?.snapshot();}catch{return null;}};
+async function until(fn,message,ms=6000){const end=performance.now()+ms;while(performance.now()<end){const v=fn();if(v)return v;await sleep(20);}throw Error('Timed out: '+message);}
+function key(code,down=true){const names={KeyA:'a',KeyD:'d',KeyW:'w',KeyS:'s',KeyE:'e',KeyK:'k',Space:' ',DigitOne:'1',DigitThree:'3',DigitTwo:'2',DigitFour:'4',DigitFive:'5',DigitSix:'6'};const codes={KeyA:65,KeyD:68,KeyW:87,KeyS:83,KeyE:69,KeyK:75,Space:32,DigitOne:49,DigitThree:51,DigitTwo:50,DigitFour:52,DigitFive:53,DigitSix:54};win.dispatchEvent(new win.KeyboardEvent(down?'keydown':'keyup',{key:names[code],code,keyCode:codes[code],which:codes[code],bubbles:true}));}
+async function tap(code){key(code);await sleep(35);key(code,false);}
+async function click(id){const c=await until(()=>snapshot()?.controls.find(c=>c.id===id&&!c.disabled),id);const canvas=win.document.querySelector('canvas'),rect=canvas.getBoundingClientRect();const x=rect.left+c.x+c.w/2,y=rect.top+c.y+c.h/2;
+ for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(240);}
+async function start(state){
+ assert(location.port==='4216','Run only on isolated port4216, preserving the normal game save.');
+ frame?.remove();localStorage.setItem('simple-life.save.v1',JSON.stringify(state));
+ frame=document.createElement('iframe');const profile=document.querySelector('#profile').value,phone=profile!=='desktop',landscape=profile==='landscape';frame.width=landscape?640:phone?390:1280;frame.height=landscape?360:phone?844:720;localStorage.setItem('simple-life.language.v1',phone?'mm':'en');frame.title='Isolated game';frame.src='/?qa';stage.append(frame);win=frame.contentWindow;
+ await until(()=>snapshot()?.controls.length,'game boot');
+ if(snapshot().controls.some(c=>c.id==='language-en'))await click(phone?'language-mm':'language-en');
+ await click('Continue');await until(()=>snapshot()?.player&&!snapshot().paused,'playing');
+}
+
+
+
+
+const record=label=>{records.push(label);status.textContent='Running…\n'+records.join('\n');};
+function farmState(){const s=fixture('hand',null,'girl');s.area='farm';s.position={x:544,y:320};s.minute=600;s.money=321;s.inventory.seed=5;return s;}
+function fieldView(field=0){const s=farmState(),f=FIELDS[field];s.story.flags=[...new Set([...s.story.flags,'plant','water'])];s.position={x:f.x+f.w/2,y:f.y+f.h/2};if(field===0){for(const [i,b] of visiblePlots(s).entries()){if([5,6,9,10,20,21,24,25].includes(i))continue;const p=i<s.plots.length&&i<16?s.plots[i]:s.customBeds.find(p=>p.x===b.x&&p.y===b.y)?.plot;if(p){const id=CROP_IDS[i%12];Object.assign(p,{crop:id,growth:i%3===0?CROPS[id].growthDays:1,wateredDay:1,lastEvaluatedDay:0});}}}return s;}
+document.querySelector('#run').onclick=async()=>{try{
+ records=[];
+ const first=farmState();first.selected='seed';first.position={x:712,y:440};await start(first);assert(visiblePlots(snapshot().state).length===40,'40 starter beds');assert(new Set(visiblePlots(snapshot().state).map(b=>b.x)).size===8,'eight columns');await tap('KeyE');await until(()=>snapshot().state.customBeds.some(b=>b.x===712&&b.y===440&&b.plot.crop==='tomato'),'plant eighth column');record('8×5 starter: real seed action in bottom-right bed');
+ await tap('DigitTwo');await tap('KeyE');await until(()=>snapshot().state.customBeds.find(b=>b.x===712&&b.y===440)?.plot.wateredDay===1,'water column eight');record('Watering uses same crop and saved coordinates');
+ const kept=structuredClone(snapshot().state);await start(kept);assert(snapshot().state.customBeds.find(b=>b.x===712&&b.y===440).plot.crop==='tomato'&&snapshot().state.money===321,'Continue crop/coins');record('Continue preserves original and extended beds');
+ for(const i of [1,2,3]){const s=farmState(),f=FIELDS[i],p={x:f.x+24+7*48,y:f.y+24+4*48};s.position={x:p.x,y:p.y-28};s.selected='shovel';await start(s);await tap('KeyE');await until(()=>snapshot().state.customBeds.some(b=>b.x===p.x&&b.y===p.y),'dig area '+i);assert(!snapshot().state.ownsCopperCan&&snapshot().state.money===321,'free without Copper');await tap('DigitOne');await tap('KeyE');await until(()=>snapshot().state.customBeds.some(b=>b.x===p.x&&b.y===p.y&&b.plot.crop==='tomato'),'plant area '+i);record('Area '+(i+1)+': dig and plant at far edge without Copper or coins');}
+ const clear=farmState();clear.position={x:888,y:716};clear.selected='shovel';await start(clear);await tap('KeyE');await until(()=>snapshot().state.customBeds.some(b=>b.x===888&&b.y===744),'dig outside growing areas');assert(!snapshot().state.ownsCopperCan&&snapshot().state.money===321,'no upgrade or coins for open ground');await tap('DigitOne');await tap('KeyE');await until(()=>snapshot().state.customBeds.some(b=>b.x===888&&b.y===744&&b.plot.crop==='tomato'),'plant outside growing areas');await sleep(500);await tap('DigitTwo');await tap('KeyE');await until(()=>snapshot().state.customBeds.find(b=>b.x===888&&b.y===744)?.plot.wateredDay===1,'water outside growing areas');const freeSaved=structuredClone(snapshot().state);await start(freeSaved);assert(snapshot().state.customBeds.find(b=>b.x===888&&b.y===744)?.plot.wateredDay===1,'outside bed Continue');record('Between fields: shovel, plant, water and Continue without Copper or coins');
+ const undo=farmState();undo.position={x:888,y:716};undo.selected='shovel';await start(undo);await tap('KeyE');await until(()=>snapshot().state.customBeds.some(b=>b.x===888&&b.y===744),'new bed for restoration');await tap('KeyE');await until(()=>snapshot().menuContent?.title==='Restore grass?','restore confirmation');const restoreId=snapshot().controls.find(c=>c.label==='Restore grass'||c.id==='Restore grass')?.id;assert(restoreId,'restore button '+JSON.stringify(snapshot().controls));await click('Cancel');assert(snapshot().state.restoredBeds.length===0,'Cancel keeps soil');await tap('KeyE');await until(()=>snapshot().menuContent?.title==='Restore grass?','confirm again');await click(restoreId);await until(()=>snapshot().state.restoredBeds.some(b=>b.x===888&&b.y===744)&&!snapshot().paused,'grass restored');const undone=structuredClone(snapshot().state);await start(undone);assert(!visiblePlots(snapshot().state).some(b=>b.x===888&&b.y===744),'Continue keeps grass');await tap('KeyE');await until(()=>visiblePlots(snapshot().state).some(b=>b.x===888&&b.y===744),'dig again');assert(snapshot().state.customBeds.length===undo.customBeds.length+1,'same record reused');record('Restore grass: Cancel keeps soil; Confirm restores grass; Continue and re-dig preserve record');
+ const road=farmState();road.position={x:640,y:736};await start(road);key('KeyD');await sleep(300);key('KeyD',false);assert(snapshot().state.position.x>660,'former road corridor open');record('Removed road strips remain traversable');
+ await start(fieldView());status.textContent='PASS '+document.querySelector('#profile').value+'\n'+records.join('\n');
+}catch(e){status.textContent='FAIL '+e.stack+'\nCompleted: '+records.join(', ')+'\nDebug: '+JSON.stringify({context:snapshot()?.context,selected:snapshot()?.state.selected,position:snapshot()?.state.position,crops:snapshot()?.state.customBeds.filter(b=>b.plot.crop)});console.error(e);}};
+document.querySelector('#show').onclick=async()=>{const s=fieldView();s.position.y+=32;await start(s);status.textContent='Starter / eight columns, five rows / test crops';};
+document.querySelector('#restore-demo').onclick=async()=>{const s=farmState();s.position={x:888,y:716};s.selected='shovel';s.customBeds.push({farm:0,x:888,y:744,plot:{crop:null,growth:0,wateredDay:0,missedDays:0,lastEvaluatedDay:0}});await start(s);await tap('KeyE');status.textContent='Restore grass confirmation / disposable empty bed';};
+document.querySelector('#jump').onclick=async()=>{await start(fieldView(2));status.textContent='Natural grass / shovel to prepare where you choose';};
+document.querySelector('#nellshop').onclick=async()=>{const s=farmState();s.position={x:912,y:528};await start(s);status.textContent='Main lane / extra road strips replaced with growing ground';};
+</script></body></html>

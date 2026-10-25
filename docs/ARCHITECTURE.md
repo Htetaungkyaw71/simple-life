@@ -1,3 +1,53 @@
+# 2026-10-23 — front-facing welcome backdrop
+
+`WorldScene.preload` now loads the local allowlisted `welcomeMysticalRiver` PNG before launching the existing Phaser UI scene. `WelcomeView` cover-scales that 1672×941 source around the viewport center, so landscape sees the full cinematic frame and narrow portrait crops retain its luminous center. Wordmark, subtitle, menu, languages, focus leaf and pointer targets remain independent UI-scene nodes. Water highlights, birds and drifting leaves remain small Graphics overlays; reduced-motion freezes them. Re-layout destroys only scene nodes and never recreates or removes the shared raster texture. Gameplay world, simulation, saves and world camera are unchanged.
+
+---
+
+# v0.43.5 — two-house Home presentation over retained systems (2026-10-23)
+
+`CustomizationPanel.open` exposes only House designs and Wardrobe while the existing resource, decoration and placement modules remain available internally and keep their save compatibility. `data/homes.js` is the active catalogue and points `starter` / `slate` at the existing `house-03-green-bay` / `house-02-blue-slate` frames in the local City atlas. `HomeArt` renders those frames directly for previews and the Home world; it creates no recoloured exterior texture.
+
+`homeWorldPlacement` preserves the original Home building centre and visible foundation depth across different source-canvas sizes. `homeWorldSolids` derives the selected frame's authored foundation rows, and both pure `areaObstacles` checks and Phaser `CollisionWorld` consume the same result. `homeInteriorSurface` keeps the approved starter room raster exact and applies the selected design palette only to non-starter architecture, so furniture layout, interaction anchors and room geometry do not fork by design.
+
+Save validation retains schema 19 and maps any retired paid Home ownership to the single paid Blue Slate choice. Rendering, collision, save normalization and UI remain data-driven; the page still has one fullscreen Phaser canvas with a separate Phaser UI scene and no DOM HUD/backend/runtime remote asset.
+
+---
+
+# v0.42.2 — native-canvas cottage override
+
+`cityCottageArt.js` records the 167×110 source canvas, integer 2× scale, closed native scanline collision rows, canvas-margin placement offset and door-relative anchor. `applyCityShops` applies the optional art origin offset only to `cottage-b`, keeping the approved plan and resident building object authoritative. `export_city_cottage_snapper.mjs` changes only exact-white source pixels to alpha and rebuilds one atlas frame from the preserved baseline; `check_city_cottage_snapper.mjs` proves the canvas, non-white pixels, old metadata and old atlas pixels exact.
+
+---
+
+# v0.42.1 — one-instance City cottage art override
+
+`cityCottageArt.js` contains generated native dimensions, closed scanline collision rows and a door-relative anchor for the selected cottage. `applyCityShops` routes only `cottage-b` through that override; its original map building object/index/name and resident identity stay authoritative. The source plan remains the v0.41 approved layout, while the visible-door x coordinate is derived from the replacement frame. `export_city_cottage.mjs` deterministically rebuilds the native derivative and one appended atlas frame from the preserved source/baseline; `check_city_cottage.mjs` proves all earlier metadata/pixels exact.
+
+---
+
+# v0.42.0 — disposable animated welcome view
+
+Application.ready opens the title directly, restoring the separate LanguageService preference and document language. WelcomeView draws within the existing Phaser UI root, reusing the unchanged local town atlas with code-native meadow/river materials and bird/leaf graphics. Stationary cropped trunks and independently offset canopy crops animate on a bounded 24fps visual clock; there is no game-state clock, remote load, RAF or recurring timer. Fixed hit areas remain during fades and focus animation. UI relayout destroys the old root/controller and removes both generated title textures. Short landscape uses a two-column action group; portrait/desktop retain one column. The in-game pause language setting remains available.
+
+---
+
+# v0.41.0 — City shop data and fixed indoor scenes (2026-10-17)
+
+`applyCityShops` follows the established `applyCityLayout` pass, retaining stable building indices/vegetation IDs and deriving final facade/prop obstacles afterward. `cityShopArt` is generated native metadata; `cityShopsPlan` retains approved positions; `cityShops` defines fixed rooms, furniture, service/client positions and door pairs. `CityShopRoom` reuses the Home wall/floor renderer without resizing Home. `isIndoorArea` shares indoor movement/feet/ground guards. LOCATIONS adds barber/clothing; the existing separate Phaser UI and pure cosmetic transaction systems remain.
+
+Residents reconstruct an outdoor home-to-shop commute and expose their existing sprites/services only inside during work. Evening return and saved appearance economy retain the established logic. Terrain uses approved extended contours and small soil inputs; a preserved `placementWalk` mask freezes legacy deterministic vegetation grouping before the explicit approved moves. No new remote/runtime PNG loads, backend or save-schema bump.
+
+---
+
+# v0.40.0 — shared City surface contours and stable vegetation anchors (2026-10-16)
+
+`cityLayout.js` contains approved world-space configuration, sparse prop moves and planting anchors. `citySurfaceMasks.js` contains losslessly coalesced native rectangle runs exported by `scripts/export_city_layout.py` from preserved original proposal masks, with cottage-apron acceptance corrections. `citySurfaceGeometry.js` decodes/caches five native masks shared by placement and terrain. They are code-native map data, not external/runtime image loads. `citySurface.js` paints the existing ground canvas, using those common contours for road, cream, low island/garden borders, six-world-unit south curb faces and lowered transitions. Terrain suppresses obsolete City dirt-path painting; `groundSurface.js` and other locations' rendering stay unchanged.
+
+`applyCityLayout` runs after legacy deterministic City construction/roadside placement and before deriving obstacles. This preserves original prop/node identities and frame selection, then registers final furniture/column positions. Ninety planting anchors reuse original nodes; displaced extra ground cover finds clear green space without deleting saved IDs. `landscapeVisual` separates new art anchors from stable `vegetationId`; GrassView keeps existing bendable grass nodes. Tree visuals are frozen across the small root moves. Save schema19, all service coordinates, building positions, authored patrols and original atlas data stay unchanged. No new collision bank is added for curbs. Original procedural grass remains beneath green areas, rather than baking the proposal's flat lawn palette.
+
+---
+
 # v0.23.0 — original Szadiart people (2026-10-13)
 
 Player and eight town NPCs now use original Szadiart 3 Direction NPC Characters artwork. Native proportions, faces, colours and all opaque source pixels are preserved. Only baked alpha-77 ground shadows are removed; a fixed 24×40 crop and mirrored side view support the existing four directions. World scale is integer 2× with nearest filtering. Players use four authored idle poses at 6 fps and four walk poses at 10 fps; NPCs use four walk slots at the existing 120 ms cadence. Movement speed and controls remain. The pack has no authored running, jumping or tool-action animations; existing jump/tool effects use unchanged source poses and world motion.

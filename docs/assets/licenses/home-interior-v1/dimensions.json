@@ -1,0 +1,444 @@
+{
+  "scope": "REVIEW ONLY; no game files changed",
+  "generated_art_preserved": true,
+  "contact_sheet_only_resized": true,
+  "shared_relative_scale": {
+    "adult_planning_units": 40,
+    "display_pixels_per_unit": 4,
+    "method": "One semantic dimension per object normalizes reference proportions. Aspect ratio is preserved. This is a planning comparison, not approved in-game scale."
+  },
+  "assets": [
+    {
+      "id": "01-bed-single-head-north",
+      "name": "Single bed \u2014 head north",
+      "file": "assets/01-bed-single-head-north.png",
+      "pixel_dimensions": [
+        960,
+        1639
+      ],
+      "rgba_bbox": [
+        78,
+        115,
+        883,
+        1524
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "70a8642a9a021a2d33489df52520997045ec323afab7571922398a955f8b08e1",
+      "planned_anchor": "height",
+      "planned_anchor_units": 72,
+      "review_pixels_per_source_pixel": 0.2044002838892832,
+      "review_art_pixels": [
+        165,
+        288
+      ]
+    },
+    {
+      "id": "02-rug-bedside",
+      "name": "Bedside rug",
+      "file": "assets/02-rug-bedside.png",
+      "pixel_dimensions": [
+        1024,
+        1536
+      ],
+      "rgba_bbox": [
+        174,
+        190,
+        851,
+        1341
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "332080053bd965d9e18030649ab58fae1bf89c901a6cae564bd351de16ae324b",
+      "planned_anchor": "height",
+      "planned_anchor_units": 60,
+      "review_pixels_per_source_pixel": 0.20851433536055602,
+      "review_art_pixels": [
+        141,
+        240
+      ]
+    },
+    {
+      "id": "03-bench-near-facing-viewer",
+      "name": "Dining bench \u2014 near side",
+      "file": "assets/03-bench-near-facing-viewer.png",
+      "pixel_dimensions": [
+        2064,
+        762
+      ],
+      "rgba_bbox": [
+        150,
+        190,
+        1913,
+        652
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "d3dafa222291c15007d719672dc34ed323b8a07716a492bcd8b8208f080c40f8",
+      "planned_anchor": "width",
+      "planned_anchor_units": 76,
+      "review_pixels_per_source_pixel": 0.17243335224049916,
+      "review_art_pixels": [
+        304,
+        80
+      ]
+    },
+    {
+      "id": "04-bench-far-facing-away",
+      "name": "Dining bench \u2014 far side",
+      "file": "assets/04-bench-far-facing-away.png",
+      "pixel_dimensions": [
+        2067,
+        761
+      ],
+      "rgba_bbox": [
+        148,
+        187,
+        1920,
+        638
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "211284556377f3733e0079de94bfdaee8afe5a4a9140b1a649f8565543c21bc2",
+      "planned_anchor": "width",
+      "planned_anchor_units": 76,
+      "review_pixels_per_source_pixel": 0.17155756207674944,
+      "review_art_pixels": [
+        304,
+        77
+      ]
+    },
+    {
+      "id": "05-rug-dining-large",
+      "name": "Dining rug",
+      "file": "assets/05-rug-dining-large.png",
+      "pixel_dimensions": [
+        1435,
+        1096
+      ],
+      "rgba_bbox": [
+        51,
+        81,
+        1383,
+        990
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "cda85bea016acb6e30f76717e5ddfb90e97ce1e5ccde0d30d49f7b27ad25e10a",
+      "planned_anchor": "width",
+      "planned_anchor_units": 110,
+      "review_pixels_per_source_pixel": 0.3303303303303303,
+      "review_art_pixels": [
+        440,
+        300
+      ]
+    },
+    {
+      "id": "06-sideboard-low",
+      "name": "Low sideboard",
+      "file": "assets/06-sideboard-low.png",
+      "pixel_dimensions": [
+        1774,
+        887
+      ],
+      "rgba_bbox": [
+        125,
+        171,
+        1649,
+        744
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "6c4adc68c042d9ac7f9a0520234146a0f81aa692aa7e93e3825917d541d6b389",
+      "planned_anchor": "width",
+      "planned_anchor_units": 72,
+      "review_pixels_per_source_pixel": 0.1889763779527559,
+      "review_art_pixels": [
+        288,
+        108
+      ]
+    },
+    {
+      "id": "07-cabinet-pottery-open",
+      "name": "Open pottery cabinet",
+      "file": "assets/07-cabinet-pottery-open.png",
+      "pixel_dimensions": [
+        1189,
+        1323
+      ],
+      "rgba_bbox": [
+        205,
+        246,
+        985,
+        1156
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "fd6eef66737f3ad28c474ecd4c5b085355799e27a208ab5c6e6e5794772d05c5",
+      "planned_anchor": "height",
+      "planned_anchor_units": 60,
+      "review_pixels_per_source_pixel": 0.26373626373626374,
+      "review_art_pixels": [
+        206,
+        240
+      ]
+    },
+    {
+      "id": "08-wall-shelf-pottery-plant",
+      "name": "Wall shelf",
+      "file": "assets/08-wall-shelf-pottery-plant.png",
+      "pixel_dimensions": [
+        1798,
+        875
+      ],
+      "rgba_bbox": [
+        186,
+        157,
+        1613,
+        720
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "e66525e0e67c44064f42b3a3592d77507ed2a9ed8c0f998b1c2a21c9894e6f1d",
+      "planned_anchor": "width",
+      "planned_anchor_units": 60,
+      "review_pixels_per_source_pixel": 0.16818500350385424,
+      "review_art_pixels": [
+        240,
+        95
+      ]
+    },
+    {
+      "id": "09-fireplace-structure",
+      "name": "Fireplace structure",
+      "file": "assets/09-fireplace-structure.png",
+      "pixel_dimensions": [
+        1402,
+        1122
+      ],
+      "rgba_bbox": [
+        348,
+        92,
+        1054,
+        1007
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "1c0f2237393fda66f210495efbee08dd061844ca453cb6c5bc2ad5db07af0991",
+      "planned_anchor": "height",
+      "planned_anchor_units": 76,
+      "review_pixels_per_source_pixel": 0.33224043715846996,
+      "review_art_pixels": [
+        235,
+        304
+      ]
+    },
+    {
+      "id": "10-firewood-stack",
+      "name": "Stacked firewood",
+      "file": "assets/10-firewood-stack.png",
+      "pixel_dimensions": [
+        1448,
+        1086
+      ],
+      "rgba_bbox": [
+        293,
+        277,
+        1179,
+        921
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "5748ccf86b910e265ff7bfec25e5d2f01213db150af5b1407be668ff0132fc99",
+      "planned_anchor": "width",
+      "planned_anchor_units": 32,
+      "review_pixels_per_source_pixel": 0.14446952595936793,
+      "review_art_pixels": [
+        128,
+        93
+      ]
+    },
+    {
+      "id": "11-fireplace-ember-overlay",
+      "name": "Fireplace ember/fire overlay",
+      "file": "assets/11-fireplace-ember-overlay.png",
+      "pixel_dimensions": [
+        1402,
+        1122
+      ],
+      "rgba_bbox": [
+        566,
+        724,
+        836,
+        892
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "0a8bac60d0af572893ec7a30d80940d098b08151eb36345b323077ee188ee290",
+      "planned_anchor": "overlay",
+      "planned_anchor_units": null,
+      "review_pixels_per_source_pixel": 0.33224043715846996,
+      "review_art_pixels": [
+        90,
+        56
+      ]
+    },
+    {
+      "id": "12-window-walnut-sage",
+      "name": "Reusable framed window",
+      "file": "assets/12-window-walnut-sage.png",
+      "pixel_dimensions": [
+        1322,
+        1190
+      ],
+      "rgba_bbox": [
+        123,
+        181,
+        1200,
+        1018
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "3e3989f7cdaa8a9e831b5769437f114198149709e4c7dfacd7678128fd91da5a",
+      "planned_anchor": "width",
+      "planned_anchor_units": 40,
+      "review_pixels_per_source_pixel": 0.14856081708449395,
+      "review_art_pixels": [
+        160,
+        124
+      ]
+    },
+    {
+      "id": "13-doorway-bottom-threshold",
+      "name": "Bottom-exit doorway",
+      "file": "assets/13-doorway-bottom-threshold.png",
+      "pixel_dimensions": [
+        1536,
+        1024
+      ],
+      "rgba_bbox": [
+        75,
+        212,
+        1461,
+        819
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "36276247a5f1dc395eab09f5806bdfb934bb2d9a74e3d7df0e7e93bbd4b4c986",
+      "planned_anchor": "width",
+      "planned_anchor_units": 48,
+      "review_pixels_per_source_pixel": 0.13852813852813853,
+      "review_art_pixels": [
+        192,
+        84
+      ]
+    },
+    {
+      "id": "14-planter-leafy",
+      "name": "Leafy ceramic planter",
+      "file": "assets/14-planter-leafy.png",
+      "pixel_dimensions": [
+        1261,
+        1247
+      ],
+      "rgba_bbox": [
+        280,
+        179,
+        1029,
+        1079
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "2f493e1fc4005b079de2c519ff0fdc6d4f6c5e6d69bcbde2596c26d199c406f0",
+      "planned_anchor": "height",
+      "planned_anchor_units": 28,
+      "review_pixels_per_source_pixel": 0.12444444444444444,
+      "review_art_pixels": [
+        93,
+        112
+      ]
+    },
+    {
+      "id": "15-planter-cream-flowers",
+      "name": "Cream-flower planter",
+      "file": "assets/15-planter-cream-flowers.png",
+      "pixel_dimensions": [
+        1060,
+        1484
+      ],
+      "rgba_bbox": [
+        265,
+        417,
+        795,
+        1138
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "dc2f41a435895e0b2e9136fa1de1ef6ad45c9919436115f01614f65ae9389490",
+      "planned_anchor": "height",
+      "planned_anchor_units": 28,
+      "review_pixels_per_source_pixel": 0.1553398058252427,
+      "review_art_pixels": [
+        82,
+        112
+      ]
+    },
+    {
+      "id": "16-jar-terracotta-storage",
+      "name": "Terracotta storage jar",
+      "file": "assets/16-jar-terracotta-storage.png",
+      "pixel_dimensions": [
+        1096,
+        1435
+      ],
+      "rgba_bbox": [
+        204,
+        270,
+        893,
+        1165
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "d63223c1b2a309c76752ac7519a3def0a89b4d03a7c09d8837539ad2b52cc618",
+      "planned_anchor": "height",
+      "planned_anchor_units": 32,
+      "review_pixels_per_source_pixel": 0.1430167597765363,
+      "review_art_pixels": [
+        99,
+        128
+      ]
+    }
+  ]
+}

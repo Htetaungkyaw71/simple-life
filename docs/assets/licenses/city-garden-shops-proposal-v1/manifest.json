@@ -1,0 +1,326 @@
+{
+  "status": "REVIEW ONLY; NOT RUNTIME",
+  "date": "2026-10-16",
+  "method": "13 built-in imagegen outputs, 9 selected native derivatives, bounded colour vote/binary-alpha export; original existing terrain and sprite composition",
+  "originals": [
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/barber-chair-north.png",
+      "sha256": "76c53a0d252e8b64d06feda2c64864e150f2bea9d341eb018781bb85e8691304",
+      "dimensions": [
+        1105,
+        1423
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/barber-chair.png",
+      "sha256": "5dae7337c553b53e4de5d6cf1ffd8e6ccd3aa37b1f697c7c4b47907a055935fb",
+      "dimensions": [
+        1105,
+        1423
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/barber.png",
+      "sha256": "62473ff4481df6ab8da64d113d7bbaaa728ab4428684c0bbbe65ba5569d9cc6f",
+      "dimensions": [
+        1349,
+        1166
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/cafe.png",
+      "sha256": "159df72337a2cbdab0f8ed228d1a8d4b3f648185cf8f79d9982a3de5f7d35b1c",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/clothing-rack-revised.png",
+      "sha256": "5123cbe436dac45100f8b96ac6bb1a2847795d491070eab24f83bdbc45ee1f47",
+      "dimensions": [
+        1269,
+        1240
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/clothing-rack.png",
+      "sha256": "107fa2facb1d6603671d0762e5adee9753af40f0e18f8b44253d577881761c79",
+      "dimensions": [
+        1269,
+        1240
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/clothing.png",
+      "sha256": "ca1c7a9166011abd615f2507183c59b0cd6ac0f472e7887ab41dfcdc9804851d",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/cottage-a-revised.png",
+      "sha256": "f7ec7f6325348b707fdc1eb5a05e1a054060635980058a324945a30bcd9ec2ad",
+      "dimensions": [
+        1306,
+        1205
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/cottage-a.png",
+      "sha256": "ab91f14cd46789a046b8ad886b31af4f90278ff24150f085598d437eff4a9f72",
+      "dimensions": [
+        1305,
+        1205
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/cottage-b.png",
+      "sha256": "8ce935a5599a83f3525873f144f213876ab9e8816cda6da10be6c95e1b0e6452",
+      "dimensions": [
+        1305,
+        1206
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/flowerpot.png",
+      "sha256": "304d3d985614c4c62525b9241d823201d312f5aea055c0a1625af2f7f304b523",
+      "dimensions": [
+        1247,
+        1261
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/mirror-revised.png",
+      "sha256": "5538f8acec01b978832685ca6d08442791a160c7f76777022b540f29a245d617",
+      "dimensions": [
+        1176,
+        1337
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/originals/mirror.png",
+      "sha256": "114c8f1b9d7ccb356198d342690cc27724451ec3e5d4b40b7a8e6395d0a9df0d",
+      "dimensions": [
+        1176,
+        1337
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/cafe.png",
+      "sha256": "33d2e5ef16ad186babb062fb5c9aa071c57ea1793a14fe61fd76150419f395a4",
+      "dimensions": [
+        128,
+        104
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/barber.png",
+      "sha256": "f921060f776ca99d9382eaeef065b59e9f786beadff12a8ee13fd1ac91859b88",
+      "dimensions": [
+        120,
+        104
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/clothing.png",
+      "sha256": "1d6fc715faf311de062b4faca47fe48275cc661793cb51849677551cd9d823d1",
+      "dimensions": [
+        128,
+        104
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/cottage-a.png",
+      "sha256": "04ddd94441511cbd1d93a6d79f9315949c2efdb315ea16a17eddb940c94ecdfb",
+      "dimensions": [
+        120,
+        112
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/cottage-b.png",
+      "sha256": "fbd829bfc4ddcae99893bf6b1d5f70fc0f2f8a1f67a51948a4e5cd1065d9b66b",
+      "dimensions": [
+        120,
+        112
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/golden-flowerpot.png",
+      "sha256": "348014740cba8bf4d7981a2fefa03484f6cf132765027e46410d7487855d003c",
+      "dimensions": [
+        20,
+        32
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/barber-chair.png",
+      "sha256": "1126ccbbe79cef4c701df2eea9da4180cab286c4647ef01d790ea8d26990f50e",
+      "dimensions": [
+        28,
+        42
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/barber-mirror.png",
+      "sha256": "5c0ae720e0807a75f1dd95225c16f1ba4d37c8dc0b722aa459cf1aeaadbe5d0a",
+      "dimensions": [
+        28,
+        38
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/objects/clothing-rack.png",
+      "sha256": "2b7021777337d229f8ed7578c1b2e85eb6d681c8b28c04507a0286fe0fa6a4d7",
+      "dimensions": [
+        44,
+        44
+      ]
+    }
+  ],
+  "views": [
+    {
+      "path": "output/previews/city-garden-shops-v1/layout-plan.png",
+      "sha256": "ad40d03e93f8fe45ee60198f6cbdb1d640dd7edc9e8af292eb3ebd4e9b8be8af",
+      "dimensions": [
+        1280,
+        896
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/city-overview.png",
+      "sha256": "4b1d609fed8ea53d2894397240f6734403804a26fd62fce55e9e31c2f9aa1dd2",
+      "dimensions": [
+        1280,
+        896
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/fountain-day.png",
+      "sha256": "5b565d7c138865bd5332dcd83fe756b7db092f1ba71c53783b7f39e90358e2b3",
+      "dimensions": [
+        552,
+        438
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/fountain-night.png",
+      "sha256": "ac574dcbba249977798aee343c463fcfccd651f3007fa6dc71ab0f3fd1b7827b",
+      "dimensions": [
+        552,
+        438
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/cafe-exterior.png",
+      "sha256": "af97613b71a095fb035cfaa540d6028d6cf506316ef59496643d5b2b66cbca28",
+      "dimensions": [
+        960,
+        576
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/barber-exterior.png",
+      "sha256": "542cd9624c51bd3a17edf9275f679c8ceb633342cf7ee3ee06c9dad2e00a21ee",
+      "dimensions": [
+        768,
+        576
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/clothing-exterior.png",
+      "sha256": "d33157406c1139428577a5ae2c5d01f1243f5ea31af32d772f9fb2c24b5cddfe",
+      "dimensions": [
+        768,
+        576
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/barber-interior.png",
+      "sha256": "5644147a0bd925c83bc9f00d813e969b04254a841721f1b0b7f58963188c2bdd",
+      "dimensions": [
+        720,
+        576
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/clothing-interior.png",
+      "sha256": "22f3cd6dcc47aa12ea2dd5e1868565152204fae7e9b02a5c5970eb95d868f7fc",
+      "dimensions": [
+        768,
+        576
+      ]
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/contact-sheet.png",
+      "sha256": "c1db9a4ba51fe2fc5568d64046e75e5dc62a0edb44dc669bda27c98ea412121d",
+      "dimensions": [
+        1080,
+        990
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "output/previews/city-garden-shops-v1/generation.json",
+      "sha256": "d360624a4203040680c960def990d00635ad8dff29e6c108ebae3a4ade98b8e5"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/generation-chair-north.json",
+      "sha256": "d1ca4f6424e7086e906917ad2b4b4e46b61bbfd060fa47459899780c01271e47"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/export.mjs",
+      "sha256": "9bb73a3e71aaee5656fadb33422bfd2b3604a30d765fea72ce919a5b4c90a103"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/render.py",
+      "sha256": "e3be2b3f1d0cba6a466797c5928ba98ded45bb64f330bf6bb8d942e4c17640b4"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/check.py",
+      "sha256": "6dfaa6c9807180ee69b25e428f830f699a9f8d2098bcdcfdf6b76cdb0de6a6d8"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/checks.json",
+      "sha256": "36beb3158ce69ac8750f8f563c2a3f7dac22b3161d9d49168f61c73d79a9a043"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/runtime-before.json",
+      "sha256": "db4a96c87686381fea27ca6879b8da7480cd621e70540648eee773d0e1d17880"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/proposal.json",
+      "sha256": "d0b0e3343ec3bbfd1c4f9cb21396b111d70fb1b14017106d915ef2be8fc03128"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/interiors.json",
+      "sha256": "85422bcb3aab56a19cd1e8cd252d1baf9ab80040cc2fc710dc065bcf07784d3b"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v1/build-audit.json",
+      "sha256": "38ccca2b6bb1c8c59492ee46618e55322b7226eeb3dea0b8cc82ed8579f70f02"
+    }
+  ],
+  "userReferenceHashes": [
+    {
+      "path": "/Users/mac/Desktop/Screenshot 2026-10-16 at 9.30.31\u202fPM.png",
+      "sha256": "db0f40db9ab4373f7056d52a9573bb770f2234fa33ad5aacb589176b0a3c6b33",
+      "role": "Visual reference only; no pixel extraction"
+    },
+    {
+      "path": "/Users/mac/Desktop/Screenshot 2026-10-16 at 9.30.44\u202fPM.png",
+      "sha256": "1b5d9239de11b1246ab9b16d7ac838b7680a05980cf90d2dbeaa4dbb2a02e03a",
+      "role": "Visual reference only; no pixel extraction"
+    },
+    {
+      "path": "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.00\u202fPM.png",
+      "sha256": "3a9820f63bb7168700b067974a3f84513d843d85c77f00b81593cb55dcd7c4d4",
+      "role": "Visual reference only; no pixel extraction"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import {walkable,syncInterior} from '../src/data/locations.js';
 import {beginJump,jumpRuntime,stepJump} from '../src/systems/jump.js';
 import {newState} from '../src/systems/state.js';
 import {recorder} from './helpers/uiRecorder.js';
+import {UI_COLORS} from '../src/ui/pixelWidgets.js';
 
 test('eight-way input retains equal speed, analog strength and stable diagonal native facing',()=>{
  for(const x of [-1,0,1])for(const y of [-1,0,1]){
@@ -26,6 +27,7 @@ test('joystick owns one pointer, supports a separate action finger, releases out
  const ui=recorder(360,640);let jumped=0,attacked=0,chopped=0,context=null;ui.app={state:{...newState(),selected:'axe'},input:{},ui:{feedback(){}},scene:{jump(){jumped++;},context:()=>context},attack(){attacked++;},use(){chopped++;}};
  const stick=mobileControls(ui,ui.root),cx=(stick.x+stick.w/2)*2,cy=(stick.y+stick.h/2)*2,event={stopPropagation(){}};
  stick.box.events.pointerdown({id:1,x:cx+24,y:cy-24},0,0,event);assert.ok(ui.app.input.stick.x>0&&ui.app.input.stick.y<0);
+ assert.equal(stick.box.commands.at(-1).color,UI_COLORS.cream,'moving keeps the joystick knob white');
  const before={...ui.app.input.stick};stick.box.events.pointerdown({id:2,x:cx-24,y:cy},0,0,event);stick.move({id:2,x:0,y:0});assert.deepEqual(ui.app.input.stick,before);
  ui.controls.find(c=>c.id==='jump').action();ui.controls.find(c=>c.id==='attack').action();assert.equal(jumped,1);assert.equal(attacked,1);assert.deepEqual(ui.app.input.stick,before);
  ui.app.state.selected='axe';context={type:'chop'};ui.controls.find(c=>c.id==='attack').action();assert.equal(chopped,1);

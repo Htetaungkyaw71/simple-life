@@ -1,0 +1,7 @@
+{
+  "name": "Pillow",
+  "version": "12.3.0",
+  "role": "Existing bundled offline native sprite conversion and packing only",
+  "licenseEvidence": "docs/licenses/Pillow-LICENSE.txt",
+  "runtime": false
+}

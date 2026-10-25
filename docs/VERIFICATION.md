@@ -1,3 +1,17 @@
+# 2026-10-23 — toolbar and Meat flow
+
+Focused Node checks cover tool selection, FarmGuide constructor visibility before its first update, initial health/energy meter widths and highlights, later guide suppression, Bag categories, raw-Meat rejection, cooking, Grilled Meat healing and responsive controls. `tests/browser/meat-toolbar.mjs` uses real canvas mouse/touch controls and disposable localStorage: its 1280×720 case requires Seed/Harvest selection and put-away to create no toggle text, no expanded top-left guide and no health/energy width change across 12 sampled animation frames around each click; its 640×360 case covers Bag Gear → Meat → Cook → Grilled Meat → Food → Eat with health 50→100.
+
+Full `npm test`: **409/411 pass**. The two failures are outside this change and match the pre-existing dirty art state: `tests/barber-grass-v2.test.js` expects a retired barber prop reference, and `tests/pixel-snapper-assets.test.js` expects 49 frames while the current atlas contains 50. Physical devices and non-Chromium engines were not run. No hosted or public environment was changed.
+
+---
+
+# v0.43.5 — focused Home menu and two existing houses (2026-10-23)
+
+**409 tests / 0 fail** and the normal **190-module production build** pass. Six local Chromium acceptance cases cover fresh desktop, portrait phone, short landscape, Blue Slate purchase/exterior/interior, and legacy continuation at desktop/phone sizes. Captured consoles/page errors are empty. Inspected evidence confirms only House designs and Wardrobe are visible, both City-derived houses render correctly, the cool-blue interior differs from Green Bay, and reload/save migration preserve ownership and balance. [Screenshots, machine record and limits](verification/home-menu-v0435/README.md). No deployment or push.
+
+---
+
 # v0.19.0 — Myanmar selection and starter understanding
 
 Current browser/unit/build/audit evidence and reproduction are recorded in [Myanmar onboarding](verification/myanmar-onboarding/README.md). Native Chrome checks cover both renderers, English/Myanmar, desktop/portrait/landscape, guide/save/language switching, complete catalogues and transactions, resource panels and an actual fresh seed/plant/water task. Fixtures are explicitly identified; no user-profile storage is edited. Native-speaker copy, physical devices and non-Chromium engines remain separate human checks.

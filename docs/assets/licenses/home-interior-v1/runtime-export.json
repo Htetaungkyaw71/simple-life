@@ -1,0 +1,449 @@
+{
+  "date": "2026-10-16",
+  "method": "source-sample native export; originals preserved; binary alpha; nearest rendering",
+  "scale": 1.5,
+  "fireOverlay": "same native canvas and crop as fireplace; composite at (0,0)",
+  "assets": [
+    {
+      "name": "home-bed",
+      "source": "output/art/home-interior-v1/sources/01-bed-single-head-north.png",
+      "sha256": "70a8642a9a021a2d33489df52520997045ec323afab7571922398a955f8b08e1",
+      "originalCanvas": [
+        960,
+        1639
+      ],
+      "sourceBox": [
+        78,
+        115,
+        805,
+        1409
+      ],
+      "nativeSize": [
+        45,
+        76
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        67.5,
+        114
+      ],
+      "reviewAnchor": 72,
+      "runtimeAnchor": 72
+    },
+    {
+      "name": "home-bedside-rug",
+      "source": "output/art/home-interior-v1/sources/02-rug-bedside.png",
+      "sha256": "332080053bd965d9e18030649ab58fae1bf89c901a6cae564bd351de16ae324b",
+      "originalCanvas": [
+        1024,
+        1536
+      ],
+      "sourceBox": [
+        174,
+        190,
+        677,
+        1151
+      ],
+      "nativeSize": [
+        39,
+        64
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        58.5,
+        96
+      ],
+      "reviewAnchor": 60,
+      "runtimeAnchor": 60
+    },
+    {
+      "name": "home-bench-front",
+      "source": "output/art/home-interior-v1/sources/03-bench-near-facing-viewer.png",
+      "sha256": "d3dafa222291c15007d719672dc34ed323b8a07716a492bcd8b8208f080c40f8",
+      "originalCanvas": [
+        2064,
+        762
+      ],
+      "sourceBox": [
+        150,
+        190,
+        1763,
+        462
+      ],
+      "nativeSize": [
+        80,
+        24
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        120,
+        36
+      ],
+      "reviewAnchor": 76,
+      "runtimeAnchor": 76
+    },
+    {
+      "name": "home-bench",
+      "source": "output/art/home-interior-v1/sources/04-bench-far-facing-away.png",
+      "sha256": "211284556377f3733e0079de94bfdaee8afe5a4a9140b1a649f8565543c21bc2",
+      "originalCanvas": [
+        2067,
+        761
+      ],
+      "sourceBox": [
+        148,
+        187,
+        1772,
+        451
+      ],
+      "nativeSize": [
+        80,
+        23
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        120,
+        34.5
+      ],
+      "reviewAnchor": 76,
+      "runtimeAnchor": 76
+    },
+    {
+      "name": "home-rug",
+      "source": "output/art/home-interior-v1/sources/05-rug-dining-large.png",
+      "sha256": "cda85bea016acb6e30f76717e5ddfb90e97ce1e5ccde0d30d49f7b27ad25e10a",
+      "originalCanvas": [
+        1435,
+        1096
+      ],
+      "sourceBox": [
+        51,
+        81,
+        1332,
+        909
+      ],
+      "nativeSize": [
+        168,
+        116
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        252,
+        174
+      ],
+      "reviewAnchor": 110,
+      "runtimeAnchor": 164
+    },
+    {
+      "name": "home-counter",
+      "source": "output/art/home-interior-v1/sources/06-sideboard-low.png",
+      "sha256": "6c4adc68c042d9ac7f9a0520234146a0f81aa692aa7e93e3825917d541d6b389",
+      "originalCanvas": [
+        1774,
+        887
+      ],
+      "sourceBox": [
+        125,
+        171,
+        1524,
+        573
+      ],
+      "nativeSize": [
+        76,
+        31
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        114,
+        46.5
+      ],
+      "reviewAnchor": 72,
+      "runtimeAnchor": 72
+    },
+    {
+      "name": "home-pottery",
+      "source": "output/art/home-interior-v1/sources/07-cabinet-pottery-open.png",
+      "sha256": "fd6eef66737f3ad28c474ecd4c5b085355799e27a208ab5c6e6e5794772d05c5",
+      "originalCanvas": [
+        1189,
+        1323
+      ],
+      "sourceBox": [
+        205,
+        246,
+        780,
+        910
+      ],
+      "nativeSize": [
+        55,
+        64
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        82.5,
+        96
+      ],
+      "reviewAnchor": 60,
+      "runtimeAnchor": 60
+    },
+    {
+      "name": "home-wall-shelf",
+      "source": "output/art/home-interior-v1/sources/08-wall-shelf-pottery-plant.png",
+      "sha256": "e66525e0e67c44064f42b3a3592d77507ed2a9ed8c0f998b1c2a21c9894e6f1d",
+      "originalCanvas": [
+        1798,
+        875
+      ],
+      "sourceBox": [
+        186,
+        157,
+        1427,
+        563
+      ],
+      "nativeSize": [
+        64,
+        28
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        96,
+        42
+      ],
+      "reviewAnchor": 60,
+      "runtimeAnchor": 60
+    },
+    {
+      "name": "home-fireplace",
+      "source": "output/art/home-interior-v1/sources/09-fireplace-structure.png",
+      "sha256": "1c0f2237393fda66f210495efbee08dd061844ca453cb6c5bc2ad5db07af0991",
+      "originalCanvas": [
+        1402,
+        1122
+      ],
+      "sourceBox": [
+        348,
+        92,
+        706,
+        915
+      ],
+      "nativeSize": [
+        63,
+        80
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        94.5,
+        120
+      ],
+      "reviewAnchor": 76,
+      "runtimeAnchor": 76
+    },
+    {
+      "name": "home-logs",
+      "source": "output/art/home-interior-v1/sources/10-firewood-stack.png",
+      "sha256": "5748ccf86b910e265ff7bfec25e5d2f01213db150af5b1407be668ff0132fc99",
+      "originalCanvas": [
+        1448,
+        1086
+      ],
+      "sourceBox": [
+        293,
+        277,
+        886,
+        644
+      ],
+      "nativeSize": [
+        36,
+        27
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        54,
+        40.5
+      ],
+      "reviewAnchor": 32,
+      "runtimeAnchor": 32
+    },
+    {
+      "name": "home-fire",
+      "source": "output/art/home-interior-v1/sources/11-fireplace-ember-overlay.png",
+      "sha256": "0a8bac60d0af572893ec7a30d80940d098b08151eb36345b323077ee188ee290",
+      "originalCanvas": [
+        1402,
+        1122
+      ],
+      "sourceBox": [
+        348,
+        92,
+        706,
+        915
+      ],
+      "nativeSize": [
+        63,
+        80
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        94.5,
+        120
+      ],
+      "reviewAnchor": null,
+      "runtimeAnchor": null
+    },
+    {
+      "name": "home-window",
+      "source": "output/art/home-interior-v1/sources/12-window-walnut-sage.png",
+      "sha256": "3e3989f7cdaa8a9e831b5769437f114198149709e4c7dfacd7678128fd91da5a",
+      "originalCanvas": [
+        1322,
+        1190
+      ],
+      "sourceBox": [
+        123,
+        181,
+        1077,
+        837
+      ],
+      "nativeSize": [
+        44,
+        35
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        66,
+        52.5
+      ],
+      "reviewAnchor": 40,
+      "runtimeAnchor": 40
+    },
+    {
+      "name": "home-threshold",
+      "source": "output/art/home-interior-v1/sources/13-doorway-bottom-threshold.png",
+      "sha256": "36276247a5f1dc395eab09f5806bdfb934bb2d9a74e3d7df0e7e93bbd4b4c986",
+      "originalCanvas": [
+        1536,
+        1024
+      ],
+      "sourceBox": [
+        75,
+        212,
+        1386,
+        607
+      ],
+      "nativeSize": [
+        52,
+        25
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        78,
+        37.5
+      ],
+      "reviewAnchor": 48,
+      "runtimeAnchor": 48
+    },
+    {
+      "name": "home-leafy-pot",
+      "source": "output/art/home-interior-v1/sources/14-planter-leafy.png",
+      "sha256": "2f493e1fc4005b079de2c519ff0fdc6d4f6c5e6d69bcbde2596c26d199c406f0",
+      "originalCanvas": [
+        1261,
+        1247
+      ],
+      "sourceBox": [
+        280,
+        179,
+        749,
+        900
+      ],
+      "nativeSize": [
+        27,
+        32
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        40.5,
+        48
+      ],
+      "reviewAnchor": 28,
+      "runtimeAnchor": 28
+    },
+    {
+      "name": "home-flower-pot",
+      "source": "output/art/home-interior-v1/sources/15-planter-cream-flowers.png",
+      "sha256": "dc2f41a435895e0b2e9136fa1de1ef6ad45c9919436115f01614f65ae9389490",
+      "originalCanvas": [
+        1060,
+        1484
+      ],
+      "sourceBox": [
+        265,
+        417,
+        530,
+        721
+      ],
+      "nativeSize": [
+        25,
+        32
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        37.5,
+        48
+      ],
+      "reviewAnchor": 28,
+      "runtimeAnchor": 28
+    },
+    {
+      "name": "home-storage-jar",
+      "source": "output/art/home-interior-v1/sources/16-jar-terracotta-storage.png",
+      "sha256": "d63223c1b2a309c76752ac7519a3def0a89b4d03a7c09d8837539ad2b52cc618",
+      "originalCanvas": [
+        1096,
+        1435
+      ],
+      "sourceBox": [
+        204,
+        270,
+        689,
+        895
+      ],
+      "nativeSize": [
+        29,
+        36
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        43.5,
+        54
+      ],
+      "reviewAnchor": 32,
+      "runtimeAnchor": 32
+    },
+    {
+      "name": "home-table",
+      "source": "output/art/home-interior-v1/sources/approved-table-unchanged.png",
+      "sha256": "d913edbc9fd6b7634ca98b6e0644c913386058b98b6623eabf71a3b3d96f735f",
+      "originalCanvas": [
+        1678,
+        937
+      ],
+      "sourceBox": [
+        81,
+        126,
+        1516,
+        681
+      ],
+      "nativeSize": [
+        104,
+        49
+      ],
+      "scale": 1.5,
+      "worldSize": [
+        156,
+        73.5
+      ],
+      "approvedExistingDesign": true
+    }
+  ]
+}

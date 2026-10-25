@@ -4,7 +4,7 @@ import {forestHabitat} from '../data/forestHabitats.js';
 import {waterAt} from '../data/water.js';
 import {FOREST_MAP} from '../data/forest.js';
 import {ROOM} from '../data/interior.js';
-import {CITY} from '../data/city.js';
+import {CITY_FOUNTAIN_ISLAND} from '../data/cityFountainIsland.js';
 export const AUDIO_KEY='simple-life.audio.v2';
 export const DEFAULT_AUDIO={master:.5,music:.5,ambience:.25,effects:.75,muted:false};
 const clamp=v=>Math.max(0,Math.min(1,v));
@@ -19,10 +19,10 @@ export function audioProfile(s){
  if(s.area==='forest'){
   flavour=forestHabitat(s.position).id;
   for(const r of [0,64,128,192,256])if([0,1,2,3,4,5,6,7].some(i=>waterAt(FOREST_MAP,{x:s.position.x+Math.cos(i*Math.PI/4)*r,y:s.position.y+Math.sin(i*Math.PI/4)*r},false))){water=1-r/320;break;}
- }else if(s.area==='city'){const fountain=CITY.props.find(p=>p.animated==='fountain');water=clamp(1-Math.hypot(s.position.x-fountain.x-80,s.position.y-fountain.y-90)/420);}
+ }else if(s.area==='city'){water=clamp(1-Math.hypot(s.position.x-CITY_FOUNTAIN_ISLAND.center[0],s.position.y-CITY_FOUNTAIN_ISLAND.center[1])/420);}
  if(s.area==='interior')fire=clamp(1-Math.hypot(s.position.x-ROOM.width/2+64,s.position.y-100)/160);
  const forest=s.area==='forest',quiet=['desert','snow'].includes(flavour);
- const layers=s.area==='interior'?{}:forest?
+ const layers=['interior','barber','clothing'].includes(s.area)?{}:forest?
   {forestDay:quiet?0:1-night,night:quiet?.35*night:night,water:water*.85}:
   {forestDay:.6*(1-night),night:.65*night,...(s.area==='city'?{fountain:water*.8}:{})};
  // Gameplay has nature ambience only; title music stays on the title screen.

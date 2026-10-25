@@ -1,0 +1,48 @@
+{
+  "method": "Original code-native procedural surfaces; direct existing atlas compositing at unchanged object scales. No AI image generation or reference pixel extraction.",
+  "inputs": [
+    {
+      "path": "public/assets/pixel/processed/town.png",
+      "sha256": "547e04c74d1d6c90d9a8485a789bd844a856d42ca70d1ee830a09e8d144d71c8"
+    },
+    {
+      "path": "public/assets/pixel/processed/town.json",
+      "sha256": "6fc09351ebfcef2a05c4090901b094086def213524688ac440d470d54850c8be"
+    },
+    {
+      "path": "public/assets/pixel/processed/boy.png",
+      "sha256": "4e0bed0e70c3e155ea6b458ca41a3524f44023f5b1eefacbe39ec5ca8250fd5c"
+    },
+    {
+      "path": "public/assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721"
+    },
+    {
+      "path": "public/assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "output/previews/city-road-layout-v1/network-plan.png",
+      "sha256": "fdb79521c57efeb7509788c3d96c0f55a68dc81cd782efee252730c4e261d0fb"
+    },
+    {
+      "path": "output/previews/city-road-layout-v1/overview.png",
+      "sha256": "3a02f05ec9fb57d2a64e004d54cef016c6eb312c7a5ef00f288c3701b88bf4e1"
+    },
+    {
+      "path": "output/previews/city-road-layout-v1/proposed-city-full.png",
+      "sha256": "5948eab8a5c8c0d1e11ee9350872e37e2411046f6bdab6ca5d3e77a14e8db876"
+    },
+    {
+      "path": "output/previews/city-road-layout-v1/fountain-gameplay.png",
+      "sha256": "903f7ee057e55535ada85cddfd4a2c654648274122f6e6422e1b4e4066318e71"
+    },
+    {
+      "path": "output/previews/city-road-layout-v1/terrace-gameplay.png",
+      "sha256": "075d1a7a4454988fa6c941ded7b0cc258d7493e7ee58850312cdf28595fe9ffc"
+    }
+  ],
+  "scope": "Review only; no integration or runtime modification."
+}

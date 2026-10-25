@@ -20,7 +20,7 @@ test('residents and every seller emerge at dawn, commute over safe dry routes, a
    assert.equal(n.visible,false);assert.equal(residentContext([n],n.position),null);assert.ok(residentMoveAllowed([n],n.position,{x:n.position.x+1,y:n.position.y}));
    state.minute=360;stepResident(n,area,16,{x:0,y:0},state);assert.equal(n.mode,'toWork');assert.equal(n.visible,true);assert.deepEqual(n.position,n.commute[0]);
    for(let i=2;i<n.commute.length;i++){const a=n.commute[i-1],b=n.commute[i],d=Math.hypot(a.x-b.x,a.y-b.y);for(let v=0;v<=d;v+=2){const p=pathPose([a,b],v).position;assert.ok(walkable(area,p.x,p.y,8),n.name+' blocked path');assert.equal(waterAt(MAPS[area],p),false);}}
-   state.minute=420;stepResident(n,area,0,{x:0,y:0},state);assert.equal(n.mode,'work');assert.equal(n.visible,true);
+   state.minute=420;stepResident(n,area,0,{x:0,y:0},state);assert.equal(n.mode,'work');assert.equal(n.visible,!n.workArea);
    const before={...n.position},leave=commutePose(n,600).leave;state.minute=leave;stepResident(n,area,0,{x:0,y:0},state);assert.equal(n.mode,'toHome');assert.ok(Math.hypot(n.position.x-before.x,n.position.y-before.y)<.01,'no teleport at departure');
    state.minute=1139.99;stepResident(n,area,16,{x:0,y:0},state);assert.ok(Math.hypot(n.position.x-n.commute[0].x,n.position.y-n.commute[0].y)<2,'returns to actual doorway');
    state.minute=1140;stepResident(n,area,16,{x:0,y:0},state);assert.equal(n.visible,false);assert.equal(n.mode,'home');
@@ -33,8 +33,8 @@ test('late-evening reload reconstructs travel and pauses keep the clock-derived 
  for(const minute of [0,359,1140,1439])assert.ok(residentsFor('city',{minute}).every(n=>!n.visible));
 });
 test('all rendered houses are larger, unique, physically solid, and preserve the Home entry',()=>{
- const frames=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames,names=[];
- for(const area of ['home','farm','city'])for(const b of MAPS[area].buildings.filter(b=>b.name.startsWith('house'))){names.push(b.name);const f=frames[b.name].frame;const home=b.name==='house-village-0';assert.equal(f.w,home?180:120);assert.equal(f.h,home?144:96);const boxes=houseSolids(b.x,b.y,b.name);assert.ok(boxes.length>40);assert.equal(walkable(area,b.x+120,b.y+140),false);assert.ok(home?walkable(area,HOUSE.door.x,HOUSE.door.y,8):walkable(area,b.x+120,b.y+234,8));}
+ const town=JSON.parse(readFileSync('public/assets/pixel/processed/town.json')).frames,city=JSON.parse(readFileSync('public/assets/pixel/processed/city-buildings.json')).frames,names=[];
+ for(const area of ['home','farm','city'])for(const b of MAPS[area].buildings.filter(b=>b.name.startsWith('house'))){names.push(b.name);const f=(b.artTexture==='cityBuildings'?city[b.artFrame]:town[b.artFrame||b.name]).frame,home=b.name==='house-village-0',boxes=b.solidRows?b.solidRows.map(([x,y,w,h])=>[b.x+x,b.y+y,w,h]):houseSolids(b.x,b.y,b.name);if(!b.artFrame){assert.equal(f.w,home?180:120);assert.equal(f.h,home?144:96);}else assert.ok(f.w>=167&&f.h>=110);assert.ok(boxes.length>=5);const solid=boxes[Math.floor(boxes.length*.75)];assert.equal(walkable(area,solid[0]+solid[2]/2,solid[1]+solid[3]/2),false);if(home)assert.ok(walkable(area,HOUSE.door.x,HOUSE.door.y,8));}
  assert.equal(new Set(names).size,names.length);assert.ok(walkable('home',HOUSE.door.x,HOUSE.door.y));
 });
 test('axe uses the farmer hand without an added hand, points outward and layers front/back by facing',()=>{

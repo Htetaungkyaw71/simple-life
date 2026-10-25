@@ -33,7 +33,7 @@ test('bag actions select seeds without stock mutations and eat through existing 
  const s=newState(),a=appFor(s),b=new BagPanel(a);a.bagPanel=b;b.open('seeds');b.index=1;const before={...s.inventory};b.perform();assert.equal(s.selectedCrop,'strawberry');assert.deepEqual(s.inventory,before);assert.equal(a.ui.closed,true);
  a.ui.time.now+=1000;s.energy=80;s.inventory.wildBerry=2;b.open('food');b.perform();assert.equal(s.energy,87);assert.equal(s.inventory.wildBerry,1);b.perform();assert.equal(s.energy,87,'rapid duplicate is gated');
  a.ui.time.now+=1000;s.energy=100;b.perform();assert.equal(s.inventory.wildBerry,1);b.open('gear');assert.ok(!bagItems(s,'gear').some(i=>i.id==='club'));b.index=bagItems(s,'gear').findIndex(i=>i.id==='axe');a.ui.time.now+=1000;b.perform();assert.equal(s.selected,'axe');
- assert.equal(bagItems(s,'produce').length,14);assert.equal(bagItems(s,'food').length,23);
+ assert.equal(bagItems(s,'produce').length,14);assert.equal(bagItems(s,'food').length,22);
 });
 test('bag controls stay in bounds at each viewport and all inventory categories are available',()=>{
  for(const [w,h]of sizes){const u=recorder(w,h),a=appFor(newState(),u),b=new BagPanel(a);a.bagPanel=b;for(const tab of ['seeds','food','produce','gear']){b.open(tab);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id+` ${w}x${h}`);}}
@@ -57,7 +57,7 @@ test('actual HUD draws lower icon actions, forest-only map and mobile joystick a
 test('title, farmer choice, help, confirmation and pause fit desktop/mobile with complete actions',async()=>{
  const {drawModal}=await import('../src/ui/MenuView.js');
  const pages=[['title','Simple Life','',['Play','Continue','Controls','Credits']],['choose','Your farmer','',['Play as Boy','Play as Girl','Back']],['dialog','Paused','',['Resume','Save','Controls','Return to title']],['dialog','Controls','WASD / arrows / move\nE / use   K / attack\nSpace / forest jump\n1-3 / tools   Q / crop\nB / bag   M / forest map\nEscape / pause\nTouch / double tap ground to jump',['Farming >','Close']],['dialog','A fresh start?',"Replace this browser's saved farm? Your current harvest and progress will be lost.",['Keep my farm','Start fresh']]];
- for(const [w,h]of sizes)for(const [kind,title,body,labels]of pages){const u=recorder(w,h);u.menu={kind,title,body,buttons:labels.map(s=>[s,()=>{}])};drawModal(u);assert.deepEqual(u.controls.map(c=>c.label),labels);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,title+` ${w}x${h}`);const b=u.menuBounds;assert.ok(b.y+b.h<=h,title+` ${w}x${h}`);}
+ for(const [w,h]of sizes)for(const [kind,title,body,labels]of pages){const u=recorder(w,h);u.menu={kind,title,body,buttons:labels.map(s=>[s,()=>{}])};drawModal(u);assert.deepEqual(u.controls.filter(c=>!c.id.startsWith('welcome-language-')).map(c=>c.label),labels);for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,title+` ${w}x${h}`);const b=u.menuBounds;assert.ok(b.y+b.h<=h,title+` ${w}x${h}`);}
 });
 test('themed button retains glyph/selected colour through hover, with bounded hits and disabled actions',async()=>{
  const {button,UI_COLORS}=await import('../src/ui/pixelWidgets.js');const {pixels}=await import('../src/ui/statusArt.js');const u=recorder();let calls=0;
@@ -65,6 +65,21 @@ test('themed button retains glyph/selected colour through hover, with bounded hi
  assert.equal(hit.hitAreaCallback(hit.hitArea,10,20),true);assert.equal(hit.hitAreaCallback(hit.hitArea,42,52),false);assert.equal(hit.hitAreaCallback(hit.hitArea,9,30),false);
  c.box.setFillStyle(UI_COLORS.selected);const before=structuredClone(c.box.commands);c.box.events.pointerover();c.box.events.pointerout();assert.deepEqual(c.box.commands,before);c.box.events.pointerdown({},0,0,{stopPropagation(){}});assert.equal(calls,1);
  const cues=[];u.app={sound:key=>cues.push(key)};const disabled=button(u,u.root,'Locked',10,60,32,32,()=>calls++,{disabled:true});disabled.box.events.pointerdown({},0,0,{stopPropagation(){}});disabled.action();assert.equal(calls,1);assert.deepEqual(cues,['ui:disabled','ui:disabled']);
+});
+
+test('shared UI frames keep their layered bevel, use #c6d799, and omit corner cuts and edge leaves',async()=>{
+ const {frame,button,UI_COLORS}=await import('../src/ui/pixelWidgets.js');const u=recorder(),g=u.add.graphics();
+ assert.equal(UI_COLORS.border,0xc6d799);assert.equal(UI_COLORS.edge,UI_COLORS.border);
+ frame(g,3,4,20,12,UI_COLORS.panel,'wood',0xffffff,1);
+ assert.deepEqual(g.commands.slice(0,4),[
+  {type:'rect',x:4,y:6,w:20,h:12,color:UI_COLORS.ink,alpha:1},
+  {type:'rect',x:3,y:4,w:20,h:12,color:UI_COLORS.ink,alpha:1},
+  {type:'rect',x:4,y:5,w:18,h:10,color:UI_COLORS.border,alpha:1},
+  {type:'rect',x:5,y:6,w:16,h:8,color:UI_COLORS.panel,alpha:1},
+ ]);
+ const c=button(u,u.root,'Plain',10,20,32,24,()=>{});assert.ok(c.box.commands.some(n=>n.color===UI_COLORS.border));
+ for(const color of [0x566b3f,0x839548,0xa4b768])assert.equal(c.box.commands.some(n=>n.color===color),false,'removed edge-leaf colour');
+ c.box.setStrokeStyle(2,0xffffff);assert.ok(c.box.commands.some(n=>n.color===UI_COLORS.border));
 });
 
 test('compact crop inspection remains visible beside the player and plot at 640 x 360',async()=>{

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-14",
+  "tool": "OpenAI built-in imagegen",
+  "modelVersion": "not exposed",
+  "approval": {
+    "date": "2026-10-14",
+    "scope": "User accepted revised appearance and requested full sprite delivery."
+  },
+  "sources": {
+    "base": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-5aff88af-df2c-4b15-a985-9f2cb70b21f2.png",
+      "sha256": "1c28692481b2d0cc481404924fb636f90d66670aaf2bd4eb39b89e6cc68d2a35"
+    },
+    "front": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-be1c56ab-7f8b-4c64-bc32-43eff2988a6f.png",
+      "sha256": "d016f249541d1f22ddb3905a00ec5ac106d47160830afad7293118aa0a483a1d"
+    },
+    "idle": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-9dfd135b-3e22-41d5-89ba-ef36eb022d88.png",
+      "sha256": "fe54da057e400892685449336ba0b6cad089695a81fe4948f6448ad001dbf073"
+    },
+    "run_east": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-a8e39a3b-7606-4824-b897-706ff916a12f.png",
+      "sha256": "787afd10fbaeea68c64a36d8b4b06e9b9a278d9c60154f497000fe53dafc99c3"
+    },
+    "run_frontback": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-9f420443-e502-4583-99e7-a9050ee3ddb3.png",
+      "sha256": "832252d87a739188b3cc05fe2f8e38f8e3a9ca8d2b8fe1b205e934f4de63b715"
+    },
+    "harvesting": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-726f769c-c618-40ff-a5ac-e0d094801747.png",
+      "sha256": "6cfcf1d11282eeaa0f310632218cdb043dc86bbbdcc2af8444581e7c012f10f4"
+    },
+    "digging": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-76ff971f-229c-464e-8e7c-89d64ddbb72d.png",
+      "sha256": "f3f7f970af2b74c0ac81ebb7214824a6640fdf9e3e4c318da14459775c7dffc6"
+    },
+    "chopping": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-12244936-4087-4b5e-86b4-5e0ec147a908.png",
+      "sha256": "0f4c0f172f31d49faaa79e61a79140bfa75019be68648b7a571144434b839c01"
+    },
+    "watering": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-90c0ded3-6f78-438b-8aad-ef06844b7ee3.png",
+      "sha256": "f37d757d9737d604fc043e4ceff5eeeeccc6449d2880342110e723e24d4d39be"
+    },
+    "attack": {
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-377af373-d3b1-460c-b6aa-a86d9d711fa4.png",
+      "sha256": "fbc529d0571cbce8a31545c568f63949246a7d341f47a5411b469684371834e4"
+    }
+  },
+  "conversion": "Imagegen-authored poses; alpha gutters or connected chopping silhouettes (opaque core250 for fringe separation); whole-frame nearest sampling; shared per-action body scale/upper-torso registration; threshold128 alpha; one shared weighted32-colour palette. West running mirrors authored east. No independently displaced body parts or synthetic limb warps.",
+  "referenceRoles": {
+    "screenshots": "User-supplied proportion/pixel-style references only; not packaged.",
+    "plantTales": "Broad style reference https://store.steampowered.com/app/3693970/Plant_Tales/ ; no game pixels copied.",
+    "running": "Existing user-generated PixelLab running poses used as motion guidance; source/licences in docs/assets/licenses/characters-pixellab."
+  },
+  "dependencies": "Existing offline pngjs7.0.0 MIT and sharp0.35.5 Apache-2.0; evidence docs/licenses/farmer-approved-export. No new npm/runtime dependencies."
+}

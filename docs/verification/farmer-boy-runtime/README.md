@@ -1,0 +1,13 @@
+# Revised boy runtime integration — 2026-10-14
+
+User story: supplied PNGs → native runtime sheet and clip data → Boy / Worker-Classic selection → keyboard and touch gameplay → saved appearance and progress.
+
+- `npm test`: 320/320 pass. `npm run build`: pass.
+- Native audit: all 168 decoded 64×64 cells match the supplied native sheets byte for byte. Seven actions in four directions: four idle, eight run and six work poses each. The runtime sheet is 512×1792, with binary alpha and the shared source palette. Sixteen other tracked runtime pixel/font/JSON files are unchanged. The build contains 46 files and excludes source images and archives. Details: local native-audit.json and [runtime source hashes](../../assets/licenses/farmer-boy-revised-v2/runtime-record.json).
+- Browser: tests/browser/revised-farmer.mjs uses isolated Chromium saves, native keyboard/pointer inputs and a CDP touch joystick. All four running directions and all five work/combat clips pass at 1280×720 and 390×844, with every phase observed. Crop watering, harvest yield, digging with the required Copper Can, chopping energy and animal damage retain their established outcomes. Separate held tools stay hidden during built-in tool poses. Pause freezes visual phases/time; resume, jump, girl/paid looks, reload and retained coins pass. Additional title, choice and gameplay checks pass at 1440×900, 1024×768 and 844×390. English/Myanmar, all requests same-origin, zero console errors/page errors. Ignored local captures and browser.json accompany this record.
+- Source preservation: the user ZIP SHA-256 is e4c23438831ca05fa5bc79b99170af5077aa95dbb7847d463ad2b1f474a39258, matching the existing approved export. scripts/revised_farmer.py only copies/packs RGBA cells and derives source hand points. No new generation, recolour, resizing or limb warp.
+- Browser QA found a brief first-frame overlap between the separate tool and the built-in tool; hiding the separate tool immediately at action start corrected it. Visual actions advance during active simulation, return to idle/run and cancel on movement, tool changes or jump. Gameplay action timing remains unchanged.
+
+Limits: the pack has about 40 native pixels / 80 world units of standing body at 2×, taller than the previous 30-pixel male/girl. The approved source proportions are preserved. Generated pose variation remains. Copper Can coverage/effects remain, while the supplied watering cycle has one can design. Jump adapts passing run poses to the existing arc; no authored jump clip. Physical hardware, non-Chromium browsers and final human motion acceptance remain unverified. No public deployment, push, submission or save-schema change.
+
+[Local preview](http://127.0.0.1:4205/) while its server runs.

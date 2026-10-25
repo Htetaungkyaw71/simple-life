@@ -1,0 +1,71 @@
+{
+  "status": "approved and integrated",
+  "selectedWideSource": "/Users/mac/.codex/generated_images/01a14a52-a872-7a51-b219-12192545853a/exec-aa76a8dc-7dd2-439d-82e6-1ea41f72b7be.png",
+  "wideSelectionReason": "second wide candidate; fewer and broader blade groups",
+  "runtimeScale": 1,
+  "frameSize": [
+    48,
+    48
+  ],
+  "sheetSize": [
+    144,
+    48
+  ],
+  "frames": {
+    "wide": {
+      "index": 0,
+      "sourceSize": [
+        48,
+        34
+      ],
+      "cell": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "offset": [
+        0,
+        14
+      ],
+      "sourceSha256": "c921f11a05b6bc377132e5db66fe2ecff531d7a85138b5ba2acbdb0232b36815"
+    },
+    "tall": {
+      "index": 1,
+      "sourceSize": [
+        30,
+        48
+      ],
+      "cell": [
+        48,
+        0,
+        48,
+        48
+      ],
+      "offset": [
+        9,
+        0
+      ],
+      "sourceSha256": "404131cf34dce2c2962ce1ce012f1b16567a7db73ca9d4c4c3519b0ebbbd7cd9"
+    },
+    "small": {
+      "index": 2,
+      "sourceSize": [
+        38,
+        38
+      ],
+      "cell": [
+        96,
+        0,
+        48,
+        48
+      ],
+      "offset": [
+        5,
+        10
+      ],
+      "sourceSha256": "9a2a65ee46d608f25233e071a7f44b80c5bcb253bf6d4234e8296ff9b806af91"
+    }
+  },
+  "runtimeSha256": "901c13b7223503284409e2cff94829f905e694278d9c875b0dd7d02a3d757d60"
+}

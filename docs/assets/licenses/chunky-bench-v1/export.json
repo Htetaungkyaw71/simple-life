@@ -1,0 +1,72 @@
+{
+  "version": "0.36.1",
+  "date": "2026-10-15",
+  "selectedSource": {
+    "file": "output/art/chunky-bench-v1/selected-source.png",
+    "sha256": "96f86c3e22dc7312f0087d7ded65cf76d9be744b5d8ad4514f9c4fc25253fa9c"
+  },
+  "frame": "bench-chunky-review",
+  "nativeSize": [
+    64,
+    40
+  ],
+  "worldScale": 1,
+  "worldSize": [
+    64,
+    40
+  ],
+  "instance": {
+    "area": "home",
+    "x": 960,
+    "y": 824
+  },
+  "palette": [
+    [
+      48,
+      35,
+      28
+    ],
+    [
+      73,
+      50,
+      35
+    ],
+    [
+      103,
+      72,
+      47
+    ],
+    [
+      128,
+      93,
+      60
+    ],
+    [
+      156,
+      118,
+      77
+    ],
+    [
+      185,
+      148,
+      101
+    ],
+    [
+      207,
+      173,
+      125
+    ],
+    [
+      221,
+      194,
+      147
+    ]
+  ],
+  "existingFrames": 1037,
+  "newFrames": 1038,
+  "atlas": {
+    "w": 1024,
+    "h": 3530
+  },
+  "pendingUserApproval": true
+}

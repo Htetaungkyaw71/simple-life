@@ -1,0 +1,474 @@
+{
+  "mine": {
+    "lawn": {
+      "samplePixels": 1452446,
+      "dominant": [
+        {
+          "hex": "#879564",
+          "count": 176636
+        },
+        {
+          "hex": "#899766",
+          "count": 109164
+        },
+        {
+          "hex": "#8B9968",
+          "count": 79178
+        },
+        {
+          "hex": "#768A55",
+          "count": 65052
+        },
+        {
+          "hex": "#849261",
+          "count": 57058
+        },
+        {
+          "hex": "#859362",
+          "count": 56788
+        },
+        {
+          "hex": "#737748",
+          "count": 35002
+        },
+        {
+          "hex": "#636940",
+          "count": 34624
+        }
+      ],
+      "averageHsl": {
+        "h": 76.35,
+        "s": 22.82,
+        "l": 44.13
+      }
+    },
+    "foliage": {
+      "samplePixels": 1284919,
+      "dominant": [
+        {
+          "hex": "#768A55",
+          "count": 66228
+        },
+        {
+          "hex": "#444A2F",
+          "count": 44250
+        },
+        {
+          "hex": "#737748",
+          "count": 37456
+        },
+        {
+          "hex": "#636940",
+          "count": 36500
+        },
+        {
+          "hex": "#535937",
+          "count": 34988
+        },
+        {
+          "hex": "#80834F",
+          "count": 34854
+        },
+        {
+          "hex": "#363925",
+          "count": 32630
+        },
+        {
+          "hex": "#788C57",
+          "count": 32440
+        }
+      ],
+      "averageHsl": {
+        "h": 73.89,
+        "s": 26.15,
+        "l": 35.17
+      }
+    },
+    "clump": {
+      "samplePixels": 685727,
+      "dominant": [
+        {
+          "hex": "#BEB771",
+          "count": 37436
+        },
+        {
+          "hex": "#5F6233",
+          "count": 30344
+        },
+        {
+          "hex": "#9B9A5D",
+          "count": 28062
+        },
+        {
+          "hex": "#A5A263",
+          "count": 25130
+        },
+        {
+          "hex": "#99A35F",
+          "count": 24370
+        },
+        {
+          "hex": "#808B4B",
+          "count": 21350
+        },
+        {
+          "hex": "#97954E",
+          "count": 18086
+        },
+        {
+          "hex": "#B1AD69",
+          "count": 16060
+        }
+      ],
+      "averageHsl": {
+        "h": 66.07,
+        "s": 32.22,
+        "l": 44.65
+      }
+    },
+    "trunk": {
+      "samplePixels": 186674,
+      "dominant": [
+        {
+          "hex": "#29251A",
+          "count": 41994
+        },
+        {
+          "hex": "#32251A",
+          "count": 21094
+        },
+        {
+          "hex": "#7C4F38",
+          "count": 18480
+        },
+        {
+          "hex": "#744735",
+          "count": 12458
+        },
+        {
+          "hex": "#935F45",
+          "count": 10836
+        },
+        {
+          "hex": "#5A362A",
+          "count": 9662
+        },
+        {
+          "hex": "#7A4D36",
+          "count": 7216
+        },
+        {
+          "hex": "#7E513A",
+          "count": 5204
+        }
+      ],
+      "averageHsl": {
+        "h": 26.05,
+        "s": 32.18,
+        "l": 27.1
+      }
+    },
+    "shadow": {
+      "samplePixels": 645336,
+      "dominant": [
+        {
+          "hex": "#444A2F",
+          "count": 45950
+        },
+        {
+          "hex": "#636940",
+          "count": 37972
+        },
+        {
+          "hex": "#535937",
+          "count": 36326
+        },
+        {
+          "hex": "#363925",
+          "count": 34014
+        },
+        {
+          "hex": "#5F6233",
+          "count": 31308
+        },
+        {
+          "hex": "#2D3321",
+          "count": 30188
+        },
+        {
+          "hex": "#3F3D35",
+          "count": 22440
+        },
+        {
+          "hex": "#232918",
+          "count": 20444
+        }
+      ],
+      "averageHsl": {
+        "h": 76.41,
+        "s": 24.14,
+        "l": 23.82
+      }
+    }
+  },
+  "reference": {
+    "lawn": {
+      "samplePixels": 1481040,
+      "dominant": [
+        {
+          "hex": "#8A9B5B",
+          "count": 35873
+        },
+        {
+          "hex": "#7F9056",
+          "count": 35415
+        },
+        {
+          "hex": "#93A35D",
+          "count": 23762
+        },
+        {
+          "hex": "#7F9058",
+          "count": 17264
+        },
+        {
+          "hex": "#8A9B5D",
+          "count": 15628
+        },
+        {
+          "hex": "#809056",
+          "count": 13265
+        },
+        {
+          "hex": "#798955",
+          "count": 13022
+        },
+        {
+          "hex": "#778856",
+          "count": 9837
+        }
+      ],
+      "averageHsl": {
+        "h": 71.13,
+        "s": 25.15,
+        "l": 43.6
+      }
+    },
+    "foliage": {
+      "samplePixels": 3906800,
+      "dominant": [
+        {
+          "hex": "#8B8B4E",
+          "count": 69859
+        },
+        {
+          "hex": "#959552",
+          "count": 67798
+        },
+        {
+          "hex": "#9F9A54",
+          "count": 41669
+        },
+        {
+          "hex": "#7F9056",
+          "count": 37884
+        },
+        {
+          "hex": "#8A9B5B",
+          "count": 35965
+        },
+        {
+          "hex": "#A09A54",
+          "count": 34103
+        },
+        {
+          "hex": "#A7A65E",
+          "count": 26431
+        },
+        {
+          "hex": "#93A35D",
+          "count": 23870
+        }
+      ],
+      "averageHsl": {
+        "h": 64.9,
+        "s": 28.82,
+        "l": 38.18
+      }
+    },
+    "clump": {
+      "samplePixels": 2750269,
+      "dominant": [
+        {
+          "hex": "#8B8B4E",
+          "count": 69859
+        },
+        {
+          "hex": "#959552",
+          "count": 67798
+        },
+        {
+          "hex": "#9F9A54",
+          "count": 41668
+        },
+        {
+          "hex": "#7F9056",
+          "count": 37884
+        },
+        {
+          "hex": "#8A9B5B",
+          "count": 35965
+        },
+        {
+          "hex": "#A09A54",
+          "count": 34103
+        },
+        {
+          "hex": "#A7A65E",
+          "count": 26431
+        },
+        {
+          "hex": "#93A35D",
+          "count": 23870
+        }
+      ],
+      "averageHsl": {
+        "h": 62.19,
+        "s": 29.75,
+        "l": 41.87
+      }
+    },
+    "trunk": {
+      "samplePixels": 500172,
+      "dominant": [
+        {
+          "hex": "#622A1C",
+          "count": 1023
+        },
+        {
+          "hex": "#612A1E",
+          "count": 860
+        },
+        {
+          "hex": "#522820",
+          "count": 782
+        },
+        {
+          "hex": "#542820",
+          "count": 704
+        },
+        {
+          "hex": "#50261D",
+          "count": 658
+        },
+        {
+          "hex": "#612A1C",
+          "count": 610
+        },
+        {
+          "hex": "#50281F",
+          "count": 549
+        },
+        {
+          "hex": "#60291D",
+          "count": 533
+        }
+      ],
+      "averageHsl": {
+        "h": 22.58,
+        "s": 41.81,
+        "l": 25.11
+      }
+    },
+    "shadow": {
+      "samplePixels": 1309096,
+      "dominant": [
+        {
+          "hex": "#696739",
+          "count": 995
+        },
+        {
+          "hex": "#69673A",
+          "count": 866
+        },
+        {
+          "hex": "#6A6C3E",
+          "count": 694
+        },
+        {
+          "hex": "#5F5B32",
+          "count": 680
+        },
+        {
+          "hex": "#625D35",
+          "count": 660
+        },
+        {
+          "hex": "#5F5B34",
+          "count": 653
+        },
+        {
+          "hex": "#69693B",
+          "count": 620
+        },
+        {
+          "hex": "#5F5B36",
+          "count": 571
+        }
+      ],
+      "averageHsl": {
+        "h": 63.44,
+        "s": 29.49,
+        "l": 23.79
+      }
+    }
+  },
+  "player": {
+    "screenshot1VisibleHeightPx": 176,
+    "nativeVisibleHeightPx": 64,
+    "nativeFrameHeightPx": 72,
+    "basisForFutureAssets": "native visible height (64 px)"
+  },
+  "lockedPalette": {
+    "lawn": [
+      "#687749",
+      "#748455",
+      "#7F9056",
+      "#879564",
+      "#8E9C67",
+      "#98A66B"
+    ],
+    "foliage": [
+      "#29301F",
+      "#363925",
+      "#444A2F",
+      "#535937",
+      "#636940"
+    ],
+    "clump": [
+      "#4B4F28",
+      "#5F6233",
+      "#808B4B",
+      "#9B9A5D"
+    ],
+    "trunk": [
+      "#29251A",
+      "#5A362A",
+      "#7C4F38"
+    ],
+    "shadow": [
+      "#30372C",
+      "#444A2F"
+    ],
+    "flower_dirt": [
+      "#F0E8C7",
+      "#D8C995",
+      "#E4B7A3",
+      "#C77768",
+      "#8A593C",
+      "#A7774D",
+      "#C29A62",
+      "#D4B878"
+    ]
+  }
+}

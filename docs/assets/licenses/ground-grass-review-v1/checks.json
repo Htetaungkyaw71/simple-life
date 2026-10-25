@@ -1,0 +1,66 @@
+{
+  "a": {
+    "size": [
+      128,
+      128
+    ],
+    "opaqueConnectedComponents": 1,
+    "pinholes": 0,
+    "onlyLockedColors": true,
+    "usedColors": [
+      "#687749",
+      "#748455",
+      "#7F9056",
+      "#879564",
+      "#8E9C67",
+      "#98A66B",
+      "#D8C995"
+    ],
+    "leftRightEdgeExact": true,
+    "topBottomEdgeExact": true,
+    "sha256": "8bb427751f987d98e1c6ee76a3cf3fa4f2f40e75974438eb14bfecc4a25862cf"
+  },
+  "b": {
+    "size": [
+      128,
+      128
+    ],
+    "opaqueConnectedComponents": 1,
+    "pinholes": 0,
+    "onlyLockedColors": true,
+    "usedColors": [
+      "#687749",
+      "#748455",
+      "#7F9056",
+      "#879564",
+      "#8E9C67",
+      "#98A66B",
+      "#D8C995",
+      "#F0E8C7"
+    ],
+    "leftRightEdgeExact": true,
+    "topBottomEdgeExact": true,
+    "sha256": "47b218a18b5ad186a668a95f1257263baf6a37277fcd32bfdcf3c6cf19fd986c"
+  },
+  "c": {
+    "size": [
+      128,
+      128
+    ],
+    "opaqueConnectedComponents": 1,
+    "pinholes": 0,
+    "onlyLockedColors": true,
+    "usedColors": [
+      "#687749",
+      "#748455",
+      "#7F9056",
+      "#879564",
+      "#8E9C67",
+      "#98A66B",
+      "#D8C995"
+    ],
+    "leftRightEdgeExact": true,
+    "topBottomEdgeExact": true,
+    "sha256": "784b3d58a0d9f4b7a92fbba45d14bb0466f41a13bc697e41d5a37e6bfbeb7742"
+  }
+}

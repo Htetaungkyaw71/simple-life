@@ -1,3 +1,639 @@
+# 2026-10-24 — approved Tomato snapped icons integrated
+
+Imported only the approved `tomato-item` and `tomato-seed-item` candidates into the runtime town atlas as native 24×24 binary-alpha frames. The retained source pixels are exact and unscaled. Tomato-only visual metadata applies a `2/3` display factor so toolbar, Bag, trade panels, crop info, planting, and harvest-flight effects keep their established visual footprint; every other crop remains at scale 1. The atlas installer verified that every non-target frame retained its existing metadata and pixels. Gameplay, saves, crop timing, sprite keys, and all other icons are unchanged. Per the user's instruction, no test suite or production build was run.
+
+Evidence and source hashes: [Tomato icon source record](assets/licenses/tomato-icons-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — user-supplied Strawberry sheet staged for approval
+
+Audited the user-supplied 361×121 Strawberry growth strip without redrawing or repainting it. The sheet contains exactly eight separated stages and 16 source RGBA colours. Its best 2×2 grid score is 98/1,778 homogeneous touched blocks, confirming native 1-pixel art rather than a uniform 2× enlargement.
+
+The reusable `scripts/import_sheet.py` pass removed the two exact magenta-family background/fringe colours, the repeated baked ground/base mask from stages 2–8 and two isolated pixels. All 14 retained opaque colours remain exact source RGBA values, and output alpha is strictly 0/255. The common bottom-centred frame is 48×38; cleaned stage sizes are 30×15, 19×11, 38×27, 41×36, 46×38, 40×35, 41×25 and 38×18.
+
+The development-only `/tomato-debug.html` now includes Strawberry at 1×/3×/6× on actual dry and watered soil plus a real 48-pixel-spacing row beside current Tomato at scale 1 and Carrot at scale 2. Proposed Strawberry scale is 1. Its current `signOffsetY: -54` remains geometrically correct: the 36-world-pixel sign ends exactly at the 38-pixel ripe plant top, so water, basket and warning signs stay above the foliage. Runtime Strawberry frames, crop metadata, gameplay, saves and every other crop remain unchanged pending explicit approval. Evidence: [Strawberry snapped-sheet source record](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md).
+
+The focused Strawberry regression passes. The full suite is **419/421**, with only the same two unrelated pre-existing dirty-worktree failures: `tests/barber-grass-v2.test.js` runtime-reference drift and `tests/pixel-snapper-assets.test.js` expecting 49 frames while the existing manifest contains 50. `npm run build` succeeds (194 modules), and the review source/candidate/debug page remain absent from `dist`. Live Chrome inspection passed the complete Strawberry section and real-scale crop row with no console warnings or errors.
+
+---
+
+# 2026-10-24 — Tomato snapped icons audited for review
+
+Audited the user-supplied 108×74 Tomato icon sheet without redrawing or repainting it. It is native hard-edged 1-pixel art with 15 exact colors and three connected sprites measuring 21×21, 19×19, and 19×22 pixels. Deterministic cleanup removes only 6,994 exact magenta background pixels, preserves every retained RGBA value, and produces strict binary alpha. The first, more detailed Tomato is selected as the review candidate; the second is retained as an unused alternate. All candidates are padded into 24×24 frames with no resampling.
+
+The existing icon consumers were audited. A 24×24 runtime frame can be stored safely, but the shared UI currently assumes a 16×16 icon footprint. Approval-stage integration should therefore add visual-only per-icon scale metadata of `2/3` for the two Tomato icon keys. This preserves toolbar, Bag, seed-shop, market, TradePanel, CropInfo, reward-row, planting, and harvest-flight display sizes without modifying the stored pixels.
+
+The development-only `/tomato-debug.html` now compares the selected Tomato and packet with Carrot at 1×, 2×, and 8× and includes real-scale toolbar/Bag slot mockups. The runtime atlas, sprite keys, other icons, gameplay, saves, and UI code remain unchanged. Per the user's instruction, no test suite or production build was run for this review-only step. Evidence: [Tomato icon source record](assets/licenses/tomato-icons-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — user-supplied Tomato sheet audit and review candidates
+
+Audited the user-supplied 379×123 Tomato strip without redrawing or repainting it. The source is hard-edged native 1-pixel art with 16 exact RGBA colours and no partial alpha. It is not a uniform 2× enlargement: only 289/2,265 non-background-touched 2×2 blocks are homogeneous at the best offset, so the requested 2:1 Candidate A was correctly rejected instead of destructively resampling the art.
+
+Added reusable `scripts/import_sheet.py` and generated review-only evidence outside `public/`. The deterministic pass removed the hard-pixel magenta background/fringe, repeated purple ground/base mask from stages 2–8, and one isolated non-magenta pixel; it preserved the source RGB values of all retained plant pixels and produced strict binary alpha. Candidate B is bottom-centred in eight 48×70 frames: 48 pixels matches the current 24-pixel crop width at 2×, and 70 pixels is the largest cleaned stage height.
+
+The development-only `/tomato-debug.html` now shows Candidate A's audit rejection, Candidate B at 1×/3×/6× on actual dry and watered procedural soil, and an eight-stage row at the real 48-pixel plot spacing beside the current Carrot. Browser inspection passed with no console warnings/errors. `npm run build` succeeds (193 modules), and neither the debug page nor candidate/evidence images enter `dist`. `npm test` remains **417/419** with only the same unrelated dirty-worktree assertions in `tests/barber-grass-v2.test.js` and `tests/pixel-snapper-assets.test.js`.
+
+No runtime atlas image/metadata, crop definition, gameplay logic, timing, save data, state selection, sprite key, UI, or other crop changed. Runtime integration is intentionally paused for the user's candidate choice. Evidence: [Tomato snapped-sheet source record](assets/licenses/tomato-import-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — tomato-only reference-led pixel refinement v3 (awaiting visual approval)
+
+Refined only the existing eight 24×32 Tomato stages and two 16×16 Tomato icons after the user rejected the more diagrammatic v2 look. The supplied screenshots were used only to identify broad in-game style qualities. The v3 plant uses connected serrated compound-leaf masses, irregular top-left-lit shading, colored outlines, thinner staked vine structure, clear gaps around three saturated ripe fruit, and more organic dry/wilted/dead silhouettes. The produce icon has a fuller shaded body; the packet keeps the existing canvas and packet language. No screenshot pixels or third-party pack asset entered the runtime.
+
+The development-only `/tomato-debug.html` now compares the preserved v2 runtime strip with v3 and continues to show all real runtime cells at 1×, 3× and 6× on live dry/watered soil, the two non-runtime studies, a 2× farm row and Tomato/Carrot icon comparisons. Source comparison proves exactly ten Tomato outputs changed; all eight alpha silhouettes are unique. Atlas comparison reports 1,276 changed pixels and zero outside those ten cells, with byte-identical `town.json`. The page/evidence remain excluded from `dist`.
+
+`npm run build` succeeds (193 modules). `npm test` remains **417/419** with only the two pre-existing unrelated dirty-worktree assertions in `tests/barber-grass-v2.test.js` and `tests/pixel-snapper-assets.test.js`. Browser inspection passed for the complete Tomato review page. A new isolated game instance remained at the existing loading screen during this follow-up; however, the shared farm-rendering, soil/status-marker, prompt and interaction tests pass, the preceding v2 browser acceptance already covered the water/basket/warning overlays, and v3 changes no rendering/gameplay/UI code or atlas metadata. No gameplay, save, timing, state selection, sprite key, atlas frame name, other crop, dependency, backend, deployment, publication or push changed.
+
+Evidence: [Tomato v3 source record](assets/licenses/tomato-redesign-v3/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — tomato-only pixel refinement v2 (awaiting visual approval)
+
+Refined only the ten existing Tomato cells. The eight 24×32 runtime stages now use larger, well-separated three-leaflet clusters, more negative space, colored green/maroon/brown outlines, top-left highlights, thin staked S-curves and two small ties. The living stages have a two-tone contact shadow. Ripe emphasizes three staggered 5×5 red fruit plus two smaller green fruit; dry, wilted and dead use separate declining silhouettes. The 16×16 produce icon is a squashed three-tone Tomato with a 2×2 highlight, and the Tomato packet now has a dark frame, cream body, green header and small red emblem. Carrot and every other crop remain byte-identical to the preserved preceding generator.
+
+The development-only `/tomato-debug.html` now shows the real runtime frames and matching in-memory vegetative/green-fruit studies at 1×, 3× and 6× on both live dry and watered soil. It also includes an eight-stage row at the game's 2× scale with 48-pixel spacing, a previous/current strip, and Tomato/Carrot icon comparisons. The previous runtime frames are retained only as review evidence outside `public/` and are not in `dist`.
+
+Automated authoring checks confirm all ten and only the Tomato outputs changed, all eight 24×32 flattened alpha silhouettes are unique, atlas changes remain confined to the ten existing Tomato rectangles, and atlas metadata is byte-preserved. `npm run build` succeeds (193 modules) with the debug page/evidence excluded. The full suite remains **417/419** with the same unrelated dirty-worktree art assertions in `tests/barber-grass-v2.test.js` and `tests/pixel-snapper-assets.test.js`. Browser review passed for the expanded debug page and the isolated real farm scene; the existing water, basket and warning signs remain visible and the shared prompt/UI path is unchanged. No gameplay, save, crop timing, state selection, sprite key, atlas frame name, other crop, dependency, backend, deployment, publication or push changed.
+
+Evidence: [Tomato v2 source record](assets/licenses/tomato-redesign-v2/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — tomato-only pixel redesign (awaiting visual approval)
+
+Redrew only the existing Tomato art: all eight 24×32 runtime plant frames plus the 16×16 produce and seed-packet icons. The frame keys, atlas rectangles, transparent canvas sizes, bottom-centred anchors, crop timing, growth/state selection, save data and UI code remain unchanged. The mature stages now read as a staked, slightly sprawling vine with serrated compound leaves, yellow flowers, green buds and clustered fruit; dry, wilted and dead retain distinct silhouettes. No other crop generator was edited relative to the pre-work backup.
+
+Added a development-only `/tomato-debug.html` review page. It reads the ten real cells from the current atlas, places the eight runtime stages on the live 24×24 dry-soil pixels at 1×, 4× and 8×, derives non-runtime vegetative and green-fruit studies in memory, and compares both Tomato icons with Carrot at 1× and 8×. Integer canvas sizes and `image-rendering: pixelated`/`crisp-edges` are used; the page is absent from `dist`.
+
+The full asset pipeline was invoked but stopped at its documented external Pipoya dependency because `/tmp/pipoya-characters.zip` is not present. To avoid changing unrelated dirty-worktree art, the same `add_crop_art`/`add_city_crop_art` source functions were then used to replace exactly the ten existing Tomato atlas rectangles in place. Pixel comparison against the pre-repack atlas found changes only inside those ten rectangles; `town.json` was byte-preserved by this operation. The full regeneration command remains `SIMPLE_LIFE_PIPOYA_ZIP=/absolute/path/to/pipoya-characters.zip python3 scripts/process-rpg-assets.py` (with Pillow available).
+
+`npm run build` succeeds (193 modules) and does not emit `tomato-debug.html`. The full Node suite is **417/419**; the only failures are the same unrelated dirty-worktree art assertions in `tests/barber-grass-v2.test.js` and `tests/pixel-snapper-assets.test.js`. Browser review passed for the debug page and the isolated in-game farm gallery: all Tomato stages render with nearest-neighbour pixels, while the existing drop, basket and warning signs remain visible above the new plants. The shared `E / Water` path and HUD code are unchanged and their farming tests pass. Physical devices and non-Chromium engines were not newly checked. No gameplay, save, dependency, backend, remote asset, deployment, publication or push changed.
+
+Evidence: [Tomato source record](assets/licenses/tomato-redesign-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-23 — Mystical Forest River welcome view
+
+Implemented the user-approved reference-like viewpoint as an original front-facing title background. The responsive scene now looks from a foreground river toward a warm misty forest clearing, waterfall and bridge, with dark tropical foliage framing the sides. The generated PNG contains no title, controls, people or copied reference pixels; the existing Phaser wordmark, Play/Continue/Controls/Credits actions, English/မြန်မာ chips, focus/hover behavior and save logic remain live and separate. The title-only clarity follow-up adds a complete one-native-pixel dark outline, deeper offset shadow and warm-cream face to `SIMPLE LIFE`; the subtitle, ornament, menu, backdrop and motion remain unchanged. A follow-up recording exposed that the initial moving-glint layer treated the lower screen as one rectangle, allowing cyan strokes to cross rocks and plants. That layer is removed. The replacement follows the recording's restrained style with short broken highlight clusters, four stepped poses per second and an explicit backdrop-source river channel that excludes rocks, roots, bridge and shoreline foliage. Birds, leaves and river motion stop when reduced motion is requested.
+
+Focused welcome tests pass **7/7**, including exact title-layer checks and source-space shoreline containment across all ten supported layouts. The full suite is **411/413**: the only failures are the same unrelated pre-existing art-worktree assertions in `tests/barber-grass-v2.test.js` (runtime barber/grass provenance) and `tests/pixel-snapper-assets.test.js` (50 actual atlas frames versus the older expectation of 49). `npm run build` succeeds (190 modules), includes the existing local PNG and makes no remote request.
+
+Local Chromium visual acceptance passes at the default 1440×778 desktop viewport, the recording's exact 1990×1118 size, 640×360 short landscape and 390×844 phone portrait. At 1990×1118, the outlined title remains crisp and readable over both the bright central light and darker trunks without changing surrounding elements. The replacement wavelets change between sampled frames while the visible rock/plant banks remain clean. The title, all four menu actions and both language controls remain visible; the landscape layout uses the established compact two-column arrangement and portrait retains the full stacked menu. Play and Credits were opened successfully from the title scene. No game-page warning or error was captured; one Chrome-extension-only `removeChild` message was excluded from the game result. Physical devices and non-Chromium engines were not newly checked. Evidence: [browser checks and screenshots](verification/welcome-mystical-river-v1/README.md).
+
+New runtime art is one local 1672×941 PNG (2,415,970 bytes), explicitly allowlisted and documented at [the source record](assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md). No gameplay, save schema, backend, runtime AI, remote asset, dependency, deployment, publication or push changed.
+
+---
+
+# 2026-10-23 — tool-toggle flash and Meat cook/eat flow
+
+Fixed both reported interaction problems. Screen-recording review showed that the attempted stable `Seed / Selected` and `Harvest tool / Selected` feedback was itself one visible message, so tool-toggle text was removed. A second follow-up then found the true single-frame path: changing between Hand and Seed/Harvest rebuilds the HUD, and the new `FarmGuide` objective was visible at its default position before its first update. Both FarmGuide branches now start hidden and become visible only after a positioned update. The same rebuild also created health/energy fills at full width before correcting them one frame later; both meter fills and highlights now initialize from the current saved values, eliminating the small bar movement. Seed and Harvest selection/unselection changes only the highlighted toolbar icon while nearby-world prompts and the first-farm guide remain suppressed. Hunted Meat now appears on the first Bag → Gear page with a Cook action and is no longer directly edible. The action routes to the established Home hearth: build the stove once, convert 1 Meat + 1 Wood to Grilled Meat, then eat Grilled Meat from the first Bag → Food slot for +50 HP / +35 EP. Animal-defeat feedback also names Bag → Gear and the Home hearth.
+
+Focused Node tests pass **47/47**. Real local Chrome canvas acceptance passes the toolbar flow at 1280×720, samples unchanged partial health/energy widths across 12 animation frames around every Seed/Harvest click, and passes the complete Gear → Cook → Food → Eat flow at 640×360 with isolated disposable saves and no captured console/page errors. `npm run build` succeeds (190 modules). The full suite is **409/411**: the only failures are unrelated pre-existing art-worktree assertions in `tests/barber-grass-v2.test.js` (runtime barber prop reference) and `tests/pixel-snapper-assets.test.js` (50 actual atlas frames versus the older expectation of 49). Physical devices and non-Chromium browsers were not newly checked. No asset, licence, dependency, save schema, backend, deployment, publication or push changed.
+
+---
+
+# 2026-10-22 — HUD prompt first-frame flash repair
+
+The remaining Seed/Harvest flash was caused by the HUD prompt container being visible at its default `(0, 0)` position during the first render after HUD creation. The prompt now starts hidden and is revealed only after its positioned update completes. Validation: 408 tests pass and the production build succeeds.
+
+# 2026-10-22 — HUD prompt flash and tool-toggle hint repair
+
+Follow-up testing found two visible effects around Seed/Harvest unselection: the prompt could briefly render at its default top-left position before placement, and the delayed context could show `Follow the south road` above the toolbar. HUD prompts now remain hidden until their final position is computed, and tool toggles suppress nearby world-context prompts for 1.8 seconds. **407 tests pass** and `npm run build` succeeds. No save, dependency, asset, backend, or gameplay-rule changes.
+
+# 2026-10-22 — tool-toggle prompt suppression
+
+Follow-up fixed the remaining brief `Starter seeds / Farm south` message when Seed or Harvest is unselected. The toggle correctly returns to Hand, but the nearby starter interaction became the HUD context for one or two frames. Tool selection now suppresses only the transient HUD world prompt for 500 ms; world interactions remain available and the selection/save behavior is unchanged. **407 tests pass** and `npm run build` succeeds. No save, dependency, asset, backend, or gameplay-rule changes.
+
+# 2026-10-22 — toolbar prompt leak repair
+
+Fixed a second part of the reported Seed/Harvest HUD issue: clicks on bottom toolbar controls were also reaching `WorldScene`, where the current world context could display an unrelated prompt such as `Starter seeds / Farm south`. World pointer handling now ignores coordinates occupied by UI controls. Added a regression test for UI hit testing. **406 tests pass**; the production build passed for the preceding implementation and the pointer-guard change is source-only. No save, dependency, asset, backend, or gameplay-rule changes.
+
+# 2026-10-22 — crop panel positioning flash repair
+
+Fixed a one-frame HUD artifact reported when selecting the Seed or Harvest tools. The crop-status panel was becoming visible before its collision-aware screen position was calculated, so it could briefly render at the canvas origin in the upper-left corner. [`src/ui/CropInfo.js`](../src/ui/CropInfo.js) now keeps the panel hidden until the current plot information is positioned safely. **405 tests pass** and `npm run build` succeeds. No save, dependency, asset, backend, or gameplay-rule changes.
+
+# 2026-10-22 — keyboard focus regression repair
+
+The fresh-save browser smoke test found a runtime error when keyboard focus advanced through controls containing the mobile movement stick: `c.box.setStrokeStyle is not a function`. Focus highlighting now safely skips controls without button stroke styling through the shared helper in `src/ui/focus.js`. Added a regression test covering mixed button and joystick controls. **405 tests pass** and `npm run build` succeeds. Browser smoke verification reached the gameplay/help UI after reload without reproducing the error. Full farming, travel, Forest, combat, save/reload and physical-device coverage remains pending. No dependency, save-schema, backend, remote-asset, deployment or publication change.
+
+# v0.43.5 — focused Home design and wardrobe menu (2026-10-23)
+
+The Home + Garden canvas panel now contains only House designs and Wardrobe. Craft/materials, Trees & garden and Room furniture are temporarily removed from that entry point; their underlying systems, owned inventory and placed-decoration save data are retained rather than deleted.
+
+The active Home catalogue contains exactly two already-integrated City façades: Green Bay (free/default) and Blue Slate (2,000 coins). Preview and world rendering use those exact local `cityBuildings` atlas frames. Home placement preserves the established door/ground anchor while collision swaps to each façade's authored foundation rows. The existing furnished room layout remains, with Green Bay using its warm cream/terracotta surface and Blue Slate using a distinct pale-blue/slate surface. Wardrobe behavior is unchanged and remains reachable from the simplified menu.
+
+Schema 19 remains. Continue preserves starter ownership and converts any ownership or selection of the eight retired paid designs into Blue Slate ownership/selection. Unknown forged IDs are still discarded, and farming, City, Forest, appearance, furniture, inventory, coins and progression remain untouched.
+
+All **409 tests pass** and `npm run build` succeeds. Local Chromium acceptance passes six cases: fresh desktop 1280×720, portrait phone 390×844, short landscape 640×360, the Blue Slate exterior/interior flow, and schema-17 continuation at desktop and phone sizes. The captured browser record reports zero console/page errors. Visual inspection confirmed the two-card menu, both existing City façade previews, the applied Blue Slate world house, the cool-blue furnished interior and the retained Wardrobe. Physical devices and non-Chromium engines were not newly checked. No image generation, new asset, dependency, backend, remote runtime request, deployment, publication or push.
+
+Evidence: [browser checks and screenshots](verification/home-menu-v0435/README.md).
+
+---
+
+# v0.43.4 — deterministic fountain water animation (2026-10-19)
+
+Created the requested reviewable Pillow/NumPy water animation from the supplied 213×214 fountain without image generation. `water_mask.png` selects 2,012 pixels covering the connected teal pool, three thin streams, three offset landing ripples and the small top-tier pool while excluding the rim, moss, urn body, lily pads, water flowers, grass and plants. The optional lily-pad movement was omitted.
+
+Delivered six 213×214 RGBA frames, a 1278×214 horizontal sheet, a six-frame 4× preview GIF averaging 8 fps and a byte-identical static PNG. Script assertions confirm every outside-mask RGBA pixel and every frame's alpha channel match the source, all visible colors come from the original 16-color palette, and the loop includes comparable frame-six-to-frame-one motion. These remain review-only outside runtime.
+
+Evidence: [output README](../output/art/fountain-animation-v1/README.md), [source/transformation record](assets/licenses/fountain-animation-v1/SOURCE_RECORD.md) and [build-tool dependency record](licenses/fountain-animation-v1/DEPENDENCIES.md).
+
+---
+
+# v0.43.3 — original fountain-island v2 review asset (2026-10-19)
+
+Generated the requested original top-down 3/4 fountain island using the supplied screenshot only for pixel density, outline thickness and mood. The new asset has an oval grass island and bottom cobblestone path, a chunky octagonal mossy basin with teal lily-pad water, a small tiered urn, asymmetrical pink/cream/green planting and exactly two wooden tulip planters. It avoids the reference's round basin, corner symmetry, sunflowers, lavender and terracotta pots.
+
+Delivered `fountain_island_v2.png` as a 1024×1024 RGBA PNG with genuine transparency after generating against solid `#FF00FF`. Dimension, pixel-format, alpha-range and hash checks pass. It remains review-only outside runtime; no gameplay, source, save, dependency or production asset changed.
+
+Evidence: [source record](assets/licenses/fountain-island-v2/SOURCE_RECORD.md) and [review directory](../output/art/fountain-island-v2/README.md).
+
+---
+
+# v0.43.2 — fountain-island review pair (2026-10-19)
+
+Generated the requested top-down 3/4 pixel-art fountain island closely following the supplied compact, flower-heavy reference. Delivered a plaza-backed 512×512 PNG and a matching 512×512 RGBA island-only cutout with genuine transparency. Both retain crisp nearest-neighbour pixels and remain review-only outside the game until the user approves integration.
+
+Validated both dimensions, the transparent file's RGBA pixel format and SHA-256 hashes. No runtime source, gameplay, save data, dependency, production asset or local server state changed in this review-only pass.
+
+Evidence: [source record](assets/licenses/fountain-island-v1/SOURCE_RECORD.md) and [review directory](../output/art/fountain-island-v1/README.md).
+
+---
+
+# v0.43.1 — clothing rack, compact fountain garden and Home cleanup (2026-10-19)
+
+Replaced the clothing shop's old rack with the user's new 183×124 Pixel Snapper shirt display. Its native RGBA canvas is packed byte-identically as `snapper-clothing-rack-v3`; Phaser applies only nearest-filtered `0.7` display scale. The rack footprint was refitted, and the central display table keeps its physical foot-line depth so a farmer below it renders in front instead of under the furniture.
+
+Rebuilt the fountain green as a compact 224×216 rounded-square island around world centre `(704,438)`, following the supplied flower-heavy reference rather than retaining the rejected wide oval. The fountain uses its perceived vertical axis, not asymmetric transparent bounds, to align to the island centre. Four smaller `0.38` pots and twelve symmetric flower/grass placements reuse existing saved vegetation identities. Released oval pixels become plaza paving; City routes and service approaches remain connected. All three fixed outdoor Home benches shown by the last reference are removed. Home uses the supplied wood pile, and the separate fire sprite now sorts above the fireplace opening. Directional road-sign sprites remain absent from Home, Farm, City and Forest.
+
+Generated one new barber-chair PNG for review only. It remains outside `public/` and the barber room pending approval. The earlier generated clothing-rack candidate also remains review-only; the game uses the user's returned Pixel Snapper rack.
+
+All **392 tests pass** and `npm run build` succeeds. Isolated Chromium visual QA confirmed the Home fire/wood, removed outdoor Home bench placement, new rack scale, front-of-table character sorting and final compact centred fountain composition. The local development game is available at `http://127.0.0.1:5173/`. Physical phones, non-Chromium engines and console capture were not newly checked. No dependency, backend, remote runtime asset, save/economy change, deployment, publication or push.
+
+Evidence: [clothing-rack source](assets/licenses/clothing-rack-v3/SOURCE_RECORD.md), [barber-chair review](assets/licenses/barber-chair-review-v2/SOURCE_RECORD.md), [Home wood](assets/licenses/home-wood-pile-v2/SOURCE_RECORD.md) and `output/art/pixel-snapper-assets-v1/art-audit.json`.
+
+---
+
+# v0.43.0 — approved clothing and barber interiors (2026-10-19)
+
+Integrated all eight user-supplied Pixel Snapper shop objects at sizes measured from the two supplied room references. Clothing now uses one hanging rack plus the folded-clothes cabinet, wrapping counter, fitting corner, full-length mirror and central display table. Barber keeps its existing chair/mirror, adds the stocked worktop, coat hooks and storage cabinet, and retains no waiting bench. Both layouts use a muted green floor rug; the barber rug is centered immediately beside the bottom doorway as requested.
+
+Every supplied PNG keeps its complete native transparent canvas and byte identity. The local Pixel Snapper atlas grows from 38 to 46 frames; Phaser alone applies nearest-filtered display scale. Full-room references and named source copies remain outside production with hashes and terms in the [source record](assets/licenses/shop-interior-pixel-snapper-v1/SOURCE_RECORD.md). Collision and service anchors were refitted to the visible furniture so both entrances, clerks, purchase interactions and exits remain connected.
+
+All **392 tests pass** and `npm run build` succeeds. Isolated local Chromium fixtures verified the final clothing and barber compositions, green rugs, absent bench and zero console warnings/errors. The development game is running at `http://127.0.0.1:5173/`. No dependency, backend, remote runtime asset, save/economy change, deployment, publication or push.
+
+---
+
+# v0.42.9 — centred fountain, new wood and shop review assets (2026-10-19)
+
+The fountain's visible Pixel Snapper silhouette is now centered on both axes of the 256×168 green island at world center `(704,438)`, rather than only horizontally. The four island pots move to clear corner positions and render at `0.5` scale. The user-supplied 133×101 log bundle is packed unchanged as `snapper-wood-item` and replaces the old wood resource image at the same approximate display size. The barber waiting bench and its stale collision are removed from the live room.
+
+Generated eight missing clothing/barber furniture cutouts plus a bench-free barber room image for review. Existing window, clothing rack, rug, plant, barber mirror and barber chair are reused and were not regenerated. All new shop furniture remains outside `public/` pending user approval and native-pixel preparation; no new interior art was installed.
+
+All **392 tests pass** and `npm run build` succeeds. Focused tests verify exact alpha-aware fountain X/Y centering, smaller pot positions/scales, 38 unchanged native Pixel Snapper sources, wood override resolution, barber bench removal, open walking area and preserved shop routes. Local browser capture was attempted, but the desktop browser URL-policy gate rejected the already-running loopback QA tab; browser acceptance of this final revision remains a human check. No backend, dependency, remote runtime asset, save/economy change, deployment, publication or push.
+
+Evidence: [wood source record](assets/licenses/pixel-snapper-wood-v1/SOURCE_RECORD.md), [shop review source record](assets/licenses/shop-interior-assets-review-v1/SOURCE_RECORD.md) and [review files](../output/art/shop-interior-assets-review-v1/README.md).
+
+---
+
+# v0.42.8 — City frontage cleanup, Home hearth and existing-sprite exports (2026-10-19)
+
+Applied the latest screenshot review without adding or generating artwork. The City camp flame and all four Pixel Snapper café tables/chairs are removed, leaving both lawns open. The identical small supplied flame is now centered in the existing Home fireplace. All repeated small house-front City flowerpots and the four older tiny plaza planters are removed. The four fountain-island pots render at the reduced `0.65` scale and are balanced around the island centre; the fountain's visible alpha silhouette remains mathematically centered at world X `704`.
+
+Exported 19 exact native-size crops from the game's existing local atlases to `output/deliverables/existing-non-pixel-snapper-assets/`. These include the previous café table/chair plus existing wood, grass, stone, logs, mushroom, resource and terrain sprites. They are review files only: no image generation, repainting, resampling, filtering or runtime placement was performed. `manifest.json` records every source atlas/frame, dimensions and output SHA-256.
+
+All **391 tests pass**, `npm run build` succeeds, and `git diff --check` is clean. Focused City, Home, atlas, route and layout checks cover the removals, fireplace reassignment, exact scale/positions and fountain-centre calculation. Local Chromium inspection confirmed the clear café and camp lawns, removed tiny City pots, smaller balanced island pots, centered fountain and the small flame inside the Home fireplace; the browser console had no warnings or errors. The development game remains available at `http://127.0.0.1:5173/`. Physical phones and non-Chromium browsers were not newly checked. No dependency, backend, remote runtime asset, save/economy change, deployment, publication or push.
+
+Evidence: [existing-sprite export record](assets/licenses/existing-non-snapper-export-v1/SOURCE_RECORD.md) and [Pixel Snapper source record](assets/licenses/pixel-snapper-assets-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.7 — placement cleanup and Pixel Snapper vegetation swap (2026-10-18)
+
+Applied the latest screenshot review without changing gameplay systems. All directional road-sign props are removed from Home, City and Forest. Seed Aid and its interaction moved from the City road to the small grass verge immediately west of it; its existing recovery rule is unchanged and the relocated board was opened successfully in the live local game. The project-lawn barrel and the reviewed lamp-side barrel are removed. Home's barrel and paired closed crate moved away from the plum-house doorway to a separate garden storage position. The fountain's visible silhouette is horizontally centred within its existing island; its four pots are larger and arranged symmetrically inward. Ordinary wooden benches and the three retained planter benches are slightly larger while their established routes remain open.
+
+Added the seven newly supplied Pixel Snapper broadleaf, tall tree, palm, grass, bush, sparse tree and snow-pine PNGs to the existing local atlas, bringing it to 37 byte-identical native RGBA sources. Matching logical vegetation frames now resolve to these images. Alpha-aware foot anchoring keeps the existing trunk/root coordinates, collision data and approximate display heights: mature broadleaf/tall trees remain about 224 world pixels high, palms 256 and snow pine 228. The complete source canvases are not trimmed, resampled, recoloured or baked against a background; Phaser applies nearest-filtered runtime scales.
+
+All **391 tests pass** and `npm run build` succeeds. Focused placement tests verify zero directional road-sign props, the exact retained/removed barrel set, Home storage positions, reachable Seed Aid grass approach, fountain/pot alignment, furniture scales and all vegetation mappings. Local Chromium visual QA confirmed the City plaza, project lawn, replacement trees and Seed Aid board; the actual Seed Aid dialog opened and the console stayed free of warnings/errors. Physical phones and non-Chromium browsers were not newly tested. No deployment, publication or push.
+
+Evidence: [native source record](assets/licenses/pixel-snapper-assets-v1/SOURCE_RECORD.md) and `output/art/pixel-snapper-assets-v1/art-audit.json`.
+
+---
+
+# v0.42.6 — native Pixel Snapper object replacement and upper-house sizing (2026-10-18)
+
+Integrated all 30 PNGs supplied in the latest review into a dedicated local `pixel-snapper-assets` atlas. Every complete native canvas and RGBA byte is preserved; the source audit confirms transparent alpha in every file and no opaque white rectangular background. Phaser applies the authored fractional display scales with nearest filtering, so no source image is resized in an editor. Outdoor notice/sign, fountain, chair, tent, flowers, mailbox, bench, bush, market stall, flowerpot, gate, barrel, café furniture, City campfire and three planter benches now resolve to the supplied artwork. The supplied home table, benches, rug, bed, shelves, counter, fireplace/fire, window, pots, storage jar and doorway threshold are all installed and visible; active shop fixtures use the same new texture.
+
+Only the two screenshot-identified upper City residences (`house-04-balcony-vine` and `house-07-alpine-timber`) were enlarged, from 190 to 225 visible world pixels. Their source PNGs remain unchanged, and their visible foundations retain the prior ground line. The lower reference houses are unchanged. Clothing and barber remain matched at the same 198-world-pixel visible height.
+
+All **388 tests pass** and `npm run build` succeeds with the new atlas explicitly allowlisted. Responsive interior collision, shop routes, City approaches, decoration previews and old-save behavior remain valid. A local canvas smoke pass confirmed the replaced Home-side board/sign artwork, preserved pixelated rendering and zero browser console warnings/errors; focused automated map/atlas/route tests cover the City and interiors. Physical phones and non-Chromium browsers were not newly tested. No deployment, publication or push.
+
+Evidence: [native source record](assets/licenses/pixel-snapper-assets-v1/SOURCE_RECORD.md) and `output/art/pixel-snapper-assets-v1/art-audit.json`.
+
+---
+
+# v0.42.5 — compact City facades, approved shops and Home cleanup (2026-10-18)
+
+Applied the latest screenshot review. The four previously oversized City facades—`house-01-terracotta-gable`, `house-04-balcony-vine`, `house-07-alpine-timber` and `cafe-terracotta-awning`—now use per-facade nearest-filtered display scales that make each visible building exactly 190 world pixels tall, matching the accepted green-bay and terracotta reference cottages. This is an intermediate size between the rejected 2× and 1× versions. No supplied PNG was resized or resampled; alpha-aware foundations, porch points, depth and collisions regenerate at each placement scale. City homes remain on grass and exactly three planter benches remain.
+
+Integrated the two user-returned Pixel Snapper shop PNGs. Clothing uses the simplified sage awning/mannequin facade and barber uses the light blue-roof/mirror facade; both retain their native transparent canvases, local nearest filtering, existing interiors, merchants, service hours and save behavior. The barber is scaled to the clothing shop's exact 198-world-pixel visible height, with its full canvas dimensions within four percent of the clothing facade. The City atlas contains twelve native frames in a 1024×512 transparent sheet.
+
+The outdoor Home now contains only the player home plus the existing plum-townhouse and grey-hipped City assets. The screenshot-identified lower-right green house was removed, including its art placement and collision, without generating replacement art. The Farm's existing blue-slate reuse remains unchanged.
+
+All 387 tests pass and `npm run build` succeeds. Focused City/Home/Farm scale, collision, route, shop and atlas checks pass. Local Chromium smoke inspection confirmed the reference-height café, similarly sized clothing/barber facades, retained nearest filtering and no console/page errors. Home removal was additionally verified from the generated map data and collision regressions; physical phones and non-Chromium engines were not newly tested. No deployment, publication or push.
+
+---
+
+# v0.42.4 — City house scale, grounding and depth follow-up (2026-10-18)
+
+Corrected the latest City review at the source-data level. The three unusually large residential canvases (`house-01`, `house-04`, `house-07`) now use native integer 1× placement while all other residences keep integer 2×; no PNG was resampled. Their lawns, foundation collisions, doors, porches and resident routes are regenerated from the selected scale. The north-east green-bay house now shares the accepted terracotta cottage's exact visible foundation line. Building draw depth follows the visible alpha bottom rather than transparent canvas padding, so the farmer sorts in front of a façade instead of appearing inside it. Exactly three City planter benches remain, and residences stay on green grass.
+
+The outdoor Home now reuses the existing green-bay house and the Farm reuses the existing blue-slate house. Both retain the original gameplay identities, Home entry, save/customization systems and local atlas; no new Home/Farm art was generated. A small Farm foundation lip preserves legacy unsafe-position repair.
+
+New clothing-shop and barber-shop review sources were generated but are not integrated. The clothing design has two large mannequin silhouettes, four broad sage/cream awning panels and a large shirt sign; the barber has one oval mirror, a lighter slate roof/base, four broad awning panels, a large scissors sign and a simplified three-colour pole. Both remain outside `public/` pending user approval, Pixel Snapper/native-grid preparation and final alpha cleanup.
+
+The full `npm test` suite and production `npm run build` pass. Focused City/Home/Farm route, depth, baseline, legacy-save and three-planter regressions pass. The live local game was checked in Chromium: the paired north-east houses visibly share one foundation line, retain grass parcels, and the farmer renders in front of the buildings without console warnings/errors. Other physical devices/non-Chromium engines were not newly tested. No deployment, publication or push.
+
+---
+
+# v0.42.3 — Pixel Snapper City houses resized and grounded (2026-10-18)
+
+Integrated the ten user-supplied Pixel Snapper files selected for the City: nine distinct residences and the terracotta-awning café. Every supplied native canvas/RGBA pixel is preserved in a separate local `city-buildings` atlas with nearest filtering. The nine residences render at integer 2×, matching the accepted right-hand terracotta cottage's pixel scale; the café retains its compact integer 1× storefront scale. Clothing and barber art remain the previously accepted versions, as requested.
+
+All ten residential lots now expose green grass beneath and around the buildings instead of cream platform fill, without erasing road pixels. Visible house anchors were refitted to road-free parcels; only the lower 24 native rows form the physical foundation, so roofs no longer create invisible walls. Porch points, entries, resident commutes, tree relocations and gathered-vegetation identities remain safe. The public planter terrace now contains exactly three benches at its existing compact spacing; all extra planter instances are filtered out.
+
+All 387 tests pass and the production build succeeds. Seven isolated 1280×720 production-browser views confirm crisp `pixelated` rendering, successful local atlas requests, green residential lawns, comparable cottage scale, three planters and no console/page errors. Evidence is in [city-building-snapper-v2 verification](verification/city-building-snapper-v2/README.md); source hashes and inherited AI-art terms are in [the source record](assets/licenses/city-building-snapper-v2/SOURCE_RECORD.md). A physical phone and non-Chromium browser were not newly tested. No backend, remote runtime asset, save-schema/economy change, deployment, publication or push.
+
+---
+
+# City building redesign concepts — review only (2026-10-18)
+
+Started the current game and inspected the live City before creating nine distinct residential façades and new café, clothing-shop and barber façades. The approved Pixel Snapper cottage guides pixel density, camera, outlines and palette; architecture varies through rooflines, materials, porches, balconies, bay windows, masonry and storefront treatments. All twelve high-resolution RGBA sources remain outside `public/` in [city-building-redesign-v1](../output/art/city-building-redesign-v1/README.md). No runtime atlas, map, collision, entry, NPC, service, save, economy or gameplay code changed.
+
+The user will review/process the images and return updated native files before integration. Source hashes, dimensions, prompts and AI disclosure are recorded in [the source record](assets/licenses/city-building-redesign-v1/SOURCE_RECORD.md). Manifest validation passes for all twelve files; all 385 tests pass and the production build succeeds without emitting the review PNGs into `dist/`. Results and limitations are recorded in [verification](verification/city-building-redesign-v1/README.md). No deployment, publication or push.
+
+---
+
+# v0.42.2 — user-supplied Pixel Snapper City cottage (2026-10-17)
+
+Replaced the v0.42.1 generated native derivative with the user's supplied 167×110 Pixel Snapper PNG. The fully opaque source is preserved unchanged. Runtime preparation removes only 9,345 exact-white backdrop pixels; all 9,025 non-white RGBA pixels and the native canvas dimensions remain exact. It renders at integer 2× with nearest filtering. A transparent-margin placement offset retains the established visible entry `(2350,438)`, walkable approach, `house-village-4`, Tomas's assignment, parcel, schema and commute.
+
+The new 167×110 frame occupies unused space in the unchanged 1024×4041 atlas. All 1,060 baseline frame records and every pre-existing pixel remain exact. All 385 tests and the production build pass. Isolated production-browser inspection confirms both cottages, transparent backdrop, crisp integer-scaled rendering, actual player doorway access and no console warnings/errors. No physical phone or non-Chromium browser was newly tested. Full evidence is recorded in [verification](verification/city-cottage-snapper-v2/README.md); [source evidence](assets/licenses/city-cottage-snapper-v2/SOURCE_RECORD.md) records hashes, exact transformation and inherited terms. No new generation, dependency, runtime path, backend, gameplay/economy change, deployment, publication or push.
+
+---
+
+# v0.42.1 — user-approved terracotta City cottage (2026-10-17)
+
+Replaced northern `cottage-b` with the user's selected cleaned terracotta cottage. The 1347×1167 generated source is preserved outside production and exported to the established 120×112 native cell, binary alpha, shared material palette and 2× world scale. The new frame occupies unused space in the existing 1024×4041 town atlas; all 1060 earlier frame records and every pre-existing pixel remain exact. `house-village-4`, Tomas's resident/home identity, parcel, building index, save schema and commute are preserved. The interaction anchor follows the new visible door at `(2350,438)` and its paved approach remains walkable/connected.
+
+Atlas preservation and targeted City checks pass; the full suite passes with 385 tests and the production build succeeds. Isolated production-browser inspection confirms both cottages, nearest-pixel rendering, the new porch approach, actual player access and no console warnings/errors. No physical phone or non-Chromium browser was newly tested. Full evidence and limitations are recorded in [verification](verification/city-cottage-terracotta-v1/README.md). Source/prompt summary, terms, hashes and human review are in [provenance](assets/licenses/city-cottage-terracotta-v1/SOURCE_RECORD.md). No new dependency, runtime path, remote asset, backend, gameplay/economy change, deployment, publication or push.
+
+---
+
+# v0.41.0 — approved City garden, shop sites and interiors integrated (2026-10-17)
+
+Integrated approved location proposal02 after the user's "now do it". Café is set back at the first cottage plot with two existing tables/chairs in front; clothing replaces the riverside cottage; barber is adjacent; two tents, two benches and barrel move together to the eastern green parcel; fixed camp planter is removed. Clara/Tomas retain home indices3/1 with exact northern cottage art. New facade footprints derive from opaque native scanline hulls; door aprons, approaches and home routes are connected. Current green shader, public three-bench arrangement, fountain artwork/scale and character artwork remain.
+
+Barber/clothing are fixed indoor areas with approved furniture and existing room renderer. Sol/Nell use their original prices, appearance ownership and7am–7pm service guards, including their home commute; work sprites appear indoors only. New areas retain schema19 saves/nearest-safe validation; no normal local save is rewritten. The café has outdoor seating/context signage, with no unapproved indoor scene or new economy. Four pots/twelve low planting groups refine the island while reusing all existing gatherable identities. Completed Flower Court's bench moves80units east to avoid a tent; project IDs/costs/rewards/completion remain.
+
+380tests/build pass. All1051prior atlas records/pixels, nine native approved PNGs and74other public asset files are exact; atlas1024×4041, allowlist48files. Browser acceptance covers keyboard door round trips, Sol purchase/reload, Nell purchase/ownership, café aisle, fountain/day/night lamps, camp/completed project and northern homes. No browser console errors observed. Mobile/physical devices were not newly exercised. [Evidence/limits](verification/city-shops-v1/README.md), [provenance](assets/licenses/city-shops-v1/SOURCE_RECORD.md). Both historical proposals remain separately unchanged. No deploy, publish or push.
+
+---
+
+# City location proposal 02 — requested café, clothing and camp sites (2026-10-16)
+
+Revised only the separate [City proposal](../output/previews/city-garden-shops-v2/README.md). Café occupies the supplied first screenshot's cottage plot, set back about48 world units with two existing tables/chairs in front. Clothing moves to the second riverside plot, with a lamp moved off its entrance. Two tents, two ordinary benches and one barrel move together to the last screenshot's eastern green parcel; the camp planter is removed. Its shallow parcel edge expands across the vacated clothing plot, with current green material retained. Original resident home indices3/1 are proposed to map to northern cottages A/B; no live home/schedule change.
+
+All prior proposal files, nine native art PNGs and thirteen originals are preserved byte-exact. All251 source/public/config baseline files remain exact.375 tests/build and the48-file production boundary pass. Static current-foot checks pass requested shop/café/camp approaches and authored patrols; the local viewer and café/camp images were inspected in the browser. Final shop doors/collisions, indoor service guards, home commutes, saved decor/projects, night/mobile and Cottage A/Ada visibility require integration acceptance after approval. No runtime map/asset/collision/route/service/save/gameplay changes, deployment, publication or push. [Source record](assets/licenses/city-garden-shops-proposal-v2/SOURCE_RECORD.md).
+
+---
+
+# City fountain garden and shops — review proposal only (2026-10-16)
+
+Completed a separate full batch under [city-garden-shops-v1](../output/previews/city-garden-shops-v1/README.md): day/night fountain garden, complete footprint/entrance plan, three shop exteriors, two cottage infill designs, barber/clothing interiors with existing Sol/Nell, contact sheet, nine transparent native object PNGs and thirteen untouched generated originals. The garden retains approved fountain art/origin/scale, current stone edge, roads, compact terrace and natural ground material; four modest golden-flower pots and grouped approved lower foliage replace sparse island planting. No playable integration.
+
+All 375 tests/build pass; 48-file production allowlist excludes the review. All 251 source/public/config baseline hashes remain exact. Static actual 24×12 foot-body checks pass all tested public/door/service/bench approaches and current authored patrol samples; conservative indoor approaches fit within the existing 58-unit service range. No hard-footprint conflicts found. Current live City was inspected; proposal images were visually inspected separately. No normal save edits.
+
+Approval remains pending. New room/door transitions, final facade/door collision tracing, NPC work/home schedules and area guards are required before indoor services can function. Cottage A is close behind Ada's patrol; existing boundary canopies cover portions of the cafe/clothing edges. Live visibility, dynamic project/decor/save/commute checks and fountain-animation registration remain integration acceptance work. One lamp's proposed 64-unit eastward move and three cafe-border ground-cover moves are preview-only. [Static checks and limits](../output/previews/city-garden-shops-v1/checks.json), [source evidence](assets/licenses/city-garden-shops-proposal-v1/SOURCE_RECORD.md). Earlier proposals/artwork preserved. No deployment, publication or push.
+
+---
+
+# v0.40.0 — City layout approved and integrated, existing green ground retained (2026-10-16)
+
+User approved proposal 03 for integration with the current game's green land. Added the 560×192 compact terrace with three unchanged-scale vertical planter benches (88-unit visible gaps), connected cream/grey surface network, six-world-unit projected curb faces, highlighted stone lips, restrained road contact shade, lowered crossings, and shaped fountain island/grouped planting. Current `groundSurface.js` grass colours/noise/material flecks remain byte-exact; no flat proposal lawn repaint. All existing public asset files are byte-exact, including all approved outdoor/house/character PNGs. Night lamp emission remains registered at the new positions.
+
+Acceptance corrections: cream cottage aprons override the broad proposal road under existing house feet/flowerpots. Two market lamps and two tree roots shift eight world units to clear curb edges; their artwork and tree identities stay fixed. No new curb collision banks. Actual approved furniture footprints and the fountain's registered column collision move with the art. Buildings, Home edge, bridges, service anchors and authored NPC patrols remain. Café/barber/clothes parcels stay reserved.
+
+All 227 City ground-plant identities and all tree identities survive Continue, including removed nodes. Ninety approved planting positions reuse existing gatherable nodes; remaining original cover stays on clear green ground with stable IDs rather than being deleted or respawned. Existing project scenery remains and covered grass follows existing project visibility rules. Save schema19 is unchanged; no normal user save was edited.
+
+375 tests pass: actual24×12 foot-body surface connectivity covers markets, boards, two bridges, all10porches and both sides of all3benches; actor commutes instantiate safely and completed-project approaches stay open. Production build/48-file allowlist pass. Browser production-fixture checks at1280×720 include Continue, bench-gap walking without jumping, all four fountain sides, night lamps, completed Commons/Flower Court visuals and opening the town board. Browser save isolation uses port43865; main4215 save untouched. Mobile/touch was not newly exercised. [Evidence and limits](verification/city-layout-v1/README.md), [source record](assets/licenses/city-layout-v1/SOURCE_RECORD.md). Previous proposals remain separately; no publication, deploy or push.
+
+---
+
+# City proposal 03 — compact terrace and landscaping, review only (2026-10-16)
+
+Created a separate revision: visible bench gaps 125→88 world units (−29.6%); terrace 704×216→560×192 (−29.3% area). Approved furniture/character scales and artwork remain. Three benches and two corner lamps move; planted green pockets replace the broad ends, and the front apron is trimmed around a small connected grey forecourt. Continuous stone lips, visible front curb faces, narrow road contact shade, smaller quiet pavers, broad olive/sage lawns and grouped existing planting refine the terrace, gardens and shaped fountain island. Future frontage reservations remain exact; no buildings created.
+
+[Local proposal](http://127.0.0.1:4220/), [overview/close-ups/comparison/checks](../output/previews/city-road-layout-v3/README.md), [provenance](assets/licenses/city-road-layout-proposal-v3/SOURCE_RECORD.md). Previous proposals preserved; five prior PNG hashes exact. All 249 runtime files exact, playable v0.39.0 unchanged.371 tests/build and 48-file allowlist pass.
+
+The new static check uses the actual 24×12 City foot body, asymmetric feet anchor, 40×60 house clearance, all prop feet/posts/bridge rails and proposed planting. It finds no remaining access failures, including all ten porches, services, bench-side approaches and 663 resident-route samples. A missing southwest porch link is added in the proposal; board access is verified from a legal point 16 units south of its own post. Live NPC commutes, completed projects, saves/owned decor/vegetation IDs, night/mobile acceptance and future building fitting remain deferred until approval. No integration/deploy/publish/push.
+
+---
+
+# City layout proposal 02 — raised paving, review only (2026-10-16)
+
+Revised the separate preview with highlighted stone lips, consistently projected shallow curb faces, restrained road contact shade, softened connected corners and lowered crossings. Smaller quieter paving joints and grouped planting refine the shaped low fountain island. Same close-up crops/dimensions. All previous prop frames, scales and positions remain exact, including the approved bench arrangement. Proposal 01 is preserved.
+
+[Review locally](http://127.0.0.1:4219/), [files/checks/limits](../output/previews/city-road-layout-v2/README.md), [source evidence](assets/licenses/city-road-layout-proposal-v2/SOURCE_RECORD.md). All 249 runtime baseline files are exact; playable v0.39.0, maps, collisions, routes, services, saves and assets remain unchanged. All 371 tests/build, 48-file production allowlist and static geometry checks pass; browser viewer inspected. Live collision/NPC/project/save/night/mobile acceptance remains deferred until explicit integration approval. No deploy/publish/push.
+
+---
+
+# City road layout proposal 01 — review only (2026-10-16)
+
+Created a separate City street/sidewalk/island/three-bench terrace proposal under `output/previews/city-road-layout-v1`, served locally at <http://127.0.0.1:4218/>. Includes annotated and clean complete overviews, full-resolution PNG and two 1146×804 gameplay-size close-ups. Existing approved object art/scales, buildings, bridges, market anchors and Commons beds are reused. Café/barber/clothing parcels are diagram reservations only.
+
+All 249 runtime baseline source/public/config files are byte-exact; playable v0.39.0, maps, collisions, NPC routes, services and save code remain.371 tests/build pass;48-file production allowlist excludes the proposal. Offline geometry connects Home, both bridges, ten porches, markets, boards and resident/service anchors; three benches have equal spacing,125 world-unit foot gaps and48 front clearance. Browser viewer controls/images checked.
+
+Approval is pending. Actual proposed walking/collision, NPC commutes/completed project scenery, saved vegetation identities and night/mobile behavior are not verified because the layout is deliberately not integrated. Final future shop dimensions need fitting. [Proposal and limits](../output/previews/city-road-layout-v1/README.md), [art evidence](assets/licenses/city-road-layout-proposal-v1/SOURCE_RECORD.md). No deploy/push/publish.
+
+---
+
+# v0.39.0 — outdoor follow-up complete (2026-10-16)
+
+Six new sources replace attached notice/route boards, wheelbarrow, ground flowers, fountain and tents. Functional labels remain; fountain highlights follow its new cascades. The approved well source is reused at72×96,50% larger than48×64, with bottom/centre retained and shared basin footprint updated. Five older City planted benches reuse the approved planter; its first accepted placement remains. Other approved collection art is exact.
+
+Glass-only lamp emission and stepped pixel pools fade with dusk/dawn. Twelve City lamps clear roads; seven trees move to green ground outside sidewalks, roads, plazas, garden soil and canal. Moved trees retain original saved IDs/removals. Save schema/progress, prices, people, home and water/bridge rules remain.
+
+371 tests/build pass. Audit:1050 old metadata records exact,14 replaced cells,1036 protected old cells/non-target RGBA exact, one new well frame,1051 total,1024×3925. Six full originals/18 other runtime files and prior collection/lamp/planter pixels exact; same48-file allowlist and prior-runtime ZIP. Actual daytime/nighttime City views and movement checked. Direct in-game well/full-object/touch/device/other-browser checks remain open; well comparison is offline. [Checks](verification/outdoor-followup-v1/README.md), [provenance](assets/licenses/outdoor-followup-v1/SOURCE_RECORD.md). No push/deploy/publish.
+
+---
+
+# v0.38.0 — outdoor collection integrated (2026-10-16)
+
+Installed the fourteen reviewed objects and approved unlit lamp through existing prop/frame routing. Existing logical dimensions, map positions, catalog ownership/prices and save schema remain. The Home trial bench now uses the reviewed south-facing design. Functional route labels remain; decorative sign art is blank. Static fences join into continuous runs with preserved path gaps/collision cells. One closed gate replaces an already closed City boundary span; the walkable Forest gateway remains. New mature common-tree/bush origins are measured, preserving saved vegetation IDs and trunk anchors. The small rock cluster fits the existing ground footprint. Approved home/characters and accepted planter stay exact.
+
+367 tests and normal build pass. Art audit:25 old cells replaced,1016 untouched,1041 preceding metadata records/non-target RGBA exact, nine appended frames,1050 total,1024×3825. All18 other runtime art files and full original sources/references remain exact. Same48-file build allowlist. Existing-source ZIP and preceding runtime-art ZIP are preserved. No new image generation during integration, dependency, backend, remote art, save fixture or publication.
+
+Actual browser Continue/house exit/Home-to-City walking and outdoor visual checks pass. The atlas-tiling issue found during inspection was corrected using cropped Images, then rechecked. Market's existing7pm closure remains. Full per-object/rotation/touch/physical-device acceptance remains open. [Checks/screenshots](verification/outdoor-collection-v1/README.md), [provenance](assets/licenses/outdoor-collection-v1/SOURCE_RECORD.md). No push/deploy/publish.
+
+---
+
+# v0.37.2 — accepted muted planter-bench integrated (2026-10-16)
+
+Replaced only the existing City sample with the accepted muted reddish walnut timber, sage/olive foliage and softer flowers. The original1536×1024 PNG is preserved separately; previous orange sources/native artwork and pre-update atlas remain backed up. Same68×87 native frame,1.5× rendering,433/516 placement,96×94 ground footprint and shadow omission. Camera, character, other benches, home and saves remain.
+
+365 tests and normal build pass. Pixel audit confirms all1041 metadata records exact, all pixels outside the target cell exact and18 other runtime art files unchanged. Same48-file runtime allowlist; no source/archive/review leakage. Existing in-app browser reload and City visual check succeeded, with an actual dusk screenshot. Full collision/touch/physical-device checks remain unverified; pure approach tests pass. [Checks](verification/planter-bench-muted-v2/README.md), [provenance](assets/licenses/planter-bench-muted-v2/SOURCE_RECORD.md). No push/deploy/publish.
+
+---
+
+# v0.37.1 — one approved City planter-bench sample integrated (2026-10-16)
+
+The human approved the vertical planter-bench and asked to inspect it in the game. One fixed City planted bench below the seed stall/left of the fountain now uses the original accepted design: vertical long axis, long side seats, higher orthographic camera, warm timber, sage/olive foliage, purple spikes and cream flowers. Full1536×1024 original and earlier source remain preserved. A separate68×87 native derivative renders at1.5×, with no added shadow/glow. Other five planted benches, catalog/saved pieces and the approved home retain their art.
+
+One frame appends to town:1040 old records/full old RGBA exact,1041 frames total,1024×3693. All18 other runtime art files are byte-exact. Explicit allowlist stays48 local files; no source/archive/review leakage, dependency/backend/remote asset, save/economy change or user-save fixture. Rendering and physics/save validation share the new per-object footprint, preserving dry approaches and both market lanes.
+
+365 tests and normal build pass; source/native/preservation/build audits pass. [Verification/limits](verification/planter-bench-v1/README.md); [provenance](assets/licenses/planter-bench-v1/SOURCE_RECORD.md). Browser automation remains URL-policy blocked, so actual in-game visual/keyboard/touch acceptance is unverified.4215 listener is present. No push/deploy/publish/submit.
+
+---
+
+# v0.37.0 — approved home collection and architecture integrated (2026-10-16)
+
+The latest human approval supersedes the review-only gate for the accepted collection/room. Integrated the cream upper wall and peach panel trim, separate floor plane at y112, two mounted windows/shelf, continuous side walls, quiet40×32 tile spacing,72-unit front opening and flush wooden threshold. Visible-bound/foot placement grounds back storage and hearth, centers left dining and retains right sleeping. Removed the storage jar instance/collider and moved firewood16 world units back; its artwork remains preserved. All other approved room placements match the standalone review. The table uses its already approved original design, not a new generation; the old32×24 trial remains in town unchanged.
+
+Separate17-frame home atlas; existing town/world/farmer PNGs and every preceding runtime art file remain exact. Original generated canvases/native sources/backups remain locally available. Character size, animation, camera, catalog prices and save schema19 are unchanged. Floor/solids/approaches now share corrected geometry; existing recovery safely repairs outdated positions and returns obstructed paid decor once. House palettes retain their finishes. No backend/dependency/remote art or outdoor table change.
+
+Checks:363 tests pass and production build passes with48 explicitly allowlisted files. New five-viewport walking/context/save tests and pixel/source/placement audits pass. Runtime composition was inspected offline. Actual browser interaction/rendering is unverified because the browser tool's URL security policy rejected localhost and explicitly prohibited workarounds. No bypass or user-save fixture was used. [Evidence, reproduction and limits](verification/home-interior-v1/README.md); [original sources/prompts/export evidence](assets/licenses/home-interior-v1/SOURCE_RECORD.md). No push/deploy/publish/submit.
+
+---
+
+# v0.36.3 — one native table, awaiting visual review (2026-10-15)
+
+Latest scope is ONE standalone32×24 table, replacing the interrupted larger walnut candidate. The user specifies the interior reference's orthographic angled top-down construction, dominant deep oval top, thin front rim, short front legs and upright jug/cups with overhead openings. One new table-native-review frame renders at2× inside the house. A12-colour available ramp uses9 opaque colours in the selected native output, binary alpha and transparent padding; no ground shadow. Main characters and all other prop art remain as before. Catalog/purchased table art is unchanged. The fixed table keeps its prior centre while shrinking to64×48 world units, and its collider shrinks to60×28 with matching depth sorting. The extra themed vase overlay is suppressed for this table's exact one-jug/two-cup design.
+
+All1039 preceding atlas frame records and the full old RGBA region remain exact, including interrupted64×40 walnut and chunky-bench candidates. One appended frame yields1040 frames in1024×3602, below4096. Existing native/source art and ZIP archives are preserved; no deletion, new dependency, runtime remote asset, schema/cost/save-ownership change, push or publication. Earlier whole-set cedar approval is superseded by the subsequent mood rejection and one-object review gate.
+
+Checks:359 tests and production build pass,46 local allowlisted files, old-pixel/source/native/alpha audits pass. Desktop English1280×720 and phone Myanmar390×844 browser checks load the table and verify blocked passage/open ground beside it. Test fixtures stay on4216; normal4215 save is untouched. Actual screenshot and known limitations are in [verification](verification/table-native-v1/README.md); [exact prompts/provenance](assets/licenses/table-native-v1/SOURCE_RECORD.md). Native pottery is symbolic at32×24. Artistic acceptance is pending; no new all-object rollout is performed.
+
+---
+
+# v0.36.0 — approved cedar prop rollout (2026-10-15)
+
+User approval of the one-bench trial explicitly authorizes the remaining prop set. Completed with 48 selected original built-in imagegen sources, 78 appended frames serving 80 logical prop names and exact reuse of the approved bench. Interior furniture, themed rug/quilt derivatives, windows/doors/wall ornament, garden decorations, public seating, street utilities, signs, stalls, tents, rock/log/shrine/chest/cave/ice/Stash Bag props share the high-angle view and muted material palette. Catalog/ghost/placed direction views share local sprites. Fountain highlights follow the new three cascades; sign labels/arrows retain their layout and remain above the new board. Tables remain removed outdoors and place indoors only.
+
+All 959 preceding frame records and the complete old atlas RGBA region remain exact. Atlas 1024×3486, 1037 frames, unchanged 46-file production allowlist. Logical scales preserve world extents, positions, colliders, prices, saved IDs/ownership and schema19. Main characters, NPCs, crops, main trees/grass, wildlife, architecture, terrain and already detailed licensed landmarks remain. No backend, runtime remote asset, dependency, push or publication.
+
+Checks: 359 tests pass; production build passes; native audit verifies binary alpha, installed pixels, 48 source hashes, protected farmer/world hashes and runtime exclusions. Desktop English1280×720 and phone Myanmar390×844 browser flows pass craft/rotate/place/purchase/Continue and indoor-table recovery/placement. Additional label-fit, bench passage and water checks plus actual scene screenshots are [recorded here](verification/cedar-props-v1/README.md). Browser fixtures write only isolated4216. Physical phones, all engines, every Forest landmark and performance benchmarks are not covered; artistic judgement remains subjective. [Prompts/provenance](assets/licenses/cedar-props-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.35.3 — one cedar bench trial, awaiting user review (2026-10-15)
+
+Completed the explicit one-object scope: one Home garden bench at(960,824) uses a new high-angle 3/4 top-down cedar sample, with broad visible seat/arm tops, muted warm wood, soft olive foliage, pastel flowers, crisp native pixels and an existing subtle contact shadow. Built-in imagegen made one source plus two targeted edits. All other object designs and bench direction/catalog views remain unchanged until user feedback.
+
+The appended64×40 frame renders at1× while retaining the previous64×40 world extent and collider. All958 pre-existing atlas records and the full old RGBA region stay exact. No item/save/gameplay rule is added. Checks:358 tests pass, production build passes with46 local allowlisted files, source/native/one-instance audit passes. Desktop browser confirms actual rendering, blocked passage through the bench and open passage around it, with no console errors. Normal4215 and test4216 were restarted. [Screenshot/checks and limitations](verification/bench-cedar-v1/README.md); [exact prompts/provenance](assets/licenses/bench-cedar-v1/SOURCE_RECORD.md). Artistic acceptance remains with the user; no bulk rollout, push or publication.
+
+---
+
+# v0.35.2 — prop projection, quality and outdoor-table cleanup (2026-10-15)
+
+Completed the latest requested art refinement: 28 selected original imagegen sources plus one fireplace correction update 41 existing frames. Furniture, cabinets, shelves, beds, windows, wells, lanterns, crates/barrels, planters, seating, tents, market stalls and other utilities share an overhead camera-facing view, broad top planes, shorter fronts, controlled material shading and proper upright seating directions. Rear furniture feet align; hearth/log solids and cooking anchor move together, central window clears the mantel and a City tent clears planted seating. Existing rugs, approved farmers/foliage and camera scale remain.
+
+Removed fixed outdoor tables. Dining table placement is indoor-only; crafting remains available and Bag/crafting hints explain the location. Continue packs former outdoor tables and indoor pieces displaced by revised furniture geometry, preserving ownership. Fixed completed City projects showing incorrect markers/duplicate flower overlays. No unrelated systems or schema fields added.
+
+Verification: all 358 tests pass; production build passes with 46 local allowlisted files. Native audit preserves 917 non-target frames and all 958 frame records, approved boy/girl/world hashes, source hashes and binary alpha. Desktop English1280×720 and phone Myanmar390×844 browser flows pass crafting, four bench views, placement, purchases, table recovery, indoor placement and Save/Continue. Final scene screenshots and production rendering are recorded; port4215 responds200. Fixture writes stay on4216. [Checks and limitations](verification/props-v3/README.md); [art evidence](assets/licenses/props-v3/SOURCE_RECORD.md). No publish/push. Artistic quality remains subject to user review; no claim of identical Plant Tales artwork or full traversal of every view/location.
+
+---
+
+# v0.35.1 — clean pixel shapes and coherent overhead props (2026-10-15)
+
+Completed the user's quality/viewpoint correction. Thirteen selected new built-in imagegen sources define simple coherent table/seat, rug, fireplace, logs, cupboard/shelf, window, bed and vase artwork. Stronger contours, broad material clusters, quiet textile centres and consistent visible upper/front planes replace the grainy miniature-render look. One bookcase source was corrected from jars to actual books. Native export uses nine-sample colour voting and a 33-colour base ramp, with conservative cleanup for reused recent props. Rugs now occupy their full established floor rectangle, keeping north seating visually on the carpet.
+
+50 cells replaced; all 958 frame metadata/coordinates and 908 non-target RGBA cells remain exact in the same 1024×2564 atlas. Approved farmers/NPCs/crops/foliage/snow remain. Existing physical furniture positions/solids, room geometry, prices, character scale, saves and ownership are unchanged. Same 46 runtime files and no new dependency/backend/remote asset.
+
+All 354 tests, production build and native audit pass. Actual starter/Rose interiors reviewed beside the farmer. Desktop English and phone-size Myanmar browser flows pass crafting, four turns, placement, purchase and save/Continue with clean console. Production 4205 serves index-DZSj2X0j.js; game 4215 is running. Fixtures remain isolated on 4216; normal saves are untouched. [Checks/screenshots/limits](verification/props-v2/README.md), [native gallery](../output/art/props-v2/index.html), [exact prompts/hashes/terms](assets/licenses/props-v2/SOURCE_RECORD.md). Physical touch/other engines and performance benchmarks are not covered; visual-reference acceptance is subjective. No push, publication or submission.
+
+---
+
+# Local game server restored — 2026-10-15
+
+The reported 4215 URL had no listening process. Restarted the existing Vite development server on 127.0.0.1:4215 with strict port selection. Browser verification shows the game language screen and a clean console. All 354 tests and the production build also pass. No game code, assets, settings or saved progress changed. The local server must remain running for this localhost URL to work; no publication or remote hosting was performed.
+
+---
+
+# v0.35.0 — layered pixel props and snow material fix (2026-10-15)
+
+Completed the latest art request and style correction using the user's two newer Plant Tales examples as perspective/material references. Refreshed benches/tables, wells/lamps/notices/crates/barrels, mailbox/wheelbarrow, public planted seating/tents/sunflowers, garden/furniture catalog pieces, home furnishings and selected older woodland rock/log/marker/chest/scarecrow/window assets. Thirty-six selected original built-in imagegen sources, native shared-palette adaptation and disclosed original direction views. Shop/ghost/placed objects share artwork; thumbnails fit. Snow pine keeps separately authored caps/needles/bark instead of double tinting. Paid rug/quilt accents retain pixel detail; purchased upright pieces have small contact shadows.
+
+42 atlas cells change in place and 12 frames append. All old coordinates and 904 non-target cell pixels stay exact, including approved farmer/NPC/crop art. Atlas 1024×2564, 958 frames. Existing roads/fields, solid footprints, farming, prices, ownership, local save schema 19/key and progression remain. Same 46-file runtime allowlist and no new dependency/remote asset.
+
+All 354 tests and production build pass. Desktop English and phone-size Myanmar browser checks pass crafting, four-direction turns, placement, purchase and save/Continue, plus City/interior/snow rendering with clean console. Production 4205 loads index-DZSj2X0j.js. Fixtures remain on 4216; no normal user-save replacement. [Verification, screenshots and limitations](verification/props-v1/README.md), [exact prompts/source hashes/terms](assets/licenses/props-v1/SOURCE_RECORD.md), [native gallery](../output/art/props-v1/index.html). Physical phone touch/other engines and performance benchmarks are not covered. No source push, publication or competition submission.
+
+---
+
+# v0.34.0 — more nature variety and physical water contact (2026-10-15)
+
+Latest request completed: retired the spiky palmetto and thin fern designs from rendering, replacing their placements with leafy bushes while preserving saved ground-cover IDs. Added pale-trunk saplings, young-fruit forms and leafy/berry/flower/small shrub variants among existing anchors. Six appended frames from two selected original built-in imagegen sources; all940old atlas frames/coordinates/pixels remain exact, including approved farmers/crops/NPCs. Same46file runtime allowlist, no new dependency/URL.
+
+Running in water now makes alternating foot splashes, expanding broken wake rings, short ballistic droplets and wet/dry entry/exit bursts. Effects use a bounded transient model, clip to water and expire; blocked/idle movement creates no endless steps. Existing reflections, crop/shore masks and currents remain. Bridge rails now have physical side boxes shared by Forest pure movement/jump/save queries and City Phaser collision. Both ends/center corridor remain open; water remains walkable. Saved positions in new rail masks normalize nearby without progress loss. No schema19/key, farm layout, crop/economy, original tree IDs or species-rule change.
+
+All351tests and production build pass. Desktop English and phone-size Myanmar checks verify plant aliases, active water footsteps/reflection, Forest bridges in both orientations and City bridge side/end/dry-deck behavior. Final production4205entry confirmed clean; fixtures stay on4216and normal saves were not replaced. [Checks/pixel audit/previews/limitations](verification/nature-water/README.md), [exact prompts/source terms/adaptations](assets/licenses/nature-v2/SOURCE_RECORD.md). Cosmetic fruit/flower variants add no harvest system. Physical phone touch/other engines and performance benchmarks not covered. No source push, publication or competition submission.
+
+---
+
+# v0.33.0 — original natural foliage (2026-10-15)
+
+User's screenshot request implemented with original built-in imagegen broadleaf, palm, pine and tall-grass assets, adapted to native transparent pixels. Warm branching trunks, fuller irregular olive leaf clusters, feathered fronds, textured evergreen boughs and irregular blade groups replace simpler common art. Shared outdoor tree rendering registers actual roots at unchanged trunk/collision positions, with full canopy bounds and grounded shadows. Existing fern silhouettes now use olive color treatment; ground leaf marks/flowers are calmer. Crowns covering the farmer fade to28%for readability through overlapping layers.
+
+Forty existing tree/grass/detail atlas cells replaced in place; two generated-crown/original-fruit adaptations append for guava/mango. All898other old cells and every original frame coordinate remain exact. Existing boy/girl/world files remain unchanged. Map data/roads/fields, free digging/restore grass, vegetation IDs, crop records, collision, economy, local save schema19and world scope remain. No new runtime URL/dependency; same46file allowlist.
+
+All346tests and production build pass. Desktop English and phone-size Myanmar browser checks pass for new crowns, three-hit chopping/wood, saved cut IDs, grass bending and Forest palm bounds. Final production4205entry has clean console; isolated4216fixtures preserve normal user saves. [Checks/pixel audit/screenshots/limits](verification/nature-v1/README.md), [exact prompts/raw hashes/rights/conversion record](assets/licenses/nature-v1/SOURCE_RECORD.md). Derived mirror/tone/bend variants are disclosed; willow reuses a smaller broadleaf design. Physical phone touch/other engines and performance benchmarks were not covered. No push, publication or submission.
+
+---
+
+# v0.32.0 — spaced five-row Farm and restore grass (2026-10-15)
+
+Applied the latest correction: starter8 ×5 /40spaces, other growing areas384 ×240. Narrowed entrance/house branch within old road footprints, leaving at least32world units between starter soil and roads. Moved the existing board to800,532/service828,576, away from the field and entirely over previously undiggable road ground; no valid old crop bed becomes blocked.
+
+Shovel on an empty bed now offers a localized canvas Restore grass confirmation. Cancel preserves soil; Confirm hides the empty bed, removes its wet patch and saves. Planted crops are protected, and grass can be dug again using the same reserved/custom index. Saved grass overrides prevent automatic starter preparation from recreating removed soil. Existing six-row saves restore only empty sixth-row starter soil once; planted crops and custom records remain. Schema19/storage key, coins, inventory, other farms and progression remain. Record slots are retained under the existing2048cap; filling does not refund items or digging energy.
+
+All344tests, production build and desktop English/phone-size Myanmar browser flows pass, including Cancel/Confirm, Continue and re-dig. Confirmation layout fits phone. Production4205entry checked with clean console; test fixtures confined to4216. Existing raster/metadata hashes remain;46allowlisted build files. [Checks/screenshots/limits](verification/farm-restore/README.md). No new art/dependency, user-save replacement, push or publication. Physical phone touch/other engines not checked.
+
+---
+
+# v0.31.1 — taller Farm and free choice of digging ground (2026-10-15)
+
+User correction implemented: width remains eight columns; height grows from four to six rows (384 × 288), with48starter spaces. All four growing-area clearances match. Removed the large pale fallow rectangles: undug areas remain natural grass. Removed the Copper Can gate from digGround, including clear ground outside the defined growing sites. The pictured message was this old upgrade restriction. Farm-only/range/energy/capacity, road/water/building/furniture and overlap checks remain. Separate additional-farm purchases and watering upgrade are unchanged.
+
+The original64reserved slots/coordinates remain. STARTER_EXTENSION preserves its first16right-side cells and appends16bottom-row cells. Existing load logic restores old custom crops/paid furniture/planted grass before safe additions. Coins, inventory and saved progress remain; schema19and storage key stay. Full/large legacy saves can receive fewer additions under the existing2048custom-bed cap; old content takes priority.
+
+All340tests and production build pass. Desktop English and phone-size Myanmar browser checks pass for bottom-right planting/watering, all three other sites, free digging/planting/watering/Continue between fields and former-road traversal. Production4205entry confirmed with clean console. [Evidence, screenshots and limitations](verification/farm-free-dig/README.md). Raster/metadata hashes unchanged;46allowlisted production files. No image generation, new dependency, user-save replacement, push or publication. Physical touch/other browser engines not checked.
+
+---
+
+# v0.31.0 — eight-column starter and matching growing areas (2026-10-15)
+
+User follow-up asks for fewer roads, a wider initial farm, three matching blank growing areas and advice about a2.5Dlook. Farm roads drop from12segments to6connected entrance/main-lane pieces, each a subset of previous road ground so earlier dug beds are not paved over. Four clear384×192areas have8×4cells. The starter has32prepared beds; other areas use lighter fallow earth and accept manual digging without Copper/coins. One decorative rock intruding into the enlarged southwest area is removed. Useful landmarks/owned scenery remain. No other-map road redesign or depth/art-system replacement.
+
+Preserve64legacy save crop slots and every original coordinate. New starter columns append16empty custom beds per farm, including on new-farm purchase. Load first restores existing custom crops, furniture and planted grass, then fills safe missing starter positions, bounded by the existing2048custom-bed cap. Overlapping old crops/scenery win; full legacy saves may have fewer added beds. No new schema/key or crop/yield/price change. Field-local snapping now works across all8columns while respecting saved custom beds. Working a bed with seeds/water/harvest takes priority over the nearby Farm board; pointed beds and empty-hand board access remain.
+
+All340tests and production build pass; desktop English and phone Myanmar far-edge planting/digging/Continue checks pass. [Checks/screenshots/limitations](verification/farm-layout/README.md). Existing raster assets are unchanged; fallow earth reuses original procedural soil pixels. [Source/AI evidence](assets/licenses/farm-layout-v1/SOURCE_RECORD.md). No image generation/new dependency/runtime URLs, push or publication. Existing game stays2D; recommended next depth work is consistent sprite angle/light, fuller shaded crops and canopy overlap, using existing shadow/feet-sorting systems.
+
+---
+
+# v0.30.1 — Farm presentation cleanup (2026-10-15)
+
+Applied the user's four-image reference request: clean connected earth beds, simpler Farm scenery, plants without baked grey/brown soil pads. MAPS.farm removes repeated scarecrows/barrels/crates/wheelbarrow/pebbles/standalone ornamental flower props/details, ornamental fences and the central shed. Removed two hardcoded fence drawings/colliders too. Shared collision data now frees former prop footprints. Farm house, useful well/board/signs/bench, trees, pond and purchased decorations remain; Home/City/Forest scenery is unchanged.
+
+Code-native soil has a shallower stepped perimeter, warm terracotta patches, reduced grain and brown watering patches feathered only against dry neighbours. All joined wet cells retain a continuous material. Existing crop source functions now omit soil discs/underlines, including all12seed sprites.40native24×32frames lose1,786soil pixels; every remaining plant pixel,898other atlas frames, metadata coordinates, boy/girl/world PNGs and farming/watering/save rules remain. Farm data changes only its explanatory comment; saved beds and field indices remain.
+
+All337tests and the production build pass; desktop English and phone Myanmar input checks pass. [Verification/checks/screenshots](verification/farm-refresh/README.md), [crop export/source evidence](assets/licenses/farm-refresh-v1/SOURCE_RECORD.md). No imagegen calls/new dependency/runtime URLs, source push or publication. This is a presentation fix with existing plant silhouettes, not a newly generated crop set or an exact copy of the reference game.
+
+---
+
+# v0.30.0 — Nell/Sol integration and merchant categories (2026-10-14)
+
+Integrated approved Nell/Sol art by resident ID, preserving shared legacy art used by Clara/Eli.80transparent64×64slots provide four directional idle timings and six authored walking poses per direction. Neutral standing images remain byte-identical,40native-pixel bodies at1.5×scale, ground(32,56). Walking native height ranges39–42pixels with stable boot baseline. Markers use the new60-unit standing height. Menu/hidden-tab pause freezes resident animation. Existing shops, homes, routes, dialogue, curfew, collision and schema19 remain. Sol opens only Hair; Nell only Outfits/Extras, with scope retained through purchase/navigation. Home Wardrobe shows all categories; hair preview suppresses accessories temporarily without unequipping them.
+
+336tests and production build pass; desktop English, phone Myanmar and compact landscape end-to-end checks verify both rigs, purchases, tab scope, pause, full idle/walking timing cycles, evening return,7pm closure and Continue. Native audit confirms80packed images,16unchanged neutral slots, all858legacy frame coordinates/pixels and original farmer/world textures. Production allowlist remains46files. [Verification/screenshots and limitations](verification/npc-integration/README.md), [generated artwork/prompts/rights](assets/licenses/npc-matching-animated-v1/SOURCE_RECORD.md).
+
+Created the next appearance-review design after integration: Clara, existing seed merchant, with copper braid, sage apron and seed pockets. Four transparent standing views match40native-pixel height; no new resident/mechanics/runtime replacement. [Preview](../output/art/npc-clara-v1/comparison.png), [source/prompt/rights](assets/licenses/npc-clara-v1/SOURCE_RECORD.md). Preserve staged appearance approval before her animations. Existing4205save was not modified or replaced. No push, publication, backend, remote runtime assets or new dependency.
+
+---
+
+# NPC design review — Nell and Sol (2026-10-14)
+
+Completed the first standing-design review step of the user-accepted gradual NPC refresh. Nell has a short wavy bob, rose blouse and terracotta apron; Sol has a grey temple streak, teal vest and leather belt pouch. Both match the approved farmers' slim pixel style. Eight transparent64×64directional standing frames use40native-pixel visible height, ground(32,56),32colours per view and equal1×2front pupils. [Review page](http://127.0.0.1:4213/output/art/npc-matching-v1/), [source/prompts/rights](assets/licenses/npc-matching-v1/SOURCE_RECORD.md), [checks](verification/npc-matching/README.md).
+
+Native audit,333tests and production build pass. All four review directions and both size settings were checked in the in-app browser without errors. Original game NPC/farmer/world assets and resident logic remain byte-identical to this step's baseline; playable version remains0.29.0and the46-file production allowlist is unchanged. These are appearance-review assets, not yet animated or integrated. Next: user appearance approval, then idle/walking animation and game replacement while retaining shop roles, dialogue, homes, schedules and curfew. No source push, publication, save access or gameplay change.
+
+---
+
+# v0.29.0 — same farmer, modular clothes and extras (2026-10-14)
+
+Fixed the reported shop bug: clothes/hair choices now keep the saved male/female farmer instead of choosing an NPC preset. Existing five outfit IDs provide muted workwear colour variants, and hair choices dye the same hair silhouette. Added a matching straw hat55c, round glasses40c and canvas backpack75c as independently purchasable/equippable slots. Buy from Nell7am–7pm; owned items switch/remove freely through Home & garden → Wardrobe → Extras. Wardrobe previews turn through four directions. All384body poses retain their original proportions, face/eyes, timings and carry profiles; default starters retain original colours/pixels. Original source PNGs, NPCs, movement, farming and combat remain. Additive schema19 accessory defaults preserve old progress, ownership and wallet.
+
+All333tests and production build pass. Native audit covers40style combinations,384body cells, eye preservation,43,253,760alpha comparisons, unchanged base/tool PNGs and the unchanged46-file production allowlist. Desktop1280×720English and phone390×844Myanmar end-to-end checks pass for both farmers: purchases, free toggles, hair services, all run/jump phases, five work actions and Continue. Final phone/compact-landscape menus received visual review. [Checks/screenshots/limits](verification/farmer-cosmetics/README.md), [new artwork/prompts/rights evidence](assets/licenses/farmer-cosmetics-v1/SOURCE_RECORD.md). Physical touch/other browser engines remain untested. The local4205build is updated; no publication/push.
+
+---
+
+# v0.28.1 — matching female farmer, corrected size and eyes (2026-10-14)
+
+Completed the female counterpart and the user’s size/uneven-eye follow-up. The new female has192authored body frames across eight actions/four directions; shared carried axe/shovel/can art follows her own hand/angle data and hides during combined actions. Garden/Autumn and Play as Girl route to the new rig. Female display scale1.45keeps the41-pixel standing silhouette at59.45world units, matching male60; both front open-eye idle pupils are exactly1×2native pixels. All original male, NPC and environment textures remain byte-identical to the task baseline. Existing save IDs/schema, coins, progression, jump physics and gameplay rules remain.
+
+[Complete corrected sprite export](../output/art/farmer-girl-v2.zip), [source record](assets/licenses/farmer-girl-v2/SOURCE_RECORD.md), [verification](verification/farmer-girl-v2/README.md). Native audit passes192frames,32clips, twelve reused tool views, binary alpha, shared palette, frame/sheet/runtime equality, skin-pixel grips, equal-eye dimensions and matching standing heights. All327tests and production build pass; final desktop1280×720English and phone390×844Myanmar checks pass for every run direction/tool, jumps, all five work/combat actions, tool switching, pause, male regression and female Continue. The restarted4205production preview shows matched title-screen stature and narrow eyes without console errors. Earlier uncommitted work and female v1 remain. No source push, publication, backend, remote runtime, new dependency or new game system.
+
+---
+
+# v0.27.0 — male jump and matching carried tools (2026-10-14)
+
+Completed the user-requested extension of the already integrated approved male farmer:24authored jump poses and12carried axe/shovel/watering-can views, all four directions. Idle/run/jump share real phase-specific hand registration and wrist-based angle data; the tool and hand overlay hide during existing combined actions and restore on movement. Preserve original168frames, original eyes and accepted1.5display scale. Existing600msjump arc, range, cooldown, collision, local saves, combat/rewards, Copper effects and female/other rigs remain.
+
+[Complete updated export](../output/art/farmer-boy-complete-v3.zip) contains192body frames,12tool views, metadata, prompts/sources and the packed runtime atlas. [Source record](assets/licenses/farmer-boy-extension-v1/SOURCE_RECORD.md), [verification](verification/farmer-boy-extension/README.md). Native audit confirms the original168frames byte-for-byte,36new frames, binary alpha, original palette, safe frame edges, atlas equality and ZIP CRC. All324tests and production build pass. Desktop1280×720English and phone-size390×844Myanmar browser checks pass for every run direction/tool, all six jump phases, chopping/digging/watering/axe transitions, switching, pause and Continue. Final game preview has no console errors; physical touch devices/other engines were not tested. Earlier uncommitted work is preserved. No push, publishing, backend, remote runtime, new dependency, save schema or female artwork.
+
+---
+
+# v0.26.2 — original eyes at the accepted smaller size (2026-10-14)
+
+The reported single-eye regression came from v0.26.1’s automatic 64→48 nearest resize, which skipped the narrow left-eye column. Restored all 168 original native RGBA cells and display them at 1.5×, retaining the accepted 96-unit padded frame, 84-unit ground offset and approximately 60-unit standing body. Both eyes remain in front-facing open-eye frames; the supplied short blink remains. Nearest filtering and rounded world positions remain. Original hand centres are converted/rounded for the current scale; carried tools and baked-action spout offsets retain their physical alignment. Native downsampling is removed; source images and gameplay/save behavior remain.
+
+Checks: 320 tests and production build pass. Native audit confirms 168 original cells byte for byte and both eye pixels in front idle phases 0, 1 and 3. Desktop/phone visual inspection shows both eyes at unchanged stature. Browser checks pass at 1280×720 and 390×844 for all four run directions, all five work/combat phases, real action outcomes, no duplicate tools, pause/resume, jump, other looks and coin/save reload. Additional title/choice/gameplay pass at 1440×900, 1024×768 and 844×390, with English/Myanmar, same-origin requests and no browser errors. [Verification](verification/farmer-eyes/README.md).
+
+[Local preview](http://127.0.0.1:4205/) — refresh to load the original pixels at the smaller display size. Fractional nearest display scaling can make source pixels appear with unequal screen widths, but preserves the face at the tested views; a purpose-drawn target-resolution version is the longer-term alternative. Physical devices/non-Chromium and human motion acceptance remain unverified. No new art generation, publication or push.
+
+---
+
+# v0.26.1 — smaller male farmer (2026-10-14)
+
+The accepted male farmer is reduced by 25% to match the existing girl/environment scale. All 168 complete padded poses use one fixed 0.75 nearest-neighbour transform: 64×64 source → 48×48 runtime, ground (24,42), integer 2× display. Front/side idle body is 30 native pixels / 60 world units; back is 31 pixels. Original pack/source sheets are unchanged, palette and binary alpha are retained, and exact idle/run/work timings remain. Hand coordinates are re-extracted from the adapted frames; built-in watering-spout offsets follow the same reduction. Carried axe/shovel/can remain separate during idle/running; existing combined work poses retain their tools and suppress the separate drawing. Girl, paid looks, NPCs, world, camera, collision, speed, gameplay timing and schema-19 progress remain.
+
+Checks: 320 tests pass, production build passes. Native audit confirms every runtime cell equals its original whole frame resized with the documented transform, source hashes remain unchanged, and all 16 other tracked art/font/JSON files are identical. The same 46-file build excludes source/archive assets. Native keyboard and touch-browser checks pass at 1280×720 and 390×844 for all four run directions, every work/combat phase, duplicate-tool suppression, real action outcomes, pause/resume, jump, girl/paid looks and saved coins/reload. Additional title/choice/gameplay checks pass at 1440×900, 1024×768 and 844×390; English/Myanmar, no browser errors, same-origin requests. [Verification](verification/farmer-scale/README.md).
+
+[Local game](http://127.0.0.1:4205/) — refresh to load the smaller texture. No publication or push. Generated pose variation and existing combined tool designs remain. Physical devices/non-Chromium remain unverified. No new art generation or conversion to modular tool-use layers was requested/performed.
+
+---
+
+# v0.26.0 — revised male farmer integrated (2026-10-14)
+
+The supplied farmer-boy-revised-v2.zip is now playable locally through Play as Boy or the existing free Worker outfit / Classic look. All 168 native frames are preserved: four idle phases, eight running phases and six phases each for harvesting, digging, tree chopping, watering and existing-axe animal attack, in four directions. Native 64×64 cells, ground(32,56), nearest filtering and integer 2×world scale preserve the approved proportions/pixels; standing body is about 80 world units. Running retains the supplied approximately 12 fps timing; idle retains its long holds/blink. World and title/selection/wardrobe share the new rig. Work poses contain their tools and hide the separate utility drawing. Work cancels when moving/changing tools/jumping; animation time pauses with gameplay. Girl/other outfits/NPC pixels, existing speeds/collision bodies, crops, damage/rewards/cooldowns and schema 19 saves remain.
+
+Checks: 320 tests pass, production build passes, all 168runtimeRGBAcells equal supplied native cells. Sixteen other tracked runtime pixel/font/JSON files remain byte-identical; the unchanged 46-file runtime allowlist excludes raw sources/ZIPs. Desktop 1280×720 and phone 390×844 verify all four running directions/all five work-combat clips, exact phase counts, no duplicate tools, successful gameplay outcomes, pause/resume, jump, girl/paid-look rigs and reload. Title/selection/gameplay checked additionally at 1440×900, 1024×768 and 844×390; English/Myanmar canvas UI and same-origin asset requests pass with no browser errors. [Verification](verification/farmer-boy-runtime/README.md), [source record](assets/licenses/farmer-boy-revised-v2/SOURCE_RECORD.md).
+
+[Local preview](http://127.0.0.1:4205/) while its server runs. No publish, push or organizer submission. Existing tool-action gameplay mutations retain their preceding timing; this import adds visual cycles rather than changing rewards or delaying gameplay. Jump is adapted from supplied run poses, not an authored jump clip. Copper Can retains its gameplay coverage/effects but the supplied watering animation contains one can design. Generated per-frame shape variation remains. Physical phones/non-Chromium browsers and final human animation acceptance remain unverified.
+
+---
+
+# Revised farmer v2 · approved sprite delivery — 2026-10-14
+
+Delivery checks:318/318tests and production build pass; all225tracked runtime/config files unchanged. Browser preview/comparison and ZIP download pass; downloaded ZIP matches the audited archive.
+
+User accepted the revised Plant Tales-inspired original farmer appearance and requested all sprites. Completed output/art/farmer-boy-revised-v2.zip with168 native64×64 frames, seven sheets, four directions, idle4/run8/work6 poses,28clips in animations.json,48exact48×48idle/run crops, source PNGs, prompts, previews and import notes. All seven actions use the revised identity; about40pixels of standing body height, shared32-colour palette, binary alpha and ground anchor(32,56). West running mirrors the authored east sequence. The interactive reviewer now carries its own previous-version comparison images. [Source record](assets/licenses/farmer-boy-revised-v2/SOURCE_RECORD.md); [verification and limitations](verification/farmer-boy-revised-v2/README.md).
+
+Native audit verifies frame/sheet equality, dimensions, palette, alpha, edge clearance, crop equality, source hashes, clip indices/timing and archive integrity. Engine-specific collision bodies, movement speed and tool-contact events still need integration by the receiving game. Existing src/public/gameplay/local saves, package version, dependencies and runtime asset allowlist remain unchanged. Earlier exports and other uncommitted work are preserved. No push or publication.
+
+---
+
+# Approved farmer full animation review — 2026-10-14
+
+Completed the user's approved-farmer follow-up and selected full set:156 native48×48 transparent frames across idle, eight-phase running and six-phase harvesting/digging/chopping/watering/existing-axe attack, in four directions. All four idles are30pixels tall; the approved south idle PNG is byte-identical. Seven sheets/GIFs, contacts, original sources, prompts, manifest, local review and ZIP are under output/art/farmer-boy-approved-v1. [Review](http://127.0.0.1:4203/farmer-boy-approved-v1/) while its server runs; [source record](assets/licenses/farmer-boy-approved-v1/SOURCE_RECORD.md), [checks](verification/farmer-boy-approved/README.md).
+
+318tests pass; production build passes. Native frame/source audits and isolated desktop/phone-size Chrome checks pass, covering every phase, pause/resume/speed and overflow/errors. The review's initial negative frame delta was corrected. Native extraction separates complete source silhouettes; west attack is a disclosed mirror of east. Generated head/body clusters, tool details and transition rhythm remain appearance/motion review points, and gameplay hand/contact integration is pending. Runtime src/public/art, local saves, game version0.25.0 and production allowlist remain. Prior uncommitted farmer-boy-actions-v1 work is preserved. No new runtime dependency, other weapon, jump cycle, backend, source push, publication or competition submission.
+
+---
+
+# Farmer boy full action export — 2026-10-13
+
+Completed the user's boy-first imagegen request as a project-local review pack: four-direction idle, eight-frame running and six-frame harvesting, digging, chopping, watering and existing-axe attack. 156 native48×48 transparent frames, exact30-pixel visible idles, seven sheets, GIFs, source PNGs, prompts, metadata and ZIP are in output/art/farmer-boy-actions-v1. [Preview](http://127.0.0.1:4202/farmer-boy-actions-v1/) while the local server runs. [Source/provenance](assets/licenses/farmer-boy-actions-v1/SOURCE_RECORD.md), [verification](verification/farmer-boy-actions/README.md).
+
+318 tests and production build pass; native export/source/ZIP audit passes; desktop/phone Chrome review checks cover every action phase and pause/resume/speed. Existing runtime art and v0.25.0 game behavior remain. Generated tool geometry and body/head pixel clusters vary slightly between actions and need polishing plus hand/event alignment before game integration. No new girl generation, runtime replacement, public deployment, push or competition submission in this asset-only request.
+
+---
+
 # v0.25.0 — farmer girl integrated locally (2026-10-13)
 
 The generated brown-ponytail girl is now the free Garden/Autumn starter look, shown in title, girl selection, wardrobe and gameplay. Four directional idles and eight running frames per direction use the shared 48×48 padded FARMER rig at 16 fps and integer 2× world scale; front idle ink height is 30 pixels. Native alpha/palette conversion, source poses and exact prompt are disclosed. Each frame's actual hand pixels drive held tools. Jump uses passing run poses with the existing arc. Other looks, approved male, NPCs, physics, prices/ownership and schema-19 progress remain.
@@ -984,3 +1620,114 @@ No known blocker in the verified foundation loop. Physical phones, safe-area not
 Final development smoke: desktop keyboard movement, schema 4, first-time waypoint, pause freeze, fullscreen/no scroll pass with empty errors/warnings. Fresh Chrome identified the initial-origin 404 as `/favicon.ico`; the shell now declares an empty inline favicon, preventing that browser request without adding a runtime asset or visible DOM UI. Fresh-process dev/production resource checks pass.
 
 Fresh-origin resource check is reproducible with `tests/browser/farming-information-resources.mjs` (PLAYWRIGHT_MODULE, optional CHROME_EXECUTABLE, DEV_URL and GAME_URL). It launches a new isolated browser; only same-origin files and locally generated data/blob images are accepted.
+## 2026-10-20 — previous UI fully restored
+
+The user rejected the experimental UI redesign. All new component, token, cached-frame, border, modal, button, slot, tab, HUD-meter and responsive UI styling was removed. Normal gameplay again uses the established fixed **2×** canvas UI, original palette, original drawn borders, original screen-specific modal overlays and original control states. The newer animated **SIMPLE LIFE** welcome/title presentation is the only retained visual change. Gameplay rules, data, saves, event names, callbacks and button IDs are unchanged.
+
+Verification completed with **393/393 tests passing**, a successful production build, and live local-browser inspection at `http://127.0.0.1:5173/`. The animated title remains intact, while the Controls/Getting Started flow again shows the established cream canvas panel, original stepped border, original buttons and original overlay. Existing automated viewport tests cover the HUD, hotbar, bag, pause/settings, audio, journal, trade/shop, resource/order and dialogue layouts across desktop and phone sizes. Physical devices, safe-area hardware and non-Chromium browsers remain unverified. No deployment, push or publication was performed.
+
+## 2026-10-20 — square layered UI border refinement
+
+The established pixel UI remains in place, including its dark outline, layered bevel, cream fill and hard-edged shadow. Only the four cut/decorated corner treatments and small edge-leaf ornaments were removed. The shared border accent is now **#c6d799** across canvas panels, buttons, slots, HUD vitality frames, mobile controls, journal checkbox and wilderness-map UI outlines. The animated **SIMPLE LIFE** title artwork and all screen layouts, gameplay logic, data, saves, event names, callbacks and button IDs remain unchanged.
+
+Verification covered the shared frame regression test, the full automated suite, a production build and live local-browser inspection of the title, gameplay HUD/hotbar and pause modal. The remaining small green marker beside the focused title action is the existing keyboard-focus cursor, not a border ornament. No deployment, push or publication was performed.
+
+Follow-up: the mobile movement joystick now keeps its default white/cream knob while held or dragged instead of applying the green selected-state fill. Movement input, pointer ownership and release/reset behavior are unchanged and covered by the joystick regression test.
+
+## 2026-10-20 — fountain island palette-match review asset
+
+Created the requested review-only `fountain_island_matched.png` and `fountain_island_compare.png` through deterministic Pillow/numpy pixel editing. The native 213×214 canvas is preserved; all output edges use hard 0/255 alpha, every opaque sprite pixel belongs to the sampled 24-color target palette, and the comparison enlarges the sprite exactly 2× with nearest-neighbor. The edit softens saturation, shifts foliage toward the game's olive lawn, reduces small grass sparkles/petals, retains the mushroom groups, replaces the fuzzy perimeter with a stepped two-pixel cream curb, adds flat lower-right shadows and clips the path at the curb. This is not yet integrated into the game.
+
+## 2026-10-20 — original fountain island v3 review set
+
+Created a new, compositionally distinct fountain island on the second built-in image-generation pass, then normalized and processed it with project-local Pillow/numpy scripts. The 192×160 native sprite has exactly five asymmetric plant groups, a notched stepped curb, an original octagonal basin, two falling streams, two landing ripples, no path/mushrooms/sparkles/loose petals and a locked 24-color palette sampled from the supplied game screenshot. The fit check was corrected from the light lawn to the screenshot's sampled mid-olive. Six 8-fps water-only frames, a 1152×160 sheet, mask, static base and 4×/plaza GIF previews were exported. Automated pixel checks confirm hard alpha, palette membership and byte-identical non-water pixels. This remains a review asset and is not integrated into the game.
+
+## 2026-10-21 — user fountain island integration follow-up
+
+The user-supplied fountain island replaces the central City fountain as an active eight-frame sprite. It is displayed at exactly **135%** native size and centered at `(704, 420)` in the 640×264 main road plaza, with equal visual road clearance above and below. Nine stepped solid rows follow the island silhouette: the entire visible island blocks walking, while its transparent outer corners remain traversable.
+
+The water loop was rebuilt from the stable complete source without reusing the rejected large-arc geometry. A flood-filled basin mask is eroded one source pixel from the rim and combined with source-water-only bowl, jet and stream regions, producing a 1,247-pixel animation mask that touches no stone, plant or shadow. The three landing coordinates are `(82,109)`, `(102,85)` and `(124,109)`; the top-jet tip is `(102,73)`. At 8 fps, fixed one-pixel columns carry two-pixel highlight dashes down one row per frame; compact flattened ripple radii 2/4/6 use 0/3/5 offsets; six fixed glints and three bowl pixels remain deterministic. Every frame uses only the source's three water colors, changes 1.363–2.727% of the mask, changes zero rim-guard/non-water pixels, and keeps the largest changed pale component to 9×3 pixels. The eight-to-one seam and all transition-similarity assertions pass.
+
+Verification: the final full suite passes **396/396** and the production Vite build succeeds. Live Chromium inspection at the City fountain fixture confirmed centering, 135% size, consecutive eight-frame animation and collision at the lower curb. No save shape, gameplay rule, remote runtime dependency, backend, deployment, push or publication changed. Physical-device and non-Chromium review remain limitations.
+
+## 2026-10-21 — barber chair and touch-bending grass replacement
+
+The barber room now uses the newly supplied olive chair while retaining the exact previous 28×42 atlas frame, `[2,4,26,40]` visible bounds, 2× display scale, position and solid footprint. Small ground-grass sprites now use the newly supplied olive/yellow tuft in the exact previous 79×79 frame, `[9,10,69,79]` visible bounds and 0.46 scale. Magenta and two Pixel Snapper matte-edge shades are removed with binary alpha and nearest-neighbor processing.
+
+Two same-size grass phases use a maximum four-source-pixel integer row shear. When the player's grounded feet touch a tuft, it bends away from the player; after departure it eases back to the unchanged base frame. Airborne players do not trigger it. The effect is render-only and does not change vegetation identity, collection, collision, inventory or saves. Evidence and hashes: `assets/licenses/barber-grass-v2/SOURCE_RECORD.md`; review outputs: `output/art/barber-grass-v2/`.
+
+Verification: the final full suite passes **398/398**, the production Vite build succeeds, and `git diff --check` is clean. Live Chromium fixture inspection confirms the olive barber chair renders without its magenta matte at the established station size and the replacement ground-grass renders at the established outdoor size; walking the player into a tuft exercises the directional bend, while the automated interaction test confirms its return to the base frame without state mutation. No gameplay rule, collision, event name, button ID, save shape, remote runtime asset, backend, deployment, push or publication changed. Physical-device and non-Chromium review remain limitations.
+
+## 2026-10-21 — landscape refresh checkpoint 1: ground grass review
+
+Completed only the user-requested first approval checkpoint. Separate current-game/reference sampling records dominant colors and average HSL for lawn, foliage, clumps, trunks and warm shadows. The current lawn averages HSL `76.35° / 22.82% / 44.13%`; the reference lawn averages `71.13° / 25.15% / 43.60%`. The player measures 176 visible pixels in the supplied screenshot and 64 visible pixels in the native 40×72 runtime frame. A locked 28-color olive family is saved as JSON and PNG.
+
+Six one-image built-in generation calls produced initial and corrected A/B/C lawn sources. Local nearest-only processing yields three 128×128 candidates with one opaque component, no pinholes, exact locked-palette membership and byte-equal opposite edges. The first fit check was rejected internally for excessive brightness/noise; corrected A/B/C average 42.31%, 44.17% and 44.60% lightness respectively, versus 44.13% in the current lawn. Repeat, current-game/player fit and reference comparisons are under `output/art/ground-grass-review-v1/`; provenance is under `assets/licenses/ground-grass-review-v1/`.
+
+Runtime integration is deliberately paused for the user's approval. No ground texture, clump, tree, shadow, density, camera grade, gameplay, collision, save, UI, production allowlist, backend, deployment, push or publication changed. Later asset stages have not started.
+
+Verification: all **398/398** tests pass, the 188-module production Vite build succeeds, the review processor compiles, and `git diff --check` is clean. Because this checkpoint does not alter the runtime, browser FPS and before/after viewport captures remain correctly deferred until an approved texture is integrated.
+
+## 2026-10-21 — landscape refresh checkpoint 1 approved ground integration
+
+The approved A/B/C lawn textures are now local runtime assets for Home, Farm and unpaved City grass. A coordinate-stable chunk hash selects A/B/C at approximately **20% / 45% / 35%**; the requested 12×12 review uses exact counts 29/65/50 (**20.14% / 45.14% / 34.72%**) with seed `20261021`. Tiles are never rotated or mirrored because their top-left lighting is directional. The textures are composed into each location's one-time terrain bake before existing paths, water and City paving, so the change adds no persistent display objects or per-frame draw work. The expanded Forest deliberately retains its distinct habitat ground materials.
+
+The reference palette audit was corrected to use tree-canopy-only crop windows, separate from tall-grass crop windows. Reference canopy foliage now averages HSL `65.97° / 28.68% / 36.10%`, versus current foliage `73.89° / 26.15% / 35.17%`. The future nature palette retains the approved lawn ramp, shifts future foliage toward yellow-olive, replaces near-black green with softened dark olive, reserves `#3B4028` as the one outline color and uses a warm red-brown trunk ramp. Exact current clump, bush, broadleaf/round/tall-tree and palm frame/opaque/rendered footprints and unchanged collision/trunk anchors are recorded in `output/art/nature-redesign-v1/existing-footprints.{json,md}`.
+
+Verification: all **400/400** Node tests pass, the 189-module production build succeeds, the three PNGs appear in the explicit build allowlist, and a disposable Chrome fixture at Home `(1100,850)` completed with zero page errors or console warnings. Requested review images are under `output/art/ground-grass-review-v1/` and `docs/verification/ground-grass-review-v1/`. Gameplay, collision, harvesting, saves and UI are unchanged. Clump, bush and tree generation/integration has not started; work is stopped at the requested approval checkpoint. No deployment, push or publication was performed. Physical devices and non-Chromium browsers remain unverified.
+
+## 2026-10-21 — corrected lawn and tall-grass checkpoint
+
+The rejected full-tile A/B/C selector has been removed. Home, Farm and unpaved City lawns now use B continuously, with C appearing only inside irregular world-coordinate alternate masks. Their average HSL lightness differs by **0.417**, so no rectangular brightness step remains. A is used only in a stepped Forest outer-edge shade band. The six-tone lawn ramp now averages **71.52° hue**; deterministic 40–120 rendered-pixel dark pockets cover **17.58%** and move pixels exactly one locked palette step darker. Sparse brighter V marks are generated in loose fixed-seed world clusters. Paths, water and City paving continue to paint over the lawn layer, keeping it below all objects.
+
+The corrected 12×12 2× repeat and the fixed Home `(1100,850)` camera comparison are under `output/art/ground-grass-v2/` and `docs/verification/ground-grass-v2/`. Browser verification records camera zoom **1.5**, position `(1100,850)`, zero page errors and zero console warnings. The ground correction preserves gameplay, collision, harvesting, UI and saves.
+
+Three new clump candidates were generated in separate built-in image calls and processed at their final scale-1 footprints: wide **48×34**, tall **30×48**, small **38×38**. Every candidate has binary alpha, one object, locked five-color membership and nearest-only processing. Existing relevant non-integer scales are bushes **0.45**, broadleaf/round trees **0.7**, tall-thin tree **1.1** and palms **1.66**; old clumps remain integer scale 2. The palm's retained 1.66 scale can look inconsistent beside new scale-1 art under camera zoom 1.5. Review sheets, fit checks and the non-integrated fixed-camera projection are in `output/art/tall-grass-clump-review-v2/`.
+
+The three clumps are **not integrated**: no Phaser preload, atlas, placement, harvesting, contact animation, collision or save behavior changed. Final verification completed with **400/400** Node tests passing, a successful 189-module production build and a clean `git diff --check`. Work is stopped at the requested clump approval checkpoint; bushes and trees have not started. No deployment, publication or push was performed. Physical-device and non-Chromium review remain limitations.
+
+## 2026-10-21 — clump checkpoint v3 and ground-origin audit
+
+The approved v2 ground remains installed. The faint fence-like forms in the earlier fit mockups came from repeated fine motifs inside the B texture: the mockup used the 12×12 repeat directly, not the gameplay capture. A same-coordinate final/no-world-tuft/diff audit proves the forms are not produced by the dark-pocket overlay or sparse V marks. A cleanup experiment exists under `output/art/ground-grass-v3/` but was deliberately not integrated.
+
+The rejected point-sampled clumps are superseded by three review-only majority-vote reconstructions from fresh separate generated sources. Raw canvases are 1491×1055 (wide), 1254×1254 (tall) and 1254×1254 (small). Detected logical cells are 19px, 20px and 20px; native silhouettes are 48×32, 33×49 and 37×37 before fitting to final 48×34, 30×48 and 38×38 scale-1 canvases. Every output has one connected object, binary alpha, no magenta/pink, all five locked colors, no enclosed pinholes and zero isolated interior color pixels. They remain outside runtime pending approval; no bush/tree work started.
+
+At camera zoom 1.5, each scale-1 source pixel maps to 1.5 screen pixels, so nearest rendering alternates one- and two-pixel widths. A zoom-2 option would make scale-1 nature pixels exactly 2×2 on screen, reduce visible world width/height to 75% of the current view and visible area to 56.25%, while the separate UI scene stays viewport-anchored. Existing fractional-scale nature assets would still need replacement. The future tree checkpoint now includes a fourth newly generated final-size scale-1 palm instead of recoloring the old 1.66-scale palm. No camera or scale setting changed.
+
+Verification completed with **400/400** Node tests passing, a successful 189-module production build, clean diff whitespace and live inspection in the existing local Chrome game at 1440×722. A separate headless Chrome process could not start in the desktop sandbox, so that scripted capture was not counted as a pass. No clump, palm, camera or UI setting was integrated.
+
+## 2026-10-23 — ground v3 cleanup, approved clump integration and tree feasibility
+
+The fence-like repeat and the two pale-grey marks were confirmed as baked pixels in the old A/B/C source render, not game objects, clump pixels, world-space tufts or pocket-overlay pixels. A, B and C were repainted using only the locked six-color lawn palette; B is now the clean continuous base, B/C lightness differs by **0.011 L**, and all opposite tile edges match exactly. Same-coordinate before/after evidence outlines the old repeated band. The corrected 12×12 repeat contains no recurring fence row. Dark pockets now use two deterministic world-coordinate noise scales and hard stepped thresholds rather than row-banded ellipses: 128px-boundary columns average **12.364** edge pixels versus **12.712** over all columns, so the mask is not tile/chunk aligned. Coverage remains **17.56%**.
+
+The user-approved clumps are integrated. The selected wide source is the second candidate (`exec-aa76a8dc-7dd2-439d-82e6-1ea41f72b7be.png`), chosen for fewer, broader blade groups. A local 144×48 sheet contains 48×48 wide/tall/small cells at runtime scale **1**. Every existing grass record deterministically expands to a group of **2–5** slightly overlapping sprites with an 11px Poisson-disc foot spacing, mixed variants, seeded horizontal flips and per-foot Y depth. A small flat cached contact shadow uses 25% alpha and a slight right offset. Only display children move on player touch; the original gather/collision point, vegetation ID, inventory behavior and save record remain unchanged.
+
+The isolated daylight Home fixture at player `(1100,850)` confirms the scale-1 clumps beside the player under the unchanged normal camera zoom **1.5**; evidence is `docs/verification/ground-clumps-v3/`. The production build succeeds and the corrected full Node suite passes **409/409**. No camera, UI, gameplay, event, collision or save schema changed; no deployment, publication or push was performed.
+
+Tree feasibility stopped at the requested checkpoint. Measurements from the clean generated clumps show a largest reliable single-call logical axis of **49px**; **50px** is the recommended module ceiling, far below the requested 175×225 tree and 176×256 palm. Six review-only scale-1 modules were therefore generated separately—leaf clusters 32×24, 42×32 and 50×40; trunks 34×50 and 26×50; root flare 52×28—then reconstructed by logical-cell majority vote and palette locking. Fixed seed `20261021` assembles one 175×225 test tree for 1×/3× fit review. All modules have binary alpha, one connected object and locked palette membership. They remain under `output/art/modular-tree-feasibility-v1/`; none is in `public/` or Phaser. Bushes and production trees have not started.
+
+## 2026-10-23 — road, river, storage, wardrobe and reload follow-up
+
+The final composed Home, Farm and Forest maps now run one shared scenery-clearance pass after procedural companions and ground details are added. Natural object bases and full visible lower tree trunks are kept off dirt roads; every prop/detail/grass footprint is kept off ponds, rivers and bridge decks. City retains its specialized identity-preserving roadside relocation, which already keeps tree roots and lamp bases off paved surfaces without invalidating collected-plant save IDs. The reviewed Home road tree is removed. The large Home barrel at `(1432,416)` has all ground growth cleared from its 98×101 visual footprint, and its neighboring crate moved to `(1560,448)` for a 30px gap.
+
+Round glasses are retired from both Nell's clothing-shop Extras and the personal Wardrobe. Existing saves safely discard the retired ownership/equipped value during validation; straw hat and canvas backpack remain as the two Extras, and the glasses slot stays null for schema compatibility.
+
+Reload now immediately shows a centered, pixel-styled **SIMPLE LIFE** loading card and real Phaser asset progress instead of a bare green field. It fades only after the title canvas is ready and never remains as a DOM HUD. The loader and all runtime assets are local.
+
+Verification: focused map/appearance/City tests pass; the production Vite build succeeds; live production-browser checks confirmed the reload loader, cleared Home road, title transition, and Wardrobe Extras `1 / 2` Straw hat plus `2 / 2` Canvas backpack. The complete suite is **414/416 passing**; the only failures are the already-recorded `barber-grass-v2` runtime-reference assertion and Pixel Snapper manifest count drift (`50` actual vs `49` expected), neither introduced by this follow-up. Physical-device and non-Chromium testing remain outstanding. No deployment, publication or push was performed.
+
+## 2026-10-24 — stone collision, first-paint loader and tree prompt follow-up
+
+Ordinary Home/Farm rocks, the wider Forest boulder render and all solid Dark Forest rocky landmarks now have collision matching their complete visible stone silhouette plus 48 world units of lower-body clearance. This prevents the farmer sprite from visually passing through a stone when its foot point is below the art. Rock surface clearance uses the same wider rendered bounds; two procedural boulders that crowded the stable `east-fruitvale-fruit-extra` forage point are omitted so every saved fruit ID and approach remains usable. Roads, water, bridges, portal approaches, all forty Forest regions and existing save data remain connected.
+
+The loading card's critical background, sizing and pixel-panel CSS is now inline in `index.html` before the body, while the normal stylesheet retains the runtime fade. A reload therefore paints the dark green styled loader immediately instead of briefly exposing unstyled serif text on white. Tree interaction and the desktop tree-click path now share an **88-world-unit** reach, allowing the pointer and chop action at the visible front edge of enlarged trees without extending grass interaction reach.
+
+Verification: the focused stone/Forest/vegetation/loader group passes **48/48**. The complete suite is **416/418 passing**; the same two previously recorded unrelated failures remain (`barber-grass-v2` runtime-reference assertion and Pixel Snapper manifest count `50` versus stale expected `49`). The production Vite build succeeds. Live local-browser checks confirmed the inline first-paint dark background, successful title/game load, zero console errors or warnings, and the actual tree-edge pointer with `Hit / Chop tree / 0 of 3 hits`. Stone geometry is covered across Home, Farm, standard Forest boulders and every solid rocky landmark, including route/forage regression coverage. No asset, save schema, backend, deployment, publication or push changed. Physical-device and non-Chromium testing remain outstanding.
+
+## 2026-10-24 — large barrel collision follow-up and playtest release
+
+The authored Home and City barrels now derive their collision from the active Pixel Snapper barrel's alpha-visible bounds at its real runtime scale, rather than retaining the retired 28×30 legacy footprint. The resulting local footprint is `[25,19,47,117]`: 47×69 world units for the visible barrel plus 48 world units of lower-body clearance. This blocks the visible wood from every approach and stops a farmer approaching from below before their upper body can appear inside the barrel. Compact player-crafted garden barrels retain their separate intentional decoration geometry.
+
+The focused collision/map/placement/save checks pass, the complete suite is **417/419 passing**, and both normal and explicit playtest builds succeed. The only failures are the same unrelated pre-existing art checks: `barber-grass-v2` runtime reference and Pixel Snapper count `50` versus stale expected `49`. In an isolated live browser fixture, hundreds of repeated upward inputs left the farmer stationary with their head completely below the barrel.
+
+At the user's explicit request, the exact playtest build was uploaded as runtime-only Vercel Build Output v3 to the existing `htetaungkyaw71s-projects/simple-life-playtest` project. Protected stage **dpl_7FfJFEUTD3RKeHUNyBgx2iMs1wKA** was READY before promotion; its HTML and application bundle matched the local artifact byte-for-byte. The promoted public [Simple Life playtest](https://simple-life-playtest.vercel.app/) returns HTTP 200, retains `noindex, nofollow, noarchive`, and its public HTML and application bundle still match the staged local SHA-256 values exactly. The post-deploy error scan found no runtime logs on this static host. No source commit/push, project/protection change, backend, function, paid resource or competition submission was performed. Physical-device and non-Chromium testing remain outstanding.

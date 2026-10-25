@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-21",
+  "method": "byte-identical local copy of approved review assets",
+  "tiles": [
+    {
+      "key": "grassGroundA",
+      "source": "output/art/ground-grass-review-v1/grass_ground_a.png",
+      "runtime": "public/assets/pixel/processed/grass-ground-a.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "8bb427751f987d98e1c6ee76a3cf3fa4f2f40e75974438eb14bfecc4a25862cf"
+    },
+    {
+      "key": "grassGroundB",
+      "source": "output/art/ground-grass-review-v1/grass_ground_b.png",
+      "runtime": "public/assets/pixel/processed/grass-ground-b.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "47b218a18b5ad186a668a95f1257263baf6a37277fcd32bfdcf3c6cf19fd986c"
+    },
+    {
+      "key": "grassGroundC",
+      "source": "output/art/ground-grass-review-v1/grass_ground_c.png",
+      "runtime": "public/assets/pixel/processed/grass-ground-c.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "784b3d58a0d9f4b7a92fbba45d14bb0466f41a13bc697e41d5a37e6bfbeb7742"
+    }
+  ]
+}

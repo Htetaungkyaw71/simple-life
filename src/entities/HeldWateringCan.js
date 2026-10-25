@@ -1,5 +1,6 @@
 import {PEOPLE_HANDS,PEOPLE_STYLE_HANDS} from '../data/peopleHands.js';
 import {appearanceIndex} from '../data/appearance.js';
+import {farmerCarryPose} from '../systems/farmerCarry.js';
 // Native source grips relative to the shared ground plane.
 const HANDS=Object.fromEntries(Object.entries(PEOPLE_HANDS).map(([dir,poses])=>[dir,poses[0]]));
 export function wateringCanPose(position,direction,scale,height=0,pouring=false,bob=0,style=0,sourceHands=null){
@@ -39,12 +40,24 @@ export class HeldWateringCan {
  }
  pour(){this.remaining=650;}
  swing(){this.remaining=AXE_SWING_MS;this.swingDirection=this.scene.player?.direction;}
- update(position,direction,scale,height=0,moving=false,walkFrame=0){
+ update(position,direction,scale,height=0,moving=false,walkFrame=0,bakedTool=false,carryMode=null){
   const now=this.scene.time.now,delta=Math.max(0,Math.min(100,now-this.lastTime));this.lastTime=now;
   if(!this.scene.app.paused)this.remaining=Math.max(0,this.remaining-delta);
   const tool=this.scene.app.state?.selected,visible=['water','shovel','axe'].includes(tool)&&!this.scene.app.transitioning;
   if(this.lastTool!==tool){this.remaining=0;this.lastTool=tool;}
-  this.can.setVisible(visible);this.hand.setVisible(visible&&tool!=='axe'&&!this.sourceHands);if(!visible){this.remaining=0;return;}
+  this.can.setVisible(visible&&!bakedTool);this.hand.setVisible(visible&&!bakedTool&&tool!=='axe'&&!this.sourceHands);this.grip?.setVisible(false);if(!visible){this.remaining=0;return;}
+  if(carryMode){
+   const player=this.scene.player,body=player?.sprite,p=farmerCarryPose(position,direction,carryMode,walkFrame,tool,height,player?.carryProfile);
+   this.hand.setVisible(false);if(!p||bakedTool)return;
+   this.can.setTexture('boy',p.frame).setOrigin(p.gripX,p.gripY).setScale(player.rig.scale).setFlipX(false).setFlipY(false).setPosition(p.x,p.y).setRotation(p.rotation).setDepth(p.depth).setTint(0xffffff);
+   // Repaint the actual source hand over the handle; never fabricate fingers.
+   if(direction!=='up'&&body){
+    this.grip??=this.scene.add.image(0,0,body.texture.key,0);
+    const [hx,hy]=p.hand,s=player.rig.scale,x=Math.round(hx/s+32-.5),y=Math.round(hy/s+56-.5);
+    this.grip.setTexture(body.texture.key,body.frame.name).setOrigin(.5,player.rig.originY).setScale(s).setPosition(body.x,body.y).setCrop(x-1,y-1,3,3).setDepth(p.depth+1).setVisible(true);
+   }
+   return;
+  }
   const hand=!this.remaining?walkingHandOffset(direction,walkFrame,this.style,this.sourceHands):{x:0,y:0},p=wateringCanPose(position,direction,scale,height,this.remaining>0,0,this.style,this.sourceHands);
   p.x+=hand.x*scale;p.y+=hand.y*scale;
   if(tool!=='water'){p.originX=p.flip?12/16:4/16;p.rotation=(p.flip?-1:1)*(this.remaining?(.9*this.remaining/420):0);}
@@ -57,5 +70,5 @@ export class HeldWateringCan {
   this.can.setTint(0xffffff);
   this.hand.setSize(2,2).setScale(scale).setPosition(p.x,p.y).setDepth(p.depth+1);
  }
- nozzle(){const sign=this.can.flipX?-1:1,scale=this.can.scaleX;return {x:this.can.x+sign*10*scale,y:this.can.y+(this.remaining?4:-1)*scale};}
+ nozzle(){const baked=this.scene.player?.actionNozzle?.();if(baked)return baked;const sign=this.can.flipX?-1:1,scale=this.can.scaleX;return {x:this.can.x+sign*10*scale,y:this.can.y+(this.remaining?4:-1)*scale};}
 }

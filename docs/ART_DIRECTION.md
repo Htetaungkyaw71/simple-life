@@ -1,3 +1,243 @@
+# 2026-10-23 — front-facing Mystical Forest River welcome
+
+The user's approved first screenshot now governs welcome-screen viewpoint and supersedes the v0.42 top-down farm-vignette direction for this screen only. Use an original eye-level riverbank view into a luminous forest clearing: tall faded trunks establish distance, layered middle bushes create depth, broad natural water fills the lower foreground, and dark tropical trees/leaves crop into both sides as a frame. Keep the central 45% calm enough for the live wordmark and stacked menu. Retain Simple Life's deep forest green, muted olive/moss, warm cream/peach light, reddish walnut and subdued sage-turquoise water.
+
+The runtime background must contain no baked text, controls, characters, logos or watermark. It must not reproduce the reference's exact plants, river contours, logo or layout. Preserve natural shores, dry roots, a grass-free bridge deck and the explicit ban on teal ferns/artificial raised earth banks. The Phaser UI remains separate, responsive and interactive. The `SIMPLE LIFE` title uses its established block font with a one-native-pixel eight-direction dark-green outline, a deeper dark offset shadow and a warm-cream face; do not alter the subtitle, ornament, menu or backdrop when adjusting title contrast. Welcome-water motion uses short broken warm/cool highlight clusters at four stepped poses per second, mapped through the raster's source coordinates and restricted to a conservative central river channel. Never use a rectangular lower-screen band, long travelling lines, full-width wrapping or any ripple that crosses rocks, roots, bridge parts or shoreline foliage. Birds, edge leaves and river wavelets stop under reduced motion. [Source and prompt](assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-21 — corrected lawn and nature review checkpoint
+
+Ordinary Home, Farm and unpaved City lawns use corrected B as the continuous base. Corrected C may appear only through irregular world-coordinate masks; A is restricted to the Forest's irregular outer-edge shade band. The six lawn tones are `#6C7749`, `#798455`, `#859056`, `#8C9564`, `#939C67`, `#9EA66B` (average hue 71.52°). Fixed-seed stepped dark pockets cover 15–20% below all objects, and sparse light V marks occur in loose world-space clusters. Never select complete lawn variants per rectangular chunk.
+
+The user-approved majority-vote wide, tall and small clumps from `output/art/tall-grass-clump-review-v3/` are active at 48×34, 30×48 and 38×38 inside three 48×48 cells, always runtime scale 1. The selected wide source is the second, fewer/broader-blade candidate. Each saved grass identity expands visually into a fixed-seed group of two to five overlapping sprites with at least 11px between feet, mixed sizes, horizontal flips, Y sorting and a small 25%-alpha contact shadow; harvesting, contact, placement, collision and save data retain their original interaction point and identity.
+
+Tree work remains at feasibility review only. A reliable single image-generation call produced at most about 49–50 clean logical pixels on one axis, so a 175×225 tree or 176×256 palm must be built from scale-1 modules. The review proposal uses three chunky leaf-cluster sizes, two trunk types and one root flare, assembled with a fixed seed. No modular tree, palm or bush is registered in Phaser pending user approval. Camera zoom stays 1.5.
+
+---
+
+# v0.43.1 — compact fountain garden and returned clothing rack
+
+The City fountain garden is a compact rounded square centred at `(704,438)`, with the fountain aligned by its perceived central jet rather than transparent-canvas bounds. Follow the supplied reference's balanced floral border: four modest terracotta pots, symmetric low flowers/grass and a clear basin silhouette. Avoid the rejected wide empty oval, oversized corner pots, top-heavy shrubs or off-axis basin.
+
+The clothing shop uses the user's returned rack at `0.7` scale with its complete transparent canvas. The barber shop uses the user-approved 2026-10-21 olive chair in the exact preceding 28×42 frame and 2× room scale. Small ground grass uses the approved olive/yellow tuft in the exact preceding 79×79 frame and 0.46 scale; player-foot contact selects a crisp left/right row-sheared phase and springs back to the base frame. Keep all three grass phases the same size and grounded at the same foot point.
+
+---
+
+# v0.42.2 — native snapped cottage (2026-10-17)
+
+Use the user-supplied 167×110 Pixel Snapper canvas unchanged at integer 2× with nearest filtering. Preserve its exact terracotta, cream, walnut, stone and flower pixels; only pure-white backdrop pixels may be transparent. Transparent canvas margins do not determine visual alignment: retain the visible door/porch anchor. Do not resample, palette-reduce, antialias, blur, add a ground shadow or mix non-integer scales.
+
+---
+
+# v0.42.1 — terracotta cottage replacement (2026-10-17)
+
+The selected cottage uses the established 120×112 native City-house cell and integer 2× world scale. Retain its warm terracotta roof, cream plaster, walnut trim, upper-left light, dark material-colour outlines, broad clusters, binary transparency and clear centered entrance. Do not add the rejected hanging lamp, loose scenery, glow, antialiasing, mixed pixel grids or baked ground shadow. Only northern `cottage-b` uses this frame; the neighboring cottage remains a distinct cool-roof silhouette.
+
+---
+
+# v0.42.0 — animated farm welcome
+
+Keep Simple Life's muted olive meadow, sage-blue river, warm cream lettering and reddish timber. Use the existing cottage, crops, trees, bushes and approved fence artwork unchanged in a layered, room-aligned top-down farm vignette. Remove giant title characters. Show restrained horizontal water motion, tiny distant flapping bird silhouettes, drifting leaves and one/two-native-pixel canopy sway with roots stationary. Preserve crisp pixel clusters; avoid a flattened full-screen background illustration, photorealistic overlays, blur or glossy lighting. Give menu actions clear gaps, fixed touch targets, a short staggered fade and a gentle focus leaf; disable motion when the system requests reduced motion.
+
+---
+
+# v0.41.0 — approved City shops and garden (2026-10-17)
+
+Use the nine selected proposal02native images exactly at their approved2×world scale with nearest-neighbour filtering, original palette/alpha and upper-left shading. Reuse existing approved café tables/chairs, camp, fountain, planter benches and NPCs without regeneration. New fixed shop rooms reuse approved wall/floor treatment and proposed furniture positions. Current outdoor grass/noise remains. Native hulls and explicit porch/door anchors determine placement; transparent canvas edges do not. Only append frames to the existing atlas; keep old pixels exact. [Source record](assets/licenses/city-shops-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.40.0 — approved raised City surfaces with current grass
+
+Use connected, quiet cream sidewalks/terraces and staggered muted warm-grey roads. A restrained top lip, three-native-pixel south-facing stone curb and one-pixel road contact shade communicate shallow elevation. North/side edges keep selective upper-left highlights, with softened binary corners and lowered crossing mouths. These are visual curbs, not jump barriers.
+
+The accepted560×192 terrace keeps three vertical planter benches at their established1.5scale with88world-unit visible gaps and a continuous front walking strip. Preserve approved furniture/lamp/fountain/character source pixels and proportions. Keep the existing green ground's colours, texture, noise and flecks; do not substitute the flat lawn fields from proposal03. Group low planting/soil pockets around selected island edges while leaving the basin clear. Cottage feet and flowerpots belong on cream door aprons, tree roots on green ground, lamps off the grey road. Preserve future building parcels.
+
+---
+
+# v0.39.0 — outdoor details and runtime night light
+
+The six replacements match the accepted walnut/cream/olive family. Boards support readable runtime labels; flowers have distinct cream/purple clusters; tents use muted canvas; the fountain uses quiet stone and contained blue-sage water. Approved well design is enlarged50% through a separate native derivative; old planted benches reuse accepted art.
+
+Daytime lamp PNGs remain unlit and halo-free. User-requested warm nighttime lighting is a separate glass-only emission layer with stepped pixel pools and dusk/dawn fading. City lamp bases stay off roads; tree roots stay on green ground outside sidewalks, plazas, garden soil and water. Moved trees keep old saved IDs.
+
+---
+
+# v0.38.0 — approved outdoor family
+
+Use the accepted planter and unlit lamp as material/detail anchors: muted reddish walnut, restrained warm highlights, dark brown selective outlines, upper-left daylight, olive/sage foliage, cream flowers, subdued grey stone and cream/sage canopy. Keep room-aligned angled top-down construction, broad upper planes and shorter front faces. All source/background alpha is clean; no baked glow/haze or ground shadows. Source canvases remain intact; native derivatives preserve logical game scale. Closed fence gate stays separate from open travel gateways. Other bench directions keep their existing authored views; approved indoor furniture and accepted planter remain unchanged.
+
+---
+
+# v0.37.2 — muted planter-bench palette
+
+The accepted revision keeps the vertical planter, side seats, projection, proportions and flower placement. Use moderately desaturated reddish walnut, restrained brown highlights/shadows, sage/olive leaves and softer purple/cream flowers with intentional pixel clusters. No orange/peach glow or surrounding shadow. Same native size and world placement; other furniture remains. [Source evidence](assets/licenses/planter-bench-muted-v2/SOURCE_RECORD.md).
+
+---
+
+# v0.37.1 — one accepted vertical planted seat
+
+The human-approved outdoor review asset has a long north–south rectangular planter, parallel seats on its two long sides, broad visible soil/rim/seat tops, shorter shaded fronts, room-aligned orthographic projection and no diagonal rotation. Preserve warm reddish wood, square posts, restrained grain, sage/olive clusters, upright purple spikes and cream flowers. Alpha outside the source-derived runtime silhouette is zero; do not add glow or surrounding shadow. Integrate one City planted bench for inspection; other furniture designs and existing character/camera remain.
+
+---
+
+# v0.37.0 — human-approved warm home interior (2026-10-16)
+
+The accepted collection and room preview supersede the earlier one-native-table gate for the fixed home interior. Preserve original warm walnut/cream/terracotta furniture, upper-left light, orthographic angled top-down view and existing character/camera. Use a taller cream plaster face, thin peach/brown lower panel trim, a separate quieter tiled floor, continuous cutaway side boundaries and a broad flush wooden threshold. Windows/shelf fit inside the upper face; visible bounds and projected feet align floor-standing furniture with the wall–floor seam. Keep the fireplace and fire at one registration. Rugs remain floor layers and both benches retain their opposing views.
+
+Keep dining left, sleeping right, storage/hearth at the back and entrance at the bottom. The final approval removes the freestanding storage jar and moves the wood16 world units back from the review. Do not redraw/recolour accepted furniture or the character to compensate for architecture. Whole-set originals and prior runtime art remain preserved; native rendering exports are separate. [Approval/source evidence](assets/licenses/home-interior-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.36.3 — single native table direction (2026-10-15)
+
+The user rejects the bulk cedar mood and now requests one original32×24 prop for review. This supersedes a steep overhead/finely textured treatment for this candidate. Use the interior reference's orthographic angled top-down view: dominant oval upper plane with substantial depth, thin front rim, short attached front legs, naturally hidden rear legs and upright pottery with visible openings. Keep axes horizontal/vertical, with no isometric turn or perspective convergence.
+
+Simple readable silhouette, selective one-pixel dark-brown outline, minimal two-tone material shading, upper-left light, warm walnut/cream/terracotta, deliberate clusters and almost no grain. One jug/two cups are included per the later explicit instruction. Native32×24, transparent padding,16×16 ground-tile anchor and2× world rendering beside the existing farmer. One interior table only; preserve other objects until visual review. [Prompts/export/provenance](assets/licenses/table-native-v1/SOURCE_RECORD.md). Previous directions below are historical.
+
+---
+
+# v0.36.0 — accepted cedar prop direction (2026-10-15)
+
+The user approved the v0.35.3 bench and explicitly authorized the full prop rollout, superseding the earlier one-object review gate. Use its steep high-angle 3/4 top-down camera, horizontal width edges, broad visible top surfaces, short foreshortened fronts, thin warm-dark outlines and crisp grid-aligned native pixels. Muted dark cedar/timber, sage foliage and pastel wildflowers unify the props; stone, water, metal, ceramics and fabric retain distinct desaturated material ramps. No low/profile camera, neon, blur or anti-aliasing.
+
+The approved bench is reused exactly. Separate upright rotated furniture sprites retain this camera convention. New sprites render at half the preceding logical scale to preserve world extents. Catalog/placement/world share pixels, subtle existing contact shadows ground upright pieces, and rugs/paving stay on the floor. Signs reserve clear label/arrow space; fountain highlights align to its three cascades. Tables remain indoors. Main approved nature/people/crops and architecture retain their art. [Source/export evidence](assets/licenses/cedar-props-v1/SOURCE_RECORD.md). Prior sections below describe historical iterations.
+
+---
+
+# v0.35.3 — user-directed one-object trial (2026-10-15)
+
+The user rejects the prior object style and supplies the new direction: high-angle 3/4 top-down, detailed visible top surfaces, dark warm cedar/rustic timber, soft desaturated foliage, pastel wildflowers, warm muted earthy palette, clean grid-aligned outlines, nearest rendering and subtle contact shadow. Avoid low/front/side views, neon, blur and anti-aliasing. Test ONE object first and wait for user review before extending this direction.
+
+The Home garden bench at(960,824) is the sole trial. It retains its existing world footprint/collision and receives one additional 64×40 native atlas frame at 1× world scale. All existing artwork is preserved, including other benches and direction views. [Exact prompt/edit/export evidence](assets/licenses/bench-cedar-v1/SOURCE_RECORD.md). This is a candidate, not an accepted whole-game art direction.
+
+---
+
+# v0.35.2 — consistent overhead forms and grounded placement (2026-10-15)
+
+The latest user asks for more reference-level craft, consistent viewing sides and object positions, other prop updates, and no tables outdoors. Use one orthographic camera-facing convention: verticals upright, width axis horizontal, broad visible upper planes, shorter front faces and a narrow shaded right side. Upper-left light, dark brown/plum contour, controlled clusters and a 47-colour material ramp give visible rims, joinery, round ceramics, masonry, canvas seams and planted seat volumes. This is original pixel artwork guided by the supplied reference, not a copied scene or claim of identical quality.
+
+The centre window shifts 48 world units right to clear the mantel, and the east City tent shifts 80 world units right to clear public seating. Front/rear/side benches and the side dining table are separately authored upright views. The back row shares a ground baseline; the hearth and logs sit 24 world units farther right, with matching solids and cooking anchor, leaving eight world units beside the north seat. Rugs retain their full ground rectangle and textile art. The approved camera/player scale stays. Remove static outdoor tables and allow table placement indoors only. Preserve ownership by packing former outdoor tables and displaced indoor pieces into Bag.
+
+Forty-one existing frames change; 917 other town frames, all frame coordinates, farmers, foliage and terrain retain their pixels. [Art/source evidence](assets/licenses/props-v3/SOURCE_RECORD.md).
+
+---
+
+# v0.35.1 — clean native shapes and coherent furniture view (2026-10-15)
+
+The latest user correction rejects grainy miniature-render detail and uneven viewpoints. Use a consistent south-facing overhead view, visible tabletop/seat upper planes, shorter upright front faces, a thin dark plum/brown contour and broad contiguous colour clusters. Keep wood panels and textile centres quiet. Pattern scale must remain readable beside the approved farmer. Three principal shades per material plus outline/accent colours guide a 33-colour native base palette; discrete market-awning adaptations remain.
+
+Core furniture uses newly generated simple shapes; native area voting avoids single-point downsampling speckles. Shared material treatment cleans up other recent props. Rugs cover their whole existing ground rectangle, while upright props retain proportions and foot anchors. Preserve the room layout, all physical footprints and approved character/foliage pixels. [Prompt/source evidence](assets/licenses/props-v2/SOURCE_RECORD.md).
+
+---
+
+# v0.35.0 — restrained layered prop artwork (2026-10-15)
+
+The user's latest Plant Tales examples clarify the object direction: orthographic overhead view from the south, horizontal edges, readable tops/fronts, narrow dark contours, restrained discrete material shades and square pixel clusters. Original generated objects use a shared 57-colour earthy material palette, with native nearest-neighbour sampling and binary alpha. Visible wood grain, bevelled rims, shaded ceramic curvature, masonry and woven patterns replace simple large rectangles. Tiny contact shadows ground purchased pieces. Keep existing source sizes and placement footprints; separately authored upright side views replace rotated or flat rectangle approximations.
+
+Snow caps, dark olive needles and warm bark are separate authored ramps; never apply a second snow tint to the snowy pine. Paid house rug/quilt accents preserve texture. Shop thumbnails and placed pieces share the same sprites and fit their preview boxes. Existing approved farmers, NPCs, crops, trees and grass remain. [Sources/prompts](assets/licenses/props-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.34.0 — young trees, leafy shrubs and water contact (2026-10-15)
+
+Retire the spiky forest-palmetto and thin fern designs from all outdoor rendering. Existing placements show low leafy bushes at their original ground anchors, preserving saved gathering IDs. Common tree groves mix in smaller pale-trunk saplings and young-fruit forms. Plain/berry/flower bushes share the muted olive palette and botanical clusters; larger approved broadleaf/palm/pine art remains.
+
+Water footsteps use crisp2world-unit pixel blocks: short ballistic droplets, expanding broken elliptical rings and trailing wakes. Alternate contact points and generate edge splashes on wet/dry transitions. Every block clips to real water so banks/bridge decks stay dry. Stationary or collision-blocked movement emits no endless footsteps. Preserve reflections, ankle crop, ambient currents, shared shore geometry and grounded shadows. Bridge rail artwork now has matching physical side barriers and open ends. [Original art/prompts/conversion](assets/licenses/nature-v2/SOURCE_RECORD.md).
+
+---
+
+# v0.33.0 — natural olive foliage (2026-10-15)
+
+Use original generated broadleaf crowns with open branching, warm bark/root flares and layered olive leaf clusters; palms have broad feathered fronds. Native80 ×112,96 ×128and52 ×114tree frames render at2× with nearest filtering. Root-origin registration keeps existing trunk positions, collision and grounded shadows. The compact24 ×24grass tuft has irregular blade groups, transparent gaps and existing three-phase bending. Small resting grass details reuse reduced native tufts.
+
+Use shared olive foliage across outdoor locations, retaining distinct Forest habitat treatments. Existing fern silhouettes receive olive color treatment. Calmer short ground-leaf marks replace repeated U-shapes; sparse flower groups remain. Tree crowns overlapping the farmer fade to28%to keep the farmer readable through several layers. Conifers now use the new layered pine with a snow adaptation; bushes remain; willow is currently a smaller broadleaf adaptation. Reference screenshots guide general botanical volume, perspective and palette, with original generated silhouettes. [Sources/prompts/adaptations](assets/licenses/nature-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.32.0 — five-row Farm with breathing room (2026-10-15)
+
+Use an 8 × 5 prepared starter and equal 384 × 240 growing-area clearances. Entrance path narrows within its former footprint, leaving at least32world units between roads and starter earth. Board moves to existing main-lane ground, at least64world units beyond the field on both axes. Undug/restored ground shows existing grass terrain; no new overlays or raster art. Existing crops in an old sixth row remain until the player harvests/clears them.
+
+---
+
+# v0.31.1 — natural undug farm ground (2026-10-15)
+
+Remove the pre-painted light-brown growing-site rectangles. The existing grass terrain continues across undug areas; actual prepared/saved beds alone draw connected earth. Growing-area clearance is eight columns by six rows; the other three sites stay grassy until the player digs. Retain existing warm soil, transparent plants, shadows, native pixels and simpler lanes. No new bitmap generation.
+
+---
+
+# v0.31.0 — clear farming composition and depth priorities (2026-10-15)
+
+Four equal8×4growing areas use lighter fallow earth, with darker prepared soil and existing wet/dry transitions. Simplify road composition to an entrance and main lane, leaving rectangular planting areas uninterrupted. Keep saved crops/furniture and native pixels. Fallow sites reuse the project's procedural soil; no reference pixels copied.
+
+The supplied reference's apparent depth can be pursued with2Dart: consistent low top-down angles, visible shaded side planes on houses/trees, taller species-specific crop silhouettes, foliage overlapping actors with feet-based sorting and one common light direction. Existing shadows/jumping/tree occlusion already provide the rendering foundations. Prioritize a reviewed fuller crop sample and coherent environment palette before producing a large replacement set. This task does not generate that art or change the engine/projection.
+
+---
+
+# v0.30.1 — uncluttered Farm and one shared soil surface (2026-10-15)
+
+Use the supplied Plant Tales screenshot only as a general reference for warm earth, shallow grassy edges and crops grounded directly on a shared bed. Preserve native art/style and saved grid geometry. Avoid per-plant soil pads, pale root underlines, deep/scalloped turf borders and repeated static field ornaments. Keep functional landmarks and owned decorations. Watered soil stays brown with soft pixel transitions to dry neighbouring cells; adjacent wet cells merge without a grid edge. Current plant silhouettes remain the original24×32sprites with soil pixels removed; fuller species-specific foliage can be considered after this cleanup is reviewed, within the submission budget.
+
+---
+
+# v0.30.0 — approved merchant motion and next design (2026-10-14)
+
+Nell/Sol approved neutral silhouettes are now runtime art:64×64cells, ground(32,56),40native-pixel standing bodies at1.5×scale. Four idle phases last1500/1200/120/1500ms; six walking poses last150ms each. Do not replace approved neutral pixels during future regeneration. Retain relaxed NPC gait rather than farmer running. Source-backed native walking height varies39–42pixels; boots stay grounded. Side idle holds the approved profile to avoid generated camera turns; west walking mirrors east, including side details. Nell's short blink slot holds neutral because generated face marks were unreadable; Sol's blink remains.
+
+Next standing review: Clara, seed merchant, copper-brown single braid, sage apron over ivory rolled blouse, charcoal trousers, brown boots and ochre seed pockets. Match40native-pixel height/small head; review four standing views before animation/runtime adoption. Shop previews remain the player's same farmer. Hair preview shows hair unobstructed while actual accessories remain equipped.
+
+---
+
+# Nell and Sol — first matching NPC designs (2026-10-14)
+
+Follow the accepted gradual replacement workflow: review standing appearances before animated motion and runtime replacement. Match approved farmers with slim adult40-native-pixel bodies in64×64transparent frames, ground(32,56), suggested1.5display scale and small equal1×2eyes. Preserve sparse pixel clusters, low top-down perspective, restrained brown outlines and muted colours. Maintain each NPC's own silhouette and clothes through four directions. Nell: dark wavy bob/ochre clip, rose blouse/ivory cuffs, terracotta apron, charcoal trousers and brown boots. Sol: short dark side part/grey temple streak, teal vest/ivory sleeves, charcoal trousers, brown boots and small leather belt pouch. Native standing export uses at most32opaque colours per view.
+
+Existing villagers remain in-game during review. Later idle/walking frames should retain approved head/body proportions, foot grounding, clothing details and colour relationships; NPCs need their own relaxed walking motion. Preserve resident IDs, shops, homes, dialogue, schedules and curfew when replacing art. Do not route NPC appearances through the player's wardrobe.
+
+---
+
+# v0.29.0 — clothes retain the farmer (2026-10-14)
+
+The user's customization request supersedes the historical complete-player-preset wardrobe. Saved boy/girl identity always selects the approved64×64 farmer rig. Never swap a player to an NPC or change body proportions, face, eyes, hair silhouette, gait or timings when buying clothes. Preserve the two starter combinations exactly; other existing outfit IDs apply muted fabric colour ramps to the same body, and hair choices dye connected source hair, including the girl's ponytail. These are colour variants of the approved workwear, not new garment silhouettes. NPC presets remain for residents only.
+
+First extras: warm straw hat, fine brown round glasses with open lenses, and small brown canvas backpack. Keep native pixel density and transparent backgrounds. Register each view to the actual head/shoulder in all192poses per farmer, including bent/turned heads, jumping and work. Glasses are absent on the back of the head; preserve original eye pixels. Backpack straps follow fabric, side bags sit behind the body. Compose native layers before rendering so water crops, reflections and hand-over-tool crops share the dressed farmer. Keep cosmetic items free of stat bonuses. Avoid a large accessory catalogue until this small set has been player-reviewed.
+
+---
+
+# v0.28.1 — matching female farmer, corrected size and eyes (2026-10-14)
+
+The complete female counterpart uses a brown low ponytail, tan dot-eye face, ivory rolled sleeves, olive overalls/belt and brown boots, matching the accepted male style. Eight authored actions share64×64cells and origin(32,56). User follow-up supersedes the initial1.5female display scale: use1.45for the41-native-pixel standing silhouette (59.45world units), matching the boy’s40at1.5(60). Preserve native pixels instead of downsampling to48×48. Her front open-eye idle phases0/1/3have matching1-column×2-row pupils at stable positions after a targeted imagegen idle edit and whole-frame sampling-grid registration. Keep the brief blink.
+
+Reuse the approved male axe/shovel/can art unchanged, with the female’s own hand centres and wrist-angle table. Original female hand pixels draw over each carry grip; separate tools hide during the existing combined actions. Jump uses the same600msworld arc with six new female poses. Male/NPC/environment pixels, camera, rules and saves remain.
+
+---
+
+# v0.27.0 — authored male jump and matching carried tools (2026-10-14)
+
+Extend the approved v2 male with24new jump poses (six per direction) and12separate axe/shovel/can views. Preserve all168approved body/action frames, original eye detail,64×64padding/ground(32,56), accepted1.5display scale and restrained32-colour palette. The generated jump uses anticipation, takeoff, tuck, extension and landing; normalize boots to row56 and apply the existing600ms world arc once. This supersedes the running-pose jump fallback for this male only. Each carried tool uses a registered grip, per-frame real skin-pixel hand and small angle change from the sleeve/hand axis. Repaint the original hand crop above the grip. Hide separate tools/hands during existing combined actions. The Copper upgrade keeps its existing effects with the matching grey-green can. Female/NPC/other appearances remain.
+
+---
+
+# v0.26.2 — preserve original eyes at the accepted smaller size (2026-10-14)
+
+The user reports a missing front eye after accepting the smaller stature. Verified 0.75 native downsampling skipped the original left-eye column. Restore every original 64×64 RGBA frame, ground origin (32,56), and use 1.5× display scale with nearest filtering and rounded world positions. The displayed cell remains 96 units and ground offset 84, matching the preceding 48×48 / 2× derivative; standing body remains about 60 world units. This narrowly supersedes integer-only boy display/native-resize guidance to retain the accepted size and original face details. Fractional scale can give source pixels unequal displayed widths; no smoothing is introduced. Girl, other looks, NPCs, camera/world, collisions and action timing remain. Hand grips use original skin-pixel centres converted/rounded to the current display scale; built-in spout offsets retain the same physical size.
+
+---
+
+# v0.26.1 — male farmer matches the game scale (2026-10-14)
+
+At the user’s request, supersede the preceding 40-pixel male body with one fixed 0.75 nearest-neighbour reduction of every full padded frame. Runtime cells are 48×48, ground origin (24,42), integer 2× world scale; front/side idle ink is 30 pixels / 60 world units, back is 31 pixels. This matches the girl’s approximate body height and the environment’s native pixel grid. Do not trim, stretch or independently shift limbs. Original 64×64 source frames/palette/timings remain; no new art generation. Held tools use hand coordinates extracted from the adapted frames; watering spout offsets scale with the body. Existing action tools shrink with their complete poses. The girl/NPCs/world/camera/collision bodies and carried tool icon artwork remain.
+
+---
+
+# v0.26.0 — user-approved revised male farmer (2026-10-14)
+
+Use the supplied revised v2 identity for Worker/Classic, preserving all native RGBA pixels. The 64×64 padded cells share ground origin (32,56) and integer 2× world scale: about 40 native pixels / 80 world units of standing body, consistent with the tall 80-unit town people. Do not stretch, trim or independently warp limbs. The girl retains her approved 48×48 / 30-pixel body. Idle uses the supplied long holds/blink, running eight phases at approximately 12 fps, and five work/axe-attack actions retain six authored phases. Tool-bearing poses contain the farmer and tool together; suppress the separate utility sprite during them. Other complete outfits/NPCs retain their existing pixels. Jump adapts real running poses to the existing arc, not an authored jump cycle. Copper Can effects/coverage remain gameplay-driven; this pack has one built-in can design.
+
+---
+
 # v0.25.0 — generated farmer girl (2026-10-13)
 
 Use the user-requested brown ponytail, tan skin, ivory rolled sleeves, olive overalls and brown boots for the girl starter look (Garden/Autumn). Four generated directional idles and 32 generated running poses are adapted to native 48×48 cells with a 30-pixel front-facing ink height, shared ground row 40, 32-colour palette and integer 2× rendering. Source sheet and prompt are retained; nearest sampling/palette adaptation is disclosed. Body geometry is not cut into independently shifted parts; source arm/leg changes supply the cycle at 16 fps. Original male, other complete presets, NPCs, camera/depth and physics remain. Three passing run frames support the existing jump arc; no new authored jump/tool-use cycle is claimed.
@@ -406,3 +646,13 @@ One authored woodland with irregular tree clusters, safe quiet entrance, winding
 
 
 2026-10-07 user-authorized large-wilderness follow-up supersedes the one-small-map/one-enemy cap: exactly 20-fold area, distinct stylized habitats with all listed species plus snakes in groups, more fruit, river/bridges/pixel waterfalls, walkable cave chambers and finite guarded treasure. Preserve crisp native pixels, existing farmer faces/canvas shell, local-only runtime, license/AI disclosures, farming/City/sleep/recovery and no-publication obligations. No real-world ecosystem accuracy is claimed for the mixed-climate game map.
+
+## City fountain island follow-up — 2026-10-21
+
+The user-supplied 207×214 island is an approved City exception to the source-art family. Render it at exact 1.35 scale, centered at `(704, 420)` in the main road plaza, with nearest-neighbor filtering and stepped silhouette collision. Its eight-frame 8-fps loop must keep all non-water and the one-pixel stone-rim guard identical and change no more than 3% of the 1,247-pixel animation mask from the source in any frame. Fixed one-pixel stream columns move highlights downward one source row per frame. Landing ripples are compact flattened ellipses with radii 2, 4 and 6 only; large basin arcs/crescents are prohibited. Six fixed glints and bowl/jet shimmer use only the three source water colors. Never alternate the two supplied full sprites as animation frames because their plant, stone and water palettes differ visibly.
+
+## Surface and wardrobe follow-up — 2026-10-23
+
+Road surfaces, ponds, rivers and bridge decks are negative space: do not place tree trunks, rocks, grass clumps, flowers, mushrooms or other scenery on them. Test the visible lower tree trunk and full ground-decoration silhouette rather than relying only on the smaller collision root. Functional roadside signs and services remain reachable, while City uses identity-preserving relocation for saved plants. Placed storage props need visible breathing room; tall grass must not grow through barrels, crates or wells.
+
+Round glasses are no longer part of the clothing-shop or Wardrobe visual catalogue. The remaining Extras are the straw hat and canvas backpack. The temporary startup screen uses the established dark olive, cream and warm-gold pixel palette, then fully disappears before the title becomes interactive.

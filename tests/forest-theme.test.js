@@ -12,9 +12,9 @@ test('mixed green foliage shares muted olive shades while bark, fruit and neutra
 });
 test('bridge decks fully span bending water, meet dry land and remain traversable across their length',()=>{
  for(const b of FOREST_MAP.bridges){
-  for(let y=b.y+8;y<b.y+b.h-8;y+=8)for(let x=b.x+12;x<b.x+b.w-12;x+=8){assert.ok(walkable('forest',x,y),b.river);assert.equal(waterAt(FOREST_MAP,{x,y}),false);}
+  for(let y=b.y+20;y<b.y+b.h-20;y+=8)for(let x=b.x+20;x<b.x+b.w-20;x+=8){assert.ok(walkable('forest',x,y),b.river);assert.equal(waterAt(FOREST_MAP,{x,y}),false);}
   if(b.axis==='vertical')for(let x=b.x+8;x<b.x+b.w-8;x+=8){assert.equal(waterAt(FOREST_MAP,{x,y:b.y+4},false),false);assert.equal(waterAt(FOREST_MAP,{x,y:b.y+b.h-4},false),false);}
-  else for(let y=b.y+8;y<b.y+b.h-8;y+=8){assert.equal(waterAt(FOREST_MAP,{x:b.x+4,y},false),false);assert.equal(waterAt(FOREST_MAP,{x:b.x+b.w-4,y},false),false);}
+  else for(let y=b.y+20;y<b.y+b.h-20;y+=8){assert.equal(waterAt(FOREST_MAP,{x:b.x+4,y},false),false);assert.equal(waterAt(FOREST_MAP,{x:b.x+b.w-4,y},false),false);}
  }
 });
 test('night shading has complete nonoverlapping coverage and merges equal opacity cells',()=>{

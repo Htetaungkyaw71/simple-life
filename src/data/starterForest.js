@@ -23,7 +23,6 @@ export const FOREST_MAP={
  buildings:[],
  props:[...clusters.map(([x,y])=>prop('tree',x,y)),...edgeTrees.map(([x,y])=>prop('tree',x,y)),
   prop('guava-tree',560,416),prop('guava-tree',680,468),prop('mango-tree',980,176),prop('tree-wide',256,344),prop('forest-log',696,664),prop('forest-log',1008,120),prop('rock',352,296),prop('rock',1080,600),prop('rock',96,840),prop('shrine-stone',104,360),
-  prop('road-sign',512,912,{text:'HOME',direction:2}),prop('road-sign',768,448,{text:'DEEP',direction:6}),
  ],
  water:[[96,432,224,144]],fences:[],
  signs:[{type:'hint',x:542,y:960,label:'HOME / follow the path south'},{type:'hint',x:792,y:500,label:'Deep clearing / wild boar territory'},{type:'dialog',x:128,y:416,label:'Read the moss stone',title:'The still-water stone',body:'A small sun is carved here. The pond has watched many mornings.'}],

@@ -1,0 +1,34 @@
+{
+  "asset": "Pixel Snapper terracotta City cottage",
+  "date": "2026-10-17",
+  "status": "USER SUPPLIED; RUNTIME INTEGRATED FOR REVIEW",
+  "source": {
+    "path": "output/art/city-cottage-snapper-v2/original-pixel-snapper.png",
+    "dimensions": [167, 110],
+    "sha256": "96a0d00961fc5060ce756fccd5fc3cf058994f002a937baa319f0dd1e91c0ab7",
+    "alpha": [255]
+  },
+  "native": {
+    "path": "output/art/city-cottage-snapper-v2/native-transparent-167x110.png",
+    "dimensions": [167, 110],
+    "sha256": "d4b59e867be6279b8f4a1e6863fc10b67633159a571144f83d3aa83901d002b3",
+    "alpha": [0, 255],
+    "removedExactWhitePixels": 9345,
+    "retainedNonWhitePixels": 9025,
+    "nonWhitePixelsExact": true,
+    "worldScale": 2
+  },
+  "runtime": {
+    "atlas": "public/assets/pixel/processed/town.png",
+    "frame": "city-review-cottage-terracotta-snapper",
+    "frameRect": [774, 3927, 167, 110],
+    "replacedVisual": "cottage-b",
+    "preservedBuildingIdentity": "house-village-4",
+    "preservedResident": "city-tomas",
+    "entry": [2350, 438]
+  },
+  "preservation": {
+    "preExistingFramesExact": 1060,
+    "preExistingPixelsExact": true
+  }
+}

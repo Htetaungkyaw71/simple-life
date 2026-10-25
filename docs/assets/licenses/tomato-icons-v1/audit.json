@@ -1,0 +1,102 @@
+{
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_08_37-pixel-snapper.png",
+  "sourceSha256": "f43666f17eddf3f26c988d018ed167a393269aba58cad6a80672db8a66308c33",
+  "evidenceSource": "docs/assets/licenses/tomato-icons-v1/source.png",
+  "sourceSize": [
+    108,
+    74
+  ],
+  "sourceUniqueColors": 15,
+  "sourceAlphaValues": [
+    255
+  ],
+  "nativePixelGrid": true,
+  "backgroundColorsRemoved": [
+    [
+      255,
+      3,
+      253,
+      255,
+      6994
+    ]
+  ],
+  "retainedColorsChanged": 0,
+  "outputAlphaValues": [
+    0,
+    255
+  ],
+  "requiredFrameSize": [
+    24,
+    24
+  ],
+  "selectedProduce": "tomato-item-candidate",
+  "icons": [
+    {
+      "name": "tomato-item-candidate",
+      "sourceBounds": [
+        28,
+        14,
+        49,
+        35
+      ],
+      "trimmedSize": [
+        21,
+        21
+      ],
+      "frameSize": [
+        24,
+        24
+      ],
+      "placement": [
+        1,
+        1
+      ],
+      "sha256": "3d076b8b380cbbfea1f8df7d6e2ed6e4043aebe031694a67e1e9b23984879bcc"
+    },
+    {
+      "name": "tomato-item-alternate",
+      "sourceBounds": [
+        60,
+        17,
+        79,
+        36
+      ],
+      "trimmedSize": [
+        19,
+        19
+      ],
+      "frameSize": [
+        24,
+        24
+      ],
+      "placement": [
+        2,
+        2
+      ],
+      "sha256": "c311f865217937bb0f52708379bd383d860df3c295bbfae5f03f6e754d733d7e"
+    },
+    {
+      "name": "tomato-seed-item-candidate",
+      "sourceBounds": [
+        44,
+        43,
+        63,
+        65
+      ],
+      "trimmedSize": [
+        19,
+        22
+      ],
+      "frameSize": [
+        24,
+        24
+      ],
+      "placement": [
+        2,
+        1
+      ],
+      "sha256": "aab6a911085d8fb018da4e146bcbaa786c542c1d71e063e7888d89686a9d06e1"
+    }
+  ],
+  "cleanedSheetSha256": "cacda20a660510d721f2d8d63609f85ec429482b56859bc9615015929d12ffec"
+}

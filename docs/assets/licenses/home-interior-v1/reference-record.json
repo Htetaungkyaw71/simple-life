@@ -1,0 +1,21 @@
+{
+  "approved_table_unchanged": true,
+  "approved_table_not_regenerated": true,
+  "references": [
+    {
+      "path": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/docs/verification/table-native-v1/game-desktop.png",
+      "sha256": "521456282548bedbca327c9ca5ee3d457ff23ef2e1988562aa51a1842d5164f7",
+      "role": "current-home identity/proportions only"
+    },
+    {
+      "path": "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.14\u202fPM.png",
+      "sha256": "f9d4d731fb21ba4ca721219c4985470ee5a6a1a53683dd2e438a2f07109cc5ea",
+      "role": "main target camera/pixel/material reference"
+    },
+    {
+      "path": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-993cc3a9-800d-48b0-bb4e-cc331b4d1550.png",
+      "sha256": "d913edbc9fd6b7634ca98b6e0644c913386058b98b6623eabf71a3b3d96f735f",
+      "role": "approved table material-family reference only"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "prompt": "Use case: precise-object-edit. The first image is the FIRE OVERLAY to edit. The second is the FIREPLACE for alignment only; do not draw any of its structure.\nRecreate the isolated fire effect MUCH SMALLER within the same1402x1122 transparent canvas. The current effect is too large for this hearth opening. Make a modest small cluster of embers and three SHORT flame tongues, WITHOUT large sparks. Target only about8% of canvas width and8% height, around110 pixels wide by90 pixels high at this source resolution. Keep native pixel-cluster detail, redraw with fewer/shorter flames rather than stretching or making a larger bonfire.\nPosition this tiny effect at x50%, close to the lower hearth opening y75%. All remaining canvas EMPTY transparent. Keep warm terracotta/amber/cream; crisp pixel-art edges and binary alpha. Absolutely no glow haze, shadows, floor, logs, grate, fireplace masonry, backdrop, labels or other object. This is a small overlay layer ONLY, with clear visible empty padding many times larger than the fire. Preserve1402x1122 canvas if possible. The raw generated output will be preserved without automatic resampling.",
+  "refs": [
+    "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/11-fireplace-ember-overlay.png",
+    "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/09-fireplace-structure.png"
+  ]
+}

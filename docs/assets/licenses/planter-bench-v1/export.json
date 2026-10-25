@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-16",
+  "original": {
+    "file": "output/art/planter-bench-v1/planter-bench-vertical-original.png",
+    "sha256": "cdea9eba1cb56522dc3a240a59c2a45e461eeadeb95bfe140e4a44d17064fb48",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "visibleAlphaBounds": [
+      410,
+      36,
+      1126,
+      964
+    ]
+  },
+  "native": {
+    "file": "output/art/planter-bench-v1/native.png",
+    "dimensions": [
+      68,
+      87
+    ],
+    "scale": 1.5,
+    "worldCanvas": [
+      102,
+      130.5
+    ],
+    "binaryAlpha": true
+  },
+  "scope": "one City planter bench below seed stall; five other planted benches unchanged",
+  "oldFrames": 1040,
+  "atlas": {
+    "w": 1024,
+    "h": 3693
+  }
+}

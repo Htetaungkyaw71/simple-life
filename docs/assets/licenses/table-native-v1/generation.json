@@ -1,0 +1,17 @@
+{
+  "outputs": [
+    {
+      "stage": "initial",
+      "path": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-dc7ff81e-7fb0-47d2-bcee-00335a82a382.png"
+    },
+    {
+      "stage": "native-edit",
+      "path": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-3617a4dc-2990-4ccf-add9-1dc8f2f6b6b8.png"
+    },
+    {
+      "stage": "pottery-edit",
+      "path": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-a6696c12-a33b-4fd5-add2-a21f918134c9.png"
+    }
+  ],
+  "calls": 3
+}

@@ -1,0 +1,13 @@
+{
+  "id": "13-doorway-bottom-threshold",
+  "name": "Bottom-exit doorway",
+  "units": [
+    48,
+    32
+  ],
+  "refs": [
+    "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/12-window-walnut-sage.png",
+    "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-993cc3a9-800d-48b0-bb4e-cc331b4d1550.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create ONE original standalone LOW U-SHAPED WALNUT DOOR THRESHOLD assembly for a cozy top-down RPG room's bottom exit. Image1 WINDOW defines ONLY the matching wood/outline family. Image2 APPROVED TABLE defines ONLY elevated orthographic camera/pixel material treatment. Do NOT draw either reference object.\nOnly THREE structural parts: TWO short stout walnut door-jamb posts at left and right, connected by ONE low horizontal walnut threshold across the BOTTOM. The U-shaped central passage and all surrounding canvas are TRANSPARENT, no door leaf and no lintel across the opening. Clearly visible post-top planes, modest warm timber rim/bevels, medium-detail pixel clusters, upper-left light,3–4 walnut shades and thin dark-brown outlines. Long axis horizontal, shared orthographic angled top-down view, no isometric angle or eye-level facade.\nAt adult40-unit planning scale, the assembly is roughly48 units wide by32 high, central passage24–28 units wide, suitable for the room's BOTTOM EXIT toward the viewer. It must be a freestanding cutaway threshold asset, not a whole doorway scene.\nABSOLUTELY NO WALL SEGMENTS OR PANELS on either side, no beige fill, no floorboards, floor tiles, room, backdrop, scenery, plant, text, watermark or other object. Alpha ZERO outside the walnut wood parts AND inside the central opening. NO soft glow, haze, ambient backdrop, vignette, blur or ground/cast shadow. Complete centered isolated transparent PNG with generous padding, all three wood parts fully visible. Full generated resolution, no automatic shrinking."
+}

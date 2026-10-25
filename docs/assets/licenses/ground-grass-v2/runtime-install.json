@@ -1,0 +1,58 @@
+{
+  "seed": 20261021,
+  "palette": [
+    "#6C7749",
+    "#798455",
+    "#859056",
+    "#8C9564",
+    "#939C67",
+    "#9EA66B"
+  ],
+  "paletteHueDegrees": [
+    74.35,
+    74.04,
+    71.38,
+    71.02,
+    70.19,
+    68.14
+  ],
+  "averagePaletteHue": 71.52,
+  "lightnessDeltaBtoC": 0.417,
+  "baseRule": "B everywhere; C only in irregular world-space alternate masks; A only at Forest edge shade",
+  "worldPreview": {
+    "alternateCoveragePercent": 3.28,
+    "darkPocketCoveragePercent": 17.58,
+    "tuftPixels": 2682,
+    "usedColors": [
+      "#6C7749",
+      "#798455",
+      "#859056",
+      "#8C9564",
+      "#939C67",
+      "#9EA66B"
+    ]
+  },
+  "tiles": {
+    "a": {
+      "averageLightness": 42.293,
+      "sha256": "baee66dea27a8ee07ae73fed222153987f378dabf8b68edf2754d2e359ac29ed",
+      "runtimeSha256": "baee66dea27a8ee07ae73fed222153987f378dabf8b68edf2754d2e359ac29ed"
+    },
+    "b": {
+      "averageLightness": 44.16,
+      "sha256": "994e76c9769ed6d2f64e68df65c89427a84b4b6b04182d74d38e1647dba4a601",
+      "runtimeSha256": "994e76c9769ed6d2f64e68df65c89427a84b4b6b04182d74d38e1647dba4a601"
+    },
+    "c": {
+      "averageLightness": 44.577,
+      "sha256": "695c91ecd593d0c4586c7eb2db678a29566f7c36fd52c06135a6b532fed64004",
+      "runtimeSha256": "695c91ecd593d0c4586c7eb2db678a29566f7c36fd52c06135a6b532fed64004"
+    }
+  },
+  "checks": {
+    "paletteHueTarget71To72": true,
+    "bAndCWithinOneLightnessUnit": true,
+    "darkPocketCoverage15To20Percent": true,
+    "integerNearestPreviewScale": 2
+  }
+}

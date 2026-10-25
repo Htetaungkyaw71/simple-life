@@ -1,3 +1,81 @@
+# 2026-10-24 — Strawberry snapped-sheet review audit
+
+The user-supplied 361×121 source, cleaned-source image, 48×38-frame review candidate, manifest and debug-page references remain outside `public/`, `dist` and the production allowlist. Runtime atlas PNG/JSON and Strawberry metadata are untouched pending approval. The candidate has binary alpha, 14 source-exact opaque colours and no unexpected retained colour. [Measurements and hashes](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-23 — Mystical Forest River welcome runtime asset
+
+One new allowlisted runtime file, `processed/welcome-mystical-river.png`, is a 1672×941 / 2,415,970-byte local PNG with SHA-256 `cf7c626d47fcb399d9ad25bf54c9e03ee127a42863d98cd37d9aa8cb22e44e54`. Vite emits only that selected generated output; the user reference screenshots and generation-service storage path do not enter `dist/`. The file is loaded once by WorldScene and rendered in the separate Phaser UI scene. It adds no source archive, remote request, runtime generator, dependency or hidden unused pack file. [Evidence](assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.2 — native Pixel Snapper cottage append
+
+One 167×110 binary-alpha frame replaces the prior trial frame in unused atlas space at `(774,3927)` without changing the 1024×4041 atlas size or production file set. All 1,060 baseline frame records and every RGBA pixel outside the new rectangle are exact. The source/native canvases are both 167×110; all 9,025 non-white source pixels are exact and only 9,345 exact-white backdrop pixels become transparent. Reproduce with `node scripts/export_city_cottage_snapper.mjs`; verify with `node scripts/check_city_cottage_snapper.mjs`.
+
+---
+
+# v0.42.1 — terracotta cottage append
+
+One 120×112 binary-alpha frame is appended in unused space at `(774,3927)` of the existing 1024×4041 town atlas. All 1060 earlier frame records and every pre-existing RGBA pixel are exact; the installed rectangle equals the reviewed native derivative. The generated 1347×1167 source, baseline atlas pair, native derivative and audits remain outside production. Runtime file paths and allowlist shape are unchanged. Reproduce with `node scripts/export_city_cottage.mjs`; verify with `node scripts/check_city_cottage.mjs`.
+
+---
+
+# v0.41.0 — City append preservation audit (2026-10-17)
+
+Town atlas1024×4041:1051old frame records and complete old RGBA rectangle exact, nine approved native PNGs exact.74other public asset files unchanged. `scripts/check_city_shops.py` verifies against the immutable pre-integration atlas/public ZIP. Production48files/about13MB; no new allowlist paths, vendor archives, originals or previews shipped. [Hashes/provenance](assets/licenses/city-shops-v1/manifest.json), [results](verification/city-shops-v1/preservation-check.json).
+
+---
+
+# v0.39.0 — outdoor follow-up audit
+
+[Art audit](verification/outdoor-followup-v1/art-audit.json):1050 previous frame records exact,14 cells replaced,1036 old cells/non-target RGBA exact, one72×96 well appended,15 native exports. Town1024×3925/1051 frames. Six full originals/18 other runtime files and earlier approved collection/lamp/planter pixels exact. [Build audit](verification/outdoor-followup-v1/build-audit.json):371 tests/build pass, same48-file allowlist, emitted atlas exact and source/archive/QA exclusion. Actual day/night views and offline well comparison are identified separately.
+
+---
+
+# v0.38.0 — outdoor collection audit
+
+[Art audit](verification/outdoor-collection-v1/art-audit.json) verifies25 replaced old cells,1016 protected cells/non-target RGBA exact,1041 old metadata records unchanged, nine new frames and28 native parent exports. Town1024×3825/1050 frames. All18 other runtime art files,14 full originals and two approved references remain exact. [Build audit](verification/outdoor-collection-v1/build-audit.json):367 tests/build pass,48 unchanged allowlisted runtime paths, emitted atlas exact and source/archive/QA exclusion. Actual Home/City captures and checks are in the verification folder.
+
+---
+
+# v0.37.2 — muted planter-bench cell replacement
+
+[Art audit](verification/planter-bench-muted-v2/art-audit.json):1041 unchanged frame records; every RGBA pixel outside the target cell exact;18 other runtime art files unchanged; full original preserved;68×87 binary-alpha derivative. No frame or atlas-size increase. [Build audit](verification/planter-bench-muted-v2/build-audit.json):365 tests/build pass,48 unchanged allowlisted paths and emitted atlas exact. Actual City browser screenshot is retained in the verification folder.
+
+---
+
+# v0.37.1 — one planter-bench atlas append
+
+[Art audit](verification/planter-bench-v1/art-audit.json) verifies1040 prior town frame records and complete RGBA region exact, one appended68×87 binary-alpha frame, unchanged1536×1024 source and18 untouched runtime art files. Town is1024×3693/1041 frames. [Build audit](verification/planter-bench-v1/build-audit.json) verifies48 allowlisted local files and exclusion of sources/archives/tests/review material. One City instance/mask changes; other five planted seats and home remain. Native enlargement is offline; actual browser rendering remains policy-blocked/unverified.
+
+---
+
+# v0.37.0 — approved home integration audit
+
+[Art audit](verification/home-interior-v1/art-audit.json) preserves all20 preceding runtime art files and checks all17 home-native frame pixels, unchanged source table and accepted placement. The storage jar and U-threshold remain archived/source art with no fixed-room instance. The wood alone moves16 world units back. No character/town/world PNG is repainted/repacked. [Build/HTTP audit](verification/home-interior-v1/build-http-audit.json) checks the48-file allowlist and excludes source/archive/QA files. The runtime composition is explicitly offline; browser policy prevented actual UI verification. [Full checks/limits](verification/home-interior-v1/README.md).
+
+---
+
+# v0.36.3 native-table audit — 2026-10-15
+
+All1039 preceding atlas records and the complete old RGBA region are exact. One32×24 frame appends;1040 frames total,1024×3602. Selected native output has9 opaque colours from a12-colour ramp, binary alpha and transparent padding. One fixed table uses the new frame with matching size/collider. [Native audit](verification/table-native-v1/pixel-audit.json), [source/protected-assets/46-file build audit](verification/table-native-v1/source-build-audit.json), [archive audit](verification/table-native-v1/archive-audit.json). Approved farmer/world hashes remain exact. Sources/backups/vendor archives/ZIPs/QA are excluded from production.
+
+---
+
+# v0.36.0 audit — 2026-10-15
+
+959 existing frame records and the complete preceding atlas RGBA region are byte-exact, including the approved bench, people/NPC/crop/nature cells. Seventy-eight appended frames serve 80 logical prop aliases; 1037 total frames in a 1024×3486 atlas. All new native alpha is binary; source and installed-pixel audits pass. Approved boy/girl/world PNG hashes match. Production remains 46 allowlisted local files, with no source/gallery/backup/vendor/test leakage. [Native audit](verification/cedar-props-v1/pixel-audit.json), [source/build audit](verification/cedar-props-v1/source-build-audit.json), [export record](assets/licenses/cedar-props-v1/export.json).
+
+---
+
+# v0.35.2 audit — 2026-10-15
+
+The production allowlist remains 46 local files. Existing town PNG/JSON URLs carry the revised art; no source/rejected image, vendor pack, atlas backup, gallery, script or test fixture is copied into dist. All 958 frame metadata records and atlas size 1024×2564 stay exact. Forty-one revised cells, 917 exact protected cells; boy/girl/world PNG hashes match the recorded approved values. See verification/props-v3/pixel-audit.json and assets/licenses/props-v3/export.json.
+
+---
+
 # v0.25.0 — farmer girl native asset audit
 
 Four generated idle poses and 32 running poses are packed into 48 cells. All eight run images differ in every direction, with genuine arm and foot pixel changes and 48 opaque skin-pixel grips. Native alpha is binary and the shared palette has 32 colours. Male, legacy appearance and town PNG/JSON are byte-identical to the preceding commit. Runtime remains 46 files with 27 WAVs; raw generated output, prompts, export ZIPs and previews are excluded. [Evidence](verification/farmer-girl/native-audit.json).
@@ -195,6 +273,10 @@ All 323 forage, 158 animal, forty discovery and fourteen cache identities surviv
 ---
 
 # v0.9.0 — runtime and progress audit
+
+## 2026-10-21 barber chair and grass replacement audit
+
+The existing `town.png` chair cell and `pixel-snapper-assets.png` grass cell are replaced in place at the same dimensions and runtime scales. Two 79×79 grass bend cells occupy transparent space in the existing 2048² Pixel Snapper atlas, bringing that atlas from 47 to 49 frames without adding a runtime file. All processed pixels use binary alpha and nearest-neighbor operations; magenta and matte-edge shades are absent. Exact hashes and review files: `assets/licenses/barber-grass-v2/` and `output/art/barber-grass-v2/`. No dependency, remote request, vendor archive or unused source enters production.
 
 Eight byte-identical allowlisted art files, 838 retained atlas cells; no new asset/dependency. Seven procedural habitats and 80 dry shelf bands add no raster file. Original Web Audio synthesis adds no recording/network request. Comparison against 2484fba verifies all remaining cut-tree identities, earlier fruit/quiet-animal IDs and unchanged discovery/cache IDs. Trees: 4,070 → 3,195; fruit: 163 → 323; quiet wildlife: 48 → 128 (plus 30 retained boars). Evidence: verification/forest-refresh/runtime-audit.json; reproduction: scripts/qa/forest-refresh-audit.py. Vendor archives/unused packs/QA artifacts remain excluded from dist.
 

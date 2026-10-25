@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-14",
+  "tool": "OpenAI built-in imagegen",
+  "modelVersion": "not exposed",
+  "sourceSHA256": "9b651184936a22bea76ff755b82c9703754c29384d3c30310fb01bfa32798554",
+  "promptSHA256": "0e51da812d8692d68002ac6b30523967f359b04bc3cbde2caed2243661252a4b",
+  "stage": "standing design for review; not runtime",
+  "frames": [
+    {
+      "direction": "south",
+      "bounds": [
+        25,
+        17,
+        40,
+        57
+      ],
+      "sha256": "ec1c82a48f45fcfb85e2da634830947d2f859820c9d9412abe74f0fbe3a963ac"
+    },
+    {
+      "direction": "north",
+      "bounds": [
+        24,
+        17,
+        40,
+        57
+      ],
+      "sha256": "70c6d2d1426fd780406eec30310281a70acc623503fcd49e94f6b9750b78ea6f"
+    },
+    {
+      "direction": "west",
+      "bounds": [
+        24,
+        17,
+        40,
+        57
+      ],
+      "sha256": "f6d02072758d9214a43e497f2a213f294f905b9d69c9a978b5a170fe86cba7f9"
+    },
+    {
+      "direction": "east",
+      "bounds": [
+        24,
+        17,
+        40,
+        57
+      ],
+      "sha256": "8e5183a3c4fe4961f79934e57beb64c145a6d5934009e5ed1313df1692b2e91d"
+    }
+  ],
+  "cell": [
+    64,
+    64
+  ],
+  "origin": [
+    32,
+    56
+  ],
+  "nativeHeight": 40,
+  "conversion": "alpha128, whole-pose nearest proportional resize,32colours,64x64padding; no pixel repainting"
+}

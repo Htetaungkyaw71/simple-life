@@ -1,0 +1,68 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Nature artwork browser QA</title>
+<style>body{margin:12px;background:#25332d;color:#f4edd9;font:14px system-ui}button,select{font:inherit;padding:7px;margin:3px}iframe{border:0;display:block;max-width:none}pre{white-space:pre-wrap}#stage{overflow:auto;max-height:850px}</style></head>
+<body><h1>Nature artwork browser QA</h1><p>Isolated local fixtures on port 4216. This page is excluded from production.</p>
+<label>Viewport <select id="profile"><option value="desktop">Desktop 1280×720</option><option value="phone">Phone 390×844</option><option value="landscape">Landscape 640×360</option></select></label>
+<button id="run">Run nature checks</button><button id="show">Farm grove</button><button id="restore-demo">Palm grove</button><button id="jump">Grass closeup</button><pre id="status">Ready</pre><div id="stage"></div>
+<script type="module">
+import {newState} from '/src/systems/state.js';
+import {GIRL_V2_HANDS,GIRL_CARRY_ANGLES} from '/src/data/revisedGirl.js';
+import {FARM_PLOTS,FIELDS} from '/src/data/farms.js';
+import {visiblePlots} from '/src/systems/expansion.js';
+const carryProfile={hands:GIRL_V2_HANDS,angles:GIRL_CARRY_ANGLES};
+import {farmerCarryPose} from '/src/systems/farmerCarry.js';
+import {characterFrame} from '/src/systems/characterAnimation.js';
+import {BOY_FARMER} from '/src/data/appearance.js';
+import {VEGETATION} from '/src/data/vegetation.js';
+import {walkable} from '/src/data/locations.js';
+import {nextDay} from '/src/systems/time.js';
+import {usePlot} from '/src/systems/farming.js';
+import {CROPS,CROP_IDS} from '/src/data/crops.js';
+import {MAPS} from '/src/data/mapLayouts.js';
+import {contextFor} from '/src/systems/context.js';
+const status=document.querySelector('#status'),stage=document.querySelector('#stage');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const fixture=(tool='hand',action=null,character='girl')=>{
+ const s=newState(character);Object.assign(s,{area:'home',position:{x:480,y:800},selected:tool,minute:600,money:311,starterSeedsClaimed:true,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';
+ if(action){s.area='farm';s.position={x:696,y:152};s.ownsCopperCan=true;}
+ if(action==='harvesting'){const bed=FARM_PLOTS[0];s.area='farm';s.position={x:bed.x,y:bed.y+16};s.plots[0]={crop:'tomato',growth:3,wateredDay:1,missedDays:0,lastEvaluatedDay:0};}
+ if(action==='attack'){s.area='forest';s.position={x:936,y:4428};}
+ if(action==='chopping')for(const n of VEGETATION.farm.trees){s.position={x:n.x,y:n.y-48};if(walkable('farm',s.position.x,s.position.y,12,false,s)&&contextFor(s)?.id===n.id)break;}
+ return s;
+};
+let frame,win,records=[];
+const snapshot=()=>{try{return win.__simpleLife?.snapshot();}catch{return null;}};
+async function until(fn,message,ms=6000){const end=performance.now()+ms;while(performance.now()<end){const v=fn();if(v)return v;await sleep(20);}throw Error('Timed out: '+message);}
+function key(code,down=true){const names={KeyA:'a',KeyD:'d',KeyW:'w',KeyS:'s',KeyE:'e',KeyK:'k',Space:' ',DigitOne:'1',DigitThree:'3',DigitTwo:'2',DigitFour:'4',DigitFive:'5',DigitSix:'6'};const codes={KeyA:65,KeyD:68,KeyW:87,KeyS:83,KeyE:69,KeyK:75,Space:32,DigitOne:49,DigitThree:51,DigitTwo:50,DigitFour:52,DigitFive:53,DigitSix:54};win.dispatchEvent(new win.KeyboardEvent(down?'keydown':'keyup',{key:names[code],code,keyCode:codes[code],which:codes[code],bubbles:true}));}
+async function tap(code){key(code);await sleep(35);key(code,false);}
+async function click(id){const c=await until(()=>snapshot()?.controls.find(c=>c.id===id&&!c.disabled),id);const canvas=win.document.querySelector('canvas'),rect=canvas.getBoundingClientRect();const x=rect.left+c.x+c.w/2,y=rect.top+c.y+c.h/2;
+ for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(240);}
+async function start(state){
+ assert(location.port==='4216','Run only on isolated port4216, preserving the normal game save.');
+ frame?.remove();localStorage.setItem('simple-life.save.v1',JSON.stringify(state));
+ frame=document.createElement('iframe');const profile=document.querySelector('#profile').value,phone=profile!=='desktop',landscape=profile==='landscape';frame.width=landscape?640:phone?390:1280;frame.height=landscape?360:phone?844:720;localStorage.setItem('simple-life.language.v1',phone?'mm':'en');frame.title='Isolated game';frame.src='/?qa';stage.append(frame);win=frame.contentWindow;
+ await until(()=>snapshot()?.controls.length,'game boot');
+ if(snapshot().controls.some(c=>c.id==='language-en'))await click(phone?'language-mm':'language-en');
+ await click('Continue');await until(()=>snapshot()?.player&&!snapshot().paused,'playing');
+}
+
+
+
+
+const record=label=>{records.push(label);status.textContent='Running…\n'+records.join('\n');};
+function natureState(area,position,selected='hand'){const s=fixture(selected);s.area=area;s.position=position;s.story.flags=[...new Set([...s.story.flags,'plant','water'])];return s;}
+const grove=()=>natureState('farm',{x:1568,y:400});
+function palm(){const p=MAPS.forest.props.filter(p=>p.name==='palm-tree'&&p.y>4000&&p.y<5000).find(p=>walkable('forest',p.x+32,p.y+132));if(!p)throw Error('No palm fixture');return natureState('forest',{x:p.x+32,y:p.y+132});}
+function grass(){const g=MAPS.forest.grass.find(g=>g.y>4600&&g.y<5100&&g.x>350&&g.x<750&&walkable('forest',g.x-14,g.y-8));if(!g)throw Error('No grass fixture');return {g,s:natureState('forest',{x:g.x-14,y:g.y-8})};}
+document.querySelector('#show').onclick=async()=>{await start(grove());status.textContent='Farm grove / generated layered crowns / unchanged trunks';};
+document.querySelector('#restore-demo').onclick=async()=>{await start(palm());status.textContent='Palm grove / olive botanical fronds';};
+document.querySelector('#jump').onclick=async()=>{await start(grass().s);status.textContent='Grass / new native bending tufts';};
+document.querySelector('#run').onclick=async()=>{try{
+ records=[];const s=fixture('axe','chopping'),expected=contextFor(s)?.id;assert(expected,'choppable test tree');await start(s);assert(snapshot().canopies.some(c=>c.frame.startsWith('forest-oak')||c.frame==='env-pine-olive'),'new Farm tree routing');const before=snapshot().state.inventory.wood;
+ for(let n=0;n<3;n++){await tap('KeyE');await sleep(500);}await until(()=>snapshot().state.vegetation['farm:0']?.trees.includes(expected),'tree cut');assert(snapshot().state.inventory.wood>before,'wood gained');assert(!snapshot().canopies.some(c=>c.x===VEGETATION.farm.byId.get(expected).x&&c.y===VEGETATION.farm.byId.get(expected).y),'canopy removed');record('Farm: new crown rendered; three axe hits remove tree/shadow and award wood');
+ const kept=structuredClone(snapshot().state);await start(kept);assert(snapshot().state.vegetation['farm:0'].trees.includes(expected),'cut tree Continue');record('Continue retains cut-tree ID and wood');
+ const data=grass();await start(data.s);key('KeyD');await sleep(90);key('KeyD',false);await until(()=>snapshot().grass.bending.length>0,'grass bending');assert(snapshot().grass.bending.every(g=>g.frame.startsWith('tall-grass-')),'native bend frames');record('Forest: new grass bends as farmer walks through');
+ await start(palm());assert(snapshot().canopies.some(c=>c.frame.startsWith('forest-palm')),'new palm frame');assert(snapshot().canopies.every(c=>c.width>0&&c.height>0),'real canopy bounds');record('Forest: new palms retain grounded feet and canopy bounds');
+ await start(grove());status.textContent='PASS '+document.querySelector('#profile').value+'\n'+records.join('\n');
+ }catch(e){status.textContent='FAIL '+e.stack+'\n'+records.join('\n');console.error(e);}};
+</script></body></html>

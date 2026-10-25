@@ -1,0 +1,6 @@
+{
+  "id": "fireplace-refinement",
+  "prompt": "Use case: precise-object-edit. Edit only the supplied original game fireplace sprite. Preserve its detailed brick arch, mantel, warm wood, pots, grate, fire, stone hearth and the same above/front orthographic viewing direction. Correct its overall proportions for a logical 40-pixel-wide by 60-pixel-tall sprite: shorten the straight chimney stack by approximately HALF, so the chimney occupies the upper 22 rows and the wide fireplace body/hearth occupies the lower 38 rows. Keep chimney straight and centered, do not make the fireplace narrower. The body should be broad and substantial, with visible mantel and hearth upper planes. Crisp hand-pixelled clusters and single-logical-pixel outlines; no blurred lighting or tiny speckle texture. Remove ALL background and the ambient glow around the object, produce a truly transparent cutout including around leaves and chimney. One object, no floor, ground shadow, text, labels or border.",
+  "reference": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/props-v3/sources/fireplace.png",
+  "transparent_background": true
+}

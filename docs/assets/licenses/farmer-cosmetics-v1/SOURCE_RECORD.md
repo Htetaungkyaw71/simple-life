@@ -1,0 +1,11 @@
+# Farmer clothes and accessories — 2026-10-14
+
+User request: cosmetic purchases must retain the chosen approved farmer; add suitable hats, glasses and bags. The user delegated the style choice. Selected a straw hat, round glasses and brown canvas backpack. These are cosmetic only, with no inventory capacity, speed, defence or other gameplay effect.
+
+Three original transparent bitmap sheets were generated using OpenAI's built-in imagegen tool (model version not exposed). The approved paired male/female idle image supplied scale/style reference only: `output/art/farmer-girl-v2/previews/paired-idle-8x.png`. No Plant Tales or other game's sprite pixels were used. Original outputs are preserved under `output/art/farmer-cosmetics-v1/source/`; exact prompts are the three `*-prompt.txt` files beside that folder. SHA-256 hashes and conversions are in [record.json](record.json).
+
+Codex-assisted integration crops the four views, thresholds alpha at128, samples whole accessories with nearest filtering and reduces each view to twelve colours. `scripts/farmer_cosmetics.py` exports the bitmap pixel data and registers it to every approved body frame. Semantic head templates handle leaning/turning work poses; body fabric locates backpack shoulders. Static accessory views follow those per-frame anchors. No base PNG, silhouette, face, eye, body pose, timing or carried-tool pixel is redrawn. Clothing uses selective olive-fabric palette ramps; hair uses connected source hair colours, including the ponytail. The two starter identities preserve their original pixels and colours.
+
+Runtime uses the generated native bitmap data in the JS bundle and two reusable canvas atlases per identity (world/preview). Original body/tool textures remain immutable. The existing runtime asset allowlist is unchanged; raw source PNGs, Python scripts, documentation and review sheets do not ship. No new runtime dependency. Offline NumPy/Pillow/pngjs evidence: `docs/licenses/farmer-cosmetic-export/record.json`.
+
+[Previously reviewed OpenAI output-use terms](OUTPUT_TERMS.md) apply as recorded; generated output is not CC0 or a guarantee of exclusive copyright or competition eligibility. Human review of the final in-game result remains with the team. No publication/submission is performed.

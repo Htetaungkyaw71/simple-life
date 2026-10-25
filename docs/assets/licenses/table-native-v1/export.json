@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-15",
+  "version": "0.36.3",
+  "frame": "table-native-review",
+  "nativeSize": [
+    32,
+    24
+  ],
+  "worldScale": 2,
+  "worldSize": [
+    64,
+    48
+  ],
+  "groundTile": {
+    "native": [
+      16,
+      16
+    ],
+    "bottomAnchor": [
+      16,
+      24
+    ]
+  },
+  "source": {
+    "file": "output/art/table-native-v1/selected-source.png",
+    "sha256": "f4953f3a53591ad4d67e0093b5f8d1af481b8cc4bfe5514054e20dabe5777d7c"
+  },
+  "palette": [
+    [
+      83,
+      54,
+      47
+    ],
+    [
+      128,
+      81,
+      59
+    ],
+    [
+      172,
+      117,
+      78
+    ],
+    [
+      208,
+      155,
+      105
+    ],
+    [
+      168,
+      145,
+      107
+    ],
+    [
+      217,
+      199,
+      160
+    ],
+    [
+      245,
+      231,
+      189
+    ],
+    [
+      139,
+      61,
+      40
+    ],
+    [
+      216,
+      112,
+      67
+    ],
+    [
+      242,
+      170,
+      108
+    ],
+    [
+      100,
+      66,
+      51
+    ],
+    [
+      142,
+      94,
+      64
+    ]
+  ],
+  "previousFrames": 1039,
+  "newFrames": 1040,
+  "atlas": {
+    "w": 1024,
+    "h": 3602
+  },
+  "scope": "one fixed interior table; saved/catalog table art unchanged",
+  "pendingUserApproval": true
+}

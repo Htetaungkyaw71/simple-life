@@ -9,16 +9,13 @@ export class CustomizationPanel {
  constructor(app){this.app=app;this.gate=inputGate();}
  get s(){return this.app.state;}
  show(page){this.app.resourcePanel.show(page);}
- open(){const a=this.app,here=customizationAvailable(this.s);this.show({kicker:'Make it your own',title:'Home & garden',note:here?'Craft with materials or buy with coins. Pieces stay in Bag.':'Visit Home or Farm to customize.',home:[
-  {label:'Craft / materials',id:'customize-craft',preview:decorationThumb('bench'),action:()=>this.app.resourcePanel.decorations()},
+ open(){const here=customizationAvailable(this.s);this.show({kicker:'Make it your own',title:'Home & garden',note:here?'Choose your home design or change your wardrobe.':'Visit Home or Farm to customize.',home:[
   {label:'House designs',id:'customize-houses',preview:homePreview(this.s.home.design),action:()=>this.houses()},
-  {label:'Trees & garden',id:'customize-garden',preview:decorationThumb('blossom'),action:()=>this.decorations('garden')},
   {label:'Wardrobe',id:'customize-wardrobe',preview:(u,p,cx,cy)=>{const g=u.add.graphics();p.add(g);g.fillStyle(0x547680).fillRect(cx-4,cy-5,8,12).fillRect(cx-7,cy-5,14,4);g.fillStyle(0xf5eccb).fillRect(cx-1,cy-5,2,2);},action:()=>this.app.appearancePanel.open()},
-  {label:'Room furniture',id:'customize-furniture',preview:decorationThumb('bookcase'),action:()=>this.decorations('furniture')},
  ]});}
- houses(index=0,inside=false){const ids=[...HOME_IDS,'starter'],id=ids[index],d=HOMES[id],q=houseQuote(this.s,id),current=this.s.home.design===id;
-  this.show({kicker:'House designs / '+(index+1)+' of 9',title:d.name,customPreview:homePreview(id,inside),description:d.detail,materials:[{name:q.owned?'Owned / free':'Coins',need:q.price,have:this.s.money,icon:'coin'}],note:!['home','interior'].includes(this.s.area)?'Visit Home to buy or change your house.':current?'Your current Home. Door and bed stay in place.':q.owned?'Owned. Switch to this design for free.':'Includes exterior, decor and a furnished interior.',status:current?'Current Home':q.owned?'Owned':'Price: '+d.price+'c',tabs:this.tabs(ids,index,k=>({starter:'Old',rose:'Rose',orchard:'Lodge',coastal:'Villa',bamboo:'Tea',brick:'Brick',glass:'Glass',alpine:'Moon',manor:'Manor'})[k],k=>homePreview(k),i=>this.houses(i,inside),'house-'),actions:[
-   [current?'Selected':q.owned?'Use design':'Buy',()=>q.owned?this.applyHouse(id,index,inside):this.confirmHouse(id,index,inside),!q.ok||current],
+ houses(index=0,inside=false){const ids=['starter',...HOME_IDS],id=ids[index]||ids[0],d=HOMES[id],q=houseQuote(this.s,id),current=this.s.home.design===id;
+  this.show({kicker:'House designs / '+(index+1)+' of '+ids.length,title:d.name,customPreview:homePreview(id,inside),description:d.detail,materials:[{name:q.owned?'Owned / free':'Coins',need:q.price,have:this.s.money,icon:'coin'}],note:!['home','interior'].includes(this.s.area)?'Visit Home to buy or change your house.':current?'Your current Home. Door and bed stay in place.':q.owned?'Owned. Switch to this design for free.':'Includes exterior and a color-matched furnished interior.',status:current?'Current Home':q.owned?'Owned':'Price: '+d.price+'c',tabs:this.tabs(ids,index,k=>({starter:'Green',slate:'Blue'})[k],k=>homePreview(k),i=>this.houses(i,inside),'house-'),actions:[
+   [current?'Selected':q.owned?'Use':'Buy',()=>q.owned?this.applyHouse(id,index,inside):this.confirmHouse(id,index,inside),!q.ok||current],
    [inside?'Outside':'Inside',()=>this.houses(index,!inside)],['Back',()=>this.open()],
   ]});
  }

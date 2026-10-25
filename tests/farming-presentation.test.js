@@ -41,8 +41,8 @@ test('compact field has contiguous sixteen reachable cells, with no paths or pro
  assert.equal(PLOTS.length,16);assert.equal(new Set(PLOTS.map(p=>p.x)).size,4);assert.equal(FIELD.cell,48);
  for(const p of PLOTS){assert.ok(walkable('farm',p.x,p.y));assert.ok(!MAPS.farm.paths.some(([x,y,w,h])=>p.x+24>x&&p.x-24<x+w&&p.y+24>y&&p.y-24<y+h));}
 });
-test('greenhouse complete foundation is blocked but the roof overhang is not the collider',()=>{
- for(const area of ['home','farm'])for(const shed of MAPS[area].buildings.filter(p=>p.name==='shed')){assert.equal(walkable(area,shed.x+84,shed.y+112),false);assert.equal(walkable(area,shed.x+48,shed.y+116),false);assert.ok(walkable(area,shed.x+48,shed.y+40));const loaded=validate({...newState(),area,position:{x:shed.x+84,y:shed.y+112}});assert.ok(walkable(area,loaded.position.x,loaded.position.y));}
+test('replacement Home houses block only their lower foundations and recover legacy positions safely',()=>{
+ for(const house of MAPS.home.buildings.slice(1)){assert.ok(house.solidRows.length>=5);const [x,y,w,h]=house.solidRows[Math.floor(house.solidRows.length*.6)],world={x:house.x+x+w/2,y:house.y+y+h/2};assert.equal(walkable('home',world.x,world.y),false);const loaded=validate({...newState(),area:'home',position:world});assert.ok(walkable('home',loaded.position.x,loaded.position.y));}
 });
 test('interior fits desktop with the same framing as outdoors, stays readable on mobile and keeps all anchors safe',()=>{
  for(const[w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844]]){syncInterior(w,h);assert.equal(ROOM.zoom,1.5);if(w>=1000){assert.ok(ROOM.width*ROOM.zoom<=w);assert.ok(ROOM.height*ROOM.zoom<=h);}for(const p of [ROOM.spawn,ROOM.bed,ROOM.exit])assert.ok(walkable('interior',p.x,p.y));assert.equal(LOCATIONS.interior.bounds[2],ROOM.width-32);}

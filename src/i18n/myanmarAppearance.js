@@ -1,4 +1,10 @@
 export const MM_APPEARANCE={
+ Hair:'ဆံပင်',Extras:'အပို',Turn:'လှည့်ကြည့်',Remove:'ချွတ်',
+ 'Straw hat':'ကောက်ရိုးဦးထုပ်','Round glasses':'မျက်မှန်ဝိုင်း','Canvas backpack':'ပတ္တူကျောပိုးအိတ်',
+ 'Midnight hair':'အနက်ရောင်ဆံပင်','Copper hair':'ကြေးရောင်ဆံပင်','Chestnut hair':'အညိုရောင်ဆံပင်','Golden hair':'ရွှေရောင်ဆံပင်',
+ 'Change colour':'အရောင်ပြောင်း','Hair colour only.':'ဆံပင်အရောင်သာ ပြောင်းမည်။','Same farmer. Cosmetic only.':'လယ်သမားအတူတူ။ အလှအပသာ။',
+ 'Buy once. Equip owned items for free.':'တစ်ခါဝယ်ပြီး အခမဲ့ပြန်ဝတ်နိုင်သည်။',
+ 'Boy / OpenAI image generation':'ယောက်ျားလေး / OpenAI ဖြင့်ဖန်တီးထားသည်','Output terms':'ဖန်တီးထားသောပုံ စည်းမျဉ်းများ',
  'Boy / user-generated PixelLab':'ယောက်ျားလေး / PixelLab ဖြင့်ဖန်တီးထားသည်','Girl / OpenAI image generation':'မိန်းကလေး / OpenAI ဖြင့်ဖန်တီးထားသည်','Native pixels / Codex-assisted.':'ဂိမ်းပစ်ဇယ်များ / Codex ကူညီထားသည်။',
  'Farmer art':'လယ်သမားပုံ','PixelLab terms':'PixelLab စည်းမျဉ်းများ','Farmer / user-generated PixelLab':'လယ်သမား / PixelLab ဖြင့်ဖန်တီးထားသည်','Other people / Szadi art.':'အခြားဇာတ်ကောင် / Szadi art.','Original exported pixels.':'ထုတ်ယူထားသော မူရင်းပစ်ဇယ်များ။','Local packing / Codex-assisted.':'ပုံစုစည်းမှု / Codex ကူညီထားသည်။',
  Outfits:'ဝတ်စုံများ',Looks:'ပုံစံများ','Town stylist':'မြို့ပုံစံဆိုင်','Stylist / Sol':'ပုံစံဆိုင် / Sol',

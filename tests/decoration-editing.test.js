@@ -15,10 +15,13 @@ const original=s=>{placeDecoration(s,{x:1152,y:800});s.selected='hand';return s.
 const unchanged=(s,fn)=>{const before=structuredClone(s);fn();assert.deepEqual(s,before);};
 const appFor=s=>{const u=recorder(),a={state:s,ui:u,scene:{player:{direction:'up'},jumping:{},build(){}},save(){}};u.app=a;u.close=()=>{a.paused=false;u.menu=null;};u.feedback=()=>{};u.modal=(kicker,title,body,buttons)=>{a.paused=true;u.menu={kicker,title,body,buttons};};a.placement=new PlacementController(a);return a;};
 test('clear screen placements cross the old distance and sight limits; road ground is usable',()=>{
- const s=fixture(),p={type:'bench',farm:0,x:976,y:608,direction:'down'};assert.ok(Math.hypot(p.x-s.position.x,p.y-s.position.y)>80);assert.ok(validDecoration(s,p));assert.equal(lineClear(s.area,s.position,p,0,s),false);
+ const s=fixture(),p={type:'bench',farm:0,x:976,y:608,direction:'down'};
+ // A saved decoration supplies the sight blocker after the static farm shed removal.
+ s.settlement.decorations.push({type:'barrel',farm:0,x:1056,y:720});
+ assert.ok(Math.hypot(p.x-s.position.x,p.y-s.position.y)>80);assert.ok(validDecoration(s,p));assert.equal(lineClear(s.area,s.position,p,0,s),false);
  assert.equal(placementQuote(s,p,{view:{x:800,y:500,width:700,height:500}}).ok,true);assert.equal(placementQuote(s,p,{view:{x:1100,y:700,width:100,height:100}}).ok,false);
  placeDecoration(s,p);assert.equal(s.inventory.benchDecor,1);assert.deepEqual(validate(s).settlement.decorations,s.settlement.decorations);unchanged(s,()=>placeDecoration(s,p));
- s.selected='hand';assert.equal(placedDecorationAt(s,{x:p.x,y:p.y-10}),s.settlement.decorations[0]);assert.equal(placedDecorationAt(s,{x:Infinity,y:0}),null);
+ s.selected='hand';assert.equal(placedDecorationAt(s,{x:p.x,y:p.y-10}),s.settlement.decorations.find(d=>d.type==='bench'));assert.equal(placedDecorationAt(s,{x:Infinity,y:0}),null);
 });
 test('readjust is atomic without Bag stock or a spare decoration slot; occupied, stale and cross-farm edits fail',()=>{
  const s=fixture(),d=original(s);s.inventory.benchDecor=0;const money=s.money;

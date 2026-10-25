@@ -22,7 +22,7 @@ export class FarmOffice {
   ['Back',()=>this.open()],
  ]);}
  transaction(fn){if(this.app.transitioning||!this.gate.accept(this.app.ui.time.now))return;this.app.transact(fn);this.trade();}
- land(){this.modal('Free planting beds','Shovel / dig clear grass.\nSeeds / plant. Water / once a day.',[
+ land(){this.modal('Free planting beds','Shovel / dig clear grass.\nShovel on an empty bed / restore grass.\nSeeds / plant. Water / once a day.',[
   ['Select Shovel',()=>{this.s.selected='shovel';this.app.save();this.app.ui.close();}],['Back',()=>this.open()],
  ]);}
  field(){this.land();}

@@ -1,0 +1,37 @@
+{
+  "frameSize": [
+    207,
+    214
+  ],
+  "frames": 4,
+  "fps": 6,
+  "sheetSize": [
+    828,
+    214
+  ],
+  "visibleBounds": [
+    36,
+    44,
+    170,
+    170
+  ],
+  "waterMaskPixels": 1651,
+  "changedPixelsByFrame": [
+    185,
+    174,
+    181,
+    185
+  ],
+  "nonWaterChanges": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "sourceUse": "The flowing source owns all runtime object pixels; the calm source is retained as user-supplied evidence only.",
+  "runtimeSha256": "e99c5e085574afea45b4e436aa7a9e71ae610696bd02dc2aae1f14fca8d74d11",
+  "sourceSha256": {
+    "flowing": "a7e8a7b6651d390709f243ae02166b6cb4d5e0084dfbdc12d2d916242b8676cf",
+    "calm": "15191883dcbde241140c8c02e9f8ec382514c8bf7579b5d87b8214db0c5007bc"
+  }
+}

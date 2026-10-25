@@ -16,7 +16,7 @@ test('enlarged house mask keeps porch clear and repairs unsafe saves to nearby g
  for(const p of [{x:480,y:400},{x:530,y:332}]){const repaired=nearestSafe('home',p);assert.ok(walkable('home',repaired.x,repaired.y));assert.ok(Math.hypot(repaired.x-p.x,repaired.y-p.y)<220);}
 });
 test('compact room has solid furniture, accessible bed and door, and bounded floor',()=>{
- assert.equal(ROOM.width,624);assert.equal(ROOM.height,304);
+ assert.equal(ROOM.width,624);assert.equal(ROOM.height,400);
  for(const[x,y,w,h]of ROOM_SOLIDS)assert.equal(walkable('interior',x+w/2,y+h/2),false);
  for(const p of [ROOM.spawn,ROOM.bed,ROOM.exit])assert.ok(walkable('interior',p.x,p.y));
  const s=newState();s.area='interior';s.position=ROOM.bed;assert.equal(contextFor(s).type,'bed');s.position=ROOM.exit;assert.equal(contextFor(s).to,'home');

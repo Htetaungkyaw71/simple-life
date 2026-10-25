@@ -1,0 +1,56 @@
+{
+  "version": "0.41.0",
+  "approvedSource": "output/previews/city-garden-shops-v2",
+  "nativePreservation": {
+    "oldAtlasPixelsExact": true,
+    "oldFramesExact": 1051,
+    "approvedPNGsExact": 9,
+    "otherRuntimeFilesExact": 74,
+    "newAtlasSize": [
+      1024,
+      4041
+    ]
+  },
+  "runtime": {
+    "public/assets/pixel/processed/town.png": "5237189ddd2ac7e8e048651a044355be4bf8b6c7bba6cfe4ac924b528ce00474",
+    "public/assets/pixel/processed/town.json": "aab45ea78ea1979c8ea93c21530f033e2662da5b9f420952fc461f6fc13cfe8a"
+  },
+  "nativeSources": [
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/cafe.png",
+      "sha256": "33d2e5ef16ad186babb062fb5c9aa071c57ea1793a14fe61fd76150419f395a4"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/barber.png",
+      "sha256": "f921060f776ca99d9382eaeef065b59e9f786beadff12a8ee13fd1ac91859b88"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/clothing.png",
+      "sha256": "1d6fc715faf311de062b4faca47fe48275cc661793cb51849677551cd9d823d1"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/cottage-a.png",
+      "sha256": "04ddd94441511cbd1d93a6d79f9315949c2efdb315ea16a17eddb940c94ecdfb"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/cottage-b.png",
+      "sha256": "fbd829bfc4ddcae99893bf6b1d5f70fc0f2f8a1f67a51948a4e5cd1065d9b66b"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/golden-flowerpot.png",
+      "sha256": "348014740cba8bf4d7981a2fefa03484f6cf132765027e46410d7487855d003c"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/barber-chair.png",
+      "sha256": "1126ccbbe79cef4c701df2eea9da4180cab286c4647ef01d790ea8d26990f50e"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/barber-mirror.png",
+      "sha256": "5c0ae720e0807a75f1dd95225c16f1ba4d37c8dc0b722aa459cf1aeaadbe5d0a"
+    },
+    {
+      "path": "output/previews/city-garden-shops-v2/objects/clothing-rack.png",
+      "sha256": "2b7021777337d229f8ed7578c1b2e85eb6d681c8b28c04507a0286fe0fa6a4d7"
+    }
+  ]
+}

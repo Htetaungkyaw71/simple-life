@@ -1,0 +1,1000 @@
+{
+  "version": 1,
+  "frameIndexBase": 0,
+  "rowOrder": [
+    "south",
+    "north",
+    "west",
+    "east"
+  ],
+  "originPixels": [
+    32,
+    56
+  ],
+  "originNormalized": [
+    0.5,
+    0.875
+  ],
+  "clips": [
+    {
+      "key": "farmer-idle-south",
+      "action": "idle",
+      "direction": "south",
+      "sheet": "sheets/idle.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frameFiles": [
+        "frames/idle/south/00.png",
+        "frames/idle/south/01.png",
+        "frames/idle/south/02.png",
+        "frames/idle/south/03.png"
+      ],
+      "frameDurationsMs": [
+        1100,
+        1000,
+        120,
+        1000
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-idle-north",
+      "action": "idle",
+      "direction": "north",
+      "sheet": "sheets/idle.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 4,
+      "frameIndices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameFiles": [
+        "frames/idle/north/00.png",
+        "frames/idle/north/01.png",
+        "frames/idle/north/02.png",
+        "frames/idle/north/03.png"
+      ],
+      "frameDurationsMs": [
+        1100,
+        1000,
+        120,
+        1000
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-idle-west",
+      "action": "idle",
+      "direction": "west",
+      "sheet": "sheets/idle.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 4,
+      "frameIndices": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameFiles": [
+        "frames/idle/west/00.png",
+        "frames/idle/west/01.png",
+        "frames/idle/west/02.png",
+        "frames/idle/west/03.png"
+      ],
+      "frameDurationsMs": [
+        1100,
+        1000,
+        120,
+        1000
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-idle-east",
+      "action": "idle",
+      "direction": "east",
+      "sheet": "sheets/idle.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 4,
+      "frameIndices": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "frameFiles": [
+        "frames/idle/east/00.png",
+        "frames/idle/east/01.png",
+        "frames/idle/east/02.png",
+        "frames/idle/east/03.png"
+      ],
+      "frameDurationsMs": [
+        1100,
+        1000,
+        120,
+        1000
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-running-south",
+      "action": "running",
+      "direction": "south",
+      "sheet": "sheets/running.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameFiles": [
+        "frames/running/south/00.png",
+        "frames/running/south/01.png",
+        "frames/running/south/02.png",
+        "frames/running/south/03.png",
+        "frames/running/south/04.png",
+        "frames/running/south/05.png",
+        "frames/running/south/06.png",
+        "frames/running/south/07.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83,
+        83,
+        84
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-running-north",
+      "action": "running",
+      "direction": "north",
+      "sheet": "sheets/running.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 8,
+      "frameIndices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frameFiles": [
+        "frames/running/north/00.png",
+        "frames/running/north/01.png",
+        "frames/running/north/02.png",
+        "frames/running/north/03.png",
+        "frames/running/north/04.png",
+        "frames/running/north/05.png",
+        "frames/running/north/06.png",
+        "frames/running/north/07.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83,
+        83,
+        84
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-running-west",
+      "action": "running",
+      "direction": "west",
+      "sheet": "sheets/running.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 8,
+      "frameIndices": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameFiles": [
+        "frames/running/west/00.png",
+        "frames/running/west/01.png",
+        "frames/running/west/02.png",
+        "frames/running/west/03.png",
+        "frames/running/west/04.png",
+        "frames/running/west/05.png",
+        "frames/running/west/06.png",
+        "frames/running/west/07.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83,
+        83,
+        84
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-running-east",
+      "action": "running",
+      "direction": "east",
+      "sheet": "sheets/running.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 8,
+      "frameIndices": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "frameFiles": [
+        "frames/running/east/00.png",
+        "frames/running/east/01.png",
+        "frames/running/east/02.png",
+        "frames/running/east/03.png",
+        "frames/running/east/04.png",
+        "frames/running/east/05.png",
+        "frames/running/east/06.png",
+        "frames/running/east/07.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83,
+        83,
+        84
+      ],
+      "loop": true
+    },
+    {
+      "key": "farmer-harvesting-south",
+      "action": "harvesting",
+      "direction": "south",
+      "sheet": "sheets/harvesting.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 6,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "frameFiles": [
+        "frames/harvesting/south/00.png",
+        "frames/harvesting/south/01.png",
+        "frames/harvesting/south/02.png",
+        "frames/harvesting/south/03.png",
+        "frames/harvesting/south/04.png",
+        "frames/harvesting/south/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-harvesting-north",
+      "action": "harvesting",
+      "direction": "north",
+      "sheet": "sheets/harvesting.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 6,
+      "frameIndices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameFiles": [
+        "frames/harvesting/north/00.png",
+        "frames/harvesting/north/01.png",
+        "frames/harvesting/north/02.png",
+        "frames/harvesting/north/03.png",
+        "frames/harvesting/north/04.png",
+        "frames/harvesting/north/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-harvesting-west",
+      "action": "harvesting",
+      "direction": "west",
+      "sheet": "sheets/harvesting.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 6,
+      "frameIndices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "frameFiles": [
+        "frames/harvesting/west/00.png",
+        "frames/harvesting/west/01.png",
+        "frames/harvesting/west/02.png",
+        "frames/harvesting/west/03.png",
+        "frames/harvesting/west/04.png",
+        "frames/harvesting/west/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-harvesting-east",
+      "action": "harvesting",
+      "direction": "east",
+      "sheet": "sheets/harvesting.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 6,
+      "frameIndices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameFiles": [
+        "frames/harvesting/east/00.png",
+        "frames/harvesting/east/01.png",
+        "frames/harvesting/east/02.png",
+        "frames/harvesting/east/03.png",
+        "frames/harvesting/east/04.png",
+        "frames/harvesting/east/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-digging-south",
+      "action": "digging",
+      "direction": "south",
+      "sheet": "sheets/digging.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 6,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "frameFiles": [
+        "frames/digging/south/00.png",
+        "frames/digging/south/01.png",
+        "frames/digging/south/02.png",
+        "frames/digging/south/03.png",
+        "frames/digging/south/04.png",
+        "frames/digging/south/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-digging-north",
+      "action": "digging",
+      "direction": "north",
+      "sheet": "sheets/digging.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 6,
+      "frameIndices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameFiles": [
+        "frames/digging/north/00.png",
+        "frames/digging/north/01.png",
+        "frames/digging/north/02.png",
+        "frames/digging/north/03.png",
+        "frames/digging/north/04.png",
+        "frames/digging/north/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-digging-west",
+      "action": "digging",
+      "direction": "west",
+      "sheet": "sheets/digging.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 6,
+      "frameIndices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "frameFiles": [
+        "frames/digging/west/00.png",
+        "frames/digging/west/01.png",
+        "frames/digging/west/02.png",
+        "frames/digging/west/03.png",
+        "frames/digging/west/04.png",
+        "frames/digging/west/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-digging-east",
+      "action": "digging",
+      "direction": "east",
+      "sheet": "sheets/digging.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 6,
+      "frameIndices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameFiles": [
+        "frames/digging/east/00.png",
+        "frames/digging/east/01.png",
+        "frames/digging/east/02.png",
+        "frames/digging/east/03.png",
+        "frames/digging/east/04.png",
+        "frames/digging/east/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-chopping-south",
+      "action": "chopping",
+      "direction": "south",
+      "sheet": "sheets/chopping.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 6,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "frameFiles": [
+        "frames/chopping/south/00.png",
+        "frames/chopping/south/01.png",
+        "frames/chopping/south/02.png",
+        "frames/chopping/south/03.png",
+        "frames/chopping/south/04.png",
+        "frames/chopping/south/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-chopping-north",
+      "action": "chopping",
+      "direction": "north",
+      "sheet": "sheets/chopping.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 6,
+      "frameIndices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameFiles": [
+        "frames/chopping/north/00.png",
+        "frames/chopping/north/01.png",
+        "frames/chopping/north/02.png",
+        "frames/chopping/north/03.png",
+        "frames/chopping/north/04.png",
+        "frames/chopping/north/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-chopping-west",
+      "action": "chopping",
+      "direction": "west",
+      "sheet": "sheets/chopping.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 6,
+      "frameIndices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "frameFiles": [
+        "frames/chopping/west/00.png",
+        "frames/chopping/west/01.png",
+        "frames/chopping/west/02.png",
+        "frames/chopping/west/03.png",
+        "frames/chopping/west/04.png",
+        "frames/chopping/west/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-chopping-east",
+      "action": "chopping",
+      "direction": "east",
+      "sheet": "sheets/chopping.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 6,
+      "frameIndices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameFiles": [
+        "frames/chopping/east/00.png",
+        "frames/chopping/east/01.png",
+        "frames/chopping/east/02.png",
+        "frames/chopping/east/03.png",
+        "frames/chopping/east/04.png",
+        "frames/chopping/east/05.png"
+      ],
+      "frameDurationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-watering-south",
+      "action": "watering",
+      "direction": "south",
+      "sheet": "sheets/watering.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 6,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "frameFiles": [
+        "frames/watering/south/00.png",
+        "frames/watering/south/01.png",
+        "frames/watering/south/02.png",
+        "frames/watering/south/03.png",
+        "frames/watering/south/04.png",
+        "frames/watering/south/05.png"
+      ],
+      "frameDurationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-watering-north",
+      "action": "watering",
+      "direction": "north",
+      "sheet": "sheets/watering.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 6,
+      "frameIndices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameFiles": [
+        "frames/watering/north/00.png",
+        "frames/watering/north/01.png",
+        "frames/watering/north/02.png",
+        "frames/watering/north/03.png",
+        "frames/watering/north/04.png",
+        "frames/watering/north/05.png"
+      ],
+      "frameDurationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-watering-west",
+      "action": "watering",
+      "direction": "west",
+      "sheet": "sheets/watering.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 6,
+      "frameIndices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "frameFiles": [
+        "frames/watering/west/00.png",
+        "frames/watering/west/01.png",
+        "frames/watering/west/02.png",
+        "frames/watering/west/03.png",
+        "frames/watering/west/04.png",
+        "frames/watering/west/05.png"
+      ],
+      "frameDurationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-watering-east",
+      "action": "watering",
+      "direction": "east",
+      "sheet": "sheets/watering.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 6,
+      "frameIndices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameFiles": [
+        "frames/watering/east/00.png",
+        "frames/watering/east/01.png",
+        "frames/watering/east/02.png",
+        "frames/watering/east/03.png",
+        "frames/watering/east/04.png",
+        "frames/watering/east/05.png"
+      ],
+      "frameDurationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-attack-south",
+      "action": "attack",
+      "direction": "south",
+      "sheet": "sheets/attack.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 0,
+      "columns": 6,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "frameFiles": [
+        "frames/attack/south/00.png",
+        "frames/attack/south/01.png",
+        "frames/attack/south/02.png",
+        "frames/attack/south/03.png",
+        "frames/attack/south/04.png",
+        "frames/attack/south/05.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-attack-north",
+      "action": "attack",
+      "direction": "north",
+      "sheet": "sheets/attack.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 1,
+      "columns": 6,
+      "frameIndices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameFiles": [
+        "frames/attack/north/00.png",
+        "frames/attack/north/01.png",
+        "frames/attack/north/02.png",
+        "frames/attack/north/03.png",
+        "frames/attack/north/04.png",
+        "frames/attack/north/05.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-attack-west",
+      "action": "attack",
+      "direction": "west",
+      "sheet": "sheets/attack.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 2,
+      "columns": 6,
+      "frameIndices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "frameFiles": [
+        "frames/attack/west/00.png",
+        "frames/attack/west/01.png",
+        "frames/attack/west/02.png",
+        "frames/attack/west/03.png",
+        "frames/attack/west/04.png",
+        "frames/attack/west/05.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83
+      ],
+      "loop": false
+    },
+    {
+      "key": "farmer-attack-east",
+      "action": "attack",
+      "direction": "east",
+      "sheet": "sheets/attack.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "row": 3,
+      "columns": 6,
+      "frameIndices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameFiles": [
+        "frames/attack/east/00.png",
+        "frames/attack/east/01.png",
+        "frames/attack/east/02.png",
+        "frames/attack/east/03.png",
+        "frames/attack/east/04.png",
+        "frames/attack/east/05.png"
+      ],
+      "frameDurationsMs": [
+        83,
+        84,
+        83,
+        83,
+        84,
+        83
+      ],
+      "loop": false
+    }
+  ]
+}

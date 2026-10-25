@@ -39,7 +39,7 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
  const groundContext=()=>{if(state.selected==='shovel'||state.selected==='water'){
   const positions=visiblePlots(state),underfoot=state.area==='farm'&&state.selected==='water'?positions.find(b=>Math.abs(b.x-state.position.x)<24&&Math.abs(b.y-state.position.y)<24):null,point=groundPoint(state,targetGround||underfoot,direction),bed=state.area==='farm'?positions.find(b=>Math.abs(b.x-point.x)<24&&Math.abs(b.y-point.y)<24):null;
   const p=bed||point;
-  if(Math.hypot(p.x-state.position.x,p.y-state.position.y)<72&&openGround(state.area,p.x,p.y,state.selected==='shovel',state))return state.selected==='shovel'?{type:'dig',...p,label:bed?'Already dug':'Dig ground'}:bed?{type:'plot',...bed,label:plotPrompt(state,plotAt(state,bed.index))}:{type:'waterGround',...p,label:'Water ground'};
+  if(Math.hypot(p.x-state.position.x,p.y-state.position.y)<72&&openGround(state.area,p.x,p.y,state.selected==='shovel',state))return state.selected==='shovel'?{type:bed&&!plotAt(state,bed.index)?.crop?'restoreGround':'dig',...p,label:bed?(plotAt(state,bed.index)?.crop?'Crop planted':'Restore grass'):'Dig ground'}:bed?{type:'plot',...bed,label:plotPrompt(state,plotAt(state,bed.index))}:{type:'waterGround',...p,label:'Water ground'};
  }return null;};
  if(targetGround){const ground=groundContext();if(ground)return ground;}
  if(state.area==='forest'){
@@ -47,6 +47,11 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
   const treasure=TREASURES.find(t=>dist(t)<64&&treasureAvailable(state,t)&&lineClear('forest',state.position,t,0,state));if(treasure)return {type:'treasure',...treasure,label:'Search ancient chest'};
   const node=FORAGE_NODES.filter(n=>dist(n)<64&&forageAvailable(state,n)&&lineClear('forest',state.position,n,0,state)).sort((a,b)=>dist(a)-dist(b))[0];
   if(node)return {type:'forage',...node,label:'Gather '+FOODS[node.item].name};
+ }
+ // Working on a bed must not open a nearby board when the field grows beside it.
+ if(state.area==='farm'&&['seed','water','harvest'].includes(state.selected)){
+  const beds=visiblePlots(state),bed=beds.find(b=>b.index===targetPlot&&dist(b)<60)||beds.find(b=>Math.abs(b.x-x)<24&&Math.abs(b.y-y)<24);
+  if(bed)return {type:'plot',...bed,label:plotPrompt(state,plotAt(state,bed.index))};
  }
  if(nearby.length){const c=nearby[0];if(['seed','sell'].includes(c.type)&&!shopOpen(state,c.type))return {...c,type:'hint',label:`Closed / ${SHOP_HOURS[c.type].label}`};if(c.type==='field'&&ownedField(state,c.field))return {...c,type:'hint',label:`Planting beds`};return c.type==='starter'&&state.starterSeedsClaimed?{...c,label:'Starter crate - empty'}:c;}
  // Default empty hands must not let incidental grass hide a door, fruit, cache or Stash Bag.

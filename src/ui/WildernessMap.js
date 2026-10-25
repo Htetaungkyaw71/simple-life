@@ -21,11 +21,11 @@ export class WildernessMap {
   const rect={x:x+12,y:y+32,w:mw,h:mh},key='forest-notebook-'+mw+'-'+mh,known=this.app.state.forest.explored.join('|');
   const texture=u.textures.exists(key)?u.textures.get(key):u.textures.createCanvas(key,mw,mh);texture.setFilter(1); // Phaser NEAREST, matching the native UI pixels.
   if(texture.notebookKnown!==known){const data=texture.context.createImageData(mw,mh);data.data.set(forestMapPixels(FOREST_MAP,this.app.state.forest.explored,mw,mh));texture.context.putImageData(data,0,0);texture.notebookKnown=known;texture.refresh();}
-  u.root.add(u.add.image(rect.x,rect.y,key).setOrigin(0));const g=u.add.graphics();u.root.add(g);g.lineStyle(2,UI_COLORS.wood).strokeRect(rect.x-1,rect.y-1,mw+2,mh+2);
+  u.root.add(u.add.image(rect.x,rect.y,key).setOrigin(0));const g=u.add.graphics();u.root.add(g);g.lineStyle(2,UI_COLORS.border).strokeRect(rect.x-1,rect.y-1,mw+2,mh+2);
   for(const [i,r]of REGIONS.entries()){
    const a=mapPoint({x:r.x,y:r.y},rect,FOREST_SIZE),b=mapPoint({x:r.x+r.w,y:r.y+r.h},rect,FOREST_SIZE);
    const zone=u.add.rectangle(a.x,a.y,b.x-a.x,b.y-a.y,0,0).setOrigin(0).setInteractive();u.root.add(zone);zone.on('pointerdown',()=>{this.index=i;this.show();});
-   if(i===this.index)g.lineStyle(1,0xb78447).strokeRect(a.x+1,a.y+1,b.x-a.x-2,b.y-a.y-2);
+   if(i===this.index)g.lineStyle(1,UI_COLORS.border).strokeRect(a.x+1,a.y+1,b.x-a.x-2,b.y-a.y-2);
   }
   for(const habitat of HABITATS){
    const r=forestRegion(habitat);if(!this.app.state.forest.explored.includes(r.id)||mm&&mw<240)continue;

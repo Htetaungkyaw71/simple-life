@@ -1,0 +1,13 @@
+# One high-angle cedar bench sample — 2026-10-15
+
+The user explicitly limits this pass to one object rendered in the game for visual review before any broader replacement. One fixed Home bench at world(960,824) uses the new sample. The bench remains type bench, with the existing 64×40 world footprint and [960,842,64,18] collision. Other benches, direction variants, catalogs, props and saved decorations keep their original pixels.
+
+Built-in OpenAI imagegen created one original cedar bench, then two targeted edits: higher viewing angle and clearer logical pixel shapes. [Initial prompt](prompt.json), [angle edit](angle-edit-prompt.json), [pixel edit](pixel-edit-prompt.json), [original tool paths](generation.json). No external reference asset is extracted, no CLI fallback. Raw initial, angle and selected sources are retained under output/art/bench-cedar-v1. [Selected source hash and export](export.json).
+
+The selected source is exported on a 64×40 native grid using a 32-colour muted cedar/olive/pastel palette. The offline script first samples a 128×80 staging grid, then reduces 2×2 blocks with a dark-edge tie preference so thin plank gaps survive. Opaque sprite pixels use binary alpha; open gaps remain transparent. Subtle stepped contact shadow comes from the existing game shadow renderer, avoiding an opaque background. The sample renders at 1× world scale, keeping the established displayed size while retaining more native detail than the existing 32×20 bench at 2×.
+
+A new bench-cedar-review frame is appended below the existing atlas. All 958 pre-existing frame records and the complete old atlas RGBA region stay exact. The local town atlas pair remains the sole runtime source; the production allowlist stays 46 files. Sample raw images, backups and review/test pages are excluded. scripts/bench_cedar_sample.mjs reproduces staging, installation and the one-instance/pixel/physical-footprint audit.
+
+PNGJS uses the existing MIT evidence under docs/licenses/farmer-approved-export/pngjs-LICENSE.txt. Screenshot crops/enlargement use the already documented offline Pillow installation; no object artwork is drawn with Python. [Existing generated-output terms record](OUTPUT_TERMS.md) keeps its original review date. This is disclosed generated/adapted output, not CC0 or a claim of human authorship, exclusive rights or reference-equivalent quality. The sample is awaiting the user’s artistic approval. No other new object design, publication or submission.
+
+Saved native asset: output/art/bench-cedar-v1/native.png. Runtime atlas: public/assets/pixel/processed/town.png and town.json.

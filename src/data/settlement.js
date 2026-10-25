@@ -1,3 +1,4 @@
+import {propFrame} from './propArt.js';
 // Original recipes, requests and communal projects. Existing local art is reused.
 export const ORDERS=[
  {id:'rowan-timber',resident:'rowan',name:'Rowan',purpose:'Timber for a garden bench',cost:{wood:12},coins:80,seed:'seed',seeds:2},
@@ -9,15 +10,15 @@ export const ORDERS=[
 ];
 export const PROJECTS=[
  {id:'commons',name:'Commons seating',description:'Build a leafy bench corner in the garden commons.',cost:{wood:12,stone:6},coins:240,seed:'grapeSeed',seeds:2,x:1440,y:880,props:[['bench',1408,816],['planter',1352,836],['planter',1496,836],['flowers2',1352,820],['flowers2',1496,820]]},
- {id:'flowerCourt',name:'Flower court',description:'Plant a welcoming flower court east of the square.',cost:{wood:18,stone:24},coins:220,seed:'watermelonSeed',seeds:2,x:2056,y:880,props:[['planter',1984,800],['planter',2080,800],['flowers2',1984,784],['flowers2',2080,784],['bench',2024,864]]},
+ {id:'flowerCourt',name:'Flower court',description:'Plant a welcoming flower court east of the square.',cost:{wood:18,stone:24},coins:220,seed:'watermelonSeed',seeds:2,x:2056,y:880,props:[['planter',1984,800],['planter',2080,800],['flowers2',1984,784],['flowers2',2080,784],['bench',2104,864]]},
  {id:'picnic',name:'Picnic garden',description:'Add seating and flowers beside the picnic camp.',cost:{wood:36,stone:16},coins:250,seed:'pumpkinSeed',seeds:2,x:1440,y:1208,props:[['bench',1376,1184],['bench',1488,1184],['planter',1448,1148],['flowers2',1448,1132]]},
 ];
 export const DECORATIONS={
  bench:{name:'Garden bench',item:'benchDecor',icon:'wood-item',frame:'bench',w:64,h:40,box:[-32,-18,64,18],cost:{wood:8,stone:2}},
- planter:{name:'Flower planter',item:'planterDecor',icon:'grass-item',frame:'planter',w:32,h:32,box:[-12,-14,24,14],cost:{wood:4,stone:2}},
+ planter:{name:'Flower planter',item:'planterDecor',icon:'grass-item',frame:'prop-planter',w:32,h:32,box:[-12,-14,24,14],cost:{wood:4,stone:2}},
  fence:{name:'Wood fence',item:'fenceDecor',icon:'wood-item',frame:'fence',w:32,h:32,box:[-8,-20,16,20],cost:{wood:3}},
  path:{name:'Stone path',item:'pathDecor',icon:'stone-item',frame:null,w:48,h:48,box:null,cost:{stone:2}},
- table:{name:'Picnic table',item:'tableDecor',icon:'wood-item',frame:null,w:64,h:48,box:[-28,-26,56,26],cost:{wood:12,stone:4}},
+ table:{name:'Dining table',indoors:true,item:'tableDecor',icon:'wood-item',frame:'table',w:64,h:48,box:[-28,-26,56,26],cost:{wood:12,stone:4}},
  barrel:{name:'Garden barrel',item:'barrelDecor',icon:'wood-item',frame:'barrel',w:32,h:36,box:[-12,-16,24,16],cost:{wood:5}},
  lantern:{name:'Lantern post',item:'lanternDecor',icon:'stone-item',frame:'lamp',w:32,h:64,box:[-8,-10,16,10],cost:{wood:6,stone:4}},
 };
@@ -33,6 +34,7 @@ Object.assign(DECORATIONS,{
  bookcase:{name:'Little bookcase',item:'bookcaseDecor',icon:'wood-item',w:48,h:64,box:[-20,-16,40,16],price:800,description:'Books and keepsakes for your reading corner.'},
  vase:{name:'Ceramic flowers',item:'vaseDecor',icon:'grass-item',w:32,h:48,box:[-10,-12,20,12],price:450,description:'A glazed vase full of bright flowers.'},
 });
+for(const [type,d]of Object.entries(DECORATIONS))if(d.frame||type==='path')d.frame=propFrame(d.frame||type);
 DECORATIONS.fence.outdoors=true;DECORATIONS.path.outdoors=true;
 export const CRAFT_DECORATIONS=Object.keys(DECORATIONS).filter(id=>DECORATIONS[id].cost);
 export const DECORATION_DIRECTIONS=['down','left','up','right'];

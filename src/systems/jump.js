@@ -15,7 +15,7 @@ export function stepJump(state,runtime,delta){
  state.position={x:j.origin.x+(j.destination.x-j.origin.x)*t,y:j.origin.y+(j.destination.y-j.origin.y)*t};
  if(t===1){state.position={...j.destination};runtime.active=null;return true;}return false;
 }
-export function jumpPose(runtime){const j=runtime.active;if(!j)return {height:0,frame:null};const t=j.elapsed/JUMP_DURATION;return {height:Math.round(4*t*(1-t)*32/2)*2,frame:t<.18?6:t>.84?8:7};}
+export function jumpPose(runtime){const j=runtime.active;if(!j)return {height:0,frame:null,elapsed:0};const t=j.elapsed/JUMP_DURATION;return {height:Math.round(4*t*(1-t)*32/2)*2,frame:t<.18?6:t>.84?8:7,elapsed:j.elapsed};}
 // Autosaves/menus/pagehide persist the last grounded point, never a cliff face.
 export function groundedPosition(state,runtime){return runtime?.active?{...runtime.active.origin}:{...state.position};}
 export function cancelJump(state,runtime){if(runtime.active)state.position={...runtime.active.origin};runtime.active=null;}

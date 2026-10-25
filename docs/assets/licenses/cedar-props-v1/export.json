@@ -1,0 +1,793 @@
+{
+  "date": "2026-10-15",
+  "approval": "Approved bench style rollout",
+  "existingFrames": 959,
+  "newFrames": 78,
+  "atlas": {
+    "w": 1024,
+    "h": 3486
+  },
+  "palette": [
+    [
+      45,
+      36,
+      33
+    ],
+    [
+      64,
+      49,
+      43
+    ],
+    [
+      85,
+      64,
+      52
+    ],
+    [
+      106,
+      78,
+      63
+    ],
+    [
+      123,
+      92,
+      72
+    ],
+    [
+      144,
+      112,
+      89
+    ],
+    [
+      161,
+      132,
+      105
+    ],
+    [
+      181,
+      155,
+      123
+    ],
+    [
+      197,
+      176,
+      141
+    ],
+    [
+      60,
+      67,
+      48
+    ],
+    [
+      84,
+      93,
+      64
+    ],
+    [
+      110,
+      119,
+      81
+    ],
+    [
+      138,
+      147,
+      104
+    ],
+    [
+      163,
+      172,
+      130
+    ],
+    [
+      214,
+      203,
+      177
+    ],
+    [
+      231,
+      223,
+      199
+    ],
+    [
+      186,
+      162,
+      154
+    ],
+    [
+      206,
+      175,
+      167
+    ],
+    [
+      224,
+      194,
+      186
+    ],
+    [
+      179,
+      158,
+      112
+    ],
+    [
+      203,
+      182,
+      128
+    ],
+    [
+      85,
+      86,
+      80
+    ],
+    [
+      121,
+      123,
+      112
+    ],
+    [
+      64,
+      47,
+      42
+    ],
+    [
+      158,
+      138,
+      113
+    ],
+    [
+      184,
+      170,
+      145
+    ],
+    [
+      135,
+      144,
+      124
+    ],
+    [
+      185,
+      190,
+      166
+    ],
+    [
+      116,
+      119,
+      100
+    ],
+    [
+      70,
+      74,
+      60
+    ],
+    [
+      200,
+      191,
+      168
+    ],
+    [
+      198,
+      180,
+      166
+    ],
+    [
+      57,
+      76,
+      78
+    ],
+    [
+      88,
+      110,
+      112
+    ],
+    [
+      126,
+      150,
+      152
+    ],
+    [
+      169,
+      189,
+      187
+    ],
+    [
+      207,
+      219,
+      209
+    ],
+    [
+      89,
+      84,
+      93
+    ],
+    [
+      130,
+      122,
+      134
+    ],
+    [
+      173,
+      165,
+      174
+    ],
+    [
+      135,
+      93,
+      87
+    ],
+    [
+      168,
+      123,
+      112
+    ],
+    [
+      197,
+      153,
+      139
+    ],
+    [
+      236,
+      228,
+      206
+    ],
+    [
+      108,
+      112,
+      84
+    ],
+    [
+      189,
+      196,
+      156
+    ],
+    [
+      59,
+      65,
+      60
+    ],
+    [
+      118,
+      147,
+      138
+    ]
+  ],
+  "sources": {
+    "bench-up": {
+      "file": "output/art/cedar-props-v1/sources/bench-up.png",
+      "sha256": "75a51d3774c215a4837860135ab468c8da7c3bc986226261c026eca3213a297a"
+    },
+    "bench-left": {
+      "file": "output/art/cedar-props-v1/sources/bench-left.png",
+      "sha256": "7c933282d5a7d7af8522619474a3291de1179b0e4d01c4e8802c8fb053f44b09"
+    },
+    "table": {
+      "file": "output/art/cedar-props-v1/sources/table.png",
+      "sha256": "19f3de8c5f3b1195f1e55177f38d9530257c9b2a739cb9530c576fa422de3129"
+    },
+    "table-left": {
+      "file": "output/art/cedar-props-v1/sources/table-left.png",
+      "sha256": "df0b809da9685ac7d006a7a566d52f59a850d479154234b75611f02900b64d4a"
+    },
+    "home-bench": {
+      "file": "output/art/cedar-props-v1/sources/home-bench.png",
+      "sha256": "1e7dd6c17821321b40c2cd866d6fe03843a178137c262b74d8690712a8274117"
+    },
+    "chair": {
+      "file": "output/art/cedar-props-v1/sources/chair.png",
+      "sha256": "10b37423d353f78ddc107d6752b786111457716e653d5f2efe9b9eba53b16482"
+    },
+    "counter": {
+      "file": "output/art/cedar-props-v1/sources/counter.png",
+      "sha256": "867e5c2a1b700edb5835325e9b1729c268c60552da19871eaf0ca8e577b2f771"
+    },
+    "pottery": {
+      "file": "output/art/cedar-props-v1/sources/pottery.png",
+      "sha256": "37b82eb0f25d88f83eeaa4db4c0712ced5096ab34c483034347c3134025b08ad"
+    },
+    "bookcase": {
+      "file": "output/art/cedar-props-v1/sources/bookcase.png",
+      "sha256": "a3b524f2f3db064f1501f2e1ef14033f93c4bde88a4d692b04c05f093cf20fcd"
+    },
+    "bed": {
+      "file": "output/art/cedar-props-v1/sources/bed.png",
+      "sha256": "ec98fc702941b56323c85a374066ae7ef1b899904bf9ce1e08e730d2fe62bb97"
+    },
+    "window": {
+      "file": "output/art/cedar-props-v1/sources/window.png",
+      "sha256": "387e5682b2bf2f282ff23624589bc6392214868558def3437ffa728d4a526e4b"
+    },
+    "fireplace": {
+      "file": "output/art/cedar-props-v1/sources/fireplace.png",
+      "sha256": "978a4c9550842fcb45dc254787ad5755726e4f16a0d1834236a2dbb73008548a"
+    },
+    "logs": {
+      "file": "output/art/cedar-props-v1/sources/logs.png",
+      "sha256": "3eaeb0bbffe15a6c3db6f106530d3a968f297794a67da2dea014d23012b5bd3b"
+    },
+    "vase": {
+      "file": "output/art/cedar-props-v1/sources/vase.png",
+      "sha256": "7d3188e793881ab8c1649a048f694a9e5cdeb375076302cd517c7744c2a0ecf6"
+    },
+    "rug": {
+      "file": "output/art/cedar-props-v1/sources/rug.png",
+      "sha256": "9c594f4f5aca3d6fcc7140ae23f42c0d413f5ae2b6b1875a79a54a3b5856721d"
+    },
+    "well": {
+      "file": "output/art/cedar-props-v1/sources/well.png",
+      "sha256": "9655cddd413d388ffa56c355326d59fa56f16bdf938742597c06e8d54054c2b4"
+    },
+    "lantern": {
+      "file": "output/art/cedar-props-v1/sources/lantern.png",
+      "sha256": "401f1fcd11eebc75e83145f3de00044d300a9db291f3a77de1b1454622a2aefd"
+    },
+    "notice": {
+      "file": "output/art/cedar-props-v1/sources/notice.png",
+      "sha256": "caa8a3f930a60ca71891a9d4f466d87d56c357dd2caf7e9ada8d903267b2b858"
+    },
+    "crate": {
+      "file": "output/art/cedar-props-v1/sources/crate.png",
+      "sha256": "e430785c5a12fee19f6df3824618c72d48d883610d19f1191c051c6552bffcbb"
+    },
+    "barrel": {
+      "file": "output/art/cedar-props-v1/sources/barrel.png",
+      "sha256": "4d17556f621316ba287fe9057be2f1aabb3bedc0c738a36bfc858c02df4bb351"
+    },
+    "mailbox": {
+      "file": "output/art/cedar-props-v1/sources/mailbox.png",
+      "sha256": "ba735ded78e83c513520f266f82546b0d017acbdc65264fc77914b0ac36d0e97"
+    },
+    "wheelbarrow": {
+      "file": "output/art/cedar-props-v1/sources/wheelbarrow.png",
+      "sha256": "14ef7f308a6ce94c20e1138d18303ebf49cbbc2d0eb79e1df5aa368fd71b0941"
+    },
+    "planter": {
+      "file": "output/art/cedar-props-v1/sources/planter.png",
+      "sha256": "0c477abcf3bc0ed80378d9458239140ba2f8bcc3b66eced9e3ec7edd98594737"
+    },
+    "sunflower": {
+      "file": "output/art/cedar-props-v1/sources/sunflower.png",
+      "sha256": "7c3550bfed605be35dbb8f17764b36a089aba807479be21881b10859ac3243ec"
+    },
+    "tent": {
+      "file": "output/art/cedar-props-v1/sources/tent.png",
+      "sha256": "065b9e40b9a5f6d5e8ea35fb62ba24e1a73152bb04d9e2c088f96646901e3cfd"
+    },
+    "public-garden": {
+      "file": "output/art/cedar-props-v1/sources/public-garden.png",
+      "sha256": "517521e30953bac83529e13bae7b02bbad2f685d4d25a6d2cf2d15d776abce1d"
+    },
+    "stall": {
+      "file": "output/art/cedar-props-v1/sources/stall.png",
+      "sha256": "55cd1bff9fe7b149f5b1b1d305390ac64ba55cb2ec8810b3e6f1403be04c48f7"
+    },
+    "birdbath": {
+      "file": "output/art/cedar-props-v1/sources/birdbath.png",
+      "sha256": "74232c52a759adbc351f66b28308b301771cf740501d79f2bf339b30cdeacfa7"
+    },
+    "boulder": {
+      "file": "output/art/cedar-props-v1/sources/boulder.png",
+      "sha256": "c06a94351470bf1687c090ac1bd565aad19f8446d22f52619cb4e71c941f0737"
+    },
+    "shrine": {
+      "file": "output/art/cedar-props-v1/sources/shrine.png",
+      "sha256": "a1a9b9ee5a95ba89ef592a532ffe6acd78567606a322d27452be2f722eea25f8"
+    },
+    "chest": {
+      "file": "output/art/cedar-props-v1/sources/chest.png",
+      "sha256": "3a54dac2627b6635fd15696fa0ed9925165769e314d2f0ea3bfd20aa72b81f99"
+    },
+    "scarecrow": {
+      "file": "output/art/cedar-props-v1/sources/scarecrow.png",
+      "sha256": "182f5c6e7541a5ed36b153d5cf6acd53f40fc8f3abd0a0ca7ac0f2e1fe2c9b26"
+    },
+    "forest-log": {
+      "file": "output/art/cedar-props-v1/sources/forest-log.png",
+      "sha256": "b35713c6381269d0b5f82d0b7d0d575d56d7e7ff5f3661aabcd1d1897ee54f6b"
+    },
+    "fence": {
+      "file": "output/art/cedar-props-v1/sources/fence.png",
+      "sha256": "bcecc859ab4104bbcc853792d002b4f489e8d793603a7469d7e8f4ed8d3ddcb8"
+    },
+    "fence-left": {
+      "file": "output/art/cedar-props-v1/sources/fence-left.png",
+      "sha256": "7a568d19f706b08063ea1f52acea06e57d4c3b5544c8ec723113fb4e3e3851af"
+    },
+    "sign": {
+      "file": "output/art/cedar-props-v1/sources/sign.png",
+      "sha256": "cbf98bee46db865e9cb18ad8ad4c67129f02170441848585fab69969438bebd6"
+    },
+    "bamboo-gate": {
+      "file": "output/art/cedar-props-v1/sources/bamboo-gate.png",
+      "sha256": "0221cea345693b25eba1aab2129d7c12c853921687b428f7bd943b380dbac392"
+    },
+    "fountain": {
+      "file": "output/art/cedar-props-v1/sources/fountain.png",
+      "sha256": "54333895cd90ddf984077788b1b4510706d68dc638cceb9758a2a8494bdf2767"
+    },
+    "path": {
+      "file": "output/art/cedar-props-v1/sources/path.png",
+      "sha256": "d8bb4754d47ff7587e3e177e133947b55264998860c733a36a9bf97c0fdefb1a"
+    },
+    "cooking-pan": {
+      "file": "output/art/cedar-props-v1/sources/cooking-pan.png",
+      "sha256": "aa9bbfb4079776b3c1e81ce0ad29a393f4dd88785da142441470f469e405065b"
+    },
+    "blossom": {
+      "file": "output/art/cedar-props-v1/sources/blossom.png",
+      "sha256": "588cf74954e05c17b8abce565484545cbc0ed6ea44905f49f64286cdd23fada7"
+    },
+    "hedge": {
+      "file": "output/art/cedar-props-v1/sources/hedge.png",
+      "sha256": "30abad17e5051ad558a3560351b2418f4f76d0da06ad385d97df8d52669636d6"
+    },
+    "flowers": {
+      "file": "output/art/cedar-props-v1/sources/flowers.png",
+      "sha256": "1972c6a5f5479429f2621f1306e30cbcba1556e5d9dd0b07de6fab28b3a3c6f4"
+    },
+    "door": {
+      "file": "output/art/cedar-props-v1/sources/door.png",
+      "sha256": "90e69303925f8763250b526cbd8dea28699b0a8a1cc6b76bef51d1ce2667a2d8"
+    },
+    "wall-frame": {
+      "file": "output/art/cedar-props-v1/sources/wall-frame.png",
+      "sha256": "caffe03665dd2b84df41c227de413718a05556aa5fffbb87387fc759527bfdb8"
+    },
+    "stash-bag": {
+      "file": "output/art/cedar-props-v1/sources/stash-bag.png",
+      "sha256": "f36979352ea21097045c97850d5ded24534856d11ce72dec3398a30117bf6555"
+    },
+    "cave": {
+      "file": "output/art/cedar-props-v1/sources/cave.png",
+      "sha256": "0f67cfd75f67d58e0019001df29a02c568338594f681b19d92c3099612d964b2"
+    },
+    "ice": {
+      "file": "output/art/cedar-props-v1/sources/ice.png",
+      "sha256": "27f65f2d6e20640aa638df928ad3a79d48511223b069d879a7a2b3e70c588002"
+    }
+  },
+  "aliases": {
+    "bench": {
+      "source": null,
+      "frame": "bench-cedar-review"
+    },
+    "prop-bench-up": {
+      "source": "bench-up",
+      "frame": "cedar-prop-bench-up"
+    },
+    "prop-bench-left": {
+      "source": "bench-left",
+      "frame": "cedar-prop-bench-left"
+    },
+    "table": {
+      "source": "table",
+      "frame": "cedar-table"
+    },
+    "home-table": {
+      "source": "table",
+      "frame": "cedar-home-table"
+    },
+    "prop-table-left": {
+      "source": "table-left",
+      "frame": "cedar-prop-table-left"
+    },
+    "home-bench": {
+      "source": "home-bench",
+      "frame": "cedar-home-bench"
+    },
+    "chair": {
+      "source": "chair",
+      "frame": "cedar-chair"
+    },
+    "home-counter": {
+      "source": "counter",
+      "frame": "cedar-home-counter"
+    },
+    "dresser": {
+      "source": "counter",
+      "frame": "cedar-dresser"
+    },
+    "kitchen": {
+      "source": "counter",
+      "frame": "cedar-kitchen"
+    },
+    "home-pottery": {
+      "source": "pottery",
+      "frame": "cedar-home-pottery"
+    },
+    "shelf": {
+      "source": "bookcase",
+      "frame": "cedar-shelf"
+    },
+    "prop-bookcase": {
+      "source": "bookcase",
+      "frame": "cedar-prop-bookcase"
+    },
+    "home-bed": {
+      "source": "bed",
+      "frame": "cedar-home-bed"
+    },
+    "bed": {
+      "source": "bed",
+      "frame": "cedar-bed"
+    },
+    "home-window": {
+      "source": "window",
+      "frame": "cedar-home-window"
+    },
+    "window": {
+      "source": "window",
+      "frame": "cedar-window"
+    },
+    "home-fireplace": {
+      "source": "fireplace",
+      "frame": "cedar-home-fireplace"
+    },
+    "home-logs": {
+      "source": "logs",
+      "frame": "cedar-home-logs"
+    },
+    "home-pot": {
+      "source": "vase",
+      "frame": "cedar-home-pot"
+    },
+    "pot": {
+      "source": "vase",
+      "frame": "cedar-pot"
+    },
+    "prop-vase": {
+      "source": "vase",
+      "frame": "cedar-prop-vase"
+    },
+    "home-rug": {
+      "source": "rug",
+      "frame": "cedar-home-rug"
+    },
+    "rug": {
+      "source": "rug",
+      "frame": "cedar-rug"
+    },
+    "prop-rug": {
+      "source": "rug",
+      "frame": "cedar-prop-rug"
+    },
+    "well": {
+      "source": "well",
+      "frame": "cedar-well"
+    },
+    "lamp": {
+      "source": "lantern",
+      "frame": "cedar-lamp"
+    },
+    "city-lamp": {
+      "source": "lantern",
+      "frame": "cedar-city-lamp"
+    },
+    "notice": {
+      "source": "notice",
+      "frame": "cedar-notice"
+    },
+    "crate": {
+      "source": "crate",
+      "frame": "cedar-crate"
+    },
+    "barrel": {
+      "source": "barrel",
+      "frame": "cedar-barrel"
+    },
+    "mailbox": {
+      "source": "mailbox",
+      "frame": "cedar-mailbox"
+    },
+    "wheelbarrow": {
+      "source": "wheelbarrow",
+      "frame": "cedar-wheelbarrow"
+    },
+    "planter": {
+      "source": "planter",
+      "frame": "cedar-planter"
+    },
+    "prop-planter": {
+      "source": "planter",
+      "frame": "cedar-prop-planter"
+    },
+    "city-flowerpot": {
+      "source": "sunflower",
+      "frame": "cedar-city-flowerpot"
+    },
+    "city-tent": {
+      "source": "tent",
+      "frame": "cedar-city-tent"
+    },
+    "camp-tent": {
+      "source": "tent",
+      "frame": "cedar-camp-tent"
+    },
+    "city-bench-garden": {
+      "source": "public-garden",
+      "frame": "cedar-city-bench-garden"
+    },
+    "seed-stall": {
+      "source": "stall",
+      "frame": "cedar-seed-stall"
+    },
+    "produce-stall": {
+      "source": "stall",
+      "frame": "cedar-produce-stall"
+    },
+    "outfitter-stall": {
+      "source": "stall",
+      "frame": "cedar-outfitter-stall"
+    },
+    "prop-birdbath": {
+      "source": "birdbath",
+      "frame": "cedar-prop-birdbath"
+    },
+    "env-boulder": {
+      "source": "boulder",
+      "frame": "cedar-env-boulder"
+    },
+    "rock": {
+      "source": "boulder",
+      "frame": "cedar-rock"
+    },
+    "loose-stones": {
+      "source": "boulder",
+      "frame": "cedar-loose-stones"
+    },
+    "shrine-stone": {
+      "source": "shrine",
+      "frame": "cedar-shrine-stone"
+    },
+    "ancient-chest": {
+      "source": "chest",
+      "frame": "cedar-ancient-chest"
+    },
+    "scarecrow": {
+      "source": "scarecrow",
+      "frame": "cedar-scarecrow"
+    },
+    "forest-log": {
+      "source": "forest-log",
+      "frame": "cedar-forest-log"
+    },
+    "fence": {
+      "source": "fence",
+      "frame": "cedar-fence"
+    },
+    "fence-v": {
+      "source": "fence-left",
+      "frame": "cedar-fence-v"
+    },
+    "prop-fence-left": {
+      "source": "fence-left",
+      "frame": "cedar-prop-fence-left"
+    },
+    "sign": {
+      "source": "sign",
+      "frame": "cedar-sign"
+    },
+    "post": {
+      "source": "sign",
+      "frame": "cedar-post"
+    },
+    "road-sign": {
+      "source": "sign",
+      "frame": "cedar-road-sign",
+      "nativeSize": [
+        64,
+        64
+      ]
+    },
+    "farm-sign": {
+      "source": "sign",
+      "frame": "cedar-farm-sign",
+      "nativeSize": [
+        48,
+        64
+      ]
+    },
+    "bamboo-gate": {
+      "source": "bamboo-gate",
+      "frame": "cedar-bamboo-gate"
+    },
+    "city-fountain0": {
+      "source": "fountain",
+      "frame": "cedar-city-fountain0"
+    },
+    "city-fountain1": {
+      "source": "fountain",
+      "frame": "cedar-city-fountain0"
+    },
+    "path": {
+      "source": "path",
+      "frame": "cedar-path",
+      "nativeSize": [
+        48,
+        48
+      ]
+    },
+    "cooking-pan": {
+      "source": "cooking-pan",
+      "frame": "cedar-cooking-pan",
+      "nativeSize": [
+        60,
+        18
+      ]
+    },
+    "prop-blossom": {
+      "source": "blossom",
+      "frame": "cedar-prop-blossom"
+    },
+    "prop-hedge": {
+      "source": "hedge",
+      "frame": "cedar-prop-hedge"
+    },
+    "prop-flowers": {
+      "source": "flowers",
+      "frame": "cedar-prop-flowers"
+    },
+    "flowers": {
+      "source": "flowers",
+      "frame": "cedar-flowers"
+    },
+    "flowers0": {
+      "source": "flowers",
+      "frame": "cedar-flowers0"
+    },
+    "flowers1": {
+      "source": "flowers",
+      "frame": "cedar-flowers1"
+    },
+    "flowers2": {
+      "source": "flowers",
+      "frame": "cedar-flowers2"
+    },
+    "flowers3": {
+      "source": "flowers",
+      "frame": "cedar-flowers3"
+    },
+    "flowers4": {
+      "source": "flowers",
+      "frame": "cedar-flowers4"
+    },
+    "door0": {
+      "source": "door",
+      "frame": "cedar-door0"
+    },
+    "door1": {
+      "source": "door",
+      "frame": "cedar-door1"
+    },
+    "door2": {
+      "source": "door",
+      "frame": "cedar-door2"
+    },
+    "wall-frame": {
+      "source": "wall-frame",
+      "frame": "cedar-wall-frame",
+      "nativeSize": [
+        64,
+        48
+      ]
+    },
+    "stash-bag": {
+      "source": "stash-bag",
+      "frame": "cedar-stash-bag"
+    },
+    "cave-mouth": {
+      "source": "cave",
+      "frame": "cedar-cave-mouth"
+    },
+    "env-ice": {
+      "source": "ice",
+      "frame": "cedar-env-ice"
+    },
+    "ice-crystal": {
+      "source": "ice",
+      "frame": "cedar-ice-crystal"
+    }
+  },
+  "approvedBench": {
+    "frame": "bench-cedar-review",
+    "nativeFile": "output/art/bench-cedar-v1/native.png",
+    "sha256": "6762ecd719b5f93b394923880a490a0c8f11b3ec85e5d38d51b8b6f0f034b8ef"
+  }
+}

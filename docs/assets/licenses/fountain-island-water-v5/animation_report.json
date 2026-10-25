@@ -1,0 +1,142 @@
+{
+  "frameSize": [
+    207,
+    214
+  ],
+  "sheetSize": [
+    1656,
+    214
+  ],
+  "frames": 8,
+  "fps": 8,
+  "waterMaskPixels": 1247,
+  "waterColours": [
+    [
+      125,
+      146,
+      156,
+      255
+    ],
+    [
+      167,
+      178,
+      185,
+      255
+    ],
+    [
+      218,
+      231,
+      236,
+      255
+    ]
+  ],
+  "landingPoints": [
+    [
+      82,
+      109
+    ],
+    [
+      102,
+      85
+    ],
+    [
+      124,
+      109
+    ]
+  ],
+  "topJetTip": [
+    102,
+    73
+  ],
+  "ringRadii": [
+    2,
+    4,
+    6
+  ],
+  "rippleOffsets": [
+    0,
+    3,
+    5
+  ],
+  "changedPixelsFromBase": [
+    21,
+    29,
+    33,
+    17,
+    24,
+    33,
+    24,
+    34
+  ],
+  "changedPercentFromBase": [
+    1.684,
+    2.326,
+    2.646,
+    1.363,
+    1.925,
+    2.646,
+    1.925,
+    2.727
+  ],
+  "maximumAllowedChangedPixels": 37,
+  "transitionChangedPixels": [
+    36,
+    49,
+    38,
+    27,
+    42,
+    49,
+    50,
+    43
+  ],
+  "transitionMean": 41.75,
+  "maximumTransitionDeviation": 14.75,
+  "frameEightToOneVsOneToTwoDelta": 7,
+  "outsideMaskChanges": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "rimGuardChanges": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "newPaletteColours": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "maximumChangedPaleComponent": [
+    9,
+    3
+  ],
+  "maskTouchesExcludedPixels": false,
+  "checks": {
+    "outsideMaskIdentical": true,
+    "rimGuardUnchanged": true,
+    "sourcePaletteOnly": true,
+    "underThreePercentBudget": true,
+    "ringRadiusAtMostSeven": true,
+    "paleComponentsAtMostTwelvePixels": true,
+    "loopSeamSimilar": true,
+    "transitionsSimilar": true
+  },
+  "sourceSha256": "7a72f81a629794de5d8b718744ab5e8896171b8b7d2246f1552d5a95a4e00bd5",
+  "sheetSha256": "805871dcd04f4ba49d6bd4c240388dd0acc1731dbcccbe94ca71c78f2c55543d"
+}

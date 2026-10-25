@@ -6,8 +6,9 @@ from pathlib import Path
 from functools import lru_cache
 from PIL import Image
 import json
-from pixellab_people import write_farmer
-from generated_girl import write_girl
+from revised_farmer import write_farmer
+from revised_girl import write_girl
+from npc_matching_animated import resident_assets
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'docs/assets/licenses/characters-szadiart/source'
 OUT=ROOT/'public/assets/pixel/processed'
@@ -102,12 +103,12 @@ def update_atlas():
  meta=json.loads((OUT/'town.json').read_text());old=Image.open(OUT/'town.png').convert('RGBA');assets={}
  for name,entry in meta['frames'].items():
   r=entry['frame'];assets[name]=old.crop((r['x'],r['y'],r['x']+r['w'],r['y']+r['h']))
- provenance=resident_art(assets);atlas=Image.new('RGBA',(1024,4096));x=y=height=0;frames={}
+ provenance=resident_art(assets);resident_assets(assets);atlas=Image.new('RGBA',(1024,4096));x=y=height=0;frames={}
  for name,im in assets.items():
   if x+im.width>1024:x=0;y+=height+2;height=0
   atlas.paste(im,(x,y));frames[name]={'frame':{'x':x,'y':y,'w':im.width,'h':im.height},'rotated':False,'trimmed':False,'spriteSourceSize':{'x':0,'y':0,'w':im.width,'h':im.height},'sourceSize':{'w':im.width,'h':im.height}}
   x+=im.width+2;height=max(height,im.height)
  assert y+height+2<=4096
- atlas=atlas.crop((0,0,1024,y+height+2));atlas.save(OUT/'town.png');meta['frames']=frames;meta['meta']['size']={'w':1024,'h':atlas.height};(OUT/'town.json').write_text(json.dumps(meta,indent=2)+'\n')
+ atlas=atlas.crop((0,0,1024,y+height+2));atlas.save(OUT/'town.png');meta['frames']=frames;meta['meta']['size']={'w':1024,'h':atlas.height};meta['meta'].pop('matchingNpcBaseHeight',None);(OUT/'town.json').write_text(json.dumps(meta,indent=2)+'\n')
  manifest=json.loads((OUT/'manifest.json').read_text());manifest['matchedResidents']=provenance;manifest['characterFrames']=write_people();manifest['suppliedCharacters']='Active people use original Szadiart NPC characters, mirrored side poses and fixed crops. Previous people are retired provenance.';(OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 if __name__=='__main__':update_atlas()

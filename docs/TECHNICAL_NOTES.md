@@ -1,3 +1,195 @@
+# v0.43.5 — simplified Home menu and City-house reuse (2026-10-23)
+
+Home + Garden registers only `customize-houses` and `customize-wardrobe`. The retained decoration/resource methods are intentionally not reachable from this menu, which keeps future restoration and current save data separate from the visible scope. The two design previews and world sprites resolve existing `cityBuildings` frame metadata; no canvas recolour/export or new runtime image is produced.
+
+Different City frames have different transparent canvases and foundation scanlines. Home placement aligns their visible bottom and horizontal centre to the original building anchor, while Home collision replaces only the original house's generated foundation rows. Blue Slate room textures use design-and-room-size cache keys and a cool slate palette; the starter cache keeps the approved warm room bytes.
+
+The browser QA script closes the post-introduction guide before opening customization and waits for an enabled Continue control plus restored state after reload. This avoids treating title-loader controls as a completed reload.
+
+---
+
+# v0.42.2 — Pixel Snapper native export
+
+The supplied 167×110 RGBA source is already on its final pixel grid and is never resized. All source alpha values are 255; export maps only exact `(255,255,255,255)` backdrop pixels to `(0,0,0,0)`, retaining all non-white channels exactly. The frame uses `(774,3927,167,110)` in the unchanged 1024×4041 atlas. Runtime `artScale:2`, Phaser nearest filtering and the existing disabled smoothing preserve square pixels. Origin offset `(-40,22)` accounts for transparent canvas margins while door offset `(166,200)` keeps the world entry `(2350,438)`.
+
+The asset audit preserves all 1,060 prior frames and their pixels. All 385 tests and the production build pass. Isolated desktop Chromium inspection confirms transparent/crisp rendering, walkable access around the hull and to the doorway, and no console warnings/errors; physical phones and non-Chromium browsers were not newly tested.
+
+---
+
+# v0.42.1 — terracotta cottage export
+
+The selected 1347×1167 RGBA source is reduced by the existing nine-sample bounded area vote into a 120×112 binary-alpha sprite with two native pixels of padding and conservative cleanup. It occupies unused atlas space at `(774,3927)` without changing the 1024×4041 dimensions. Preservation checks compare all 1060 earlier metadata records and every RGBA pixel outside the new rectangle, then compare the installed rectangle to the native derivative. Runtime rendering remains nearest-filtered at integer 2×; no new runtime file, dependency or URL is added. The full suite passes with 385 tests, the production build succeeds, and isolated browser inspection confirms player access with no console warnings/errors; physical phones and non-Chromium browsers were not newly tested.
+
+---
+
+# v0.41.0 — City shop integration verification (2026-10-17)
+
+380tests and normal production build pass. Static tests cover new entrances/rooms/commutes/services/saves and old City identity/connectivity; production-browser fixtures verify both door round trips, purchases, barber reload, outdoor views/night lighting and completed-project scenery. Allowlist48files, old1051atlas frames/pixels plus nine approved native PNGs exact. Isolated43864fixture origin avoids normal4215saves. Café is outdoor seating; mobile/physical devices were not newly browser-tested. [Detailed evidence](verification/city-shops-v1/README.md). No deploy/push.
+
+---
+
+# v0.37.0 — shared home surface and visible-bound placement
+
+homeInteriorSurface.js produces binary-alpha back/foreground RGBA layers using integer rectangles, diamond fills and Bresenham lines. HomeArt caches nearest-filtered CanvasTextures by design/room size. Back surface stays below floor textiles/actors; continuous side/front cutaway faces draw above them. Existing house palettes retain distinct finishes with the approved geometry; old tiled wall/floor overlays and U-rail animation are omitted.
+
+homeInteriorArt.js records source-native visible bounds and1.5 world scale; interior.js derives canvas origins, solids, hearth/bed points and72-unit door opening from shared room data. Fire shares the fireplace frame origin. The jar instance/collider is absent; logs use base138 instead of154. ROOM.bounds begins at112. Existing save validation and room-decor resizing handle displaced positions/paid pieces without a schema change. Camera/character and catalog/placed furniture remain.
+
+The separate home atlas is512×512 with17 preserved frames; town/world/farmers remain byte-exact. Production uses48 local allowlisted files. Unit/path/context/save/build and offline-render evidence are in [verification](verification/home-interior-v1/README.md); browser UI checks are explicitly blocked/unverified, not replaced by the offline composition.
+
+---
+
+# v0.36.3 — one fixed native table override (2026-10-15)
+
+DINING_TABLE_ART in data/interior.js selects table-native-review at2× only for the one fixed home-table. FURNITURE centres its new64×48 world extent inside the previous128×80 extent; its solid is60×28. worldArt uses the trial frame's actual height for ground sorting. Other fixed furniture and catalog/placed-table paths keep their previous art, names and rules. HomeArt omits the extra themed tabletop vase because this sprite already includes the requested three pottery pieces. No save schema or purchase rule changes.
+
+scripts/table_native_sample.mjs appends one32×24 frame from its preserved1039-frame baseline, with12 available material colours (9 used), area-voted native conversion, binary alpha and transparent padding. Its audit verifies every old record/RGBA row, installed pixels, one fixed table and collider. Atlas1024×3602/1040 frames stays below4096;46 runtime files. Native/source/gallery/ZIP/test evidence stays outside dist. Historical chunky/walnut/cedar exporters must not be installed over the current atlas.
+
+---
+
+# v0.36.0 — shared cedar prop frame/scale routing (2026-10-15)
+
+src/data/propArt.js maps 80 legacy names to approved/new atlas frames; propFrame/propScale and art/PropArt.js share logical scaling across static rendering, UI icons, City project previews and wilderness utility sprites. DecorationArt resolves the same frames for catalog, placement and saved pieces, using separately authored upright direction views. Legacy atlas cells remain intact for existing physical size/depth calculations. New native cells are twice legacy dimensions; their render scale is halved. Approved bench artFrame override remains exact. Paths use the shared sprite and stay at ground depth without contact shadow.
+
+Themed rugs/quilt derivatives sample the new native frames with nearest rendering and matching scale/masks; wall ornaments/centre vase and stove pan also use new sprites. Door frame changes resolve through propFrame. Fountain frame aliases share a static basin while moving highlights/rings follow three authored cascades. Sign backing uses a generated frame with compressed upper rail/expanded blank board; text/arrow geometry is unchanged and arrow Graphics sorts above the backing. Generic prop shadows centre on physical width. No saved object ID, collider, map coordinate, cost, schema19, architecture or runtime URL changes.
+
+scripts/cedar_pixels.mjs extends the exact approved bench ramp for other materials and reduces area-voted 2× staging with dark-edge tie preference. scripts/export_cedar_props.mjs stages from the v0.35.3 baseline; --install replaces only the atlas pair, --audit verifies every old record/RGBA row and new installed pixels. scripts/check_cedar_props.mjs verifies source/protected hashes and the 46-file build. Sources and review artifacts stay outside dist. Atlas 1024×3486 remains below 4096. Historical exporters should not be installed over this rollout.
+
+---
+
+# v0.35.3 — one-instance art override (2026-10-15)
+
+A fixed Home bench retains name bench and its existing collision, with data artFrame=bench-cedar-review and artScale=1. The world prop renderer uses that optional frame/scale, bottom sorting and centred existing contact shadow. Existing prop paths stay unchanged. The appended 64×40 frame preserves the old 64×40 world extent; all 958 prior frame metadata records and the complete old atlas pixel region remain exact. Atlas height grows44px to2608; production still emits46 files.
+
+scripts/bench_cedar_sample.mjs stages from the v0.35.2 baseline, records the selected source SHA256, exports a 32-colour muted material palette, and audits old RGBA/metadata, one sample instance, original collider and binary sprite alpha. The 128×80 staging reduction favours dark plank-edge ties. No shared prop conversion changes. Catalog/placed bench variants stay on approved previous artwork until user review; there is no sample shop or new item/save field.
+
+---
+
+# v0.35.2 — shared prop projection, spacing and table domains (2026-10-15)
+
+scripts/export_props_v3.mjs stages from the v0.35.1 atlas. Twenty-eight selected local sources map to 41 existing cells; native area-vote sampling accepts an optional material palette (the old default remains unchanged). The 47-colour new palette preserves more form-shading steps; binary alpha and conservative isolated-speck cleanup retain silhouettes. No atlas dimensions, frame positions or names change. scripts/check_props_v3.mjs verifies 917 protected cells, exact metadata, source hashes, binary alpha and the approved farmer/world PNG hashes.
+
+The centre window shifts 48 world units right to clear the mantel, and the east City tent shifts 80 world units right to clear public seating. ROOM.hearth is the shared cooking anchor. Hearth/logs shift 24 world units right; sideboard/pottery/log feet align to the rear baseline. Physical boxes and cooking overlay follow these placements. Fixed outdoor Home/City tables are removed from the data-driven maps and their derived solids. DECORATIONS.table.indoors gates placement everywhere; crafting still works at Home/Farm/interior. Save validation packs saved outdoor tables once and known indoor decor displaced by updated room geometry, retaining Bag ownership under the established 9999 cap. No schema version change. Bag and crafting hints explain indoor placement.
+
+The City project renderer now braces its completion branch correctly: incomplete projects draw one marker, completed projects draw seats/planters without duplicate flower overlays or markers. Regression tests cover both states. Full suite: 358 passing; production build: 46 files. Isolated port4216 browser fixture uses the same responsive room dimensions and bed/door/hearth interaction anchors as its iframe when choosing legal points, avoiding a false phone failure from desktop geometry.
+
+---
+
+# v0.35.1 — area-voted native prop export (2026-10-15)
+
+prop_pixels.mjs votes over nine sub-samples per native pixel rather than point-sampling a large raster. This prevents small source variations from becoming isolated bright/dark pixels. A 33-colour base material ramp and conservative cleanup apply to reused textured props; new simple-shape sources preserve their broad fills. Only rug surfaces fit both dimensions of their existing ground rectangle, removing vertical letterboxing. Upright artwork keeps proportional fitting and original anchors. Market awning colour variants remain.
+
+export_props_v2.mjs stages an atlas and only installs with --install. No frame is appended, resized or moved: 50 replacements and 908 exact protected cells in the same 958-frame/1024×2564 atlas. Snowy pine and approved small-foliage frames remain exact. check_props_v2.mjs verifies hashes, metadata, binary alpha, protected pixels, an area-vote noise regression and rug coverage/quiet centres. No runtime source/architecture/save/room geometry or dependency change.
+
+---
+
+# v0.35.0 — shared prop sprites and snow material preservation (2026-10-15)
+
+DecorationArt now routes all upright decorations through shared local frames. Shop previews, placement ghosts and saved pieces use the same pixels; bench/table/fence side views are authored upright, with a separate rear bench. Planter art can extend above its unchanged solid footprint, with preview bounds fitted accordingly. Finished public-project planters use the same sprite and suppress the superseded duplicate flower overlay. Paid house accent colours preserve the generated rug/quilt detail.
+
+Snow pine bypasses habitat recolouring and uses a cached exact native canvas, avoiding the former double whitening. Generic snow foliage keeps dark olive undersides. Existing snowy tree root registration is remeasured without changing collision positions. Offline export changes 42 cells in place, appends 12 frames and proves 904 non-target cells exact; atlas 1024×2564, 958 frames. No new runtime file/dependency or save schema/price/placement-rule change.
+
+---
+
+# v0.34.0 — foliage aliases, water motion and bridge rails (2026-10-15)
+
+export_nature_more.mjs appends six native frames to town.png/town.json; all940previous frames and pixels stay exact. Atlas1024 ×2500 /946frames. natureExtras holds measured root origins; treeVisual selects two smaller forms by stable map coordinates. groundPlantVisual replaces fern/palmetto/bush visuals while retaining their old vegetation IDs, anchors and clearing rules. No world layout, crop position, species difficulty or save-schema change.
+
+waterFootsteps is a pure transient model: distance/elapsed-gated alternating contacts, wet/dry edge bursts, expanding wake/drop poses,820mslifetime and a24burst cap. WaterView draws separate wake/droplet graphics with native2unit alignment and four-corner water clipping; existing reflection/crop/current logic remains. Only actual movement emits steps. Motion counters are read-only development snapshot data, never saved.
+
+bridgeRails derives two8unit side boxes from each bridge orientation; both ends stay open. walkable uses the same boxes for Forest movement, jump sweeps, line queries and save-safe positions. CollisionWorld also instantiates these boxes for Phaser-driven Home/Farm/City collision. This fixes lateral water-to-deck traversal without blocking ordinary water or center approaches. Existing bridge tests now sample the clear center corridor rather than the rail strip. Old saves placed in a newly solid rail normalize to nearby safe ground, preserving inventory/progress.
+
+---
+
+# v0.33.0 — native nature atlas and shared tree rendering (2026-10-15)
+
+scripts/export_nature.mjs converts four selected built-in imagegen PNGs with existing offline pngjs into native binary-alpha palette art. Replaces40old cells in place and appends two80 ×112fruit crowns below the original atlas. All898other old frame is byte-identical. New atlas1024 ×2424 /940frames; existing frame coordinates and runtime paths remain. No generic atlas rebuild, new runtime dependency or URL.
+
+treeVisual chooses local tree frames independently of vegetation IDs. natureArt stores root origins measured from opaque native pixels, including asymmetric palm feet. worldArt renders all recognized outdoor trees with common olive textures, grounded shadows, foot depth and full canopy bounds at unchanged map x/y+32/90anchors. Rocks retain their prior replacement behavior. Existing GrassView consumes the same27green/dry/snow bend keys. Atlas/frame count tests and root routing regressions cover the change. Canopy occlusion retains its geometric rule and lowers overlapping crown opacity to.28. Ground surface changes only small leaf/flower brushwork; roads/water/shore masks and all map data remain.
+
+---
+
+# v0.32.0 — restore empty soil and space the Farm (2026-10-15)
+
+FIELDS is 8 × 5 / 384 × 240; starter extension has24cells. Roads[0:2]narrow inside their old footprints; notice moves from736,384to800,532and its service point to828,576. New board collision is entirely on existing undiggable road ground, preserving previously valid custom crop locations. Original plot positions remain.
+
+Shovel groundContext returns `restoreGround` for empty visible beds. Application opens a localized canvas confirmation, then pure restoreGround validates Farm/range/sight/empty crop and stores a grass override, removes that cell's wet patch and refreshes rendering/save. Cancel changes nothing. Existing planted beds remain protected. Saved indices/records remain; visiblePlots/plotOwned filter overrides, prepareStarterBeds skips them and groundPoint can find hidden custom records for re-digging. No new tool, DOM HUD or remote runtime.
+
+---
+
+# v0.31.1 — taller cleared sites and unrestricted Farm digging (2026-10-15)
+
+FIELDS is now 384 × 288 / 8 × 6; FIELD/PLOTS and 64 reserved FARM_PLOTS per farm retain original coordinates/indices. STARTER_EXTENSION appends two full rows after the prior right-side extension. Existing prepareStarterBeds provides additive safe migration. Removed drawFarmSites and its world-render hook; only drawFarmBeds creates soil for actual beds. Removed the Copper check from digGround and the unused inGrowingArea predicate. Farm-only, reach, clear terrain, water/road/building/furniture protection, overlap, energy and capacity checks remain. No PNG/JSON asset or dependency changes.
+
+---
+
+# v0.31.0 — growing-area geometry separate from legacy plot storage (2026-10-15)
+
+FIELDS now describes384×192 /8×4growing areas. FIELD/PLOTS/FARM_PLOTS still describe original4×4reserved slots for compatibility. STARTER_EXTENSION supplies16right-side positions. State creates them as custom beds; prepareStarterBeds appends safe missing cells on migration/new-farm purchase without reordering/replacing saved entries. MAX_CUSTOM_BEDS is shared from data/farms and re-exported by farmGround. Existing plotAt/allPlots/watering/harvest handle the extensions normally.
+
+FarmView.drawFarmSites bakes four light-fallow canvases from original soilPixels using existing world-coordinate texture/material logic, below darker prepared beds. They identify equal shovel-ready sites; fallow earth alone is not a planted/dug state. Ground targeting first respects reserved and saved beds, then uses the area's own48-unit lattice throughout all8columns. In-zone digging bypasses Copper gating; outside-zone progression remains. Farm bed work takes priority over nearby board interaction while retaining explicit pointed-bed priority and hand-based board use. Road data has6segments, each contained in an old road rectangle; shared rendering/collision and road-based dig checks stay coherent. No raster asset change or external runtime.
+
+---
+
+# v0.30.1 — Farm materials and crop export (2026-10-15)
+
+MAPS.farm props/buildings/fences remain the source for both rendering and collision. Removed the central shed and repeated display props, plus separate fence images and the two matching explicit obstacle boxes. Home/City/Forest map definitions remain. Farm plot/ownership coordinates, custom beds, prices, save schema19 and gameplay are unchanged.
+
+FarmView.soilPixels accepts an optional wet-neighbour mask. Watered cells feather against dry beds only; outer turf and connected wet boundaries stay coherent. The texture cache key includes both masks and world coordinates. Actual wet patch lifetime/energy/crop care rules remain in pure systems.
+
+`scripts/refresh_farm_crops.py` runs existing crop_art/farm_crop_art/garden_tools_art sources and overwrites only the96named crop candidate cells in existing atlas positions;40differ by removed soil,56stay unchanged. No whole-atlas repack. `scripts/check_farm_refresh.py` verifies hashes, binary alpha, crop dimensions and unchanged protected sources. When temporary pre-edit atlas exists it also proves pixel removal only and all898other frames byte-identical; persisted manifest/hash evidence remains afterward. The exporter manifest describes its most recent invocation, so retain the recorded first-change evidence for history.
+
+---
+
+# v0.30.0 — resident-specific visuals and scoped shops (2026-10-14)
+
+`src/data/matchingNpcs.js` maps only city-nell/city-sol to64pxatlas frames,1.5scale and56/64origin. `residentFrame` selects transient clocked idle/walking phases; legacy lookup remains unchanged for all other resident IDs, even shared art indices. ResidentView uses actual visual height for service markers. Pure resident/commute data and schedules are unchanged. WorldScene stops resident updates during menus/hidden documents. No saved animation fields or schema bump.
+
+`AppearancePanel.openShop` sets hair/clothes scope. `appearanceTabs` constrains tabs; internal tab/navigation/purchase rebuilds preserve scope; ordinary home open defaults to full wardrobe. Hair preview clones and clears only preview accessory slots. No actual equip state is changed by previewing. Prices, ownership and service checks stay in pure appearance systems.
+
+`scripts/npc_matching_animated.py` exports native frames and idempotently updates80town atlas slots; people_art includes them in full repacks. Original858cells remain at original coordinates during append. Full repack removes stale base-height metadata. Native audit checks binary alpha, boot baseline, neutral pixel identity, runtime equality, unchanged older cells and protected sources. Clara export remains developer-only. Runtime allowlist stays46files.
+
+---
+
+# v0.29.0 — farmer cosmetics (2026-10-14)
+
+Player body identity comes exclusively from `state.character`; legacy `appearanceIndex`/`appearanceFrame` remain for legacy/NPC metadata, never choose the player rig. Pure shop/ownership operations remain in `systems/appearance.js`. Additive schema19 appearance fields default missing accessories to empty slots; no save key change or balance compensation. Old purchased outfit IDs/ownership and hair IDs remain.
+
+`farmerCosmeticPixels` composes source-backed native clothing/hair palettes and generated accessory pixels for all384body cells. Per-frame semantic head and fabric shoulder registration is exported offline. Original PNGs/tool cells remain immutable. `art/farmerTexture.js` maintains at most four reusable canvas buffers (boy/girl × world/preview), refreshed only when the appearance signature changes. Reflections, source hand crops and shallow-water rendering use the same composed frame. Both Canvas/WebGL use actual pixels with nearest filtering. Tool profiles select by base identity, never derived texture key.
+
+---
+
+# v0.28.1 — matching female farmer, corrected size and eyes (2026-10-14)
+
+GIRL_FARMER resolves the existing girl texture to64×64cells,256slots/eight columns, origin56/64, scale1.45and eight timed clips. scripts/revised_girl.py exports192new body poses, preserves raw imagegen outputs and generates independent female skin-pixel hand/wrist data. scripts/people_art.py invokes this packer on future art rebuilds; older female v1 assets/evidence remain archived.
+
+PlayerView supplies a per-character carryProfile to farmerCarryPose. Tools still use existing boy atlas slots256–267; the hand overlay now takes its texture from the active body, preventing male hand pixels on the female. Both rigs retain exact clip timings; the action nozzle scales with the actual rig. No new runtime asset path, dependency, save schema, combat reward/timing or jump-physics change. The corrected female size propagates through title, selection, wardrobe, world, hand grips and effects.
+
+---
+
+# v0.27.0 — jump clip and carried-tool registration
+
+The existing boy.png now has27264×64slots in eight columns: original action blocks0–223unchanged, jump224–255, tools256–267and four trailing padding slots. No runtime path/dependency is added. scripts/farmer_extension.py converts the four new built-in-imagegen outputs offline; scripts/revised_farmer.py preserves approved pixels and packs the extension, hand points and wrist-derived angle table. characterFrame selects jumping directly from jumpPose.elapsed; jump physics/duration/range/cooldown remain. farmerCarryPose uses the same body phase for hand, angle and tool view, sharing jump height. HeldWateringCan uses the new male layer branch and restores actual hand pixels with a crop; other rigs retain their preceding behavior. All combined actions hide both carried tool and hand overlay immediately.
+
+---
+
+# v0.26.2 — source pixels plus display scale
+
+BOY_FARMER uses width/height 64, originY 56/64 and scale 1.5, retaining v0.26.1’s displayWidth/displayHeight 96 and ground offset 84. scripts/revised_farmer.py copies every original native frame; no resize. BOY_HANDS converts original skin-pixel centres to rounded world offsets at 1.5×. Nearest texture filtering remains. All clip indices/durations and baked-tool suppression remain; girl/legacy rigs keep their previous scale. This addresses loss of the single-column left eye caused by offline nearest resizing, without changing accepted stature or gameplay/save behavior.
+
+---
+
+# v0.26.1 — compact revised boy rig
+
+BOY_FARMER now uses 48×48 cells and originY=42/48 at integer 2× world scale. scripts/revised_farmer.py adapts the whole original 64×64 frame with one fixed 0.75 nearest transform, retaining the seven-action/eight-column indexing and exact durations. BOY_HANDS is re-extracted from adapted native skin pixels; baked watering-spout offsets use the same reduction. The original source pack is preserved and records retain source/adapted hashes. No gameplay timing, collision, save or rendering architecture change. Carried tool layers remain separate; existing tool-use artwork remains combined.
+
+---
+
+# v0.26.0 — revised boy runtime rig
+
+BOY_FARMER resolves only the existing Worker/Classic appearance to 64×64 cells with an eight-column, seven-action sheet, while FARMER retains the girl rig and PEOPLE retains other looks/NPCs. scripts/revised_farmer.py copies native source RGBA cells into the existing boy.png path, generates exact clip timing/grips and is called by people_art.py. Source sheets/metadata and archive hash remain under assets/licenses/farmer-boy-revised-v2. characterAnimation.js selects phases from exact per-frame durations; PlayerView advances visual time only during active simulation, returns to idle/run after one-shot work, and cancels work on movement/tool switch/jump. Save schema, rewards, damage/cooldowns, movement speed, collision bodies and tree/crop systems remain. Existing interactions trigger the new visual clips; gameplay mutations retain their preceding timing. Held utility art is hidden during built-in tool poses. No new runtime asset path or dependency.
+
+---
+
 # v0.25.0 — girl farmer rig (2026-10-13)
 
 Starter appearance index 6 (Garden outfit/Autumn look) resolves to the girl texture with the shared FARMER rig; index 0 still resolves to the approved male. Both preload as 48×48 sprites, and title/selection/wardrobe previews use the same feet anchor. GIRL_HANDS supplies each pose's actual opaque skin-pixel centres. Existing rig-aware water cropping/reflection, depth and grounded jump arc require no new system. scripts/generated_girl.py reproduces native conversion/packing and the reusable PNG/ZIP/GIF exports. people_art.py calls both approved farmer packers when rebuilding legacy assets. Source, archives and previews stay outside the runtime allowlist. No dependency, gameplay speed, collision, economy or save-schema change.

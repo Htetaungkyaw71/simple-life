@@ -2,10 +2,11 @@ import {PEOPLE} from '../data/appearance.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {waterAt} from '../data/water.js';
 import {waterRipples,ripplePose} from './waterRipples.js';
+import {waterMotion,stepWaterMotion,waterBurstPose} from './waterFootsteps.js';
 // Camera-local native-pixel currents, clipped reflections and shallow-water ankles.
 // Mask alpha matches image alpha because Phaser Canvas resets alpha while clipping.
 export class WaterView {
- constructor(scene,area){this.scene=scene;this.map=MAPS[area];this.ripples=waterRipples(this.map);this.flow=scene.add.graphics().setDepth(0);this.wade=scene.add.graphics();this.phase=-1;this.reflectionMask=scene.add.graphics().setAlpha(.24).setVisible(false);this.reflection=scene.add.image(0,0,scene.app.state?.character||'girl',0).setOrigin(.5,0).setFlipY(true).setScale(2).setAlpha(.24).setDepth(.5).setVisible(false).setMask(this.reflectionMask.createGeometryMask());}
+ constructor(scene,area){this.scene=scene;this.map=MAPS[area];this.ripples=waterRipples(this.map);this.flow=scene.add.graphics().setDepth(0);this.wade=scene.add.graphics();this.wake=scene.add.graphics().setDepth(.8);this.drops=scene.add.graphics();this.motion=waterMotion();this.phase=-1;this.reflectionMask=scene.add.graphics().setAlpha(.24).setVisible(false);this.reflection=scene.add.image(0,0,scene.app.state?.character||'girl',0).setOrigin(.5,0).setFlipY(true).setScale(2).setAlpha(.24).setDepth(.5).setVisible(false).setMask(this.reflectionMask.createGeometryMask());}
  update(time,moving,p){
   const camera=this.scene.cameras.main.worldView,phase=Math.floor(time/240)%6,key=[Math.floor(time/120),Math.floor(camera.x/32),Math.floor(camera.y/32),camera.width,camera.height].join(':');
   if(key!==this.key){
@@ -23,7 +24,15 @@ export class WaterView {
   const wet=!this.scene.jumping?.active&&waterAt(this.map,p),sprite=this.scene.player?.sprite;
   this.scene.player?.shadow?.setVisible(!wet);
   this.wade.clear().setVisible(wet);if(sprite){if(wet)sprite.setCrop(0,0,sprite.frame.width,sprite.frame.height*sprite.originY-PEOPLE.wadeRows);else sprite.setCrop();}
-  if(wet){const x=Math.round(p.x/2)*2,y=Math.round(p.y/2)*2,spread=moving?(phase%4)*2:2,g=this.wade;g.setDepth(p.y+1).fillStyle(0x6b908d,.85).fillRect(x-12,y-6,24,6).fillStyle(0xd8dac3,.7).fillRect(x-16-spread,y-6,10,2).fillRect(x+6+spread,y-6,10,2).fillRect(x-6,y-2+spread,12,2);}
+  const bursts=stepWaterMotion(this.motion,p,wet,moving,time),wake=this.wake,drop=this.drops;wake.clear();drop.clear().setDepth(p.y+2);
+  // Each small block is tested against the shared surface; bridges/banks stay dry.
+  const block=(g,x,y,w,h,color,alpha)=>{x=Math.round(x/2)*2;y=Math.round(y/2)*2;if([[x,y],[x+w-1,y],[x,y+h-1],[x+w-1,y+h-1]].every(([xx,yy])=>waterAt(this.map,{x:xx,y:yy})))g.fillStyle(color,alpha).fillRect(x,y,w,h);};
+  for(const b of bursts){const pose=waterBurstPose(b,time);if(!pose)continue;
+   for(let n=0;n<18;n++){if(n%6===2)continue;const a=n*Math.PI/9;block(wake,pose.x+Math.cos(a)*pose.radius,pose.y+Math.sin(a)*pose.radius*.30,4,2,n%2?0xbfcfc0:0x789c94,pose.alpha);}
+   for(const d of pose.drops)block(drop,d.x,d.y,d.w,d.h,0xe0e4c9,d.alpha*.88);
+  }
+  if(wet){const x=Math.round(p.x/2)*2,y=Math.round(p.y/2)*2,g=this.wade;g.setDepth(p.y+1);block(g,x-8,y-4,6,2,0x789c94,.7);block(g,x+4,y-4,6,2,0xc4d1bb,.65);}
+
   this.reflection.setVisible(wet);this.reflectionMask.clear();
   if(wet&&sprite){
    this.reflection.setTexture(sprite.texture.key,sprite.frame.name).setOrigin(.5,1-sprite.originY).setPosition(Math.round(p.x/2)*2+(phase%3-1)*2,Math.round(p.y/2)*2-2).setScale(sprite.scaleX,sprite.scaleY*.85);

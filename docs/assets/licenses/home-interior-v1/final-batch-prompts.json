@@ -1,0 +1,55 @@
+[
+  {
+    "id": "02-rug-bedside",
+    "name": "Bedside rug",
+    "units": [
+      40,
+      60
+    ],
+    "refs": [
+      "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/01-bed-single-head-north.png",
+      "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.14 PM.png"
+    ],
+    "prompt": "Use case: stylized-concept. Create ONE new original flat woven RUG sprite on TRUE TRANSPARENT RGBA. Image1 BED is ONLY a palette/fabric-family reference, Image2 indoor room is ONLY the orthographic RPG pixel-detail/camera reference. Do NOT draw a bed, furniture or scene.\nClean medium-detail pixel art, clear deliberate shapes and thin warm-brown outline, cream/terracotta/muted sage from the bed family, 3–4 flat fabric shades, subtle upper-left interior shading INSIDE cloth only. Modest readable border stitches, quiet centre, no dense fabric microtexture. Flat rectangle aligned horizontal/vertical to room axes, NOT diagonal isometric.\nCRITICAL: It is a hard-edged 2D game cutout. EVERY pixel OUTSIDE the rug's cloth/fringe must have alpha ZERO, with NO shadow, halo, glow, vignette, soft border, ambient gradient, floor or backdrop. The surrounding empty canvas must be fully transparent. Opaque rug with crisp pixel-art edges. No text, labels, watermark, guides, characters or other object. Full original resolution, transparent padding, no automatic tiny-icon reduction.\nSUBJECT: A compact BEDSIDE RUG, vertical long axis, overall opaque shape width40 logical units and height60 units (2:3 aspect), for a40-unit adult scale. Cream quiet centre, simple narrow reddish-walnut/terracotta and sage double border with only a few plain corner stitches, restrained short fringe at the two short ends. It is smaller than the adult bed, not a long hallway runner. Medium detail, no elaborate floral pattern."
+  },
+  {
+    "id": "05-rug-dining-large",
+    "name": "Dining rug",
+    "units": [
+      110,
+      84
+    ],
+    "refs": [
+      "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/01-bed-single-head-north.png",
+      "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.14 PM.png"
+    ],
+    "prompt": "Use case: stylized-concept. Create ONE new original flat woven RUG sprite on TRUE TRANSPARENT RGBA. Image1 BED is ONLY a palette/fabric-family reference, Image2 indoor room is ONLY the orthographic RPG pixel-detail/camera reference. Do NOT draw a bed, furniture or scene.\nClean medium-detail pixel art, clear deliberate shapes and thin warm-brown outline, cream/terracotta/muted sage from the bed family, 3–4 flat fabric shades, subtle upper-left interior shading INSIDE cloth only. Modest readable border stitches, quiet centre, no dense fabric microtexture. Flat rectangle aligned horizontal/vertical to room axes, NOT diagonal isometric.\nCRITICAL: It is a hard-edged 2D game cutout. EVERY pixel OUTSIDE the rug's cloth/fringe must have alpha ZERO, with NO shadow, halo, glow, vignette, soft border, ambient gradient, floor or backdrop. The surrounding empty canvas must be fully transparent. Opaque rug with crisp pixel-art edges. No text, labels, watermark, guides, characters or other object. Full original resolution, transparent padding, no automatic tiny-icon reduction.\nSUBJECT: A LARGE DINING RUG with substantial front-to-back DEPTH, overall shape WIDTH110 × HEIGHT84 logical units, approximately4:3 landscape rectangle, almost square, NOT a thin2:1 runner. At40-unit adult scale this fits a100-unit table plus near/far benches. Warm terracotta quiet centre, cream double-line geometric border and a few muted sage corner stitches, small original simple diamond accents. Restrained short fringe. Prioritize this broad-deep4:3 rectangular silhouette. NO table, bench, plates or other furniture on the rug."
+  },
+  {
+    "id": "16-jar-terracotta-storage",
+    "name": "Terracotta storage jar",
+    "units": [
+      22,
+      32
+    ],
+    "subject": "One freestanding rounded TERRACOTTA STORAGE JAR, adult knee/waist height, broad shoulders, short neck, thick simple rim with visible dark opening from the shared overhead camera. Three restrained clay shades, one modest cream band or incision, no copied distinctive pattern, no handles unless small integral lugs. Clear stout silhouette, no lid beside it, flowers, stand, rug, floor or other object.",
+    "prompt": "Use case: stylized-concept. ONE isolated original transparent furniture/decoration sprite for the Simple Life HOME INTERIOR collection, REVIEW ONLY.\nINPUT ROLES: Image1 current home identifies purpose/general proportions ONLY; do NOT reproduce its dense weathered textures. Image2 indoor target is the AUTHORITY for orthographic camera elevation, construction, restrained pixel detail, colours/outlines/material shading. Image3 is the already approved dining TABLE, provided only for the matching walnut/material family; DO NOT draw, alter or replace that table. Do not copy rooms, layouts, people, interface, text or distinctive decorative patterns from references.\nSHARED FAMILY: Clean medium-detail handcrafted pixel art; deliberate coherent colour clusters, crisp unsmoothed pixel edges. Warm reddish WALNUT wood, CREAM, TERRACOTTA, muted SAGE foliage, soft warm GREY stone. Upper-left light. Thin restrained dark-BROWN outlines, approximately3–4 clearly separated shades per material. Suggested shared ramps: walnut #4e342f/#7c4937/#a26448/#c88a62; cream #ad957a/#d6bf98/#f1dfb4; terracotta #8d4837/#bd6f4c/#df9b69; sage #4e6542/#7e955b/#adc181; stone #6d665a/#9a927d/#c8bda4. Use only relevant materials, no arbitrary bright accents. Few readable plank seams/grain marks/stone divisions/fabric details, clear silhouette. No dense speckling/random noisy texture, glossy rendering, gradients, excessive weathering, heavy black outlines, bright orange edge glow or blur.\nCAMERA: Image2 orthographic ANGLED TOP-DOWN RPG view: show horizontal top planes and shorter vertical front faces, with coherent upright walls/window/cabinet faces. Furniture aligns horizontal/vertical to room axes, NO diagonal isometric turn or convergence. Modest top thickness, connected supports/legs, rear supports naturally hidden. Pottery openings share the elevated camera. Match the approved table's pixel density and medium detail; not a giant low-resolution32x24 icon.\nSCALE PLAN: Adult standing body is40 logical native units tall; approved dining table width100 units. Use the subject's planned unit size for believable proportions in this family. Canvas size is independent: show the subject large for inspection at FULL generated resolution, not resized to literal unit counts, with transparent padding. Do not include a character, ruler or scale guide.\nOUTPUT: ONE complete specified asset only, genuinely TRANSPARENT RGBA PNG around it and through holes, centred with generous empty padding, every foot/edge included. No room, wall backdrop, flooring, rug except when rug is the requested subject, chairs, unrelated objects, characters, text, labels, numbers, frames, watermark, large ground/cast shadow or ground tile. Keep necessary shading inside the object.\nPLANNED SUBJECT BOUNDS: 22 wide × 32 high logical units.\nSUBJECT: One freestanding rounded TERRACOTTA STORAGE JAR, adult knee/waist height, broad shoulders, short neck, thick simple rim with visible dark opening from the shared overhead camera. Three restrained clay shades, one modest cream band or incision, no copied distinctive pattern, no handles unless small integral lugs. Clear stout silhouette, no lid beside it, flowers, stand, rug, floor or other object.",
+    "refs": [
+      "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/docs/verification/table-native-v1/game-desktop.png",
+      "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.14 PM.png",
+      "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-993cc3a9-800d-48b0-bb4e-cc331b4d1550.png"
+    ]
+  },
+  {
+    "id": "11-fireplace-ember-overlay",
+    "name": "Fireplace ember/fire overlay",
+    "units": [
+      24,
+      20
+    ],
+    "refs": [
+      "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/home-interior-review-2026-10-16/assets/09-fireplace-structure.png"
+    ],
+    "prompt": "Use case: stylized-concept. Create ONLY a SMALL isolated pixel-art EMBER/FIRE OVERLAY to register with the supplied fireplace structure. The fireplace image is ALIGNMENT/PIXEL-DENSITY reference only: do NOT reproduce any stone, brick, mantel, fireplace structure, floor, background, grate or logs. Deliver flames/embers on TRUE transparent RGBA.\nPreserve the reference canvas proportion and intended canvas size1402×1122. The fire must be SMALL inside that mostly empty transparent canvas, NOT enlarged to fill the frame. Draw the fire centred at roughly x50%, y73%, within a footprint no more than230px wide and170px high at this source resolution. The reference hearth opening is around x550–850,y650–900; fire belongs at its lower centre, with embers resting near y880. The effect should fit inside the clear opening when overlaid.\nDesign: a small patch of restrained reddish embers with three modest amber/cream flame tongues, crisp deliberate pixel clusters and a few tiny sparks. Match the reference's medium pixel density. Warm terracotta/amber/cream, no neon saturated-orange flood. No blurry bloom, glow cloud, smoke, cast/ground shadow or external lighting wash. Alpha ZERO everywhere outside individual flame/ember pixels. All other image area empty transparent. Exactly ONE static fire overlay only, no room, character, text, labels or watermark. Retain original generated resolution; no automatic shrinking."
+  }
+]

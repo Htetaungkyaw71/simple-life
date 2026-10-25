@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-16",
+  "changed": [
+    {
+      "name": "cedar-notice",
+      "source": "notice-board",
+      "size": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "cedar-road-sign",
+      "source": "route-board",
+      "size": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "cedar-farm-sign",
+      "source": "route-board",
+      "size": [
+        48,
+        64
+      ]
+    },
+    {
+      "name": "cedar-wheelbarrow",
+      "source": "wheelbarrow",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "name": "cedar-flowers",
+      "source": "ground-wildflowers",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cedar-flowers0",
+      "source": "ground-wildflowers",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cedar-flowers1",
+      "source": "ground-wildflowers",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cedar-flowers2",
+      "source": "ground-wildflowers",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cedar-flowers3",
+      "source": "ground-wildflowers",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cedar-flowers4",
+      "source": "ground-wildflowers",
+      "size": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cedar-prop-flowers",
+      "source": "ground-wildflowers",
+      "size": [
+        48,
+        32
+      ]
+    },
+    {
+      "name": "cedar-city-fountain0",
+      "source": "fountain",
+      "size": [
+        160,
+        176
+      ]
+    },
+    {
+      "name": "cedar-city-tent",
+      "source": "canvas-tent",
+      "size": [
+        128,
+        96
+      ]
+    },
+    {
+      "name": "cedar-camp-tent",
+      "source": "canvas-tent",
+      "size": [
+        96,
+        80
+      ]
+    },
+    {
+      "name": "outdoor-well-large",
+      "source": "output/art/outdoor-collection-v1/png/10-stone-well.png",
+      "size": [
+        72,
+        96
+      ]
+    }
+  ],
+  "oldFrames": 1050,
+  "atlas": {
+    "w": 1024,
+    "h": 3925
+  },
+  "originalsPreserved": 6,
+  "wellSource": "output/art/outdoor-collection-v1/png/10-stone-well.png",
+  "wellSourceSha256": "0d40d13ce5474a9c037f62a7646400f230d5fae3100d3b7d7bd5fe1af07b12e2"
+}

@@ -1,0 +1,20 @@
+{
+  "asset": "Mystical Forest River welcome background",
+  "date": "2026-10-23",
+  "status": "USER APPROVED DIRECTION; RUNTIME INTEGRATED",
+  "generator": "OpenAI built-in image generation",
+  "model": "unavailable from built-in tool response",
+  "references": {
+    "image1": "user-supplied composition and atmosphere reference",
+    "image2": "user-supplied current-game palette and pixel-density reference",
+    "pixelsExtracted": false
+  },
+  "runtime": {
+    "path": "public/assets/pixel/processed/welcome-mystical-river.png",
+    "textureKey": "welcomeMysticalRiver",
+    "dimensions": [1672, 941],
+    "bytes": 2415970,
+    "sha256": "cf7c626d47fcb399d9ad25bf54c9e03ee127a42863d98cd37d9aa8cb22e44e54"
+  },
+  "transformation": "byte-identical copy of generated PNG; responsive cover scaling and live overlays are Phaser-only"
+}

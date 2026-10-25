@@ -1,0 +1,61 @@
+// Offline native export; imagegen authors all art/poses. No runtime changes.
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const {PNG}=require(process.env.PNGJS_MODULE||'/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pngjs');
+const sharp=require(process.env.SHARP_MODULE||'/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'output/art/farmer-boy-revised-v2');
+const config=JSON.parse(fs.readFileSync(out+'/generation.json','utf8'));
+const SIZE=64,GROUND=56,BODY=40,dirs=['south','north','west','east'];
+const specs={idle:{count:4,fps:null,durations:[1100,1000,120,1000]},running:{count:8,fps:12},harvesting:{count:6,fps:10},digging:{count:6,fps:10},chopping:{count:6,fps:10},watering:{count:6,fps:8},attack:{count:6,fps:12}};
+const blank=(w,h)=>new PNG({width:w,height:h}),sha=data=>createHash('sha256').update(data).digest('hex');
+const px=(im,x,y)=>im.data.subarray((y*im.width+x)*4,(y*im.width+x+1)*4),ink=(im,x,y)=>px(im,x,y)[3]>=128;
+const read=file=>PNG.sync.read(fs.readFileSync(file));
+function write(file,im){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,PNG.sync.write(im));}
+function box(im){let l=im.width,t=im.height,r=-1,b=-1;for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x++)if(ink(im,x,y)){l=Math.min(l,x);t=Math.min(t,y);r=Math.max(r,x);b=Math.max(b,y);}assert.ok(r>=l,'Empty pose');return[l,t,r+1,b+1];}
+function crop(im,l,t,r,b){const dst=blank(r-l,b-t);for(let y=t;y<b;y++)im.data.copy(dst.data,(y-t)*dst.width*4,(y*im.width+l)*4,(y*im.width+r)*4);return dst;}
+function paste(dst,im,ox,oy){assert.ok(ox>=0&&oy>=0&&ox+im.width<=dst.width&&oy+im.height<=dst.height);for(let y=0;y<im.height;y++)im.data.copy(dst.data,((y+oy)*dst.width+ox)*4,y*im.width*4,(y+1)*im.width*4);}
+function cuts(im,count,axis){const n=axis===0?im.width:im.height,other=axis===0?im.height:im.width,hist=new Uint32Array(n);for(let p=0;p<n;p++)for(let q=0;q<other;q++)if(ink(im,axis===0?p:q,axis===0?q:p))hist[p]++;
+ const ranges=[];let start=-1;for(let p=0;p<=n;p++){if(p<n&&hist[p]&&start<0)start=p;if((p===n||!hist[p])&&start>=0){ranges.push([start,p]);start=-1;}}
+ if(ranges.length===count)return[0,...ranges.slice(0,-1).map((r,i)=>Math.floor((r[1]+ranges[i+1][0])/2)),n];
+ const result=[0];for(let i=1;i<count;i++){const mid=n*i/count,pitch=n/count,lo=Math.round(mid-pitch*.25),hi=Math.round(mid+pitch*.25);let best=lo;for(let p=lo+1;p<hi;p++)if(hist[p]<hist[best]||(hist[p]===hist[best]&&Math.abs(p-mid)<Math.abs(best-mid)))best=p;assert.equal(hist[best],0,`No clear alpha gutter ${axis}/${i}`);result.push(best);}return [...result,n];}
+function cells(im,columns,rows){const xs=cuts(im,columns,0),strips=Array.from({length:columns},(_,c)=>crop(im,xs[c],0,xs[c+1],im.height)),ys=strips.map(s=>cuts(s,rows,1));return Array.from({length:rows},(_,r)=>{const t=Math.min(...ys.map(v=>v[r])),b=Math.max(...ys.map(v=>v[r+1]));return strips.map((s,c)=>{const frame=blank(s.width,b-t);paste(frame,crop(s,0,ys[c][r],s.width,ys[c][r+1]),0,ys[c][r]-t);return frame;});});}
+const median=values=>[...values].sort((a,b)=>a-b)[Math.floor(values.length/2)];
+function connectedCells(im,columns,rows){const seen=new Uint8Array(im.width*im.height),components=[];for(let i=0;i<seen.length;i++){if(seen[i]||im.data[i*4+3]<250)continue;const todo=[i],indices=[];seen[i]=1;let l=im.width,t=im.height,r=0,b=0;while(todo.length){const q=todo.pop(),x=q%im.width,y=Math.floor(q/im.width);indices.push(q);l=Math.min(l,x);t=Math.min(t,y);r=Math.max(r,x);b=Math.max(b,y);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const sx=x+dx,sy=y+dy;if(sx<0||sy<0||sx>=im.width||sy>=im.height)continue;const next=sy*im.width+sx;if(!seen[next]&&im.data[next*4+3]>=250){seen[next]=1;todo.push(next);}}}if(indices.length>1000)components.push({indices,box:[l,t,r+1,b+1]});}assert.equal(components.length,columns*rows,'Unexpected connected pose count');const groups=Array.from({length:rows},()=>[]);for(const c of components)groups[Math.min(rows-1,Math.floor((c.box[1]+c.box[3])/2/im.height*rows))].push(c);return groups.map(group=>{assert.equal(group.length,columns);group.sort((a,b)=>a.box[0]-b.box[0]);const top=Math.min(...group.map(c=>c.box[1])),bottom=Math.max(...group.map(c=>c.box[3]));return group.map(c=>{const frame=blank(c.box[2]-c.box[0],bottom-top);for(const i of c.indices){const x=i%im.width-c.box[0],y=Math.floor(i/im.width)-top;frame.data.set(im.data.subarray(i*4,i*4+4),(y*frame.width+x)*4);}return frame;});});}
+function bodyLimits(im){const b=box(im),hair=[],boots=[];for(let y=b[1];y<b[3];y++)for(let x=b[0];x<b[2];x++){const[r,g,blue,a]=px(im,x,y);if(a<128||r>=155||r<g*1.1||g<blue*.65)continue;if(y<b[1]+(b[3]-b[1])*.52)hair.push(y);if(y>b[1]+(b[3]-b[1])*.72)boots.push(y);}assert.ok(hair.length&&boots.length,'Hair/boot calibration missing');return[Math.min(...hair),Math.max(...boots)];}
+function centre(im,top,ground){const points=[],height=ground-top+1;for(let y=Math.max(0,Math.floor(top+height*.38));y<Math.min(im.height,top+height*.65);y++)for(let x=0;x<im.width;x++){const[r,g,b,a]=px(im,x,y);if(a>=128&&r<170&&g>35&&g>=r*.91&&b<g*.89)points.push(x);}if(!points.length){const b=box(im);return(b[0]+b[2])/2;}return median(points);}
+function native(im,scale,limits){const[top,ground]=limits,cx=centre(im,top,ground),b=box(im);const projected=[(b[0]-cx)/scale+32,(b[1]-ground)/scale+GROUND,(b[2]-cx)/scale+32,(b[3]-ground)/scale+GROUND];assert.ok(projected[0]>0&&projected[1]>0&&projected[2]<SIZE&&projected[3]<SIZE,`Clipped ink ${projected}`);const result=blank(SIZE,SIZE);for(let y=0;y<SIZE;y++)for(let x=0;x<SIZE;x++){const sx=Math.round(cx+(x-32+.5)*scale),sy=Math.round(ground+(y-GROUND)*scale);if(sx<0||sx>=im.width||sy<0||sy>=im.height)continue;const p=px(im,sx,sy);if(p[3]>=128)result.data.set([p[0],p[1],p[2],255],(y*SIZE+x)*4);}box(result);return result;}
+function mirror(im){const result=blank(im.width,im.height);for(let y=0;y<im.height;y++)for(let x=0;x<im.width;x++)result.data.set(px(im,im.width-1-x,y),(y*im.width+x)*4);return result;}
+function upscale(im,factor){const result=blank(im.width*factor,im.height*factor);for(let y=0;y<result.height;y++)for(let x=0;x<result.width;x++)result.data.set(px(im,Math.floor(x/factor),Math.floor(y/factor)),(y*result.width+x)*4);return result;}
+const sources={};fs.mkdirSync(out+'/source',{recursive:true});
+for(const item of config.sources){assert.ok(item.path);const target=out+'/source/'+item.name+'.png',bytes=fs.readFileSync(fs.existsSync(item.path)?item.path:target);fs.writeFileSync(target,bytes);sources[item.name]={originalPath:item.path,sha256:sha(bytes)};}
+const source=name=>read(out+'/source/'+name+'.png');
+const packed={},records={};
+for(const[action,spec]of Object.entries(specs)){
+ console.log('Preparing',action);
+ let raw;if(action==='running'){const fb=cells(source('run_frontback'),8,2),east=cells(source('run_east'),8,1)[0];raw=[...fb,east,east];}else if(action==='chopping')raw=connectedCells(source(action),spec.count,4);else raw=cells(source(action),spec.count,4);
+ const limits=raw.map(row=>bodyLimits(row[0]));const scale=median(limits.map(([t,b])=>(b-t+1)/BODY));packed[action]=raw.map((row,r)=>row.map(im=>native(im,scale,limits[r])));
+ if(action==='running')packed[action][2]=packed[action][3].map(mirror);
+ records[action]={...spec,sourceScale:scale,bodyCalibration:limits,mirroredWest:action==='running'};
+}
+// Weighted shared median-cut palette suppresses generated micro-shade flicker.
+const histogram=new Map();for(const rows of Object.values(packed))for(const row of rows)for(const im of row)for(let i=0;i<im.data.length;i+=4)if(im.data[i+3]){const key=(im.data[i]<<16)|(im.data[i+1]<<8)|im.data[i+2];histogram.set(key,(histogram.get(key)||0)+1);}
+const colours=[...histogram].map(([key,w])=>({rgb:[key>>16,(key>>8)&255,key&255],w}));
+function stats(group){const total=group.reduce((n,c)=>n+c.w,0),mean=[0,1,2].map(k=>group.reduce((n,c)=>n+c.rgb[k]*c.w,0)/total),variance=[0,1,2].map(k=>group.reduce((n,c)=>n+(c.rgb[k]-mean[k])**2*c.w,0));return{total,mean,variance,score:Math.max(...variance)};}
+const groups=[colours];while(groups.length<32){let index=0;for(let i=1;i<groups.length;i++)if(groups[i].length>1&&stats(groups[i]).score>stats(groups[index]).score)index=i;const group=groups[index];if(group.length<2)break;const s=stats(group),axis=s.variance.indexOf(Math.max(...s.variance));group.sort((a,b)=>a.rgb[axis]-b.rgb[axis]);let weight=0,at=1;for(;at<group.length;at++){weight+=group[at-1].w;if(weight>=s.total/2)break;}groups.splice(index,1,group.slice(0,at),group.slice(at));}
+const palette=groups.map(g=>stats(g).mean.map(Math.round)),mapped=new Map();function mapColour(r,g,b){const key=(r<<16)|(g<<8)|b;if(mapped.has(key))return mapped.get(key);let best=palette[0],distance=Infinity;for(const p of palette){const d=(r-p[0])**2+(g-p[1])**2+(b-p[2])**2;if(d<distance){best=p;distance=d;}}mapped.set(key,best);return best;}
+for(const rows of Object.values(packed))for(const row of rows)for(const im of row)for(let i=0;i<im.data.length;i+=4)if(im.data[i+3])im.data.set(mapColour(im.data[i],im.data[i+1],im.data[i+2]),i);
+let totalFrames=0;const all=blank(SIZE*8,SIZE*4*7);let block=0;
+for(const[action,spec]of Object.entries(specs)){
+  const rows=packed[action],sheet=blank(SIZE*spec.count,SIZE*4),bounds=[],unique=[];
+ for(let r=0;r<4;r++){bounds.push(rows[r].map(box));unique.push(new Set(rows[r].map(im=>sha(im.data))).size);for(let f=0;f<spec.count;f++){const im=rows[r][f];write(out+'/frames/'+action+'/'+dirs[r]+'/'+String(f).padStart(2,'0')+'.png',im);paste(sheet,im,f*SIZE,r*SIZE);paste(all,im,f*SIZE,(block*4+r)*SIZE);totalFrames++;if(action==='idle'||action==='running'){const b=box(im);assert.ok(b[0]>=8&&b[1]>=12&&b[2]<=56&&b[3]<=60,'48px compatibility crop would clip');write(out+'/compat48/'+action+'/'+dirs[r]+'/'+String(f).padStart(2,'0')+'.png',crop(im,8,12,56,60));}}}
+ write(out+'/sheets/'+action+'.png',sheet);write(out+'/previews/'+action+'-contact.png',upscale(sheet,3));
+ const animation=blank(SIZE*4,SIZE*spec.count);for(let f=0;f<spec.count;f++)for(let r=0;r<4;r++)for(let y=0;y<SIZE;y++)for(let x=0;x<SIZE;x++){const p=px(rows[r][f],x,y),i=((f*SIZE+y)*animation.width+r*SIZE+x)*4;animation.data.set(p[3]?p:[211,212,182,255],i);}
+ const big=upscale(animation,3),durations=spec.durations||Array.from({length:spec.count},(_,i)=>Math.round((i+1)*1000/spec.fps)-Math.round(i*1000/spec.fps));fs.mkdirSync(out+'/previews',{recursive:true});await sharp(big.data,{raw:{width:big.width,height:big.height,channels:4,pageHeight:SIZE*3}}).gif({loop:0,delay:durations,dither:0}).toFile(out+'/previews/'+action+'.gif');
+ records[action]={...records[action],durations,bounds,uniqueFrames:unique,sheetSha256:sha(fs.readFileSync(out+'/sheets/'+action+'.png'))};console.log(action,unique.join('/'));block++;
+}
+assert.equal(totalFrames,168);write(out+'/contact.png',upscale(all,2));
+const manifest={tool:config.source,modelVersion:'not exposed',date:config.date,cellSize:[SIZE,SIZE],bodyHeightTarget:BODY,groundRow:GROUND,compat48:{actions:['idle','running'],cellSize:[48,48],crop:[8,12,48,48],groundRow:44},directions:dirs,totalFrames,palette,actions:records,sources,conversion:'Imagegen-authored poses; alpha gutters or connected chopping silhouettes (opaque core250 for fringe separation); whole-frame nearest sampling; shared per-action body scale/upper-torso registration; threshold128 alpha; one shared weighted32-colour palette. West running mirrors authored east. No independently displaced body parts or synthetic limb warps.',status:'Revised original style and animation review; not game-integrated',limitations:'Generated shape/tool details may vary between poses. Motion guided by existing native PixelLab running poses, not an exact skeletal retarget. Artwork and motion need human review.'};fs.writeFileSync(out+'/manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log('Exported168frames;32-colour shared palette;48px idle/run compatibility crops.');

@@ -1,9 +1,11 @@
 import {habitatColor} from '../data/forestHabitats.js';
 import {paintCity} from './citySurface.js';
+import {citySurfaceMasks} from '../data/citySurfaceGeometry.js';
 import {terrainTiles} from './terrainTiles.js';
 import {MAP_SIZE} from '../data/mapLayouts.js';
 import {waterRows} from '../data/water.js';
 import {groundHash,paintGround,paintGroundDetails,shoreDistance,paintWater} from './groundSurface.js';
+import {applyForestEdgeShade,paintGroundTiles} from './groundTiles.js';
 // Bake static ground once per location. Pixel-space masks give paths/ponds
 // irregular, connected shores without thousands of individual display objects.
 export function terrain(scene,area,map){
@@ -19,15 +21,21 @@ export function terrain(scene,area,map){
  const ctx=texture?.context||canvas.getContext('2d');
  ctx.imageSmoothingEnabled=false;
  const w=canvas.width,h=canvas.height,mask=new Uint8Array(w*h);
- for(const [rx,ry,rw,rh]of map.paths){
+ if(area==='city')mask.set(citySurfaceMasks().walk);
+ for(const [rx,ry,rw,rh]of area==='city'?[]:map.paths){
   const x0=rx/2,y0=ry/2,ww=rw/2,hh=rh/2;
   for(let y=Math.max(0,y0-4);y<Math.min(h,y0+hh+4);y++)for(let x=Math.max(0,x0-4);x<Math.min(w,x0+ww+4);x++){
    const cx=Math.max(x0+8,Math.min(x0+ww-8,x)),cy=Math.max(y0+8,Math.min(y0+hh-8,y));
    if(Math.hypot(x-cx,y-cy)<8+Math.sin(x*.14+y*.07)*2+Math.sin(y*.3)*1.5)mask[y*w+x]=1;
   }
  }
- const pixels=ctx.createImageData(w,h),fields=paintGround(pixels.data,w,h,map.biomes,map.habitats);
- for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++)if(mask[y*w+x]){
+ let pixels=ctx.createImageData(w,h);const fields=paintGround(pixels.data,w,h,map.biomes,map.habitats);
+ // Keep the Forest's authored habitat materials. Home, Farm and the City's
+ // unpaved lawns use the approved seeded A/B/C mix beneath paths and water.
+ if(area!=='forest'){
+  ctx.putImageData(pixels,0,0);paintGroundTiles(ctx,scene,w,h);pixels=ctx.getImageData(0,0,w,h);
+ }else applyForestEdgeShade(pixels.data,scene,w,h);
+ for(let y=1;area!=='city'&&y<h-1;y++)for(let x=1;x<w-1;x++)if(mask[y*w+x]){
   const p=y*w+x,i=p*4,edge=!mask[(y-1)*w+x]||!mask[y*w+x-1]||!mask[(y+1)*w+x]||!mask[y*w+x+1];
   const variation=Math.floor((fields.small[p]-.5)*10)*2,grain=groundHash(Math.floor(x/3),Math.floor(y/2),771)%13===0?-5:0;
   const color=edge?[112,127,78]:[192,164,112];

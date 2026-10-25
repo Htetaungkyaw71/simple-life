@@ -1,3 +1,59 @@
+# 2026-10-24 — Strawberry Pixel Snapper review disclosure
+
+The user supplied an AI-assisted Pixel Snapper Strawberry growth sheet. Codex made no image-generation call and did not redraw or repaint it. Deterministic review processing removes only keyed magenta/fringe pixels, the repeated baked ground/base mask outside the seed stage and two isolated pixels; retained colours remain exact. The cleaned 48×38-frame candidate, source record and development-only comparison remain outside runtime pending human approval. [Evidence and limitations](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-23 — Mystical Forest River welcome disclosure
+
+OpenAI built-in image generation produced one original 1672×941 welcome-screen background from two user-supplied visual references. Image 1 guided the eye-level river/forest depth and edge framing; Image 2 guided the existing game's muted palette and pixel density. No reference pixels or UI were extracted. Codex directed generation, integrated the unchanged PNG as a local Phaser asset, retained separate interactive canvas text/controls and verified responsive behavior. Exact prompt, hash and limitations: [source record](assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md).
+
+This is disclosed AI-generated/adapted project work, not a claim of human-only creation, CC0, exclusivity or guaranteed competition eligibility. No runtime generation, remote asset request, new dependency, backend, deployment, publication or push was added.
+
+---
+
+# 2026-10-21 ground-grass review disclosure
+
+OpenAI built-in image generation produced three original lawn candidates through six one-image calls (initial A/B/C plus one correction each). The current-game screenshots provided scale and palette; the supplied references informed only general mood and density. Deterministic local Pillow/NumPy processing creates the final 128×128 exact-palette review files and checks. They are not loaded by the game. [Complete record](assets/licenses/ground-grass-review-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.43.4 deterministic fountain-animation disclosure
+
+No image generation was used. Codex authored and executed a Pillow/NumPy transformation script against the user's supplied AI-assisted Pixel Snapper fountain. The script changes only a disclosed water mask, reuses the original 16-color palette, preserves every outside-mask RGBA pixel exactly and exports six animation frames plus review artifacts. Source, method, hashes and limitations are recorded in [the source record](assets/licenses/fountain-animation-v1/SOURCE_RECORD.md). The result remains review-only and is not loaded by the game.
+
+---
+
+# v0.43.3 original fountain-island v2 disclosure
+
+OpenAI built-in image generation produced one original magenta-backed pixel-art fountain island and one transparent-background extraction. The supplied screenshot informed only pixel density, outline thickness and mood; the new octagonal basin, oval/path silhouette, palette, plant set and asymmetric composition are deliberately different. The final 1024×1024 RGBA asset remains review-only and is not loaded by the game. Prompts, hashes and limitations are recorded in [the source record](assets/licenses/fountain-island-v2/SOURCE_RECORD.md). No runtime AI or remote runtime asset was added.
+
+---
+
+# v0.43.2 fountain-island review disclosure
+
+OpenAI built-in image generation produced one pixel-art fountain island on a stone plaza and one transparent-background extraction, using the user-supplied fountain screenshot as a style/composition reference. Both review-only files were resized to 512×512 with nearest-neighbour filtering and are not loaded by the game. Prompts, hashes and limitations are recorded in [the source record](assets/licenses/fountain-island-v1/SOURCE_RECORD.md). No reference pixels were directly copied, and no runtime AI or remote runtime asset was added.
+
+---
+
+# v0.43.1 — barber-chair review disclosure (2026-10-19)
+
+One barber-chair candidate was generated with OpenAI's built-in image-generation tool at the user's explicit request. It is review-only and excluded from runtime. The game change integrates the user's AI-assisted Pixel Snapper clothing rack and Home wood unchanged, plus Codex-assisted code/data/layout work. Exact prompt/source/hash evidence and limitations are recorded in [barber-chair review evidence](assets/licenses/barber-chair-review-v2/SOURCE_RECORD.md) and [clothing-rack evidence](assets/licenses/clothing-rack-v3/SOURCE_RECORD.md). This is not a hand-drawn, CC0, exclusive-rights or competition-eligibility claim. No runtime AI, remote asset, deployment, publication or push.
+
+---
+
+# v0.42.2 — user Pixel Snapper derivative (2026-10-17)
+
+The user supplied a Pixel Snapper-processed derivative of the previously disclosed AI-generated terracotta cottage and explicitly requested game integration. Codex made no new generation call and only removed the exact-white opaque backdrop before atlas integration. The unchanged source, hashes, inherited service terms, deterministic transformation and limitations are recorded in [source evidence](assets/licenses/city-cottage-snapper-v2/SOURCE_RECORD.md). This remains disclosed AI-generated/user-adapted art, not a hand-drawn, CC0, exclusive-rights or competition-eligibility claim. No runtime AI, deployment, publication or push.
+
+---
+
+# v0.42.1 — generated terracotta City cottage (2026-10-17)
+
+One northern City cottage is AI-generated with OpenAI's built-in image-generation tool, selected by the user after a cleanup revision, and converted/integrated by Codex. The original, prompt summary, hashes, deterministic native conversion, reviewed service terms, human review and limitations are recorded in [source evidence](assets/licenses/city-cottage-terracotta-v1/SOURCE_RECORD.md). The screenshots were style references only; no reference pixels were extracted. This is disclosed AI-assisted art, not a hand-drawn, CC0, exclusive-rights or competition-eligibility claim. No runtime AI, remote runtime asset, deployment, publication or push.
+
+---
+
 # v0.25.0 — generated female farmer (2026-10-13)
 
 The girl starter character, four directional idles and 32 running poses are AI-generated using OpenAI's built-in image_gen tool, then converted to native game pixels with Codex assistance. Source references, exact prompt, original output, hashes, conversion and reviewed service terms are in [source evidence](assets/licenses/farmer-girl-v1/SOURCE_RECORD.md). Codex performed integration, skin-pixel tool alignment, local testing and documentation. This is disclosed generated/adapted art, not a claim of commissioned human work or exclusive copyright. Existing PixelLab male and Szadiart NPC/other-look provenance remain. No runtime AI, new remote dependency, source push, deployment or competition submission. Human eligibility, final artwork review and declaration signatures remain the user's responsibility.
@@ -186,3 +242,25 @@ Codex assisted with supplied Craftpix PNG cell extraction, rendering, original p
 # AI use declaration — milestone draft
 Material AI assistance was used. See [AI_USAGE.md](AI_USAGE.md) for the tool, date, prompt summary, affected source/art/documentation and review status.
 Team human review, any modifications and final legal-use confirmation must be completed by the team before submission. No claim of completed human review is made here.
+
+## 2026-10-21 barber chair and grass replacement
+
+The active barber chair and small ground grass are AI-assisted Pixel Snapper PNGs supplied by the user. Codex authored and ran a deterministic Pillow/numpy importer that removes magenta, nearest-scales both assets into their exact previous runtime frame bounds, and derives two grass bend phases with integer row shifts. Codex also connected the existing render-only contact system to the small grass sprites and added tests/documentation. No image-generation tool, external download, dependency, save migration, backend, deployment, push or publication was used in this pass. Evidence: `assets/licenses/barber-grass-v2/SOURCE_RECORD.md`.
+
+---
+
+## 2026-10-21 fountain integration disclosure
+
+The active City fountain island is AI-generated art supplied by the user. Codex assisted deterministic background removal, water-only pixel animation, 135% placement, stepped collision, testing and documentation. No new generation or third-party download occurred in this integration pass. See `AI_USAGE.md` and `assets/licenses/fountain-island-user-v2/SOURCE_RECORD.md`; final human rights and competition eligibility review remains required.
+
+The current v5 animation was rebuilt from the stable source with Pillow/numpy only: eight deterministic source-palette frames, an eroded flood-filled water mask, compact 2/4/6-radius landing ripples, straight moving stream dashes, jet/bowl shimmer, previews and automatic outside-mask/rim/palette/3%-budget/seam checks. No image-generation tool was used for this revision. Evidence: `assets/licenses/fountain-island-water-v5/SOURCE_RECORD.md`.
+
+## 2026-10-21 — generated clump checkpoint v3
+
+At the user's explicit request, OpenAI built-in image generation created three selected original tall-grass clump sources in separate calls (wide, tall and small); one earlier unused wide attempt was discarded. The local game screenshot supplied only color, pixel-density and mood guidance. Deterministic offline Pillow/NumPy processing detects the generated logical-pixel grid, majority-votes each cell into the five-color locked palette and verifies alpha, connectivity, pinholes, magenta removal and interior noise. Outputs remain review-only outside `public/` and Phaser. Exact hashes/checks and prompt summary: `assets/licenses/tall-grass-clump-review-v3/`. No gameplay, collision, harvesting, save, camera, UI, deployment, publication or push changed.
+
+## 2026-10-23 — approved clumps and modular tree feasibility
+
+The previously generated v3 clumps are now user-approved and installed as a local scale-1 runtime sheet. Codex assisted deterministic clustered placement, Y sorting, flat contact shadows, touch rendering, QA and records while preserving vegetation IDs, interaction points, harvesting, collision and save data. The selected wide source is the fewer/broader-blade second candidate. Ground v3 is a palette-only deterministic cleanup of already disclosed generated lawn art.
+
+Six additional OpenAI built-in image-generation calls created review-only modular tree components: three leaf-cluster sizes, two trunks and one root flare. Codex majority-voted the generated logical cells into locked palettes and assembled a fixed-seed 175×225 feasibility tree. No modular tree, palm or bush is shipped. Exact evidence is under `assets/licenses/modular-tree-feasibility-v1/`; final human review and competition-rights acceptance remain required.

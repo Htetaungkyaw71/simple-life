@@ -1,4 +1,5 @@
 import {recordStory} from './story.js';
+import {isIndoorArea} from '../data/areas.js';
 import {lineClear} from './forest.js';
 import {VEGETATION,vegetationKey,vegetationState,nearbyVegetation,removed,TREE_HITS,treeHits} from '../data/vegetation.js';
 import {MAPS,MAP_SIZE} from '../data/mapLayouts.js';
@@ -7,20 +8,22 @@ import {walkable} from '../data/locations.js';
 import {visiblePlots} from './expansion.js';
 import {farmDecorations,decorationRect,overlaps} from './settlementGeometry.js';
 export const MAX_PLACED_GRASS=2048;
+export const TREE_REACH=88;
 const face={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
-export function grassGround(s,p){if(s.area==='farm'&&farmDecorations(s).some(d=>overlaps({x:p.x-24,y:p.y-48,w:48,h:48},decorationRect(d),4)))return false;const map=MAPS[s.area];if(!map||s.area==='interior'||!walkable(s.area,p.x,p.y,24,false,s)||waterAt(map,p,false)||!dryFootprint(map,{x:p.x-24,y:p.y-48,w:48,h:48}))return false;
+export function grassGround(s,p){if(s.area==='farm'&&farmDecorations(s).some(d=>overlaps({x:p.x-24,y:p.y-48,w:48,h:48},decorationRect(d),4)))return false;const map=MAPS[s.area];if(!map||isIndoorArea(s.area)||!walkable(s.area,p.x,p.y,24,false,s)||waterAt(map,p,false)||!dryFootprint(map,{x:p.x-24,y:p.y-48,w:48,h:48}))return false;
  if(map.paths.some(([x,y,w,h])=>p.x+16>x&&p.x-16<x+w&&p.y>y&&p.y-16<y+h))return false;
  return s.area!=='farm'||!visiblePlots(s).some(b=>Math.abs(b.x-p.x)<40&&Math.abs(b.y-p.y)<40);
 }
 export function vegetationContext(s,direction='down',target=null){
- if(!['axe','hand','grass'].includes(s.selected)||s.area==='interior')return null;
+ if(!['axe','hand','grass'].includes(s.selected)||isIndoorArea(s.area))return null;
  const [dx,dy]=face[direction]||face.down,p=target||{x:s.position.x+dx*36,y:s.position.y+dy*36};
  if(s.selected==='grass'){const q={x:Math.round(p.x/8)*8,y:Math.round(p.y/8)*8};return {...q,type:'placeGrass',label:s.inventory.grass?'Plant grass':'No grass / gather by hand'};}
- const tree=s.selected==='axe';const nodes=nearbyVegetation(s,s.position,72).filter(n=>n.id.startsWith('tree:')===tree).filter(n=>target?Math.hypot(n.x-target.x,n.y-target.y)<56:(n.x-s.position.x)*dx+(n.y-s.position.y)*dy>=-16).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y));
+ const tree=s.selected==='axe',reach=tree?TREE_REACH:72;const nodes=nearbyVegetation(s,s.position,reach).filter(n=>n.id.startsWith('tree:')===tree).filter(n=>target?Math.hypot(n.x-target.x,n.y-target.y)<56:(n.x-s.position.x)*dx+(n.y-s.position.y)*dy>=-16).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y));
  const n=nodes[0];return n?{...n,type:tree?'chop':'gatherGrass',label:tree?'Chop tree / '+treeHits(s,n.id)+' of '+TREE_HITS+' hits':'Gather plants / grass'}:null;
 }
 export function useVegetation(s,c){
- if(!c||!['chop','gatherGrass','placeGrass'].includes(c.type)||Math.hypot(c.x-s.position.x,c.y-s.position.y)>=72)return {ok:false,message:'Walk closer'};
+ const reach=c?.type==='chop'?TREE_REACH:72;
+ if(!c||!['chop','gatherGrass','placeGrass'].includes(c.type)||Math.hypot(c.x-s.position.x,c.y-s.position.y)>=reach)return {ok:false,message:'Walk closer'};
  if(s.selected!==({chop:'axe',gatherGrass:'hand',placeGrass:'grass'}[c.type]))return {ok:false,message:'Select the tool'};
  let v=vegetationState(s),node;
  if(c.type!=='placeGrass'){

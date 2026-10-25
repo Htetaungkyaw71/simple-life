@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-15",
+  "scope": "One Home bench trial only; preserve current art in ZIP archives",
+  "tool": "built-in imagegen",
+  "transparent_background": true,
+  "prompt": "Use case: stylized-concept. Asset type: ONE game sprite, park bench only. 2D pixel art park bench made of thick chunky dark rustic timber logs, 3/4 top-down HIGH-ANGLE perspective looking steeply down. Heavy dark warm-brown outlines, desaturated warm cedar wood color, simple sturdy construction. Matches a cozy 16-bit farming sim tile map. Broad seat TOP surface and chunky armrest TOP surfaces clearly visible; straight horizontal width edges, vertical posts upright; no isometric diamond angle. Use two or three thick hewn timber beams for the seat, one or two solid thick backrest beams and stout short LOG block legs. Large simple pixel clusters and a restrained warm cedar ramp, a few end-grain rings. Logical 64 by 40 native pixel grid, crisp nearest-neighbor enlarged square pixels. Isolated on TRUE transparent RGBA background, complete bench with all feet visible and a small transparent margin. No thin slats, no delicate metal legs, no front view, no low camera, no flowers/vines/foliage, no extra objects, no backdrop or ground tile, no spooky/gothic ornaments, no blackened grey wood, no microtexture, no neon, no blur, no anti-aliasing, no text or watermark. Friendly warm farming-sim appearance. Small contact shadow supplied in the game; do not paint a large cast shadow."
+}

@@ -10,7 +10,7 @@ export function drawResourcePage(u,page){
  const veil=u.add.rectangle(0,0,u.w,u.h,0x23362a,.65).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,w,h,UI_COLORS.cream);
  text(u,u.root,x+12,y+8,page.kicker,7,UI_COLORS.muted,inner-28);
  const heading=text(u,u.root,x+12,y+21,page.title,tiny||narrow?9:14,UI_COLORS.light,inner-28,true,'heading');
- const close=button(u,u.root,'X',x+w-32,y+8,22,22,()=>u.close(),{id:'resource-close'});close.box.setFillStyle(0xe3a08b);
+ button(u,u.root,'X',x+w-32,y+8,22,22,()=>u.close(),{id:'resource-close'});
  let top=y+Math.max(tiny?35:41,21+heading.height+(tiny?4:6));
  if(page.home){
   const cols=short&&page.home.length>2?2:1,rows=Math.ceil(page.home.length/cols),gap=5,available=y+h-10-top,bh=Math.min(short?34:43,Math.floor((available-gap*(rows-1))/rows)),bw=Math.floor((inner-gap*(cols-1))/cols);

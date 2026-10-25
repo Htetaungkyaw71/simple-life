@@ -1,0 +1,11 @@
+# Farm spacing and restore grass — 2026-10-15
+
+User story: Continue into an8 ×5starter with a grass margin; use Shovel on clear Farm ground → dig → use Shovel on the empty bed → Cancel or Restore grass → Continue → re-dig. Crops must stay protected.
+
+All **344 tests** and production build pass. New regressions cover restoration of original reserved, starter custom and free-dug beds; persistent grass/plot ownership; no crop deletion; reach/map checks; multi-farm isolation; no index churn; wet patch removal; safe re-dig; prior six-row migration preserving planted cells and all custom records; and a minimum32world-unit gap to roads. New board collision sits entirely on existing undiggable road ground. The revised five-row starter retains all original legacy crop positions.
+
+Desktop1280 ×720English and phone-size390 ×844Myanmar browser checks pass through keyboard and real canvas controls: far-edge farming/save, all other sites, free digging between fields, restore confirmation Cancel/Confirm, Continue and re-dig. Phone confirmation was visually checked: localized title/body/buttons fit. No game warnings/errors were captured. Production4205loads index-D_ir1OLc.js with clean console, without opening Continue or replacing the saved game. Test fixtures write only isolated4216storage. Source edits caused test-page hot reload during an initial run; final complete runs pass.
+
+[Checks](checks.json), [unchanged art hashes](art-hashes.json), [desktop test](desktop-field.jpg), [spaced field preview](spaced-field.jpg), [Myanmar phone confirmation](phone-confirmation.jpg). Existing build allowlist remains46files without QA/source/archive additions. No new bitmap, dependency, push or publication.
+
+Limits: restored ground reveals the existing grass terrain; collected/cleared grass items and spent digging energy are not refunded. Restored custom records remain stored to preserve indices and count toward the existing2048custom-bed cap. Planted sixth-row crops are preserved instead of silently removed; harvest/clear then Restore grass to finish that edge. Existing furniture/placed grass and saved crops take priority over new starter preparation. Physical phone touch and other browser engines were not tested.

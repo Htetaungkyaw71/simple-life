@@ -1,0 +1,9 @@
+# Muted planter-bench revision — 2026-10-16
+
+The user requested a palette/detail edit for review, then explicitly authorized game integration. One earlier built-in imagegen edit supplied the accepted revised PNG. No further generation during integration. edit-prompt.json retains the exact prompt/input roles/output path. Image 1 defines the object; the supplied Simple Life screenshot guides colours and gameplay detail only. No screenshot pixels or scenery were extracted.
+
+The unchanged 1536×1024 RGBA original is output/art/planter-bench-muted-v2/planter-bench-muted-original.png, SHA256 f0f4d33196f38155c5c497b64851679b2fee7ccc20cc52ca5e5add2e8f412362. Its visible alpha bounds remain410,36–1126,964. The earlier orange original and native derivative remain in planter-bench-v1; the preceding runtime atlas is backed up in muted-v2/before-town.png and .json.
+
+Run node scripts/export_planter_bench.mjs --muted --install for the existing source-sample native conversion: separate68×87 derivative with2px padding,64×83 visible artwork, binary alpha and nearest1.5× world rendering. It replaces only the existing planter-bench-vertical-review cell; atlas dimensions/metadata, world position, collision footprint, camera and other artwork remain. No added glow/shadow. No original shrinking or palette recolour during export. export.json records conversion evidence.
+
+Disclosed AI-generated/adapted project art; no CC0, exclusive copyright or human-created claim. OUTPUT_TERMS.md retains the prior reviewed output-use evidence unchanged. Existing PNGJS MIT and Pillow evidence under docs/licenses remains applicable; no dependency added. Source PNGs, backups, prompts and QA are excluded from the unchanged48-file build allowlist. Prior art/font/audio attributions remain. No remote runtime asset, backend, save fixture, publication, deployment or push.

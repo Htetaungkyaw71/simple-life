@@ -2,7 +2,7 @@ import {cutObstacle,VEGETATION,vegetationKey,vegetationState} from '../data/vege
 import {lineClear} from './forest.js';
 import {MAPS,MAP_SIZE} from '../data/mapLayouts.js';
 import {waterAt} from '../data/water.js';
-import {FARM_PLOTS,PLOTS_PER_FARM} from '../data/farms.js';
+import {FIELDS,FARM_PLOTS,PLOTS_PER_FARM,MAX_CUSTOM_BEDS} from '../data/farms.js';
 import {visiblePlots,plotOwned} from './expansion.js';
 import {emptyPlot} from './state.js';
 import {plotAt} from './plots.js';
@@ -11,9 +11,11 @@ import {CROPS} from '../data/crops.js';
 import {wateredToday,evaluateWatering,missed} from './watering.js';
 import {FARM_ENERGY} from '../data/energy.js';
 import {decorationBoxes,farmDecorations,decorationRect,overlaps} from './settlementGeometry.js';
-export const WET_DURATION=180000,MAX_CUSTOM_BEDS=2048,MAX_WET_PATCHES=256;
+import {isIndoorArea} from '../data/areas.js';
+export {MAX_CUSTOM_BEDS};
+export const WET_DURATION=180000,MAX_WET_PATCHES=256;
 export function openGround(area,x,y,dig=false,state=null){
- const map=Object.hasOwn(MAPS,area)?MAPS[area]:null;if(!map||area==='interior'||!Number.isFinite(x)||!Number.isFinite(y))return false;
+ const map=Object.hasOwn(MAPS,area)?MAPS[area]:null;if(!map||isIndoorArea(area)||!Number.isFinite(x)||!Number.isFinite(y))return false;
  const size=map.size||MAP_SIZE,r=dig?24:8;
  if(x-r<32||y-r<32||x+r>size.width-32||y+r>size.height-32)return false;
  if(area==='farm'&&farmDecorations(state||{}).some(d=>overlaps({x:x-r,y:y-r,w:r*2,h:r*2},decorationRect(d))))return false;
@@ -27,6 +29,12 @@ export function groundPoint(s,point,direction='down'){
  const p=point||{x:s.position.x+facing[0],y:s.position.y+facing[1]};
  const local=s.area==='farm'?FARM_PLOTS.findIndex(b=>Math.abs(b.x-p.x)<24&&Math.abs(b.y-p.y)<24):-1;
  if(local>=0)return {...FARM_PLOTS[local],index:(s.currentFarm||0)*PLOTS_PER_FARM+local};
+ const saved=s.area==='farm'?visiblePlots(s).find(b=>Math.abs(b.x-p.x)<24&&Math.abs(b.y-p.y)<24):null;
+ if(saved)return {...saved};
+ const hidden=s.area==='farm'?(s.customBeds||[]).findIndex(b=>b.farm===(s.currentFarm||0)&&Math.abs(b.x-p.x)<24&&Math.abs(b.y-p.y)<24):-1;
+ if(hidden>=0)return {...s.customBeds[hidden],index:s.plots.length+hidden};
+ const field=s.area==='farm'?FIELDS.find(f=>p.x>=f.x&&p.x<f.x+f.w&&p.y>=f.y&&p.y<f.y+f.h):null;
+ if(field)return {x:field.x+24+Math.round((p.x-field.x-24)/48)*48,y:field.y+24+Math.round((p.y-field.y-24)/48)*48};
  // Continue a nearby bed's lattice so shovel additions join old fields seamlessly.
  const nearby=s.area==='farm'?[...FARM_PLOTS,...visiblePlots(s)].filter(b=>Math.hypot(b.x-p.x,b.y-p.y)<96).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y))[0]:null;
  return nearby?{x:nearby.x+Math.round((p.x-nearby.x)/48)*48,y:nearby.y+Math.round((p.y-nearby.y)/48)*48}:{x:Math.floor(p.x/48)*48+24,y:Math.floor(p.y/48)*48+24};
@@ -38,7 +46,6 @@ export function digGround(s,point){
  if(!openGround('farm',p.x,p.y,true,s)||!lineClear('farm',s.position,p,0,s))return {ok:false,message:'Choose clear grass'};
  if(visiblePlots(s).some(b=>Math.abs(b.x-p.x)<47&&Math.abs(b.y-p.y)<47))return {ok:false,message:'Already dug'};
  if(p.index==null&&FARM_PLOTS.some(b=>Math.abs(b.x-p.x)<48&&Math.abs(b.y-p.y)<48))return {ok:false,message:'Dig beside the existing bed'};
- if(visiblePlots(s).length>=16&&!s.ownsCopperCan)return {ok:false,message:'Copper Can first / Farm board after Commons seating'};
  if(s.energy<FARM_ENERGY.dig)return {ok:false,message:'Too tired - eat or sleep'};
  if(p.index==null&&(s.customBeds||[]).length>=MAX_CUSTOM_BEDS)return {ok:false,message:'Farm beds full'};
  s.energy-=FARM_ENERGY.dig;s.hasVisitedFarm=true;
@@ -49,9 +56,21 @@ export function digGround(s,point){
   v.grass=[...new Set([...v.grass,...grass.map(n=>n.id)])];v.placed=v.placed.filter(n=>Math.abs(n.x-p.x)>=40||Math.abs(n.y-p.y)>=40);
  }
 
- if(p.index!=null){s.dugPlots??=[];s.dugPlots.push(p.index);}
+ s.restoredBeds=(s.restoredBeds||[]).filter(b=>b.farm!==(s.currentFarm||0)||b.x!==p.x||b.y!==p.y);
+ if(p.index!=null){if(p.index<s.plots.length){s.dugPlots??=[];if(!s.dugPlots.includes(p.index))s.dugPlots.push(p.index);}}
  else {s.customBeds??=[];s.customBeds.push({farm:s.currentFarm||0,x:p.x,y:p.y,plot:emptyPlot()});p.index=s.plots.length+s.customBeds.length-1;}
  return {ok:true,message:'Ready to plant',...p};
+}
+// Keep saved bed records/indices; a grass override hides only empty prepared soil.
+export function restoreGround(s,point){
+ if(s.area!=='farm')return {ok:false,message:'Dig on your Farm'};
+ const bed=visiblePlots(s).find(b=>b.x===point.x&&b.y===point.y);
+ if(!bed)return {ok:false,message:'Already grass'};
+ if(Math.hypot(bed.x-s.position.x,bed.y-s.position.y)>=72||!lineClear('farm',s.position,bed,0,s))return {ok:false,message:'Walk closer'};
+ if(plotAt(s,bed.index)?.crop)return {ok:false,message:'Harvest or clear the crop first'};
+ s.restoredBeds??=[];s.restoredBeds.push({farm:s.currentFarm||0,x:bed.x,y:bed.y});
+ s.wetGround=(s.wetGround||[]).filter(p=>p.area!=='farm'||p.farm!==(s.currentFarm||0)||p.x!==bed.x||p.y!==bed.y);
+ return {ok:true,message:'Grass restored',...bed};
 }
 export const wetAt=(s,x,y,area=s.area,farm=s.currentFarm||0)=>(s.wetGround||[]).some(p=>p.area===area&&(area!=='farm'||p.farm===farm)&&Math.abs(p.x-x)<24&&Math.abs(p.y-y)<24&&p.remaining>0);
 export function waterGround(s,point,index){

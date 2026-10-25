@@ -1,4 +1,13 @@
 export const MM_EXTRA=Object.fromEntries(String.raw`
+Restore grass|မြက်ခင်းပြန်ထားမည်
+Raw / cook at the Home hearth|အသားအစိမ်း / အိမ်မီးဖိုတွင်ချက်ပါ
+Bag Gear / cook at Home hearth|အိတ် ပစ္စည်း / အိမ်မီးဖိုတွင်ချက်ပါ
+Restore grass?|မြက်ခင်းပြန်ထားမလား။
+Return this empty bed to grass. You can dig it again.|ဤစိုက်ခင်းအလွတ်ကို မြက်ခင်းပြန်ထားပါမည်။ နောက်မှ ပြန်တူးနိုင်သည်။
+Grass restored|မြက်ခင်းပြန်ထားပြီးပြီ
+Already grass|မြက်ခင်းဖြစ်နေပြီးပြီ
+Harvest or clear the crop first|သီးနှံကို အရင်ရိတ်သိမ်း သို့မဟုတ် ရှင်းလင်းပါ
+Shovel on an empty bed / restore grass.|စိုက်ခင်းအလွတ်၌ ပေါက်တူးသုံးပြီး မြက်ခင်းပြန်ထားနိုင်သည်။
 Back|နောက်
 Close|ပိတ်
 Replay|ပြန်

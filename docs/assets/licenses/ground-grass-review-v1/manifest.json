@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-21",
+  "status": "review-only; not in runtime",
+  "generation": {
+    "tool": "OpenAI built-in image generation",
+    "calls": 6,
+    "modelVersion": "not exposed"
+  },
+  "references": [
+    {
+      "role": "current game",
+      "name": "Screenshot 2026-10-21 at 11.45.15\u202fAM.png",
+      "sha256": "4c1513c4a5929fe02d8e396dc12417640f3afef5d2021e732f78620eaa85d281"
+    },
+    {
+      "role": "current game",
+      "name": "Screenshot 2026-10-21 at 11.46.23\u202fAM.png",
+      "sha256": "a14bdb111f1a76ed0c164463b4d68f196ec86e087344f8a2b3d382a028cdae5c"
+    },
+    {
+      "role": "style/density only",
+      "name": "Screenshot 2026-10-16 at 4.17.57\u202fPM.png",
+      "sha256": "62958114f3de732a4c38062a47fbbbe6a379c24f028e405f3106ffc6e75c26cc"
+    },
+    {
+      "role": "style/density only",
+      "name": "Screenshot 2026-10-16 at 4.18.15\u202fPM.png",
+      "sha256": "cfcc99f41a5a7cc58b9b8485d6f767c012ac52c51996fa0630c9b199b71cfee7"
+    },
+    {
+      "role": "style/density only",
+      "name": "Screenshot 2026-10-16 at 4.19.11\u202fPM.png",
+      "sha256": "698fab77d448c07ce9f74b2f00b65ad64628a63d75e7e89e6d29ed2e4d3dcdff"
+    }
+  ],
+  "generatedSources": [
+    {
+      "name": "variant-a-pass1.png",
+      "sha256": "9b75fdcf9ab75ed25e98d50d8a10fed3920b048543ca5f2c6b6f50c5fc83c3b6"
+    },
+    {
+      "name": "variant-a.png",
+      "sha256": "9659f37abfb7ef1f7c0ae4dcbc163491a6d6717eb4c2581ca43c5e9ad18a6e5e"
+    },
+    {
+      "name": "variant-b-pass1.png",
+      "sha256": "9c5a5a1f1fe3104d64dc6bf77884e39239a2a552b2f9df60153ff9a806cc1cbe"
+    },
+    {
+      "name": "variant-b.png",
+      "sha256": "d2c33e8ec7393ea5d76406708d8642b49eb10804db0eef0eb3675469bc5825db"
+    },
+    {
+      "name": "variant-c-pass1.png",
+      "sha256": "0b853cd819d3c48e661f2d1c068aadfb0556d2807cf88d27b014bf96178c4a81"
+    },
+    {
+      "name": "variant-c.png",
+      "sha256": "7fb2928ef2cff89ad0c9f88256f70396c0a1597ea48ca16816ab97512bc2a01f"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "grass_ground_a.png",
+      "sha256": "8bb427751f987d98e1c6ee76a3cf3fa4f2f40e75974438eb14bfecc4a25862cf"
+    },
+    {
+      "name": "grass_ground_b.png",
+      "sha256": "47b218a18b5ad186a668a95f1257263baf6a37277fcd32bfdcf3c6cf19fd986c"
+    },
+    {
+      "name": "grass_ground_c.png",
+      "sha256": "784b3d58a0d9f4b7a92fbba45d14bb0466f41a13bc697e41d5a37e6bfbeb7742"
+    },
+    {
+      "name": "grass_ground_compare.png",
+      "sha256": "15b10b3ac99417d760e9705e6b66b77a53c79ae9f09fa7ff759123e86f2922d4"
+    },
+    {
+      "name": "grass_ground_fit_check.png",
+      "sha256": "f723e7c839089ed87eb33b18d7a861c7d13b4a502fae86dd434064d6a305b74c"
+    },
+    {
+      "name": "grass_ground_test.png",
+      "sha256": "c31aba908feb00bb809680b3a5e85ff7d2f6abcd449caf736bda73e3eac65d76"
+    },
+    {
+      "name": "palette.png",
+      "sha256": "c4abf06f9f836492111e7f98ec2496101af1bf060de12022383838646db3692c"
+    }
+  ],
+  "checks": {
+    "a": {
+      "size": [
+        128,
+        128
+      ],
+      "opaqueConnectedComponents": 1,
+      "pinholes": 0,
+      "onlyLockedColors": true,
+      "usedColors": [
+        "#687749",
+        "#748455",
+        "#7F9056",
+        "#879564",
+        "#8E9C67",
+        "#98A66B",
+        "#D8C995"
+      ],
+      "leftRightEdgeExact": true,
+      "topBottomEdgeExact": true,
+      "sha256": "8bb427751f987d98e1c6ee76a3cf3fa4f2f40e75974438eb14bfecc4a25862cf"
+    },
+    "b": {
+      "size": [
+        128,
+        128
+      ],
+      "opaqueConnectedComponents": 1,
+      "pinholes": 0,
+      "onlyLockedColors": true,
+      "usedColors": [
+        "#687749",
+        "#748455",
+        "#7F9056",
+        "#879564",
+        "#8E9C67",
+        "#98A66B",
+        "#D8C995",
+        "#F0E8C7"
+      ],
+      "leftRightEdgeExact": true,
+      "topBottomEdgeExact": true,
+      "sha256": "47b218a18b5ad186a668a95f1257263baf6a37277fcd32bfdcf3c6cf19fd986c"
+    },
+    "c": {
+      "size": [
+        128,
+        128
+      ],
+      "opaqueConnectedComponents": 1,
+      "pinholes": 0,
+      "onlyLockedColors": true,
+      "usedColors": [
+        "#687749",
+        "#748455",
+        "#7F9056",
+        "#879564",
+        "#8E9C67",
+        "#98A66B",
+        "#D8C995"
+      ],
+      "leftRightEdgeExact": true,
+      "topBottomEdgeExact": true,
+      "sha256": "784b3d58a0d9f4b7a92fbba45d14bb0466f41a13bc697e41d5a37e6bfbeb7742"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "sources": {
+    "chair": {
+      "path": "/Users/mac/Downloads/Gemini_Generated_Image_ofxjiaofxjiaofxj-pixel-snapper.png",
+      "dimensions": [
+        237,
+        131
+      ],
+      "sha256": "a534d79001d3e5436b93e7bd0f4bcf5a9d9001876337a5c485b5c1bc59ffb029"
+    },
+    "grass": {
+      "path": "/Users/mac/Downloads/Gemini_Generated_Image_5odfgv5odfgv5odf-pixel-snapper.png",
+      "dimensions": [
+        101,
+        101
+      ],
+      "sha256": "8c9c4b18728fcc0830adeaafe88135fd488d2d4e658c0c35071a9f6dad25833d"
+    }
+  },
+  "sourceColors": {
+    "chair": 15,
+    "grass": 13
+  },
+  "runtime": {
+    "chair": {
+      "frame": "city-review-barber-chair",
+      "size": [
+        28,
+        42
+      ],
+      "visibleBounds": [
+        2,
+        4,
+        26,
+        40
+      ],
+      "scale": 2
+    },
+    "grass": {
+      "frames": [
+        "snapper-grass",
+        "snapper-grass-bend-left",
+        "snapper-grass-bend-right"
+      ],
+      "size": [
+        79,
+        79
+      ],
+      "visibleBounds": [
+        9,
+        10,
+        69,
+        79
+      ],
+      "scale": 0.46
+    },
+    "townSha256": "e489a3e4a93dd02bca065e524c8fa1b23a79b28d59e1cca4dbf97b0fbcd982c5",
+    "pixelSnapperSha256": "50d9c59aede37855a21f6331e71d930b9717d349a9a15655c072f5454e581c48",
+    "pixelSnapperJsonSha256": "114be286be2da0ab7e89c58e25a65c2d269cc52bcb71d3f7a4b988567c1d9b53"
+  },
+  "checks": {
+    "magentaRemoved": true,
+    "binaryAlpha": true,
+    "nearestOnly": true,
+    "chairPreviousFrameSizePreserved": true,
+    "grassPreviousFrameSizeAndScalePreserved": true
+  },
+  "outputs": {
+    "barber-chair-28x42.png": "bf60ce4d54ab977373905e67a86f9e8448dad8d428c51f4ce4045cc7ba10deec",
+    "grass-79x79.png": "3eb6527e6f2fbe22f7c496d7aac0f21301b09e8c64a1d1fad7111b55c15c24f8",
+    "grass-bend-left-79x79.png": "4ca1ab83d44572d45f6ea00cb1e29db3ffaadddeed0241b307fa47532ae46d51",
+    "grass-bend-right-79x79.png": "8bbe272bfca6ae8fb9fae50d0c1558ba89a7c4e5130a53963aa21051110c9d84",
+    "review-sheet.png": "f807640045ae75e52c4aa7aed848b684268fe67b2d20f9275ff33f45867ec4fe"
+  }
+}

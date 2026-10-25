@@ -1,0 +1,9 @@
+# Farm presentation cleanup — 2026-10-15
+
+User supplied four screenshots and requested a simpler Farm inspired by the final Plant Tales view, removal of pictured clutter and advice about crop backgrounds. Source review showed existing original Python/Pillow crop code paints separate soil discs underneath plants/seeds. No new image generation, downloaded artwork or copied screenshot pixel was needed.
+
+Editable sources: `scripts/crop_art.py`, `scripts/garden_tools_art.py`, existing `scripts/farm_crop_art.py` palette/export integration. `scripts/refresh_farm_crops.py` removes soil discs/underlines through source edits, then reruns the established native crop generators and writes existing atlas rectangles.40crop frames change,1,786pixels become transparent; every remaining plant pixel and898other frames remain byte-identical. All96crop slots retain24×32size and binary alpha. Atlas metadata, farmer/world sources and gameplay files are preserved. Native provenance/counts/SHA256 are in [record.json](record.json), with audit under `docs/verification/farm-refresh/`.
+
+`src/art/FarmView.js` is original procedural pixel soil code, adjusted for warmer colours, shallow turf edges and soft wet/dry transitions. No raster reference extraction. `src/data/mapLayouts.js` and worldArt remove Farm-only static clutter; shared source assets remain for other maps and owned decorations. Existing asset rights/credits continue.
+
+Existing bundled offline Pillow12.3.0 supplies technical export. Retained licence: `docs/licenses/Pillow-LICENSE.txt`; dependency evidence: `docs/licenses/farmer-extension-export/record.json`. No new dependency or runtime asset URL. `output/art/farm-refresh-v1/crops-before.png`, `crops-after.png` and manifest are local review evidence, excluded by the existing production allowlist. AI assistance is disclosed in AI_USAGE; no human-authorship or exclusive-rights claim, publication or competition submission.

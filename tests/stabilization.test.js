@@ -17,10 +17,10 @@ test('legacy crops expand without reordering and City saves migrate safely into 
  old.area='home';old.position={x:370,y:350};assert.equal(validate(old).area,'interior');
 });
 test('house solids cover walls, corners, windows and rear; porch and door remain accessible',()=>{
- for(const [x,y]of [[416,400],[544,400],[480,330],[424,420],[536,420],[440,400]])assert.equal(walkable('home',x,y),false,`${x},${y}`);
- assert.equal(walkable('home',480,450),false);assert.equal(walkable('home',480,492),true);
+ const house=MAPS.home.buildings[0];for(const [x,y,w,h]of house.solidRows)assert.equal(walkable('home',house.x+x+w/2,house.y+y+h/2),false,`${x},${y}`);
+ assert.equal(walkable('home',HOUSE.door.x,HOUSE.door.y),true);assert.equal(walkable('home',HOUSE.porch.x,HOUSE.porch.y),true);
  const s=newState();s.position={...HOUSE.porch};assert.equal(contextFor(s).to,'interior');s.position={x:440,y:440};assert.notEqual(contextFor(s)?.to,'interior');s.position={x:480,y:300};assert.notEqual(contextFor(s)?.to,'interior');
- s.position={x:480,y:400};const loaded=validate(s);assert.ok(walkable(loaded.area,loaded.position.x,loaded.position.y));assert.ok(Math.hypot(loaded.position.x-480,loaded.position.y-400)<100);
+ const [x,y,w,h]=house.solidRows[Math.floor(house.solidRows.length*.6)];s.position={x:house.x+x+w/2,y:house.y+y+h/2};const loaded=validate(s);assert.ok(walkable(loaded.area,loaded.position.x,loaded.position.y));assert.ok(Math.hypot(loaded.position.x-s.position.x,loaded.position.y-s.position.y)<100);
 });
 test('active field has sixteen reachable cells and action-specific prompts',()=>{
  assert.equal(new Set(PLOTS.map(p=>p.x)).size,4);assert.equal(new Set(PLOTS.map(p=>p.y)).size,4);

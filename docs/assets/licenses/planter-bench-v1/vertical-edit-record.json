@@ -1,0 +1,23 @@
+{
+  "scope": "review only; no game changes",
+  "operation": "coherent vertical-footprint/camera edit of original planter bench",
+  "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-8d43eb8a-0e9b-4e6c-a18a-4f86f19198b5.png",
+  "saved_original": "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/outdoor-planter-bench-review-2026-10-16/planter-bench-vertical-original.png",
+  "pixel_dimensions": [
+    1536,
+    1024
+  ],
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "visible_alpha_bbox": [
+    410,
+    36,
+    1126,
+    964
+  ],
+  "sha256": "cdea9eba1cb56522dc3a240a59c2a45e461eeadeb95bfe140e4a44d17064fb48",
+  "resized": false,
+  "original_generated_png_preserved": true
+}

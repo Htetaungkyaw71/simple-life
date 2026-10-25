@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-14",
+  "stage": "standing-design review, pending user appearance approval",
+  "tool": "OpenAI built-in imagegen",
+  "modelVersion": "not exposed",
+  "conversion": "alpha128, whole-character proportional nearest sampling to40native pixels,32colours per view, padded64x64ground(32,56); no limb/eye repainting",
+  "sources": {
+    "nell.png": "a42307fa90c93f2002379bb820795800f4734060585f8afbb39313a645456b74",
+    "sol.png": "5869d740e7bca2a985700a6da55283439bad3261e1be76f59349902e35c81961"
+  },
+  "frames": {
+    "nell": [
+      {
+        "direction": "south",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          198,
+          149,
+          430,
+          710
+        ],
+        "nativeWidth": 17,
+        "rgbaSHA256": "fcd5829a0250c03d1ed8c316299510d71db43aef0cac388558c8a7f6e552074b"
+      },
+      {
+        "direction": "north",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          150,
+          149,
+          386,
+          710
+        ],
+        "nativeWidth": 17,
+        "rgbaSHA256": "3ddba1662dc68dec265c548d47f8d14945cf185899c384b741273d1ff97334c4"
+      },
+      {
+        "direction": "west",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          112,
+          149,
+          348,
+          710
+        ],
+        "nativeWidth": 17,
+        "rgbaSHA256": "37fc3c9ccdb38da7a56669ef196a0b01fc3b6dbabe80f80cc7a40b83279ab580"
+      },
+      {
+        "direction": "east",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          60,
+          149,
+          297,
+          710
+        ],
+        "nativeWidth": 17,
+        "rgbaSHA256": "508de14f68c6a8b4cf7ecba7db40f535c192859eedcde0e80f0f1e6c87a6bafa"
+      }
+    ],
+    "sol": [
+      {
+        "direction": "south",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          203,
+          115,
+          442,
+          721
+        ],
+        "nativeWidth": 16,
+        "rgbaSHA256": "e35c7a3947c49436788880a00a3c498d4ba2b1df4fbb51a826c703a53cd7d0f2"
+      },
+      {
+        "direction": "north",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          149,
+          116,
+          389,
+          721
+        ],
+        "nativeWidth": 16,
+        "rgbaSHA256": "b2d36ca61a5581729dda6053fde1c45bec9f18745b0b1f82c19299a233cb09a6"
+      },
+      {
+        "direction": "west",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          111,
+          115,
+          345,
+          722
+        ],
+        "nativeWidth": 15,
+        "rgbaSHA256": "180caac991abc400c5b0d3984882f32306ccce37e296814e1403110310954114"
+      },
+      {
+        "direction": "east",
+        "size": [
+          64,
+          64
+        ],
+        "nativeHeight": 40,
+        "ground": [
+          32,
+          56
+        ],
+        "sourceCrop": [
+          47,
+          115,
+          287,
+          722
+        ],
+        "nativeWidth": 16,
+        "rgbaSHA256": "a5a0d87c2835db2f917f2b1ab1da52b3368b132faa4eb32363551518bd8e76a9"
+      }
+    ]
+  },
+  "runtimeChanged": false
+}

@@ -1,0 +1,30 @@
+{
+  "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-030fd3ed-c467-4d79-b72b-9b27566c7319.png",
+  "output": "/Users/mac/.codex/visualizations/2026/10/13/01a13658-7915-78f2-9b49-92222fd48878/outdoor-collection-review/01-street-lamp-clean-transparency.png",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "visibleSilhouetteExact": true,
+  "nonGlassRGBPreserved": true,
+  "glassPixels": 6933,
+  "opaquePixels": 111139,
+  "alphaValues": [
+    0,
+    255
+  ],
+  "glassColours": [
+    [
+      217,
+      198,
+      163
+    ],
+    [
+      199,
+      181,
+      149
+    ]
+  ],
+  "generatedEditRetained": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-904432c4-d260-4ef8-8bea-87aa3611deed.png",
+  "note": "Generated edit changed registration, so final export retains previous lamp geometry and non-glass pixels; restricted flat glass colours and clean binary-alpha export."
+}

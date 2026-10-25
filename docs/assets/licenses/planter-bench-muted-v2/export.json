@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-16",
+  "original": {
+    "file": "output/art/planter-bench-muted-v2/planter-bench-muted-original.png",
+    "sha256": "f0f4d33196f38155c5c497b64851679b2fee7ccc20cc52ca5e5add2e8f412362",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "visibleAlphaBounds": [
+      410,
+      36,
+      1126,
+      964
+    ]
+  },
+  "native": {
+    "file": "output/art/planter-bench-muted-v2/native.png",
+    "dimensions": [
+      68,
+      87
+    ],
+    "scale": 1.5,
+    "worldCanvas": [
+      102,
+      130.5
+    ],
+    "binaryAlpha": true
+  },
+  "scope": "one City planter bench below seed stall; five other planted benches unchanged",
+  "oldFrames": 1040,
+  "atlas": {
+    "w": 1024,
+    "h": 3693
+  },
+  "generatedOutput": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-599659fd-66a6-4326-b3f3-b256d96e511f.png",
+  "previousOriginalPreserved": true
+}

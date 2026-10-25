@@ -1,0 +1,159 @@
+{
+  "count": 28,
+  "groups": {
+    "lawn": [
+      "#687749",
+      "#748455",
+      "#7F9056",
+      "#879564",
+      "#8E9C67",
+      "#98A66B"
+    ],
+    "foliage": [
+      "#29301F",
+      "#363925",
+      "#444A2F",
+      "#535937",
+      "#636940"
+    ],
+    "clump": [
+      "#4B4F28",
+      "#5F6233",
+      "#808B4B",
+      "#9B9A5D"
+    ],
+    "trunk": [
+      "#29251A",
+      "#5A362A",
+      "#7C4F38"
+    ],
+    "shadow": [
+      "#30372C",
+      "#444A2F"
+    ],
+    "flower_dirt": [
+      "#F0E8C7",
+      "#D8C995",
+      "#E4B7A3",
+      "#C77768",
+      "#8A593C",
+      "#A7774D",
+      "#C29A62",
+      "#D4B878"
+    ]
+  },
+  "colors": [
+    {
+      "group": "lawn",
+      "hex": "#687749"
+    },
+    {
+      "group": "lawn",
+      "hex": "#748455"
+    },
+    {
+      "group": "lawn",
+      "hex": "#7F9056"
+    },
+    {
+      "group": "lawn",
+      "hex": "#879564"
+    },
+    {
+      "group": "lawn",
+      "hex": "#8E9C67"
+    },
+    {
+      "group": "lawn",
+      "hex": "#98A66B"
+    },
+    {
+      "group": "foliage",
+      "hex": "#29301F"
+    },
+    {
+      "group": "foliage",
+      "hex": "#363925"
+    },
+    {
+      "group": "foliage",
+      "hex": "#444A2F"
+    },
+    {
+      "group": "foliage",
+      "hex": "#535937"
+    },
+    {
+      "group": "foliage",
+      "hex": "#636940"
+    },
+    {
+      "group": "clump",
+      "hex": "#4B4F28"
+    },
+    {
+      "group": "clump",
+      "hex": "#5F6233"
+    },
+    {
+      "group": "clump",
+      "hex": "#808B4B"
+    },
+    {
+      "group": "clump",
+      "hex": "#9B9A5D"
+    },
+    {
+      "group": "trunk",
+      "hex": "#29251A"
+    },
+    {
+      "group": "trunk",
+      "hex": "#5A362A"
+    },
+    {
+      "group": "trunk",
+      "hex": "#7C4F38"
+    },
+    {
+      "group": "shadow",
+      "hex": "#30372C"
+    },
+    {
+      "group": "shadow",
+      "hex": "#444A2F"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#F0E8C7"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#D8C995"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#E4B7A3"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#C77768"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#8A593C"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#A7774D"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#C29A62"
+    },
+    {
+      "group": "flower_dirt",
+      "hex": "#D4B878"
+    }
+  ]
+}

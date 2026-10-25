@@ -1,0 +1,23 @@
+{
+  "tool": "OpenAI built-in imagegen",
+  "modelVersion": "not exposed",
+  "date": "2026-10-14",
+  "sources": {
+    "nell-walking.png": "412c3cf8377cc01b3886e8cbf1637c5b6a7d971d71bdd1cbd7ee361ff16931e1",
+    "nell-idle.png": "91a260224bc5460d29c49e23160fbe368b26db281c19f392eb67fb8aa1f33a97",
+    "sol-walking-fix.png": "9d2e2771f0fb293478d3ddb970a032a43baf14d9909852bcf0f3cdf37e8caf26",
+    "sol-walking.png": "e3dc6346f71333698e05b3d58f3f95f96d4ef3c890a2a7488c5ec18125a41a95",
+    "sol-idle.png": "0a83deb5e7dee8b2ff376aac5f5badc4839161843bc848e268197b450090b663",
+    "nell-walking-fix.png": "08369f2bb2ff6ba1fa96363ebf9e4f43980fd25aac1990ca74579583104f4f83"
+  },
+  "prompts": {
+    "output/art/npc-matching-animated-v1/nell-idle-prompt.txt": "ac2d215e6d3259b1f54f30c58a30a40b667d70b459c89f476790f09ff1a46ae7",
+    "output/art/npc-matching-animated-v1/sol-walking-fix-prompt.txt": "a5a899c7c3eed9d2d08df06489b99db55ce049ce384699fa83e5cc02a3b89a1e",
+    "output/art/npc-matching-animated-v1/nell-walking-prompt.txt": "422356c6472535618da6b3830e048ea9eba78101ed24c972120510e2aeef7760",
+    "output/art/npc-matching-animated-v1/sol-idle-prompt.txt": "ac2d215e6d3259b1f54f30c58a30a40b667d70b459c89f476790f09ff1a46ae7",
+    "output/art/npc-matching-animated-v1/nell-walking-fix-prompt.txt": "a5a899c7c3eed9d2d08df06489b99db55ce049ce384699fa83e5cc02a3b89a1e",
+    "output/art/npc-matching-animated-v1/sol-walking-prompt.txt": "422356c6472535618da6b3830e048ea9eba78101ed24c972120510e2aeef7760"
+  },
+  "conversion": "scripts/npc_matching_animated.py",
+  "nativeManifest": "output/art/npc-matching-animated-v1/manifest.json"
+}

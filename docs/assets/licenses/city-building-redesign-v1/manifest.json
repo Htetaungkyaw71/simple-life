@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-18",
+  "mode": "OpenAI built-in image generation",
+  "status": "review-only",
+  "runtimeIntegrated": false,
+  "referenceHashes": {
+    "pixelSnapperCottage": "96a0d00961fc5060ce756fccd5fc3cf058994f002a937baa319f0dd1e91c0ab7",
+    "liveCottageProof": "90c7912bf0913782cef6da00dde6c77551e93ea130efc143b91b59a1b233af3b",
+    "liveCafeProof": "2394d7603752f76868a521253845f7018c1f6590998fb951893ed50564b19884",
+    "liveClothingBarberProof": "875c2ed035a85501aa6d405301a4e304ae61566d7cd00b7094be494841c41396"
+  },
+  "outputs": [
+    {"file":"house-01-cross-gable.png","width":1545,"height":1018,"sha256":"1aca63ec39caf8b42c686e2823997bfd0b115c3e52190b34a3f7b9cf56d7b227"},
+    {"file":"house-02-blue-slate.png","width":1546,"height":1017,"sha256":"22fb227765a9a83da95dd6e31bbe7dc23adc327003f60d25e7fe3ab811d169b5"},
+    {"file":"house-03-sage-bay.png","width":1545,"height":1018,"sha256":"06cd47d3ab82220933b0f90a00c2558b025181e401ea964686a090ad41a69c2f"},
+    {"file":"house-04-balcony.png","width":1509,"height":1042,"sha256":"e7dabc9dd1339a110fbc6396c8812af52d5d16a7cf6b6426689c5e6431af023a"},
+    {"file":"house-05-brick-artisan.png","width":1545,"height":1018,"sha256":"f60a76bf9ddcdc6822b5708f6b547b176b5df4aae482b76d3979df3ca24407d9"},
+    {"file":"house-06-fieldstone.png","width":1535,"height":1024,"sha256":"940c08ad9e83c83dd2e77833bafbec18952f1dea2d3fee5e50bcc105aa2e0ddd"},
+    {"file":"house-07-alpine.png","width":1545,"height":1018,"sha256":"1b02e205801d1f2258b48ad1d5c5fc1a3a08d59b88c778519aa12d12f42ceefc"},
+    {"file":"house-08-aqua-veranda.png","width":1545,"height":1018,"sha256":"d55e800d166f6f77d3537e85c0e40a21f88a9fa98349b28bca7a9577c91f4285"},
+    {"file":"house-09-farmhouse.png","width":1546,"height":1017,"sha256":"c40dae60859efc7d857bce92620abcc656ba529006321b8ace859cde78c624e6"},
+    {"file":"shop-cafe.png","width":1586,"height":992,"sha256":"a99be7cb07afcf13b8dac02c01ece493a85c9d8f78158250713dd22b4e13b425"},
+    {"file":"shop-clothing.png","width":1545,"height":1018,"sha256":"d7a5f7e8b31725f24a291475579377def2243b3000cba699f4bfb73221580c2f"},
+    {"file":"shop-barber.png","width":1545,"height":1018,"sha256":"cc421c1ad4665ab22f02c8cc9b5cd30fda68847d9b10da94fd4bcae240cee5f1"}
+  ]
+}

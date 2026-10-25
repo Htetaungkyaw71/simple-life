@@ -1,0 +1,51 @@
+{
+  "originalsPreserved": true,
+  "noResampling": true,
+  "operations": [
+    {
+      "id": "02-rug-bedside",
+      "source": "originals/02-rug-bedside-final.png",
+      "operation": "alpha-only hard-edge export; alpha<128 becomes0, other alpha255; RGB and resolution unchanged",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "softBackgroundPixelsCleared": 13551
+    },
+    {
+      "id": "13-doorway-bottom-threshold",
+      "source": "originals/13-doorway-bottom-threshold-final.png",
+      "operation": "alpha-only hard-edge export; alpha<128 becomes0, other alpha255; RGB and resolution unchanged",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "softBackgroundPixelsCleared": 16935
+    },
+    {
+      "id": "11-fireplace-ember-overlay",
+      "source": "originals/11-fireplace-ember-overlay-fire-size-correction.png",
+      "operation": "translate only on matching transparent fireplace canvas; no resampling",
+      "canvas": [
+        1402,
+        1122
+      ],
+      "offset": [
+        0,
+        -22
+      ],
+      "openingTarget": {
+        "x": 550,
+        "y": 650,
+        "w": 304,
+        "h": 250
+      },
+      "approximateFireBounds": [
+        566,
+        724,
+        836,
+        892
+      ]
+    }
+  ]
+}

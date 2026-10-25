@@ -1,0 +1,249 @@
+{
+  "crop": "strawberry",
+  "source": "assets-src/ChatGPT_Image_24_Oct_2026__21_21_57-pixel-snapper.png",
+  "sourceSha256": "8a1b78c74396cb4dd0a9acd6718fde236ad9636e0852f02351075be57c40f4bf",
+  "sourceSize": [
+    361,
+    121
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    254,
+    3,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "strawberry-seed",
+      "x": 8,
+      "y": 82,
+      "width": 34,
+      "height": 16
+    },
+    {
+      "key": "strawberry-sprout",
+      "x": 50,
+      "y": 75,
+      "width": 19,
+      "height": 19
+    },
+    {
+      "key": "strawberry-young",
+      "x": 76,
+      "y": 59,
+      "width": 38,
+      "height": 35
+    },
+    {
+      "key": "strawberry-flowering",
+      "x": 123,
+      "y": 50,
+      "width": 41,
+      "height": 45
+    },
+    {
+      "key": "strawberry-ripe",
+      "x": 169,
+      "y": 48,
+      "width": 46,
+      "height": 47
+    },
+    {
+      "key": "strawberry-dry",
+      "x": 221,
+      "y": 51,
+      "width": 40,
+      "height": 44
+    },
+    {
+      "key": "strawberry-wilted",
+      "x": 268,
+      "y": 61,
+      "width": 41,
+      "height": 35
+    },
+    {
+      "key": "strawberry-dead",
+      "x": 315,
+      "y": 78,
+      "width": 40,
+      "height": 18
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "requestedScale": 2,
+    "best2x2Offset": [
+      0,
+      0
+    ],
+    "homogeneousTouchedBlocks": 98,
+    "touchedBlocks": 1778,
+    "homogeneousRatio": 0.05511811023622047
+  },
+  "cleanup": {
+    "removedMagentaColors": [
+      [
+        180,
+        19,
+        169,
+        255,
+        163
+      ],
+      [
+        254,
+        3,
+        253,
+        255,
+        37632
+      ]
+    ],
+    "soil": {
+      "removedPixels": 1053,
+      "moundTop": 86,
+      "moundBottom": 94,
+      "sourceCentres": [
+        16,
+        9,
+        19,
+        18,
+        20,
+        19,
+        36,
+        19
+      ],
+      "maskPixelCount": 313
+    },
+    "isolatedNonMagentaPixelsRemoved": 2,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0
+  },
+  "candidateA": {
+    "available": false,
+    "frameSize": [
+      24,
+      48
+    ],
+    "path": null,
+    "placements": null,
+    "reason": "Source is native 1px art, not a uniform 2x enlargement: only 98/1778 non-background 2x2 blocks are homogeneous."
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      48,
+      38
+    ],
+    "path": "docs/assets/licenses/strawberry-import-v1/candidate-b.png",
+    "sha256": "ae88b004cb85efbc7fd53df7e667c12760c08f80c60d49d1da23aee1bbbcccfb",
+    "uniqueColors": 15,
+    "uniqueOpaqueColors": 14,
+    "placements": [
+      {
+        "trimmedWidth": 30,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 7,
+        "frameX": 0,
+        "pasteX": 9,
+        "pasteY": 23,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 19,
+        "trimmedHeight": 11,
+        "uniqueOpaqueColors": 5,
+        "frameX": 48,
+        "pasteX": 14,
+        "pasteY": 27,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 38,
+        "trimmedHeight": 27,
+        "uniqueOpaqueColors": 8,
+        "frameX": 96,
+        "pasteX": 5,
+        "pasteY": 11,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 41,
+        "trimmedHeight": 36,
+        "uniqueOpaqueColors": 13,
+        "frameX": 144,
+        "pasteX": 3,
+        "pasteY": 2,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 46,
+        "trimmedHeight": 38,
+        "uniqueOpaqueColors": 14,
+        "frameX": 192,
+        "pasteX": 1,
+        "pasteY": 0,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 40,
+        "trimmedHeight": 35,
+        "uniqueOpaqueColors": 13,
+        "frameX": 240,
+        "pasteX": 4,
+        "pasteY": 3,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 41,
+        "trimmedHeight": 25,
+        "uniqueOpaqueColors": 8,
+        "frameX": 288,
+        "pasteX": 3,
+        "pasteY": 13,
+        "anchorX": 24,
+        "anchorY": 37
+      },
+      {
+        "trimmedWidth": 38,
+        "trimmedHeight": 18,
+        "uniqueOpaqueColors": 6,
+        "frameX": 336,
+        "pasteX": 5,
+        "pasteY": 20,
+        "anchorX": 24,
+        "anchorY": 37
+      }
+    ],
+    "maxTrimmedStage": [
+      46,
+      38
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/strawberry-import-v1/cleaned-source.png",
+    "sha256": "45f41417c0a0648b2fb2019f636a11ba9b9d0c871fa91f1702ebedd1d9a29899"
+  },
+  "keys": [
+    "strawberry-seed",
+    "strawberry-sprout",
+    "strawberry-young",
+    "strawberry-flowering",
+    "strawberry-ripe",
+    "strawberry-dry",
+    "strawberry-wilted",
+    "strawberry-dead"
+  ]
+}

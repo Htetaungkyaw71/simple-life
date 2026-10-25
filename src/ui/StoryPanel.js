@@ -5,7 +5,7 @@ import {panel,text,button,UI_COLORS} from './pixelWidgets.js';
 import {keepsakePixels} from './KeepsakeArt.js';
 export function storyPanelLayout(u){const w=Math.min(330,u.w-u.safe.left-u.safe.right-12),h=Math.min(272,u.h-u.safe.top-u.safe.bottom-10);return {x:Math.floor((u.w-w)/2),y:Math.floor((u.h-h)/2),w,h,short:h<210};}
 function backdrop(u,l){const veil=u.add.rectangle(0,0,u.w,u.h,0x23362a,.6).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,l.x,l.y,l.w,l.h);u.menuBounds={x:l.x*2,y:l.y*2,w:l.w*2,h:l.h*2};}
-function check(g,x,y,done){g.fillStyle(UI_COLORS.edge).fillRect(x,y,7,7).fillStyle(UI_COLORS.cream).fillRect(x+1,y+1,5,5);if(done)g.fillStyle(UI_COLORS.light).fillRect(x+1,y+3,2,2).fillRect(x+3,y+2,2,3).fillRect(x+5,y+1,1,2);}
+function check(g,x,y,done){g.fillStyle(UI_COLORS.border).fillRect(x,y,7,7).fillStyle(UI_COLORS.cream).fillRect(x+1,y+1,5,5);if(done)g.fillStyle(UI_COLORS.light).fillRect(x+1,y+3,2,2).fillRect(x+3,y+2,2,3).fillRect(x+5,y+1,1,2);}
 export class StoryPanel {
  constructor(app){this.app=app;}
  show(kind,draw,escape){this.app.sound?.('ui:open');const u=this.app.ui;this.app.paused=true;this.app.input={};u.notice=null;u.menu={kind,title:kind==='journal'?"GRANDFATHER'S LAST REQUEST":kind,draw:()=>draw(u),escape};u.focus=0;u.layout();u.highlight();}

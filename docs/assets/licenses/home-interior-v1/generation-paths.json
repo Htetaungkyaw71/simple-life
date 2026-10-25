@@ -1,0 +1,98 @@
+[
+  {
+    "id": "01-bed-single-head-north",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-851f11e9-2c1e-4e13-8810-57536d6169f3.png"
+  },
+  {
+    "id": "02-rug-bedside",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-41c95e48-582d-4fbe-933a-1e2da9621abe.png"
+  },
+  {
+    "id": "03-bench-near-facing-viewer",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-77ce91a0-611d-4eda-acfb-a3f8aedcb282.png"
+  },
+  {
+    "id": "04-bench-far-facing-away",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-4ff0e471-80e8-4ec6-b44e-64f19dc2e858.png"
+  },
+  {
+    "id": "05-rug-dining-large",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-777c10ef-4ace-4ed6-8394-e637c23cbd92.png"
+  },
+  {
+    "id": "06-sideboard-low",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-52bc4c0e-af2b-499d-8a4f-7f200e97fa7c.png"
+  },
+  {
+    "id": "07-cabinet-pottery-open",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-e45231af-35ed-40e0-b1f1-80a112994523.png"
+  },
+  {
+    "id": "08-wall-shelf-pottery-plant",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-6f05d399-7e31-461b-8eef-0ca90ef6adaa.png"
+  },
+  {
+    "id": "02-rug-bedside",
+    "stage": "background-correction",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-98635315-882a-432d-bf7f-7dd00107e1ff.png"
+  },
+  {
+    "id": "05-rug-dining-large",
+    "stage": "background-correction",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-43f4b024-20e2-4466-a55c-b484e54252f3.png"
+  },
+  {
+    "id": "09-fireplace-structure",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-a9f5248c-2d4f-4329-80f3-55020d07c1e5.png"
+  },
+  {
+    "id": "10-firewood-stack",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-3c60f435-d2f8-4b58-87e8-e947809a00ee.png"
+  },
+  {
+    "id": "12-window-walnut-sage",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-a24c657d-15ad-4047-9a63-bfaad2b94f65.png"
+  },
+  {
+    "id": "13-doorway-bottom-threshold",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-7d1401e6-a72a-4747-ad8e-4c8ddaabe28b.png"
+  },
+  {
+    "id": "14-planter-leafy",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-890d477a-d91c-4c2e-b6bc-b83c5126ecab.png"
+  },
+  {
+    "id": "15-planter-cream-flowers",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-70e85da7-5789-4f52-8202-a0172d0f216e.png"
+  },
+  {
+    "id": "02-rug-bedside",
+    "stage": "final",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-b75571dd-20a9-4ce3-8cc3-cf4a0b2b29c2.png"
+  },
+  {
+    "id": "05-rug-dining-large",
+    "stage": "final",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-48cc3eba-66a3-4e30-8914-3b04094cb5a0.png"
+  },
+  {
+    "id": "16-jar-terracotta-storage",
+    "stage": "final",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-476e3057-7931-4732-8f0d-0a753280f337.png"
+  },
+  {
+    "id": "13-doorway-bottom-threshold",
+    "stage": "final",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-de1d702a-bf04-4d83-b0f3-679c9f8bfe0f.png"
+  },
+  {
+    "id": "11-fireplace-ember-overlay",
+    "stage": "final",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-b3cf8e24-821a-4832-8c55-a7653e06e255.png"
+  },
+  {
+    "id": "11-fireplace-ember-overlay",
+    "stage": "fire-size-correction",
+    "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-d1186b6c-a131-4402-a49a-11b260fbdaa8.png"
+  }
+]

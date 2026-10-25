@@ -1,0 +1,92 @@
+{
+  "version": "0.33.0",
+  "date": "2026-10-15",
+  "mode": "built-in imagegen; nearest native sampling; shared 14-color palette; binary alpha; mirrored/tone variants; row-shear grass bend adaptation",
+  "sources": {
+    "oak": {
+      "file": "sources/oak.png",
+      "sha256": "d58434af7b4d775ba0b63078ac0b38e0045287b1d323c039438ec7c51916f120"
+    },
+    "palm": {
+      "file": "sources/palm.png",
+      "sha256": "a1d0c2af95474e23fcd4cac6752402bddc3ab9430864c66d1e20a5d097c9148b"
+    },
+    "grass": {
+      "file": "sources/grass.png",
+      "sha256": "9fc81db06e6e54694bf45f34280736a053c4aedb03466e2c4dcfc6895f007122"
+    },
+    "pine": {
+      "file": "sources/pine.png",
+      "sha256": "88e33de127da53e05e7b02a1dbbd695697b989c705d2280b276b698784b1c7f6"
+    }
+  },
+  "changedFrames": [
+    "forest-oak-0",
+    "forest-oak-1",
+    "forest-oak-2",
+    "forest-palm-0",
+    "forest-palm-1",
+    "willow-tree",
+    "env-pine-olive",
+    "env-pine-snow",
+    "tall-grass-0-0",
+    "tall-grass-dry-0-0",
+    "tall-grass-snow-0-0",
+    "tall-grass-0-1",
+    "tall-grass-dry-0-1",
+    "tall-grass-snow-0-1",
+    "tall-grass-0-2",
+    "tall-grass-dry-0-2",
+    "tall-grass-snow-0-2",
+    "tall-grass-1-0",
+    "tall-grass-dry-1-0",
+    "tall-grass-snow-1-0",
+    "tall-grass-1-1",
+    "tall-grass-dry-1-1",
+    "tall-grass-snow-1-1",
+    "tall-grass-1-2",
+    "tall-grass-dry-1-2",
+    "tall-grass-snow-1-2",
+    "tall-grass-2-0",
+    "tall-grass-dry-2-0",
+    "tall-grass-snow-2-0",
+    "tall-grass-2-1",
+    "tall-grass-dry-2-1",
+    "tall-grass-snow-2-1",
+    "tall-grass-2-2",
+    "tall-grass-dry-2-2",
+    "tall-grass-snow-2-2",
+    "grass-detail0",
+    "grass-detail1",
+    "grass-detail2",
+    "grass-detail3",
+    "grass-detail"
+  ],
+  "addedFrames": [
+    "nature-fruit-guava",
+    "nature-fruit-mango"
+  ],
+  "untouchedFrames": 898,
+  "oldAtlas": {
+    "w": 1024,
+    "h": 2308
+  },
+  "atlas": {
+    "w": 1024,
+    "h": 2424
+  },
+  "origins": {
+    "forest-oak-0": 0.5326,
+    "forest-oak-1": 0.4674,
+    "forest-oak-2": 0.5326,
+    "forest-palm-0": 0.6213,
+    "forest-palm-1": 0.3787,
+    "willow-tree": 0.5313,
+    "env-pine-olive": 0.5285,
+    "env-pine-snow": 0.5239,
+    "nature-fruit-guava": 0.5326,
+    "nature-fruit-mango": 0.4674
+  },
+  "runtimeSHA256": "9933cb7413bd95783ed4484553a30e9e6c0782670f1a8485b4750f97a1d4f647",
+  "metadataSHA256": "9e319d2641e0fad98c251af2ad71edba995854684fc2d80492715d49d8733cca"
+}

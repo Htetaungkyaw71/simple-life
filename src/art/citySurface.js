@@ -1,15 +1,52 @@
-import {groundHash} from './groundSurface.js';
-// Native pixel masonry uses quiet clusters and stepped curbs, not repeated sprite seams.
-const inside=(x,y,rect,pad=0)=>{const [rx,ry,rw,rh]=rect;return x>=rx/2-pad&&x<(rx+rw)/2+pad&&y>=ry/2-pad&&y<(ry+rh)/2+pad;};
-const rounded=(ctx,rect,color)=>{const [x,y,w,h]=rect.map(v=>v/2);ctx.fillStyle=color;ctx.fillRect(x+6,y,w-12,h);ctx.fillRect(x+2,y+2,w-4,h-4);ctx.fillRect(x,y+6,w,h-12);};
-export function paintCity(ctx,map){
- const walks=[...map.sidewalks,...map.squares];
- for(const r of walks){rounded(ctx,r,'#655f51');rounded(ctx,[r[0]+2,r[1]+2,r[2]-4,r[3]-4],'#e6dcc4');rounded(ctx,[r[0]+6,r[1]+6,r[2]-12,r[3]-12],'#c9c1ab');}
- for(let y=88;y<map.size.height/2;y+=8)for(let x=0;x<map.size.width/2;x+=16){const xx=x+(y%16?8:0);if(walks.some(r=>inside(xx+8,y+4,r,-5))){ctx.fillStyle=['#c5beaa','#d1c7b2','#c9c1ac'][groundHash(x,y,195)%3];ctx.fillRect(xx,y,15,7);ctx.fillStyle='#b4af9e';ctx.fillRect(xx,y+7,15,1);}}
- const roads=[...map.paving,...map.squares.map(([x,y,w,h])=>[x+12,y+12,w-24,h-24])];
- for(const r of roads)rounded(ctx,r,'#aaa99a');
- for(let y=80;y<map.size.height/2;y+=6)for(let x=0;x<map.size.width/2;x+=18){const xx=x+(Math.floor(y/6)%2?9:0);if(roads.some(r=>inside(xx+9,y+3,r,-2))){const k=groundHash(Math.floor(xx/3),y,322)%5;ctx.fillStyle=['#b3b0a1','#a3a69b','#bdb7a6','#adb0a3','#a9a99f'][k];ctx.fillRect(xx,y,17,5);ctx.fillStyle='#8d928a';ctx.fillRect(xx,y+5,17,1);if(k===0){ctx.fillStyle='#c8c0ad';ctx.fillRect(xx+2,y,12,1);}}}
- for(const r of map.gardens){rounded(ctx,r,'#656554');rounded(ctx,[r[0]+4,r[1]+4,r[2]-8,r[3]-8],'#d1d0b7');rounded(ctx,[r[0]+12,r[1]+12,r[2]-24,r[3]-24],'#814d3b');const [x,y,w,h]=r.map(v=>v/2);for(let yy=y+9;yy<y+h-9;yy+=3)for(let xx=x+9;xx<x+w-9;xx+=3){const n=groundHash(xx,yy,33);if(n%7===0){ctx.fillStyle=n%2?'#916043':'#724836';ctx.fillRect(xx,yy,3,2);}}}
- // A cream river embankment; bridge landings remain open.
- ctx.fillStyle='#d7cfb5';ctx.fillRect(0,14,map.size.width/2,2);ctx.fillRect(0,80,map.size.width/2,3);ctx.fillStyle='#787e70';ctx.fillRect(0,83,map.size.width/2,2);
+import {CITY_LAYOUT} from '../data/cityLayout.js';
+import {CITY_NATIVE_SIZE,citySurfaceMasks} from '../data/citySurfaceGeometry.js';
+// Original masonry and curb construction, rendered on the existing ground bake.
+// All masks use the same native contour; faces project south by three pixels.
+const rgb=hex=>[1,3,5].map(n=>parseInt(hex.slice(n,n+2),16));
+const cream=['#d8cebb','#dbd1be','#d6cdbb','#d9d0bd'].map(rgb);
+const road=['#aaa99d','#b0ad9f','#b4afa0','#a9ab9f','#aeaea2'].map(rgb);
+const color=Object.fromEntries(Object.entries({creamJoint:'#cfc6b4',roadJoint:'#9fa193',roadLight:'#b9b3a4',lip:'#d6c9ae',light:'#e6dac0',crest:'#e6d7b9',face:'#aa9d85',bottom:'#90836f',faceJoint:'#9f937d',threshold:'#d8ccb5',soil:'#827b57'}).map(([k,v])=>[k,rgb(v)]));
+const hash=(x,y)=>{let n=(Math.imul(x,374761393)+Math.imul(y,668265263)+Math.imul(9,1442695041))|0;n=Math.imul(n^(n>>>13),1274126177);return (n^(n>>>16))>>>0;};
+const put=(data,p,c)=>{data[p*4]=c[0];data[p*4+1]=c[1];data[p*4+2]=c[2];data[p*4+3]=255;};
+const at=(m,x,y,w,h)=>x>=0&&y>=0&&x<w&&y<h?m[y*w+x]:0;
+function gardenMask(gardens,w,h){const m=new Uint8Array(w*h);for(const [rx,ry,rw,rh]of gardens){const x0=rx/2,y0=ry/2,x1=x0+rw/2,y1=y0+rh/2;for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const dx=Math.max(x0+5-x,0,x-(x1-6)),dy=Math.max(y0+5-y,0,y-(y1-6));if(dx*dx+dy*dy<=25)m[y*w+x]=1;}}return m;}
+function curb(data,top,roads,ramps,w,h){
+ const face=new Uint8Array(w*h),shoulder=new Uint8Array(w*h);
+ if(ramps)for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(ramps[y*w+x])for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++)if(x+dx>=0&&x+dx<w&&y+dy>=0&&y+dy<h)shoulder[(y+dy)*w+x+dx]=1;
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=y*w+x;if(!top[p]||ramps?.[p])continue;const height=shoulder[p]?1:3;for(let dy=1;dy<=height&&y+dy<h;dy++)if(!top[p+dy*w])face[p+dy*w]=1;}
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=y*w+x;
+  if(roads[p]&&!face[p]&&!top[p]&&at(face,x,y-1,w,h)){const i=p*4;put(data,p,[0,1,2].map(c=>Math.round(data[i+c]*.82+[97,95,80][c]*.18)));}
+  if(face[p])put(data,p,x%20===0?color.faceJoint:at(face,x,y+1,w,h)?color.face:color.bottom);
+  if(!top[p]||ramps?.[p])continue;
+  let edge=false;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)if(!at(top,x+dx,y+dy,w,h))edge=true;
+  if(edge)put(data,p,color.lip);
+  if(!at(top,x,y-1,w,h)||!at(top,x-1,y,w,h))put(data,p,color.light);
+  if(!at(top,x,y+1,w,h))put(data,p,color.crest);
+ }
+ if(ramps)for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=y*w+x;if(!top[p]||!ramps[p])continue;let edge=false;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)if(!at(top,x+dx,y+dy,w,h))edge=true;if(edge)put(data,p,color.threshold);}
 }
+export function paintCityPixels(data,map){
+ const {width:w,height:h}=CITY_NATIVE_SIZE,{cream:cm,road:rd,island,ramp,walk}=citySurfaceMasks(),gardens=gardenMask(map.gardens,w,h);
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+  const p=y*w+x;if(island[p]||gardens[p]||(!cm[p]&&!rd[p]))continue;
+  const isCream=cm[p],th=isCream?7:6,row=Math.floor(y/th),xx=x+(row%2?9:0),column=Math.floor(xx/18),localX=xx%18,k=hash(column-(row%2?1:0),row)%(isCream?cream.length:road.length);
+  let c=localX===17||y%th===th-1?(isCream?color.creamJoint:color.roadJoint):(isCream?cream[k]:road[k]);
+  if(!isCream&&k===2&&y%th===0&&localX>=2&&localX<=13)c=color.roadLight;
+  put(data,p,c);
+ }
+ curb(data,cm,rd,ramp,w,h);curb(data,island,rd,null,w,h);curb(data,gardens,rd,null,w,h);
+ // Small clipped soil pockets under the approved grouped planting. All other
+ // green pixels retain the existing paintGround palette, noise and grass marks.
+ for(const a of map.cityPlanting||CITY_LAYOUT.planting){if(a.kind==='grass')continue;const [fx,fy]=a.foot,cx=fx/2,cy=fy/2-2.5;for(let y=Math.floor(cy-4.5);y<=cy+4.5;y++)for(let x=Math.floor(cx-11);x<=cx+12;x++){
+  if(((x-cx-.5)/11.5)**2+((y-cy)/4.5)**2>1)continue;
+  const p=y*w+x;if(x<0||y<0||x>=w||y>=h)continue;
+  // Keep soil away from the three-pixel stone cap and off every walkway.
+  let allowed=a.group.startsWith('island')?!!island[p]:a.group.startsWith('garden')?!!gardens[p]:!walk[p];
+  if(allowed&&(island[p]||gardens[p]))for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++)if(!at(island[p]?island:gardens,x+dx,y+dy,w,h))allowed=false;
+  if(allowed)put(data,p,color.soil);
+ }}
+ // Existing canal embankments; bridge art paints their open landings above it.
+ for(const [y,c]of [[14,[215,207,181]],[15,[215,207,181]],[80,[215,207,181]],[81,[215,207,181]],[82,[215,207,181]],[83,[120,126,112]],[84,[120,126,112]]])for(let x=0;x<w;x++)put(data,y*w+x,c);
+ return data;
+}
+export function paintCity(ctx,map){const {width:w,height:h}=CITY_NATIVE_SIZE,pixels=ctx.getImageData(0,0,w,h);paintCityPixels(pixels.data,map);ctx.putImageData(pixels,0,0);}

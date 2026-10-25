@@ -1,0 +1,250 @@
+{
+  "tool": "OpenAI built-in image_gen",
+  "modelVersion": "not exposed",
+  "cellSize": [
+    48,
+    48
+  ],
+  "standingHeightTarget": 30,
+  "groundRow": 40,
+  "directions": [
+    "south",
+    "north",
+    "west",
+    "east"
+  ],
+  "totalFrames": 156,
+  "conversion": "nearest sampling, torso registration, alpha threshold128, shared32-colour palette; no synthetic limb displacement",
+  "actions": {
+    "idle": {
+      "framesPerDirection": 1,
+      "fps": 1,
+      "sourceScale": 12.233333333333333,
+      "sourceReadyBodyLimits": [
+        [
+          185,
+          540
+        ],
+        [
+          181,
+          539
+        ],
+        [
+          118,
+          465
+        ],
+        [
+          121,
+          465
+        ]
+      ],
+      "mirroredWest": false,
+      "uniqueFrames": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "sheetSha256": "b1430e95ace7c4c70ef516497251559841aa00c7f4e1be83f8a1345672345882"
+    },
+    "running": {
+      "framesPerDirection": 8,
+      "fps": 16,
+      "sourceScale": 6.183333333333334,
+      "sourceReadyBodyLimits": [
+        [
+          34,
+          223
+        ],
+        [
+          23,
+          215
+        ],
+        [
+          21,
+          203
+        ],
+        [
+          10,
+          190
+        ]
+      ],
+      "mirroredWest": false,
+      "uniqueFrames": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sheetSha256": "f662c6e5d05636002d0749a9dfb9ba6dd1c95971a2f3cd5eba6278cd66517c29"
+    },
+    "harvesting": {
+      "framesPerDirection": 6,
+      "fps": 12,
+      "sourceScale": 7.2,
+      "sourceReadyBodyLimits": [
+        [
+          37,
+          251
+        ],
+        [
+          28,
+          242
+        ],
+        [
+          20,
+          240
+        ],
+        [
+          8,
+          226
+        ]
+      ],
+      "mirroredWest": false,
+      "uniqueFrames": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sheetSha256": "7292f0f7d511274a516230e9c422fe54f738d44c608771b8223bcde6a3476f41"
+    },
+    "digging": {
+      "framesPerDirection": 6,
+      "fps": 12,
+      "sourceScale": 7.233333333333333,
+      "sourceReadyBodyLimits": [
+        [
+          44,
+          262
+        ],
+        [
+          32,
+          246
+        ],
+        [
+          27,
+          247
+        ],
+        [
+          22,
+          238
+        ]
+      ],
+      "mirroredWest": true,
+      "uniqueFrames": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sheetSha256": "bfd6000315890659acf75ed70332fc189e7f884ca497ed552397552f439ea455"
+    },
+    "chopping": {
+      "framesPerDirection": 6,
+      "fps": 14,
+      "sourceScale": 6.866666666666666,
+      "sourceReadyBodyLimits": [
+        [
+          48,
+          256
+        ],
+        [
+          48,
+          255
+        ],
+        [
+          50,
+          253
+        ],
+        [
+          42,
+          247
+        ]
+      ],
+      "mirroredWest": false,
+      "uniqueFrames": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sheetSha256": "bd01a36555064f79861aaacd95ca45518430f8829db68dd86522edd3c0c498ed"
+    },
+    "watering": {
+      "framesPerDirection": 6,
+      "fps": 10,
+      "sourceScale": 7.3,
+      "sourceReadyBodyLimits": [
+        [
+          34,
+          258
+        ],
+        [
+          23,
+          244
+        ],
+        [
+          16,
+          229
+        ],
+        [
+          5,
+          222
+        ]
+      ],
+      "mirroredWest": false,
+      "uniqueFrames": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sheetSha256": "d26c3ca4bc075ce3a788c2d644966f8c1a12a7c65603204d1a380ee6fdbe1960"
+    },
+    "attack": {
+      "framesPerDirection": 6,
+      "fps": 14,
+      "sourceScale": 6.483333333333333,
+      "sourceReadyBodyLimits": [
+        [
+          50,
+          249
+        ],
+        [
+          47,
+          240
+        ],
+        [
+          37,
+          228
+        ],
+        [
+          32,
+          228
+        ]
+      ],
+      "mirroredWest": true,
+      "uniqueFrames": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sheetSha256": "ae1915e2c74fb627a1cef6232075c446ccf775ba29e05b8a35d57d113d78985d"
+    }
+  },
+  "sourceSha256": {
+    "attack.png": "d734354d7d2364615c9feeb6cbec2a52dbfed6aee72d0eb6fa4dca08bba91bfd",
+    "chopping.png": "8ac72b2b4f49cb5f3bdcfcb77998b0c0b15d88bface5b607b3cb5416b03009c9",
+    "digging.png": "ea410b5bf9f10a87d7cfc0b8295325941d3b91586f1de04eb985a1578983b573",
+    "harvesting.png": "6957031e232add9f9039600e7c8c1b13678f79c3c6ccb678d408bd8b8c78ae3f",
+    "idle.png": "260ce1c285e78cb2337763670537bb27e78eea38ce102d0fd42c5544e0b00a66",
+    "running.png": "28adb04c78554989b3759e0da8005052667580a332bf7364e89ebc9f11dbe305",
+    "watering-north.png": "38125f69bd3ab3db9d6d6f83337d44ebee2082ecbd8137dbb1d23c5248e0aeae",
+    "watering-south.png": "8c2bdb74789340cfa9d2844c467e63de4e8df3eab00f364f894aa83ebc6e2620",
+    "watering.png": "0c041705930517daefe3ee341eb517defb36baf5823a1f13ca574d4dd6cb5951"
+  },
+  "status": "review export; not installed in runtime game",
+  "limitations": "AI pose consistency and tool geometry need human review; body/head pixel clusters can vary between generated action sheets."
+}

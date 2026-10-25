@@ -29,7 +29,7 @@ const map={size:FOREST_SIZE,paths:STARTER.paths.map(([x,y,w,h])=>[x,y+4096,w,h])
 // Keep the old Homewood routes; the active entrance is now at the full map's centre.
 map.paths.push([448,4096,96,496],[832,4576,448,96]);
 map.paths.push(...FOREST_APPROACHES);
-map.props=map.props.filter(p=>!(p.name==='road-sign'&&p.text==='HOME'));
+map.props=map.props.filter(p=>!['sign','road-sign','farm-sign'].includes(p.name));
 map.signs=map.signs.filter(p=>!p.label.startsWith('HOME /'));
 export const FORAGE_NODES=STARTER_NODES.map(shift);
 const foodCycle=['banana','orange','papaya','coconut','dragonFruit','pineapple','mango','guava','wildBerry'];
@@ -43,7 +43,6 @@ for(const [i,r] of REGIONS.entries()){
  const landmark=r.id==='hyena'?'cp-ruins-brown-gray-3':r.biome==='stone'?'cave-mouth':r.biome==='snow'?'ice-crystal':r.id==='bamboo'?'bamboo-gate':r.id==='hyena'?'ruin-pillar':r.id==='herds'?'camp-tent':r.id==='jaguar'?'cp-ruins-water-3':'shrine-stone';
  map.props.push(prop(landmark,x+250,y+368));
  map.signs.push({type:'dialog',x:x+282,y:y+446,label:'Explore '+r.name,title:r.name,body:r.biome==='snow'?'Cold water and old ice. This is the farthest edge of the woods.':r.biome==='stone'?'A hidden stone chamber. Listen for movement before searching the shadows.':r.id==='jaguar'?'Natural shores follow the river. Look for quiet groves near the far bank.':'Fruit and animal tracks mark this place. The Forest exit is at the bottom centre of the map.'});
- map.props.push(prop('road-sign',x+560,y+774,{text:'HOME',direction:x+590<FOREST_ENTRANCE.x-128?0:x+590>FOREST_ENTRANCE.x+128?4:2}));
  map.signs.push({type:'hint',x:x+590,y:y+830,label:'HOME / bottom centre of the Forest map'});
  // Three connected groves; the deepest fruit sits inside each species territory.
  const items=r.biome==='snow'?['wildBerry','orange','dragonFruit']:[foodCycle[i%foodCycle.length],foodCycle[(i+3)%foodCycle.length],foodCycle[(i+6)%foodCycle.length]];
@@ -153,6 +152,8 @@ const inApproach=(x,y,pad=0)=>FOREST_APPROACHES.some(([a,b,w,h])=>x+pad>a&&x-pad
 map.props=map.props.filter(p=>!inApproach(p.x+32,p.y+90,p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree')?96:48));
 map.grass=map.grass.filter(p=>!inApproach(p.x,p.y,24));
 map.details=map.details.filter(p=>!inApproach(p.x+16,p.y+32,32));
-map.props.push(prop('road-sign',FOREST_ENTRANCE.x-160,4944,{text:'HOME',direction:2}));
+// A boulder's rendered silhouette is wider than its old logical tile. Keep
+// every forage point and its standing approach clear of that full silhouette.
+map.props=map.props.filter(p=>p.name!=='rock'||!FORAGE_NODES.some(n=>n.x+28>p.x-20&&n.x-28<p.x+84&&n.y+32>p.y-8&&n.y-32<p.y+64));
 map.signs.push({type:'hint',x:FOREST_ENTRANCE.x-128,y:5008,label:'HOME / leave through the opening south'});
 export const FOREST_MAP=map;

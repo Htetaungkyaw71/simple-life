@@ -1,3 +1,17 @@
+# 2026-10-23 — current hunted-food flow
+
+Animal drops create raw Meat, which appears on the first Bag → Gear page as a cooking ingredient and cannot be eaten directly. Its Cook action explains and opens the established Home-hearth route. After the stone stove is built once for 20 Wood + 16 Stone, each 1 Meat + 1 Wood produces 1 Grilled Meat. Grilled Meat is the first Bag → Food item and restores 50 health / 35 energy, independently capped at 100. This supersedes the older direct raw-Meat eating description below; Meat and Grilled Meat remain separate City market goods.
+
+Seed and Harvest clicks may select or put away the tool. For 1.8 seconds after the click, nearby-world prompts and the first-farm guide remain suppressed. Tool selection itself displays no text; the highlighted toolbar icon is the only visual selection state.
+
+---
+
+# v0.43.5 — current Home customization scope (2026-10-23)
+
+Home + Garden currently offers only House designs and Wardrobe. House designs contains the free Green Bay cottage and the 2,000-coin Blue Slate cottage, both reused from the approved City set. Each design changes the outdoor façade and the furnished room's colour treatment; owned designs switch for free. Craft/materials, garden/tree shopping and room-furniture shopping are intentionally hidden until their artwork is ready, without removing owned or placed items from saves. This supersedes the visible eight-house/catalog scope described in v0.17.x below.
+
+---
+
 # v0.21.0 — optional personal style
 
 Nell sells three paid outfits at east City commons (90/120/150c); Sol changes hair at west City lane (30/45/50/60c). Open 07:00–19:00, requiring the same close approach as talking to residents. The two starter outfits are already owned. Clothing purchases are permanent and free to re-equip through Home & garden → Wardrobe; each different haircut is a new paid service. Players can preview all combinations before committing. Current styles cannot charge twice, unavailable purchases disable their action, and coins/style/ownership save together. Cosmetics do not change damage, movement, farming yields, Journal achievement or progression. Existing main goals, NPC curfew and postponed cave remain.
@@ -260,7 +274,7 @@ Schema **8** retains `simple-life.save.v1` and migrates schemas 1–7 independen
 
 Home exterior, a compact furnished interior and Farm are playable. City and Economy V1 are now playable as explicitly authorized in the Milestone 2 brief. The player chooses boy or girl, begins with 60 coins and claims three tomato seeds once from the crate beside Home. Keyboard/touch controls, health/energy, day/night, sleeping, pause, saving and Credits remain.
 
-The south Home road leads past a wooden Farm sign and through an open fence to the map edge. Only crossing the edge travels to Farm; signs never transition. Farm’s north edge returns Home. Short fades and inward spawns prevent immediate return loops. The small green-roof shed/greenhouse is closed: solid supports/foundation collide at ground level; its roof overhang is not a full-sprite collider. Feet bodies and depth sorting remain independent.
+The south Home road leads through an open fence to the map edge. Only crossing the edge travels to Farm; decorative route signs have been removed. Farm’s north edge returns Home. Short fades and inward spawns prevent immediate return loops. The small green-roof shed/greenhouse is closed: solid supports/foundation collide at ground level; its roof overhang is not a full-sprite collider. Feet bodies and depth sorting remain independent.
 
 The primary field is one **192×192 world-unit bed**, sixteen contiguous **48×48 cells**, at (352,224). Subtle seams and a targeting outline identify individual cells. Surrounding paths, flowers, fence, scarecrow and utility props stay outside its tiles. Save indices are retained. Former resting areas are **overgrown expansion land**, with weeds/stones and a nearby compact sign. There is no soil fatigue. Three independently purchased fields now unlock the same 4×4 design; ownership is saved per farm. The old `expansionUnlocked` flag remains only for compatibility.
 
@@ -270,7 +284,7 @@ Plant/water/harvest show short pixel effects and compact feedback above the hotb
 
 ## Milestone 2: City and Economy V1
 
-Home’s existing east road reaches x=2240; a boundary zone at x=2208 leads to City (64,488), facing east. CITY arrow signs stand beside the road. City’s west boundary returns to Home (2176,640), facing west. Both use the retained fade and cooldown. City is 1280×896 with a compact stone plaza, fountain, benches, lamps, tree borders, flower planters, noticeboard, two staffed awning stalls and five future-use decorative buildings. Clear roads connect the entrance, adjacent shop row, plaza and return.
+Home’s existing east road reaches x=2240; a boundary zone at x=2208 leads to City (64,488), facing east. City’s west boundary returns to Home (2176,640), facing west. Both use the retained fade and cooldown; no decorative route-sign sprites remain. City is 1280×896 with a compact stone plaza, fountain, benches, lamps, tree borders, flower planters, noticeboard, two staffed awning stalls and five future-use decorative buildings. Clear roads connect the entrance, adjacent shop row, plaza and return.
 
 Clara sells four seeds at 07:00–20:00; Niko buys only harvested produce at 07:00–20:00. Compact canvas cards use four crop-icon tabs, name/icon, bag count and unit price. Select quantity, then use one Buy/Sell button displaying quantity and exact total; ? reveals optional growth/yield/care, shop hours and price information. Buy 1/5/Max and Sell 1/5/All are atomic integer transactions. Disabled choices explain affordability/stock limits. World/time pause while a panel is open; keyboard arrows/Tab/Enter, mouse, touch and Escape work. Q cycles planting crops; BAG provides a pointer/touch selector. Farming, crop information and eight visual care/growth states use the selected crop’s definition. No regrowth or eating mechanic.
 
@@ -285,7 +299,7 @@ Profit assumes a fully cared-for single planting; base yield value minus seed co
 
 Each new save has a random persisted unsigned 32-bit marketSeed. Prices hash that seed, the day and crop index through deterministic integer mixing, then choose an inclusive integer percentage from 85 through 120. Sale price is max(1, round(base × percentage / 100)). Below 95% is Low; above 105% is High; otherwise Normal. Fixed seed prices never reroll. Midnight advances the day and hence the prices, whether crossed awake or during sleep; reload derives the identical prices. Schema 7 migration supplies seed 1 for old saves, adds all new seed/produce keys and first-harvest/city/buy/sell flags, and preserves original tomato indices, all paid farms/fields, money, time and care history. Shop panels are transient and resume safely closed after reload.
 
-First harvest briefly expands “Sell your harvest in the city.” / “Follow CITY signs east.” The saved city visit clears the temporary waypoint; permanent signs remain. First city entry has one nonblocking merchant greeting. The city noticeboard offers one free Tomato seed per day only if money <10, all seed/produce stock is zero and no living crop remains. Seed aid cannot duplicate within the same day and persists across reload, allowing recovery without money grants or automatic sleeping.
+First harvest briefly expands “Sell your harvest in the city.” / “Follow the east road from Home.” The saved city visit clears the temporary waypoint. First city entry has one nonblocking merchant greeting. The city noticeboard offers one free Tomato seed per day only if money <10, all seed/produce stock is zero and no living crop remains. Seed aid cannot duplicate within the same day and persists across reload, allowing recovery without money grants or automatic sleeping.
 
 Existing manual bedtime, three starter seeds, bought fields/farms and shared care on unvisited farms remain. No forest, other crops, animals, combat, weather, relationships or festival. Sound events are prepared for entry/open/buy/sell/failure/close; no unreviewed placeholder audio.
 
@@ -309,7 +323,7 @@ One compact Phaser UI panel inspects the standing/facing or explicitly targeted 
 
 AM/PM icons each have explicit Watered, Needs water, Due later, Missed, Done or Closed text. Between watering windows the main condition can be Growing; the panel also handles Newly planted, Watered for this window, Fully watered today, Wilted, Recovering, Ready and Dead. Original pixel leaf/clock/sun/moon/drop/warning/basket/arrow art and the existing tomato item icon use the retained bitmap font/palette. Panel placement avoids the selected soil/crop and farmer. On short landscape displays its narrower side placement keeps touch controls/hotbar clear; the selected-tool label sits below the hotbar. Informational toast rendering waits while the crop panel is displayed; farming feedback remains in the compact action prompt.
 
-A wooden FARM board stands west of the first Home path junction, with an eight-by-sixteen world-unit post collider and centered smaller lettering. The duplicate south-exit board is removed. The remaining board points south and remains a hint; only the map edge travels. Claiming starter seeds expands “Take the starter seeds to the farm” / “Follow the FARM sign south” for seven seconds, then retains a small leaf objective icon. An eight-direction pixel arrow follows a ray from the farmer to the real transition-zone centre, stays inside the gameplay safe area and hides once the exit enters the camera view. Home interior does not display this exterior guide.
+The decorative FARM boards are removed; only the map edge travels. Claiming starter seeds expands “Take the starter seeds to the farm” / “Follow the south road” for seven seconds, then retains a small leaf objective icon. An eight-direction pixel arrow follows a ray from the farmer to the real transition-zone centre, stays inside the gameplay safe area and hides once the exit enters the camera view. Home interior does not display this exterior guide.
 
 Schema **4** retains the same storage key and accepts versions 1–4. `hasVisitedFarm` starts false, becomes true on Farm entry and persists through home/sleep/reload. Migration also infers a visit from old Farm/City location, planted/dead crops, tomatoes in the bag or sold produce. Claimed seeds alone are not evidence of a visit. Older saves with no remaining evidence cannot reveal an otherwise forgotten visit; those retain the guide until entry. Genuine New Game resets the guide. No new quest system or City feature is introduced.
 

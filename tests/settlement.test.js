@@ -14,6 +14,7 @@ import {grassGround} from '../src/systems/vegetation.js';
 import {buyFarm} from '../src/systems/expansion.js';
 import {MAPS} from '../src/data/mapLayouts.js';
 import {overlaps} from '../src/systems/settlementGeometry.js';
+import {decorationAllowed} from '../src/systems/customization.js';
 import {settlementRects} from '../src/art/SettlementView.js';
 import {ResourcePanel} from '../src/ui/ResourcePanel.js';
 import {BagPanel,bagItems} from '../src/ui/BagPanel.js';
@@ -71,7 +72,7 @@ test('resource pages, farm board and decoration tools remain bounded on desktop 
 });
 test('visual crafting pages show real object art, live material counts and guarded build/place actions',()=>{
  const u=recorder(360,640),s=stocked('farm'),a={state:s,ui:u,scene:{build(){}},save(){},transact(fn){return fn(s);}};u.app=a;u.toast=()=>{};const r=new ResourcePanel(a);
- for(const [i,id]of CRAFT_DECORATIONS.entries()){r.decorations(i);const d=DECORATIONS[id];assert.equal(u.menu.page.preview,id);assert.equal(u.menu.page.materials[0].have,100);assert.equal(u.controls.find(c=>c.label==='Place').disabled,true);const before=s.inventory[d.item];u.controls.find(c=>c.label==='Build').action();u.time.now+=1000;assert.equal(s.inventory[d.item],before+1);assert.equal(u.controls.find(c=>c.label==='Place').disabled,false);if(d.frame)assert.ok(u.root.list.some(n=>n.type==='image'&&n.frame===d.frame));else assert.ok(u.root.list.some(n=>n.type==='graphics'&&n.commands.some(c=>c.color===(id==='path'?0x756f61:0x543d32))));s.inventory.wood=100;s.inventory.stone=100;}
+ for(const [i,id]of CRAFT_DECORATIONS.entries()){r.decorations(i);const d=DECORATIONS[id];assert.equal(u.menu.page.preview,id);assert.equal(u.menu.page.materials[0].have,100);assert.equal(u.controls.find(c=>c.label==='Place').disabled,true);const before=s.inventory[d.item];u.controls.find(c=>c.label==='Build').action();u.time.now+=1000;assert.equal(s.inventory[d.item],before+1);assert.equal(u.controls.find(c=>c.label==='Place').disabled,!decorationAllowed(s.area,id));if(d.frame)assert.ok(u.root.list.some(n=>n.type==='image'&&n.frame===d.frame));else assert.ok(u.root.list.some(n=>n.type==='graphics'&&n.commands.some(c=>c.color===(id==='path'?0x756f61:0x543d32))));s.inventory.wood=100;s.inventory.stone=100;}
  s.inventory.wood=0;s.inventory.stone=0;r.decorations();const build=u.controls.find(c=>c.label==='Build');assert.equal(build.disabled,true);const before=JSON.stringify(s);build.box.events.pointerdown({},0,0,{stopPropagation(){}});assert.equal(JSON.stringify(s),before);assert.match(u.menu.page.note,/Need materials/);
 });
 test('resource text, material/reward rows and actions remain legible and separate in seven viewports',()=>{
@@ -79,7 +80,7 @@ test('resource text, material/reward rows and actions remain legible and separat
   for(const show of [()=>r.open(),()=>r.orders(),()=>r.projects(2),()=>{s.area='farm';r.decorations(1);},()=>{s.area='interior';s.settlement.stove=true;r.cooking();}]){show();const b=u.menuBounds,primary=u.controls.find(c=>c.id==='resource-action-0');for(const t of u.root.list.filter(n=>n.type==='text')){const left=t.x-t.width*t.originX,right=left+t.width;assert.ok(left>=b.x/2&&right<=(b.x+b.w)/2,t.text+' / '+w+'x'+h);assert.ok(t.y+t.height<(b.y+b.h)/2,t.text);if(primary&&t.y<primary.y)assert.ok(t.y+t.height<=primary.y,t.text+' overlaps actions');}for(const c of u.controls)assert.ok(c.h>=22,c.label+' touch size');}
  }
 });
-test('cooking opens the edible grilled meal directly, including its second bag page',()=>{
+test('cooking opens the edible grilled meal directly in the first Food slot',()=>{
  const u=recorder(360,640),s=stocked('interior'),a={state:s,ui:u,scene:{forestView:{energy(){},health(){}}},save(){},sound(){}};u.app=a;s.settlement.stove=true;s.health=40;s.energy=50;s.inventory.grilledMeat=1;a.bagPanel=new BagPanel(a);const r=new ResourcePanel(a);r.cooking();u.controls.find(c=>c.label==='Eat / Bag').action();assert.equal(bagItems(s,'food')[a.bagPanel.index].id,'grilledMeat');assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);assert.ok(u.controls.find(c=>c.id==='bag-item-grilledMeat'));a.bagPanel.perform();assert.equal(s.health,90);assert.equal(s.energy,85);assert.equal(s.inventory.grilledMeat,0);assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,true);
 });
 test('bag pagination never covers any category tab on desktop or phones',()=>{

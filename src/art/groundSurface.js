@@ -112,10 +112,10 @@ export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=nu
    if(seed%3===0&&path[(y+2)*w+x+3]){dot('#b89966',x,y,3,2);dot('#ddc28d',x,y,2,1);if(seed%2===0)dot('#c2a471',x+5,y+3,2,1);}
    continue;
   }
-  if(!safe(x,y)||seed%7===0)continue;
+  if(!safe(x,y)||seed%3===0)continue;
   const biome=biomeAt(x,y),snow=biome==='snow',dry=['savanna','desert','shrubland'].includes(biome),base=habitats?habitatColor({x:x*2,y:y*2}):(biomes.length?FOREST_GROUND_PALETTES:GROUND_PALETTES)[biome]||GROUND_PALETTES.wood;
-  const dark=`rgb(${base[0]-24},${base[1]-25},${base[2]-18})`,light=`rgb(${base[0]+13},${base[1]+12},${base[2]+8})`;
-  if(seed%19===0&&!snow&&biome!=='stone'){
+  const dark=`rgb(${base[0]-20},${base[1]-21},${base[2]-15})`,light=`rgb(${base[0]+10},${base[1]+9},${base[2]+6})`;
+  if(seed%53===0&&!snow&&biome!=='stone'){
    for(let n=0;n<3+seed%5;n++){
     const f=groundHash(x+n,y,981),fx=x+(f%17)-8,fy=y+((f>>>5)%13)-6;
     if(!safe(fx,fy)||!safe(fx-2,fy-2)||!safe(fx+3,fy+4))continue;
@@ -124,10 +124,10 @@ export function paintGroundDetails(ctx,w,h,path,water,distance,biomes=[],soil=nu
   }else if(seed%4===0){
    for(let n=0;n<2+seed%3;n++){const dx=n*3-3,dy=(seed>>n)%3;dot(dry?'#a69a61':dark,x+dx,y+dy,2,1);dot(light,x+dx+1,y+dy-1,2,1);}
   }else{
-   const height=2+(seed%3);dot(dark,x,y+1,1,height);dot(dark,x-2,y,1,height);dot(dark,x+2,y-1,1,height+1);
-   dot(dark,x-3,y,2,1);dot(dark,x+3,y-1,2,1);dot(dark,x-1,y+height,4,1);
-   dot(light,x-1,y+1,1,2);dot(light,x+3,y+1,1,1);
-   if(seed%3===0){dot(dark,x+5,y+4,3,2);dot(dark,x+7,y+2,2,2);dot(light,x+6,y+4,1,1);}
+   // Small tapered leaf groups, with open gaps instead of repeated U-shaped marks.
+   dot(dark,x-2,y+2,2,2);dot(dark,x+2,y+1,2,2);dot(dark,x,y,1,3);
+   dot(light,x-2,y,1,2);dot(light,x+1,y-2,1,3);dot(light,x+3,y,1,2);
+   if(seed%5===0){dot(dark,x+5,y+4,2,1);dot(light,x+6,y+2,1,2);}
   }
  }
 }

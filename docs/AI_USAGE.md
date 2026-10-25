@@ -1,3 +1,481 @@
+# 2026-10-24 — user-supplied Strawberry sheet audit
+
+Codex inspected and deterministically staged the user's supplied AI-assisted Pixel Snapper Strawberry strip. Assistance covered native-grid/palette measurement, exact magenta/fringe removal, repeated baked ground-mask removal from stages 2–8, binary-alpha validation, bottom-centred packing, review-page comparison, scale/marker geometry analysis, tests/build/browser verification and documentation. The retained plant colours are source-exact; no image-generation model, redraw, repaint, interpolation, blur, palette conversion, external download, new dependency, subagent or runtime atlas integration was used.
+
+The 48×38 review candidate remains outside `public/` and `dist`; human approval is pending. Runtime Strawberry frames, metadata, gameplay, saves and other crops remain unchanged. [Source, hashes, measurements, transformations and limitations](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — approved Tomato snapped icon integration
+
+At the user's explicit approval, Codex packed the previously audited Tomato produce and seed-packet candidates into the local runtime atlas without redrawing, repainting, resampling, or changing retained colors. Assistance was limited to deterministic atlas installation, Tomato-only visual scale wiring, exact-pixel verification, and required project records. No image generation, external download, new dependency, gameplay change, deployment, publication, push, or other crop/icon work was performed.
+
+---
+
+# 2026-10-24 — user-supplied Tomato icon audit
+
+Codex inspected and deterministically cleaned the user's AI-assisted Pixel Snapper Tomato icon sheet. Assistance covered palette/grid measurement, exact magenta removal, binary-alpha validation, 24×24 padding, UI display-size analysis, and a development-only comparison page. No image-generation model, redraw, repaint, interpolation, external download, new dependency, subagent, or runtime atlas integration was used.
+
+The first Tomato was selected for review based on its clearer 21×21 silhouette and detail; the 19×19 second Tomato remains an unused alternate. Human approval is pending. [Source, transformations, hashes, and UI audit](assets/licenses/tomato-icons-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — user-supplied Tomato sheet audit
+
+Codex inspected and deterministically staged the user's supplied AI-assisted Pixel Snapper Tomato strip. Assistance covered native-grid/palette analysis, exact-key transparency cleanup, repeated ground-mask removal, binary-alpha validation, bottom-centred packing, a reusable command-line importer, review-page integration, browser inspection, runtime-impact analysis, tests/build and documentation. No image-generation model, redraw, repaint, interpolation, blur, palette conversion, external download, new dependency, subagent or runtime asset integration was used.
+
+Candidate A was rejected because the source is native 1-pixel art rather than a uniform 2× enlargement. Candidate B remains review-only outside `public/` and `dist`; human approval is pending. No gameplay logic, save data, crop timing, state selection, runtime key/frame, other crop, deployment, publication or push changed. [Source, hashes, transformations and limitations](assets/licenses/tomato-import-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — tomato-only reference-led refinement v3
+
+Codex used the user's five screenshots as broad visual-style references, then deterministically redrew only the existing Tomato functions and two Tomato icon branches in `scripts/crop_art.py`. Assistance covered reference comparison, original connected compound-leaf pixel shapes, palette/shading refinement, targeted atlas replacement, before/after review evidence, source/pixel/silhouette audits, browser inspection, tests/build and documentation. No screenshot pixel was traced, sampled or copied; no image-generation model, third-party download, new dependency, subagent or remote runtime asset was used.
+
+Human visual acceptance remains pending. No gameplay logic, growth timing, save data, state selection, sprite key/frame name, UI logic, other crop, deployment, publication or push changed. [Source, reference role, hashes and checks](assets/licenses/tomato-redesign-v3/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — tomato-only pixel refinement v2
+
+Codex assisted with a second deterministic Pillow refinement of only the Tomato palette, stage helpers, two Tomato icons, targeted atlas cells, review page, source/pixel audits, tests/build, browser inspection and documentation. The art is code-native; no image-generation model, third-party reference extraction, external download, new dependency, subagent or remote runtime asset was used. The prior accepted-for-comparison runtime frames are retained as a local review strip only. Human visual acceptance remains pending, and no other crop was started.
+
+No gameplay logic, growth timing, save data, state selection, key/frame name, UI logic, deployment, publication or push changed. [Source, hashes and checks](assets/licenses/tomato-redesign-v2/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-24 — tomato-only pixel redesign
+
+Codex assisted with repository/reference audit, deterministic Pillow pixel authoring, atlas-cell preservation checks, a development-only review page, tests/build, browser inspection and documentation. The ten changed runtime images are original code-native Tomato pixels generated by `scripts/crop_art.py`; no image-generation model, reference-image extraction, external download, new dependency, subagent or remote runtime asset was used. The two extra study frames exist only in the review page and are derived in browser memory from the real Tomato palette; they have no gameplay keys.
+
+The user required review before any other crop is touched. Human visual acceptance is therefore pending. No gameplay, save data, crop timing, state selection, UI logic, deployment, publication or push was changed. [Source and verification record](assets/licenses/tomato-redesign-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-23 — Mystical Forest River welcome background
+
+At the user's explicit approval of the Mystical Forest River direction, Codex used one OpenAI built-in image-generation call. The user's first screenshot supplied composition/atmosphere only; the current welcome screenshot supplied palette/pixel-density context only. The prompt explicitly prohibited copying their identifiable plants, tree shapes, river contours, logo, UI or full layout. Codex copied the selected generated PNG byte-identically into the local runtime, implemented responsive Phaser cover scaling, retained separate live title/menu/language controls and subtle water/bird/leaf motion, updated focused tests and documented provenance. [Exact prompt, reference roles, hash and limitations](assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md).
+
+No subagent, third-party generator/API, external download, new dependency, backend, runtime AI, remote runtime asset, deployment, publication or push was used. Human final visual/originality/rights acceptance remains required.
+
+The user's follow-up screen recording was then used only as a motion reference. Codex inspected sampled frames, removed the earlier rectangular travelling-glint layer and implemented code-native Phaser wavelets: short broken highlight clusters with four stepped poses per second, positioned in backdrop source pixels and bounded by an explicit conservative river channel. A regression checks every generated block against that channel across ten layouts. No video frame, audio or other recording pixel was copied into the runtime; the background PNG is byte-unchanged.
+
+For the title-clarity follow-up, Codex changed only the live `SIMPLE LIFE` bitmap-text layers: eight one-native-pixel dark outline offsets, one deeper offset shadow and a warm-cream face. The supplied screenshot was used to identify low contrast only. The subtitle, ornament, menu, background, assets and animations were not changed. A focused regression verifies the exact title-layer count, colors and offsets.
+
+---
+
+# 2026-10-23 — tool-toggle and hunted-food interaction repair
+
+Codex assisted with repository/document/reference review, screen-recording frame inspection, root-cause analysis, canvas UI/gameplay edits, pure and UI regression tests, an isolated real-Chrome acceptance script, build verification and documentation. The recording corrected the initial interpretation: tool selection text is now removed completely while context remains suppressed. Follow-up tracing found a separate pre-update render frame in the newly reconstructed FarmGuide and full-width initial health/energy fills; the guide now initializes hidden and the meters initialize from current state. The work keeps the existing Phaser architecture and existing stove, Meat and Grilled Meat assets; it adds no generated media, external download, dependency, runtime AI, remote asset, backend or save migration. No subagent was used. No deployment, publication or push was performed.
+
+---
+
+# 2026-10-22 — HUD prompt first-frame visibility repair
+
+AI-assisted debugging traced the remaining upper-left Seed/Harvest flash to the prompt container's default visible state during HUD creation, before its first positioned update. The HUD prompt now initializes hidden and is revealed only after positioning. Validation: 408 tests pass and the production build succeeds. No assets or dependencies were added.
+
+# 2026-10-22 — HUD prompt flash and tool-toggle hint repair
+
+Browser follow-up identified a remaining upper-left prompt flash and delayed `Follow the south road` context after Seed/Harvest unselection. The HUD now positions prompts while hidden, then reveals them, and the tool-toggle suppression window is 1.8 seconds. 407 tests and the production build pass.
+
+# 2026-10-22 — tool-toggle prompt suppression
+
+Follow-up testing showed that unselecting Seed or Harvest returned to Hand and immediately exposed the nearby starter-crate context, causing a brief `Starter seeds / Farm south` HUD message. A 500 ms prompt suppression window now applies only after tool selection, with a pure regression test. 407 tests and the production build pass.
+
+# 2026-10-22 — toolbar prompt leak repair
+
+Follow-up browser review identified that Seed/Harvest toolbar clicks were also handled by the World scene, producing an unrelated `Starter seeds / Farm south` prompt. A shared UI-control hit test now prevents world interactions beneath toolbar and mobile controls. Added a regression test; 406 tests pass. No assets or dependencies were added.
+
+# 2026-10-22 — crop panel positioning flash repair
+
+AI-assisted browser review reproduced the reported upper-left HUD flash when selecting Seed or Harvest. The crop-status overlay was visible for one render before its safe placement calculation. The update now hides it until placement completes. Validation: 405 tests pass and the production build passes. No assets or dependencies were added.
+
+# 2026-10-22 — keyboard focus regression repair
+
+AI-assisted browser smoke testing found a real UI bug: keyboard focus called `setStrokeStyle` on the mobile movement-stick control, whose graphics object does not expose the custom button styling method. The fix adds a capability-safe shared focus helper and a regression test. Validation: 405 tests pass, production build passes, and local Chromium reload/help navigation no longer reproduces the error. No assets or dependencies were added.
+
+# v0.43.5 — Home menu and two existing City designs (2026-10-23)
+
+Codex assisted with the scoped canvas-UI removal, two-house catalogue wiring, City-atlas reuse, façade-specific Home collision, warm/cool interior surface selection, schema-19 compatibility mapping, Myanmar strings, automated tests, responsive browser acceptance and documentation. No image-generation call, subagent, external generator/API, external download or new project dependency was used. No source asset was edited or created; the feature reuses the already licensed Green Bay and Blue Slate City frames and the established Home furnishings.
+
+No backend, runtime AI, remote runtime asset, deployment, publication or push was added. Existing asset licence records remain authoritative.
+
+---
+
+# 2026-10-21 — generated ground-grass review checkpoint
+
+At the user's explicit request, Codex used six separate built-in image-generation calls to create three original full-canvas lawn candidates: one initial call and one focused darker/quieter correction per variant. The user's two game screenshots set scale and palette; three supplied references informed only general warm-olive mood and density. Codex then used local Pillow/NumPy processing for screenshot palette statistics, exact-palette nearest conversion, hard-pixel seam repair and review comparisons. [Prompts, method, checks and limitations](assets/licenses/ground-grass-review-v1/SOURCE_RECORD.md). The candidates remain review-only pending approval; no runtime, gameplay, collision, save, UI, deployment, publication or push changed.
+
+---
+
+# v0.43.4 — deterministic fountain water animation (2026-10-19)
+
+No image-generation call was made. At the user's explicit request, Codex wrote and ran a Pillow/NumPy script that edits only pixels selected by a reviewable water mask in the supplied Pixel Snapper fountain. Assistance covered mask geometry, six-frame ripple/stream/shimmer animation logic, exact-palette and outside-mask assertions, sprite-sheet/GIF/static exports, visual audit and documentation. The optional lily-pad movement was omitted to keep every non-water object unchanged. Exact source, transformation, output hashes and limitations are recorded in [the source record](assets/licenses/fountain-animation-v1/SOURCE_RECORD.md).
+
+No subagent, external generator/API, external download, new project dependency, backend, runtime AI, remote runtime asset, deployment, publication or push was used.
+
+---
+
+# v0.43.3 — original fountain-island v2 (2026-10-19)
+
+The user explicitly requested a new, original fountain island using the supplied image only for pixel density, outline thickness and cozy mood. Codex made two built-in image-generation calls: one new `#FF00FF` magenta-backed composition and one transparent background-extraction edit. The result uses an octagonal mossy basin, oval island/path, teal lily-pad water, asymmetrical planting and two barrel planters, intentionally avoiding the reference's layout and objects. The generated transparent source was exported to the requested 1024×1024 RGBA PNG using nearest-neighbour FFmpeg scaling. It remains review-only outside production. Exact prompts, source/deliverable hashes and validation are recorded in [the source record](assets/licenses/fountain-island-v2/SOURCE_RECORD.md).
+
+No subagent, third-party generator/API, external download, new dependency, backend, runtime AI, remote runtime asset, deployment, publication or push was used.
+
+---
+
+# v0.43.2 — fountain-island review pair (2026-10-19)
+
+The user explicitly requested built-in image generation for a fountain island based on the supplied pixel-art reference. Codex made two built-in calls: one new plaza-backed generation and one background-extraction edit preserving the island on transparent alpha. The generated 1254×1254 sources were exported as two requested 512×512 PNGs using nearest-neighbour FFmpeg scaling. Both remain review-only outside the production runtime. The exact prompt, reference hash, deliverable hashes, dimensions and alpha status are recorded in [the source record](assets/licenses/fountain-island-v1/SOURCE_RECORD.md).
+
+No subagent, third-party generator/API, external download, new dependency, backend, runtime AI, remote runtime asset, deployment, publication or push was used.
+
+---
+
+# v0.43.1 — generated barber-chair review and user asset integration (2026-10-19)
+
+The user explicitly invoked the image-generation skill. Codex used OpenAI built-in image generation once to produce one transparent sage/walnut barber-chair candidate from the supplied current-chair screenshot. The output, reference hash, output hash and prompt summary are recorded in [the source record](assets/licenses/barber-chair-review-v2/SOURCE_RECORD.md). It remains review-only and is not loaded by the game.
+
+The clothing rack and Home wood are user-supplied AI-assisted Pixel Snapper files; Codex did not regenerate or redraw them. Codex packed the exact sources, chose Phaser-only runtime scales, refitted layout/collision/depth, rebuilt the fountain island with code/data, removed fixed outdoor Home benches and road-sign rendering, ran automated/browser checks and updated documentation. No subagent, third-party download, new dependency, backend, runtime AI, remote runtime asset, deployment, publication or push was used.
+
+---
+
+# v0.43.0 — user-approved shop object integration (2026-10-19)
+
+No image-generation call was made in this pass. The user supplied eight Pixel Snapper PNGs derived from the previously disclosed clothing/barber review concepts and explicitly requested their integration. Codex preserved the complete native canvases, extended the local atlas/audit, measured visible alpha bounds, matched Phaser-only display scales and room placement to the two supplied composition references, refitted collisions/service approaches, kept the barber bench removed, added the doorway-adjacent green rug, tests, browser verification and documentation.
+
+The supplied full-room images guide relative scale and composition only; their pixels are not loaded by the game. The green rugs are small code-native Phaser geometry, not generated raster images. The source art remains disclosed as user-provided AI-assisted Pixel Snapper output, not hand-drawn, exclusive, CC0 or guaranteed competition-eligible. No subagent, external generator/API, third-party download, new dependency, backend, runtime AI, remote asset, deployment, publication or push was used. [Source and transformation record](assets/licenses/shop-interior-pixel-snapper-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.9 — shop review generation and local integration (2026-10-19)
+
+The user explicitly invoked the image-generation skill. Codex first inventoried existing game frames, then used OpenAI built-in image generation for eight missing transparent furniture sources and one precise barber-room edit. The clothing outputs are a folded-clothes cabinet, wrapping counter, fitting corner, full-length mirror and display table. The barber outputs are a stocked worktop, storage cabinet and coat-hook rail; no bench was generated. The room edit removes only the bench and keeps the rug and service area. Exact reference hashes, output hashes, dimensions, prompt summaries and limitations are recorded in [the source record](assets/licenses/shop-interior-assets-review-v1/SOURCE_RECORD.md). The exact backend model identifier was unavailable.
+
+Earlier in the same review chain, built-in image generation produced a grass concept and full clothing/barber room concepts; these remain review-only. Codex also integrated the user's supplied Pixel Snapper wood image without generating a substitute, centered the fountain geometry, reduced the island pots, removed the live barber bench/collision, added tests and updated documentation. No subagent, third-party generator/API, external download, new dependency, backend, runtime AI, remote asset, deployment, publication or push was used.
+
+---
+
+# v0.42.8 — layout cleanup and exact existing-sprite exports (2026-10-19)
+
+No image-generation call was made. The user's screenshots were used only to identify City/Home objects and relative scale; no screenshot pixels or embedded instructions were extracted. Codex removed the City camp flame, café furniture, repeated house-front pots and four older tiny plaza planters; reassigned the already supplied small flame to the existing Home fireplace; reduced/rebalanced the four island pots; and preserved the fountain's alpha-aware mathematical centering.
+
+Codex also wrote a deterministic export utility that crops 19 named frames at native dimensions from the game's existing local atlases. The prior café table/chair and wood, grass, stone, logs, mushroom, resource and terrain sprites are delivered unchanged for review and are not newly generated or added to runtime. Assistance includes code, tests, export manifest, browser verification and documentation. No subagent, external generator/API, third-party download, dependency, backend, runtime AI, remote asset, deployment, publication or push was used. [Export provenance](assets/licenses/existing-non-snapper-export-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.7 — user-supplied vegetation and placement review (2026-10-18)
+
+No image-generation call was made. The user supplied seven additional Pixel Snapper PNGs and screenshots identifying layout problems. Codex preserved the seven source PNGs byte-identically, extended the existing native atlas/audit, mapped broadleaf, tall, palm, grass, bush, sparse and snow-tree uses at the preceding approximate world heights, and added alpha-aware root anchoring for the replacement canvases. Screenshot evidence was used only to identify objects, scale and placement; no screenshot pixel was extracted.
+
+Codex also removed directional road-sign placements, moved Seed Aid and Home storage, removed the two reviewed City barrels, enlarged benches/pots, centred the fountain/pot composition, added regression tests, ran the full test/build suite and performed local Chromium interaction QA. The supplied images remain disclosed as user-provided AI-assisted Pixel Snapper outputs, not hand-drawn, exclusive, CC0 or guaranteed competition-eligible. No subagent, external generator/API, third-party download, new dependency, backend, runtime AI, remote asset, deployment, publication or push was used. [Source and transformation record](assets/licenses/pixel-snapper-assets-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.6 — user-supplied Pixel Snapper object integration (2026-10-18)
+
+No image-generation call was made. The user supplied 30 Pixel Snapper PNGs and explicitly requested their integration at native image size with game-side scaling. Codex audited alpha, copied each source byte-identically into project evidence, packed full untrimmed canvases into a local atlas, authored runtime texture/scale mappings, adapted outdoor/interior placement and collision, adjusted two City house display scales, and updated tests and documentation. The source screenshots were used only to identify the two houses and desired relative size; no screenshot pixels were extracted.
+
+The supplied images remain disclosed as user-provided AI-assisted Pixel Snapper outputs and are not represented as hand-drawn, exclusive, CC0 or guaranteed competition-eligible. No subagent, external generator/API, third-party download, new dependency, backend, runtime AI, remote asset, deployment, publication or push was used. [Source and transformation record](assets/licenses/pixel-snapper-assets-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.42.5 — user-approved shop derivatives and final scale cleanup (2026-10-18)
+
+No image-generation call was made in this pass. The user supplied two Pixel Snapper derivatives of the already disclosed clothing/barber concepts and authorized their integration. Codex preserved their native RGBA canvases, packed them into the local atlas, wired the existing shops to them, and adjusted data-driven placement, collision, routes and tests. Codex matched four screenshot-identified City facades to the accepted reference buildings' 190-world-pixel visible height and matched the barber to the clothing shop's 198-world-pixel visible height through nearest-filtered runtime display scales. One Home-map building was removed. No source raster was resampled, recoloured or redrawn.
+
+The supplied screenshots were used only to identify scale and placement problems; no screenshot pixels were extracted. Assistance covered code, atlas packing, tests, local browser QA and documentation. No subagent, external generator/API, new dependency, backend, runtime AI, remote asset, publication, deployment or push was used.
+
+---
+
+# v0.42.4 — house follow-up and shop review art (2026-10-18)
+
+Codex adjusted only data-driven placement, collision and render-depth code for the City/Home/Farm house follow-up. The three oversized City sources remain byte/native-grid unchanged and now render at integer 1×; other houses remain integer 2×. Existing approved house frames were reused for Home and Farm. No reference-game pixels were extracted, and no new runtime dependency, backend, remote asset or runtime AI was added.
+
+Four built-in OpenAI image-generation calls were used for the clothing/barber review pair: one initial generation per shop and one cleanup edit per shop. The user's screenshots guided general scale and style only. The selected 1536×1024 RGBA outputs remain outside `public/` and `dist`; they still require Pixel Snapper/native-grid and final alpha cleanup before any possible integration. The tool did not expose a model-version identifier. [Prompts and source disclosure](assets/licenses/city-shop-redesign-v2/SOURCE_RECORD.md). No subagent, external generator/API, publication, deployment or push.
+
+---
+
+# v0.42.3 — user-supplied Pixel Snapper City buildings (2026-10-18)
+
+The user supplied ten Pixel Snapper PNG derivatives from the previously disclosed City-building image-generation batch and explicitly selected nine residences plus the café for integration. Codex made no image-generation call in this phase and did not resize, resample, recolour or redraw the source PNGs. Assistance covered lossless atlas packing, integer-scale placement, alpha-aware foundation collision, grass-lot surface masks, porch/resident route repair, exact three-planter filtering, regression tests, local Chromium visual QA and documentation. The supplied screenshots were comparison/placement references only; no screenshot pixels or layout were extracted.
+
+The runtime art remains disclosed as AI-generated and user-adapted under the inherited reviewed OpenAI output terms; it is not represented as hand-drawn, CC0, exclusive or guaranteed competition-eligible. [Files, hashes and transformation record](assets/licenses/city-building-snapper-v2/SOURCE_RECORD.md). No subagent, external generator/API, dependency, backend, runtime AI, remote asset, user-live-save edit, deployment, publication or push.
+
+---
+
+# City building redesign concepts — review only (2026-10-18)
+
+OpenAI built-in image generation produced twelve final high-resolution RGBA concepts after Codex inspected the running City: nine distinct residential façades plus café, clothing-shop and barber façades. Fifteen calls were used in total because House 03 required three cleanup/regeneration attempts; only the final clean cutout is retained. Supplied/current screenshots were style, scale and parcel references only; no pixels were extracted. All outputs remain outside runtime awaiting user review and Pixel-Snapper/native processing. [Prompts, hashes and disclosure](assets/licenses/city-building-redesign-v1/SOURCE_RECORD.md). No subagent, external generator/API, dependency, backend, runtime AI, publication or push.
+
+---
+
+# v0.42.2 — user-supplied Pixel Snapper derivative (2026-10-17)
+
+The user processed the previously generated terracotta cottage with Pixel Snapper and supplied the resulting 167×110 PNG for integration. Codex made no new image-generation call and did not resize, resample, recolour or redraw it. Integration removes only the exact-white opaque backdrop, retains every non-white RGBA pixel/canvas dimension, appends one atlas frame, traces collision rows and preserves the existing residence/entry. This remains disclosed as AI-generated/user-adapted art under the inherited reviewed terms. [Source, hashes and method](assets/licenses/city-cottage-snapper-v2/SOURCE_RECORD.md). No subagent, external generator/API, dependency, backend, runtime AI, publication or push.
+
+---
+
+# v0.42.1 — selected terracotta City cottage (2026-10-17)
+
+OpenAI's built-in image generation produced the user-selected cottage through an initial generation and one cleanup revision. Codex preserved the selected original, exported a native binary-alpha 120×112 derivative with the established bounded area-vote tool/shared palette, appended one atlas frame, traced its collision/door anchor, wired one existing residence to it, and authored tests/evidence. The supplied screenshots were style references only; no screenshot pixels were extracted. The user inspected the cleaned result and explicitly requested integration.
+
+This is disclosed as AI-assisted art, not hand-drawn, CC0, exclusive, or guaranteed competition-eligible. [Prompt summary, hashes, terms and review](assets/licenses/city-cottage-terracotta-v1/SOURCE_RECORD.md). No subagent, external generator/API, new dependency, backend, runtime AI, remote runtime asset, publication or push.
+
+---
+
+# v0.42.0 — animated welcome and requested release
+
+Codex authored the layered Phaser welcome renderer, native bird/leaf/river graphics, bounded visual animation, responsive layout, inline persistent language selection, tests and evidence. Existing approved sprites, fonts and audio are reused unchanged. No image generation, new dependency, subagent, backend, runtime AI or remote asset. CUA verified the local production UI and isolated synthetic saves; helpers/captures stay outside the runtime allowlist. Vercel release uses the existing project and only the tested runtime output, as explicitly requested by the user. [Checks/release](verification/welcome-v042/README.md), [source/terms](assets/licenses/welcome-v042/SOURCE_RECORD.md).
+
+---
+
+# v0.41.0 — approved City integration (2026-10-17)
+
+Codex integrated the existing approved proposal02 via ES modules, authored room/door/collision/commute/service wiring, preserved saved identities and exact image pixels, exported approved apron contours and wrote regression/provenance records. No new generation, third-party assets/dependencies, subagents, backend or runtime AI. Existing thirteen generated originals/nine native art derivatives retain their prior disclosures and terms. CUA was used for isolated local production-browser checks; synthetic fixture state is separate from the user's normal save.380tests/build and original-pixel audits pass. [Record](assets/licenses/city-shops-v1/SOURCE_RECORD.md), [checks/limits](verification/city-shops-v1/README.md). No publication or push.
+
+---
+
+# City location proposal 02 — offline relocation, no new generation (2026-10-16)
+
+Codex matched four supplied screenshots to authored City plots and revised the separate offline compositor. Existing café/clothing art, two tents, two benches and barrel are reused unchanged. Café tables move in front; camp planter is omitted; two selected home identities are planned at the northern cottages. Original terrain functions render an isolated input variant for the widened green parcel/old soil cleanup, with source and playable state unchanged. Added static footprint/preservation checks, preview views/viewer/ZIP and records. No image generation, subagents, new art/dependency, runtime AI or publication.
+
+All251 runtime baseline files and all prior proposal files are exact; approved nine native PNGs/thirteen originals remain.375 tests/build pass; browser viewer café/camp views inspected. Dynamic service/door/home/commute/save/mobile acceptance remains deferred. [Outputs and limits](../output/previews/city-garden-shops-v2/README.md), [source evidence](assets/licenses/city-garden-shops-proposal-v2/SOURCE_RECORD.md).
+
+---
+
+# City garden and shops — complete review batch (2026-10-16)
+
+Codex used thirteen built-in imagegen calls for original shop/cottage/pot/furniture artwork, retaining every original and four superseded camera/orientation attempts. Nine selected native PNG derivatives use the established bounded pixel-vote exporter with a shared palette and binary transparency; source files remain untouched. Codex composed offline City/interior previews from the unmodified current terrain and approved atlas/character assets, inspected the current City and finished stills, and authored footprint/route/alpha/baseline audits, local viewer, ZIP and provenance records. No subagents, external generation CLI/API, new dependency, backend or runtime AI.
+
+The design remains review-only. All 251 source/public/config hashes are exact; 375 tests/build and the 48-file asset boundary pass. Static path checks do not represent live new-room/service/NPC/animation acceptance. [Outputs, original/native dimensions, methods and limits](../output/previews/city-garden-shops-v1/README.md); [prompt/hash source evidence](assets/licenses/city-garden-shops-proposal-v1/SOURCE_RECORD.md). No playable changes, save mutation, publication or push.
+
+---
+
+# v0.40.0 — approved City proposal integrated (2026-10-16)
+
+Codex implemented the approved layout using original data-driven native surface masks, procedural stone shading and existing atlas sprites. User's latest instruction retains current green land: the existing ground shader/palette/texture is unchanged. No new image generation, external art, dependency or backend. Source screenshots guide original construction/relationships only; no reference pixels are extracted.
+
+Codex added stable vegetation aliases, registered moved footprints/column geometry, clear cottage aprons, grouped planting and save/access regressions; authored documentation/provenance and isolated browser fixtures.375 tests/build pass; browser checks cover live terrace/fountain walking, day/night views and town-board access without using the user's normal save. All public asset bytes remain exact. [Methods/screenshots/limitations](verification/city-layout-v1/README.md); [original surface/source record](assets/licenses/city-layout-v1/SOURCE_RECORD.md). No publish/push.
+
+---
+
+# City proposal 03 — compact seating and natural planting review (2026-10-16)
+
+Codex revised only the offline composition: measured bench gaps/terrace bounds, original projected curb/lawn/soil rendering, grouped existing approved sprites and a proper actual-footprint access audit. No AI image generation, foreign layout/pixel extraction, new source art or dependency. All approved artwork/scales and other existing prop positions remain; only three benches/two lamps move. Prior proposals remain.
+
+Source body evidence corrects the earlier six-unit circle approximation to the actual 24×12 foot rectangle plus source house clearance. The audit revealed/fixed a missing porch pavement link in the proposal and records valid nearby board access. Static approaches and 663 authored route samples pass; dynamic integration remains unverified.371 tests/build pass and 249 runtime files remain exact. [Review methods/outputs/limits](../output/previews/city-road-layout-v3/README.md), [source evidence](assets/licenses/city-road-layout-proposal-v3/SOURCE_RECORD.md). No runtime change, publication or push.
+
+---
+
+# City proposal 02 — raised paving review (2026-10-16)
+
+Codex revised the offline preview with procedural stone lips, shallow curb extrusion, flat contact shade, binary softened corner masks, lowered thresholds, smaller quieter paving and grouped existing planting inside a shaped low border. No image generation, new external asset or dependency. Existing source PNGs and all previous prop frames, scales and placements remain exact.
+
+Only preview outputs and records change. All 371 tests/build and offline checks pass; local viewer inspected. Runtime integration acceptance awaits approval. [Methods/outputs/limits](../output/previews/city-road-layout-v2/README.md), [provenance](assets/licenses/city-road-layout-proposal-v2/SOURCE_RECORD.md). No publishing or push.
+
+---
+
+# City layout proposal 01 — review only (2026-10-16)
+
+Codex inspected the existing City in the local browser, read project guidance, authored original procedural masonry/cream/curb masks and a separate offline layout compositor/viewer, and reused existing approved atlas pixels at their original object scales. The three supplied screenshots guide architectural relationships only; no reference art/layout extraction or new image generation. The proposed three-bench terrace, fountain island, door/service connections and future green reservations remain outside the playable build.
+
+249 runtime files stay byte-exact.371 existing tests/build, static proposal clearance/reachability and browser viewer checks pass. Runtime collision/NPC/save/night/mobile acceptance and final future-building footprints await explicit integration approval. [Methods, outputs and limits](../output/previews/city-road-layout-v1/README.md); [provenance](assets/licenses/city-road-layout-proposal-v1/SOURCE_RECORD.md). No new dependency, publication, push or deploy.
+
+---
+
+# v0.39.0 — outdoor follow-up
+
+Six built-in imagegen calls supplied notice/route boards, wheelbarrow, ground flowers, fountain and tent sources. Codex exported native art, enlarged the unchanged approved well source, reused accepted planter art, registered water highlights, implemented glass-only night light and shared City placement/stable tree IDs, and ran regression/pixel/build/browser checks. [Exact prompts, hashes, transformations and terms](assets/licenses/outdoor-followup-v1/SOURCE_RECORD.md). No new well/planter/character generation, subagent, reference sprite extraction, dependency, runtime AI, save/clock fixture or publication.
+
+---
+
+# v0.38.0 — reviewed outdoor collection integration
+
+Fourteen earlier built-in imagegen calls produced objects02–15 using the approved planter and lamp plus town camera reference. The approved lamp retains its earlier generation/revision and user-directed flat-cream/transparency export. No generation during integration. Codex reused source RGB in native sampling, packed existing cells, derived fence rail/cap crops, aligned foliage roots, adapted the closed boundary gate, wrote preservation/route tests and performed actual browser checks. [Exact prompts, original paths/hashes, transformation and retained terms](assets/licenses/outdoor-collection-v1/SOURCE_RECORD.md). No reference sprite extraction, subagents, new dependency, runtime AI or save fixture. All original artwork remains; no publication.
+
+---
+
+# v0.37.2 — muted planter-bench edit and integration
+
+One prior built-in imagegen edit changed the accepted bench palette/detail using the supplied Simple Life screenshot as context only. The user then authorized integration. No further generation, subagents, reference-pixel extraction, runtime AI, dependency or save fixture. Codex reused the native exporter, replaced one atlas cell, audited preservation, checked the live City rendering and ran tests/build. [Exact prompt, unchanged source/hash, transformation and terms evidence](assets/licenses/planter-bench-muted-v2/SOURCE_RECORD.md).
+
+---
+
+# v0.37.1 — one accepted planter-bench integration
+
+Two earlier built-in imagegen calls created the original and the requested vertical-footprint/camera revision; exact prompts, unchanged source hashes and output paths are retained in [source evidence](assets/licenses/planter-bench-v1/SOURCE_RECORD.md). No new image generation during integration. Codex implemented source-sample native export, binary-alpha packing, one City instance with matching per-object ground mask, shadow omission, regression/pixel/build audits and documentation. All prior atlas artwork and original canvases remain. No reference-game pixel extraction, runtime AI, dependency, subagent, user-save fixture or publication. Actual browser acceptance is not claimed under the existing URL-policy block.
+
+---
+
+# v0.37.0 — approved home integration (2026-10-16)
+
+The previous review collection used22 built-in imagegen calls including corrections, plus the separately approved table reused unchanged. No new furniture or character was generated for integration. Codex implemented deterministic native export/packing, visible-alpha/foot placement, pure integer-pixel architectural rasterization, matching collision/interaction geometry, save-ownership recovery regression coverage, build/HTTP/source audits and documentation. Exact earlier prompts, returned paths, full originals, selected source hashes and transformations are in [source evidence](assets/licenses/home-interior-v1/SOURCE_RECORD.md).
+
+The approved preview uses original Simple Life geometry; Plant Tales supplies visual guidance only. A user-supplied Simple Life character crop is retained in QA-only offline compositions and is not a runtime asset. Runtime character files/camera/rig remain unchanged. Browser automation was policy-blocked; no workaround or claim of actual browser acceptance. No subagents, new runtime dependency, remote service, user-save fixture, push/publication/submission.
+
+---
+
+# v0.36.3 — single native table trial (2026-10-15)
+
+Built-in imagegen produced one original source and two targeted native-pottery readability edits (three calls). The supplied interior image guides camera/construction only; no reference pixels/layout are extracted. Codex exported exactly32×24 with existing area-voted sampling,12 available colours (9 used), binary alpha and nearest2× world rendering, integrated one fixed interior sample and matched its smaller collider/depth. All prior atlas records/pixels, source files and archived assets remain. [Exact prompts, original paths, hashes, transformations and output-use evidence](assets/licenses/table-native-v1/SOURCE_RECORD.md).
+
+The interrupted earlier chunky-bench trial used two built-in calls, and the superseded64×40 walnut candidate used one; their [bench record](assets/licenses/chunky-bench-v1/SOURCE_RECORD.md) and [walnut record](assets/licenses/walnut-table-v1/SOURCE_RECORD.md) preserve provenance. This later request authorizes only the one native table. No CLI image fallback, subagents, new dependency, user-save replacement, runtime AI/backend or publication. Verification uses actual browser controls and the local atlas; screenshots are cropped/enlarged with nearest-neighbour only.
+
+---
+
+# v0.36.0 — approved cedar style rollout (2026-10-15)
+
+The human approved the one-bench style and requested all other props. Codex used 48 built-in imagegen calls for 48 selected original transparent sources, with the project's approved bench enlargement as the sole visual reference. No reference-game pixels are extracted. Exact prompts, returned paths, selected SHA256 hashes, output-use evidence and adaptations are in the [source record](assets/licenses/cedar-props-v1/SOURCE_RECORD.md).
+
+Codex implemented offline native palette/alpha conversion, atlas packing with exact old-pixel preservation, shared logical frame/scale routing, authored direction reuse, themed derivatives and fountain/sign integration. PNGJS converts/packs; Pillow only makes review montages or crops/enlarges screenshots. All 959 previous frame records/pixels and approved farmer/world hashes are preserved. Browser checks exercise real UI/keyboard actions on isolated4216; unit/build/audits are recorded under verification/cedar-props-v1. No subagents, CLI image fallback, new dependency, normal user-save fixture, runtime remote AI, publication or submission.
+
+---
+
+# v0.35.3 — single cedar bench candidate (2026-10-15)
+
+Built-in imagegen produced one bench design and two targeted edits for the higher camera and deliberate pixel shapes. Codex performed native conversion, installed one static Home sample, preserved all 958 existing atlas frames, retained the old physical footprint and added a focused browser movement check. No other object design is changed. [Prompts, original paths, selected source hash, transformations and output-use evidence](assets/licenses/bench-cedar-v1/SOURCE_RECORD.md). User review is pending; no bulk rollout or publication.
+
+---
+
+# v0.35.2 — original prop/projection refinement (2026-10-15)
+
+Codex inspected the supplied reference and actual game, refined interior grounding/spacing and matching collisions/cooking interaction, removed outdoor tables, made table placement indoor-only with ownership-preserving save migration, fixed the City project-marker branch, and added regression/browser checks and records. Built-in imagegen made 28 selected original prop sources in 28 calls, plus one targeted fireplace correction (29 calls total). The too-tall initial fireplace is retained as rejected evidence. Reference pixels/layout are not extracted. No CLI/API fallback, backend or runtime remote artwork.
+
+Offline native sampling/cleanup/palette conversion exports 41 existing atlas cells. Prompts, selected source hashes, transformations, output-use evidence and reproduction scripts are in [props-v3 source record](assets/licenses/props-v3/SOURCE_RECORD.md). All 358 tests, production build and pixel audit pass; browser results are recorded under verification/props-v3. No publication or submission.
+
+---
+
+# v0.35.1 — user-directed pixel-quality correction (2026-10-15)
+
+Built-in OpenAI imagegen supplies 13 selected new original source sprites, guided by the user's positive interior reference, their game screenshot as mismatch context and the new clean table as a style guide. An extra corrective edit replaces the bookcase's mistaken jars with actual books; the rejected raw source is retained. [Exact prompts, input roles, selected hashes and adaptations](assets/licenses/props-v2/SOURCE_RECORD.md). No CLI/API fallback or reference-pixel extraction.
+
+Codex implemented offline nine-sample native colour voting, a 33-colour base ramp, conservative reused-source speck cleanup and full-footprint rug fitting. Fifty existing atlas cells change, with metadata and all other pixels preserved. Verified the actual room at game scale and exercised preview/rotation/craft/purchase/place/save/Continue on isolated desktop English and phone-size Myanmar fixtures. No subagents, runtime AI, new dependency, user-save replacement, publication or submission.
+
+---
+
+# Local startup recovery — 2026-10-15
+
+Codex checked the missing 4215 listener, restarted the existing local Vite command and verified the game screen with a clean browser console. No game code, art, dependency or user-save changes. No publication.
+
+---
+
+# v0.35.0 — layered scenery and prop refresh (2026-10-15)
+
+Built-in OpenAI imagegen supplied 36 selected original transparent sources. The initial bench was discarded after the user's style correction and regenerated with the latest two screenshots as style references. Exact prompts, selected raw hashes and adaptations are [recorded here](assets/licenses/props-v1/SOURCE_RECORD.md). Codex performed nearest native sampling, a shared 57-colour palette, alpha cleanup, atlas integration, upright side/rear view adaptations, small contact shadows, snow material preservation and textured room accent recolouring. Screenshots inform perspective/material treatment only; no reference-game pixels are copied.
+
+Codex checked old flat props beyond the attached examples, updated shared catalog/placement artwork, added art-routing/preview/snow regressions and pixel audits, and verified crafting/rotation/placement/purchase/Continue and scenery in isolated desktop English and phone-size Myanmar fixtures. No subagents, CLI/API image fallback, new dependency, remote runtime asset, user-save replacement, publication or submission.
+
+---
+
+# v0.34.0 — foliage variety and water/bridge fixes (2026-10-15)
+
+Two built-in OpenAI imagegen outputs supply a young pale-trunk tree and a leafy shrub, using the project's own nature-v1review as style reference. Codex performed nearest native conversion, alpha cleanup, root registration and deterministic fruit/berry/flower adaptations into six frames. [Exact prompts, hashes, conversion and rights](assets/licenses/nature-v2/SOURCE_RECORD.md). Existing foliage/source pixels remain intact; rejected fern/palmetto designs are replaced at render time while their saved map IDs remain.
+
+Codex implemented original code-only water footstep/wake/drop animation with surface clipping and shared bridge rail collision, added pure motion/rail/save/art routing regressions, and verified real controls on isolated4216desktop English/phone-size Myanmar fixtures. No subagents, new dependency, runtime remote asset or normal user-save replacement. No source push, publication or submission.
+
+---
+
+# v0.33.0 — original nature artwork and integration (2026-10-15)
+
+Built-in OpenAI imagegen generated four selected original assets: broadleaf tree, palm, pine and grass tuft, using the user's last two screenshots as style references. Initial batch connection failure led to palm/grass retry; no CLI/API fallback. Codex made nearest native conversion/palette packing, registered roots, mirrored/tone tree variants, derived grass bend/dry/snow variants and fruit-cluster adaptations, and integrated shared rendering, canopy fade and calmer ground brushwork. [Exact prompts, original hashes, conversions and rights record](assets/licenses/nature-v1/SOURCE_RECORD.md).
+
+No reference screenshots are sampled into game art. Existing tree/grass IDs, map data, collision, saved crops and economy remain. Added native-frame/root selection regressions and isolated4216browser chopping/Continue/grass-bending/palm checks. No subagents, new dependency, remote runtime, push or publication.
+
+---
+
+# v0.32.0 — Farm spacing and reversible digging (2026-10-15)
+
+Codex applied the user's request for one fewer row, road/board clearance and undoing dug soil. Implemented original pure restoration/save normalization, localized canvas confirmation/help, empty-row migration and tests covering crop protection, stable IDs, reload/re-dig, multi-farm isolation and spacing. Browser fixtures run on isolated4216, preserving normal4215/4205saves. No subagents, image generation, copied reference pixels, external dependencies or publication. [Verification](verification/farm-restore/README.md).
+
+---
+
+# v0.31.1 — taller farm and free digging correction (2026-10-15)
+
+Codex implemented the user's follow-up: two additional starter rows, equal taller cleared sites, removal of procedural fallow rectangles and removal of the Copper restriction from open Farm digging. Extended existing save-compatible data, retained saved crop indices and migrated existing custom entries before new empty cells. Updated geometry/save/farming regressions and an isolated browser fixture for bottom-right planting and shovel → seed → water → Continue between fields without Copper. No image generation, external reference pixels, subagents, new dependency or publication. [Verification](verification/farm-free-dig/README.md).
+
+---
+
+# v0.31.0 — wider farm and simpler roads (2026-10-15)
+
+Codex adapted data-driven farm geometry, original procedural fallow soil, starter-bed initialization, additive save normalization, field-local targeting and in-area digging gates for the explicit user request. Preserved old crop coordinates/IDs, custom crops, owned furniture, placed grass, economy and other-map routes. Added migration/geometry/digging regressions and updated old small-field fixtures to account for32prepared cells; tests now locate custom crops by coordinate rather than assuming entry0. Browser tests use disposable4216fixtures. No subagents, image generation, copied external-game pixels, new dependency or publication. [Source record](assets/licenses/farm-layout-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.30.1 — Farm cleanup using editable native source (2026-10-15)
+
+Codex identified grey/brown soil discs baked into original code-authored crop/seed sprites. Edited existing Python/Pillow sources and re-exported only40crop cells in place, preserving every remaining plant pixel and898other atlas cells. Codex adjusted original JS soil rendering, removed Farm-only static clutter/colliders, updated old tests that assumed a blocked shed footprint, and added a cleared-space planting/save regression. Browser verification uses disposable4216fixtures. User screenshots inform general earth/spacing only; no reference pixels copied. No image generation, subagents, new runtime dependency, remote assets or publication. [Source/export/hash evidence](assets/licenses/farm-refresh-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.30.0 — integrated merchants and next NPC design (2026-10-14)
+
+Codex integrated the human-approved Nell/Sol standing designs by resident ID and implemented merchant-specific category navigation, temporary unobstructed hair previews, directional animation lookup, matching marker height and pause behavior. Pure resident progression, homes, routes, dialogue, save schema and core transactions remain. Added focused tests, technical art audits and isolated local browser fixtures; no subagents. OpenAI built-in imagegen made six animation sheets (idle/walk each, then targeted walk correction each). Nearest whole-pose conversion and approved-colour mapping pack80slots. Camera-facing side drift is excluded by holding approved profile idle and mirroring the authored east walk for west; Nell's unreadable native blink holds neutral. [All prompts, sources, conversions and limitations](assets/licenses/npc-matching-animated-v1/SOURCE_RECORD.md).
+
+One additional built-in imagegen call created Clara's four-view standing design after Nell/Sol integration. Own-project comparison provides reference; seed merchant design is original and still pending appearance review. [Source/prompt/hashes](assets/licenses/npc-clara-v1/SOURCE_RECORD.md). Model versions are not exposed. Existing bundled Pillow12.3.0used offline; retained licence evidence applies. No new dependency, manual sprite painting, third-party game artwork, runtime generation, submission or publication.
+
+---
+
+# Nell/Sol NPC standing review — 2026-10-14
+
+Two OpenAI built-in imagegen calls (model version not exposed) authored original four-direction standing sheets using the approved paired farmer image as style/proportion reference. Codex developed distinct clothes-merchant and stylist designs, exact prompts, whole-frame nearest conversion, transparent64×64packing,32-colour-per-view reduction, matched40-pixel visible height, pupil/hash audit and a local comparison page. [Exact prompts/source hashes/conversions](assets/licenses/npc-matching-v1/SOURCE_RECORD.md). Existing offline Pillow12.3.0and retained licence evidence apply. No manual eye/limb repainting, subagents, new dependency, third-party-game pixels or runtime generation. User approval of appearance precedes walking animation and integration, as proposed and accepted in chat. Current playable art/logic remain unchanged.
+
+---
+
+# v0.29.0 — identity-preserving farmer cosmetics (2026-10-14)
+
+Codex inspected the reported clothing purchase bug and found `playerVisual` routed paid outfit/hair combinations to complete legacy NPC presets. Identity now depends only on saved boy/girl selection. Codex implemented selective fabric palettes, connected hair dye, independent owned/equipped accessory slots, same-farmer previews, free owned-item toggles, bounded reusable canvas textures, localization and migration validation. Original base PNGs, action timing, carry grips and gameplay systems remain. New source artwork was generated with OpenAI built-in imagegen (model version not exposed): straw hat, round glasses and canvas backpack, four views each, using the approved paired farmer image as style reference. [Exact prompts, original source hashes, conversions and rights evidence](assets/licenses/farmer-cosmetics-v1/SOURCE_RECORD.md). NumPy2.3.5/Pillow12.3.0/pngjs7.0.0 are existing offline bundled tools only, documented under `docs/licenses/farmer-cosmetic-export`. Human approval of final art remains with the user. No new runtime dependency, external runtime asset, publication or submission.
+
+---
+
+# v0.28.1 — matching female farmer, corrected size and eyes (2026-10-14)
+
+OpenAI built-in imagegen authored ten initial outputs (female identity, idle, east run, front/back run, harvest, dig, chop, water, axe attack, jump), followed by one targeted idle-eye edit responding to the user’s screenshot. Model version was not exposed. Approved original male sheets were style/pose guides, and the previous female supplied the low-ponytail identity cue. Codex assisted with prompts, visual inspection, alpha128conversion preserving partly opaque handles, nearest native sampling, shared existing32-colour palette, torso/boot registration, disclosed mirrored west run, independent female hands/angles, carry integration, corrected display scale, tests/browser QA and export packaging. Exact prompts/source hashes are under assets/licenses/farmer-girl-v2. Raw outputs remain byte-identical. No manually repainted eye/limb pixels, synthetic limb motion, subagents, CLI/API key, new npm dependency, runtime generation, source push or publication.
+
+---
+
+# Male farmer jump and carried-tool extension — 2026-10-14
+
+OpenAI built-in imagegen authored a24-pose four-direction jump plus three four-view carried tools, in four successful calls. Current approved original male idle and chopping/digging/watering sheets were appearance/tool references. Model version was not exposed. Codex assisted with exact prompts, alpha250opaque-core extraction (removing generated fringes/glow), nearest native sampling, shared existing32-colour quantization, ground registration, skin-pixel hand/wrist extraction, carry-layer synchronization, integration, tests, browser QA and ZIP. Exact prompts/source hashes are retained under assets/licenses/farmer-boy-extension-v1; original generated PNGs are retained in output/art/farmer-boy-extension-v1/source/. All168approved prior frames remain pixel-identical. No subagents, CLI/API key, new npm dependency, runtime generation, female extension, source push or publication.
+
+---
+
+# v0.26.2 — restore original eyes without enlarging the farmer (2026-10-14)
+
+Codex diagnosed the verified missing-eye regression: nearest 64→48 native reduction skipped a one-pixel eye column. Restored source RGBA cells byte for byte, replaced native resampling with 1.5× nearest display scaling, recalculated/rounded hand coordinates, and verified original eye pixels plus unchanged displayed dimensions and game interactions. No new image generation, pixel repainting, character redesign, dependency, remote runtime, subagent, source push or deployment. Source art retains its previous generated/adapted provenance and service output-use evidence.
+
+---
+
+# v0.26.1 — requested male farmer size correction (2026-10-14)
+
+Codex assisted with a uniform whole-frame 0.75 nearest-neighbour adaptation of the supplied male pack, matching the approximately 30-pixel girl body while retaining integer world pixels. Re-extracted hand anchors, scaled action spout positions, updated the rig/packer and verified native frame conversion and desktop/phone gameplay. No new image generation, artist redesign, independent limb warp, tool-layer conversion, third-party asset/dependency, runtime AI, source push or deployment. Existing source generation/service output-use evidence remains. Original source files are unchanged; runtime pixels are an explicitly disclosed size adaptation.
+
+---
+
+# v0.26.0 — supplied revised boy runtime integration (2026-10-14)
+
+The user supplied farmer-boy-revised-v2.zip and explicitly requested adding it to the game. No new image generation: the previously disclosed original OpenAI-generated/adapted v2 art is imported byte-preserving at native scale. Codex assisted with ZIP inspection/hash evidence, offline packing, source-pixel tool grips, per-rig frame selection, active-world visual timing, action hooks, duplicate-tool suppression, bilingual credits, tests/browser QA and documentation. Existing OpenAI output-use/source evidence and offline Pillow dependency evidence remain; no new npm dependency, remote runtime, subagent, source push or deployment. Original generated pose variation and single built-in watering-can design are retained rather than claimed as corrected human pixel art.
+
+---
+
+# Revised farmer v2 · approved export — 2026-10-14
+
+OpenAI built-in imagegen generated the revised original identity and all seven actions, selected across ten source outputs. The user requested broad Plant Tales-inspired proportions/pixel language and accepted the revised appearance. Codex assisted with prompts, native nearest sampling, shared32-colour reduction, binary alpha, body registration, opaque-core chopping extraction, mirrored west running, metadata/ZIP packaging and verification. Exact prompts and source hashes are retained in assets/licenses/farmer-boy-revised-v2; source PNGs are byte-identical. Existing user-generated PixelLab run poses provided motion guidance. Model-version metadata was not exposed. No new generation was needed during the approved full-pack delivery. No subagents, CLI/API key, runtime generation, new npm dependency, gameplay integration, publication or source push.
+
+---
+
+# Approved male farmer animation generation — 2026-10-14
+
+After the user approved the new south idle and explicitly selected the full animation set, OpenAI built-in imagegen authored three remaining idles,32running poses and five24-pose work/axe-attack sheets. Nine successful calls include a redundant alpha revision and front/back attack correction; one chopping connection error was retried. Codex assisted with prompts, source/alpha/pose inspection, nearest native packing, torso/boot registration, connected-silhouette extraction, mirrored west attack, GIF/preview generation, browser/native QA and records. The approved south PNG is byte-exact; no independent limb displacement or procedural replacement motion. Original sampled RGB colours are retained. Exact prompts, source paths/hashes and conversion details: assets/licenses/farmer-boy-approved-v1/SOURCE_RECORD.md. No subagents, CLI/API key, new npm dependency, runtime generation, game integration, source push or publication. Generated art and remaining motion/shape variation are disclosed; no human-authorship, exclusive-copyright or competition-eligibility claim.
+
+---
+
+# Farmer boy full action export — 2026-10-13
+
+OpenAI built-in imagegen authored original boy identity and full action poses in13 calls including targeted head/direction revisions. Model-version metadata was not exposed. Codex assisted with structured prompts, source inspection, native resampling, alpha/shared-palette conversion, registration, documented mirrored west actions, export/GIF/ZIP and interactive review. 156 native frames cover four directions and seven actions. Exact prompt sets, byte-identical source PNGs, hashes and conversion are recorded under assets/licenses/farmer-boy-actions-v1. Source artwork is AI-generated/adapted, not human-drawn or pixel-identical to the generated large images. No new external plugin, API key, dependency, runtime AI, gameplay change, deployment or source push.
+
+---
+
 # v0.25.0 — generated farmer girl and running poses (2026-10-13)
 
 OpenAI built-in image_gen generated a 9×4 sheet from the approved girl design and male pixel-scale reference: four idle poses and 32 running poses. Codex implemented nearest native conversion, shared palette/waist registration, packing, source skin-pixel hand grips, starter-look routing, UI preview/credit updates, export packaging and local QA. Model-version metadata was not exposed by the image tool. AI-generated artwork is adapted, not unchanged high-resolution output or human-drawn art. Exact prompt and original RGBA source/hashes are under assets/licenses/farmer-girl-v1. Existing male and NPC assets remain. No external plugin, runtime generation, backend, source push or deployment.
@@ -476,3 +954,72 @@ OpenAI Codex (GPT-6 family session identity, exact backend identifier unavailabl
 
 
 2026-10-07 wilderness expansion: The user explicitly requested a 20-fold larger forest, all listed animals plus snakes in species groups, habitat differences, river/waterfalls/caves, more fruit and dangerous treasure. OpenAI Codex (GPT-6 family session identity) assisted with the 5120² connected map, species/spawn data, generalized established combat, finite guarded-cache transactions, schema-9 legacy translation, spatial collision and terrain/night optimization, paused exploration map and food/market paging. It authored deterministic native pixel code in wilderness_art.py: 100 original frames and two explicitly licensed LimeZu tree adaptations. No external image model/service, download, new dependency or subagent was used. Asset evidence: assets/licenses/wilderness-expansion.md. Automated rules and isolated real-input browser exploration/combat/treasure/reload/mobile/renderer checks are recorded in VERIFICATION.md. User's live save is untouched. No push, publish, deploy or signed/human acceptance declaration. Mixed animal climates are a stylized game choice, not a factual ecosystem claim.
+## 2026-10-20 — experimental UI removal
+
+OpenAI Codex assisted with the user-requested full removal of the experimental interface redesign. The generated component kit, token styles, cached UI textures, review route and redesign-specific tests/scripts were removed; the established fixed-scale canvas UI palette and drawing code were restored. The current animated **SIMPLE LIFE** title artwork was intentionally preserved. No image generation, external asset, dependency, game rule, data, save migration, push, deployment or publication was involved. Browser fixtures use isolated localStorage; the user's live save is not modified.
+
+The completed rollback was verified by the full **393-test** suite, a production Vite build and live local-browser inspection of both the preserved title and restored Controls/Getting Started panel. Physical devices and non-Chromium browsers were not tested in this pass.
+
+## 2026-10-20 — square layered UI border refinement
+
+OpenAI Codex assisted with the user-requested visual-only refinement of the restored canvas UI. It retained the existing layered pixel bevel and hard shadow, removed the four cut/decorated corner treatments and edge-leaf ornaments, and centralized the new **#c6d799** border accent across shared UI drawing helpers and the few bespoke canvas controls. The animated game title, layouts, IDs, callbacks, events, gameplay and save data were not changed. AI assistance also added a regression assertion, ran the full tests/build and inspected the result in the local browser. No image-generation model, external asset, dependency, subagent, deployment, push or publication was used.
+
+The same follow-up kept the mobile movement joystick knob white/cream during pointer hold and drag, removing only its green selected-state recolor. Its movement calculations and touch lifecycle remain unchanged; automated input checks and local-browser review were repeated.
+
+## 2026-10-20 — fountain island deterministic pixel edit
+
+OpenAI Codex assisted with a user-requested Pillow/numpy edit of the existing fountain island. It sampled the supplied game screenshot into a 24-color target palette, authored deterministic integer-pixel masking/remapping/cleanup/shadow/curb operations, produced a native transparent PNG and a 2× nearest-neighbor plaza comparison, visually inspected both and recorded source/output hashes. No image-generation model, new external asset, dependency, subagent, gameplay change, runtime integration, deployment, push or publication was used.
+
+## 2026-10-20 — original fountain island v3 and water loop
+
+OpenAI Codex used the built-in image-generation tool at the user's explicit request to create a new fountain-island composition from a style/color-only screenshot reference. Pass one was rejected for an extra vertical jet and excess tufts; pass two removed them and was selected. Codex then authored and ran Pillow/numpy scripts that sampled 24 exact screenshot colors, normalized the source to 1024², removed magenta, nearest-scaled/quantized to 192×160, corrected the lawn fit, extracted the water mask and produced six palette-only water frames plus previews. It verified alpha, palette, mask isolation, frame/sheet/GIF dimensions and loop transition counts. No subagent, external pack, dependency, gameplay change, runtime integration, deployment, push or publication was involved. Final human art and competition-eligibility acceptance is not claimed.
+
+## 2026-10-21 — supplied fountain runtime integration
+
+OpenAI Codex assisted with the user's explicit request to integrate two supplied ChatGPT-generated fountain images, enlarge the result by 35%, center it on the City road plaza, make the full island collidable and repair the water animation. Codex authored a deterministic Pillow/numpy importer, retained both source files as evidence, and selected the complete flowing source as the stable object layer because alternating the two differently coloured/geometrized sources caused visible plant and black-stream flicker. The final simple four-frame loop changes only source water colours inside a recorded mask: constant pale stream bodies carry descending highlights and tiny landing dashes, without random basin shimmer or dark wake pixels; non-water pixels are byte-identical. Codex also added data-driven placement/scale/stepped collision, runtime animation, audio-center alignment, unit tests, an isolated browser fixture and provenance records. No new image generation, external download, dependency, save-format change, backend, deployment, push, publication or subagent was used. Final rights and competition eligibility remain for human review.
+
+Follow-up: at the user's request, Codex diagnosed and replaced that four-frame loop with a from-scratch deterministic eight-frame, 8-fps Pillow/numpy animation. Assistance covered flood-filled mask construction, source-palette validation, fixed one-pixel stream highlights, phase-offset flattened ripples, fixed glints, bowl shimmer, requested splash timing, light/dark previews, diff heatmap and automated budget/seam assertions. The accepted run changes at most 7.768% of masked water, changes zero non-water pixels and introduces zero colors. No image-generation tool or external source was used. Evidence: `assets/licenses/fountain-island-water-v4/SOURCE_RECORD.md`.
+
+Second follow-up: after the user rejected the broad pale arcs in v4, Codex rebuilt the animation again from the untouched static source and did not read or reuse the old sheet geometry. The Pillow/numpy v5 processor erodes the basin mask one pixel from the stone rim, keeps three one-pixel stream columns straight, uses only compact 2/4/6-radius landing ellipses, and limits motion to 1.363–2.727% of the 1,247-pixel mask per frame. It records the landing points `(82,109)`, `(102,85)`, `(124,109)` and jet tip `(102,73)`, changes zero outside-mask/rim pixels, introduces zero colors and caps changed pale components at 9×3 pixels. Automated focused/full tests, build and local Phaser visual inspection were used; no image-generation tool, external source, deployment, publication, push or subagent was involved. Evidence: `assets/licenses/fountain-island-water-v5/SOURCE_RECORD.md`.
+
+## 2026-10-21 — supplied barber chair and contact grass
+
+OpenAI Codex integrated the two user-supplied Gemini/Pixel Snapper PNGs at the user's explicit request. Assistance included a reproducible Pillow/numpy magenta-removal and nearest-size-matching script, two deterministic integer-row-shear grass phases, atlas integration, player-foot contact/spring-back rendering, regression tests, local-browser review and provenance documentation. The chair keeps the previous 28×42 cell/2× scale; grass keeps the previous 79×79 cell/0.46 scale. Gameplay systems, vegetation identities, inventory, collisions and save shape are unchanged. No new image generation, external download, dependency, runtime file, subagent, deployment, publication or push was used.
+
+## 2026-10-21 — approved ground integration and nature palette audit
+
+OpenAI Codex integrated the previously generated and user-approved A/B/C ground textures with a deterministic 20/45/35 per-chunk selector. Assistance covered byte-identical local asset installation, bake-time terrain composition beneath existing paths/water/city paving, the explicit runtime allowlist, a 12×12 2× review sheet, fixed-camera Chromium capture and a reference-lawn comparison. The supplied screenshots were sampled only for palette/mood statistics; no reference pixels or layout were copied. A corrected canopy-only sampling pass separated tree crowns from tall-grass rows, then defined the warmer 28-color future-nature palette and measured current clump/bush/tree/palm frames, visible pixels, scales and gameplay anchors. No new image-generation call, external download, dependency, save/gameplay/collision/UI change, subagent, backend, deployment, publication or push was used in this checkpoint. Later clump, bush and tree art remains ungenerated pending user approval.
+
+## 2026-10-21 — corrected lawn and tall-grass clump checkpoint
+
+The user rejected rectangular A/B/C brightness blocks. Codex replaced per-chunk selection with deterministic bake-time pixel composition: B is continuous, C occurs only through irregular world-coordinate masks, A is restricted to stepped Forest-edge shade, dark one-palette-step pockets cover 17.58%, and sparse high-contrast V marks use a fixed seed. Local Pillow/numpy processing rotated the six lawn colors toward yellow-olive (average hue 71.52°), removed repeated bright source specks and kept B/C average lightness within 0.417 units. No image generation was used for this ground correction.
+
+At the user's explicit request, three separate built-in image-generation calls then created original wide, tall and small grass-clump sources. The supplied current clump was used only as a problem reference; screenshots were color/mood/density references only. Local nearest-neighbor processing removed magenta, retained one connected object, filled small enclosed pinholes, locked pixels to `#3B4028`, `#53582D`, `#6A7138`, `#858B49`, `#A1A35C`, and authored final 48×34, 30×48 and 38×38 scale-1 candidates. These clumps remain review-only outside `public/`; no preload, atlas, gameplay, collision, harvesting or save behavior changed. No subagent, external download, backend, deployment, publication or push was used.
+
+## 2026-10-21 — tall-grass clump checkpoint v3
+
+The v2 clump candidates were rejected because point sampling a large generated preview broke the logical pixel grid. Three new selected sources were made in separate built-in image-generation calls—wide, tall and small—using the gameplay screenshot only for color, pixel-density and mood. One earlier wide call whose result was not surfaced was discarded and is not used. The final prompt set requested one connected 10–14-blade sprite, a 48×48 logical authoring grid, 2–3px chunky pointed blades, solid magenta, no holes/noise and the exact five-color clump palette. Offline processing detects the source grid cadence, uses per-cell majority vote rather than point sampling, removes stray components/pinholes/interior flecks and writes 48×34, 30×48 and 38×38 scale-1 review PNGs. Detected cells are 19px for wide and 20px for tall/small; native logical silhouettes are 48×32, 33×49 and 37×37. No candidate is in `public/` or Phaser pending approval.
+
+The reported faint fence-like forms were audited separately. The old fit mockup was cropped from the 12×12 lawn repeat, not a gameplay screenshot. Same-coordinate with/without-tuft comparison proves the forms are repeated fine motifs in the approved B source tile, not the world-space pocket overlay or V-tuft layer. A diagnostic cleanup candidate was recorded but not installed; the approved v2 ground runtime remains byte-restored. Camera-scale analysis and a magnified proof show that scale 1 at world-camera zoom 1.5 alternates one- and two-screen-pixel widths. No camera/UI/runtime scale was changed. The tree-stage plan now includes a fourth newly generated final-size scale-1 palm instead of recoloring the old 1.66-scale palm. No bush or tree work started.
+
+## 2026-10-23 — ground cleanup, clump integration and modular-tree feasibility
+
+Codex deterministically cleaned the approved lawn assets with Pillow/NumPy after the user identified baked fence/smudge pixels. The repair uses only the existing six-color palette and exact pixel replacement—no generated pixels, blur, filtering or new colors. Codex also replaced row-banded pocket geometry with fixed-seed world-coordinate hard-threshold noise, produced same-coordinate before/after and 12×12 evidence, and verified matching edges, 0.011-L B/C balance, 17.56% pocket coverage and no preference for 128px boundaries.
+
+The user-approved v3 clumps were packed into a local scale-1 runtime sheet and connected as render-only children of the unchanged vegetation records. Codex authored the deterministic 2–5-sprite Poisson layout, horizontal flip/Y-sort/contact-shadow behavior, preserved existing touch/gather/save identities, added regression tests and performed an isolated daylight Chrome capture at normal zoom. The fewer/broader-blade second wide candidate was selected as requested.
+
+For the feasibility test only, six separate OpenAI built-in image-generation calls created three original olive leaf-cluster modules, two original trunk modules and one original root flare. Supplied screenshots guided only warm-olive mood, chunky cluster language and pixel density; no pixels, plant shapes or layouts were copied. Offline majority-vote reconstruction, magenta removal and no-dither palette locking produced scale-1 modules. A fixed-seed script assembled one 175×225 review tree and 1×/3× lawn fits. The measured clean single-call limit is about 49–50 logical pixels, so full-size single-call trees are not recommended. These tree files are review-only and excluded from runtime; no bush, production tree or palm was generated/integrated. No external download, subagent, backend, deployment, publication or push was used.
+
+## 2026-10-23 — scenery clearance, glasses retirement and loading screen
+
+OpenAI Codex assisted with diagnosing the two supplied gameplay screenshots and implementing the requested follow-up. Assistance traced the first overlap to later procedural grass plus oversized barrel art, and the second to a tree whose visible lower trunk extended beyond its narrow collision root. Codex added a deterministic, data-driven final surface-clearance pass; moved one Home crate; retired Round glasses from the existing accessory catalogue with legacy-save normalization; and added a temporary local pixel loading card wired to Phaser asset progress. It added regression tests, ran the full suite/build, and used the local production game for real reload, road, title and Wardrobe inspection. No image generation, external asset/download, dependency, backend, subagent, deployment, publication or push was used.
+
+## 2026-10-24 — stone, first-paint and tree-interaction corrections
+
+OpenAI Codex diagnosed the user's five supplied screenshots and implemented the requested corrections. Assistance expanded data-driven stone collision from missing/thin ground strips to the rendered silhouettes plus farmer-body clearance, removed only two procedural boulders that would otherwise block an established forage point, inlined the existing local loading-card critical CSS before first paint, and aligned tree prompt/use/click reach at 88 world units. Codex added regression coverage for all ordinary and landmark stones, loader CSS ordering and visible-edge tree chopping; ran focused/full tests and a production build; and exercised the live local game with keyboard/touch controls to confirm the real tree pointer/prompt and browser console state. No image generation, external asset/download, dependency, save-format change, backend, subagent, deployment, publication or push was used.
+
+## 2026-10-24 — large barrel collision and authorized Vercel release
+
+OpenAI Codex diagnosed the latest screenshot as a collision/art mismatch: the active 163×167 Pixel Snapper barrel renders at scale 0.6, while the world still used its retired 28×30 legacy blocker. Assistance derived a new authored-prop footprint from the registered alpha-visible bounds, added the existing 48-world-unit farmer-body clearance, covered Home and City barrels with regression assertions, ran focused/full tests and both production modes, and verified the real stop position through repeated movement in an isolated local browser fixture. The supplied screenshot was used only to identify the overlap; no screenshot pixel was extracted or added to runtime. Compact crafted barrels remain unchanged.
+
+After the user explicitly requested deployment, Codex used the pinned authenticated Vercel CLI to inspect the existing target, stage only the audited playtest runtime, compare protected hosted HTML/application bytes with the local build, promote deployment `dpl_7FfJFEUTD3RKeHUNyBgx2iMs1wKA`, and recheck the public hashes, HTTP 200 response, noindex header and static error-log result. No image generation, external asset/download, dependency, backend/function, paid resource, source commit/push, protection change, subagent or competition submission was used.

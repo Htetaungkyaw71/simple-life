@@ -1,0 +1,11 @@
+{
+  "tool": "OpenAI built-in imagegen",
+  "calls": 3,
+  "originals": {
+    "initial": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-252ca5d2-aed5-47a5-aeeb-b07467e1c6de.png",
+    "highAngle": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-a223a8a0-cf0c-4aa2-8d7a-040380ecb398.png",
+    "selectedPixelEdit": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-540e78d6-821e-494c-9a0f-4bb773864186.png"
+  },
+  "selectedFile": "output/art/bench-cedar-v1/selected-source.png",
+  "reviewOnly": true
+}

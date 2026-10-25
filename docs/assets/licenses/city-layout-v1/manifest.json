@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-16",
+  "version": "0.40.0",
+  "mode": "User-approved City layout integration with current procedural grass preserved",
+  "newImageGenerations": 0,
+  "newAssetPNGs": 0,
+  "newDependencies": 0,
+  "publicFilesByteExact": 76,
+  "originalGrassShaderByteExact": true,
+  "baselineSourceChanges": [
+    "src/art/citySurface.js",
+    "src/art/Terrain.js",
+    "src/art/worldArt.js",
+    "src/art/treeVisual.js",
+    "src/data/cityPlacement.js",
+    "src/data/vegetation.js",
+    "src/data/mapLayouts.js"
+  ],
+  "inputHashes": {
+    "output/previews/city-road-layout-v3/proposal.json": "1fc42cc8b898e772f9eafe3900a3a7e25b6aee424e212ce6220bbb278b1cf867",
+    "output/previews/city-road-layout-v3/pedestrian-mask.png": "088e7f31316500835b8dd05926cc8673548bcab7df619202b25c59f059485457",
+    "output/previews/city-road-layout-v3/road-mask.png": "efb1ea43bdb1183838224e310b151e394d586bbe06d5955705369815d88d3da0",
+    "output/previews/city-road-layout-v3/cream-mask.png": "66f6d22ab307791e37951780b776199b0cd1659a4f78b9b68a9516bc63f867b6",
+    "output/previews/city-road-layout-v3/island-mask.png": "c061676b42068a8f0d156a20fc13973a2d141a32c1e1a45611d7570119c7e86f",
+    "output/previews/city-road-layout-v3/lowered-crossings-mask.png": "531959b0cafa20316b0099106356c7d2f8a8eba88f35c58c342bb416937c4b3f"
+  },
+  "outputHashes": {
+    "scripts/export_city_layout.py": "fd0c4be0378f88abbede2c70d252cabd6e8220be4e2d179210b3b1abc72314fc",
+    "src/data/cityLayout.js": "588755f41ac1b9178dcd888f66977a76ebcc3f4720e1ab964b88ee1b941ed497",
+    "src/data/citySurfaceMasks.js": "ce2529bff6c2699bba5a75784877236cd83efe738996c319a9d745bd4b2e3ce6",
+    "src/data/citySurfaceGeometry.js": "025d362c93b5e7de82beb81d3bba408122b802e84e091c86c4586a8a105333c1",
+    "src/data/applyCityLayout.js": "3520f9f9430308fff504a0dae1a807a0202397b19c1485d1a97ee17528859c5e",
+    "src/art/citySurface.js": "67dde5edc8429c217f331fe3e72c9b59b319fc0c685b13652ddda1b4a531b436",
+    "src/art/Terrain.js": "b7fcc9b8cf53c3c5a25e52925b8a1bc5ac41a1febcad9f96a891d84b766aaba7",
+    "src/art/worldArt.js": "3a08d983c34456d136c5235fd897f54d6f7b68eeec1c88b23fedadb4866721c6",
+    "src/art/treeVisual.js": "e3cbf8018fa4770e09ecfea4e946509ba224bcab2ccb6cd8c44d5182de38b4ee",
+    "src/data/cityPlacement.js": "f51656bae8208a3282edc7e578f07748d6c1e17a6ce314d9c81fe92b46213f32",
+    "src/data/vegetation.js": "070d91618e51a8651e7264aa7e632ffece5889d2655ddb0df01bf08d2e0e73ff",
+    "src/data/mapLayouts.js": "5d471d899d57007ba15fe2ec415bf1c60464e55a42d291f0dea640daa09985d8"
+  },
+  "productionFiles": 48,
+  "productionBytes": 14130072,
+  "tests": 375,
+  "failedTests": 0,
+  "build": "passed",
+  "saveSchema": 19,
+  "cityGrassIdentitiesRetained": 227,
+  "normalSaveEdited": false,
+  "limits": [
+    "Mobile/touch not newly exercised",
+    "Every custom player-planted City grass position and every NPC-hour combination not exhaustively simulated",
+    "Existing user standing points inside new furniture use the established nearest-safe validator"
+  ]
+}

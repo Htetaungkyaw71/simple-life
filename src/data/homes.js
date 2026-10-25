@@ -1,16 +1,19 @@
-// Original homestead catalogue. All designs share the established door and bed.
+import {CITY_BUILDING_ART} from './cityBuildingArt.js';
+// The active Home catalogue deliberately reuses two approved City residences.
+// Retired IDs stay listed separately so Continue can preserve prior purchases.
+export const LEGACY_HOME_IDS=['rose','orchard','coastal','bamboo','brick','glass','alpine','manor'];
 export const HOMES={
- starter:{name:'Grandfather cottage',price:0,roof:0xb89c74,wall:0xe8d4ae,trim:0x76533b,floor:0xc8b38c,accent:0x8d9b62,detail:'The familiar cottage and dining room.',style:'cottage'},
- rose:{name:'Rose cottage',price:2000,roof:0xb86f57,wall:0xf2ddba,trim:0x825c43,floor:0xd4bd94,accent:0xcf887d,detail:'Rose boxes, a tiled roof and floral rugs.',style:'rose'},
- orchard:{name:'Orchard lodge',price:5000,roof:0x79845e,wall:0xd5c99e,trim:0x775742,floor:0xb99b72,accent:0x8d9d59,detail:'Timber beams, orchard shutters and a reading nook.',style:'orchard'},
- coastal:{name:'Seabreeze villa',price:10000,roof:0x849a99,wall:0xf5e8ca,trim:0x688581,floor:0xd7ceb2,accent:0x82b0ad,detail:'Seafoam windows, airy curtains and shell mosaics.',style:'coastal'},
- bamboo:{name:'Bamboo retreat',price:18000,roof:0xa99462,wall:0xcbaf76,trim:0x6c6845,floor:0xbca270,accent:0x729466,detail:'Woven panels, bamboo screens and a tea room.',style:'bamboo'},
- brick:{name:'Lantern townhouse',price:30000,roof:0x777c82,wall:0xb47759,trim:0x5d4c44,floor:0xb79b80,accent:0xe0aa62,detail:'Brickwork, dark trim and a warm study.',style:'brick'},
- glass:{name:'Garden conservatory',price:45000,roof:0x91aaa1,wall:0xe5deb7,trim:0x738e74,floor:0xcbd0ae,accent:0x77a075,detail:'Glass roof panels, climbing vines and indoor greenery.',style:'glass'},
- alpine:{name:'Moonwood chalet',price:65000,roof:0x696c85,wall:0xc3ac8d,trim:0x66594d,floor:0xa68b71,accent:0x9696b8,detail:'Carved timber, moonlit trim and a cozy library.',style:'alpine'},
- manor:{name:'Suncrest manor',price:90000,roof:0x9a7554,wall:0xf4e7c7,trim:0xa38958,floor:0xe0d4b1,accent:0xd4b363,detail:'Ivory columns, golden trim and a mosaic salon.',style:'manor'},
+ starter:{name:'Green Bay cottage',price:0,artFrame:'house-03-green-bay',roof:0x7d844d,wall:0xe6d4b0,trim:0x76533b,floor:0xb99b72,accent:0x84915a,detail:'Olive roof, warm cream walls and a matching green interior.',style:'green-bay'},
+ slate:{name:'Blue Slate cottage',price:2000,artFrame:'house-02-blue-slate',roof:0x52678d,wall:0xd7dce3,trim:0x5c6f87,floor:0x9ca8b6,accent:0x71849e,detail:'Blue slate roof, pale walls and a matching cool-blue interior.',style:'blue-slate'},
 };
-export const HOME_IDS=Object.keys(HOMES).filter(id=>id!=='starter');
+export const HOME_IDS=['slate'];
 export const freshHome=()=>({design:'starter',owned:['starter']});
 export const homeDefinition=s=>HOMES[s?.home?.design]||HOMES.starter;
+export const homeArtDefinition=id=>CITY_BUILDING_ART[(HOMES[id]||HOMES.starter).artFrame];
+export function homeWorldPlacement(id,building){
+ const source=CITY_BUILDING_ART[building.artFrame],target=homeArtDefinition(id),sourceScale=building.artScale||source.scale,scale=target.scale;
+ const center=building.x+source.width*sourceScale/2,visibleBottom=building.y+source.bounds[3]*sourceScale;
+ return {x:Math.round(center-target.width*scale/2),y:visibleBottom-target.bounds[3]*scale,scale,depth:visibleBottom,art:target};
+}
+export const homeWorldSolids=(id,building)=>{const p=homeWorldPlacement(id,building);return p.art.foundationRows.map(([x,y,w,h])=>[p.x+x*p.scale,p.y+y*p.scale,w*p.scale,h*p.scale]);};
 export const CUSTOMIZE_AREAS=['home','farm','interior'];

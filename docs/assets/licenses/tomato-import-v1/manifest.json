@@ -1,0 +1,253 @@
+{
+  "crop": "tomato",
+  "source": "docs/assets/licenses/tomato-import-v1/source.png",
+  "sourceSha256": "828677bcbb662832447e22d05ac5c7a16ef11d1c8d40776e6414b61f4cd4fc3e",
+  "sourceSize": [
+    379,
+    123
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    254,
+    3,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "tomato-seed",
+      "x": 9,
+      "y": 86,
+      "width": 34,
+      "height": 18
+    },
+    {
+      "key": "tomato-sprout",
+      "x": 56,
+      "y": 78,
+      "width": 23,
+      "height": 25
+    },
+    {
+      "key": "tomato-young",
+      "x": 93,
+      "y": 47,
+      "width": 34,
+      "height": 56
+    },
+    {
+      "key": "tomato-flowering",
+      "x": 137,
+      "y": 31,
+      "width": 41,
+      "height": 72
+    },
+    {
+      "key": "tomato-ripe",
+      "x": 187,
+      "y": 22,
+      "width": 39,
+      "height": 81
+    },
+    {
+      "key": "tomato-dry",
+      "x": 238,
+      "y": 31,
+      "width": 33,
+      "height": 72
+    },
+    {
+      "key": "tomato-wilted",
+      "x": 284,
+      "y": 42,
+      "width": 36,
+      "height": 61
+    },
+    {
+      "key": "tomato-dead",
+      "x": 328,
+      "y": 84,
+      "width": 44,
+      "height": 20
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "requestedScale": 2,
+    "best2x2Offset": [
+      0,
+      1
+    ],
+    "homogeneousTouchedBlocks": 289,
+    "touchedBlocks": 2265,
+    "homogeneousRatio": 0.12759381898454747
+  },
+  "cleanup": {
+    "removedMagentaColors": [
+      [
+        123,
+        27,
+        101,
+        255,
+        25
+      ],
+      [
+        185,
+        10,
+        172,
+        255,
+        661
+      ],
+      [
+        231,
+        16,
+        223,
+        255,
+        150
+      ],
+      [
+        254,
+        3,
+        253,
+        255,
+        38913
+      ]
+    ],
+    "soil": {
+      "removedPixels": 973,
+      "moundTop": 92,
+      "moundBottom": 100,
+      "sourceCentres": [
+        16,
+        10,
+        14,
+        18,
+        19,
+        15,
+        17,
+        21
+      ],
+      "maskPixelCount": 154
+    },
+    "isolatedNonMagentaPixelsRemoved": 1,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 0
+  },
+  "candidateA": {
+    "available": false,
+    "frameSize": [
+      24,
+      48
+    ],
+    "path": null,
+    "placements": null,
+    "reason": "Source is native 1px art, not a uniform 2x enlargement: only 289/2265 non-background 2x2 blocks are homogeneous."
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      48,
+      70
+    ],
+    "path": "docs/assets/licenses/tomato-import-v1/candidate-b.png",
+    "sha256": "595f33842c39c3743a9422b96a6ac10187aa7a75116cc67064a5eb29a0d70041",
+    "placements": [
+      {
+        "trimmedWidth": 30,
+        "trimmedHeight": 16,
+        "frameX": 0,
+        "pasteX": 9,
+        "pasteY": 54,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 21,
+        "trimmedHeight": 14,
+        "frameX": 48,
+        "pasteX": 13,
+        "pasteY": 56,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 34,
+        "trimmedHeight": 45,
+        "frameX": 96,
+        "pasteX": 7,
+        "pasteY": 25,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 41,
+        "trimmedHeight": 61,
+        "frameX": 144,
+        "pasteX": 3,
+        "pasteY": 9,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 39,
+        "trimmedHeight": 70,
+        "frameX": 192,
+        "pasteX": 4,
+        "pasteY": 0,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 33,
+        "trimmedHeight": 61,
+        "frameX": 240,
+        "pasteX": 7,
+        "pasteY": 9,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 36,
+        "trimmedHeight": 50,
+        "frameX": 288,
+        "pasteX": 6,
+        "pasteY": 20,
+        "anchorX": 24,
+        "anchorY": 69
+      },
+      {
+        "trimmedWidth": 44,
+        "trimmedHeight": 20,
+        "frameX": 336,
+        "pasteX": 2,
+        "pasteY": 50,
+        "anchorX": 24,
+        "anchorY": 69
+      }
+    ],
+    "maxTrimmedStage": [
+      44,
+      70
+    ]
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/tomato-import-v1/cleaned-source.png",
+    "sha256": "0e48ce877dbf10842da67435e05b5d6aead75a05f232db6f0021176ee52c75ed"
+  },
+  "keys": [
+    "tomato-seed",
+    "tomato-sprout",
+    "tomato-young",
+    "tomato-flowering",
+    "tomato-ripe",
+    "tomato-dry",
+    "tomato-wilted",
+    "tomato-dead"
+  ]
+}

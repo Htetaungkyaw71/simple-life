@@ -1,0 +1,546 @@
+{
+  "scope": "REVIEW ONLY; no integration, game edits, save changes or build",
+  "canvas": [
+    1242,
+    842
+  ],
+  "roomWorldSize": [
+    576,
+    400
+  ],
+  "cameraPixelsPerWorldUnit": 2,
+  "roomScreenOrigin": [
+    51,
+    28
+  ],
+  "furniturePixelsPreserved": true,
+  "furnitureResampling": "integer 3x nearest-neighbour of existing native PNGs only",
+  "character": {
+    "source": "existing character copied from user screenshot",
+    "sourceCrop": [
+      715,
+      486,
+      773,
+      618
+    ],
+    "size": [
+      58,
+      132
+    ],
+    "screenOrigin": [
+      715,
+      486
+    ],
+    "regenerated": false,
+    "recoloured": false,
+    "resized": false
+  },
+  "wall": {
+    "upperFaceWorld": [
+      10,
+      96
+    ],
+    "baseboardWorld": [
+      96,
+      112
+    ],
+    "floorJunctionWorld": 112,
+    "continuousSideThicknessWorld": 16
+  },
+  "entrance": {
+    "openingWorld": [
+      252,
+      324
+    ],
+    "openingPixels": 144,
+    "threshold": "new flush architectural trim; old U-rail PNG preserved but not drawn"
+  },
+  "windowInstances": 2,
+  "assets": [
+    {
+      "asset": "home-rug",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-rug.png",
+      "sha256": "49d87532eb6a21477ca2f0ecfb6b647180a9dec0d50cfeef0ba08d85dd990d4d",
+      "nativeCanvas": [
+        168,
+        116
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        166,
+        114
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        99,
+        380
+      ],
+      "screenVisibleBounds": [
+        105,
+        386,
+        597,
+        722
+      ],
+      "role": "floor textile",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-bedside-rug",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-bedside-rug.png",
+      "sha256": "3f35268aa5cbf605d4107a766def9646a95e2e62a726d646529845e9001e6a02",
+      "nativeCanvas": [
+        39,
+        64
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        37,
+        62
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        843,
+        426
+      ],
+      "screenVisibleBounds": [
+        849,
+        432,
+        954,
+        612
+      ],
+      "role": "floor textile",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-window",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-window.png",
+      "sha256": "1ae0fca9b85924a04a4cc719915e9c36e236800efdcb8b8fc93509085684839e",
+      "nativeCanvas": [
+        44,
+        35
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        42,
+        33
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        141,
+        58
+      ],
+      "screenVisibleBounds": [
+        147,
+        64,
+        267,
+        157
+      ],
+      "role": "wall-mounted",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-window",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-window.png",
+      "sha256": "1ae0fca9b85924a04a4cc719915e9c36e236800efdcb8b8fc93509085684839e",
+      "nativeCanvas": [
+        44,
+        35
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        42,
+        33
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        777,
+        58
+      ],
+      "screenVisibleBounds": [
+        783,
+        64,
+        903,
+        157
+      ],
+      "role": "wall-mounted",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-wall-shelf",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-wall-shelf.png",
+      "sha256": "054537b2bcd3cfe704082a2438595bce8711ab4741a4ba01aca45f3a8a194287",
+      "nativeCanvas": [
+        64,
+        28
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        62,
+        26
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        333,
+        102
+      ],
+      "screenVisibleBounds": [
+        339,
+        108,
+        519,
+        180
+      ],
+      "role": "wall-mounted",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-counter",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-counter.png",
+      "sha256": "29a84f9801ecf635f039f09ce526ca7d58df32904e7b54f2ef02f870bb925b99",
+      "nativeCanvas": [
+        76,
+        31
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        74,
+        29
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        109,
+        221
+      ],
+      "screenVisibleBounds": [
+        115,
+        227,
+        331,
+        308
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": [
+        86,
+        112
+      ]
+    },
+    {
+      "asset": "home-pottery",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-pottery.png",
+      "sha256": "656874fcb093a5a430bb8041fa073b0bc8fa02e70358683ac27d413d9985f0a7",
+      "nativeCanvas": [
+        55,
+        64
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        53,
+        62
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        965,
+        110
+      ],
+      "screenVisibleBounds": [
+        971,
+        116,
+        1124,
+        296
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": [
+        498,
+        112
+      ]
+    },
+    {
+      "asset": "home-fireplace",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-fireplace.png",
+      "sha256": "6a33eebf8407ad5ed71404896b51cd8a123dac9de4c00da755b662cb439c37b6",
+      "nativeCanvas": [
+        63,
+        80
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        61,
+        78
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        549,
+        86
+      ],
+      "screenVisibleBounds": [
+        555,
+        92,
+        732,
+        320
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": [
+        296,
+        112
+      ]
+    },
+    {
+      "asset": "home-fire",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-fire.png",
+      "sha256": "9995c50475e64ae8bdb7f1d747e4974420e5fbbd97b50be65b03a7dabe00dde2",
+      "nativeCanvas": [
+        63,
+        80
+      ],
+      "nativeVisibleBounds": [
+        20,
+        55,
+        43,
+        68
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        549,
+        86
+      ],
+      "screenVisibleBounds": [
+        609,
+        251,
+        678,
+        290
+      ],
+      "role": "registered hearth overlay",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-logs",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-logs.png",
+      "sha256": "b888851922380421cf984e1d85f316804f1a72cfbbf9b06dbe4c5dd224f81ca6",
+      "nativeCanvas": [
+        36,
+        27
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        34,
+        25
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        773,
+        261
+      ],
+      "screenVisibleBounds": [
+        779,
+        267,
+        875,
+        336
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-storage-jar",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-storage-jar.png",
+      "sha256": "6edc3842e0adba32447d260665d73336183f6fbffa669e96d3fabe9255aeb928",
+      "nativeCanvas": [
+        29,
+        36
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        27,
+        34
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        881,
+        258
+      ],
+      "screenVisibleBounds": [
+        887,
+        264,
+        962,
+        360
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-bench",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-bench.png",
+      "sha256": "a8084e2226baae675b77bc352b17ea9cf0620164d1ee2a8563f9d990ef8c38a2",
+      "nativeCanvas": [
+        80,
+        23
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        78,
+        21
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        231,
+        400
+      ],
+      "screenVisibleBounds": [
+        237,
+        406,
+        465,
+        463
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-table",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-table.png",
+      "sha256": "602b2179ba8b2addec9f90405d25d839d0c0ebeaae186307a9421b4ed8fef7fd",
+      "nativeCanvas": [
+        104,
+        49
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        102,
+        47
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        195,
+        480
+      ],
+      "screenVisibleBounds": [
+        201,
+        486,
+        501,
+        621
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-bench-front",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-bench-front.png",
+      "sha256": "f3af8d306aed85914c86ff1208bff57cdcb33b7a4f6e2ffed39d6f0132bebd2a",
+      "nativeCanvas": [
+        80,
+        24
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        78,
+        22
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        231,
+        642
+      ],
+      "screenVisibleBounds": [
+        237,
+        648,
+        465,
+        708
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-bed",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-bed.png",
+      "sha256": "c297fa527eb4954d5f02af7e771615366abdd59510fed97aa620597d71700afa",
+      "nativeCanvas": [
+        45,
+        76
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        43,
+        74
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        987,
+        404
+      ],
+      "screenVisibleBounds": [
+        993,
+        410,
+        1116,
+        626
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-leafy-pot",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-leafy-pot.png",
+      "sha256": "2896d7252331e6a2d58a618ddf4a54adac13c9a81c00f0dfd00a82f37117b18b",
+      "nativeCanvas": [
+        27,
+        32
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        25,
+        30
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        113,
+        660
+      ],
+      "screenVisibleBounds": [
+        119,
+        666,
+        188,
+        750
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    },
+    {
+      "asset": "home-flower-pot",
+      "source": "/Users/mac/Desktop/Digit7Jam_Nobody_SimpleLife_Build/output/art/home-interior-v1/native/home-flower-pot.png",
+      "sha256": "12d44284cb37fadb0a6f660bd5a7ad2be1a73c21738a5a9982620600036eb34e",
+      "nativeCanvas": [
+        25,
+        32
+      ],
+      "nativeVisibleBounds": [
+        2,
+        2,
+        23,
+        30
+      ],
+      "screenScale": 3,
+      "screenCanvasOrigin": [
+        1081,
+        660
+      ],
+      "screenVisibleBounds": [
+        1087,
+        666,
+        1150,
+        750
+      ],
+      "role": "floor-standing",
+      "rearGroundAnchorWorld": null
+    }
+  ]
+}

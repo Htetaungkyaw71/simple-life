@@ -1,0 +1,253 @@
+{
+  "frames": {
+    "house-07-alpine-timber": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 270,
+        "h": 182
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 270,
+        "h": 182
+      },
+      "sourceSize": {
+        "w": 270,
+        "h": 182
+      }
+    },
+    "house-09-broad-farmhouse": {
+      "frame": {
+        "x": 271,
+        "y": 0,
+        "w": 259,
+        "h": 164
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 259,
+        "h": 164
+      },
+      "sourceSize": {
+        "w": 259,
+        "h": 164
+      }
+    },
+    "house-01-terracotta-gable": {
+      "frame": {
+        "x": 531,
+        "y": 0,
+        "w": 246,
+        "h": 159
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 246,
+        "h": 159
+      },
+      "sourceSize": {
+        "w": 246,
+        "h": 159
+      }
+    },
+    "cafe-terracotta-awning": {
+      "frame": {
+        "x": 778,
+        "y": 0,
+        "w": 223,
+        "h": 134
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 223,
+        "h": 134
+      },
+      "sourceSize": {
+        "w": 223,
+        "h": 134
+      }
+    },
+    "house-04-balcony-vine": {
+      "frame": {
+        "x": 0,
+        "y": 183,
+        "w": 244,
+        "h": 173
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 244,
+        "h": 173
+      },
+      "sourceSize": {
+        "w": 244,
+        "h": 173
+      }
+    },
+    "house-02-blue-slate": {
+      "frame": {
+        "x": 245,
+        "y": 183,
+        "w": 206,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 206,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 206,
+        "h": 139
+      }
+    },
+    "house-03-green-bay": {
+      "frame": {
+        "x": 452,
+        "y": 183,
+        "w": 198,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 198,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 198,
+        "h": 132
+      }
+    },
+    "house-08-grey-hipped": {
+      "frame": {
+        "x": 651,
+        "y": 183,
+        "w": 193,
+        "h": 133
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 193,
+        "h": 133
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 133
+      }
+    },
+    "house-06-green-hipped": {
+      "frame": {
+        "x": 0,
+        "y": 357,
+        "w": 192,
+        "h": 127
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 127
+      }
+    },
+    "house-05-plum-townhouse": {
+      "frame": {
+        "x": 193,
+        "y": 357,
+        "w": 187,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 187,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 187,
+        "h": 128
+      }
+    },
+    "shop-clothing-sage-awning": {
+      "frame": {
+        "x": 380,
+        "y": 357,
+        "w": 171,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 171,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 171,
+        "h": 119
+      }
+    },
+    "shop-barber-blue-roof": {
+      "frame": {
+        "x": 552,
+        "y": 357,
+        "w": 212,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 212,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 212,
+        "h": 139
+      }
+    }
+  },
+  "meta": {
+    "app": "Simple Life user-supplied Pixel Snapper city buildings",
+    "image": "city-buildings.png",
+    "size": {
+      "w": 1024,
+      "h": 512
+    },
+    "scale": "1"
+  }
+}

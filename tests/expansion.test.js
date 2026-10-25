@@ -15,25 +15,25 @@ test('coin purchases reject locked land, insufficient funds and duplicate purcha
  assert.match(usePlot(s,16),/Dig/);assert.deepEqual(s,before);
  assert.match(buyField(s,1),/need 120/);assert.deepEqual(s,before);
  assert.match(buyFarm(s),/need 600/);assert.deepEqual(s,before);
- s.money=120;assert.match(buyField(s,1),/ready/);assert.equal(s.money,0);assert.equal(visiblePlots(s).length,32);
+ s.money=120;assert.match(buyField(s,1),/ready/);assert.equal(s.money,0);assert.equal(visiblePlots(s).length,56);
  const owned=structuredClone(s);assert.match(buyField(s,1),/already/);assert.match(buyField(s,99),/Choose/);assert.match(buyField(s,-1),/Choose/);assert.deepEqual(s,owned);
  assert.match(usePlot(s,16),/planted/);assert.equal(s.plots[16].crop,'tomato');
 });
 test('four identical reachable fields unlock another independent farm and save all ownership',()=>{
  const s=newState();s.area='farm';s.money=2000;
- for(const i of [3,1,2])buyField(s,i);assert.equal(s.money,1460);assert.equal(visiblePlots(s).length,64);
+ for(const i of [3,1,2])buyField(s,i);assert.equal(s.money,1460);assert.equal(visiblePlots(s).length,88);
  for(const [i,p]of FARM_PLOTS.entries()){
   assert.ok(walkable('farm',p.x,p.y),'reachable '+i);
   assert.ok(!MAPS.farm.paths.some(([x,y,w,h])=>p.x+24>x&&p.x-24<x+w&&p.y+24>y&&p.y-24<y+h),'road clear '+i);
   s.position={x:p.x,y:p.y};assert.equal(contextFor(s)?.index,i,'context '+i);
  }
- assert.ok(FIELDS.every(f=>f.w===192&&f.h===192&&f.cell===48&&f.rows===4&&f.cols===4));
+ assert.ok(FIELDS.every(f=>f.w===384&&f.h===240&&f.cell===48&&f.rows===5&&f.cols===8));
  s.inventory.seed=2;usePlot(s,48);assert.equal(s.plots[48].crop,'tomato');
- assert.equal(nextFarmPrice(s),600);buyFarm(s);assert.equal(s.currentFarm,1);assert.equal(s.money,860);assert.equal(s.plots.length,128);assert.equal(visiblePlots(s).length,16);assert.equal(visiblePlots(s)[0].index,64);
+ assert.equal(nextFarmPrice(s),600);buyFarm(s);assert.equal(s.currentFarm,1);assert.equal(s.money,860);assert.equal(s.plots.length,128);assert.equal(visiblePlots(s).length,40);assert.equal(visiblePlots(s)[0].index,64);
  usePlot(s,64);assert.equal(s.plots[64].crop,'tomato');assert.equal(s.plots[48].crop,'tomato');
  const before=structuredClone(s);assert.match(buyFarm(s),/need 1200/);assert.deepEqual(s,before);
  assert.deepEqual(validate(JSON.parse(JSON.stringify(s))),s);
- assert.ok(visitFarm(s,0));assert.equal(visiblePlots(s).length,64);assert.ok(!visitFarm(s,4));
+ assert.ok(visitFarm(s,0));assert.equal(visiblePlots(s).length,88);assert.ok(!visitFarm(s,4));
  buyField(s,3);assert.equal(s.money,860);assert.equal(nextFarmPrice(s),1200);
  assert.ok(!LOCATIONS.farm.interactions.some(p=>p.to==='city'));
 });

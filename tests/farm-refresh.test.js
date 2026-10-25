@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {MAPS} from '../src/data/mapLayouts.js';
+import {walkable} from '../src/data/locations.js';
+import {newState} from '../src/systems/state.js';
+import {digGround} from '../src/systems/farmGround.js';
+import {usePlot} from '../src/systems/farming.js';
+import {validate} from '../src/systems/save.js';
+import {visiblePlots} from '../src/systems/expansion.js';
+test('farm clutter removal frees physical space for walking and saved planting, retaining functional landmarks and Home scenery',()=>{
+ const gone=['scarecrow','barrel','crate','wheelbarrow','pebble','fence','fence-v','flowers1','flowers2'];
+ assert.ok(MAPS.farm.props.every(p=>!gone.includes(p.name)));
+ assert.ok(MAPS.farm.details.every(p=>!p.name.startsWith('flowers')));
+ assert.ok(!MAPS.farm.buildings.some(p=>p.name==='shed'));
+ for(const name of ['notice','well'])assert.ok(MAPS.farm.props.some(p=>p.name===name));
+ assert.ok(MAPS.home.props.some(p=>p.name==='barrel'));assert.ok(MAPS.home.buildings.slice(1).every(p=>p.name.startsWith('house-home-')&&p.artTexture==='cityBuildings'));
+ for(const [x,y] of [[568,340],[880,740],[1032,704],[1032,754],[848,240],[880,240]])assert.ok(walkable('farm',x,y,8),x+','+y);
+ const s=Object.assign(newState(),{area:'farm',selected:'shovel',ownsCopperCan:true,position:{x:568,y:374},money:321});
+ const result=visiblePlots(s).find(b=>b.x===568&&b.y===344);assert.ok(result);s.selected='seed';s.inventory.seed=1;assert.equal(usePlot(s,result.index),'Tomato planted');
+ const restored=validate(s);assert.equal(restored.money,321);const bed=visiblePlots(restored).find(p=>p.x===568&&p.y===344);assert.ok(bed);assert.equal(restored.customBeds[bed.index-restored.plots.length].plot.crop,'tomato');
+});

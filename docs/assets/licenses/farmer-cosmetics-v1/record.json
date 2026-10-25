@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-14",
+  "tool": "OpenAI built-in imagegen",
+  "model": "not exposed",
+  "baseAtlases": {
+    "boy": {
+      "sha256": "4e0bed0e70c3e155ea6b458ca41a3524f44023f5b1eefacbe39ec5ca8250fd5c",
+      "frames": 192
+    },
+    "girl": {
+      "sha256": "1f85f41fdc9c9d1a3a937a774e32b31747700eb559bbc0c1f45bf3cb8db9b33a",
+      "frames": 192
+    }
+  },
+  "sources": {
+    "hat.png": "5fb7c1a73ec288e8735dd1442df65fefba32888a7cae4e1a874eeb8360e7151f",
+    "backpack.png": "6c9464b7f9135331d7f2336463d99d6986981d4bba708073cd74e430bdc4135d",
+    "glasses.png": "8ea7abf485a4097b8483b8c675dc6bb4d97adadf501be97193b4346d8731e178"
+  },
+  "conversion": "alpha >=128; nearest native sampling; 12-colour per-view reduction; semantic template head/torso anchors including turned/bent heads; no body image edits"
+}

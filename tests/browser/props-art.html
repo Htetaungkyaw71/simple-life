@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Prop art browser QA</title>
+<style>body{margin:12px;background:#25332d;color:#f4edd9;font:14px system-ui}button,select{font:inherit;padding:7px;margin:3px}iframe{border:0;display:block;max-width:none}pre{white-space:pre-wrap}#stage{overflow:auto;max-height:850px}</style></head>
+<body><h1>Prop art browser QA</h1><p>Isolated local fixtures on port 4216. This page is excluded from production.</p>
+<label>Viewport <select id="profile"><option value="desktop">Desktop 1280×720</option><option value="phone">Phone 390×844</option><option value="landscape">Landscape 640×360</option></select></label>
+<button id="run">Run prop checks</button><button id="show">Home props</button><button id="restore-demo">City props</button><button id="jump">Snow tree</button><button id="room">Interior</button><button id="garden">Garden catalog</button><button id="furniture">Furniture catalog</button><pre id="status">Ready</pre><div id="stage"></div>
+<script type="module">
+import {newState} from '/src/systems/state.js';
+import {GIRL_V2_HANDS,GIRL_CARRY_ANGLES} from '/src/data/revisedGirl.js';
+import {FARM_PLOTS,FIELDS} from '/src/data/farms.js';
+import {visiblePlots} from '/src/systems/expansion.js';
+const carryProfile={hands:GIRL_V2_HANDS,angles:GIRL_CARRY_ANGLES};
+import {farmerCarryPose} from '/src/systems/farmerCarry.js';
+import {characterFrame} from '/src/systems/characterAnimation.js';
+import {BOY_FARMER} from '/src/data/appearance.js';
+import {VEGETATION} from '/src/data/vegetation.js';
+import {walkable} from '/src/data/locations.js';
+import {nextDay} from '/src/systems/time.js';
+import {usePlot} from '/src/systems/farming.js';
+import {CROPS,CROP_IDS} from '/src/data/crops.js';
+import {MAPS} from '/src/data/mapLayouts.js';
+import {contextFor} from '/src/systems/context.js';
+import {REGIONS} from '/src/data/forest.js';
+import {DECORATIONS} from '/src/data/settlement.js';
+import {placementQuote} from '/src/systems/placement.js';
+const status=document.querySelector('#status'),stage=document.querySelector('#stage');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const fixture=(tool='hand',action=null,character='girl')=>{
+ const s=newState(character);Object.assign(s,{area:'home',position:{x:480,y:800},selected:tool,minute:600,money:311,starterSeedsClaimed:true,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';
+ if(action){s.area='farm';s.position={x:696,y:152};s.ownsCopperCan=true;}
+ if(action==='harvesting'){const bed=FARM_PLOTS[0];s.area='farm';s.position={x:bed.x,y:bed.y+16};s.plots[0]={crop:'tomato',growth:3,wateredDay:1,missedDays:0,lastEvaluatedDay:0};}
+ if(action==='attack'){s.area='forest';s.position={x:936,y:4428};}
+ if(action==='chopping')for(const n of VEGETATION.farm.trees){s.position={x:n.x,y:n.y-48};if(walkable('farm',s.position.x,s.position.y,12,false,s)&&contextFor(s)?.id===n.id)break;}
+ return s;
+};
+let frame,win,records=[];
+const snapshot=()=>{try{return win.__simpleLife?.snapshot();}catch{return null;}};
+async function until(fn,message,ms=6000){const end=performance.now()+ms;while(performance.now()<end){const v=fn();if(v)return v;await sleep(20);}throw Error('Timed out: '+message);}
+function key(code,down=true){const names={KeyA:'a',KeyD:'d',KeyW:'w',KeyS:'s',KeyE:'e',KeyK:'k',Space:' ',DigitOne:'1',DigitThree:'3',DigitTwo:'2',DigitFour:'4',DigitFive:'5',DigitSix:'6'};const codes={KeyA:65,KeyD:68,KeyW:87,KeyS:83,KeyE:69,KeyK:75,Space:32,DigitOne:49,DigitThree:51,DigitTwo:50,DigitFour:52,DigitFive:53,DigitSix:54};win.dispatchEvent(new win.KeyboardEvent(down?'keydown':'keyup',{key:names[code],code,keyCode:codes[code],which:codes[code],bubbles:true}));}
+async function tap(code){key(code);await sleep(35);key(code,false);}
+async function click(id){const c=await until(()=>snapshot()?.controls.find(c=>c.id===id&&!c.disabled),id);const canvas=win.document.querySelector('canvas'),rect=canvas.getBoundingClientRect();const x=rect.left+c.x+c.w/2,y=rect.top+c.y+c.h/2;
+ for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(240);}
+async function start(state){
+ assert(location.port==='4216','Run only on isolated port4216, preserving the normal game save.');
+ frame?.remove();localStorage.setItem('simple-life.save.v1',JSON.stringify(state));
+ frame=document.createElement('iframe');const profile=document.querySelector('#profile').value,phone=profile!=='desktop',landscape=profile==='landscape';frame.width=landscape?640:phone?390:1280;frame.height=landscape?360:phone?844:720;localStorage.setItem('simple-life.language.v1',phone?'mm':'en');frame.title='Isolated game';frame.src='/?qa';stage.append(frame);win=frame.contentWindow;
+ await until(()=>snapshot()?.controls.length,'game boot');
+ if(snapshot().controls.some(c=>c.id==='language-en'))await click(phone?'language-mm':'language-en');
+ await click('Continue');await until(()=>snapshot()?.player&&!snapshot().paused,'playing');
+}
+
+
+
+
+
+const record=label=>{records.push(label);status.textContent='Running…\n'+records.join('\n');};
+function propsState(area,position){const s=fixture('hand');Object.assign(s,{area,position,money:5000});s.inventory.wood=100;s.inventory.stone=100;s.story.flags=[...new Set([...s.story.flags,'plant','water'])];return s;}
+const homeState=()=>propsState('home',{x:1040,y:812});
+const cityState=()=>propsState('city',{x:1456,y:1408});
+const snowState=()=>{const r=REGIONS.find(r=>r.biome==='snow');return propsState('forest',{x:r.x+496,y:r.y+720});};
+document.querySelector('#show').onclick=async()=>{await start(homeState());status.textContent='New bench, table, notice board and home props';};
+document.querySelector('#restore-demo').onclick=async()=>{await start(cityState());status.textContent='New lamps, sunflower pots, garden seats and tents';};
+document.querySelector('#jump').onclick=async()=>{await start(snowState());status.textContent='Snow caps, dark needles, warm bark and registered roots';};
+document.querySelector('#room').onclick=async()=>{const s=propsState('interior',{x:312,y:220});s.home={design:'rose',owned:['starter','rose']};await start(s);status.textContent='Refreshed themed interior';};
+document.querySelector('#garden').onclick=async()=>{await start(homeState());await click('customize');await click('customize-garden');status.textContent='Garden catalog';};
+document.querySelector('#furniture').onclick=async()=>{await start(homeState());await click('customize');await click('customize-furniture');status.textContent='Furniture catalog';};
+async function openCustomize(){await click('customize');}
+async function choosePoint(type){const ss=snapshot(),cam=ss.camera,viewport={x:cam.x,y:cam.y,width:cam.width,height:cam.height};for(let yy=cam.y+100;yy<cam.y+cam.height-80;yy+=16)for(let xx=cam.x+80;xx<cam.x+cam.width-80;xx+=16){const d={type,area:ss.state.area,...(ss.state.area==='farm'?{farm:0}:{}),x:Math.round(xx/8)*8,y:Math.round(yy/8)*8,direction:'down'},state={...ss.state,selected:'decorate',selectedDecoration:type};if(Math.hypot(d.x-ss.state.position.x,d.y-ss.state.position.y)>80&&placementQuote(state,d,{view:viewport}).ok)return d;}throw Error('No valid placement for '+type);}
+async function worldClick(point){const cam=snapshot().camera,canvas=win.document.querySelector('canvas'),r=canvas.getBoundingClientRect(),x=r.left+(point.x-cam.x)*cam.zoom,y=r.top+(point.y-cam.y)*cam.zoom;for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(180);}
+document.querySelector('#run').onclick=async()=>{try{
+ records=[];await start(homeState());assert(snapshot().state.area==='home','home renders');record('Home props and saved farmer render');
+ await openCustomize();await click('customize-craft');await click('decoration-bench');await click('resource-action-0');assert(snapshot().state.inventory.benchDecor>0,'bench crafted');await click('resource-action-1');assert(snapshot().placement.type==='bench','bench placement preview');
+ const point=await choosePoint('bench');await worldClick(point);assert(snapshot().placement.ok,'bench clear spot');for(let i=0;i<4;i++){await click('placement-turn');assert(['down','left','up','right'].includes(snapshot().placement.direction),'upright direction');}await click('placement-confirm');assert(snapshot().state.settlement.decorations.some(d=>d.type==='bench'),'bench placed');record('Craft → shared preview → four upright views → placed bench');
+ await sleep(2800);await start(JSON.parse(localStorage.getItem('simple-life.save.v1')));assert(snapshot().state.settlement.decorations.some(d=>d.type==='bench'),'Continue keeps placed bench');record('Save and Continue preserve bench');
+ await openCustomize();await click('customize-garden');await click('shop-decor-blossom');const money=snapshot().state.money;await click('resource-action-0');assert(snapshot().state.money===money-1600,'blossom price unchanged');assert(snapshot().state.inventory.blossomDecor===1,'blossom bought');await click('resource-close');record('Garden preview and blossom purchase');
+ await openCustomize();await click('customize-furniture');await click('shop-decor-vase');await click('resource-action-0');assert(snapshot().state.inventory.vaseDecor===1,'vase bought');await click('resource-close');record('Furniture preview and vase purchase');
+ const inside=propsState('interior',{x:312,y:220});inside.home={design:'rose',owned:['starter','rose']};await start(inside);assert(snapshot().state.area==='interior','themed room loaded');record('Themed interior keeps woven and quilt pixel detail');
+ await start(cityState());assert(snapshot().state.area==='city','city loaded');record('City lanterns, planted benches, sunflower pots and tents render');
+ await start(snowState());assert(snapshot().canopies.some(c=>c.frame==='env-pine-snow'&&c.texture==='forest-native-env-pine-snow'),'snow uses authored colour texture');record('Snow tree uses native snow/needle/bark colours');
+ status.textContent='PASS '+document.querySelector('#profile').value+'\n'+records.join('\n');
+}catch(e){status.textContent='FAIL '+e.stack+'\n'+records.join('\n');console.error(e);}};
+</script></body></html>

@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-21",
+  "status": "review only; not integrated",
+  "cameraZoomAt1460x1062": 1.5,
+  "newAssetRuntimeScale": 1,
+  "authoringRule": "direct final rendered footprint at runtime scale 1; no runtime fractional asset scaling",
+  "runtimeScaleAudit": {
+    "existingClumps": {
+      "scale": 2,
+      "integer": true
+    },
+    "existingBushes": {
+      "scale": 0.45,
+      "integer": false
+    },
+    "existingBroadleafAndRoundTrees": {
+      "scale": 0.7,
+      "integer": false
+    },
+    "existingTallThinTree": {
+      "scale": 1.1,
+      "integer": false
+    },
+    "existingPalms": {
+      "scale": 1.66,
+      "integer": false
+    },
+    "newReviewClumps": {
+      "scale": 1,
+      "integer": true
+    }
+  },
+  "palmConsistencyWarning": "Yes. Recolor-only palms retain scale 1.66, so their source-pixel cadence can look uneven beside direct-final-size scale-1 art, especially under the 1.5 camera zoom.",
+  "lockedPalette": [
+    "#3B4028",
+    "#53582D",
+    "#6A7138",
+    "#858B49",
+    "#A1A35C"
+  ],
+  "checks": {
+    "wide": {
+      "generatedSourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        55,
+        200,
+        1205,
+        1067
+      ],
+      "sourceComponentsBeforeCleanup": 3,
+      "sourceComponentSizes": [
+        520998,
+        6,
+        2
+      ],
+      "authoredAtFinalPx": [
+        48,
+        34
+      ],
+      "finalRenderedPx": [
+        48,
+        34
+      ],
+      "runtimeScale": 1,
+      "objectCount": 1,
+      "finalComponentSizes": [
+        849
+      ],
+      "pinholesFilledAtLogicalSize": 5,
+      "binaryAlpha": true,
+      "onlyLockedColors": true,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "nearestNeighborOnly": true,
+      "sha256": "2ae4bf577d881f6ad63e06554fc2a7bcc82f5c46473401dd03cc1d625c8decf7"
+    },
+    "tall": {
+      "generatedSourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        286,
+        81,
+        983,
+        1177
+      ],
+      "sourceComponentsBeforeCleanup": 1,
+      "sourceComponentSizes": [
+        408145
+      ],
+      "authoredAtFinalPx": [
+        30,
+        48
+      ],
+      "finalRenderedPx": [
+        30,
+        48
+      ],
+      "runtimeScale": 1,
+      "objectCount": 1,
+      "finalComponentSizes": [
+        784
+      ],
+      "pinholesFilledAtLogicalSize": 9,
+      "binaryAlpha": true,
+      "onlyLockedColors": true,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "nearestNeighborOnly": true,
+      "sha256": "7c669e9d83d66ca648781a36efdcdafb3f00470942c78302c866114f73064f8b"
+    },
+    "small": {
+      "generatedSourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        161,
+        200,
+        1076,
+        1024
+      ],
+      "sourceComponentsBeforeCleanup": 1,
+      "sourceComponentSizes": [
+        425050
+      ],
+      "authoredAtFinalPx": [
+        38,
+        38
+      ],
+      "finalRenderedPx": [
+        38,
+        38
+      ],
+      "runtimeScale": 1,
+      "objectCount": 1,
+      "finalComponentSizes": [
+        831
+      ],
+      "pinholesFilledAtLogicalSize": 12,
+      "binaryAlpha": true,
+      "onlyLockedColors": true,
+      "usedColors": [
+        "#3B4028",
+        "#53582D",
+        "#6A7138",
+        "#858B49",
+        "#A1A35C"
+      ],
+      "nearestNeighborOnly": true,
+      "sha256": "28c754be24840e670521ab443127826f6031ca73bb2a6a8d9b3c0e7ab62f1e51"
+    }
+  },
+  "generatedWith": "OpenAI built-in image generation; one call per clump",
+  "outputs": {
+    "clump-small.png": "28c754be24840e670521ab443127826f6031ca73bb2a6a8d9b3c0e7ab62f1e51",
+    "clump-tall.png": "7c669e9d83d66ca648781a36efdcdafb3f00470942c78302c866114f73064f8b",
+    "clump-wide.png": "2ae4bf577d881f6ad63e06554fc2a7bcc82f5c46473401dd03cc1d625c8decf7",
+    "clumps-alone-3x.png": "7fbc999da5b77307c93241f479c137c5c64055cb5ff04b293ca6a5fe97f00d2a",
+    "clumps-fit-new-lawn-1x.png": "22702c1de5ca4e369362e48dc4c6e18ac53ef3436b7621c0b65436bc3b10f4da",
+    "clumps-fit-new-lawn-3x.png": "1f11b03259e128203aa1d6c84d903ea87fad399991260762829f9006b5f0bb70",
+    "clumps-in-game-projection.png": "8b38917f2446542b4ecffb9a392fc5a2c7293bafa0766206920cb26ee4117c50"
+  }
+}

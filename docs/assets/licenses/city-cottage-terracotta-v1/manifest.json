@@ -1,0 +1,10 @@
+{
+  "asset": "Terracotta City cottage",
+  "date": "2026-10-17",
+  "status": "USER APPROVED; RUNTIME INTEGRATED",
+  "generator": "OpenAI built-in image generation",
+  "source": {"path": "output/art/city-cottage-terracotta-v1/original.png", "dimensions": [1347, 1167], "sha256": "11b46907ef831ea76031310897671f820dab8005f4d3a1ffddc81e450f1a452c"},
+  "native": {"path": "output/art/city-cottage-terracotta-v1/native-120x112.png", "dimensions": [120, 112], "sha256": "376787f574439b20abc8236b3c24c15d25a35fc6345e065302768bc231d1daca", "alpha": [0, 255], "worldScale": 2},
+  "runtime": {"atlas": "public/assets/pixel/processed/town.png", "frame": "city-review-cottage-terracotta", "frameRect": [774, 3927, 120, 112], "replacedVisual": "cottage-b", "preservedBuildingIdentity": "house-village-4", "preservedResident": "city-tomas"},
+  "preservation": {"beforeAtlasSha256": "5237189ddd2ac7e8e048651a044355be4bf8b6c7bba6cfe4ac924b528ce00474", "beforeMetadataSha256": "aab45ea78ea1979c8ea93c21530f033e2662da5b9f420952fc461f6fc13cfe8a", "preExistingFramesExact": 1060, "preExistingPixelsExact": true}
+}

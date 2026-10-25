@@ -4,7 +4,7 @@ export const START_PAGES=[
  {title:'Your goal',art:'farm',body:"Grow crops, sell your harvest, and help the town. Follow the Journal to recover Grandfather's Keepsake and bring it home."},
  {title:'Controls',art:null,body:'WASD or arrows: move. E: use. Space: jump. B: Bag. Escape: menu. Select seeds, watering can and harvest tool from the toolbar.',touch:'Circle: move. Star: use the nearby object or selected tool. Arrow: jump outdoors. Bag: seeds, tools and food. Menu: Journal, save and language.'},
  {title:'The farming loop',art:null,body:'Choose seeds in Bag, then use an empty bed. Select the watering can and water once each day. Sleep at Home; after 3 watered nights, harvest Tomato and sell to Niko in City.'},
- {title:'Your first job',art:'farm',body:'Walk to the crate beside your front steps. Use it to collect 3 free Tomato seeds. Then follow the south FARM sign.'},
+ {title:'Your first job',art:'farm',body:'Walk to the crate beside your front steps. Use it to collect 3 free Tomato seeds. Then follow the south road.'},
 ];
 function background(u,w,h){const x=u.safe.left+Math.floor((u.w-u.safe.left-u.safe.right-w)/2),y=u.safe.top+Math.floor((u.h-u.safe.top-u.safe.bottom-h)/2);const veil=u.add.rectangle(0,0,u.w,u.h,0x23362a,.6).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,w,h);u.menuBounds={x:x*2,y:y*2,w:w*2,h:h*2};return {x,y,w,h};}
 export function drawLanguageMenu(u,choose){

@@ -1,0 +1,411 @@
+{
+  "date": "2026-10-16",
+  "changed": [
+    {
+      "id": 1,
+      "frame": "cedar-lamp",
+      "size": [
+        32,
+        64
+      ],
+      "visibleBounds": {
+        "x0": 10,
+        "y0": 2,
+        "w": 12,
+        "h": 60
+      }
+    },
+    {
+      "id": 1,
+      "frame": "cedar-city-lamp",
+      "size": [
+        40,
+        96
+      ],
+      "visibleBounds": {
+        "x0": 11,
+        "y0": 2,
+        "w": 18,
+        "h": 92
+      }
+    },
+    {
+      "id": 2,
+      "frame": "bench-cedar-review",
+      "size": [
+        64,
+        40
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 2,
+        "w": 60,
+        "h": 36
+      }
+    },
+    {
+      "id": 3,
+      "frame": "cedar-sign",
+      "size": [
+        32,
+        64
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 21,
+        "w": 28,
+        "h": 41
+      }
+    },
+    {
+      "id": 4,
+      "frame": "cedar-mailbox",
+      "size": [
+        32,
+        48
+      ],
+      "visibleBounds": {
+        "x0": 8,
+        "y0": 2,
+        "w": 16,
+        "h": 44
+      }
+    },
+    {
+      "id": 5,
+      "frame": "cedar-crate",
+      "size": [
+        32,
+        36
+      ],
+      "visibleBounds": {
+        "x0": 3,
+        "y0": 2,
+        "w": 26,
+        "h": 32
+      }
+    },
+    {
+      "id": 6,
+      "frame": "cedar-barrel",
+      "size": [
+        32,
+        36
+      ],
+      "visibleBounds": {
+        "x0": 5,
+        "y0": 2,
+        "w": 22,
+        "h": 32
+      }
+    },
+    {
+      "id": 7,
+      "frame": "cedar-fence",
+      "size": [
+        32,
+        32
+      ],
+      "visibleBounds": {
+        "x0": 6,
+        "y0": 2,
+        "w": 20,
+        "h": 28
+      }
+    },
+    {
+      "id": 8,
+      "frame": "cedar-fence-v",
+      "size": [
+        32,
+        32
+      ],
+      "visibleBounds": {
+        "x0": 8,
+        "y0": 2,
+        "w": 16,
+        "h": 28
+      }
+    },
+    {
+      "id": 8,
+      "frame": "cedar-prop-fence-left",
+      "size": [
+        24,
+        48
+      ],
+      "visibleBounds": {
+        "x0": 4,
+        "y0": 2,
+        "w": 16,
+        "h": 44
+      }
+    },
+    {
+      "id": 10,
+      "frame": "cedar-well",
+      "size": [
+        48,
+        64
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 14,
+        "w": 44,
+        "h": 48
+      }
+    },
+    {
+      "id": 11,
+      "frame": "nature-bush-small",
+      "size": [
+        24,
+        20
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 5,
+        "w": 20,
+        "h": 13
+      }
+    },
+    {
+      "id": 11,
+      "frame": "nature-bush-leafy",
+      "size": [
+        36,
+        30
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 7,
+        "w": 32,
+        "h": 21
+      }
+    },
+    {
+      "id": 12,
+      "frame": "cedar-env-boulder",
+      "size": [
+        208,
+        144
+      ],
+      "visibleBounds": {
+        "x0": 50,
+        "y0": 70,
+        "w": 108,
+        "h": 72
+      }
+    },
+    {
+      "id": 12,
+      "frame": "cedar-rock",
+      "size": [
+        64,
+        64
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 22,
+        "w": 60,
+        "h": 40
+      }
+    },
+    {
+      "id": 12,
+      "frame": "cedar-loose-stones",
+      "size": [
+        48,
+        32
+      ],
+      "visibleBounds": {
+        "x0": 3,
+        "y0": 2,
+        "w": 42,
+        "h": 28
+      }
+    },
+    {
+      "id": 13,
+      "frame": "forest-oak-0",
+      "size": [
+        80,
+        112
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 12,
+        "w": 76,
+        "h": 98
+      }
+    },
+    {
+      "id": 13,
+      "frame": "forest-oak-1",
+      "size": [
+        80,
+        112
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 12,
+        "w": 76,
+        "h": 98
+      }
+    },
+    {
+      "id": 13,
+      "frame": "forest-oak-2",
+      "size": [
+        80,
+        112
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 12,
+        "w": 76,
+        "h": 98
+      }
+    },
+    {
+      "id": 14,
+      "frame": "cedar-planter",
+      "size": [
+        32,
+        32
+      ],
+      "visibleBounds": {
+        "x0": 5,
+        "y0": 2,
+        "w": 22,
+        "h": 28
+      }
+    },
+    {
+      "id": 14,
+      "frame": "cedar-prop-planter",
+      "size": [
+        32,
+        48
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 11,
+        "w": 28,
+        "h": 35
+      }
+    },
+    {
+      "id": 14,
+      "frame": "cedar-city-flowerpot",
+      "size": [
+        40,
+        64
+      ],
+      "visibleBounds": {
+        "x0": 2,
+        "y0": 18,
+        "w": 36,
+        "h": 44
+      }
+    },
+    {
+      "id": 15,
+      "frame": "cedar-seed-stall",
+      "size": [
+        160,
+        128
+      ],
+      "visibleBounds": {
+        "x0": 10,
+        "y0": 2,
+        "w": 140,
+        "h": 124
+      }
+    },
+    {
+      "id": 15,
+      "frame": "cedar-produce-stall",
+      "size": [
+        160,
+        128
+      ],
+      "visibleBounds": {
+        "x0": 10,
+        "y0": 2,
+        "w": 140,
+        "h": 124
+      }
+    },
+    {
+      "id": 15,
+      "frame": "cedar-outfitter-stall",
+      "size": [
+        160,
+        128
+      ],
+      "visibleBounds": {
+        "x0": 10,
+        "y0": 2,
+        "w": 140,
+        "h": 124
+      }
+    },
+    {
+      "id": 9,
+      "frame": "outdoor-closed-gate",
+      "size": [
+        96,
+        32
+      ],
+      "visibleBounds": {
+        "x0": 11,
+        "y0": 2,
+        "w": 74,
+        "h": 28
+      }
+    },
+    {
+      "id": 7,
+      "frame": "outdoor-fence-h",
+      "size": [
+        128,
+        32
+      ],
+      "visibleBounds": {
+        "x0": 6,
+        "y0": 2,
+        "w": 116,
+        "h": 28
+      }
+    },
+    {
+      "id": 8,
+      "frame": "outdoor-fence-v",
+      "size": [
+        32,
+        128
+      ],
+      "visibleBounds": {
+        "x0": 8,
+        "y0": 2,
+        "w": 16,
+        "h": 124
+      }
+    }
+  ],
+  "anchors": {
+    "nature-bush-small": 0.5267,
+    "nature-bush-leafy": 0.5327,
+    "forest-oak-0": 0.5068,
+    "forest-oak-1": 0.5068,
+    "forest-oak-2": 0.5068
+  },
+  "oldFrames": 1041,
+  "atlas": {
+    "w": 1024,
+    "h": 3825
+  },
+  "originalsPreserved": true,
+  "binaryAlpha": true
+}

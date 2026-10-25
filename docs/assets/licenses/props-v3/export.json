@@ -1,0 +1,171 @@
+{
+  "version": "0.35.2",
+  "date": "2026-10-15",
+  "sources": {
+    "bench": {
+      "file": "output/art/props-v3/sources/bench.png",
+      "sha256": "a362d6e929d2c7d6dcab4960e6154dbba1c141f2d9a2619cdc8c5bc213394aba"
+    },
+    "table": {
+      "file": "output/art/props-v3/sources/table.png",
+      "sha256": "e89f1c03a98a1823600c04f21ab84fda87e90e914d63d603d4ed41c737d2890c"
+    },
+    "home-bench": {
+      "file": "output/art/props-v3/sources/home-bench.png",
+      "sha256": "0ab96248910c61cb11becc40ba930b7732ebbe03606603925d5c69aff639a69a"
+    },
+    "bench-side": {
+      "file": "output/art/props-v3/sources/bench-side.png",
+      "sha256": "a316852703c001b001b73a2c87408c58e7759c59f0b83c68b201f8d325ed776b"
+    },
+    "bench-rear": {
+      "file": "output/art/props-v3/sources/bench-rear.png",
+      "sha256": "29e05143f89842087569558bfa07ec455927dbe17d68d6bebb3a5801715b32eb"
+    },
+    "table-side": {
+      "file": "output/art/props-v3/sources/table-side.png",
+      "sha256": "966f7b103ecfd827ac6ea57969fc41a3042c53cb9bed4dbe8b0063b17884b996"
+    },
+    "well": {
+      "file": "output/art/props-v3/sources/well.png",
+      "sha256": "e098d44c4269bcd7456ea61cc57a64a99bf8a78e72fbc2788f6ecd112c6166d4"
+    },
+    "notice": {
+      "file": "output/art/props-v3/sources/notice.png",
+      "sha256": "1ade42abffc3afb746421909e7aa6ba03930dc716e232658f28b536ad7d5083c"
+    },
+    "crate": {
+      "file": "output/art/props-v3/sources/crate.png",
+      "sha256": "db433fc0885d14d56333e3ed83d122d131302bcf23d796b960bcc48dae4ffe3a"
+    },
+    "barrel": {
+      "file": "output/art/props-v3/sources/barrel.png",
+      "sha256": "15450ed9347e07563b721e1c78dc76c8e5e5f2c3fbe067147e24db3afb8c5711"
+    },
+    "lantern": {
+      "file": "output/art/props-v3/sources/lantern.png",
+      "sha256": "6a493bad080d85b95b984d3a18cacfd381c9d8e95fd4e0e078ff220c1cdc6910"
+    },
+    "mailbox": {
+      "file": "output/art/props-v3/sources/mailbox.png",
+      "sha256": "c59b9599455ffd513ba99665537d74334440983844071d5d9d96d33998a3e048"
+    },
+    "wheelbarrow": {
+      "file": "output/art/props-v3/sources/wheelbarrow.png",
+      "sha256": "f1f4017edf4dbac33b08c3b091e7ceedf982584658546e4c26f367b92d299171"
+    },
+    "sunflower": {
+      "file": "output/art/props-v3/sources/sunflower.png",
+      "sha256": "2ece47cc07b1cb6e937f42f8d3c3c4bf31ed55edc21b7f3fc7ff4ceab412ddda"
+    },
+    "tent": {
+      "file": "output/art/props-v3/sources/tent.png",
+      "sha256": "e1d104f44694d47bdcc60fcb0f9557a25de34216c6c70c0cf7b08d859e490176"
+    },
+    "city-garden": {
+      "file": "output/art/props-v3/sources/city-garden.png",
+      "sha256": "1ed1a858f164a0914cdc03c73d23e6c58ef0420513dbbd054439caf0464f89fe"
+    },
+    "chair": {
+      "file": "output/art/props-v3/sources/chair.png",
+      "sha256": "cc53052d8eabac3a65232196db375ffe82b55276e08d84da11e9bfaeedf26776"
+    },
+    "stall": {
+      "file": "output/art/props-v3/sources/stall.png",
+      "sha256": "208f4bb9716e4c4c91b03e9bda9cde29131105c4077a3e366abc8ee15162dca8"
+    },
+    "birdbath": {
+      "file": "output/art/props-v3/sources/birdbath.png",
+      "sha256": "b717d60aa5cb374c7455d43d7e0b3088653931496d61424134a34dcbf3ded0fd"
+    },
+    "planter": {
+      "file": "output/art/props-v3/sources/planter.png",
+      "sha256": "c4f5101bb60b6e4d7664901b00fd8874e001cd42004c13dde2f2e6e07ec3d7bc"
+    },
+    "fireplace": {
+      "file": "output/art/props-v3/sources/fireplace.png",
+      "sha256": "e7611f4bccdd7fb7f83bf72a204c6fb1e334023ce20469383400a2c8e32dab6f"
+    },
+    "logs": {
+      "file": "output/art/props-v3/sources/logs.png",
+      "sha256": "1ddf06510a571070db7c01d2f85397d0fb1a8d33e9b5822ef7df614414275a4b"
+    },
+    "counter": {
+      "file": "output/art/props-v3/sources/counter.png",
+      "sha256": "f22c921567bfa57c83d4fd030b18ff9b8044589b4ed69c1b8a912cc794275347"
+    },
+    "pottery": {
+      "file": "output/art/props-v3/sources/pottery.png",
+      "sha256": "3b6766582498d7c665c68fbe3492d755c23cdcc466db69a8ef5383d8a1a65a19"
+    },
+    "bookcase": {
+      "file": "output/art/props-v3/sources/bookcase.png",
+      "sha256": "4f9a0dd8e9ffef37adedd43ca42b6e89783c116b52aaddf275f54e9bfc96fc6e"
+    },
+    "bed": {
+      "file": "output/art/props-v3/sources/bed.png",
+      "sha256": "1e1203bc1feb573c545f63b718b55a7ed917e7b5c7714aea27104a7f38dc4f9d"
+    },
+    "window": {
+      "file": "output/art/props-v3/sources/window.png",
+      "sha256": "de4d547e99c56b6a4a3565af3bead893996435f9902f25be5eafb9c07a24fe84"
+    },
+    "vase": {
+      "file": "output/art/props-v3/sources/vase.png",
+      "sha256": "912f6d8424a6466833bba33b957b4bcd054732942429c95d8afa28bb9611a2b8"
+    }
+  },
+  "changedFrames": [
+    "bench",
+    "table",
+    "home-table",
+    "home-bench",
+    "prop-bench-left",
+    "prop-bench-up",
+    "prop-table-left",
+    "well",
+    "notice",
+    "crate",
+    "barrel",
+    "lamp",
+    "city-lamp",
+    "mailbox",
+    "wheelbarrow",
+    "city-flowerpot",
+    "city-tent",
+    "camp-tent",
+    "city-bench-garden",
+    "chair",
+    "seed-stall",
+    "produce-stall",
+    "outfitter-stall",
+    "prop-birdbath",
+    "planter",
+    "prop-planter",
+    "home-fireplace",
+    "home-logs",
+    "home-counter",
+    "dresser",
+    "kitchen",
+    "home-pottery",
+    "shelf",
+    "prop-bookcase",
+    "home-bed",
+    "bed",
+    "home-window",
+    "window",
+    "home-pot",
+    "pot",
+    "prop-vase"
+  ],
+  "protectedFrames": 917,
+  "allCoordinatesUnchanged": true,
+  "atlas": {
+    "w": 1024,
+    "h": 2564
+  },
+  "frames": 958,
+  "palette": 47,
+  "mode": "Shared south overhead projection; 3x3 area votes and material-local isolated-speck cleanup; binary alpha; 47-colour stepped material ramp",
+  "runtimeSHA256": "c34a8678804fe4ca29f7a5447dbd0c2ac00e390bda917530b67d8e60216fce08"
+}

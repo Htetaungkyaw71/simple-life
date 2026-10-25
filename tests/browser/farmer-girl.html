@@ -1,0 +1,72 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Female farmer browser QA</title>
+<style>body{margin:12px;background:#25332d;color:#f4edd9;font:14px system-ui}button,select{font:inherit;padding:7px;margin:3px}iframe{border:0;display:block;max-width:none}pre{white-space:pre-wrap}#stage{overflow:auto;max-height:850px}</style></head>
+<body><h1>Female farmer browser QA</h1><p>Isolated local fixtures on port 4212. This page is excluded from production.</p>
+<label>Viewport <select id="profile"><option value="desktop">Desktop 1280×720</option><option value="phone">Phone 390×844</option></select></label>
+<button id="run">Run interaction checks</button><button id="show">Show idle with axe</button><button id="jump">Jump</button><pre id="status">Ready</pre><div id="stage"></div>
+<script type="module">
+import {newState} from '/src/systems/state.js';
+import {GIRL_V2_HANDS,GIRL_CARRY_ANGLES} from '/src/data/revisedGirl.js';
+import {FARM_PLOTS} from '/src/data/farms.js';
+const carryProfile={hands:GIRL_V2_HANDS,angles:GIRL_CARRY_ANGLES};
+import {farmerCarryPose} from '/src/systems/farmerCarry.js';
+import {characterFrame} from '/src/systems/characterAnimation.js';
+import {BOY_FARMER} from '/src/data/appearance.js';
+import {VEGETATION} from '/src/data/vegetation.js';
+import {walkable} from '/src/data/locations.js';
+import {contextFor} from '/src/systems/context.js';
+const status=document.querySelector('#status'),stage=document.querySelector('#stage');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const fixture=(tool='hand',action=null,character='girl')=>{
+ const s=newState(character);Object.assign(s,{area:'home',position:{x:480,y:800},selected:tool,minute:600,money:311,starterSeedsClaimed:true,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';
+ if(action){s.area='farm';s.position={x:696,y:152};s.ownsCopperCan=true;}
+ if(action==='harvesting'){const bed=FARM_PLOTS[0];s.area='farm';s.position={x:bed.x,y:bed.y+16};s.plots[0]={crop:'tomato',growth:3,wateredDay:1,missedDays:0,lastEvaluatedDay:0};}
+ if(action==='attack'){s.area='forest';s.position={x:936,y:4428};}
+ if(action==='chopping')for(const n of VEGETATION.farm.trees){s.position={x:n.x,y:n.y-48};if(walkable('farm',s.position.x,s.position.y,12,false,s)&&contextFor(s)?.id===n.id)break;}
+ return s;
+};
+let frame,win,records=[];
+const snapshot=()=>{try{return win.__simpleLife?.snapshot();}catch{return null;}};
+async function until(fn,message,ms=6000){const end=performance.now()+ms;while(performance.now()<end){const v=fn();if(v)return v;await sleep(20);}throw Error('Timed out: '+message);}
+function key(code,down=true){const names={KeyA:'a',KeyD:'d',KeyW:'w',KeyS:'s',KeyE:'e',KeyK:'k',Space:' ',DigitTwo:'2',DigitFour:'4',DigitFive:'5',DigitSix:'6'};const codes={KeyA:65,KeyD:68,KeyW:87,KeyS:83,KeyE:69,KeyK:75,Space:32,DigitTwo:50,DigitFour:52,DigitFive:53,DigitSix:54};win.dispatchEvent(new win.KeyboardEvent(down?'keydown':'keyup',{key:names[code],code,keyCode:codes[code],which:codes[code],bubbles:true}));}
+async function tap(code){key(code);await sleep(35);key(code,false);}
+async function click(id){const c=await until(()=>snapshot()?.controls.find(c=>c.id===id&&!c.disabled),id);const canvas=win.document.querySelector('canvas'),rect=canvas.getBoundingClientRect();const x=rect.left+c.x+c.w/2,y=rect.top+c.y+c.h/2;
+ for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(120);}
+async function start(state){
+ assert(location.port==='4212','Run only on isolated port4212, preserving the normal game save.');
+ frame?.remove();localStorage.setItem('simple-life.save.v1',JSON.stringify(state));
+ frame=document.createElement('iframe');const phone=document.querySelector('#profile').value==='phone';frame.width=phone?390:1280;frame.height=phone?844:720;frame.title='Isolated game';frame.src='/?qa';stage.append(frame);win=frame.contentWindow;
+ await until(()=>snapshot()?.controls.length,'game boot');
+ if(snapshot().controls.some(c=>c.id==='language-en'))await click(phone?'language-mm':'language-en');
+ await click('Continue');await until(()=>snapshot()?.player&&!snapshot().paused,'playing');
+}
+async function sample(ms,inspect){const end=performance.now()+ms,values=[];while(performance.now()<end){const s=snapshot();values.push(s);if(inspect)inspect(s);await sleep(10);}return values;}
+function carry(s,mode){if(!s.heldTool.visible||s.player.action)return;const phase=Number(s.player.frame)%8,p=farmerCarryPose(s.state.position,s.player.direction,mode,phase,s.state.selected,s.rendering.player.y?Math.round(s.state.position.y)-s.rendering.player.y:0,carryProfile);
+ assert(Number(s.heldTool.frame)===p.frame,'matching tool texture frame');assert(Math.abs(s.heldTool.x-p.x)<=1&&Math.abs(s.heldTool.y-p.y)<=1,'hand-grip alignment');assert(Math.abs(s.heldTool.rotation-p.rotation)<.0001,'painted wrist angle');}
+document.querySelector('#run').onclick=async()=>{try{
+ records=[];status.textContent='Running…';
+ for(const [tool,select]of [['axe','DigitFive'],['shovel','DigitFour'],['water','DigitTwo']]){
+  await start(fixture(tool));carry(snapshot(),'idle');
+  for(const [direction,code]of [['left','KeyA'],['right','KeyD'],['up','KeyW'],['down','KeyS']]){
+   key(code);const frames=await sample(820,s=>{if(s.player.direction===direction&&Number(s.player.frame)>=32&&Number(s.player.frame)<64)carry(s,'running');});key(code,false);await sleep(40);
+   assert(new Set(frames.filter(s=>s.player.direction===direction).map(s=>Number(s.player.frame)%8)).size===8,tool+' eight run phases '+direction);
+   records.push(tool+' run '+direction+' grips/angles');
+  }
+  await tap('Space');const jumps=await sample(660,s=>{if(s.jump.active)carry(s,'jumping');});
+  const active=jumps.filter(s=>s.jump.active);assert(new Set(active.map(s=>Number(s.player.frame)%8)).size===6,'six authored jump phases '+tool);assert(active.every(s=>Number(s.player.frame)>=224&&Number(s.player.frame)<256),'jump sheet slots');assert(!snapshot().jump.active,'jump lands');records.push(tool+' jump/landing');
+ }
+ // Actual digging and watering inputs suppress the carried layer while the
+ // existing combined action plays, then restore it. Rewards remain game-owned.
+ for(const [tool,action]of [['shovel','digging'],['water','watering'],['axe','chopping'],['harvest','harvesting']]){
+  await start(fixture(tool,action));await tap('KeyE');const values=await sample(850);const active=values.filter(s=>s.player.action?.name===action);assert(active.length>0,action+' triggered');assert(active.every(s=>!s.heldTool.visible),'no double tool '+action);assert(tool==='harvest'||snapshot().heldTool.visible,'carry restored '+action);records.push(action+' hides/restores carry');
+ }
+ await start(fixture('axe','attack'));await tap('KeyK');const attacks=await sample(650);assert(attacks.some(s=>s.player.action?.name==='attack'),'axe action');assert(attacks.filter(s=>s.player.action).every(s=>!s.heldTool.visible),'axe no double tool');records.push('axe hides/restores carry');
+ await tap('DigitSix');assert(!snapshot().heldTool.visible,'unequip hides carry');await tap('DigitFive');assert(snapshot().heldTool.visible,'re-equip restores carry');records.push('tool switch');
+ await click('pause');const paused=snapshot();await sleep(220);assert(snapshot().player.frame===paused.player.frame,'paused animation');await click('Resume');records.push('pause/resume');
+ await start(fixture('water',null,'boy'));assert(snapshot().player.texture==='boy'&&snapshot().player.nativeHeight===64,'male retained');records.push('male regression');
+ await start(fixture('axe'));assert(snapshot().state.money===311&&snapshot().player.texture==='girl','saved girl balance');records.push('save/continue');
+ status.textContent='PASS '+document.querySelector('#profile').value+'\n'+records.join('\n');
+ }catch(e){status.textContent='FAIL '+e.stack+'\nCompleted: '+records.join(', ');console.error(e);}};
+document.querySelector('#show').onclick=()=>start(fixture('axe')).then(()=>{status.textContent='Idle with carried axe';}).catch(e=>status.textContent=e.stack);
+document.querySelector('#jump').onclick=()=>tap('Space');
+</script></body></html>

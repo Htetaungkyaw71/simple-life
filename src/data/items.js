@@ -18,7 +18,9 @@ Object.assign(FOODS,{watermelon:{id:'watermelon',name:'Watermelon',sellPrice:85,
 export const FOOD_IDS=Object.keys(FOODS);
 for(const food of Object.values(FOODS)){if(FOREST_FOOD_IDS.includes(food.id))food.energyRestored=Math.round(food.energyRestored*.6);food.healthRestored=FOREST_FOOD_IDS.includes(food.id)?Math.max(2,Math.round(food.energyRestored*.25)):Math.round(food.energyRestored*.4);}
 export const MEAT={id:'meat',name:'Meat',sellPrice:16,energyRestored:20,healthRestored:25,icon:'meat-item'};
-FOODS.meat=MEAT;FOOD_IDS.push('meat');
+// Raw Meat is an ingredient shown in Bag / Gear, not a ready-to-eat food.
 export const GRILLED_MEAT={id:'grilledMeat',name:'Grilled Meat',sellPrice:32,energyRestored:35,healthRestored:50,icon:'meat-item'};
-FOODS.grilledMeat=GRILLED_MEAT;FOOD_IDS.push('grilledMeat');
+// Put the cooked result on the first Food page so the hunt -> cook -> eat
+// loop is visible without discovering a later pagination page.
+FOODS.grilledMeat=GRILLED_MEAT;FOOD_IDS.unshift('grilledMeat');
 export const AXE={energy:1,cooldown:500};

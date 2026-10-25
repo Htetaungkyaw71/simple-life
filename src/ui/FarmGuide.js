@@ -9,6 +9,10 @@ export class FarmGuide {
   this.label=text(u,this.objective,19,6,'Starter seeds / Farm south',7,UI_COLORS.light,Math.min(160,u.w-u.safe.left-u.safe.right-37));this.direction=text(u,this.objective,6,27,'',6,UI_COLORS.gold);
   this.objectiveArt=u.add.graphics();this.objective.add(this.objectiveArt);pixels(this.objectiveArt,'leaf',6,7,UI_COLORS.gold);
   this.waypoint=u.add.container();this.root.add(this.waypoint);this.arrow=u.add.graphics();this.waypoint.add(this.arrow);this.farm=text(u,this.waypoint,0,10,'FARM',6,UI_COLORS.cream).setOrigin(.5,0);
+  // Tool selection can rebuild the HUD. Keep both guide branches hidden until
+  // their first positioned update so the constructor cannot render one frame
+  // of default text below the status meters.
+  this.objective.setVisible(false);this.waypoint.setVisible(false);
  }
  update(s){
   const u=this.ui,city=cityObjective(s)&&['home','farm'].includes(s.area),active=city||farmObjective(s)&&s.area==='home';
@@ -16,7 +20,11 @@ export class FarmGuide {
   this.label.setText(learning?task:city?'Harvest / City Market':'Starter seeds / Farm south');this.direction.setText('');this.farm.setText(city?'CITY':'FARM');
   if(city&&!u.cityStarted)u.showCityObjective();
   if(active&&!city&&!u.objectiveStarted)u.showFarmObjective();
-  const expanded=(learning&&u.h>=150&&!u.hud?.cropInfo?.root.visible)||active&&u.time.now<(city?u.cityUntil:u.objectiveUntil);
+  // Selecting or putting away a toolbar item temporarily suppresses world
+  // context. Do not mistake that transient blank context for room to expand
+  // the first-farm guide below the status meters.
+  const toolToggleActive=u.time.now<(u.app.promptSuppressUntil||0);
+  const expanded=(learning&&u.h>=150&&!u.hud?.cropInfo?.root.visible&&!toolToggleActive)||active&&u.time.now<(city?u.cityUntil:u.objectiveUntil);
   this.objective.setVisible(active||learning&&u.h>=150);if(expanded){this.box.clear();importFrame(this.box,0,0,Math.min(184,u.w-u.safe.left-u.safe.right-12),Math.max(24,this.label.height+12));}this.box.setVisible(expanded);this.label.setVisible(expanded);this.direction.setVisible(expanded);
   const view=u.app.scene.cameras.main.worldView,way=city?cityWaypoint(s,view):farmWaypoint(s,view);this.way=way;this.waypoint.setVisible(!!way);if(!way)return;
   // Ray from player to the real transition, clipped to a safe gameplay rectangle.

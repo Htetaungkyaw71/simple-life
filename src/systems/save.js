@@ -1,5 +1,5 @@
 import {restoreAppearance} from './appearance.js';
-import {HOMES} from '../data/homes.js';
+import {HOMES,LEGACY_HOME_IDS} from '../data/homes.js';
 import {restoreStory} from './story.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {testingCredit,TESTING_COIN_GRANT} from './testingCredit.js';
@@ -10,7 +10,7 @@ import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS} from '../data/forest.js';
 import {inTerritory,freshAnimal} from './forest.js';
 import {SAVE_FARM_LIMIT,PLOTS_PER_FARM} from '../data/farms.js';
-import {newFarm,plotOwned} from './expansion.js';
+import {newFarm,plotOwned,prepareStarterBeds} from './expansion.js';
 import {inferFarmVisit} from './navigation.js';
 import {ROOM} from '../data/interior.js';
 import { CROPS,INVENTORY_KEYS,LEGACY_GROWTH_DAYS } from '../data/crops.js';
@@ -26,8 +26,14 @@ const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Mat
 export function validate(raw) {
   if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
+  s.customBeds=[];
   s.appearance=restoreAppearance(raw.appearance,raw.character);
-  if(raw.version>=18&&raw.home){s.home.owned=Object.keys(HOMES).filter(id=>id==='starter'||Array.isArray(raw.home.owned)&&raw.home.owned.includes(id));s.home.design=s.home.owned.includes(raw.home.design)?raw.home.design:'starter';}
+  if(raw.version>=18&&raw.home){
+    const savedOwned=Array.isArray(raw.home.owned)?raw.home.owned:[],legacyOwned=savedOwned.some(id=>LEGACY_HOME_IDS.includes(id));
+    s.home.owned=['starter',...(savedOwned.includes('slate')||legacyOwned?['slate']:[])];
+    const requested=raw.home.design==='slate'||LEGACY_HOME_IDS.includes(raw.home.design)?'slate':'starter';
+    s.home.design=s.home.owned.includes(requested)?requested:'starter';
+  }
   if(raw.testingCoinGrant===TESTING_COIN_GRANT)s.testingCoinGrant=TESTING_COIN_GRANT;
   s.ownsCopperCan=raw.ownsCopperCan===true;
   s.foodCooldown=Number.isFinite(raw.foodCooldown)?Math.max(0,Math.min(12000,raw.foodCooldown)):0;
@@ -99,6 +105,17 @@ export function validate(raw) {
   };
   s.plots=s.plots.map((_,i)=>plotOwned(s,i)?restorePlot(raw.plots?.[i]):emptyPlot());
   s.customBeds.forEach(b=>{b.plot=restorePlot(b.plot);});
+  // Accept grass overrides only for known, empty beds; never hide planted progress.
+  const beds=[...s.farms.flatMap((_,farm)=>FARM_PLOTS.map((p,i)=>({...p,farm,plot:s.plots[farm*PLOTS_PER_FARM+i]}))),...s.customBeds];
+  const restored=Array.isArray(raw.restoredBeds)?raw.restoredBeds.slice(0,s.plots.length+MAX_CUSTOM_BEDS):[];
+  if(raw.farmLayoutRevision!==2)for(const b of s.customBeds)if(b.y===488&&b.x>=376&&b.x<=712&&!b.plot.crop)restored.push(b);
+  const seenGrass=new Set();for(const p of restored){
+    const bed=beds.find(b=>b.farm===p?.farm&&b.x===p.x&&b.y===p.y),key=p?.farm+':'+p?.x+':'+p?.y;
+    if(!bed||bed.plot?.crop||seenGrass.has(key))continue;
+    seenGrass.add(key);s.restoredBeds.push({farm:bed.farm,x:bed.x,y:bed.y});
+  }
+  s.wetGround=s.wetGround.filter(p=>p.area!=='farm'||!seenGrass.has(p.farm+':'+p.x+':'+p.y));
+
   for(const [key,v]of Object.entries(s.vegetation)){
     const [area,farm]=key.split(':'),view={...s,area,currentFarm:area==='farm'?Number(farm):0};
     for(const p of (Array.isArray(raw.vegetation[key]?.placed)?raw.vegetation[key].placed:[]).slice(0,MAX_PLACED_GRASS)){
@@ -147,10 +164,13 @@ export function validate(raw) {
     for(const d of (Array.isArray(progress.decorations)?progress.decorations:[]).slice(0,MAX_DECORATIONS)){if(!d||typeof d!=='object')continue;const area=raw.version>=18&&d.area?d.area:'farm';
       const resized=area==='interior'&&oldRoom?.width>0&&oldRoom?.height>0&&(oldRoom.width!==ROOM.width||oldRoom.height!==ROOM.height);
       const restored={type:d.type,...(area==='farm'?{farm:d.farm}:{area}),x:resized?Math.round(d.x*ROOM.width/oldRoom.width/8)*8:d.x,y:resized?Math.round(d.y*ROOM.height/oldRoom.height/8)*8:d.y,...(raw.version>=16&&d.direction!==undefined&&d.direction!=='down'?{direction:d.direction}:{})};
-      if(validDecoration(s,restored))s.settlement.decorations.push(restored);
-      else if(resized&&Object.hasOwn(DECORATIONS,d.type)&&!DECORATIONS[d.type].outdoors&&Number.isInteger(d.x)&&Number.isInteger(d.y)&&d.x>=0&&d.x<=oldRoom.width&&d.y>=0&&d.y<=oldRoom.height)s.inventory[DECORATIONS[d.type].item]=Math.min(9999,s.inventory[DECORATIONS[d.type].item]+1);}
+      // Former outdoor tables stay owned, packed for indoor placement on Continue.
+      if(d.type==='table'&&['home','farm'].includes(area)&&Number.isInteger(d.x)&&Number.isInteger(d.y)&&(area!=='farm'||Number.isInteger(d.farm)&&s.farms[d.farm]))s.inventory.tableDecor=Math.min(9999,s.inventory.tableDecor+1);
+      else if(validDecoration(s,restored))s.settlement.decorations.push(restored);
+      else if(area==='interior'&&Object.hasOwn(DECORATIONS,d.type)&&!DECORATIONS[d.type].outdoors&&Number.isInteger(d.x)&&Number.isInteger(d.y)&&d.x>=0&&d.x<=(oldRoom?.width||ROOM.width)&&d.y>=0&&d.y<=(oldRoom?.height||ROOM.height))s.inventory[DECORATIONS[d.type].item]=Math.min(9999,s.inventory[DECORATIONS[d.type].item]+1);}
     s.position=nearestSafe(s.area,s.position,s);
   }
+  prepareStarterBeds(s,null,(farm,p)=>openGround('farm',p.x,p.y,true,{...s,currentFarm:farm})&&!(s.vegetation['farm:'+farm]?.placed||[]).some(n=>Math.abs(n.x-p.x)<40&&Math.abs(n.y-p.y)<40));
   restoreStory(raw,s);
   return s;
 }

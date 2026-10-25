@@ -1,0 +1,152 @@
+{
+  "provider": "OpenAI built-in imagegen",
+  "calls": 29,
+  "selectedSources": 28,
+  "records": [
+    {
+      "id": "table",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-ec551a58-97fa-4917-aa5d-b7274488556a.png",
+      "selected": true
+    },
+    {
+      "id": "home-bench",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-df68044e-3e2a-454d-a86e-c3cdcd959e70.png",
+      "selected": true
+    },
+    {
+      "id": "bench",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-6a618c12-d042-4400-b622-230299a50b85.png",
+      "selected": true
+    },
+    {
+      "id": "bench-side",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-c75909a7-cd41-4e97-8c54-11063f51db6c.png",
+      "selected": true
+    },
+    {
+      "id": "bench-rear",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-b58ed651-d371-455d-b521-2e8d610b3182.png",
+      "selected": true
+    },
+    {
+      "id": "well",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-1e33078f-b653-4ed8-a111-b4a8cac5020c.png",
+      "selected": true
+    },
+    {
+      "id": "notice",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-c45690d2-07ed-4d86-a32e-ebe3a1f66b85.png",
+      "selected": true
+    },
+    {
+      "id": "crate",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-f84d4fc8-0dd1-453b-bcee-e8acf4349cde.png",
+      "selected": true
+    },
+    {
+      "id": "barrel",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-52f7421a-4303-4331-b5e0-97d272efb71c.png",
+      "selected": true
+    },
+    {
+      "id": "lantern",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-a2f748de-b93c-4054-bd81-5b38c3afe451.png",
+      "selected": true
+    },
+    {
+      "id": "mailbox",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-9bbacc2e-25ce-476a-af72-6685d3ba60c4.png",
+      "selected": true
+    },
+    {
+      "id": "wheelbarrow",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-ea62bc52-4acc-41f4-8d13-d94c31c8474c.png",
+      "selected": true
+    },
+    {
+      "id": "sunflower",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-062161be-8acf-43a6-86fe-61bb4541a6bc.png",
+      "selected": true
+    },
+    {
+      "id": "tent",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-01fd032e-c05d-437c-b888-fe11cbae5d2e.png",
+      "selected": true
+    },
+    {
+      "id": "city-garden",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-5a354449-ae6a-4706-a2d6-6de1921e834e.png",
+      "selected": true
+    },
+    {
+      "id": "chair",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-125f2c17-cfae-4263-ad84-ff3255de58a7.png",
+      "selected": true
+    },
+    {
+      "id": "stall",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-853223ed-97aa-45b5-b198-35f77ea5acab.png",
+      "selected": true
+    },
+    {
+      "id": "birdbath",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-8854bf0b-0ff0-4183-9969-3ebc68ff1489.png",
+      "selected": true
+    },
+    {
+      "id": "table-side",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-c3da2687-b388-4406-90c8-009ccb122047.png",
+      "selected": true
+    },
+    {
+      "id": "planter",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-190da59d-6f77-4fc1-b328-34af2e45a1f8.png",
+      "selected": true
+    },
+    {
+      "id": "fireplace",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-99c2ed55-874b-4013-b283-8590471a044f.png",
+      "selected": false
+    },
+    {
+      "id": "counter",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-81f5963d-2820-45ea-a558-e8eb512d5c6a.png",
+      "selected": true
+    },
+    {
+      "id": "pottery",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-38749d61-1d55-4c11-9fe5-c8cd840c867e.png",
+      "selected": true
+    },
+    {
+      "id": "bookcase",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-4fbef35e-c54f-4905-9e4a-c96a4269839a.png",
+      "selected": true
+    },
+    {
+      "id": "bed",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-08ce9dd1-9eba-4a97-93d1-57e7e8679291.png",
+      "selected": true
+    },
+    {
+      "id": "window",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-7067c21f-c109-45d8-8e89-0faef0104f94.png",
+      "selected": true
+    },
+    {
+      "id": "vase",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-f223aa43-fd0c-4786-aa71-192fce35dd70.png",
+      "selected": true
+    },
+    {
+      "id": "logs",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-9c8d0019-3690-4729-9172-d97cfec3b881.png",
+      "selected": true
+    },
+    {
+      "id": "fireplace-refinement",
+      "originalPath": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-b78fd3fa-41a5-4617-8c2e-fb7f0a00d771.png",
+      "selected": true
+    }
+  ]
+}

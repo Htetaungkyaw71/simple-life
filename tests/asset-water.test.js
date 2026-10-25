@@ -13,7 +13,7 @@ import {lineClear} from '../src/systems/forest.js';
 import {displace} from '../src/systems/combat.js';
 test('river water is continuous across all five regions and bridges cover connected water',()=>{
  for(const r of MAPS.forest.rivers)for(const [x,y]of r.points)assert.ok(waterAt(MAPS.forest,{x,y},false));
- for(const b of MAPS.forest.bridges){const p=waterRows(MAPS.forest).map(([x,y,w])=>({x:x+w/2,y})).find(p=>p.x>b.x&&p.x<b.x+b.w&&p.y>b.y&&p.y<b.y+b.h);assert.ok(p,b.river);assert.equal(waterAt(MAPS.forest,p),false);assert.equal(waterAt(MAPS.forest,p,false),true);assert.ok(walkable('forest',p.x,p.y));}
+ for(const b of MAPS.forest.bridges){let p=null;for(let y=b.y+20;y<b.y+b.h-20&&!p;y+=4)for(let x=b.x+20;x<b.x+b.w-20;x+=4)if(waterAt(MAPS.forest,{x,y},false)){p={x,y};break;}assert.ok(p,b.river);assert.equal(waterAt(MAPS.forest,p),false);assert.ok(walkable('forest',p.x,p.y));}
 });
 test('player crosses water directly; removed falls leave no invisible side-bank obstacles',()=>{
  const s=newState();s.area='forest';s.selected='water';s.position={x:1504,y:4912};assert.ok(walkable('forest',s.position.x,s.position.y));assert.equal(contextFor(s).type,'refill');

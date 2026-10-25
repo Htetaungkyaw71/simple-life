@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-15",
+  "version": "0.34.0",
+  "sources": {
+    "sapling": {
+      "file": "sources/sapling.png",
+      "sha256": "816248d4587e7cf8c3785429d0e4ad8f07f856888848f60f97af9c27d84709f2"
+    },
+    "bush": {
+      "file": "sources/bush.png",
+      "sha256": "2db45ab759d74d4af8799a8dd418d0e8d305a8ba7b22070483f4f4ef3e14e6c2"
+    }
+  },
+  "addedFrames": [
+    "nature-sapling",
+    "nature-young-fruit",
+    "nature-bush-leafy",
+    "nature-bush-berry",
+    "nature-bush-flower",
+    "nature-bush-small"
+  ],
+  "protectedFrames": 940,
+  "allExistingPixelsAndCoordinatesUnchanged": true,
+  "alphaThreshold": 224,
+  "paletteColors": 16,
+  "origins": {
+    "nature-sapling": 0.5176,
+    "nature-young-fruit": 0.5167,
+    "nature-bush-leafy": 0.518,
+    "nature-bush-berry": 0.518,
+    "nature-bush-flower": 0.518,
+    "nature-bush-small": 0.5264
+  },
+  "atlas": {
+    "w": 1024,
+    "h": 2500
+  },
+  "PNG": "f5f7faa1745887b82f2f6bd8b8586d94d7b39e6ab5d0b70c9a336e81cebcda3e",
+  "metadataSHA256": "8a4c14df815e6f440513eb5b5c95fd372fda05ffc73357a735e8c0a4e7f86101"
+}

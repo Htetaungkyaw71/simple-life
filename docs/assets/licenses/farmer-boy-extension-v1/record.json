@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-14",
+  "tool": "OpenAI built-in imagegen",
+  "modelVersion": "not exposed",
+  "sources": {
+    "axe.png": "35b089f552afc27b0b6778097a63730fb2dff21f370d355c12b72e1e934626f2",
+    "jump.png": "532629c435aea1f4231752d94d77d948c2d85c9052edaab695241889bedd74d6",
+    "shovel.png": "69044ec31be85bf9f3f40e1a33991622128f148566ae9711b45994d263e86b1f",
+    "water.png": "238d36e5db5c0725669c96c8405ccde18004f536a550a6bd02908d05ba8f4989"
+  },
+  "referenceRoles": {
+    "jump": "Approved original v2 idle-contact.png identity/scale reference.",
+    "axe": "Approved original v2 chopping-contact.png tool shape/material reference.",
+    "shovel": "Approved original v2 digging-contact.png tool shape/material reference.",
+    "water": "Approved original v2 watering-contact.png tool shape/material reference."
+  },
+  "conversion": "Imagegen-authored poses/views; opaque alpha core250 removes generated fringes/glow; whole-pose nearest native sampling; shared existing32-colour palette; boots registered to ground56; no synthetic limb warps. Tool grip at32,32.",
+  "original168FramesPreserved": true,
+  "runtimeAtlas": "public/assets/pixel/processed/boy.png",
+  "runtimeSha256": "4e0bed0e70c3e155ea6b458ca41a3524f44023f5b1eefacbe39ec5ca8250fd5c",
+  "offlineDependency": "Existing bundled Pillow; project evidence docs/licenses/Pillow-LICENSE.txt. Existing pngjs7.0.0MIT used only for audit; docs/licenses/farmer-approved-export. No new npm/runtime dependency."
+}

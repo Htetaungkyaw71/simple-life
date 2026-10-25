@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Nature and water browser QA</title>
+<style>body{margin:12px;background:#25332d;color:#f4edd9;font:14px system-ui}button,select{font:inherit;padding:7px;margin:3px}iframe{border:0;display:block;max-width:none}pre{white-space:pre-wrap}#stage{overflow:auto;max-height:850px}</style></head>
+<body><h1>Nature and water browser QA</h1><p>Isolated local fixtures on port 4216. This page is excluded from production.</p>
+<label>Viewport <select id="profile"><option value="desktop">Desktop 1280×720</option><option value="phone">Phone 390×844</option><option value="landscape">Landscape 640×360</option></select></label>
+<button id="run">Run nature and water checks</button><button id="show">Plant variety</button><button id="restore-demo">Water preview</button><button id="jump">Bridge preview</button><pre id="status">Ready</pre><div id="stage"></div>
+<script type="module">
+import {newState} from '/src/systems/state.js';
+import {GIRL_V2_HANDS,GIRL_CARRY_ANGLES} from '/src/data/revisedGirl.js';
+import {FARM_PLOTS,FIELDS} from '/src/data/farms.js';
+import {visiblePlots} from '/src/systems/expansion.js';
+const carryProfile={hands:GIRL_V2_HANDS,angles:GIRL_CARRY_ANGLES};
+import {farmerCarryPose} from '/src/systems/farmerCarry.js';
+import {characterFrame} from '/src/systems/characterAnimation.js';
+import {BOY_FARMER} from '/src/data/appearance.js';
+import {VEGETATION} from '/src/data/vegetation.js';
+import {walkable} from '/src/data/locations.js';
+import {nextDay} from '/src/systems/time.js';
+import {usePlot} from '/src/systems/farming.js';
+import {CROPS,CROP_IDS} from '/src/data/crops.js';
+import {MAPS} from '/src/data/mapLayouts.js';
+import {contextFor} from '/src/systems/context.js';
+const status=document.querySelector('#status'),stage=document.querySelector('#stage');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const fixture=(tool='hand',action=null,character='girl')=>{
+ const s=newState(character);Object.assign(s,{area:'home',position:{x:480,y:800},selected:tool,minute:600,money:311,starterSeedsClaimed:true,hasVisitedFarm:true,hasVisitedCity:true,forestTutorialComplete:true,nightWarningSeen:true});s.story.intro='seen';
+ if(action){s.area='farm';s.position={x:696,y:152};s.ownsCopperCan=true;}
+ if(action==='harvesting'){const bed=FARM_PLOTS[0];s.area='farm';s.position={x:bed.x,y:bed.y+16};s.plots[0]={crop:'tomato',growth:3,wateredDay:1,missedDays:0,lastEvaluatedDay:0};}
+ if(action==='attack'){s.area='forest';s.position={x:936,y:4428};}
+ if(action==='chopping')for(const n of VEGETATION.farm.trees){s.position={x:n.x,y:n.y-48};if(walkable('farm',s.position.x,s.position.y,12,false,s)&&contextFor(s)?.id===n.id)break;}
+ return s;
+};
+let frame,win,records=[];
+const snapshot=()=>{try{return win.__simpleLife?.snapshot();}catch{return null;}};
+async function until(fn,message,ms=6000){const end=performance.now()+ms;while(performance.now()<end){const v=fn();if(v)return v;await sleep(20);}throw Error('Timed out: '+message);}
+function key(code,down=true){const names={KeyA:'a',KeyD:'d',KeyW:'w',KeyS:'s',KeyE:'e',KeyK:'k',Space:' ',DigitOne:'1',DigitThree:'3',DigitTwo:'2',DigitFour:'4',DigitFive:'5',DigitSix:'6'};const codes={KeyA:65,KeyD:68,KeyW:87,KeyS:83,KeyE:69,KeyK:75,Space:32,DigitOne:49,DigitThree:51,DigitTwo:50,DigitFour:52,DigitFive:53,DigitSix:54};win.dispatchEvent(new win.KeyboardEvent(down?'keydown':'keyup',{key:names[code],code,keyCode:codes[code],which:codes[code],bubbles:true}));}
+async function tap(code){key(code);await sleep(35);key(code,false);}
+async function click(id){const c=await until(()=>snapshot()?.controls.find(c=>c.id===id&&!c.disabled),id);const canvas=win.document.querySelector('canvas'),rect=canvas.getBoundingClientRect();const x=rect.left+c.x+c.w/2,y=rect.top+c.y+c.h/2;
+ for(const type of ['mousemove','mousedown','mouseup'])canvas.dispatchEvent(new win.MouseEvent(type,{clientX:x,clientY:y,button:0,buttons:type==='mousedown'?1:0,bubbles:true}));await sleep(240);}
+async function start(state){
+ assert(location.port==='4216','Run only on isolated port4216, preserving the normal game save.');
+ frame?.remove();localStorage.setItem('simple-life.save.v1',JSON.stringify(state));
+ frame=document.createElement('iframe');const profile=document.querySelector('#profile').value,phone=profile!=='desktop',landscape=profile==='landscape';frame.width=landscape?640:phone?390:1280;frame.height=landscape?360:phone?844:720;localStorage.setItem('simple-life.language.v1',phone?'mm':'en');frame.title='Isolated game';frame.src='/?qa';stage.append(frame);win=frame.contentWindow;
+ await until(()=>snapshot()?.controls.length,'game boot');
+ if(snapshot().controls.some(c=>c.id==='language-en'))await click(phone?'language-mm':'language-en');
+ await click('Continue');await until(()=>snapshot()?.player&&!snapshot().paused,'playing');
+}
+
+
+
+
+let demo=0;
+const record=label=>{records.push(label);status.textContent='Running…\n'+records.join('\n');};
+function natureState(area,position){const s=fixture('hand');s.area=area;s.position=position;s.story.flags=[...new Set([...s.story.flags,'plant','water'])];return s;}
+const grove=()=>natureState('farm',{x:1568,y:400});
+async function move(code,ms){key(code);await sleep(ms);key(code,false);await sleep(35);}
+async function waterDemo(){demo++;const token=demo;await start(natureState('home',{x:1520,y:800}));status.textContent='Water footsteps / expanding wakes and droplets';while(token===demo){await move('KeyD',350);if(token!==demo)break;await move('KeyA',350);}}
+document.querySelector('#show').onclick=async()=>{demo++;await start(grove());status.textContent='Young trees and leafy/berry/flower bushes / no spiky plants';};
+document.querySelector('#restore-demo').onclick=waterDemo;
+document.querySelector('#jump').onclick=async()=>{demo++;const b=MAPS.forest.bridges.find(b=>!b.axis);await start(natureState('forest',{x:b.x+b.w/2,y:b.y-24}));status.textContent='Solid bridge sides / enter at open ends';};
+document.querySelector('#run').onclick=async()=>{try{
+ demo++;records=[];await start(grove());assert(snapshot().canopies.some(c=>c.frame==='nature-sapling'),'small tree rendered');assert(snapshot().canopies.some(c=>c.frame==='nature-young-fruit'),'small fruit tree rendered');assert(snapshot().groundPlants.some(p=>p.frame?.startsWith('nature-bush')),'leafy bush replacement');assert(!snapshot().groundPlants.some(p=>p.frame==='fern'||p.frame?.startsWith('forest-palmetto')),'rejected art gone');record('Small trees and new bushes render; both rejected designs absent');
+ await start(natureState('home',{x:1520,y:800}));assert(snapshot().water.wading,'in water');await move('KeyD',300);assert(snapshot().water.motion.emitted>=2&&snapshot().water.motion.active>0,'active water footsteps');assert(snapshot().water.reflection,'reflection remains');record('Running through water creates live wakes/droplets and a reflection');
+ for(const [area,b] of [['forest',MAPS.forest.bridges.find(b=>!b.axis)],['forest',MAPS.forest.bridges.find(b=>b.axis==='vertical')],['city',MAPS.city.bridges[0]]]){
+  const horizontal=!b.axis&&b.w>b.h||b.axis==='horizontal',cx=b.x+b.w/2,cy=b.y+b.h/2,side={x:horizontal?cx:b.x-24,y:horizontal?b.y-24:cy};await start(natureState(area,side));await move(horizontal?'KeyS':'KeyD',650);const hit=snapshot().state.position;assert(horizontal?hit.y<=b.y:hit.x<=b.x-11,'rail blocks water entry '+area);
+  const end=horizontal?{x:b.x-24,y:cy}:{x:cx,y:b.y+b.h+24};await start(natureState(area,end));await move(horizontal?'KeyD':'KeyW',500);const crossed=snapshot().state.position;assert(horizontal?crossed.x>b.x+30:crossed.y<b.y+b.h-30,'open bridge end '+area);assert(!snapshot().water.wading,'bridge dry');record(area+' '+(horizontal?'horizontal':'vertical')+': side blocks, end opens, deck stays dry');
+ }
+ await start(grove());status.textContent='PASS '+document.querySelector('#profile').value+'\n'+records.join('\n');
+ }catch(e){status.textContent='FAIL '+e.stack+'\n'+records.join('\n')+'\n'+JSON.stringify(snapshot()?.state.position);console.error(e);}};
+</script></body></html>

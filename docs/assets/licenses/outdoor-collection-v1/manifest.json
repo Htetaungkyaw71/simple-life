@@ -1,0 +1,327 @@
+{
+  "scope": "Review only. Fourteen new standalone assets; approved references preserved unchanged. No project files or game integration.",
+  "tool": "OpenAI built-in imagegen, one call per object",
+  "conversion": "Separate PNG export preserves actual generated canvas dimensions and all visible RGB. Alpha below128 becomes transparent black; alpha128+ becomes255, removing hidden background RGB and soft fringes. Full generated originals are retained unchanged. No palette remap, artwork resizing or native-grid claim.",
+  "assets": [
+    {
+      "id": 2,
+      "name": "wooden-bench",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 2: A standalone wooden bench facing SOUTH (towards bottom of image), matching the approved planter's muted walnut timber. A simple sturdy broad seat with three restrained planks, low two-plank backrest behind the seat, square end posts and short clearly attached wooden legs. Show usable seat depth from above, top edges of backrest and post caps, thin seat front edge. Seats two adult villagers. No plants, cushions, metal filigree or extra furniture. Bench about1050px wide, roughly550px tall, centred on the1536x1024canvas. Preserve spare simple construction.\nCanvas: 1536x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-609c7413-f7f4-4c92-8035-65f55f5440e4.png",
+      "file": "png/02-wooden-bench.png",
+      "original": "originals/02-wooden-bench.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "visibleBounds": [
+        274,
+        226,
+        1262,
+        819
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "d0e07de97ea8b52b4346ca3b55d196bd7258741b7a127f375b73401ada904107",
+      "pngSha256": "e2a75f4003bba2719482ef5b5526724b5047ebbf6c5237b75824070832e0837a"
+    },
+    {
+      "id": 3,
+      "name": "empty-direction-sign",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 3: An EMPTY wooden direction sign: one upright walnut post carrying two modest horizontal arrow-ended timber boards at different heights, one points left and the other right. Completely blank wood surfaces, absolutely no text, symbols, scratches resembling lettering or arrows painted on boards. Top edges visible, board faces readable, post vertical. Adult chest-to-head height; approximately500px wide and650px tall on1024x1024canvas. Plain wood foot, no ground mound or stone platform.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-248b2f15-e3e3-403e-a9e0-ff0d3b96bf42.png",
+      "file": "png/03-empty-direction-sign.png",
+      "original": "originals/03-empty-direction-sign.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        277,
+        112,
+        977,
+        1138
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "2022729cbf588b5258b643addea10958033c703a66b65144f508057f30ed3ac7",
+      "pngSha256": "44e99759bd2308d52c7c894101e1618cb4e0b0b3f7c7d3c22667b6426c74e95f"
+    },
+    {
+      "id": 4,
+      "name": "wooden-mailbox",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 4: One compact wooden mailbox mounted on a plain upright walnut post. A small enclosed box with shallow sloped wooden lid, closed front flap with a simple dark mail slot and one modest cream-metal latch; the front faces south. Show lid/top depth and shorter front face, physically sensible post mounting. Small household mailbox, head about250px wide, complete object about600px tall, centred on1024x1024canvas. No letters, writing, numbers, nameplate, flag, decorations, plant or ground mound.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-407e7633-18e8-4fb6-b4a9-b0e29ae8e4ff.png",
+      "file": "png/04-wooden-mailbox.png",
+      "original": "originals/04-wooden-mailbox.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        425,
+        103,
+        825,
+        1148
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "400a1f9553e8e8f289d853f15f60e8330f999dbbbe8684c2c6985ec6bdabae28",
+      "pngSha256": "a2b1fc544048f381103f89f16fda1f54b57d8d803d39f5ea6ceb95adb010c3e7"
+    },
+    {
+      "id": 5,
+      "name": "closed-wooden-crate",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 5: One CLOSED modest square wooden shipping crate in the approved walnut palette. Clear broad visible flat square top, front panel shorter than top depth; axes aligned, front edge horizontal and receding depth vertical, no diamond footprint. Simple plank seams, corner battens and a restrained diagonal brace on front only. Chest about400px wide and400px overall height centred on1024x1024canvas; a small carryable crate below adult waist height. No contents, label, rope, extra crates or overly detailed grain.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-5dc4c50d-73be-49be-a625-7c807bf257ec.png",
+      "file": "png/05-closed-wooden-crate.png",
+      "original": "originals/05-closed-wooden-crate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        335,
+        313,
+        920,
+        1019
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "b4003169d818136d43c6748066ccf13caa8e635124b7eee5d3b86de88ff5fb98",
+      "pngSha256": "9aeb4a45ef11341ba6485368b6998c74f58fdb09aaae4793841b15e58b6fc6aa"
+    },
+    {
+      "id": 6,
+      "name": "wooden-barrel",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 6: One ordinary closed wooden barrel, subdued grey metal hoops and muted walnut staves. Visible elliptical wooden top with a couple of plank seams, softly bulging cylindrical body with very restrained stave divisions, two plain metal hoops. Upright, about350px wide and480px tall on1024x1024canvas, below an adult's waist/chest. Three/four shades per material, small quiet highlights. No tap, handles, contents, label, rope, badge, extra barrel or ground shadow.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-ba07e2eb-bb00-4ac1-9ec0-a9c6c0582b19.png",
+      "file": "png/06-wooden-barrel.png",
+      "original": "originals/06-wooden-barrel.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        344,
+        261,
+        912,
+        1085
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "6e7072cf91b00e4a5ad6013b631cd0b6ef6059d1346f063f9e0e7e0cc4fbeead",
+      "pngSha256": "a3c3ac56f3679fd6a7e50e080b11994ee815fb2370d3a7155323a577aaf20da6"
+    },
+    {
+      "id": 7,
+      "name": "fence-horizontal",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 7: One LOW wooden fence segment running strictly HORIZONTALLY left to right on screen. Two square upright walnut posts with restrained flat bevelled caps, connected by two straight horizontal rails. Sturdy simple rural construction. Show post tops and narrow rail top planes; vertical supports vertical. Approximately900px wide and350px tall on1536x1024canvas. Adult waist height. Matching family for later vertical fence and gate. No diagonal layout, picket ornament, vines, flowers, ground or shadow.\nCanvas: 1536x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-77e7ad85-58d3-4958-be85-8bee9b552972.png",
+      "file": "png/07-fence-horizontal.png",
+      "original": "originals/07-fence-horizontal.png",
+      "dimensions": [
+        2031,
+        774
+      ],
+      "visibleBounds": [
+        165,
+        179,
+        1859,
+        586
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "ad19c1e36d1cf219faebc2107acdf30511bcb4c12b90a07cfa24244784267626",
+      "pngSha256": "0e47eb8974d308ad48dbdcca52064b5f94b2ebb127d3f46e6a5b1942bfb6530c"
+    },
+    {
+      "id": 8,
+      "name": "fence-vertical",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nImage 4 supplies matching fence construction: use the SAME square capped posts, wood ramp and two plain rails. Keep the new requested orientation/construction.\nOBJECT 8: One LOW walnut wooden fence segment running strictly VERTICALLY UP THE SCREEN, north-south along a ground-plane scene axis. Two square upright end posts separated front-to-back, two connecting simple rails aligned vertically in image as dictated by the overhead projection. This is the physical fence arrangement rotated on the ground, NOT a horizontal sprite turned90degrees: ALL upright posts must remain upright vertical, tops visible and front/rear supports naturally overlap. Use a readable slightly offset thickness for rails, same waist-high square-post two-rail design as a simple horizontal fence. About330px wide by900px tall including projection on1024x1536canvas. No diagonal isometric angle, letters, ground or plants.\nCanvas: 1024x1536 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-8081d73f-39f3-439e-8133-354b2e475348.png",
+      "file": "png/08-fence-vertical.png",
+      "original": "originals/08-fence-vertical.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "visibleBounds": [
+        434,
+        132,
+        590,
+        1370
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "4072a2fe46f9c54f2293f7795961934fcb07c2f4b15111ddf62943967e81bbd5",
+      "pngSha256": "7247e4e070ff39714debe50c0cbc9f8851c90f0a81a84f314d114f0f2ad15b87"
+    },
+    {
+      "id": 9,
+      "name": "closed-wooden-gate",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nImage 4 supplies matching fence construction: use the SAME square capped posts, wood ramp and two plain rails. Keep the new requested orientation/construction.\nOBJECT 9: One matching LOW wooden gate, CLOSED, running HORIZONTALLY left to right. Same muted walnut square end posts with modest flat bevel caps and two-rail construction as the fence family. The gate leaf has a single structurally clear diagonal wooden brace, restrained dark grey hinges and latch, all visibly attached. Gate ground axis horizontal, posts vertical, top planes visible from town camera. About900px wide and400px tall on1536x1024canvas. Adult waist height, simple construction without ornament. No fence extras, arch, lettering, ground or plants.\nCanvas: 1536x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-615716e9-d759-4dcf-aee3-203ba09b343a.png",
+      "file": "png/09-closed-wooden-gate.png",
+      "original": "originals/09-closed-wooden-gate.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "visibleBounds": [
+        61,
+        233,
+        1486,
+        774
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "751beb310745840a920034297721a91ace7ed4b66583c83de54e11f25b13e95d",
+      "pngSha256": "a9cc59a477a30782e448fa300b0fae3c651cf7259480a7abedc29667114eb85e"
+    },
+    {
+      "id": 10,
+      "name": "stone-well",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 10: One modest round stone well with a simple small walnut wooden gabled roof, supported by two upright plain timber posts. Broad elliptical opening and stone rim visible from the town overhead camera, subdued warm grey block masonry with only a few joints, dark inner well opening contained inside rim, simple attached wooden spindle and short rope disappearing into well. Roof modest, not covering the entire rim view; roof ridgeline horizontal, posts vertical. Adult-sized village utility well, about700px wide and780px tall on1536x1024canvas. No bucket beside it, fancy ornament, roof signage, water spill, plants, paving or platform.\nCanvas: 1536x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-5ab9dc6c-b8ca-412b-a618-a27e694ed1c3.png",
+      "file": "png/10-stone-well.png",
+      "original": "originals/10-stone-well.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "visibleBounds": [
+        378,
+        83,
+        1158,
+        942
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "b585c3eaa2965a22571444ba8cdeba1c3d13346be361ec02329fb4b9548eba74",
+      "pngSha256": "0d40d13ce5474a9c037f62a7646400f230d5fae3100d3b7d7bd5fe1af07b12e2"
+    },
+    {
+      "id": 11,
+      "name": "leafy-bush",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 11: One small natural leafy bush, a single low rounded irregular olive/sage crown with a handful of larger overlapping leaf clusters and dark inner foliage. Match the planter leaves' muted ramp and clean pixel-cluster treatment. Broad readable masses, restrained few leaf marks, not individual hyperdetailed leaves. Below adult knee-to-waist height, about450px wide and330px tall on1024x1024canvas. No flowers, berries, pot, exposed roots, grass patch, soil, dropped leaves or base shadow.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-744b64f6-19bc-4adb-a0ff-b104671d7b1d.png",
+      "file": "png/11-leafy-bush.png",
+      "original": "originals/11-leafy-bush.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        60,
+        289,
+        1197,
+        1034
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "d0758491039336603b642aa31eac2c9a053369658284b508448c9a31825b7ce4",
+      "pngSha256": "7e8d6cad95719b1ee20948f3891e2b2258dd9971acc36717656d7e721179f0f8"
+    },
+    {
+      "id": 12,
+      "name": "grey-rock-cluster",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 12: One SMALL cohesive natural grey rock cluster: three touching irregular stones, one modest larger stone with two low companion stones. Subdued warm grey ramp, visible upper facets, darker front planes, clean deliberate angular pixel clusters, a few restrained cracks only. Coherent overhead town camera; entirely natural, not masonry or stacked cairn. Together about450px wide and300px tall on1024x1024canvas, low shin-to-knee height beside an adult. No gems, metallic shine, ore veins, moss, plants, dirt patch, platform or ground shadow.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-8d01f9c5-c290-45fe-9f32-6c9ad8d3b42a.png",
+      "file": "png/12-grey-rock-cluster.png",
+      "original": "originals/12-grey-rock-cluster.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        206,
+        419,
+        1056,
+        989
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "b69eed9fc6cc746c8a45b8c1cef81c5386148dff52f0246307f8e3c03f390873",
+      "pngSha256": "43cf3b31b4c3e96baa57f5d648b20f727895fd6085e3c19a8f43cff6e0f71fee"
+    },
+    {
+      "id": 13,
+      "name": "mature-broadleaf-tree",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 13: One mature broadleaf village tree: warm walnut branching trunk, generous rounded irregular olive/sage canopy built from a few broad layered leafy lobes. Coherent town top-down camera with upper crown planes visible and naturally occluded upper trunk; lower trunk and short contained root flare visible, nothing growing on ground. Simple readable major branching, restrained bark marks, deliberate medium-detail pixel clusters consistent with planter leaves, not realistic microfoliage. Clearly taller and broader than adult, about780px canopy width and1250px total height on1024x1536canvas. No fruit, flowers, vines, swing, grass patch, soil mound, fallen leaves or ground shadow.\nCanvas: 1024x1536 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-801472d5-0fee-4637-8535-532051071983.png",
+      "file": "png/13-mature-broadleaf-tree.png",
+      "original": "originals/13-mature-broadleaf-tree.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "visibleBounds": [
+        16,
+        131,
+        1008,
+        1414
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "3b85841f7cf8c97940867ab9dbfb53a07f1804ec0dc652f0696c1ed12e025297",
+      "pngSha256": "bc729b980682ff274375e5c4d124e0a06f8191ff0f3d5cfc70a2525d90a25437"
+    },
+    {
+      "id": 14,
+      "name": "terracotta-cream-flowerpot",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 14: One SMALL outdoor terracotta flowerpot containing a compact cluster of sage/olive leaves and several simple cream blossoms with tiny restrained muted golden centres. Modest clay pot with broad elliptical rim/open top visible, short tapered body and a thin understated foot, no elaborate patterns. Planting organized and airy enough to read, not overfilled. Same cream flowers/foliage treatment as approved planter. Entire prop about350px wide and460px tall on1024x1024canvas, clearly smaller than furniture and below an adult's waist. No plant stand, additional pots, ground, soil outside pot or shadow.\nCanvas: 1024x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-b0daae2a-a9ef-4880-b2a2-bb646caf4800.png",
+      "file": "png/14-terracotta-cream-flowerpot.png",
+      "original": "originals/14-terracotta-cream-flowerpot.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        333,
+        283,
+        923,
+        1017
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "9fa23b25635325fbcb30740143bb8e8b9101436098ffaf098aa40d717701dc2e",
+      "pngSha256": "9e45b268c8c64aef30751967964b39d30dcb012485ad8f98e13eaf7ede51938e"
+    },
+    {
+      "id": 15,
+      "name": "empty-market-stall",
+      "prompt": "Use case: stylized-concept. Create exactly ONE original standalone outdoor pixel-art prop for Simple Life, a cosy farming town. This is a coordinated asset collection; generate only the object specified below, not a scene, contact sheet or variations.\nREFERENCES: Image 1 (approved planter bench) defines muted reddish walnut wood, selective warm dark-brown outlines, restrained stepped material shading and deliberate pixel clusters. Image 2 (approved UNLIT lamp) reinforces this style, simple readable construction and restrained cream/stone accents. Image 3 is camera/relative character-scale guidance ONLY. Do not copy its exact objects or pixels. Do not include any reference object in the output.\nSTYLE LOCK: Match the approved planter and lamp's medium pixel detail, never more realistic or intricate. Muted reddish walnut, warm cream, subdued stone grey, olive/sage greenery; restrained purple, terracotta, golden accents where relevant. Upper-left daylight, simple three/four-shade material clusters. Very few intentional grain marks and plank seams. Thin selective warm dark-brown contours. Crisp clean pixel-art steps, no dense speckles, realistic surface texture, glossy highlights, gradients, smooth vector curves, blur, neon or thick black borders. Maintain similar pixel density; small props have fewer details rather than being enlarged into elaborate furniture.\nCAMERA LOCK: Room-aligned orthographic angled top-down RPG view as Image 3. Horizontal scene edges run horizontally, upright supports vertical; north-south ground edges run vertically. Show top planes and shorter front planes. Broad front-facing structure when appropriate. No diagonal isometric rotation, eye-level illustration, flat overhead view or perspective convergence. Physically attached joints, legs, hinges and handles.\nBACKGROUND LOCK: Truly transparent RGBA, completely isolated full object with transparent padding. NO surrounding glow, coloured halo, background haze, soft background shading or baked ground/contact shadow. No pavement, grass patch, soil mound around object, display platform, scenery, characters, UI, labels, lettering, watermark or unrelated extra props. Any darkness must be contained in the object's own construction, never outside its silhouette.\n\nOBJECT 15: One original village market stall: muted walnut timber frame, four understandable upright supports, a modest fabric canopy with broad muted cream-and-sage stripes, a completely EMPTY counter and simple lower timber front. Canopy upper surface visible from town camera, shallow shaded valance/front, broad counter top visible beneath. Ridgeline and counter front strictly horizontal, depth along vertical screen axis, no diagonal isometric footprint. Adult merchant scale, about1150px wide and850px tall on1536x1024canvas. Clear construction, restrained cloth seams and wood grain. No produce, crates, baskets, shelf merchandise, signs, writing, flags, seller, pavement, platform or ground shadow.\nCanvas: 1536x1024 pixels. Keep the full object with transparent padding.",
+      "source": "/Users/mac/.codex/generated_images/01a13658-7915-78f2-9b49-92222fd48878/exec-344bb753-a1da-476b-a8a5-f653e40170a9.png",
+      "file": "png/15-empty-market-stall.png",
+      "original": "originals/15-empty-market-stall.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "visibleBounds": [
+        299,
+        88,
+        1237,
+        916
+      ],
+      "binaryAlpha": true,
+      "transparentMargins": true,
+      "originalSha256": "2dbc9c1f3f4550a1f370d43a8e0dab8dee0c08fe08556e8a5edf7358ec8509d5",
+      "pngSha256": "ef2fa0a8525b925aebe08ffe7e399eb9c46c1cce6b44b088b13faaebd5d3b04e"
+    }
+  ],
+  "references": [
+    {
+      "name": "Approved street lamp",
+      "file": "references/approved-street-lamp.png",
+      "sha256": "d6a04d3a2a939384fd90aa9a908b0d28f20083e483fc7dfa970b75b7cf58da63"
+    },
+    {
+      "name": "Approved planter bench",
+      "file": "references/approved-planter-bench.png",
+      "sha256": "f0f4d33196f38155c5c497b64851679b2fee7ccc20cc52ca5e5add2e8f412362"
+    }
+  ]
+}

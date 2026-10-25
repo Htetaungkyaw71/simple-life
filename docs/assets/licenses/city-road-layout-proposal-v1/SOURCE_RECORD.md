@@ -1,0 +1,9 @@
+# City road layout proposal v1 — source and use record
+
+2026-10-16. Review-only original layout/surfaces, composed by Codex using existing local artwork. No new image-generation call, downloaded asset, font dependency or runtime file. No reference screenshot pixels, UI, characters or exact map geometry are copied. The three user-provided town screenshots guide curb construction, material separation, island circulation and the general three-seat terrace relationship.
+
+Original procedural road/cream paving/curb/island geometry is in `output/previews/city-road-layout-v1/render.py`. Pillow is an existing offline tool only. Existing atlas PNGs are read without changing their RGBA, source canvases or approved game scale. An unchanged frame from the existing boy sheet is used as a scale figure. `manifest.json` records exact inputs and resulting PNG hashes. Reference screenshots remain at their user-supplied Desktop paths, outside production.
+
+Inherited source terms/AI disclosures remain applicable to the reused art: approved outdoor planter/lamp and collection under `../planter-bench-muted-v2/SOURCE_RECORD.md`, `../outdoor-collection-v1/SOURCE_RECORD.md`, and `../outdoor-followup-v1/SOURCE_RECORD.md`; prior nature/house/farmer terms remain in `docs/ASSET_LICENSES.md` and their existing source evidence. Reusing the mixed atlas does not replace those terms or certify exclusive copyright. No new third-party licence is asserted.
+
+The proposal is not integrated or certified game-ready. No maps, collision, routes, services, saves, runtime assets, version, distribution allowlist or playable page changes. Static reachability is a layout check only. Runtime and human acceptance follow only after user approval. The new files remain under output/docs, excluded from the 48-file production build. No deploy/publish/push/commit.

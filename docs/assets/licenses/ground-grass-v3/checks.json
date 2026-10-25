@@ -1,0 +1,100 @@
+{
+  "palette": [
+    "#6C7749",
+    "#798455",
+    "#859056",
+    "#8C9564",
+    "#939C67",
+    "#9EA66B"
+  ],
+  "tiles": {
+    "a": {
+      "before": {
+        "horizontalWrapMeanRankDelta": 0.0,
+        "verticalWrapMeanRankDelta": 0.0,
+        "horizontalWrapMaxRankDelta": 0,
+        "verticalWrapMaxRankDelta": 0
+      },
+      "after": {
+        "horizontalWrapMeanRankDelta": 0.0,
+        "verticalWrapMeanRankDelta": 0.0,
+        "horizontalWrapMaxRankDelta": 0,
+        "verticalWrapMaxRankDelta": 0
+      },
+      "fineMotifPixelsChanged": 11742,
+      "averageLightness": 42.528,
+      "sha256": "0dd70224fae465cdbc9a4d302518383b8abcf8d74ee9ad9bd7ef6d54e717b25c",
+      "approvedRuntimeSha256": "0dd70224fae465cdbc9a4d302518383b8abcf8d74ee9ad9bd7ef6d54e717b25c",
+      "runtimeSha256": "0dd70224fae465cdbc9a4d302518383b8abcf8d74ee9ad9bd7ef6d54e717b25c"
+    },
+    "b": {
+      "before": {
+        "horizontalWrapMeanRankDelta": 0.0,
+        "verticalWrapMeanRankDelta": 0.0,
+        "horizontalWrapMaxRankDelta": 0,
+        "verticalWrapMaxRankDelta": 0
+      },
+      "after": {
+        "horizontalWrapMeanRankDelta": 0.0,
+        "verticalWrapMeanRankDelta": 0.0,
+        "horizontalWrapMaxRankDelta": 0,
+        "verticalWrapMaxRankDelta": 0
+      },
+      "fineMotifPixelsChanged": 5560,
+      "averageLightness": 45.098,
+      "sha256": "c99e2d8f8ad3ce0fbe9fc6a83807d7bcb6dc5acb7c2952137bd51b543098e00e",
+      "approvedRuntimeSha256": "c99e2d8f8ad3ce0fbe9fc6a83807d7bcb6dc5acb7c2952137bd51b543098e00e",
+      "runtimeSha256": "c99e2d8f8ad3ce0fbe9fc6a83807d7bcb6dc5acb7c2952137bd51b543098e00e"
+    },
+    "c": {
+      "before": {
+        "horizontalWrapMeanRankDelta": 0.0,
+        "verticalWrapMeanRankDelta": 0.0,
+        "horizontalWrapMaxRankDelta": 0,
+        "verticalWrapMaxRankDelta": 0
+      },
+      "after": {
+        "horizontalWrapMeanRankDelta": 0.0,
+        "verticalWrapMeanRankDelta": 0.0,
+        "horizontalWrapMaxRankDelta": 0,
+        "verticalWrapMaxRankDelta": 0
+      },
+      "fineMotifPixelsChanged": 7726,
+      "averageLightness": 45.109,
+      "sha256": "4f423b40ed5be974eb944f0233ee1f9c2b9d053667ac7647e9d3a5cfac49b8ad",
+      "approvedRuntimeSha256": "4f423b40ed5be974eb944f0233ee1f9c2b9d053667ac7647e9d3a5cfac49b8ad",
+      "runtimeSha256": "4f423b40ed5be974eb944f0233ee1f9c2b9d053667ac7647e9d3a5cfac49b8ad"
+    }
+  },
+  "lightnessDeltaBtoC": 0.011,
+  "worldPreview": {
+    "alternateCoveragePercent": 3.26,
+    "darkPocketCoveragePercent": 17.56,
+    "tuftPixels": 2682,
+    "usedColors": [
+      "#6C7749",
+      "#798455",
+      "#859056",
+      "#8C9564",
+      "#939C67",
+      "#9EA66B"
+    ]
+  },
+  "checks": {
+    "paletteUnchanged": true,
+    "bAndCWithinOneLightnessUnit": true,
+    "darkPocketCoverage15To20Percent": true,
+    "tileEdgesRemainMatched": true,
+    "fineMotifsRemoved": true
+  },
+  "repeatSha256": "7719780af9add744bba6607a3968ad9f728d0686889c980c28e9c54e56d0f320",
+  "fenceShapeAudit": "same-coordinate final/no-tuft/diff montage",
+  "maskAlignmentAudit": {
+    "edgePixelsOn128pxColumns": 136,
+    "meanEdgePixelsPer128pxColumn": 12.364,
+    "meanEdgePixelsPerColumn": 12.712,
+    "alignedToTilesOrChunks": false
+  },
+  "paleSmudgeFinding": "baked pixels in the old source-tile render; not an in-game object; removed by the A/B/C cleanup",
+  "status": "final corrected candidate; installed after all checks"
+}

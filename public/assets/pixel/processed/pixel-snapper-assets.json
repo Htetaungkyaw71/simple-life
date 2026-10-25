@@ -1,0 +1,1013 @@
+{
+  "frames": {
+    "snapper-notice-board": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 207,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 207,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 207,
+        "h": 140
+      }
+    },
+    "snapper-fountain": {
+      "frame": {
+        "x": 211,
+        "y": 2,
+        "w": 210,
+        "h": 142
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 210,
+        "h": 142
+      },
+      "sourceSize": {
+        "w": 210,
+        "h": 142
+      }
+    },
+    "snapper-outdoor-chair": {
+      "frame": {
+        "x": 423,
+        "y": 2,
+        "w": 80,
+        "h": 155
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 155
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 155
+      }
+    },
+    "snapper-tent": {
+      "frame": {
+        "x": 505,
+        "y": 2,
+        "w": 252,
+        "h": 186
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 252,
+        "h": 186
+      },
+      "sourceSize": {
+        "w": 252,
+        "h": 186
+      }
+    },
+    "snapper-ground-flowers": {
+      "frame": {
+        "x": 759,
+        "y": 2,
+        "w": 226,
+        "h": 151
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 226,
+        "h": 151
+      },
+      "sourceSize": {
+        "w": 226,
+        "h": 151
+      }
+    },
+    "snapper-mailbox": {
+      "frame": {
+        "x": 987,
+        "y": 2,
+        "w": 93,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 93,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 93,
+        "h": 93
+      }
+    },
+    "snapper-bench": {
+      "frame": {
+        "x": 1082,
+        "y": 2,
+        "w": 156,
+        "h": 107
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 156,
+        "h": 107
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 107
+      }
+    },
+    "snapper-bush": {
+      "frame": {
+        "x": 1240,
+        "y": 2,
+        "w": 110,
+        "h": 109
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 110,
+        "h": 109
+      },
+      "sourceSize": {
+        "w": 110,
+        "h": 109
+      }
+    },
+    "snapper-market-stall": {
+      "frame": {
+        "x": 1352,
+        "y": 2,
+        "w": 190,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 190,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 190,
+        "h": 128
+      }
+    },
+    "snapper-flowerpot": {
+      "frame": {
+        "x": 1544,
+        "y": 2,
+        "w": 128,
+        "h": 127
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 127
+      }
+    },
+    "snapper-closed-gate": {
+      "frame": {
+        "x": 1674,
+        "y": 2,
+        "w": 136,
+        "h": 89
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 136,
+        "h": 89
+      },
+      "sourceSize": {
+        "w": 136,
+        "h": 89
+      }
+    },
+    "snapper-barrel": {
+      "frame": {
+        "x": 1812,
+        "y": 2,
+        "w": 163,
+        "h": 167
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 167
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 167
+      }
+    },
+    "snapper-table": {
+      "frame": {
+        "x": 2,
+        "y": 190,
+        "w": 225,
+        "h": 123
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 225,
+        "h": 123
+      },
+      "sourceSize": {
+        "w": 225,
+        "h": 123
+      }
+    },
+    "snapper-back-bench": {
+      "frame": {
+        "x": 229,
+        "y": 190,
+        "w": 140,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 51
+      }
+    },
+    "snapper-rug": {
+      "frame": {
+        "x": 371,
+        "y": 190,
+        "w": 78,
+        "h": 112
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 78,
+        "h": 112
+      },
+      "sourceSize": {
+        "w": 78,
+        "h": 112
+      }
+    },
+    "snapper-bed": {
+      "frame": {
+        "x": 451,
+        "y": 190,
+        "w": 130,
+        "h": 215
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 130,
+        "h": 215
+      },
+      "sourceSize": {
+        "w": 130,
+        "h": 215
+      }
+    },
+    "snapper-front-bench": {
+      "frame": {
+        "x": 583,
+        "y": 190,
+        "w": 180,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 66
+      }
+    },
+    "snapper-wall-shelf": {
+      "frame": {
+        "x": 765,
+        "y": 190,
+        "w": 203,
+        "h": 99
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 203,
+        "h": 99
+      },
+      "sourceSize": {
+        "w": 203,
+        "h": 99
+      }
+    },
+    "snapper-pottery-shelf": {
+      "frame": {
+        "x": 970,
+        "y": 190,
+        "w": 130,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 130,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 130,
+        "h": 144
+      }
+    },
+    "snapper-counter": {
+      "frame": {
+        "x": 1102,
+        "y": 190,
+        "w": 173,
+        "h": 87
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 173,
+        "h": 87
+      },
+      "sourceSize": {
+        "w": 173,
+        "h": 87
+      }
+    },
+    "snapper-fireplace": {
+      "frame": {
+        "x": 1277,
+        "y": 190,
+        "w": 215,
+        "h": 181
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 215,
+        "h": 181
+      },
+      "sourceSize": {
+        "w": 215,
+        "h": 181
+      }
+    },
+    "snapper-window": {
+      "frame": {
+        "x": 1494,
+        "y": 190,
+        "w": 114,
+        "h": 102
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 102
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 102
+      }
+    },
+    "snapper-home-flowerpot": {
+      "frame": {
+        "x": 1610,
+        "y": 190,
+        "w": 124,
+        "h": 170
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 124,
+        "h": 170
+      },
+      "sourceSize": {
+        "w": 124,
+        "h": 170
+      }
+    },
+    "snapper-threshold": {
+      "frame": {
+        "x": 1736,
+        "y": 190,
+        "w": 161,
+        "h": 107
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 161,
+        "h": 107
+      },
+      "sourceSize": {
+        "w": 161,
+        "h": 107
+      }
+    },
+    "snapper-leafy-pot": {
+      "frame": {
+        "x": 1899,
+        "y": 190,
+        "w": 113,
+        "h": 114
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 113,
+        "h": 114
+      },
+      "sourceSize": {
+        "w": 113,
+        "h": 114
+      }
+    },
+    "snapper-storage-jar": {
+      "frame": {
+        "x": 2,
+        "y": 407,
+        "w": 91,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 91,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 91,
+        "h": 119
+      }
+    },
+    "snapper-fire-large": {
+      "frame": {
+        "x": 95,
+        "y": 407,
+        "w": 175,
+        "h": 143
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 175,
+        "h": 143
+      },
+      "sourceSize": {
+        "w": 175,
+        "h": 143
+      }
+    },
+    "snapper-fire-small": {
+      "frame": {
+        "x": 272,
+        "y": 407,
+        "w": 236,
+        "h": 193
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 236,
+        "h": 193
+      },
+      "sourceSize": {
+        "w": 236,
+        "h": 193
+      }
+    },
+    "snapper-planter-bench": {
+      "frame": {
+        "x": 510,
+        "y": 407,
+        "w": 254,
+        "h": 178
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 254,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 254,
+        "h": 178
+      }
+    },
+    "snapper-tree-broadleaf": {
+      "frame": {
+        "x": 766,
+        "y": 407,
+        "w": 258,
+        "h": 385
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 258,
+        "h": 385
+      },
+      "sourceSize": {
+        "w": 258,
+        "h": 385
+      }
+    },
+    "snapper-tree-tall": {
+      "frame": {
+        "x": 1026,
+        "y": 407,
+        "w": 142,
+        "h": 211
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 142,
+        "h": 211
+      },
+      "sourceSize": {
+        "w": 142,
+        "h": 211
+      }
+    },
+    "snapper-tree-palm": {
+      "frame": {
+        "x": 1170,
+        "y": 407,
+        "w": 115,
+        "h": 156
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 115,
+        "h": 156
+      },
+      "sourceSize": {
+        "w": 115,
+        "h": 156
+      }
+    },
+    "snapper-grass": {
+      "frame": {
+        "x": 1287,
+        "y": 407,
+        "w": 79,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 79,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 79,
+        "h": 79
+      }
+    },
+    "snapper-bush-new": {
+      "frame": {
+        "x": 1368,
+        "y": 407,
+        "w": 118,
+        "h": 98
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 118,
+        "h": 98
+      },
+      "sourceSize": {
+        "w": 118,
+        "h": 98
+      }
+    },
+    "snapper-tree-sparse": {
+      "frame": {
+        "x": 1488,
+        "y": 407,
+        "w": 115,
+        "h": 165
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 115,
+        "h": 165
+      },
+      "sourceSize": {
+        "w": 115,
+        "h": 165
+      }
+    },
+    "snapper-tree-snow": {
+      "frame": {
+        "x": 1605,
+        "y": 407,
+        "w": 176,
+        "h": 314
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 314
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 314
+      }
+    },
+    "snapper-wood-item": {
+      "frame": {
+        "x": 1783,
+        "y": 407,
+        "w": 133,
+        "h": 101
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 133,
+        "h": 101
+      },
+      "sourceSize": {
+        "w": 133,
+        "h": 101
+      }
+    },
+    "snapper-home-wood-pile": {
+      "frame": {
+        "x": 2,
+        "y": 794,
+        "w": 1448,
+        "h": 1086
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1448,
+        "h": 1086
+      },
+      "sourceSize": {
+        "w": 1448,
+        "h": 1086
+      }
+    },
+    "snapper-clothing-rack-v3": {
+      "frame": {
+        "x": 1452,
+        "y": 794,
+        "w": 183,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 183,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 183,
+        "h": 124
+      }
+    },
+    "snapper-clothing-cabinet": {
+      "frame": {
+        "x": 1637,
+        "y": 794,
+        "w": 186,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 186,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 186,
+        "h": 91
+      }
+    },
+    "snapper-clothing-counter": {
+      "frame": {
+        "x": 2,
+        "y": 1882,
+        "w": 251,
+        "h": 125
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 251,
+        "h": 125
+      },
+      "sourceSize": {
+        "w": 251,
+        "h": 125
+      }
+    },
+    "snapper-clothing-fitting-corner": {
+      "frame": {
+        "x": 255,
+        "y": 1882,
+        "w": 149,
+        "h": 135
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 149,
+        "h": 135
+      },
+      "sourceSize": {
+        "w": 149,
+        "h": 135
+      }
+    },
+    "snapper-clothing-mirror": {
+      "frame": {
+        "x": 406,
+        "y": 1882,
+        "w": 106,
+        "h": 127
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 106,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 106,
+        "h": 127
+      }
+    },
+    "snapper-clothing-display-table": {
+      "frame": {
+        "x": 514,
+        "y": 1882,
+        "w": 156,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 156,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 156,
+        "h": 106
+      }
+    },
+    "snapper-barber-worktop": {
+      "frame": {
+        "x": 672,
+        "y": 1882,
+        "w": 187,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 187,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 187,
+        "h": 91
+      }
+    },
+    "snapper-barber-coat-hooks": {
+      "frame": {
+        "x": 861,
+        "y": 1882,
+        "w": 136,
+        "h": 88
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 136,
+        "h": 88
+      },
+      "sourceSize": {
+        "w": 136,
+        "h": 88
+      }
+    },
+    "snapper-barber-storage": {
+      "frame": {
+        "x": 999,
+        "y": 1882,
+        "w": 84,
+        "h": 129
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 84,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 129
+      }
+    },
+    "snapper-grass-bend-left": {
+      "frame": {
+        "x": 1673,
+        "y": 92,
+        "w": 79,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 79,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 79,
+        "h": 79
+      }
+    },
+    "snapper-grass-bend-right": {
+      "frame": {
+        "x": 986,
+        "y": 96,
+        "w": 79,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 79,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 79,
+        "h": 79
+      }
+    },
+    "snapper-barber-chair-v2": {
+      "frame": {
+        "x": 1286,
+        "y": 506,
+        "w": 161,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 161,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 161,
+        "h": 160
+      }
+    }
+  },
+  "meta": {
+    "app": "Simple Life user-supplied Pixel Snapper objects",
+    "image": "pixel-snapper-assets.png",
+    "size": {
+      "w": 2048,
+      "h": 2048
+    },
+    "scale": "1"
+  }
+}

@@ -1,0 +1,9 @@
+# City shops and fountain garden — approved local integration, 2026-10-17
+
+The user approved location proposal 02 and explicitly requested integration ("now do it"). Reused its nine selected native PNGs without regeneration, recolouring, resizing or alpha changes. Appended exact native RGBA pixels to the allowlisted town atlas; 1051 existing frame records and every old atlas pixel remain exact. The atlas is now1024×4041. All74 other pre-integration public asset files remain byte-exact. Original generated images, exports, prompts, source terms and both historical proposals remain separately preserved.
+
+Sources and AI disclosures: [proposal01](../city-garden-shops-proposal-v1/SOURCE_RECORD.md), [location revision02](../city-garden-shops-proposal-v2/SOURCE_RECORD.md). Inherited per-source output terms apply; no CC0, exclusive-rights, human-only authorship or competition-eligibility claim. No new dependency, third-party download, image generation, screenshot-pixel extraction, backend or runtime remote asset. Existing PNGJS/Pillow dependency evidence remains applicable. Local browser verification screenshots are evidence only and excluded from production.
+
+Codex authored the ES-module layout/interior/service integration, conservative traced facade collision rows, stable resident home/vegetation mappings, apron contour export, tests and documentation. Green-ground shader and approved furniture/characters/fountain remain unchanged. Two existing café tables/chairs and five camp objects reuse their existing frames. The completed Flower Court bench shifts80world units east into the gap between the tents; project identity, cost, rewards and completion remain unchanged. All other project scenery remains.
+
+See manifest.json, scripts/export_city_shops.py, scripts/check_city_shops.py and docs/verification/city-shops-v1. Pre-integration town PNG/metadata and public backup ZIP are under output/art/city-shops-v1. No publication/deployment/push.

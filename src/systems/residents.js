@@ -3,17 +3,25 @@ import {MAPS} from '../data/mapLayouts.js';
 import {commutePath,commutePose,pathPose,pathLength,NPC_HOME_MINUTE} from './commute.js';
 import {RESIDENTS,MERCHANT_RESIDENTS} from '../data/residents.js';
 import {walkable} from '../data/locations.js';
+import {SHOP_ROOMS,shopAreaForResident} from '../data/cityShops.js';
 export function residentsFor(area,state=null){
+ if(SHOP_ROOMS[area]){
+  const room=SHOP_ROOMS[area],person=residentsFor('city',state).find(n=>n.id===room.resident);
+  return person?[{...person,indoorService:true,x:room.position.x,y:room.position.y,position:{...room.position},visible:person.mode==='work'&&(!state||state.minute>=420&&state.minute<1140)}]:[];
+ }
  const list=[...(RESIDENTS[area]||[]),...(state&&area==='city'?MERCHANT_RESIDENTS:[])];
  return list.map(def=>{
   const n={...def,position:{x:def.x,y:def.y},waypoint:1,direction:'down',elapsed:0,wait:1500,moving:false,visible:true,mode:'work'};
-  if(state){const b=MAPS[area].buildings[n.home],door=b.name==='house-village-0'?{x:HOUSE.door.x,y:b.y+256}:{x:b.x+120,y:b.y+170},porch=b.name==='house-village-0'?{...HOUSE.porch}:{x:b.x+120,y:b.y+234};n.commute=[door,...commutePath(area,porch,n.position)];Object.assign(n,commutePose(n,state.minute));}
+  const workArea=area==='city'&&shopAreaForResident(n.id);if(workArea){n.workArea=workArea;Object.assign(n,SHOP_ROOMS[workArea].outside);n.position={x:n.x,y:n.y};}
+  if(state){const b=MAPS[area].buildings[n.home],door=b.entry|| (b.name==='house-village-0'?{x:HOUSE.door.x,y:b.y+256}:{x:b.x+120,y:b.y+170}),porch=b.porch||(b.name==='house-village-0'?{...HOUSE.porch}:{x:b.x+120,y:b.y+234});n.commute=[door,...commutePath(area,porch,n.position)];Object.assign(n,commutePose(n,state.minute));}
+  if(n.workArea&&n.mode==='work')n.visible=false;
   return n;
  });
 }
 // Ambient movement is transient and follows short authored, tested safe routes.
 export function stepResident(n,area,delta,player,state=null){
  n.elapsed+=delta;n.moving=false;
+ if(n.indoorService){const pose=commutePose(n,state.minute);n.mode=pose.mode;n.visible=pose.mode==='work'&&state.minute>=420&&state.minute<1140;n.position={x:n.x,y:n.y};const dx=player.x-n.x,dy=player.y-n.y;n.direction=Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up';return;}
  if(state){
   let pose=commutePose(n,state.minute);
   if(pose.mode==='toHome'){
@@ -23,6 +31,7 @@ export function stepResident(n,area,delta,player,state=null){
   if(n.mode!=='work'&&pose.mode==='work')n.position={x:n.x,y:n.y};
   Object.assign(n,pose);if(n.mode!=='work')return;
  }
+ if(n.workArea){n.visible=false;return;}
  if(n.kind)return;
  if(Math.hypot(player.x-n.position.x,player.y-n.position.y)<84){const dx=player.x-n.position.x,dy=player.y-n.position.y;if(Math.hypot(dx,dy)>10)n.direction=Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up';return;}
  if(n.route.length<2)return;

@@ -1,3 +1,69 @@
+# v0.41.0 — fixed shop areas, schema19 retained (2026-10-17)
+
+`barber`/`clothing` are valid LOCATIONS, so existing validation preserves their fixed-room positions and all appearance purchases/coins. Only Home's `interior` applies responsive room-size transforms; fixed shops do not scale saved coordinates. The existing nearest-safe path repairs newly occupied positions. Resident homes keep original building indices3/1, mapped to the approved northern cottages. All227City ground-node identities and tree identities remain; unlocked town-project IDs/costs/rewards are unchanged. No normal user storage was seeded/edited. Unit tests plus barber browser purchase/reload verify continuity.
+
+---
+
+# v0.40.0 — City layout compatibility; schema19 retained (2026-10-16)
+
+No schema bump or normal user-save rewrite. Moved City trees retain their pre-layout `vegetationId`, including prior roadside aliases; moved ground-cover props retain `grass:name:oldX:oldY`, while bendable grass retains existing `city:commons:*` IDs. Visual/ground anchors may change independently of these identities. All227previous City grass IDs and every tree ID are tested through validate/Continue with removed lists intact; money/day are preserved. Existing nearest-safe validation applies if a saved standing point now lies inside a moved bench. Other locations' identities and progress systems are unchanged.
+
+---
+
+# v0.39.0 — City relocation retains schema19
+
+Moved trees carry vegetationId equal to their old tree:name:x:y identity. VEGETATION uses it at the new green-ground anchor for saved removals, partial hits and collider removal; Continue keeps chopped trees removed. Fixed lamps have no saved ownership ID. Enlarged fixed wells and static planter footprints use existing nearest-safe recovery. Purchases, owned decorations, money, crops and schema19 remain. Regression checks moved-tree removal and money across validation.
+
+---
+
+# v0.37.0 — approved room geometry compatibility
+
+Schema19 and simple-life.save.v1 remain unchanged. The corrected room floor begins at112 and furnishings/door masks follow approved visible bounds. Continue's existing nearest-safe repair relocates obsolete wall/solid positions. Existing decoration validation returns obstructed known indoor pieces to the Bag once while retaining ownership; no new save flag or coin/gift transaction is added. Regression coverage retains money/day/produce/stove progress and verifies idempotent validation. The user's browser storage is not seeded or rewritten by QA.
+
+---
+
+# v0.35.2 — indoor table and furniture spacing compatibility (2026-10-15)
+
+Schema stays 19; no new stored field. The table's indoor-only flag is catalog data. On Continue, former Home/Farm table records are removed from the placed list and returned once to inventory.tableDecor, under the existing 9999 ownership bound. The normalized save contains the Bag item rather than an outdoor placement, so repeated Continue cannot add another item. Known indoor decorations with bounded old room coordinates that no longer fit revised furniture spacing are packed using the same existing room-resize recovery convention. Other progress, purchases, plots and coin values keep their validation rules.
+
+Regression coverage includes outdoor table return, repeated validation, inventory bounds, preserved other ownership and displaced indoor furniture. Indoor table placement/rotation/save/reclaim remains covered.
+
+---
+
+# v0.43.5 — retired Home catalogue compatibility, schema 19 retained (2026-10-23)
+
+The save key and schema remain `simple-life.save.v1` / 19. `home.design` and `home.owned` now normalize to the active `starter` and `slate` IDs. A save that owned any retired paid design (`rose`, `orchard`, `coastal`, `bamboo`, `brick`, `glass`, `alpine` or `manor`) receives `slate` ownership; if its selected design was retired, selection becomes `slate`. Starter-only or missing Home data remains starter-only. Unknown IDs are discarded, repeated normalization is idempotent, and no coins are charged or refunded.
+
+Owned/placed decoration records, wardrobe appearance, farms/crops, City/Forest state, inventory, money, story, Stash Bags and all other schema-19 progress are preserved. Temporarily hidden craft/garden/furniture menu entries do not delete their saved data.
+
+---
+
+# v0.32.0 — persistent grass overrides, schema 19 retained (2026-10-15)
+
+Added `restoredBeds: [{farm,x,y}]` and `farmLayoutRevision: 2`. A grass override hides an empty prepared bed without deleting/reordering its saved custom record or reserved slot. `plotOwned` rejects overridden beds; re-digging removes the override and reuses the same index. Validation accepts only known, empty bed locations and deduplicates overrides; malformed/unknown markers and markers over crops are ignored. Wet patches at overridden cells are removed. Starter preparation skips overridden cells so Continue does not recreate soil.
+
+Starter has16original reserved slots plus24custom cells. Loading a prior six-row save marks only empty custom starter cells at y488 as grass, once; planted cells/IDs/records are retained. Revision2prevents this migration from undoing a later intentional re-dig. Existing wallet, inventory, placed scenery, other farms and save key remain. Capacity counts retained custom records; no reclaim of old custom record slots and no energy/item refund for filling soil.
+
+---
+
+# v0.31.1 — append two starter rows, retain schema 19 (2026-10-15)
+
+The starter has 48 spaces: 16 original reserved slots plus 32 custom extension cells. STARTER_EXTENSION keeps the previous 16 right-side positions in the same order, then appends 16 bottom-row positions. Loading restores saved custom entries first and fills only missing safe starter cells. Existing crops, original IDs, wallet, furniture and planted grass take priority. Repeated normalization remains idempotent. Existing 2048-custom-bed cap remains; full or unusually large legacy saves can receive fewer added cells. No new key/schema or save wipe. Digging on clear Farm ground now requires neither Copper ownership nor coins; watering upgrade and separate farm purchases retain their existing rules.
+
+---
+
+# v0.31.0 — additive wider starter, schema19 retained (2026-10-15)
+
+`plots` remains64slots per farm; original field×16indices/coordinates are unchanged. `customBeds` already stores the16new right-side starter spaces. New states/new farms start with these extra empty cells. Validate clears constructor defaults, restores all prior saved beds/crops and owned furniture/planted grass, then appends only missing safe starter positions. Existing custom entry order stays, so current plot references are not silently repurposed. Repeated migration is idempotent. Overlapping custom crops, paid furniture, placed grass and the2048bed cap take precedence over filling the rectangle. No coin charge, refund, yield change, data wipe or new storage key/schema. New roads occupy only prior road footprints; earlier valid custom-bed locations stay valid.
+
+---
+
+# v0.29.0 — additive schema19 cosmetic slots (2026-10-14)
+
+Storage key and schema version remain19. Existing `appearance.outfit`, `.hair` and `.owned` IDs and prices are preserved. `appearance.ownedAccessories` is a deduplicated known-ID list (at most straw/round/canvas), default empty; `.accessories` contains independent `hat`, `glasses` and `bag` slots, default null. Equipped items require ownership and correct slots. Unknown/forged IDs or mismatched slots are ignored on restore. Old saves receive empty accessory fields and retain chosen boy/girl, wallet, crops, inventory and progression. Buying/toggling saves immediately through the existing transaction path; no automatic purchases, grants, refunds or stat effects. Missing fields are backward-compatible, so a version bump is unnecessary. The saved character becomes authoritative for all clothing/hair combinations, repairing historical NPC-preset routing on Continue.
+
+---
+
 # v0.23.0 — original Szadiart people (2026-10-13)
 
 Five outfits and four complete looks replace independently layered hair/clothes. Original complete source presets are never redrawn or recoloured. The wardrobe and Town stylist menus describe Outfits / Looks; their English/Myanmar text remains localized. Existing appearance IDs, purchase prices, ownership, balance and schema-19 saves remain, so a saved appearance maps to its corresponding complete preset. The default brown-haired teal worker differs from the town cast. Depth, grounded shadows, collision footprints and water/reflection integration remain.

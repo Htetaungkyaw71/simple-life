@@ -41,8 +41,8 @@ test('waypoint uses actual transition and hides for visible exit, interior and c
  s.position.x=1000;assert.equal(farmWaypoint(s,view).direction,3);s.position.x=100;assert.equal(farmWaypoint(s,view).direction,1);
  assert.equal(farmWaypoint(s,{...view,y:500}),null);s.area='interior';assert.equal(farmWaypoint(s,view),null);s.area='home';s.hasVisitedFarm=true;assert.equal(farmWaypoint(s,view),null);
 });
-test('permanent signs sit beside roads with accurate small colliders and remain hints',()=>{
- const signs=MAPS.home.props.filter(p=>p.name==='farm-sign');assert.equal(signs.length,1);
+test('route hints remain while every roadside sign prop and collider is removed',()=>{
+ const signs=MAPS.home.props.filter(p=>['sign','road-sign','farm-sign'].includes(p.name));assert.equal(signs.length,0);
  assert.ok(!MAPS.home.obstacles.some(([x,y,w,h])=>x===416&&y===1044&&w===8&&h===16));
  for(const p of signs){assert.ok(MAPS.home.obstacles.some(([x,y,w,h])=>x===p.x+20&&y===p.y+48&&w===8&&h===16));assert.ok(walkable('home',480,p.y+48));}
  assert.equal(LOCATIONS.home.interactions.filter(p=>p.label==='Farm - follow the south road').length,1);

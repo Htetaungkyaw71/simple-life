@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-15",
+  "tool": "built-in imagegen",
+  "scope": "one interior dining table only, awaiting review",
+  "references": [
+    {
+      "path": "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.00 PM.png",
+      "role": "pixel clusters, outlines, low top-down camera"
+    },
+    {
+      "path": "/Users/mac/Desktop/Screenshot 2026-10-15 at 3.03.14 PM.png",
+      "role": "furniture proportions, warm wood, restrained pottery shading"
+    }
+  ],
+  "transparent_background": true,
+  "prompt": "Create ONE original wooden dining table asset for the cozy farming RPG Simple Life.\nREFERENCE GUIDANCE: image 1 (outdoor town) is visual guidance for clean pixel clusters, warm outlines, readable shapes and LOW top-down perspective. Image 2 (indoor room) is guidance for adult furniture proportions, warm wood colours, pottery details and restrained material shading. Do not copy any sprite, scene or layout.\nART STYLE: Clean handcrafted pixel art for a welcoming village game. Warm walnut brown, cream, terracotta, subtle muted accents. Clear intentional pixel clusters. Approximately 3–4 shades per material, thin DARK BROWN outlines (not heavy black), consistent upper-left lighting, softened outlines on lit edges. Restrained texture: just a few wood-grain marks and plank seams. NO dense speckling, random noisy pixels, excessive weathering, gothic/horror mood or painterly shading.\nPERSPECTIVE AND STRUCTURE: Match the references' LOW top-down THREE-QUARTER view. Show the oval tabletop upper plane, the tabletop thickness, a short front apron and convincingly attached sturdy wooden legs. Width axis horizontal; upright legs vertical. Consistent single camera, not steep overhead flat plan view and not eye-level front view. Appropriate for adult village characters.\nOBJECT DESIGN: One simple oval walnut dining table with sturdy wooden legs. Exactly ONE small cream ceramic JUG with a distinct handle and mouth and exactly TWO modest TERRACOTTA CUPS, visibly separated and easy to recognize. No plates, flowers, books or other clutter. Gentle handmade details, quiet uncluttered tabletop.\nOUTPUT: One isolated COMPLETE centered table with transparent padding on all sides; all feet included. TRUE transparent PNG RGBA background and open gaps under the tabletop. Target native sprite about 128x80 pixels, consistent square pixel grid, enlarged nearest-neighbor hard edges, recognizable details at gameplay size. No characters, room, floor, walls, scenery, ground shadow, labels, text, watermark, blur, smooth gradients, anti-aliasing or unrelated objects."
+}

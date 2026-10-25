@@ -1,3 +1,4 @@
+import {propFrame,propScale} from '../data/propArt.js';
 import {groundShadow,SHADOW_DEPTH} from './GroundShadow.js';
 import {worldText} from '../i18n/myanmarText.js';
 import {nightBands} from './nightBands.js';
@@ -23,11 +24,11 @@ export class ForestView {
    }
    this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:groundShadow(scene,0,0,Math.min(64,SPECIES[a.species].body*2.5),10,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080)};});
    this.woodland=new WoodlandView(scene);
-   this.stones=forestStones().map(node=>({node,sprite:scene.add.image(node.x,node.y,'town','loose-stones').setOrigin(.5,1).setScale(2).setDepth(node.y)}));
-   this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town','ancient-chest').setOrigin(.5,1).setScale(2).setDepth(t.y)}));
+   this.stones=forestStones().map(node=>({node,sprite:scene.add.image(node.x,node.y,'town',propFrame('loose-stones')).setOrigin(.5,1).setScale(propScale('loose-stones')).setDepth(node.y)}));
+   this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town',propFrame('ancient-chest')).setOrigin(.5,1).setScale(propScale('ancient-chest')).setDepth(t.y)}));
 
   }
-  this.bag=scene.add.image(0,0,'town','stash-bag').setOrigin(.5,1).setScale(2).setVisible(false);
+  this.bag=scene.add.image(0,0,'town',propFrame('stash-bag')).setOrigin(.5,1).setScale(propScale('stash-bag')).setVisible(false);
   this.arc=scene.add.graphics();
  }
  update(delta,r){
@@ -61,7 +62,7 @@ export class ForestView {
    const angle={up:-Math.PI/2,down:Math.PI/2,left:Math.PI,right:0}[this.swingDirection]+(t-.45)*2;
 
    this.arc.clear().setDepth(p.y+(this.swingDirection==='up'?-2:3));
-   if(t>.26&&t<.66){
+   if(t>.26&&t<.66&&!this.scene.player.action){
     const can=this.scene.player.wateringCan.can;
     // Follow the actual blade rather than an unrelated circle around the feet.
     const dx=(can.flipX?5:11)-can.originX*16,dy=7-can.originY*16;
@@ -76,7 +77,7 @@ export class ForestView {
  attack(direction,result){
   const s=this.scene.app.state,animal=s.forest.animals[result.animalId]||s.forest.woodland[result.animalId],entry=this.animals?.find(a=>a.definition.id===result.animalId)||this.woodland?.animals.find(a=>a.id===result.animalId);
   if(result.hit){const p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());}
-  if(result.defeated){const b=animal.position;const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast('+'+result.meat+' Meat'+(result.species==='boar'?' / +1 Wild Hide':''));}
+  if(result.defeated){const b=animal.position;const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast('+'+result.meat+' Meat'+(result.species==='boar'?' / +1 Wild Hide':'')+' / Bag Gear / cook at Home hearth');}
  }
  hurt(){const p=this.scene.app.state.position;this.bits(p.x,p.y-24,0xe99566);this.scene.cameras.main.shake(100,.0015);}
  bits(x,y,color){for(let i=0;i<8;i++){const bit=this.scene.add.rectangle(x-14+i*4,y,4,4,color).setDepth(y+60);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*4,y:y-20-(i%3)*6,alpha:0,duration:400+i*20,onComplete:()=>bit.destroy()});}}

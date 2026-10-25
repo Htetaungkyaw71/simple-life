@@ -1,6 +1,7 @@
 import {cropStatus} from '../systems/cropStatus.js';
 import {panel,text,icon,UI_COLORS} from './pixelWidgets.js';
 import {pixels} from './statusArt.js';
+import {propScale} from '../data/propArt.js';
 const intersects=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
 export class CropInfo {
  constructor(hud){
@@ -12,8 +13,8 @@ export class CropInfo {
   this.condition=text(u,this.root,19,this.compact?47:50,'',7);this.am=text(u,this.root,18,this.compact?47:50,'',this.w<=130?5:6);this.pm=text(u,this.root,this.w<=130?76:104,this.compact?47:50,'',this.w<=130?5:6);
  }
  update(s,c){
-  const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(!!info);if(!info)return;
-  this.crop.setTexture('town',info.icon);this.name.setText(info.name);if(this.mm){this.name.setY(3);this.stage.setY(22).setVisible(!this.tinyMyanmar);this.timer.setY(this.tinyMyanmar?33:49);this.condition.setY(this.tinyMyanmar?53:69).setMaxWidth(this.w-25);}
+  const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(false);if(!info)return;
+  this.crop.setTexture('town',info.icon).setScale(propScale(info.icon,.75));this.name.setText(info.name);if(this.mm){this.name.setY(3);this.stage.setY(22).setVisible(!this.tinyMyanmar);this.timer.setY(this.tinyMyanmar?33:49);this.condition.setY(this.tinyMyanmar?53:69).setMaxWidth(this.w-25);}
   this.stage.setText(`${info.stageName} / ${info.stage}/${info.stages}`);
   const narrow=this.w<=130,timer=info.dead?'Dead / clear':info.ready?'Ready to harvest':info.paused?'Paused / water':`Harvest / ${info.remaining} watered days`;
   this.timer.setMaxWidth(this.w-25).setText(narrow&&!info.dead&&!info.ready&&!info.paused?`Harvest / ${info.remaining} days`:timer);

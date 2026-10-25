@@ -1,3 +1,291 @@
+# 2026-10-23 — Mystical Forest River welcome view
+
+The welcome screen now uses an original front-facing Mystical Forest River composition: a luminous deep-forest clearing, tall layered trunks, dark tropical foliage framing both sides, a calm foreground river, distant waterfall and rustic bridge. The generated background contains no baked title, buttons or characters; Phaser keeps the Simple Life wordmark, save-aware menu, English/မြန်မာ selector, focus feedback and responsive hit targets live above it. The title alone now has a complete dark pixel outline, deeper offset shadow and warm-cream face for clarity against the bright clearing. Short reference-style water wavelets pulse only inside a conservative source-space river channel; the previous lower-screen travelling-line layer is removed so rocks, roots, bridge and shoreline foliage remain dry. Birds and drifting leaves remain subtle, and reduced-motion still freezes scenery motion.
+
+The asset is local and explicitly allowlisted; no runtime AI, remote image, backend or new dependency was added. Generation, reference roles, exact prompt, hash and limitations are recorded under [the source record](docs/assets/licenses/welcome-mystical-river-v1/SOURCE_RECORD.md). Verification is recorded in [project status](docs/PROJECT_STATUS.md). No deployment, publication or push.
+
+---
+
+# 2026-10-23 — silent tool toggles and visible Meat cooking loop
+
+Seed and Harvest toolbar toggles now change only their selected icon state: no temporary selection text, nearby-world prompt or first-farm guide appears. Hunted Meat is a raw ingredient on the first **Bag → Gear** page. Choose **Cook** to see the Home-hearth recipe; at the hearth, a built stove converts **1 Meat + 1 Wood** into **1 Grilled Meat**. Grilled Meat is first in **Bag → Food**, and eating it restores **50 health / 35 energy**, capped at 100. Raw Meat is no longer edible directly.
+
+The focused Node regressions pass, the production build succeeds, and real Chrome canvas checks pass the toolbar flow at 1280×720 and the complete cook/eat flow at 640×360. The full repository suite is **408/410**: two unrelated pre-existing art-manifest checks remain red in the dirty art worktree (`barber-grass-v2` runtime reference and Pixel Snapper frame-count drift). No asset, dependency, save schema, backend, deployment, publication or push changed.
+
+---
+
+# v0.43.5 — focused Home design and wardrobe menu (2026-10-23)
+
+Home + Garden now exposes only **House designs** and **Wardrobe**. Craft/materials, garden/tree shopping and room-furniture shopping are temporarily hidden from this menu while their existing data and save records remain intact for a future return.
+
+House designs now contains exactly two existing City residences: the free Green Bay cottage and the 2,000-coin Blue Slate cottage. No new artwork was generated. The selected City façade is used for the actual Home exterior, its collision follows that façade, and the furnished walk-in room changes between the established warm green treatment and a clearly cool-blue treatment. Continue maps any previously owned paid retired house to Blue Slate so a paid entitlement is not lost.
+
+All **409 tests pass**, `npm run build` succeeds, and local Chromium acceptance passes fresh desktop, portrait phone, short-landscape, Blue Slate exterior/interior and legacy-save cases with no captured console/page errors. [Screenshots, browser record and limitations](docs/verification/home-menu-v0435/README.md). No deployment, publication or push.
+
+---
+
+# City building redesign concepts — review only (2026-10-18)
+
+Created nine distinct residential façade concepts plus new café, clothing-shop and barber façades after inspecting the running City. The approved Pixel Snapper cottage anchors pixel density, palette and perspective without being duplicated. All twelve RGBA PNGs remain outside runtime under [the review folder](output/art/city-building-redesign-v1/README.md); the playable game is unchanged while the user reviews/processes them. Manifest validation, all 385 tests and the production build pass. [Prompts](output/art/city-building-redesign-v1/PROMPTS.md) and [source disclosure](docs/assets/licenses/city-building-redesign-v1/SOURCE_RECORD.md). No deployment or push.
+
+---
+
+# v0.42.2 — native Pixel Snapper cottage in City (2026-10-17)
+
+The user-supplied 167×110 Pixel Snapper cottage now replaces the same northern City residence for review. Only the exact-white backdrop becomes transparent; every non-white source pixel and the original canvas dimensions remain exact. Phaser renders it at integer 2× with nearest-neighbour filtering. The visible door stays at the existing entry, and Tomas's home identity, parcel, save data, routes, shops, services and all other gameplay remain unchanged.
+
+[Source, hashes and terms](docs/assets/licenses/city-cottage-snapper-v2/SOURCE_RECORD.md) and [checks/limits](docs/verification/city-cottage-snapper-v2/README.md). No deployment or push.
+
+---
+
+# v0.42.1 — cleaned terracotta cottage in City (2026-10-17)
+
+The approved cleaned terracotta cottage now replaces one northern City residence. It uses the same 120×112 native cell and integer 2× world scale as the neighboring cottage, with a centered visible door, traced collision, connected paved approach, and preserved resident/home/save identity. Shops, services, other houses, layouts and gameplay are unchanged.
+
+The selected generated original, native derivative, prompt summary, output terms, hashes and preservation audit are recorded under [source evidence](docs/assets/licenses/city-cottage-terracotta-v1/SOURCE_RECORD.md). Full tests/build and local browser verification are recorded in [checks and limits](docs/verification/city-cottage-terracotta-v1/README.md). No deployment or push.
+
+---
+
+# v0.42.0 — living welcome screen (2026-10-17)
+
+The welcome screen now opens directly with persistent English/မြန်မာ controls. A layered Phaser farm scene replaces the static title composition: flowing river reflections, flying birds, wind-blown leaves and independently swaying tree crowns. The two title characters are removed; farmer selection remains. The Simple Life wordmark has a warm cream shadow and leaf ornament, and spaced buttons use a short entrance fade, hover response and animated focus leaf. Reduced-motion preferences are respected.
+
+New-game confirmation, Continue, help, credits, local saves and the fullscreen canvas architecture remain. See [checks and release](docs/verification/welcome-v042/README.md) and [art/source record](docs/assets/licenses/welcome-v042/SOURCE_RECORD.md).
+
+---
+
+# v0.41.0 — approved City garden and shops integrated (2026-10-17)
+
+The café occupies the requested southern cottage site with two tables in front. The riverside clothing shop and nearby barber have enterable interiors with Nell and Sol's existing services. The camp is on the eastern green plot without its fixed planter bench; northern cottages retain the relocated residents' home identities. Fountain planting is fuller, and the current green-ground style and public seating terrace remain.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue.380 tests and production build pass. [Browser views, checks and limits](docs/verification/city-shops-v1/README.md). Approved artwork, both previous proposals and original generated files are preserved. Café currently provides outdoor seating. No deployment or push.
+
+---
+
+# v0.40.0 — approved City streets and terrace integrated (2026-10-16)
+
+The approved compact three-bench terrace, connected warm-grey streets, cream sidewalks with shallow raised curbs/lowered crossings, and shaped planted fountain island are now playable. **The existing game's green-ground palette, noise and grass texture are retained**, replacing the proposal's flat olive/sage fields. Approved furniture, fountain, lamps, character art and scales stay unchanged.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue.375 tests and production build pass. [Live screenshots, access/save checks and limits](docs/verification/city-layout-v1/README.md). The three historical proposals and earlier artwork remain preserved. No deployment or push.
+
+---
+
+# v0.39.0 — refreshed outdoor details and night lamps (2026-10-16)
+
+Refreshed notice/route boards, wheelbarrow, ground wildflowers, fountain and tents. The same approved well is50% larger; older planted benches reuse the accepted planter. Lamps light at night and stay unlit by day. City lamp bases clear roads and tree roots sit on green ground, retaining saved chopping IDs.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue.371 tests/build and source/runtime audits pass. [Day/night views, checks and limits](docs/verification/outdoor-followup-v1/README.md); [source evidence](docs/assets/licenses/outdoor-followup-v1/SOURCE_RECORD.md). Originals and backups remain. No publication.
+
+---
+
+# v0.38.0 — reviewed outdoor collection integrated (2026-10-16)
+
+The approved unlit lamp and fourteen reviewed outdoor objects now replace matching art across the world. Inspect Home/Farm/City for walnut benches, blank signs, mailbox, crates/barrels, joined fences, a closed City boundary gate, wells, foliage, rocks, trees, flowerpots and empty market stalls. The approved home and planter remain.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue.367 tests and production build pass; actual Home/City walking and art checks passed. [Screenshots, checks and limits](docs/verification/outdoor-collection-v1/README.md), [originals/prompts/provenance](docs/assets/licenses/outdoor-collection-v1/SOURCE_RECORD.md). Previous art is backed up. No publication.
+
+---
+
+# v0.37.2 — muted City planter-bench (2026-10-16)
+
+The approved walnut/sage revision now replaces the orange planter-bench below the City seed stall, left of the fountain. Placement, scale and footprint stay the same. Reload [the local game](http://127.0.0.1:4215/) to inspect it. Original and previous artwork remain preserved.
+
+365 tests and production build pass. Actual in-app browser reload/City visual check passed. [Screenshot, checks and limits](docs/verification/planter-bench-muted-v2/README.md); [source evidence](docs/assets/licenses/planter-bench-muted-v2/SOURCE_RECORD.md). No publication.
+
+---
+
+# v0.37.1 — one vertical planter-bench in City (2026-10-16)
+
+The approved north–south planter with two long side seats is now the planted bench below the City seed stall, left of the central fountain. Refresh [the local game](http://127.0.0.1:4215/) and Continue to inspect it. One instance changes; other benches and the approved home remain. Original artwork is preserved; no glow or surrounding shadow is added.
+
+365 tests and production build pass. [Checks/limits](docs/verification/planter-bench-v1/README.md), [original/prompt/export evidence](docs/assets/licenses/planter-bench-v1/SOURCE_RECORD.md). Actual browser verification remains blocked by the app's URL security policy. No publication.
+
+---
+
+# v0.37.0 — approved home interior (2026-10-16)
+
+The accepted home collection and structural preview are integrated: taller cream wall, mounted windows/shelf, continuous side boundaries, quieter terracotta tiles, grounded back-row furniture and a clear flush threshold. The approved table remains in the furniture family. The storage pot is removed and firewood sits closer to the wall. Original artwork and previous runtime art are preserved.
+
+[Play locally](http://127.0.0.1:4215/) — refresh, Continue and enter the house. [Offline layout render](docs/verification/home-interior-v1/integrated-layout-offline.png), [checks and browser limitation](docs/verification/home-interior-v1/README.md), [source evidence](docs/assets/licenses/home-interior-v1/SOURCE_RECORD.md). 363 tests and the normal production build pass. Browser automation is blocked by the app's URL security policy, so the offline render is not claimed as a browser screenshot. No push or publication.
+
+---
+
+# v0.36.3 — one 32×24 table trial (2026-10-15)
+
+One fixed dining table inside the house now uses an original32×24 transparent sprite: broad oval walnut top, thin rim, short front legs, one cream jug and two terracotta cups. It renders at2× native scale, sharing the character pixel grid. Its smaller collider matches its visible size. Other objects/catalog art remain at their preceding designs; earlier candidate sources and atlas frames are preserved.
+
+[Play locally](http://127.0.0.1:4215/) — refresh, Continue and enter the house. [Native PNG](output/art/table-native-v1/native.png), [exact prompts/source record](docs/assets/licenses/table-native-v1/SOURCE_RECORD.md), [actual game view/checks](docs/verification/table-native-v1/README.md). This is one candidate awaiting human review before further object changes.
+
+---
+
+# v0.36.0 — approved cedar style across props (2026-10-15)
+
+The approved high-angle bench now guides furniture, garden/street props, market fixtures and wilderness utility objects. Broad top surfaces, muted cedar, sage/pastel planting, shaded stone/ceramics and crisp native pixels share one view. Catalogs, rotated previews and placed pieces use the same artwork. Tables remain indoors.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Native sprite gallery](output/art/cedar-props-v1/review.html), [exact prompts/source evidence](docs/assets/licenses/cedar-props-v1/SOURCE_RECORD.md), [game screenshots/checks](docs/verification/cedar-props-v1/README.md). Existing footprints, prices, saved purchases and gameplay remain; 359 tests and production build pass.
+
+---
+
+# v0.35.3 — one high-angle cedar bench for review (2026-10-15)
+
+One Home garden bench at(960,824) now shows the requested high-angle 3/4 top-down cedar sample, with muted earthy wood, sage foliage, pastel flowers and the existing subtle contact shadow. The broad seat/armrest tops are visible. All other object designs and bench variants remain unchanged pending the user's review. [Sample, prompts and export evidence](docs/assets/licenses/bench-cedar-v1/SOURCE_RECORD.md).
+
+---
+
+# v0.35.2 — coherent prop views and indoor dining (2026-10-15)
+
+Refined 41 existing object frames from 28 new original sources: consistent overhead tops/fronts, warm stepped material shading, proper seating views and clearer wood, ceramic, stone and canvas forms. Indoor back-row feet align, and the hearth/logs clear the dining seat. Outdoor tables are removed; dining tables place indoors, and former outdoor tables return to Bag on Continue. Existing owned indoor decor affected by the spacing change is also packed safely.
+
+Checks: all 358 tests and production build pass. Art audit preserves all frame metadata and 917 non-target atlas cells. Production remains 46 local files. [Art/provenance](docs/assets/licenses/props-v3/SOURCE_RECORD.md); [verification evidence](docs/verification/props-v3/README.md).
+
+---
+
+# v0.35.1 — cleaner pixel props and consistent overhead views (2026-10-15)
+
+The user's quality correction replaces grainy furniture with broad pixel clusters, stronger edges, quieter rug motifs and a shared view from above. Thirteen new selected source sprites define the main furniture set; other recent props share the native palette treatment. Rugs fill their existing floor area, keeping seats visually on the carpet. Room layout, furniture solids, farmers and saved pieces remain.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Updated native gallery](output/art/props-v2/index.html), [prompts/source record](docs/assets/licenses/props-v2/SOURCE_RECORD.md), [checks and room preview](docs/verification/props-v2/README.md).
+
+---
+
+# v0.35.0 — layered pixel props and clearer snow trees (2026-10-15)
+
+The latest user reference guides crisp overhead pixel objects with visible top surfaces, shaded fronts and material texture. Refreshed village furniture, garden decorations, public planted seating, tents, home furnishings and older woodland props. The snowy pine now separates bright caps from dark needles and warm bark. Existing character art, placement footprints and saved purchases stay intact.
+
+[Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Native art gallery](output/art/props-v1/index.html), [exact prompts and source evidence](docs/assets/licenses/props-v1/SOURCE_RECORD.md), [verification](docs/verification/props-v1/README.md).
+
+---
+
+# v0.34.0 — more foliage, water footsteps and solid bridge sides (2026-10-15)
+
+Removed the two rejected spiky plant designs from rendering. Added small birch-style trees, young-fruit forms and leafy/berry/flower bush looks, with varied heights among existing trees. Existing saved tree/ground-cover IDs, crops and clearing progress remain.
+
+Running through water now produces alternating foot splashes, expanding wake rings, droplets and entry/exit splashes, clipped to the water surface. Bridge sides now block walking/jumping through railings; enter from the open ends. The deck stays dry and nearby water remains traversable. [Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Art/prompts](output/art/nature-v2/README.md), [verification](docs/verification/nature-water/README.md).
+
+---
+
+# v0.33.0 — natural layered trees and grass (2026-10-15)
+
+Original broadleaf crowns, warm branching trunks, feathered palms, textured pines and botanical grass now replace the simpler common tree/grass art. Home, Farm, City and Forest share the olive foliage treatment; existing Forest habitat colors remain. Grass bends while walking, canopy fades keep the farmer visible and small ground marks/flowers are calmer. Native transparent pixels stay sharp.
+
+Farm layout, restored grass, saved crops, cut-tree IDs, gathering, collisions and inventory remain. [Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Artwork and prompts](output/art/nature-v1/README.md), [verification](docs/verification/nature-v1/README.md).
+
+---
+
+# v0.32.0 — five-row Farm and restore grass (2026-10-15)
+
+The starter is **8 × 5 / 40 spaces**, with a grass gap from the narrower entrance road. The Farm board moves onto existing main-lane ground farther from the field. All four growing-area clearances match; undug ground stays grassy.
+
+To undo digging, select the **Shovel**, target an **empty bed**, press **E / Use** (or tap it), then choose **Restore grass**. Cancel keeps the bed. Restored grass stays after Continue and can be dug again; planted crops must be harvested/cleared first. Existing six-row saves lose only empty sixth-row soil, preserving crops and saved indices. [Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Verification](docs/verification/farm-restore/README.md).
+
+---
+
+# v0.31.1 — taller farm, dig on clear ground (2026-10-15)
+
+The starter is now **8 columns × 6 rows**, with 48 prepared spaces. All four cleared growing areas are 384 × 288. Undug areas show natural grass; removed the large light-brown fallow rectangles. The shovel can prepare clear ground anywhere on your Farm without the Copper Can or a coin payment. Roads, water, buildings and placed furniture still need clearance.
+
+Existing crop coordinates, saved custom beds, inventory and coins remain. Missing starter rows are added safely on Continue, preserving existing crops and owned scenery. [Play locally](http://127.0.0.1:4215/) — refresh, then Continue. [Checks and limitations](docs/verification/farm-free-dig/README.md).
+
+---
+
+# v0.31.0 — wider fields and simpler farm lanes (2026-10-15)
+
+The starter bed is now8columns×4rows /32prepared spaces. All four growing areas share a384×192footprint: the other three show lighter fallow earth, ready for shovel digging. Digging inside these areas needs no Copper Can or coin payment; the upgrade still gates digging outside them. The road network is reduced from12to6segments, retaining the entrance/main lane without putting new roads over old planted ground.
+
+Existing64reserved crop slots per farm stay at their original positions/IDs. Sixteen starter extensions use existing custom-bed storage; migration appends empty spaces while preserving old custom crops, furniture and planted grass. Existing wallet/inventory/progression remain. [Play locally](http://127.0.0.1:4215/) — refresh and Continue. [Verification and limits](docs/verification/farm-layout/README.md).
+
+---
+
+# v0.30.1 — clearer farm beds and transparent crops (2026-10-15)
+
+Simplified the Farm: removed repeated scarecrows, field/ornamental fences, barrels, crates, wheelbarrow, central shed and standalone ornamental flower clusters. Useful house/trees/well/board/signs and player-owned decorations remain. Connected soil now has shallow pixel turf edges, warmer earth and softer dry/watered transitions. Removed painted soil bases from40crop frames; all remaining plant pixels and898other atlas frames stay unchanged. Existing crops, ownership, plot coordinates, progress, prices and saves remain.
+
+[Play locally](http://127.0.0.1:4215/) — refresh, then Continue. All337tests and production build pass; desktop/phone farming interactions were checked. No new image generation was needed. [Before/after crop art](output/art/farm-refresh-v1/), [source record](docs/assets/licenses/farm-refresh-v1/SOURCE_RECORD.md), [verification](docs/verification/farm-refresh/README.md). This improves the existing crop art; fuller botanical plant designs remain a separate optional art pass. No publication.
+
+---
+
+# v0.30.0 — matching town merchants (2026-10-14)
+
+Nell and Sol now use the approved farmer-matching designs, with directional idle and six-pose walking cycles. Visit Nell for **Outfits / Extras** and Sol for **Hair only**. Hair previews hide accessories so the hair is visible; your equipped items stay equipped. Home Wardrobe retains all categories. Their homes, service hours, dialogue and evening return remain.
+
+[Play locally](http://127.0.0.1:4205/) — refresh, then Continue.336tests/build and desktop/phone interaction checks pass. [Checks and art limitations](docs/verification/npc-integration/README.md). [Nell/Sol animation sources/prompts](docs/assets/licenses/npc-matching-animated-v1/SOURCE_RECORD.md). The next NPC, Clara the seed seller, has a [four-view standing design](http://127.0.0.1:4215/output/art/npc-clara-v1/) for appearance review, outside the playable build. [Clara source/prompt](docs/assets/licenses/npc-clara-v1/SOURCE_RECORD.md). No publication.
+
+---
+
+# New NPC designs · Nell and Sol (2026-10-14)
+
+The first two matching NPC standing designs are ready for appearance review: Nell in a rose blouse/apron and Sol in a teal vest with grey temple streak. Both have four transparent64×64views,40native-pixel visible height and equal small eyes, matching the approved farmer style. [Review beside the farmers](http://127.0.0.1:4213/output/art/npc-matching-v1/) while the development server runs. [Source/prompts/rights](docs/assets/licenses/npc-matching-v1/SOURCE_RECORD.md), [verification](docs/verification/npc-matching/README.md).
+
+As proposed, appearance approval comes before walking animations and game integration. Playable game remains0.29.0with existing NPCs, shops, schedules and saves.333tests and build pass; the new review art stays outside production. No publication.
+
+---
+
+# v0.29.0 — keep your farmer, choose clothes and extras (2026-10-14)
+
+Clothing purchases now keep the chosen male/female farmer, face and complete animations. Five workwear colour options and hair colours replace the old NPC-preset swapping. New matching extras: straw hat55c, round glasses40c and canvas backpack75c, worn independently or together. Buy new clothes/extras from Nell in the City7am–7pm; change owned items for free through Home & garden → Wardrobe → Extras. Sol still handles hair colour. Turn the preview to inspect all four views.
+
+[Play locally](http://127.0.0.1:4205/) — refresh after this update, then Continue. Old saves and purchased clothes remain.333tests/build, native pixel audit and desktop/phone-size interaction checks pass. [Verification and limitations](docs/verification/farmer-cosmetics/README.md), [artwork/prompts/rights record](docs/assets/licenses/farmer-cosmetics-v1/SOURCE_RECORD.md). Clothing variants currently change fabric colour; new garment shapes are future artwork. No publication.
+
+---
+
+# v0.28.1 — matching female farmer, corrected size and eyes (2026-10-14)
+
+The female farmer now has the same complete action set as the approved male: four-direction blink idle, running, harvesting, digging, chopping, watering, axe attack and authored jumping. Shared carried tools use her own frame-specific hands and angles, hiding during combined actions. Your follow-up is fixed: her standing height now matches the boy closely, and both front idle eyes have identical narrow pupils.
+
+[Play locally](http://127.0.0.1:4205/) — refresh to load the corrected artwork. Choose Play as Girl or Garden outfit / Autumn look. [Complete female sprite pack](output/art/farmer-girl-v2.zip), [source/prompts](docs/assets/licenses/farmer-girl-v2/SOURCE_RECORD.md), [verification](docs/verification/farmer-girl-v2/README.md). Existing male art and saved progress remain; no publication.
+
+---
+
+# v0.27.0 — male jump and matching carried tools (2026-10-14)
+
+The approved male farmer now has a six-pose jump in all four directions and separate matching axe, shovel and watering-can views. Carried tools follow the actual hand/angle in each idle, running and jump frame, and disappear during the existing combined tool actions. All168original approved frames and the accepted smaller display size remain.
+
+[Play locally](http://127.0.0.1:4205/) after refreshing the local build; [complete updated sprite ZIP](output/art/farmer-boy-complete-v3.zip), [prompts/source](docs/assets/licenses/farmer-boy-extension-v1/SOURCE_RECORD.md), [verification](docs/verification/farmer-boy-extension/README.md). No publication was requested.
+
+---
+
+# v0.26.2 — smaller display, original face detail (2026-10-14)
+
+Restored the original male sprite pixels after automatic native resizing removed a narrow eye. The farmer keeps the accepted smaller size: original 64×64 frames display at 1.5× instead of 2×, giving the same approximately 60-world-unit body height as v0.26.1. Both front eyes remain in the original frames; nearest filtering keeps the rendering sharp. All animations/tool alignment and saved gameplay remain.
+
+[Local game](http://127.0.0.1:4205/) — refresh to load the restored artwork. [Verification](docs/verification/farmer-eyes/README.md). All 320 tests, build and desktop/phone checks pass.
+
+---
+
+# v0.26.1 — smaller male farmer (2026-10-14)
+
+The male farmer is 25% smaller, matching the existing girl’s approximately 30-pixel body height. All seven actions retain their supplied timing. Native 48×48 game frames use sharp nearest sampling and integer 2× rendering; the original 64×64 source pack remains intact. Carried tools stay separate during idle/running, and the existing combined action poses hide the separate tool.
+
+[Local game](http://127.0.0.1:4205/), [verification](docs/verification/farmer-scale/README.md). Refresh the local game to load the smaller sprite. All 320 tests, the production build and desktop/phone browser checks pass.
+
+---
+
+# v0.26.0 — revised male farmer (2026-10-14)
+
+Your supplied revised boy is now in the local game: four-direction idle/running, harvesting, digging, chopping, watering and axe attacks. Original native pixels and per-frame timings are preserved. Choose Play as Boy, or use Worker outfit / Classic look; existing girl, other outfits, NPCs and saved progress remain.
+
+[Play locally](http://127.0.0.1:4205/) while the server runs. [Verification](docs/verification/farmer-boy-runtime/README.md), [source/rights evidence](docs/assets/licenses/farmer-boy-revised-v2/SOURCE_RECORD.md). 320 tests/build and desktop/phone browser checks pass. This local update has not been published.
+
+---
+
+# Revised farmer v2 · approved full sprite export (2026-10-14)
+
+The user approved the revised farmer and requested the full set for game import. [Download the complete ZIP](output/art/farmer-boy-revised-v2.zip):168 transparent64×64 frames, seven sheets,28directional clips,48optional48×48idle/running crops, exact timings, import notes and original sources. [Import guide](output/art/farmer-boy-revised-v2/README.md), [verification](docs/verification/farmer-boy-revised-v2/README.md). This supersedes the earlier rejected boy exports for delivery. The playable v0.25.0 runtime remains unchanged.
+
+---
+
+# Approved farmer · full animation review pack (2026-10-14)
+
+The farmer approved in this chat now has156 transparent48×48 frames: four-direction idle, eight-frame running, and six-frame harvesting, digging, chopping, watering and existing-axe attack. The approved south idle is preserved byte for byte. [Review all animations locally](http://127.0.0.1:4203/farmer-boy-approved-v1/) while the server runs; [download pack](output/art/farmer-boy-approved-v1.zip). [Source/prompts](docs/assets/licenses/farmer-boy-approved-v1/SOURCE_RECORD.md), [verification](docs/verification/farmer-boy-approved/README.md). This new olive-overall pack awaits appearance/motion review and integration; existing v0.25.0 runtime art remains.
+
+---
+
+# New farmer boy action art · review export (2026-10-13)
+
+[Preview all animations locally](http://127.0.0.1:4202/farmer-boy-actions-v1/) while the local server runs. [Download project export](output/art/farmer-boy-actions-v1.zip):156 transparent native frames across idle, running, harvesting, digging, chopping, watering and existing-axe attack, in four directions. [Prompts/provenance](docs/assets/licenses/farmer-boy-actions-v1/SOURCE_RECORD.md), [checks and limits](docs/verification/farmer-boy-actions/README.md). This export awaits motion polish and runtime integration; the playable v0.25.0 game below retains its approved sprites.
+
+---
+
 # v0.25.0 — farmer girl sprites (2026-10-13)
 
 The new brown-ponytail farmer girl is playable in the local project. Choose Play as Girl, or equip the free Garden outfit / Autumn look in the wardrobe. Four directional idle poses and eight-frame running cycles use native pixels, the same padded 48×48 rig and 16 fps cadence as the approved male farmer. Front idle art is 30 pixels tall; source art is generated with OpenAI imagegen and adapted to a shared 32-colour palette. Tools follow each real hand pixel. Other complete looks and town NPCs retain their established art.
@@ -378,7 +666,7 @@ Choose boy/girl. Start with 60 coins, collect three Tomato seeds from the Home c
 
 Twelve crops: Tomato / Strawberry / Carrot / Corn / Chili / Eggplant / Cucumber / Watermelon / Pumpkin / Grape / Blueberry / Sweet Potato. The four original crops keep seed prices **10 / 18 / 28 / 40**, growth **3 / 4 / 3 / 4** watered days, yield **2 / 2 / 1 / 3**. The paged City seed shop supplies all twelve; values are in src/data/crops.js. Home's east edge leads to City. Clara sells seeds; Niko buys crops, forest fruit and Wild Hide; Rowan is a resident with an Axe tip; the Wooden Club and its shop have been removed. Merchants serve while at work during **07:00–20:00**. They leave early enough to reach their house doors by 20:00, and emerge at 06:00 to walk back. Shops pause simulation, use icon tabs, exact quotes and 1/5/Max or All quantities. City seed aid retains one free Tomato seed/day for eligible broke farmers.
 
-Follow Home's wooden **FOREST ↑** sign to a **10240×5120 wilderness**, exactly **twice v0.4.8 and 40 times the original forest area** at the same camera/character scale. Forty connected regions include Homewood, jungle groves, savanna, bamboo, pine woods, marsh/river, basalt caves, ruins, highlands and a stylized snowy lake. Timber bridges cross the river; natural shores, walkable stone chambers, camp, shrine and ice landmarks reward exploring. The map icon / M opens the Forest-only parchment map, with explored terrain, rivers, player position and current facing. The ? control offers broad cache clues; exact treasure positions stay hidden. The open entrance and Home exit are at the bottom centre of the full Forest map. The central Return Gate brings you back to this entrance; the map marks Home at its southern edge.
+Follow Home's north road to a **10240×5120 wilderness**, exactly **twice v0.4.8 and 40 times the original forest area** at the same camera/character scale. Forty connected regions include Homewood, jungle groves, savanna, bamboo, pine woods, marsh/river, basalt caves, ruins, highlands and a stylized snowy lake. Timber bridges cross the river; natural shores, walkable stone chambers, camp, shrine and ice landmarks reward exploring. The map icon / M opens the Forest-only parchment map, with explored terrain, rivers, player position and current facing. The ? control offers broad cache clues; exact treasure positions stay hidden. The open entrance and Home exit are at the bottom centre of the full Forest map. The central Return Gate brings you back to this entrance; the map marks Home at its southern edge.
 
 **323 daily forage nodes** provide nine fruits: Wild Berry (+12 energy / 6 base coins), Guava (+20 / 12), Mango (+30 / 20), Banana (+18 / 10), Orange (+22 / 14), Papaya (+32 / 22), Coconut (+35 / 24), Dragon Fruit (+42 / 36), Pineapple (+38 / 28). E/tap collects; Bag → food tab also offers farm-grown Watermelon (+35), Grape (+20) and Blueberry (+16), for thirteen foods including hunted Meat. Every food restores health as well as energy; the bag shows both gains. Meat restores 25 health / 20 energy and has a 16-coin base sale value. Eating consumes one, independently caps both stats at 100, and only refuses consumption when both are full (or health is zero). Market pages buy every fruit and Wild Hide with the retained 85–120% daily multiplier. Original crop/fruit/hide price salts stay unchanged. Nodes refresh once per day, never on scene reentry/reload.
 

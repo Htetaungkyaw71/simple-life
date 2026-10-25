@@ -1,0 +1,11 @@
+{
+  "src/ui/WelcomeView.js": "d85a78f1a72aaa68403ae4a74fedcaad69d00fd7058f70cfa0b60f9bdf58710b",
+  "src/ui/MenuView.js": "2763074ad253bc959242824b4422c0244e26ef132f52bf10a43db770ad856979",
+  "src/ui/interface.js": "762d9711e4a141499bc97ce4543c410ca5f222cbbdfbdc2e1773a27f0c3e5680",
+  "src/main.js": "6d1f0f870f4e6a77b66e8bd34ce5f3c0629a36b419f6897ecab0dffd618dbd67",
+  "public/assets/pixel/processed/town.png": "5237189ddd2ac7e8e048651a044355be4bf8b6c7bba6cfe4ac924b528ce00474",
+  "public/assets/pixel/processed/town.json": "aab45ea78ea1979c8ea93c21530f033e2662da5b9f420952fc461f6fc13cfe8a",
+  "public/assets/pixel/fonts/thaleah.png": "4b0b3c082b584e69138dcef4a7650b0d3e764d54f01effb624e1511cc2524ee8",
+  "public/assets/pixel/fonts/m5x7.png": "6f3ae0190a7b62b68105812fd0dab4e66361520305bddfcb73a9fbddf476dc63",
+  "public/assets/pixel/fonts/noto-myanmar.ttf": "d3fa6e33ca7a4aeb8cb65dfe19ec608c49ef629f2b37585c23d5c80b0bd1e1bf"
+}

@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-15",
+  "version": "0.35.0",
+  "alphaThreshold": 224,
+  "palette": 57,
+  "sources": {
+    "bench": {
+      "file": "sources/bench.png",
+      "sha256": "4dcd6bcf10adafe767d15d7fe75ee84a8891d49173f24cd7a42c25885e4cb56a"
+    },
+    "table": {
+      "file": "sources/table.png",
+      "sha256": "71594a1b7c6c3e7ba873460cc742d612b3b2f6e1c6ce5cabb85040b1eefdc2a6"
+    },
+    "well": {
+      "file": "sources/well.png",
+      "sha256": "ba85522443a534096c4c81e0bf180086e76b3fe6dd22166623c047b6d73c6ab8"
+    },
+    "lantern": {
+      "file": "sources/lantern.png",
+      "sha256": "0a783ba461d22cb19b5f34780ecf544f5517b16bbc1c39ead67596462ee140f1"
+    },
+    "notice": {
+      "file": "sources/notice.png",
+      "sha256": "e9bdcc14cfe05661a1f983795cdd8d8853e85c81869e77cde9102d08bec2a6f4"
+    },
+    "crate": {
+      "file": "sources/crate.png",
+      "sha256": "74378160c3f32205e66872b3bd898a1d8fa2d82e6f0ac41a58004b101ba912b0"
+    },
+    "barrel": {
+      "file": "sources/barrel.png",
+      "sha256": "3a428842b986ea92568f8969a8ab9e85cf14e0658be50712dc8e95c46adab9bd"
+    },
+    "planter": {
+      "file": "sources/planter.png",
+      "sha256": "038b3e3d1cc42d34e7482e97326373d67b38d9384fb2b9b0bec58cb970536bbb"
+    },
+    "mailbox": {
+      "file": "sources/mailbox.png",
+      "sha256": "a129075ec9edcba45e09f06421bb01697902ef948b36acd0b4230f7db916ca7d"
+    },
+    "wheelbarrow": {
+      "file": "sources/wheelbarrow.png",
+      "sha256": "48ce2c7fec70d6ea1085340c0ec4f7e1a56d5a253f28bef279412f1e75b719ff"
+    },
+    "sunflower": {
+      "file": "sources/sunflower.png",
+      "sha256": "ef907fa56d04c2f1b76c987413dc97acb10c4b40c56a61860871e400d40b15eb"
+    },
+    "tent": {
+      "file": "sources/tent.png",
+      "sha256": "1f85b092e1e0cebccd2949364ad57a6fccd1f399fb91b6355a2e6256dd9247c4"
+    },
+    "bed": {
+      "file": "sources/bed.png",
+      "sha256": "ad86064e2276813bcb5088953399b69cf6a972eda0f7676501025bde5ce22a87"
+    },
+    "counter": {
+      "file": "sources/counter.png",
+      "sha256": "2577dbd51415ffbc10e25404dd19a5fd0d75f326e1c49e114862cd7715063b16"
+    },
+    "bookcase": {
+      "file": "sources/bookcase.png",
+      "sha256": "5a219ec8b6485a33aee95dded5249bb2883f4baf8991be85b30b36f4eecd0c51"
+    },
+    "pottery": {
+      "file": "sources/pottery.png",
+      "sha256": "a6c82b465a4e9fcd5acd4dd16d15151c38850fde6af4a109b009481022c94a03"
+    },
+    "vase": {
+      "file": "sources/vase.png",
+      "sha256": "a6f3d87e441c80bc2605795f98f64b3f2c8bae801545ad47e4c6a21520cb0fd9"
+    },
+    "rug": {
+      "file": "sources/rug.png",
+      "sha256": "b2ff2b3b3f75b4f2bca4520ec79770dee8343abe8cfd1bc7dece3437d028c666"
+    },
+    "snow-pine": {
+      "file": "sources/snow-pine.png",
+      "sha256": "d49501061ce803813d08d90b5895dba901d4a94abe5edc88b46fbf500e79ead8"
+    },
+    "stall": {
+      "file": "sources/stall.png",
+      "sha256": "fb3ee32e18aff2f776d9b20428ec9e3d094387c1013e19e974d51bd3f0f257e0"
+    },
+    "chair": {
+      "file": "sources/chair.png",
+      "sha256": "19b04b28815c8b8829065e375361720584ec89e9ebe5b8c52b958bd4ea81ba97"
+    },
+    "fireplace": {
+      "file": "sources/fireplace.png",
+      "sha256": "c3b33ad60e947ce39793627f1a2643ea2433db060145bc406c1fefa006cdee3a"
+    },
+    "logs": {
+      "file": "sources/logs.png",
+      "sha256": "05bd06fdaf7b74e66beb3bf439d5ddc5324c868a353c222709175a0ef81bed61"
+    },
+    "city-garden": {
+      "file": "sources/city-garden.png",
+      "sha256": "763a9cafd27a7698e53b90ac7e3513797aba9aff21ea940c114f4e4666437231"
+    },
+    "boulder": {
+      "file": "sources/boulder.png",
+      "sha256": "afe9a20fb791f2a1fb4e7370d1d2a67d8b6a09d2e1f3ed33c67c77556fbcc071"
+    },
+    "shrine": {
+      "file": "sources/shrine.png",
+      "sha256": "d787f9a4b66b1017dd271ba4167cbaa187091ce900b3537beb42e87961293b47"
+    },
+    "chest": {
+      "file": "sources/chest.png",
+      "sha256": "c1e1058e5afc0a64e25f55e84f457a85b883a231c5f4fa74a0453e02bfe4a51b"
+    },
+    "scarecrow": {
+      "file": "sources/scarecrow.png",
+      "sha256": "28eddd76603a8334402ae187e63f0e980ffc6985e0c651a5aaaeea49303b7f09"
+    },
+    "window": {
+      "file": "sources/window.png",
+      "sha256": "9a9a4926a3a1d43239a02845eeef1216d355499724a8d48816021370798b54a6"
+    },
+    "forest-log": {
+      "file": "sources/forest-log.png",
+      "sha256": "456420480676619a3beb2001e99c86cb91a9380088f3be372465459b803683b2"
+    },
+    "blossom": {
+      "file": "sources/blossom.png",
+      "sha256": "04b28108e6f0c5135e6acf8daed84ff01d013cc030f752d7dded57ec873c19e0"
+    },
+    "hedge": {
+      "file": "sources/hedge.png",
+      "sha256": "f264a899a0c39fe88d29cba00b75e0f2d9ce3117566814ac63cde670d0b130f6"
+    },
+    "flowers": {
+      "file": "sources/flowers.png",
+      "sha256": "ef8575f26c03ecc64332df0749f7b61ecb63df2a3d23c15f0123433f0ae8f4b6"
+    },
+    "birdbath": {
+      "file": "sources/birdbath.png",
+      "sha256": "b315cfacdd194d2701b2b93d9d42ee3166bc16524ac43d3dd5a44e1967eec908"
+    },
+    "bench-side": {
+      "file": "sources/bench-side.png",
+      "sha256": "387d760558642ef289b315febeef8960afc4a71db4e374eeccf49d16bfd774c5"
+    },
+    "table-side": {
+      "file": "sources/table-side.png",
+      "sha256": "16c60d86501e2c1c29f543409f906a174b3a426f5ad4b138f8d80bcd502d9fd2"
+    }
+  },
+  "changedFrames": [
+    "bench",
+    "table",
+    "well",
+    "lamp",
+    "notice",
+    "crate",
+    "barrel",
+    "planter",
+    "mailbox",
+    "wheelbarrow",
+    "city-lamp",
+    "city-flowerpot",
+    "city-tent",
+    "home-bed",
+    "bed",
+    "home-table",
+    "home-counter",
+    "dresser",
+    "kitchen",
+    "shelf",
+    "home-pottery",
+    "home-pot",
+    "pot",
+    "rug",
+    "home-rug",
+    "env-pine-snow",
+    "seed-stall",
+    "produce-stall",
+    "outfitter-stall",
+    "chair",
+    "home-fireplace",
+    "home-logs",
+    "city-bench-garden",
+    "camp-tent",
+    "env-boulder",
+    "shrine-stone",
+    "ancient-chest",
+    "scarecrow",
+    "home-window",
+    "window",
+    "forest-log",
+    "home-bench"
+  ],
+  "addedFrames": [
+    "prop-blossom",
+    "prop-hedge",
+    "prop-flowers",
+    "prop-birdbath",
+    "prop-rug",
+    "prop-bookcase",
+    "prop-vase",
+    "prop-bench-left",
+    "prop-table-left",
+    "prop-planter",
+    "prop-bench-up",
+    "prop-fence-left"
+  ],
+  "protectedFrames": 904,
+  "allOldCoordinatesUnchanged": true,
+  "atlas": {
+    "w": 1024,
+    "h": 2564
+  },
+  "snowRootOrigin": 0.4984,
+  "runtimeSHA256": "17da365a332ff06577a9bdad45d4687e24006e7f08712401f5a988097055ceb4"
+}

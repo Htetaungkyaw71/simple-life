@@ -1,0 +1,11 @@
+# Nell and Sol directional animation — 2026-10-14
+
+The user approved the standing designs and requested game integration with separated merchant categories. OpenAI built-in imagegen produced six transparent raster sheets: idle and walking for each resident, then one targeted walking correction for each. Model version is not exposed. The approved own-project standing sheets supplied identity/style reference. No third-party game/NPC sheet was used.
+
+Original outputs remain in `output/art/npc-matching-animated-v1/source/`. Exact prompts are the six `*-prompt.txt` files in the parent folder. Hashes are in [record.json](record.json). Native frame metadata is `output/art/npc-matching-animated-v1/manifest.json`.
+
+`scripts/npc_matching_animated.py` cuts generated transparent gutters, thresholds alpha128, samples whole poses to the approved native scale with nearest pixels, maps colours to the approved per-direction palette, registers head/boot positions, and pads64×64 with ground(32,56). Approved neutral frames are copied unchanged into idle phases0/3. Generated side idle poses drifted toward the camera, so side idle holds the approved standing image. Nell's native generated blink lost facial marks, so that slot also holds her approved standing image; her front/back settling pose still moves. Sol retains the short generated blink. Six authored east walking poses are mirrored for west to preserve strict profile throughout; this mirrors side-specific pouch/streak details. No procedural limb deformation, pixel painting or synthesized eye replacement.
+
+80packed slots use the existing local town atlas at1.5×scale;16neutral slots exactly match approved art. All858previous atlas frames remain unchanged. Farmer PNGs, world art, resident roles/dialogue/routes/homes/schedules and save schema remain. Existing bundled Pillow12.3.0 performs offline export; licence/evidence: `docs/licenses/Pillow-LICENSE.txt` and `docs/licenses/farmer-extension-export/record.json`. No new runtime dependency or asset URL. Developer source, sheets, GIFs and review page stay outside the production allowlist.
+
+[Output-use evidence](OUTPUT_TERMS.md) is copied from the previously reviewed OpenAI terms record. AI assistance is disclosed; output is not labelled CC0 and no exclusive rights/competition acceptance is asserted. No publication/submission.

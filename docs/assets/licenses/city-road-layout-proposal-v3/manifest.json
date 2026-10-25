@@ -1,0 +1,104 @@
+{
+  "scope": "Proposal 03 only. Prior proposal 02 PNGs preserved exactly. No integration.",
+  "method": "Original procedural surface/curb/lawn/soil composition with existing source PNGs. No new AI image generation, reference extraction or external dependency.",
+  "inputs": [
+    {
+      "path": "public/assets/pixel/processed/town.png",
+      "sha256": "547e04c74d1d6c90d9a8485a789bd844a856d42ca70d1ee830a09e8d144d71c8"
+    },
+    {
+      "path": "public/assets/pixel/processed/town.json",
+      "sha256": "6fc09351ebfcef2a05c4090901b094086def213524688ac440d470d54850c8be"
+    },
+    {
+      "path": "public/assets/pixel/processed/boy.png",
+      "sha256": "4e0bed0e70c3e155ea6b458ca41a3524f44023f5b1eefacbe39ec5ca8250fd5c"
+    },
+    {
+      "path": "public/assets/pixel/world.png",
+      "sha256": "384db79690a9f99ef1825db1367a0784f4c46aabc5baf806993a1721b7da2721"
+    },
+    {
+      "path": "public/assets/pixel/world.json",
+      "sha256": "9df1e23cea5c6f6f050ad4d99d62e5033019a57c280efcaa3e9b2398e6e49ac2"
+    },
+    {
+      "path": "src/physics/CollisionWorld.js",
+      "sha256": "95eb497bffece859beafc08c1258de5676311ca42b5d8e7c8fb9b3f066ec17eb"
+    },
+    {
+      "path": "src/data/locations.js",
+      "sha256": "a906dbc93f653753a277ae8d4add69fcebb37a0093e703be0296d2baae17969a"
+    },
+    {
+      "path": "src/systems/context.js",
+      "sha256": "7e2beb4b67e5ffb77f6bfb4976042f058e8849653b2cdb874fac7a8475211ab0"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "output/previews/city-road-layout-v3/overview.png",
+      "size": [
+        1280,
+        896
+      ],
+      "sha256": "a32200f173c046b0448799f9cc30c37e10b4b61b1628219718c12c7b6cb8ff8c"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/terrace-gameplay.png",
+      "size": [
+        1146,
+        804
+      ],
+      "sha256": "eaae4924f2a50ef47cd00c0477a09331dd3d851d11bb56d07b4b6e96512a1a31"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/fountain-gameplay.png",
+      "size": [
+        1146,
+        804
+      ],
+      "sha256": "2278dba548d17f95843b0d0d71613af26d49a9c9a463f806bf7176641dec3493"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/curb-detail.png",
+      "size": [
+        912,
+        576
+      ],
+      "sha256": "01284b173cae75b2f2644e718c84d34414ed73c5fde491dc3f537af3c72e3fdc"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/before-after.png",
+      "size": [
+        1170,
+        452
+      ],
+      "sha256": "5e4ddd1a62de2a1b62dc2ea49528e85ff4cf6d402797c6b2f4cebcd934bad741"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/network-plan.png",
+      "size": [
+        1280,
+        896
+      ],
+      "sha256": "a79cb9e38f248fd692331371ae3b18dab02af61f479b2a33b4913ec61676f0fa"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/proposed-city-full.png",
+      "size": [
+        2560,
+        1792
+      ],
+      "sha256": "ad86bdda2da4cc05c19bff8b9547ae600f72293ba425d71f8e6c4ae5eb032638"
+    },
+    {
+      "path": "output/previews/city-road-layout-v3/access-check-overlay.png",
+      "size": [
+        1280,
+        896
+      ],
+      "sha256": "a0ccbd30fe10bb730f77c575239207f996589bd3bca5bf0a28044f5af9db5205"
+    }
+  ]
+}

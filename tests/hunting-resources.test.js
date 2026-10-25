@@ -75,6 +75,7 @@ test('food heals at full energy, caps both stats and never wastes a full/dead/in
   s.health=0;const dead=structuredClone(s);eatFood(s,id);assert.deepEqual(s,dead);
   s.health=50;s.inventory[id]=-1;const invalid=structuredClone(s);eatFood(s,id);assert.deepEqual(s,invalid);
  }
+ const raw=forest();raw.health=50;raw.energy=50;raw.inventory.meat=1;const before=structuredClone(raw);assert.match(eatFood(raw,'meat'),/No food/);assert.deepEqual(raw,before);
 });
 test('schema 1–11 migrates safely; new bounded records reject forged IDs and preserve market salts',()=>{
  for(let version=1;version<=11;version++){
@@ -86,11 +87,14 @@ test('schema 1–11 migrates safely; new bounded records reject forged IDs and p
  const originalSales=['tomato','strawberry','carrot','corn','wildBerry','guava','mango','wildHide','banana','orange','papaya','coconut','dragonFruit','pineapple','chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato'];
  assert.deepEqual(SALE_IDS,[...originalSales,'meat','grilledMeat']);for(const id of originalSales)assert.deepEqual(marketPrice(s,id),marketPrice({...s,version:11},id));
 });
-test('food page two, healing at full energy and axe attack fit desktop/phone/compact canvas controls',()=>{
+test('raw meat is visible on Gear, opens cooking, and grilled meat heals from the first Food slot',()=>{
  for(const [w,h]of [[1280,720],[360,640],[640,360]]){
-  const s=forest(),u=recorder(w,h);s.energy=100;s.health=75;s.inventory.meat=1;
-  const a={state:s,input:{},save(){},sound(){},scene:{forestView:{energy(){},health(){}},cameras:{main:{worldView:{x:0,y:0},zoom:1}}},ui:u};u.app=a;const b=new BagPanel(a);a.bagPanel=b;b.open('food');b.index=bagItems(s,'food').findIndex(i=>i.id==='meat');b.show();
-  assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);b.perform();assert.equal(s.health,100);assert.equal(s.inventory.meat,0);
+  const s=forest(),u=recorder(w,h);s.energy=100;s.health=50;s.inventory.meat=1;s.inventory.grilledMeat=1;let cooking=0;
+  const a={state:s,input:{},save(){},sound(){},resourcePanel:{cooking(){cooking++;}},scene:{forestView:{energy(){},health(){}},cameras:{main:{worldView:{x:0,y:0},zoom:1}}},ui:u};u.app=a;const b=new BagPanel(a);a.bagPanel=b;
+  assert.equal(bagItems(s,'food')[0].id,'grilledMeat');assert.equal(bagItems(s,'food').some(i=>i.id==='meat'),false);
+  const meatIndex=bagItems(s,'gear').findIndex(i=>i.id==='meat');assert.ok(meatIndex>=0&&meatIndex<6);
+  b.open('food','grilledMeat');assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);b.perform();assert.equal(s.health,100);assert.equal(s.inventory.grilledMeat,0);assert.equal(s.inventory.meat,1);
+  u.time.now+=1000;b.open('gear','meat');assert.equal(u.controls.find(c=>c.id==='bag-action').label,'Cook');assert.equal(u.controls.find(c=>c.id==='bag-action').disabled,false);b.perform();assert.equal(cooking,1);assert.equal(s.inventory.meat,1);
   const hud=new Hud(u);assert.ok(!u.controls.some(c=>c.id==='tool-axe'));assert.equal(u.controls.some(c=>c.id==='attack'),u.touch);assert.equal(hud.healthWidth,hud.energyWidth);
   for(const c of u.controls)assert.ok(c.x>=0&&c.y>=0&&c.x+c.w<=u.w&&c.y+c.h<=u.h,c.id);
  }
