@@ -8,7 +8,7 @@ const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'/Users/mac/.cache/
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
 const base=process.env.GAME_URL||'http://127.0.0.1:43864/';
 const out=process.env.QA_OUT||'docs/verification/crop-palette-anchor-v1/stages';
-const allCrops=['tomato','strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato'];
+const allCrops=['tomato','strawberry','carrot','corn','chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato'];
 const crops=process.env.QA_FILTER?allCrops.filter(crop=>new RegExp(process.env.QA_FILTER).test(crop)):allCrops;
 const stages=['seed','sprout','young','flowering','ripe','dry','wilted','dead'];
 const orderedPlots=FARM_PLOTS.slice(0,16).map((plot,index)=>({...plot,index})).sort((a,b)=>a.y-b.y||a.x-b.x);
@@ -106,6 +106,7 @@ try{
    merged=[...new Map([...previous,...records].map(record=>[record.crop,record])).values()].sort((a,b)=>allCrops.indexOf(a.crop)-allCrops.indexOf(b.crop));
   }catch{}
  }
- await writeFile(`${out}/results.json`,JSON.stringify({result:merged.length===allCrops.length?'PASS':'PARTIAL',method:'Disposable localStorage fixtures in headless Google Chrome using the real Phaser canvas renderer; filtered runs merge by crop, no user save was read or changed.',records:merged},null,2)+'\n');
+ const requestedComplete=crops.every(crop=>merged.some(record=>record.crop===crop));
+ await writeFile(`${out}/results.json`,JSON.stringify({result:requestedComplete?'PASS':'PARTIAL',scope:crops,method:'Disposable localStorage fixtures in headless Google Chrome using the real Phaser canvas renderer; filtered runs merge by crop, no user save was read or changed.',records:merged},null,2)+'\n');
  await writeFile(`${out}/README.md`,'# Imported crop-sheet browser verification\n\nEach `*-all-stages-dry-watered.png` is the live Phaser farm. Columns read left-to-right across two rows as seed, sprout, young, flowering, ripe, dry, wilted and dead; the same eight stages repeat on watered soil in the lower two rows. The live water/basket/warning signs, crop info panel and `E / Water` prompt are included. Each `*-harvest-flight.png` captures the real harvest animation and fly-to-player produce icon.\n\n`results.json` records the assertions. The script uses disposable localStorage browser contexts and makes no remote runtime requests.\n');
 }finally{await browser.close();}

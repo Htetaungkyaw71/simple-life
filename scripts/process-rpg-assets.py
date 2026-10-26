@@ -206,6 +206,8 @@ from hunting_resources_art import add_hunting_resources_art
 add_hunting_resources_art(assets)
 from home_interior_art import add_home_interior_art
 add_home_interior_art(assets)
+from item_icon_art import add_item_icon_art
+add_item_icon_art(assets)
 for n in range(4):assets.pop('boar'+str(n),None)
 atlas=Image.new('RGBA',(1024,4096));frames={};x=y=rowh=0;wildlife_cells={}
 for name,im in assets.items():

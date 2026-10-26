@@ -1,5 +1,6 @@
 import {PIXEL_SNAPPER_ART,PIXEL_SNAPPER_OVERRIDES} from './pixelSnapperArt.js';
 import {CROP_ICON_SCALES} from './cropVisuals.js';
+import {ITEM_ICON_DISPLAY_SCALES} from './itemIconArt.js';
 // Approved high-angle cedar prop artwork. Legacy names and physical sizes stay stable.
 const rows=[
  ["bench",null,"bench-cedar-review"],
@@ -90,4 +91,4 @@ export const propFrame=name=>pixelSnapperOverride(name)?.frame||baseFrame(name);
 export const propTexture=name=>pixelSnapperOverride(name)?.texture||(PROP_ART[name]||Object.values(PROP_ART).some(a=>a.frame===name)?'town':null);
 export const propArtInfo=name=>{const override=pixelSnapperOverride(name);return override?PIXEL_SNAPPER_ART[override.frame]:null;};
 const frames=new Set(Object.values(PROP_ART).map(a=>a.frame));
-export const propScale=(name,scale=2)=>{const override=pixelSnapperOverride(name),display=CROP_ICON_SCALES[name]||1,base=override?override.scale*scale/override.sourceScale:PROP_ART[name]||frames.has(name)?scale/2:scale;return base*display;};
+export const propScale=(name,scale=2)=>{const override=pixelSnapperOverride(name),display=ITEM_ICON_DISPLAY_SCALES[name]??CROP_ICON_SCALES[name]??1,base=override?override.scale*scale/override.sourceScale:PROP_ART[name]||frames.has(name)?scale/2:scale;return base*display;};

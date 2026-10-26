@@ -174,7 +174,19 @@ def clean_magenta(image: Image.Image) -> tuple[Image.Image, list[list[int]], int
             for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
                 if (nx, ny) not in magenta:
                     queue.append((nx, ny))
-    seen = matte | magenta
+    # Pixel Snapper's background can be enclosed by dark antialias/fringe
+    # outlines inside foliage. Once a magenta-family colour is proven to be
+    # part of the boundary-connected background, remove that exact source
+    # colour everywhere. This is source-specific background cleanup; the
+    # region-only rule below remains responsible for soil/ground removal.
+    background_colors = {pixels[x, y] for x, y in magenta}
+    enclosed_background = {
+        (x, y)
+        for y in range(cleaned.height)
+        for x in range(cleaned.width)
+        if (x, y) not in matte and pixels[x, y] in background_colors
+    }
+    seen = matte | magenta | enclosed_background
     removed = Counter(pixels[x, y] for x, y in seen)
     for point in seen:
         pixels[point] = (0, 0, 0, 0)

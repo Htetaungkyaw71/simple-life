@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {inflateSync} from 'node:zlib';
 import {CROPS} from '../src/data/crops.js';
 
-const CROPS_IMPORTED=['tomato','strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato'];
+const CROPS_IMPORTED=['tomato','strawberry','carrot','corn','chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato'];
 const STATES=['seed','sprout','young','flowering','ripe','dry','wilted','dead'];
 
 function decodeRgbaPng(buffer){
@@ -41,6 +41,7 @@ test('all imported crop keys exist in the runtime atlas with binary alpha',async
   assert.equal(CROPS[crop].anchorX,manifest.candidateB.anchor.anchorX,crop);
   assert.equal(CROPS[crop].signOffsetY,CROPS[crop].baseOffsetY-manifest.candidateB.placements[4].trimmedHeight-36,crop);
   assert.deepEqual(manifest.cleanup.alphaValues,[0,255],crop);
+  if(crop==='cucumber')assert.equal(manifest.cleanup.remainingInteriorMagentaPixels,0,crop);
   if(manifest.cleanup.soil.over25PercentStages)assert.deepEqual(manifest.cleanup.soil.over25PercentStages,[],crop);
   if(manifest.cleanup.soil.deadConnectedComponents)assert.equal(manifest.cleanup.soil.deadConnectedComponents,1,crop);
   assert.equal(manifest.paletteRemap.constants.SATURATION_SCALE,.78,crop);

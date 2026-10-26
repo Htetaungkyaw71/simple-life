@@ -1,0 +1,1067 @@
+{
+  "sheet": "fruit-tab",
+  "requestedFilename": "ChatGPT_Image_25_Oct_2026__18_54_12-pixel-snapper.png",
+  "requestedPixelSnapperFilePresent": false,
+  "actualNativeSource": "output/art/item-icon-sheets-v1/image-3-fruit-food.png",
+  "actualNativeSourceNote": "Previously generated native review export from the matching 18_54 source; used because the requested -pixel-snapper filename was not present in Downloads, attachments, assets-src, or output.",
+  "sourceSha256": "23f6ff0dda8288d0f20bf1355013c24216b1d073186aef4b4ff2d5e9ddaeece1",
+  "sourceSize": [
+    192,
+    144
+  ],
+  "sourceUniqueColors": 167,
+  "sourceAlphaValues": [
+    255
+  ],
+  "dominantBackground": [
+    255,
+    0,
+    255,
+    255
+  ],
+  "dominantBackgroundPixels": 23964,
+  "grid": {
+    "cleanPixelGrid": true,
+    "nativePixelGrid": true,
+    "pixelsResampled": 0,
+    "interpretation": "native 1px hard-edged art"
+  },
+  "detection": {
+    "method": "8-connected opaque components with nearest-fragment joining; no fixed cell slicing",
+    "rawConnectedComponents": 13,
+    "joinedFragments": [
+      {
+        "fragmentPixels": 5,
+        "gap": 2,
+        "distanceSquared": 175.25
+      }
+    ],
+    "detectedIcons": 12
+  },
+  "cleanup": {
+    "method": "shared boundary-connected magenta/matte removal from scripts/import_sheet.py",
+    "removedColors": [
+      [
+        104,
+        8,
+        121,
+        255,
+        13
+      ],
+      [
+        117,
+        4,
+        90,
+        255,
+        26
+      ],
+      [
+        132,
+        12,
+        149,
+        255,
+        17
+      ],
+      [
+        144,
+        15,
+        162,
+        255,
+        21
+      ],
+      [
+        151,
+        22,
+        106,
+        255,
+        6
+      ],
+      [
+        156,
+        15,
+        171,
+        255,
+        25
+      ],
+      [
+        156,
+        29,
+        92,
+        255,
+        8
+      ],
+      [
+        165,
+        7,
+        105,
+        255,
+        34
+      ],
+      [
+        165,
+        23,
+        187,
+        255,
+        23
+      ],
+      [
+        177,
+        36,
+        195,
+        255,
+        25
+      ],
+      [
+        255,
+        0,
+        255,
+        255,
+        23964
+      ]
+    ],
+    "remainingMagentaPixels": 0,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "pixelsResampled": 0
+  },
+  "paletteRemap": {
+    "method": "shared dominant-green HSL transform with spatial fruit-body protection",
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    }
+  },
+  "frameSize": [
+    24,
+    24
+  ],
+  "displayScale": 1,
+  "candidate": {
+    "path": "docs/assets/licenses/item-icons-fruit-tab-v1/candidate.png",
+    "sha256": "9ed9afb373bc1ed6f2c555079186046b68c3a6bcce66f120fd73825ea7bae8ab"
+  },
+  "prePaletteCandidate": {
+    "path": "docs/assets/licenses/item-icons-fruit-tab-v1/candidate-pre-palette.png",
+    "sha256": "9b2b255b5bbbaa8efb7b77724e0e9b5115aa2c4b44ccc40705c022e79f11c709"
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/item-icons-fruit-tab-v1/cleaned-source.png",
+    "sha256": "f9770e73d73e76b5014dee132e9e3e1cb534b37dd05daf47fd5317944a4be285"
+  },
+  "icons": [
+    {
+      "position": 1,
+      "row": 1,
+      "column": 1,
+      "label": "grilled meat",
+      "itemKey": "meat-item",
+      "sourceBounds": [
+        12,
+        13,
+        36,
+        34
+      ],
+      "truePixelSize": [
+        24,
+        21
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
+      "placement": {
+        "pasteX": 0,
+        "pasteY": 3,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 0,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 0,
+        "lookup": []
+      }
+    },
+    {
+      "position": 2,
+      "row": 1,
+      "column": 2,
+      "label": "wild berries",
+      "itemKey": "wild-berry-item",
+      "sourceBounds": [
+        61,
+        12,
+        83,
+        36
+      ],
+      "truePixelSize": [
+        22,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 11,
+      "finalUniqueOpaqueColors": 11,
+      "placement": {
+        "pasteX": 1,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 105,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 105,
+        "lookup": [
+          {
+            "from": [
+              40,
+              70,
+              28,
+              255
+            ],
+            "to": [
+              46,
+              65,
+              33,
+              255
+            ]
+          },
+          {
+            "from": [
+              43,
+              98,
+              26,
+              255
+            ],
+            "to": [
+              55,
+              90,
+              34,
+              255
+            ]
+          },
+          {
+            "from": [
+              105,
+              167,
+              16,
+              255
+            ],
+            "to": [
+              118,
+              150,
+              33,
+              255
+            ]
+          },
+          {
+            "from": [
+              188,
+              196,
+              47,
+              255
+            ],
+            "to": [
+              180,
+              170,
+              63,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 3,
+      "row": 1,
+      "column": 3,
+      "label": "green pear",
+      "itemKey": "guava-item",
+      "sourceBounds": [
+        110,
+        12,
+        130,
+        36
+      ],
+      "truePixelSize": [
+        20,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 23,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 284,
+        "protectedGreenFruitBodyPixels": 231,
+        "changedPixels": 53,
+        "lookup": [
+          {
+            "from": [
+              29,
+              58,
+              13,
+              255
+            ],
+            "to": [
+              35,
+              53,
+              18,
+              255
+            ]
+          },
+          {
+            "from": [
+              42,
+              68,
+              16,
+              255
+            ],
+            "to": [
+              47,
+              62,
+              22,
+              255
+            ]
+          },
+          {
+            "from": [
+              64,
+              108,
+              13,
+              255
+            ],
+            "to": [
+              73,
+              98,
+              23,
+              255
+            ]
+          },
+          {
+            "from": [
+              101,
+              151,
+              7,
+              255
+            ],
+            "to": [
+              111,
+              135,
+              23,
+              255
+            ]
+          },
+          {
+            "from": [
+              133,
+              150,
+              2,
+              255
+            ],
+            "to": [
+              134,
+              132,
+              18,
+              255
+            ]
+          },
+          {
+            "from": [
+              137,
+              174,
+              4,
+              255
+            ],
+            "to": [
+              144,
+              155,
+              23,
+              255
+            ]
+          },
+          {
+            "from": [
+              152,
+              194,
+              4,
+              255
+            ],
+            "to": [
+              160,
+              173,
+              25,
+              255
+            ]
+          },
+          {
+            "from": [
+              168,
+              205,
+              4,
+              255
+            ],
+            "to": [
+              175,
+              183,
+              26,
+              255
+            ]
+          },
+          {
+            "from": [
+              207,
+              220,
+              15,
+              255
+            ],
+            "to": [
+              197,
+              186,
+              38,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 4,
+      "row": 1,
+      "column": 4,
+      "label": "mango",
+      "itemKey": "mango-item",
+      "sourceBounds": [
+        156,
+        12,
+        180,
+        36
+      ],
+      "truePixelSize": [
+        24,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
+      "placement": {
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 55,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 55,
+        "lookup": [
+          {
+            "from": [
+              38,
+              64,
+              28,
+              255
+            ],
+            "to": [
+              44,
+              60,
+              32,
+              255
+            ]
+          },
+          {
+            "from": [
+              99,
+              119,
+              20,
+              255
+            ],
+            "to": [
+              103,
+              108,
+              31,
+              255
+            ]
+          },
+          {
+            "from": [
+              123,
+              170,
+              14,
+              255
+            ],
+            "to": [
+              132,
+              153,
+              31,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 5,
+      "row": 2,
+      "column": 1,
+      "label": "banana",
+      "itemKey": "banana-item",
+      "sourceBounds": [
+        15,
+        60,
+        32,
+        76
+      ],
+      "truePixelSize": [
+        17,
+        16
+      ],
+      "sourceUniqueOpaqueColors": 13,
+      "finalUniqueOpaqueColors": 13,
+      "placement": {
+        "pasteX": 3,
+        "pasteY": 8,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 0,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 0,
+        "lookup": []
+      }
+    },
+    {
+      "position": 6,
+      "row": 2,
+      "column": 2,
+      "label": "orange",
+      "itemKey": "orange-item",
+      "sourceBounds": [
+        60,
+        60,
+        83,
+        84
+      ],
+      "truePixelSize": [
+        23,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
+      "placement": {
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 74,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 74,
+        "lookup": [
+          {
+            "from": [
+              59,
+              75,
+              16,
+              255
+            ],
+            "to": [
+              62,
+              69,
+              22,
+              255
+            ]
+          },
+          {
+            "from": [
+              178,
+              192,
+              32,
+              255
+            ],
+            "to": [
+              174,
+              169,
+              50,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 7,
+      "row": 2,
+      "column": 3,
+      "label": "papaya",
+      "itemKey": "papaya-item",
+      "sourceBounds": [
+        108,
+        61,
+        132,
+        83
+      ],
+      "truePixelSize": [
+        24,
+        22
+      ],
+      "sourceUniqueOpaqueColors": 13,
+      "finalUniqueOpaqueColors": 13,
+      "placement": {
+        "pasteX": 0,
+        "pasteY": 2,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 30,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 30,
+        "lookup": [
+          {
+            "from": [
+              39,
+              62,
+              19,
+              255
+            ],
+            "to": [
+              44,
+              57,
+              24,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 8,
+      "row": 2,
+      "column": 4,
+      "label": "coconut",
+      "itemKey": "coconut-item",
+      "sourceBounds": [
+        159,
+        60,
+        176,
+        77
+      ],
+      "truePixelSize": [
+        17,
+        17
+      ],
+      "sourceUniqueOpaqueColors": 13,
+      "finalUniqueOpaqueColors": 13,
+      "placement": {
+        "pasteX": 3,
+        "pasteY": 7,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 0,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 0,
+        "lookup": []
+      }
+    },
+    {
+      "position": 9,
+      "row": 3,
+      "column": 1,
+      "label": "dragon fruit",
+      "itemKey": "dragon-fruit-item",
+      "sourceBounds": [
+        14,
+        108,
+        33,
+        132
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 109,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 109,
+        "lookup": [
+          {
+            "from": [
+              39,
+              70,
+              24,
+              255
+            ],
+            "to": [
+              46,
+              65,
+              29,
+              255
+            ]
+          },
+          {
+            "from": [
+              43,
+              87,
+              17,
+              255
+            ],
+            "to": [
+              52,
+              79,
+              25,
+              255
+            ]
+          },
+          {
+            "from": [
+              78,
+              125,
+              16,
+              255
+            ],
+            "to": [
+              88,
+              113,
+              28,
+              255
+            ]
+          },
+          {
+            "from": [
+              174,
+              181,
+              28,
+              255
+            ],
+            "to": [
+              164,
+              154,
+              45,
+              255
+            ]
+          },
+          {
+            "from": [
+              212,
+              223,
+              13,
+              255
+            ],
+            "to": [
+              200,
+              187,
+              36,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 10,
+      "row": 3,
+      "column": 2,
+      "label": "pineapple",
+      "itemKey": "pineapple-item",
+      "sourceBounds": [
+        62,
+        108,
+        82,
+        132
+      ],
+      "truePixelSize": [
+        20,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 0,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 0,
+        "lookup": []
+      }
+    },
+    {
+      "position": 11,
+      "row": 3,
+      "column": 3,
+      "label": "watermelon",
+      "itemKey": "watermelon-item",
+      "sourceBounds": [
+        109,
+        108,
+        130,
+        132
+      ],
+      "truePixelSize": [
+        21,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 24,
+      "placement": {
+        "pasteX": 1,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 343,
+        "protectedGreenFruitBodyPixels": 312,
+        "changedPixels": 31,
+        "lookup": [
+          {
+            "from": [
+              25,
+              46,
+              33,
+              255
+            ],
+            "to": [
+              27,
+              44,
+              31,
+              255
+            ]
+          },
+          {
+            "from": [
+              36,
+              80,
+              32,
+              255
+            ],
+            "to": [
+              45,
+              75,
+              37,
+              255
+            ]
+          },
+          {
+            "from": [
+              37,
+              71,
+              36,
+              255
+            ],
+            "to": [
+              44,
+              67,
+              40,
+              255
+            ]
+          },
+          {
+            "from": [
+              46,
+              93,
+              36,
+              255
+            ],
+            "to": [
+              56,
+              87,
+              42,
+              255
+            ]
+          },
+          {
+            "from": [
+              59,
+              116,
+              32,
+              255
+            ],
+            "to": [
+              71,
+              107,
+              41,
+              255
+            ]
+          },
+          {
+            "from": [
+              79,
+              136,
+              29,
+              255
+            ],
+            "to": [
+              91,
+              124,
+              41,
+              255
+            ]
+          },
+          {
+            "from": [
+              92,
+              152,
+              29,
+              255
+            ],
+            "to": [
+              104,
+              138,
+              43,
+              255
+            ]
+          },
+          {
+            "from": [
+              111,
+              161,
+              16,
+              255
+            ],
+            "to": [
+              121,
+              145,
+              32,
+              255
+            ]
+          },
+          {
+            "from": [
+              128,
+              176,
+              13,
+              255
+            ],
+            "to": [
+              138,
+              158,
+              31,
+              255
+            ]
+          },
+          {
+            "from": [
+              151,
+              195,
+              7,
+              255
+            ],
+            "to": [
+              160,
+              174,
+              28,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 12,
+      "row": 3,
+      "column": 4,
+      "label": "grapes",
+      "itemKey": "grape-item",
+      "sourceBounds": [
+        158,
+        108,
+        178,
+        132
+      ],
+      "truePixelSize": [
+        20,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 8,
+      "finalUniqueOpaqueColors": 8,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 66,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 66,
+        "lookup": [
+          {
+            "from": [
+              36,
+              87,
+              35,
+              255
+            ],
+            "to": [
+              47,
+              81,
+              41,
+              255
+            ]
+          },
+          {
+            "from": [
+              91,
+              156,
+              23,
+              255
+            ],
+            "to": [
+              105,
+              141,
+              38,
+              255
+            ]
+          },
+          {
+            "from": [
+              137,
+              179,
+              39,
+              255
+            ],
+            "to": [
+              145,
+              164,
+              54,
+              255
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "warnings": [
+    "meat-item is shared by grilled and raw meat",
+    "watermelon-item and grape-item are shared with crop produce"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 5529,
+    "frameSize": [
+      24,
+      24
+    ]
+  }
+}

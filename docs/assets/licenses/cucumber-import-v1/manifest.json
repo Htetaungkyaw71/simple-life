@@ -1,0 +1,524 @@
+{
+  "crop": "cucumber",
+  "source": "assets-src/ChatGPT_Image_25_Oct_2026__18_55_43-pixel-snapper.png",
+  "sourceSha256": "1122eb7041a264dd76556e6322abfd2d16c251528862cb672c73aad6ebdde2c8",
+  "sourceSize": [
+    334,
+    113
+  ],
+  "sourceUniqueColors": 16,
+  "sourceAlphaValues": [
+    255
+  ],
+  "background": [
+    252,
+    4,
+    253,
+    255
+  ],
+  "sourceStageBounds": [
+    {
+      "key": "cucumber-seed",
+      "x": 9,
+      "y": 80,
+      "width": 27,
+      "height": 15
+    },
+    {
+      "key": "cucumber-sprout",
+      "x": 48,
+      "y": 74,
+      "width": 21,
+      "height": 17
+    },
+    {
+      "key": "cucumber-young",
+      "x": 81,
+      "y": 49,
+      "width": 31,
+      "height": 43
+    },
+    {
+      "key": "cucumber-flowering",
+      "x": 121,
+      "y": 30,
+      "width": 35,
+      "height": 63
+    },
+    {
+      "key": "cucumber-ripe",
+      "x": 165,
+      "y": 21,
+      "width": 35,
+      "height": 73
+    },
+    {
+      "key": "cucumber-dry",
+      "x": 209,
+      "y": 30,
+      "width": 32,
+      "height": 63
+    },
+    {
+      "key": "cucumber-wilted",
+      "x": 250,
+      "y": 43,
+      "width": 36,
+      "height": 51
+    },
+    {
+      "key": "cucumber-dead",
+      "x": 293,
+      "y": 74,
+      "width": 34,
+      "height": 24
+    }
+  ],
+  "grid": {
+    "nativePixelGrid": true,
+    "cleanPixelGrid": true,
+    "requestedScale": 1,
+    "best2x2Offset": [
+      0,
+      1
+    ],
+    "homogeneousTouchedBlocks": 33,
+    "touchedBlocks": 1828,
+    "homogeneousRatio": 0.018052516411378557,
+    "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
+  },
+  "cleanup": {
+    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "removedMagentaColors": [
+      [
+        131,
+        32,
+        108,
+        255,
+        55
+      ],
+      [
+        201,
+        33,
+        185,
+        255,
+        94
+      ],
+      [
+        252,
+        4,
+        253,
+        255,
+        31715
+      ]
+    ],
+    "remainingInteriorMagentaPixels": 0,
+    "soil": {
+      "valid": true,
+      "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
+      "bandTop": 80,
+      "baseline": 92,
+      "sourceCentres": [
+        13,
+        10,
+        13,
+        16,
+        26,
+        14,
+        13,
+        16
+      ],
+      "maskPixelCount": 63,
+      "removedPixels": 0,
+      "stages": [
+        {
+          "stage": "seed",
+          "opaqueBefore": 259,
+          "removedPixels": 0,
+          "opaqueAfter": 259,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "sprout",
+          "opaqueBefore": 165,
+          "removedPixels": 0,
+          "opaqueAfter": 165,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "young",
+          "opaqueBefore": 539,
+          "removedPixels": 0,
+          "opaqueAfter": 539,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "flowering",
+          "opaqueBefore": 1076,
+          "removedPixels": 0,
+          "opaqueAfter": 1076,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "ripe",
+          "opaqueBefore": 1549,
+          "removedPixels": 0,
+          "opaqueAfter": 1549,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dry",
+          "opaqueBefore": 1107,
+          "removedPixels": 0,
+          "opaqueAfter": 1107,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "wilted",
+          "opaqueBefore": 815,
+          "removedPixels": 0,
+          "opaqueAfter": 815,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        },
+        {
+          "stage": "dead",
+          "opaqueBefore": 368,
+          "removedPixels": 0,
+          "opaqueAfter": 368,
+          "removedRatio": 0.0,
+          "over25Percent": false,
+          "cleanupRolledBackToProtectPlant": false
+        }
+      ],
+      "over25PercentStages": [],
+      "deadConnectedComponents": 1,
+      "reason": null,
+      "warnings": []
+    },
+    "alphaValues": [
+      0,
+      255
+    ],
+    "colorsRepainted": 6,
+    "pixelsResampled": 0,
+    "paletteConversions": 0
+  },
+  "paletteRemap": {
+    "method": "exact per-pixel RGBA lookup; no filtering, resampling, or palette-mode conversion",
+    "selector": {
+      "hueDegrees": [
+        60.0,
+        170.0
+      ],
+      "greenChannelDominant": true,
+      "stages": [
+        "sprout",
+        "young",
+        "flowering",
+        "ripe"
+      ],
+      "protectedStages": [
+        "seed",
+        "dry",
+        "wilted",
+        "dead"
+      ]
+    },
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    },
+    "lookup": [
+      {
+        "from": [
+          19,
+          25,
+          12,
+          255
+        ],
+        "to": [
+          20,
+          24,
+          13,
+          255
+        ]
+      },
+      {
+        "from": [
+          22,
+          78,
+          25,
+          255
+        ],
+        "to": [
+          32,
+          72,
+          28,
+          255
+        ]
+      },
+      {
+        "from": [
+          37,
+          119,
+          33,
+          255
+        ],
+        "to": [
+          55,
+          110,
+          42,
+          255
+        ]
+      },
+      {
+        "from": [
+          56,
+          156,
+          40,
+          255
+        ],
+        "to": [
+          77,
+          143,
+          53,
+          255
+        ]
+      },
+      {
+        "from": [
+          88,
+          182,
+          44,
+          255
+        ],
+        "to": [
+          108,
+          167,
+          59,
+          255
+        ]
+      },
+      {
+        "from": [
+          138,
+          204,
+          48,
+          255
+        ],
+        "to": [
+          152,
+          187,
+          65,
+          255
+        ]
+      }
+    ],
+    "changedPixels": 2490,
+    "stages": [
+      {
+        "stage": "seed",
+        "changedPixels": 0
+      },
+      {
+        "stage": "sprout",
+        "changedPixels": 159
+      },
+      {
+        "stage": "young",
+        "changedPixels": 397
+      },
+      {
+        "stage": "flowering",
+        "changedPixels": 694
+      },
+      {
+        "stage": "ripe",
+        "changedPixels": 1240
+      },
+      {
+        "stage": "dry",
+        "changedPixels": 0
+      },
+      {
+        "stage": "wilted",
+        "changedPixels": 0
+      },
+      {
+        "stage": "dead",
+        "changedPixels": 0
+      }
+    ],
+    "ripeGreenContrast": {
+      "greenLightnessMin": 7.25,
+      "greenLightnessMax": 49.41,
+      "greenLightnessSpan": 42.16
+    }
+  },
+  "candidateB": {
+    "available": true,
+    "frameSize": [
+      36,
+      73
+    ],
+    "path": "docs/assets/licenses/cucumber-import-v1/candidate-b.png",
+    "sha256": "3afbd607299ef89ac1b05277c49971c173f1672d5751be9296f37d48443160c3",
+    "uniqueColors": 19,
+    "uniqueOpaqueColors": 18,
+    "placements": [
+      {
+        "trimmedWidth": 27,
+        "trimmedHeight": 15,
+        "uniqueOpaqueColors": 8,
+        "frameX": 0,
+        "pasteX": 4,
+        "pasteY": 58,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 21,
+        "trimmedHeight": 17,
+        "uniqueOpaqueColors": 9,
+        "frameX": 36,
+        "pasteX": 7,
+        "pasteY": 56,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 31,
+        "trimmedHeight": 43,
+        "uniqueOpaqueColors": 13,
+        "frameX": 72,
+        "pasteX": 2,
+        "pasteY": 30,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 35,
+        "trimmedHeight": 63,
+        "uniqueOpaqueColors": 13,
+        "frameX": 108,
+        "pasteX": 0,
+        "pasteY": 10,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 35,
+        "trimmedHeight": 73,
+        "uniqueOpaqueColors": 13,
+        "frameX": 144,
+        "pasteX": 0,
+        "pasteY": 0,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 32,
+        "trimmedHeight": 63,
+        "uniqueOpaqueColors": 12,
+        "frameX": 180,
+        "pasteX": 2,
+        "pasteY": 10,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 36,
+        "trimmedHeight": 51,
+        "uniqueOpaqueColors": 8,
+        "frameX": 216,
+        "pasteX": 0,
+        "pasteY": 22,
+        "anchorX": 17.0,
+        "anchorY": 73
+      },
+      {
+        "trimmedWidth": 34,
+        "trimmedHeight": 24,
+        "uniqueOpaqueColors": 8,
+        "frameX": 252,
+        "pasteX": 1,
+        "pasteY": 49,
+        "anchorX": 17.0,
+        "anchorY": 73
+      }
+    ],
+    "maxTrimmedStage": [
+      36,
+      73
+    ],
+    "anchor": {
+      "method": "median of weighted bottom-six-row visual centres for sprout, young, flowering, and ripe",
+      "anchorX": 17.0,
+      "anchorY": 73,
+      "perStageBaseCenters": {
+        "seed": 17.473,
+        "sprout": 17.5,
+        "young": 16.564,
+        "flowering": 16.181,
+        "ripe": 21.162,
+        "dry": 19.157,
+        "wilted": 20.136,
+        "dead": 17.221
+      }
+    },
+    "prePalettePath": "docs/assets/licenses/cucumber-import-v1/candidate-b-pre-palette.png",
+    "prePaletteSha256": "8a219c0489393289589a8a89a7f550f82c71cb4877c210376e1982fb0bb7fc43"
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/cucumber-import-v1/cleaned-source.png",
+    "sha256": "4e52eb4443a71f45578b4705307079849dd0c3096059e02e1fb06c472e898c63"
+  },
+  "evidenceSource": {
+    "path": "docs/assets/licenses/cucumber-import-v1/source.png",
+    "sha256": "1122eb7041a264dd76556e6322abfd2d16c251528862cb672c73aad6ebdde2c8"
+  },
+  "keys": [
+    "cucumber-seed",
+    "cucumber-sprout",
+    "cucumber-young",
+    "cucumber-flowering",
+    "cucumber-ripe",
+    "cucumber-dry",
+    "cucumber-wilted",
+    "cucumber-dead"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 5452,
+    "frameSize": [
+      36,
+      73
+    ],
+    "installedKeys": [
+      "cucumber-seed",
+      "cucumber-sprout",
+      "cucumber-young",
+      "cucumber-flowering",
+      "cucumber-ripe",
+      "cucumber-dry",
+      "cucumber-wilted",
+      "cucumber-dead"
+    ]
+  }
+}

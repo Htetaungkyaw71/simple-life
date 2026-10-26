@@ -1,3 +1,17 @@
+# 2026-10-25 — item-icon sheets integrated
+
+The reviewed seed-packet, crop-produce and Food-tab sheets are installed under 32 existing item keys as native 24×24 binary-alpha frames. The runtime uses only local atlas pixels. Green Pepper remains uninstalled because the game has no matching item ID, and no separate Cucumber packet/produce sheet was supplied. Existing shared keys mean Food-tab Watermelon/Grape also appear in Produce, while the cooked drumstick also appears for raw Meat; no item IDs, save data or gameplay logic were changed.
+
+The specifically requested `18_54_02`, `18_54_07` and `18_54_12` `-pixel-snapper` filenames were not present locally. The already-native 192×144 review exports derived from those three matching generated sources were used transparently and without further resampling. The importer uses connected components, the crop plant's boundary-magenta cleanup, the exact shared green-remap constants, binary alpha, body-protection masks and lossless padding only. The generated/user-directed artwork remains disclosed as AI-generated/adapted; this is not a claim of hand authorship, CC0 status, exclusivity or independent competition eligibility. Exact sources, hashes, mappings and transformations: [Seed packets](assets/licenses/item-icons-seed-packets-v1/SOURCE_RECORD.md), [Crop produce](assets/licenses/item-icons-crop-produce-v1/SOURCE_RECORD.md), [Food tab](assets/licenses/item-icons-fruit-tab-v1/SOURCE_RECORD.md). Build-tool evidence: [Pillow dependency record](licenses/item-icons-runtime-v1/DEPENDENCIES.md).
+
+---
+
+# 2026-10-25 — Cucumber supplied plant sheet
+
+The existing Cucumber crop now uses the user-supplied 334×113 AI-assisted Pixel Snapper growth strip under its eight established `cucumber-*` runtime keys. The reproducible importer removes only verified background/fringe colors plus any qualifying region-based ground mask, preserves strict binary alpha, applies the shared deterministic living-green palette lookup, and packs eight bottom-anchored 36×73 frames without resampling. The user is responsible for source rights; no CC0, exclusivity, human-only authorship or competition-eligibility claim is made. [Exact source, hash, transformations, measurements and reproduction command](assets/licenses/cucumber-import-v1/SOURCE_RECORD.md).
+
+---
+
 # 2026-10-25 — item-icon review sheets
 
 Three separate 192×144 4×3 review sheets were created with OpenAI built-in image generation and deterministic local Pillow processing: seed packets, harvested crop produce, and fruit/food. The user's 379×123 Tomato plant sheet is the style reference; the user's 108×74 bag crop is used only for the packet construction. All generated sources and final native sheets remain outside `public/`, `dist` and the runtime allowlist pending approval. They are disclosed as AI-generated/adapted, not hand-drawn, CC0, exclusive or guaranteed competition-eligible. [Exact prompts, reference roles, hashes, processing, output terms and validation](assets/licenses/item-icon-sheets-v1/SOURCE_RECORD.md).

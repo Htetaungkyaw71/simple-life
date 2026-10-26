@@ -6,7 +6,7 @@ from PIL import Image,ImageDraw
 from import_sheet import candidate_frames
 ROOT=Path(__file__).resolve().parents[1]
 NEW_CROPS=('chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato')
-IMPORTED_CROPS=('chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato')
+IMPORTED_CROPS=('chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato')
 COLOURS={'chili':('#b14e37','#e9894d'),'eggplant':('#5b485e','#92788e'),'cucumber':('#4f7041','#98ac58'),'watermelon':('#476945','#98aa62'),'pumpkin':('#b16c38','#e1a650'),'grape':('#695575','#a391ae'),'blueberry':('#516275','#8b9aab'),'sweetPotato':('#8a5551','#c78c67')}
 def fruit(d,c,x,y,small=False):
  dark,light=COLOURS[c];r=2 if small else 5
@@ -39,8 +39,7 @@ def add_farm_crop_art(assets):
     if stage=='ripe':
      for x,y in ([(6,25),(18,27)] if vine else [(6,18),(17,22)]):fruit(d,c,x,y,small=True)
    assets[c+'-'+stage]=im
- # Verified native sheets replace only the seven existing plant-key families.
- # Cucumber keeps its established code-native artwork.
+ # Verified native sheets replace only their existing plant-key families.
  for crop in IMPORTED_CROPS:
   for state,frame in candidate_frames(ROOT/'docs/assets/licenses'/f'{crop}-import-v1').items():assets[crop+'-'+state]=frame
  shovel=Image.new('RGBA',(16,16));d=ImageDraw.Draw(shovel);d.line((4,2,11,10),fill='#504734',width=3);d.line((4,2,11,10),fill='#bb9363');d.polygon([(9,8),(13,7),(15,11),(12,15),(8,12)],fill='#444d43');d.polygon([(10,9),(13,8),(14,11),(12,13),(9,11)],fill='#b1b5a2');assets['shovel-item']=shovel

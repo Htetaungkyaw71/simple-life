@@ -1,0 +1,1386 @@
+{
+  "sheet": "seed-packets",
+  "requestedFilename": "ChatGPT_Image_25_Oct_2026__18_54_02-pixel-snapper.png",
+  "requestedPixelSnapperFilePresent": false,
+  "actualNativeSource": "output/art/item-icon-sheets-v1/image-1-seed-packets.png",
+  "actualNativeSourceNote": "Previously generated native review export from the matching 18_54 source; used because the requested -pixel-snapper filename was not present in Downloads, attachments, assets-src, or output.",
+  "sourceSha256": "74d53cef0604338ac791dbeb2614e23d82afa1a7df8e8ac290df4f2adfb13f5a",
+  "sourceSize": [
+    192,
+    144
+  ],
+  "sourceUniqueColors": 210,
+  "sourceAlphaValues": [
+    255
+  ],
+  "dominantBackground": [
+    255,
+    0,
+    255,
+    255
+  ],
+  "dominantBackgroundPixels": 22224,
+  "grid": {
+    "cleanPixelGrid": true,
+    "nativePixelGrid": true,
+    "pixelsResampled": 0,
+    "interpretation": "native 1px hard-edged art"
+  },
+  "detection": {
+    "method": "8-connected opaque components with nearest-fragment joining; no fixed cell slicing",
+    "rawConnectedComponents": 12,
+    "joinedFragments": [],
+    "detectedIcons": 12
+  },
+  "cleanup": {
+    "method": "shared boundary-connected magenta/matte removal from scripts/import_sheet.py",
+    "removedColors": [
+      [
+        255,
+        0,
+        255,
+        255,
+        22224
+      ]
+    ],
+    "remainingMagentaPixels": 0,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "pixelsResampled": 0
+  },
+  "paletteRemap": {
+    "method": "shared dominant-green HSL transform with spatial fruit-body protection",
+    "constants": {
+      "SATURATION_SCALE": 0.78,
+      "HUE_SHIFT": 8.0,
+      "LIGHTNESS_SCALE": 0.94
+    }
+  },
+  "frameSize": [
+    24,
+    24
+  ],
+  "displayScale": 1,
+  "candidate": {
+    "path": "docs/assets/licenses/item-icons-seed-packets-v1/candidate.png",
+    "sha256": "76089f523d39c9d76a9d046e872b9e3cf6cf956ee1c53f00504b12a3afdee8de"
+  },
+  "prePaletteCandidate": {
+    "path": "docs/assets/licenses/item-icons-seed-packets-v1/candidate-pre-palette.png",
+    "sha256": "85002191ca6d7aa883cd91bf8870fb5a9ed49258f0712d855292ba32cc154e7d"
+  },
+  "cleanedSource": {
+    "path": "docs/assets/licenses/item-icons-seed-packets-v1/cleaned-source.png",
+    "sha256": "27ec79134b803dc44b74644f06e37f51b34e7a455955909a7a4560e5085ef889"
+  },
+  "icons": [
+    {
+      "position": 1,
+      "row": 1,
+      "column": 1,
+      "label": "tomato",
+      "itemKey": "tomato-seed-item",
+      "sourceBounds": [
+        14,
+        12,
+        33,
+        36
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 145,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 145,
+        "lookup": [
+          {
+            "from": [
+              29,
+              39,
+              5,
+              255
+            ],
+            "to": [
+              31,
+              35,
+              9,
+              255
+            ]
+          },
+          {
+            "from": [
+              35,
+              46,
+              5,
+              255
+            ],
+            "to": [
+              37,
+              41,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              47,
+              76,
+              8,
+              255
+            ],
+            "to": [
+              53,
+              69,
+              15,
+              255
+            ]
+          },
+          {
+            "from": [
+              125,
+              143,
+              64,
+              255
+            ],
+            "to": [
+              128,
+              134,
+              73,
+              255
+            ]
+          },
+          {
+            "from": [
+              155,
+              156,
+              73,
+              255
+            ],
+            "to": [
+              147,
+              139,
+              82,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 2,
+      "row": 1,
+      "column": 2,
+      "label": "strawberry",
+      "itemKey": "strawberry-seed-item",
+      "sourceBounds": [
+        62,
+        12,
+        81,
+        36
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 168,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 168,
+        "lookup": [
+          {
+            "from": [
+              29,
+              37,
+              6,
+              255
+            ],
+            "to": [
+              31,
+              34,
+              9,
+              255
+            ]
+          },
+          {
+            "from": [
+              32,
+              42,
+              7,
+              255
+            ],
+            "to": [
+              34,
+              38,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              42,
+              57,
+              7,
+              255
+            ],
+            "to": [
+              45,
+              52,
+              12,
+              255
+            ]
+          },
+          {
+            "from": [
+              97,
+              123,
+              46,
+              255
+            ],
+            "to": [
+              102,
+              115,
+              54,
+              255
+            ]
+          },
+          {
+            "from": [
+              129,
+              148,
+              67,
+              255
+            ],
+            "to": [
+              133,
+              139,
+              76,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 3,
+      "row": 1,
+      "column": 3,
+      "label": "carrot",
+      "itemKey": "carrot-seed-item",
+      "sourceBounds": [
+        110,
+        12,
+        129,
+        36
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 175,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 175,
+        "lookup": [
+          {
+            "from": [
+              26,
+              36,
+              5,
+              255
+            ],
+            "to": [
+              28,
+              33,
+              8,
+              255
+            ]
+          },
+          {
+            "from": [
+              31,
+              44,
+              6,
+              255
+            ],
+            "to": [
+              34,
+              40,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              36,
+              46,
+              6,
+              255
+            ],
+            "to": [
+              38,
+              42,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              78,
+              105,
+              33,
+              255
+            ],
+            "to": [
+              84,
+              97,
+              41,
+              255
+            ]
+          },
+          {
+            "from": [
+              106,
+              143,
+              50,
+              255
+            ],
+            "to": [
+              114,
+              133,
+              60,
+              255
+            ]
+          },
+          {
+            "from": [
+              151,
+              153,
+              67,
+              255
+            ],
+            "to": [
+              144,
+              136,
+              76,
+              255
+            ]
+          },
+          {
+            "from": [
+              177,
+              194,
+              91,
+              255
+            ],
+            "to": [
+              174,
+              177,
+              91,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 4,
+      "row": 1,
+      "column": 4,
+      "label": "corn",
+      "itemKey": "corn-seed-item",
+      "sourceBounds": [
+        158,
+        12,
+        177,
+        36
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 146,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 146,
+        "lookup": [
+          {
+            "from": [
+              28,
+              37,
+              8,
+              255
+            ],
+            "to": [
+              30,
+              34,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              29,
+              46,
+              6,
+              255
+            ],
+            "to": [
+              33,
+              42,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              35,
+              52,
+              7,
+              255
+            ],
+            "to": [
+              38,
+              47,
+              12,
+              255
+            ]
+          },
+          {
+            "from": [
+              62,
+              101,
+              26,
+              255
+            ],
+            "to": [
+              70,
+              93,
+              34,
+              255
+            ]
+          },
+          {
+            "from": [
+              84,
+              135,
+              36,
+              255
+            ],
+            "to": [
+              95,
+              124,
+              47,
+              255
+            ]
+          },
+          {
+            "from": [
+              152,
+              185,
+              56,
+              255
+            ],
+            "to": [
+              158,
+              171,
+              70,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 5,
+      "row": 2,
+      "column": 1,
+      "label": "chili",
+      "itemKey": "chili-seed-item",
+      "sourceBounds": [
+        14,
+        60,
+        33,
+        84
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 122,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 122,
+        "lookup": [
+          {
+            "from": [
+              27,
+              34,
+              4,
+              255
+            ],
+            "to": [
+              28,
+              31,
+              7,
+              255
+            ]
+          },
+          {
+            "from": [
+              31,
+              43,
+              5,
+              255
+            ],
+            "to": [
+              33,
+              39,
+              9,
+              255
+            ]
+          },
+          {
+            "from": [
+              39,
+              58,
+              7,
+              255
+            ],
+            "to": [
+              43,
+              52,
+              13,
+              255
+            ]
+          },
+          {
+            "from": [
+              125,
+              151,
+              67,
+              255
+            ],
+            "to": [
+              130,
+              142,
+              76,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 6,
+      "row": 2,
+      "column": 2,
+      "label": "eggplant",
+      "itemKey": "eggplant-seed-item",
+      "sourceBounds": [
+        62,
+        60,
+        81,
+        84
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 116,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 116,
+        "lookup": [
+          {
+            "from": [
+              31,
+              40,
+              6,
+              255
+            ],
+            "to": [
+              33,
+              36,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              39,
+              45,
+              12,
+              255
+            ],
+            "to": [
+              40,
+              41,
+              16,
+              255
+            ]
+          },
+          {
+            "from": [
+              104,
+              131,
+              45,
+              255
+            ],
+            "to": [
+              109,
+              122,
+              54,
+              255
+            ]
+          },
+          {
+            "from": [
+              150,
+              156,
+              73,
+              255
+            ],
+            "to": [
+              147,
+              143,
+              82,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 7,
+      "row": 2,
+      "column": 3,
+      "label": "green pepper",
+      "itemKey": null,
+      "sourceBounds": [
+        110,
+        60,
+        129,
+        84
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 25,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 234,
+        "protectedGreenFruitBodyPixels": 132,
+        "changedPixels": 102,
+        "lookup": [
+          {
+            "from": [
+              27,
+              36,
+              6,
+              255
+            ],
+            "to": [
+              29,
+              33,
+              9,
+              255
+            ]
+          },
+          {
+            "from": [
+              33,
+              42,
+              6,
+              255
+            ],
+            "to": [
+              35,
+              38,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              34,
+              46,
+              5,
+              255
+            ],
+            "to": [
+              36,
+              41,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              34,
+              55,
+              6,
+              255
+            ],
+            "to": [
+              38,
+              50,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              98,
+              123,
+              47,
+              255
+            ],
+            "to": [
+              103,
+              115,
+              55,
+              255
+            ]
+          },
+          {
+            "from": [
+              124,
+              147,
+              67,
+              255
+            ],
+            "to": [
+              129,
+              138,
+              76,
+              255
+            ]
+          },
+          {
+            "from": [
+              145,
+              152,
+              71,
+              255
+            ],
+            "to": [
+              143,
+              140,
+              80,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 8,
+      "row": 2,
+      "column": 4,
+      "label": "watermelon",
+      "itemKey": "watermelon-seed-item",
+      "sourceBounds": [
+        158,
+        60,
+        177,
+        84
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 26,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 266,
+        "protectedGreenFruitBodyPixels": 152,
+        "changedPixels": 114,
+        "lookup": [
+          {
+            "from": [
+              30,
+              35,
+              9,
+              255
+            ],
+            "to": [
+              31,
+              32,
+              12,
+              255
+            ]
+          },
+          {
+            "from": [
+              31,
+              41,
+              6,
+              255
+            ],
+            "to": [
+              33,
+              37,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              35,
+              45,
+              7,
+              255
+            ],
+            "to": [
+              37,
+              41,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              35,
+              51,
+              6,
+              255
+            ],
+            "to": [
+              38,
+              46,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              38,
+              68,
+              9,
+              255
+            ],
+            "to": [
+              44,
+              62,
+              15,
+              255
+            ]
+          },
+          {
+            "from": [
+              52,
+              104,
+              22,
+              255
+            ],
+            "to": [
+              63,
+              95,
+              31,
+              255
+            ]
+          },
+          {
+            "from": [
+              103,
+              134,
+              45,
+              255
+            ],
+            "to": [
+              109,
+              124,
+              55,
+              255
+            ]
+          },
+          {
+            "from": [
+              139,
+              150,
+              68,
+              255
+            ],
+            "to": [
+              141,
+              141,
+              77,
+              255
+            ]
+          },
+          {
+            "from": [
+              174,
+              195,
+              84,
+              255
+            ],
+            "to": [
+              172,
+              178,
+              85,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 9,
+      "row": 3,
+      "column": 1,
+      "label": "pumpkin",
+      "itemKey": "pumpkin-seed-item",
+      "sourceBounds": [
+        14,
+        108,
+        33,
+        132
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 144,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 144,
+        "lookup": [
+          {
+            "from": [
+              28,
+              37,
+              5,
+              255
+            ],
+            "to": [
+              30,
+              33,
+              9,
+              255
+            ]
+          },
+          {
+            "from": [
+              31,
+              44,
+              5,
+              255
+            ],
+            "to": [
+              34,
+              40,
+              9,
+              255
+            ]
+          },
+          {
+            "from": [
+              37,
+              49,
+              6,
+              255
+            ],
+            "to": [
+              39,
+              44,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              120,
+              139,
+              60,
+              255
+            ],
+            "to": [
+              124,
+              130,
+              69,
+              255
+            ]
+          },
+          {
+            "from": [
+              128,
+              159,
+              63,
+              255
+            ],
+            "to": [
+              134,
+              148,
+              74,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 10,
+      "row": 3,
+      "column": 2,
+      "label": "grapes",
+      "itemKey": "grape-seed-item",
+      "sourceBounds": [
+        62,
+        108,
+        81,
+        132
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 153,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 153,
+        "lookup": [
+          {
+            "from": [
+              31,
+              41,
+              6,
+              255
+            ],
+            "to": [
+              33,
+              37,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              40,
+              48,
+              13,
+              255
+            ],
+            "to": [
+              42,
+              44,
+              17,
+              255
+            ]
+          },
+          {
+            "from": [
+              106,
+              135,
+              51,
+              255
+            ],
+            "to": [
+              112,
+              126,
+              60,
+              255
+            ]
+          },
+          {
+            "from": [
+              138,
+              146,
+              83,
+              255
+            ],
+            "to": [
+              139,
+              139,
+              90,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 11,
+      "row": 3,
+      "column": 3,
+      "label": "blueberries",
+      "itemKey": "blueberry-seed-item",
+      "sourceBounds": [
+        110,
+        108,
+        129,
+        132
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 17,
+      "finalUniqueOpaqueColors": 17,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 174,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 174,
+        "lookup": [
+          {
+            "from": [
+              31,
+              45,
+              19,
+              255
+            ],
+            "to": [
+              34,
+              42,
+              22,
+              255
+            ]
+          },
+          {
+            "from": [
+              32,
+              64,
+              43,
+              255
+            ],
+            "to": [
+              36,
+              60,
+              41,
+              255
+            ]
+          },
+          {
+            "from": [
+              33,
+              46,
+              5,
+              255
+            ],
+            "to": [
+              36,
+              41,
+              10,
+              255
+            ]
+          },
+          {
+            "from": [
+              95,
+              137,
+              73,
+              255
+            ],
+            "to": [
+              104,
+              130,
+              80,
+              255
+            ]
+          },
+          {
+            "from": [
+              123,
+              149,
+              65,
+              255
+            ],
+            "to": [
+              128,
+              140,
+              74,
+              255
+            ]
+          },
+          {
+            "from": [
+              149,
+              169,
+              80,
+              255
+            ],
+            "to": [
+              153,
+              159,
+              90,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 12,
+      "row": 3,
+      "column": 4,
+      "label": "sweet potato",
+      "itemKey": "sweetPotato-seed-item",
+      "sourceBounds": [
+        158,
+        108,
+        177,
+        132
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "sourceUniqueOpaqueColors": 18,
+      "finalUniqueOpaqueColors": 18,
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "paletteRemap": {
+        "greenCandidatePixels": 126,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 126,
+        "lookup": [
+          {
+            "from": [
+              29,
+              35,
+              8,
+              255
+            ],
+            "to": [
+              30,
+              32,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              31,
+              41,
+              7,
+              255
+            ],
+            "to": [
+              33,
+              37,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              109,
+              134,
+              55,
+              255
+            ],
+            "to": [
+              114,
+              125,
+              64,
+              255
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "warnings": [
+    "green pepper has no existing runtime item key and is audit-only"
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 5529,
+    "frameSize": [
+      24,
+      24
+    ]
+  }
+}

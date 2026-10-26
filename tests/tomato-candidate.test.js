@@ -10,9 +10,10 @@ test('approved Tomato Candidate B uses native frames and visual-only crop metada
  assert.equal(CROPS.tomato.anchorX,23.5);
  assert.equal(CROPS.tomato.baseOffsetY,0);
  assert.equal(CROPS.tomato.signOffsetY,-106);
- assert.equal(CROPS.cucumber.visualScale,2);
- assert.equal(CROPS.cucumber.baseOffsetY,20);
- assert.equal(CROPS.cucumber.signOffsetY,-54);
+ assert.equal(CROPS.cucumber.visualScale,1);
+ assert.equal(CROPS.cucumber.anchorX,17);
+ assert.equal(CROPS.cucumber.baseOffsetY,0);
+ assert.equal(CROPS.cucumber.signOffsetY,-109);
  assert.equal(CROPS.sweetPotato.visualScale,1);
  const atlas=JSON.parse(await readFile('public/assets/pixel/processed/town.json','utf8'));
  for(const key of TOMATO_KEYS){

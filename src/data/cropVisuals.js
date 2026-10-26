@@ -21,6 +21,5 @@ export const CROP_RENDER_METADATA=Object.freeze({
  grape:Object.freeze({visualScale:1,anchorX:20.5,baseOffsetY:0,signOffsetY:-111}),
  blueberry:Object.freeze({visualScale:1,anchorX:21,baseOffsetY:2,signOffsetY:-107}),
  sweetPotato:Object.freeze({visualScale:1,anchorX:29.5,baseOffsetY:3,signOffsetY:-78}),
- // Preserve the only non-imported crop's established rendering exactly.
- cucumber:Object.freeze({visualScale:2,anchorX:12,baseOffsetY:20,signOffsetY:-54}),
+ cucumber:Object.freeze({visualScale:1,anchorX:17,baseOffsetY:0,signOffsetY:-109}),
 });

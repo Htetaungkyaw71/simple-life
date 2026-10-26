@@ -9,7 +9,7 @@ const browser=await chromium.launch({executablePath:'/Applications/Google Chrome
 const base=process.env.GAME_URL||'http://127.0.0.1:43866/';
 const phase=process.env.QA_PHASE||'after';
 const out=process.env.QA_OUT||'docs/verification/crop-palette-anchor-v1';
-const crops=['tomato','strawberry','carrot','corn','chili','eggplant','watermelon','pumpkin','grape','blueberry','sweetPotato'];
+const crops=['tomato','strawberry','carrot','corn','chili','eggplant','cucumber','watermelon','pumpkin','grape','blueberry','sweetPotato'];
 const closeupCrops=process.env.QA_FILTER?crops.filter(crop=>new RegExp(process.env.QA_FILTER).test(crop)):crops;
 const orderedPlots=FARM_PLOTS.slice(0,16).map((plot,index)=>({...plot,index})).sort((a,b)=>a.y-b.y||a.x-b.x);
 

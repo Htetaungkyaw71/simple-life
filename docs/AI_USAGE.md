@@ -1,3 +1,19 @@
+# 2026-10-25 — item-icon runtime integration
+
+At the user's explicit request, Codex integrated the three previously generated and locally pixel-processed item-icon sheets without an approval pause. Assistance covered exact Bag-order mapping, connected-component detection, shared boundary-magenta cleanup, the existing green-only HSL remap with green-fruit body protection, binary-alpha 24×24 framing, data-driven integer 1× presentation, targeted atlas installation, regression tests, local Chrome screenshots and documentation.
+
+No new image-generation call, raster resampling, interpolation, geometry repaint, gameplay rule, item ID, price, count, save field, slot size, backend, remote runtime asset, debug-page change, deployment, publication or push occurred. The three requested `-pixel-snapper` filenames were absent, so the checked-in native 192×144 review exports from their matching sources were used and explicitly recorded. Green Pepper was not guessed as Cucumber. Disposable browser contexts protected the user's save. Existing shared keys make Food Watermelon/Grape the same pixels as Produce and make cooked/raw Meat share the drumstick visual. Evidence: [runtime captures](verification/item-icons-runtime-v1/browser-results.json), [Seed record](assets/licenses/item-icons-seed-packets-v1/SOURCE_RECORD.md), [Produce record](assets/licenses/item-icons-crop-produce-v1/SOURCE_RECORD.md), and [Food record](assets/licenses/item-icons-fruit-tab-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-25 — Cucumber supplied-sheet integration
+
+At the user's explicit request, Codex integrated the supplied Cucumber Pixel Snapper strip under the existing `cucumber-*` sprite keys. Assistance covered deterministic native-grid validation, source-specific magenta/fringe cleanup, conservative region-based ground auditing, exact-color olive palette remapping, shared bottom-row anchoring, atlas installation, visual metadata, tests, live-browser verification and documentation.
+
+No image-generation call, redraw, resize, filtering, resampling, new dependency, gameplay change, watering-state change, growth-timing change, save change, sprite-key change, debug-page change, deployment, publication or push was used. Seed, dry, wilted and dead colors remain byte-identical to the cleaned source; alpha is strictly binary. The user's browser save is not read or changed because browser checks use disposable localStorage contexts. Human review remains responsible for final visual and competition-rights acceptance. Evidence: [source and import record](assets/licenses/cucumber-import-v1/SOURCE_RECORD.md) and [runtime verification](verification/cucumber-import-v1/README.md).
+
+---
+
 # 2026-10-25 — three item-icon review sheets
 
 At the user's explicit request, Codex used three sequential OpenAI built-in image-generation calls to create separate seed-packet, harvested-produce and fruit/food 4×3 sheets. The supplied Tomato plant sheet was the pixel-style reference; the supplied bag crop was used only for packet construction, with its old Tomato packet/icon explicitly excluded. Codex then applied deterministic Pillow-only near-magenta keying, nearest-neighbour reduction, no-dither palette reduction, colored-dark enforcement and 48×48 cell packing to produce three native 192×144 review PNGs. Exact prompts, hashes, references, processing and validation are recorded in [the source record](assets/licenses/item-icon-sheets-v1/SOURCE_RECORD.md).

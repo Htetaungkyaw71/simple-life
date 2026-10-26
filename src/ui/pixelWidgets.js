@@ -2,6 +2,7 @@ import {propImage} from '../art/PropArt.js';
 import {translate,translateButton} from '../i18n/language.js';
 import {myanmarText} from '../i18n/myanmarText.js';
 import {coloredFont} from './coloredFont.js';
+import {itemIconDisplaySize} from '../data/itemIconArt.js';
 export const UI_COLORS={ink:0x423a32,border:0xc6d799,edge:0xc6d799,panel:0xf3eccf,light:0x35462e,muted:0x747154,gold:0xa37035,cream:0xfffbe5,selected:0xc6d699,wood:0x93694c,paper:0xeed7a6};
 // Keep the established layered bevel and hard shadow, with clean square corners.
 export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLORS.border,thick=1){
@@ -27,7 +28,7 @@ export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=labe
  const box=scene.add.graphics();parent.add(box);let fill=disabled?0xd7d2b4:UI_COLORS.cream,stroke=1,base=fill;
  const paint=()=>{box.clear();frame(box,x,y,w,h,fill,'leaf',UI_COLORS.border,stroke);if(glyph)glyph(box,Math.round(x+w/2-4),Math.round(y+h/2-4),disabled?UI_COLORS.muted:UI_COLORS.light);};
  box.setFillStyle=c=>{base=fill=c;paint();return box;};box.setStrokeStyle=size=>{stroke=size;paint();return box;};paint();
- if(iconName)icon(scene,parent,iconName,Math.round(x+(w-16)/2),Math.round(y+(h-16)/2));
+ if(iconName){const size=itemIconDisplaySize(iconName);icon(scene,parent,iconName,Math.round(x+(w-size)/2),Math.round(y+(h-size)/2));}
  if(preview)preview(scene,parent,x+w/2,y+h/2,w-8,h-8);
  const t=iconName||glyph||preview?null:text(scene,parent,x+w/2,0,translateButton(label,scene.app?.language?.current),fontSize,textTint??(disabled?UI_COLORS.muted:UI_COLORS.light),w-6,bold,'body');
  if(t){if(t.height>h-6){let short=label;while(short.length&&(t.width>w-6||t.height>h-6)){short=scene.app?.language?.current==='mm'?'':short.slice(0,-1);t.setText(short+'...');}}t.setOrigin(.5,0).setPosition(Math.round(x+w/2),Math.round(y+(h-t.height)/2));}
