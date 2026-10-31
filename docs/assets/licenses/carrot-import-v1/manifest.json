@@ -88,38 +88,70 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        115,
+        31,
+        81
+      ],
+      [
+        171,
+        35,
+        139
+      ],
+      [
+        220,
+        29,
+        205
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         115,
         31,
         81,
         255,
-        31
+        33
       ],
       [
         171,
         35,
         139,
         255,
-        37
+        47
       ],
       [
         220,
         29,
         205,
         255,
-        89
+        105
       ],
       [
         254,
         4,
         253,
         255,
-        37174
+        37262
       ]
     ],
-    "remainingInteriorMagentaPixels": 133,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
@@ -158,54 +190,54 @@
         },
         {
           "stage": "young",
-          "opaqueBefore": 440,
+          "opaqueBefore": 438,
           "removedPixels": 0,
-          "opaqueAfter": 440,
+          "opaqueAfter": 438,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 847,
+          "opaqueBefore": 840,
           "removedPixels": 0,
-          "opaqueAfter": 847,
+          "opaqueAfter": 840,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1214,
+          "opaqueBefore": 1180,
           "removedPixels": 0,
-          "opaqueAfter": 1214,
+          "opaqueAfter": 1180,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 941,
+          "opaqueBefore": 902,
           "removedPixels": 0,
-          "opaqueAfter": 941,
+          "opaqueAfter": 902,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 701,
+          "opaqueBefore": 677,
           "removedPixels": 0,
-          "opaqueAfter": 701,
+          "opaqueAfter": 677,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dead",
-          "opaqueBefore": 387,
+          "opaqueBefore": 377,
           "removedPixels": 0,
-          "opaqueAfter": 387,
+          "opaqueAfter": 377,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -370,9 +402,9 @@
       58
     ],
     "path": "docs/assets/licenses/carrot-import-v1/candidate-b.png",
-    "sha256": "c1e6b83897d50fe04455d9356c25fb93b28de73a03c456a6e4d2669b130cd6c8",
-    "uniqueColors": 20,
-    "uniqueOpaqueColors": 19,
+    "sha256": "698559d978680404f98691875071ce754b8f4cc6c166fdacba5536131958e9a4",
+    "uniqueColors": 18,
+    "uniqueOpaqueColors": 17,
     "placements": [
       {
         "trimmedWidth": 26,
@@ -397,7 +429,7 @@
       {
         "trimmedWidth": 37,
         "trimmedHeight": 31,
-        "uniqueOpaqueColors": 10,
+        "uniqueOpaqueColors": 9,
         "frameX": 84,
         "pasteX": 2,
         "pasteY": 27,
@@ -407,7 +439,7 @@
       {
         "trimmedWidth": 42,
         "trimmedHeight": 48,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 13,
         "frameX": 126,
         "pasteX": 0,
         "pasteY": 10,
@@ -417,7 +449,7 @@
       {
         "trimmedWidth": 41,
         "trimmedHeight": 58,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 14,
         "frameX": 168,
         "pasteX": 0,
         "pasteY": 0,
@@ -427,7 +459,7 @@
       {
         "trimmedWidth": 37,
         "trimmedHeight": 46,
-        "uniqueOpaqueColors": 14,
+        "uniqueOpaqueColors": 12,
         "frameX": 210,
         "pasteX": 2,
         "pasteY": 12,
@@ -437,7 +469,7 @@
       {
         "trimmedWidth": 37,
         "trimmedHeight": 33,
-        "uniqueOpaqueColors": 12,
+        "uniqueOpaqueColors": 11,
         "frameX": 252,
         "pasteX": 2,
         "pasteY": 25,
@@ -447,7 +479,7 @@
       {
         "trimmedWidth": 39,
         "trimmedHeight": 20,
-        "uniqueOpaqueColors": 8,
+        "uniqueOpaqueColors": 6,
         "frameX": 294,
         "pasteX": 1,
         "pasteY": 38,
@@ -475,11 +507,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/carrot-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "90dbdc25944a0c5e5cffa4554144d75102f953cb3c7239130c496a6aec664ec6"
+    "prePaletteSha256": "bb54c1b5ac837eade8f5aa789576799dc8c01d776de7ca0eb170c553bd38121b"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/carrot-import-v1/cleaned-source.png",
-    "sha256": "058c47eb1d6d03062909b822a738ffd2b132b2eb5ee0152a6692f49f336e08de"
+    "sha256": "fe15525fe15a9a21b21ba2b1eaf6750b5a6a018c2aac1bab48fc036c0e0dbc86"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/carrot-import-v1/source.png",
@@ -498,7 +530,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 4859,
     "frameSize": [
       42,
       58

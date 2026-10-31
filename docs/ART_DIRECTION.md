@@ -1,3 +1,21 @@
+# 2026-10-29 — user-approved planter bench replacement
+
+The three City terrace planter benches use the selected transparent 177×132 Pixel Snapper export unchanged: two symmetrical side seats, a central front planter box, tall olive foliage, muted purple spikes and cream accents. Render the complete canvas at scale 0.9 with nearest filtering and no added shadow, glow, recolour, crop or alpha threshold. A render-only offset keeps the visible centre and ground contact at the established terrace anchors. Preserve the spacing, front-facing slight top-down camera and muted walnut palette. The ordinary standalone wooden benches remain unchanged.
+
+---
+
+# 2026-10-28 — Clara seed-seller direction
+
+Clara uses the supplied straw-hat, brown-braid, ivory-blouse and sage-apron design at the established 40-native-pixel adult height. Preserve the authored down/up/right standing, four-step calm walk and seated poses; mirror the right row for left. Runtime cells are transparent 64×64, foot-grounded and nearest-filtered at 1.5×. Do not replace her identity, seed pockets, muted palette or relaxed gait with farmer running frames.
+
+---
+
+# 2026-10-27 — Forest Spider wildlife direction
+
+Use a squat top-down spider with a charcoal/plum-brown abdomen, lighter segmented legs, tiny dull-red eyes and the game's hard native pixel grid. Keep all eight legs readable at 32×32 without oversized fangs, glow, gore or cute facial treatment. Four directions share one stable ground anchor; six crawl phases alternate leg pairs. Display at integer 2× with the existing restrained ground shadow and combat warning. Spiders occur in small rainforest/dark-forest groups and remain visibly smaller/easier than Wild Boars.
+
+---
+
 # 2026-10-23 — front-facing Mystical Forest River welcome
 
 The user's approved first screenshot now governs welcome-screen viewpoint and supersedes the v0.42 top-down farm-vignette direction for this screen only. Use an original eye-level riverbank view into a luminous forest clearing: tall faded trunks establish distance, layered middle bushes create depth, broad natural water fills the lower foreground, and dark tropical trees/leaves crop into both sides as a frame. Keep the central 45% calm enough for the live wordmark and stacked menu. Retain Simple Life's deep forest green, muted olive/moss, warm cream/peach light, reddish walnut and subdued sage-turquoise water.

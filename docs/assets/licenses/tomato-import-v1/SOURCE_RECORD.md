@@ -1,5 +1,7 @@
 # Tomato runtime palette-and-anchor update — 2026-10-25
 
+Cleanup rule revision, 2026-10-26: future raw-source inspection uses background references `(254,3,253)` and `(255,0,255)` plus fringe references `(123,27,101)`, `(185,10,172)` and `(231,16,223)`, all at maximum per-channel RGB distance 4 and only when their 8-neighbour component touches background. The established hand-reviewed 48×70 pre-palette candidate remains the runtime source so this cleanup-only change does not replace its approved geometry.
+
 This section supersedes the historical review status below. The already approved 48×70 Tomato runtime strip is active under its unchanged eight `tomato-*` keys. `scripts/import_sheet.py` now regenerates it from the immutable `candidate-b-pre-palette.png` by an exact RGBA lookup: living green pixels only use `SATURATION_SCALE=0.78`, an 8° shift toward olive, and `LIGHTNESS_SCALE=0.94` for bright tones. Seed, dry, wilted and dead frames are byte-identical to the pre-palette strip; geometry and binary alpha are identical in every frame. The lookup changed 2,255 living-stage pixels.
 
 The shared bottom-row anchor audit selected `anchorX: 23.5`; runtime metadata is scale 1, `baseOffsetY: 0`, `signOffsetY: -106`. The 36-pixel sign ends exactly at the 70-pixel ripe-frame top. Exact lookup pairs, per-stage counts, anchor samples, hashes and atlas coordinates are in `manifest.json`. User-supplied/AI-assisted provenance and rights limitations remain as recorded below.

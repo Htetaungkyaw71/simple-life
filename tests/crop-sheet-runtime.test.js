@@ -41,7 +41,7 @@ test('all imported crop keys exist in the runtime atlas with binary alpha',async
   assert.equal(CROPS[crop].anchorX,manifest.candidateB.anchor.anchorX,crop);
   assert.equal(CROPS[crop].signOffsetY,CROPS[crop].baseOffsetY-manifest.candidateB.placements[4].trimmedHeight-36,crop);
   assert.deepEqual(manifest.cleanup.alphaValues,[0,255],crop);
-  if(crop==='cucumber')assert.equal(manifest.cleanup.remainingInteriorMagentaPixels,0,crop);
+  if(manifest.cleanup.remainingExposedReferencePixels!==undefined)assert.equal(manifest.cleanup.remainingExposedReferencePixels,0,crop);
   if(manifest.cleanup.soil.over25PercentStages)assert.deepEqual(manifest.cleanup.soil.over25PercentStages,[],crop);
   if(manifest.cleanup.soil.deadConnectedComponents)assert.equal(manifest.cleanup.soil.deadConnectedComponents,1,crop);
   assert.equal(manifest.paletteRemap.constants.SATURATION_SCALE,.78,crop);
@@ -50,6 +50,17 @@ test('all imported crop keys exist in the runtime atlas with binary alpha',async
   assert.ok(manifest.paletteRemap.ripeGreenContrast.greenLightnessSpan>=12,crop);
   assert.deepEqual([candidate.width,candidate.height],[manifest.candidateB.frameSize[0]*STATES.length,manifest.candidateB.frameSize[1]],crop);
   assert.deepEqual([prePalette.width,prePalette.height],[candidate.width,candidate.height],crop);
+  if(manifest.cleanup.fringeReferences){
+   const references=[...manifest.cleanup.backgroundReferences,...manifest.cleanup.fringeReferences],distance=Math.max(manifest.cleanup.backgroundColorDistance,manifest.cleanup.fringeColorDistance);
+   for(let y=0;y<candidate.height;y++)for(let x=0;x<candidate.width;x++){
+    const offset=(y*candidate.width+x)*4;if(!candidate.pixels[offset+3])continue;
+    const near=references.some(reference=>Math.max(Math.abs(candidate.pixels[offset]-reference[0]),Math.abs(candidate.pixels[offset+1]-reference[1]),Math.abs(candidate.pixels[offset+2]-reference[2]))<=distance);
+    if(!near)continue;
+    const frameX=Math.floor(x/manifest.candidateB.frameSize[0])*manifest.candidateB.frameSize[0],frameRight=frameX+manifest.candidateB.frameSize[0];
+    const exposed=Array.from({length:3},(_,dy)=>y+dy-1).some(yy=>Array.from({length:3},(_,dx)=>x+dx-1).some(xx=>xx>=frameX&&xx<frameRight&&yy>=0&&yy<candidate.height&&!candidate.pixels[(yy*candidate.width+xx)*4+3]));
+    assert.equal(exposed,false,`${crop} retains exposed cleanup reference at ${x},${y}`);
+   }
+  }
   for(const [stageIndex,state] of STATES.entries()){
    const key=`${crop}-${state}`,record=metadata.frames[key];assert.ok(record,key);
    assert.deepEqual(record.sourceSize,{w:manifest.candidateB.frameSize[0],h:manifest.candidateB.frameSize[1]},key);

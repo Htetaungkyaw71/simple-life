@@ -7,7 +7,7 @@ const root=new URL('../',import.meta.url),out='output/art/pixel-snapper-assets-v
 const shopSources={
  clothingRack:'clothing-rack.png',
  clothingCabinet:'snapper-clothing-cabinet.png',clothingCounter:'snapper-clothing-counter.png',clothingFitting:'snapper-clothing-fitting-corner.png',clothingMirror:'snapper-clothing-mirror.png',clothingDisplay:'snapper-clothing-display-table.png',
- barberWorktop:'snapper-barber-worktop.png',barberHooks:'snapper-barber-coat-hooks.png',barberStorage:'snapper-barber-storage.png'
+ barberWorktop:'snapper-barber-worktop.png',barberHooks:'snapper-barber-coat-hooks.png',barberStorage:'snapper-barber-storage.png',barberChair:'snapper-barber-chair-v2.png'
 };
 const source=name=>name==='clothingRack'?new URL('output/art/clothing-rack-v3/source/clothing-rack.png',root):shopSources[name]?new URL(`output/art/shop-interior-pixel-snapper-v1/sources/${shopSources[name]}`,root):name==='homeWood'?new URL('output/art/home-wood-pile-v2/source/home-wood-pile.png',root):name==='wood'?new URL('output/art/pixel-snapper-wood-v1/source/wood-bundle.png',root):name==='planter'?`/Users/mac/Downloads/ChatGPT Image 16 Oct 2026, 11_47_03-pixel-snapper.png`:name==='storage'?`/Users/mac/Downloads/ChatGPT Image 18 Oct 2026, 18_40_29-pixel-snapper (1).png`:name==='broadleaf'?`/Users/mac/Downloads/download (6)-pixel-snapper.png`:`/Users/mac/Downloads/ChatGPT Image 18 Oct 2026, ${name}-pixel-snapper.png`;
 const specs=[
@@ -28,7 +28,8 @@ const specs=[
  ['snapper-clothing-cabinet','clothingCabinet',1.05],['snapper-clothing-counter','clothingCounter',.82],
  ['snapper-clothing-fitting-corner','clothingFitting',.9],['snapper-clothing-mirror','clothingMirror',.8],
  ['snapper-clothing-display-table','clothingDisplay',.95],['snapper-barber-worktop','barberWorktop',.86],
- ['snapper-barber-coat-hooks','barberHooks',.7],['snapper-barber-storage','barberStorage',.82]
+ ['snapper-barber-coat-hooks','barberHooks',.7],['snapper-barber-storage','barberStorage',.82],
+ ['snapper-barber-chair-v2','barberChair',.525]
 ];
 fs.mkdirSync(new URL(out+'/sources/',root),{recursive:true});fs.mkdirSync(new URL(runtime+'/',root),{recursive:true});fs.mkdirSync(new URL('docs/assets/licenses/pixel-snapper-assets-v1/',root),{recursive:true});
 const images=specs.map(([id,file,scale])=>{const filePath=source(file),bytes=fs.readFileSync(filePath),image=PNG.sync.read(bytes),copy=new URL(`${out}/sources/${id}.png`,root);fs.writeFileSync(copy,bytes);return{id,file:filePath,bytes,image,scale};});

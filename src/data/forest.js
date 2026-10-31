@@ -5,12 +5,12 @@ import {addForestTerrain} from './forestTerrain.js';
 import {WOODLAND_WILDLIFE} from './woodlandWildlife.js';
 import {EAST_REGIONS,EAST_BOARS} from './forestExpansion.js';
 import {dryFootprint,riverRow} from './water.js';
-import {growForest,finishForest} from './forestGrowth.js';
+import {growForest,finishForest,thinForestTrees,addForestBushes} from './forestGrowth.js';
 import {FOREST_MAP as STARTER,FORAGE_NODES as STARTER_NODES,FOREST_GUIDANCE} from './starterForest.js';
 import {FOREST_SIZE,FOREST_ENTRANCE,FOREST_APPROACHES} from './forestBounds.js';
 export {FOREST_GUIDANCE};
 export {FOREST_SIZE,FOREST_ENTRANCE} from './forestBounds.js';
-// Two adjacent 5120-square halves: twice v0.4.8, 40 times the original area.
+// Three times the preceding total area; Home enters at the true bottom-centre.
 export const LEGACY_FOREST_OFFSET=4096;
 export const BOAR_HOME={x:936,y:4472};
 export const BOAR_TERRITORY=[736,4272,400,320];
@@ -26,7 +26,7 @@ export function forestRegion(p){return REGIONS.find(r=>p.x>=r.x&&p.x<r.x+r.w&&p.
 const prop=(name,x,y,extra={})=>({name,x,y,...extra});
 const shift=p=>({...p,y:p.y+LEGACY_FOREST_OFFSET});
 const map={size:FOREST_SIZE,paths:STARTER.paths.map(([x,y,w,h])=>[x,y+4096,w,h]),buildings:[],props:STARTER.props.filter(p=>p.y>0&&p.x<1190).map(shift),water:STARTER.water.map(([x,y,w,h])=>[x,y+4096,w,h]),fences:[],signs:STARTER.signs.map(shift),extras:[],details:[],biomes:REGIONS};
-// Keep the old Homewood routes; the active entrance is now at the full map's centre.
+// Keep the old Homewood routes while the active entrance uses the new centre.
 map.paths.push([448,4096,96,496],[832,4576,448,96]);
 map.paths.push(...FOREST_APPROACHES);
 map.props=map.props.filter(p=>!['sign','road-sign','farm-sign'].includes(p.name));
@@ -94,8 +94,8 @@ for(let n=0;n<Math.ceil(FOREST_SIZE.width/120);n++)for(const y of [-32,5030]){
 }
 for(let n=0;n<44;n++)for(const x of [-44,FOREST_SIZE.width-56])map.props.push(prop('tree',x,n*120));
 export const TREASURES=REGIONS.filter(r=>r.danger>=3&&r.id!=='entrance').map((r,i)=>({id:r.id+'-cache',region:r.id,x:r.x+(r.id==='snake'?282:r.x===1280?992:1056),y:r.y+(r.id==='snake'?280:392),coins:120+r.danger*45+i*13,clue:'Look beyond the '+(r.biome==='stone'?'cave mouth':r.biome==='snow'?'frozen lake':'animal tracks')+'.'}));
-// Stable region/cache IDs and rewards survive the animal roster change.
-for(const r of REGIONS){r.species=r.id==='entrance'||TREASURES.some(t=>t.region===r.id)||EAST_BOARS.some(a=>a.region===r.id)?'boar':'woodland';r.danger=r.species==='boar'?1:0;}
+// Boars occupy rainforest habitats only; Dark Forest remains spider territory.
+for(const r of REGIONS){r.species=['rainforest','easyRainforest'].includes(forestHabitat({x:r.x+r.w/2,y:r.y+r.h/2}).id)?'boar':'woodland';r.danger=r.species==='boar'?1:0;}
 // Curated ruin fragments and colourful animated flora frame off-road landmarks.
 for(const r of REGIONS){
  if(r.id==='entrance')continue;
@@ -115,11 +115,14 @@ for(const [i,r]of REGIONS.entries())for(let n=0;n<4;n++){
  }
  FORAGE_NODES.push(node);
 }
-for(const animal of WOODLAND_WILDLIFE){
- if(dryFootprint(map,{x:animal.x-16,y:animal.y-24,w:32,h:32}))continue;
- const old=animal.x,r=forestRegion(animal);
- outer:for(let d=16;d<=480;d+=16)for(const sign of [-1,1]){const x=old+sign*d;if(x<r.x+48||x>r.x+r.w-48||!dryFootprint(map,{x:x-16,y:animal.y-24,w:32,h:32}))continue;animal.x=x;break outer;}
+// Large channels can cross an entire discovery region. Relocate covered
+// resources and animal homes in two dimensions without changing stable IDs.
+function relocateDry(point,pad=24){
+ if(dryFootprint(map,{x:point.x-pad,y:point.y-pad,w:pad*2,h:pad*2}))return point;const origin={x:point.x,y:point.y};
+ outer:for(let distance=32;distance<=2048;distance+=32)for(let n=0;n<32;n++){const x=Math.round((origin.x+Math.cos(n*Math.PI/16)*distance)/16)*16,y=Math.round((origin.y+Math.sin(n*Math.PI/16)*distance)/16)*16;if(x<48||x>FOREST_SIZE.width-48||y<64||y>FOREST_SIZE.height-48||!dryFootprint(map,{x:x-pad,y:y-pad,w:pad*2,h:pad*2})||map.props.some(p=>Math.hypot(p.x+32-x,p.y+90-y)<pad+36))continue;point.x=x;point.y=y;break outer;}
+ return point;
 }
+for(const point of [...FORAGE_NODES,...TREASURES,...WOODLAND_WILDLIFE,...EAST_BOARS.map(a=>a.home)])relocateDry(point,24);
 // A modest thinning opens sightlines while preserving remaining cut-tree IDs.
 const places=[...FORAGE_NODES,...WOODLAND_WILDLIFE.slice(48)];
 map.props=map.props.filter(p=>{
@@ -155,5 +158,10 @@ map.details=map.details.filter(p=>!inApproach(p.x+16,p.y+32,32));
 // A boulder's rendered silhouette is wider than its old logical tile. Keep
 // every forage point and its standing approach clear of that full silhouette.
 map.props=map.props.filter(p=>p.name!=='rock'||!FORAGE_NODES.some(n=>n.x+28>p.x-20&&n.x-28<p.x+84&&n.y+32>p.y-8&&n.y-32<p.y+64));
+// Remove the three-stalk bamboo prop and open the densest tree clusters while
+// preserving fruit groves, the perimeter and every important approach.
+map.props=map.props.filter(p=>p.name!=='bamboo-clump');
+map.treeThinning=thinForestTrees(map,protectedPlaces,144);
+map.forestBushes=addForestBushes(map,REGIONS,protectedPlaces,28);
 map.signs.push({type:'hint',x:FOREST_ENTRANCE.x-128,y:5008,label:'HOME / leave through the opening south'});
 export const FOREST_MAP=map;

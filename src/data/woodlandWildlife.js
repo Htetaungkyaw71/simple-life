@@ -1,6 +1,10 @@
 import {forestHabitat} from './forestHabitats.js';
 import {EAST_REGIONS} from './forestExpansion.js';
 const kinds=[['deer','Deer'],['hare','Hare'],['fox','Fox'],['grouse','Grouse']];
+const habitatWildlife=Array.from({length:120},(_,i)=>({x:(i%24)*1280,y:Math.floor(i/24)*1024,index:i})).flatMap(r=>{
+ const habitat=forestHabitat({x:r.x+640,y:r.y+512}).id;if(!['rainforest','darkForest'].includes(habitat))return [];
+ return [[256,368],[640,544],[1016,800]].map(([dx,dy],n)=>{const k=habitat==='darkForest'?kinds[(r.index+n+2)%4]:kinds[(r.index+n)%4];return {species:k[0],name:k[1],x:r.x+dx,y:r.y+dy};});
+});
 export const WOODLAND_WILDLIFE=[
  {species:'deer',name:'Deer',x:480,y:4680},{species:'deer',name:'Deer',x:520,y:4736},
  {species:'hare',name:'Hare',x:480,y:4840},{species:'hare',name:'Hare',x:520,y:4896},
@@ -13,6 +17,7 @@ export const WOODLAND_WILDLIFE=[
   const k=habitat==='snow'?kinds[1]:habitat==='desert'||habitat==='shrubland'?kinds[(i+n)%2+1]:kinds[(i+n)%4];
   return {species:k[0],name:k[1],x,y};
  })),
+ ...habitatWildlife,
 ].map(a=>({...a,id:`woodland-${a.species}-${a.x}-${a.y}`}));
 export const WOODLAND_BY_ID=Object.fromEntries(WOODLAND_WILDLIFE.map(a=>[a.id,a]));
 export const WOODLAND_SPECIES={deer:{health:3,meat:2},fox:{health:2,meat:1},hare:{health:1,meat:1},grouse:{health:1,meat:1}};

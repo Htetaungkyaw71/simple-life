@@ -1,13 +1,15 @@
 import {restoreAppearance} from './appearance.js';
 import {HOMES,LEGACY_HOME_IDS} from '../data/homes.js';
 import {restoreStory} from './story.js';
+import {restoreConnections} from './connections.js';
+import {restoreNarrative} from './narrative.js';
 import {VEGETATION} from '../data/vegetation.js';
 import {testingCredit,TESTING_COIN_GRANT} from './testingCredit.js';
 import {grassGround,MAX_PLACED_GRASS} from './vegetation.js';
 import {openGround,MAX_CUSTOM_BEDS,MAX_WET_PATCHES,WET_DURATION} from './farmGround.js';
 import {FARM_PLOTS} from '../data/farms.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
-import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS} from '../data/forest.js';
+import {FORAGE_NODES,LEGACY_FOREST_OFFSET,TREASURES,REGIONS,FOREST_ENTRANCE,forestRegion} from '../data/forest.js';
 import {inTerritory,freshAnimal} from './forest.js';
 import {SAVE_FARM_LIMIT,PLOTS_PER_FARM} from '../data/farms.js';
 import {newFarm,plotOwned,prepareStarterBeds} from './expansion.js';
@@ -24,7 +26,7 @@ import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {forestStones} from '../data/forestResources.js';
 const number = (v, fallback, min, max) => Number.isFinite(v) ? Math.max(min, Math.min(max, Math.floor(v))) : fallback;
 export function validate(raw) {
-  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
+  if (!raw || ![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21].includes(raw.version) || !['boy','girl'].includes(raw.character)) return null;
   const s = newState(raw.character);
   s.customBeds=[];
   s.appearance=restoreAppearance(raw.appearance,raw.character);
@@ -152,7 +154,7 @@ export function validate(raw) {
       if(!restored.health&&restored.defeatedDay<s.day){restored.health=WOODLAND_SPECIES[a.species].health;restored.defeatedDay=0;}
     }
   }
-  s.forest.explored=REGIONS.filter(r=>r.id==='entrance'||Array.isArray(raw.forest?.explored)&&raw.forest.explored.includes(r.id)).map(r=>r.id);
+  const startRegion=forestRegion(FOREST_ENTRANCE).id;s.forest.explored=REGIONS.filter(r=>r.id==='entrance'||r.id===startRegion||Array.isArray(raw.forest?.explored)&&raw.forest.explored.includes(r.id)).map(r=>r.id);
   s.forest.treasures=TREASURES.filter(t=>Array.isArray(raw.forest?.treasures)&&raw.forest.treasures.includes(t.id)).map(t=>t.id);
   const coins=number(raw.stash?.coins,0,0,9999999);
   if(['home','farm','city','forest'].includes(raw.stash?.area)&&coins>0){const area=raw.stash.area,farm=number(raw.stash.farm,0,0,s.farms.length-1);s.stash={area,...nearestSafe(area,area==='forest'?forestPosition(raw.stash):raw.stash,{...s,currentFarm:farm}),...(area==='farm'?{farm}:{}),coins};}
@@ -172,6 +174,8 @@ export function validate(raw) {
   }
   prepareStarterBeds(s,null,(farm,p)=>openGround('farm',p.x,p.y,true,{...s,currentFarm:farm})&&!(s.vegetation['farm:'+farm]?.placed||[]).some(n=>Math.abs(n.x-p.x)<40&&Math.abs(n.y-p.y)<40));
   restoreStory(raw,s);
+  s.connections=restoreConnections(raw.version>=20?raw.connections:null,s,raw.version);
+  restoreNarrative(raw.version>=21?raw.narrative:null,s);
   return s;
 }
 export class SaveService {

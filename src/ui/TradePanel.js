@@ -32,13 +32,14 @@ export class TradePanel {
  draw(u){
   const mm=u.app.language?.current==='mm',s=this.app.state,id=this.ids[this.index],d=this.catalog[id],plant=this.type==='plant',selling=this.type==='sell';
   const transaction=quote(s,this.type,id,this.quantity),reason=this.message||(!transaction.ok?(transaction.reason==='Not enough coins'?`Need ${transaction.total||d.seedPrice} coins`:transaction.reason==='You have no produce to sell.'?'No produce':transaction.reason.replace(' to sell.','')):'');
-  const ph=Math.min(225,u.h-u.safe.top-u.safe.bottom-10),compact=ph<190;
-  const pw=Math.min(compact?336:252,u.w-u.safe.left-u.safe.right-16),narrow=!compact&&pw<160,x=u.safe.left+Math.floor((u.w-u.safe.left-u.safe.right-pw)/2),y=u.safe.top+Math.floor((u.h-u.safe.top-u.safe.bottom-ph)/2);
+  const availableW=u.w-u.safe.left-u.safe.right,availableH=u.h-u.safe.top-u.safe.bottom,portrait=u.touch&&u.h>u.w,phonePortrait=portrait&&availableW<240;
+  const ph=Math.min(phonePortrait?196:225,availableH-10),compact=u.w>u.h&&ph<190,condensed=compact||phonePortrait;
+  const pw=Math.min(compact?336:phonePortrait?220:252,availableW-16),narrow=!compact&&pw<160,x=u.safe.left+Math.floor((availableW-pw)/2),y=u.safe.top+Math.floor((availableH-ph)/2);
   u.menuBounds={x:x*2,y:y*2,w:pw*2,h:ph*2};
   const veil=u.add.rectangle(0,0,u.w,u.h,0x102025,.46).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,lx,ly,e)=>e.stopPropagation());
   panel(u,u.root,x,y,pw,ph,UI_COLORS.panel);
   const tx=x+10,right=x+pw-10;
-  text(u,u.root,tx,y+(mm?8:14),plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold,undefined,false,'heading');
+  text(u,u.root,tx,y+(mm?8:condensed?10:14),plant?'SEED BAG':selling?'MARKET':'SEEDS',8,UI_COLORS.gold,undefined,false,'heading');
   button(u,u.root,'X',right-22,y+8,22,22,()=>u.close(),{id:'trade-close'});
   if(plant)button(u,u.root,'FOOD',tx+76,y+8,44,22,()=>this.app.survivalPanel.open('food'),{id:'bag-food'});
   if(!plant)button(u,u.root,(Math.floor(this.index/4)+1)+' >',right-50,y+8,22,22,()=>this.selectCrop((Math.floor(this.index/4)*4+4)%this.ids.length),{id:selling?'market-page':'seed-page'});
@@ -51,24 +52,24 @@ export class TradePanel {
   const cw=Math.floor((pw-29)/4);
   this.ids.slice(Math.floor(this.index/4)*4,Math.floor(this.index/4)*4+4).forEach((crop,i)=>{
    const index=this.ids.indexOf(crop);
-   const c=button(u,u.root,this.catalog[crop].name,tx+i*(cw+3),y+(compact?32:36),cw,compact?24:28,()=>this.selectCrop(index),{id:'crop-'+crop,iconName:selling?this.catalog[crop].icon:CROPS[crop].seedIcon});
+   const c=button(u,u.root,this.catalog[crop].name,tx+i*(cw+3),y+(condensed?32:36),cw,condensed?24:28,()=>this.selectCrop(index),{id:'crop-'+crop,iconName:selling?this.catalog[crop].icon:CROPS[crop].seedIcon,iconContext:selling?'tab':'slot'});
    if(index===this.index){c.box.setFillStyle(UI_COLORS.selected);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}
   });
   // Short landscape uses two columns, keeping item details clear of tabs and actions.
-  const bodyY=y+(compact?62:72),column=Math.floor((pw-26)/2),nameX=tx+(compact?24:40),nameWidth=compact?column-24:narrow?pw-60:pw-88;
+  const bodyY=y+(condensed?62:72),column=Math.floor((pw-26)/2),previewOffset=selling?(condensed?32:40):(condensed?44:56),nameX=tx+previewOffset,nameWidth=compact?column-previewOffset:narrow?pw-60:Math.max(36,pw-46-previewOffset);
   let priceY=bodyY+(mm?20:14);
-  if(!this.details||!compact&&!mm){
-   icon(u,u.root,selling?d.icon:d.seedIcon,tx,bodyY,compact?1:2);
+  if(!this.details||!(compact||phonePortrait)&&!mm){
+   icon(u,u.root,selling?d.icon:d.seedIcon,tx,bodyY,selling||condensed?1:2,selling?'world':'slot');
    const name=text(u,u.root,nameX,bodyY,d.name,9,UI_COLORS.light,nameWidth);
-   if(narrow||mm)priceY=bodyY+Math.max(mm?20:14,name.height+4);
+   if(narrow||mm||phonePortrait)priceY=bodyY+Math.max(mm?20:14,name.height+4);
    text(u,u.root,nameX,priceY+(mm?20:14),mm&&compact&&reason?reason.replace(' / HIGH market!',''):'Bag '+s.inventory[plant||!selling?d.seedKey:id],7,UI_COLORS.muted,nameWidth);
   }
   const price=marketPrice(s,id);
-  if(!plant&&(!this.details||!compact&&!mm)){icon(u,u.root,'coin',nameX,priceY-1,.65);this.priceText=text(u,u.root,nameX+13,priceY,String(selling?price.price:d.seedPrice)+' each',8,UI_COLORS.gold,narrow?pw-73:nameWidth-13);}
+  if(!plant&&(!this.details||!(compact||phonePortrait)&&!mm)){icon(u,u.root,'coin',nameX,priceY-1,.65);this.priceText=text(u,u.root,nameX+13,priceY,String(selling?price.price:d.seedPrice)+' each',8,UI_COLORS.gold,narrow?pw-73:nameWidth-13);}
   else this.priceText=null;
   button(u,u.root,this.details?'<':'?',compact?tx+60:narrow?tx+50:right-22,compact||narrow?y+8:bodyY,22,22,()=>{this.details=!this.details;this.show('trade-info');},{id:'trade-info'});
   if(this.details){
-   const detailY=compact||mm?bodyY:bodyY+(narrow?58:44);
+   const detailY=condensed||mm?bodyY:bodyY+(narrow?58:44);
    panel(u,u.root,tx,detailY-3,pw-20,y+ph-6-(detailY-3));
    let row=detailY+3;
    const rows=[...(mm?[[d.name,UI_COLORS.light]]:[]),[selling?`Today: ${price.label}`:`${d.growthDays} days / yield ${d.harvestYield}`,UI_COLORS.gold],[selling?'Price changes at midnight.':`Normal sell ${d.sellPrice}c / Food ${d.energyRestored} EP`,UI_COLORS.muted],[selling?SHOP_HOURS[this.type].label:d.trait,UI_COLORS.muted]];
@@ -78,14 +79,14 @@ export class TradePanel {
   }else if(plant){
    button(u,u.root,'Select',tx,y+ph-40,pw-20,26,()=>{s.selectedCrop=id;s.selected='seed';this.app.save();u.close();},{id:'choose-crop'});
   }else{
-   const quantities=[1,5,selling?'all':'max'],actionX=compact?tx+column+6:tx,actionWidth=compact?column:pw-20,actionY=compact?bodyY:y+ph-76,bw=Math.floor((actionWidth-6)/3);
+   const quantities=[1,5,selling?'all':'max'],actionX=compact?tx+column+6:tx,actionWidth=compact?column:pw-20,actionY=compact?bodyY:y+ph-(phonePortrait?68:76),bw=Math.floor((actionWidth-6)/3);
    quantities.forEach((quantity,i)=>{
     const c=button(u,u.root,String(quantity).toUpperCase(),actionX+i*(bw+3),actionY,bw,22,()=>{this.quantity=quantity;this.message='';this.show('trade-'+quantity);},{id:'trade-'+quantity});
     if(this.quantity===quantity){c.box.setFillStyle(UI_COLORS.selected);const mark=u.add.rectangle(c.x+3,c.y+c.h-4,c.w-6,2,UI_COLORS.gold).setOrigin(0);u.root.add(mark);}
    });
    const q=transaction;
    button(u,u.root,(selling?'Sell ':'Buy ')+(q.quantity||0)+' / '+(q.total||0)+'c',actionX,actionY+28,actionWidth,24,()=>this.perform(),{id:'trade-confirm',disabled:!q.ok});
-   const feedback=text(u,u.root,tx,compact?y+ph-17:y+ph-18,mm&&compact?'':compact||narrow?reason.replace(' / HIGH market!',''):reason,6,UI_COLORS.muted,compact?column:pw-20);
+   const feedback=text(u,u.root,tx,compact?y+ph-17:y+ph-18,mm&&compact?'':condensed||narrow?reason.replace(' / HIGH market!',''):reason,6,UI_COLORS.muted,compact?column:pw-20);
    if(feedback.text&&feedback.height>12)feedback.setText(reason.replace(' / HIGH market!',''));
   }
   u.highlight();

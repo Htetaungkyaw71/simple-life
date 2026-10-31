@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-28",
+  "character": "Clara",
+  "role": "seed seller",
+  "source": "docs/assets/licenses/seed-seller-v1/seed_seller_3x6_sprite_sheet_fixed.png",
+  "sourceSha256": "814e51d16d0d50add5625a6dc0da18ec851fbdb6dfdb05bf23a941022be0bc20",
+  "sourceSize": [
+    1200,
+    720
+  ],
+  "sourceCell": [
+    200,
+    240
+  ],
+  "runtime": "public/assets/pixel/processed/seed-seller.png",
+  "runtimeSha256": "31f51cdbfa648c848dfdaf3fe53ede671b0da379060fa1f63bf5d640abb24477",
+  "runtimeSize": [
+    384,
+    192
+  ],
+  "runtimeCell": [
+    64,
+    64
+  ],
+  "frames": [
+    {
+      "row": 0,
+      "column": 0,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "logicalBounds": [
+        12,
+        15,
+        37,
+        56
+      ]
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "logicalBounds": [
+        10,
+        22,
+        33,
+        55
+      ]
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        56
+      ]
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "logicalBounds": [
+        12,
+        15,
+        37,
+        55
+      ]
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "logicalBounds": [
+        15,
+        15,
+        39,
+        55
+      ]
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "logicalBounds": [
+        10,
+        23,
+        33,
+        55
+      ]
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "logicalBounds": [
+        15,
+        14,
+        38,
+        53
+      ]
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "logicalBounds": [
+        14,
+        14,
+        37,
+        53
+      ]
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "logicalBounds": [
+        15,
+        14,
+        38,
+        53
+      ]
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "logicalBounds": [
+        13,
+        13,
+        37,
+        54
+      ]
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "logicalBounds": [
+        15,
+        14,
+        38,
+        53
+      ]
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "logicalBounds": [
+        11,
+        21,
+        33,
+        53
+      ]
+    }
+  ],
+  "alpha": "binary 0/255",
+  "processing": "deterministic magenta hue-key, nearest 4x-to-1x sampling, centered 50x60 logical cells in 64x64 runtime frames; no redraw, recolor, interpolation or pose synthesis",
+  "rejectedImagegenExtractionSha256": "af4d21650a2a8683db7dee900a3bff9f2a3ce4c29caf8835d4512517d6329035"
+}

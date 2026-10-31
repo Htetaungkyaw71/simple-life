@@ -1,12 +1,12 @@
 import {propFrame} from './propArt.js';
 // Original recipes, requests and communal projects. Existing local art is reused.
 export const ORDERS=[
- {id:'rowan-timber',resident:'rowan',name:'Rowan',purpose:'Timber for a garden bench',cost:{wood:12},coins:80,seed:'seed',seeds:2},
- {id:'june-stones',resident:'city-june',name:'June',purpose:'Stones for a flower border',cost:{stone:8},coins:90,seed:'carrotSeed',seeds:2},
- {id:'bea-planters',resident:'city-bea',name:'Bea',purpose:'Materials for new planters',cost:{wood:8,stone:6},coins:120,seed:'strawberrySeed',seeds:2},
- {id:'tomas-paving',resident:'city-tomas',name:'Tomas',purpose:'Repair the garden paving',cost:{stone:12},coins:110,seed:'cucumberSeed',seeds:2},
- {id:'ira-fencing',resident:'city-ira',name:'Ira',purpose:'Wood for flowerbed fencing',cost:{wood:16},coins:100,seed:'chiliSeed',seeds:3},
- {id:'sol-garden',resident:'city-sol',name:'Sol',purpose:'Restore a quiet garden corner',cost:{wood:10,stone:10},coins:150,seed:'blueberrySeed',seeds:2},
+ {id:'rowan-timber',resident:'rowan',name:'Rowan',purpose:'Bring Rowan freshly chopped Wood.',cost:{wood:12},coins:80},
+ {id:'june-stones',resident:'city-june',name:'June',purpose:'Bring June smooth Stone from the forest.',cost:{stone:8},coins:90},
+ {id:'bea-planters',resident:'city-bea',name:'Bea',purpose:'Bring Bea a basket of Wild Berries.',cost:{wildBerry:10},coins:75},
+ {id:'tomas-paving',resident:'city-tomas',name:'Tomas',purpose:'Bring Tomas ripe Guavas.',cost:{guava:6},coins:90},
+ {id:'ira-fencing',resident:'city-ira',name:'Ira',purpose:'Bring Ira sweet Mangoes.',cost:{mango:4},coins:100},
+ {id:'sol-garden',resident:'city-sol',name:'Sol',purpose:'Bring Sol fresh Bananas.',cost:{banana:8},coins:95},
 ];
 export const PROJECTS=[
  {id:'commons',name:'Commons seating',description:'Build a leafy bench corner in the garden commons.',cost:{wood:12,stone:6},coins:240,seed:'grapeSeed',seeds:2,x:1440,y:880,props:[['bench',1408,816],['planter',1352,836],['planter',1496,836],['flowers2',1352,820],['flowers2',1496,820]]},

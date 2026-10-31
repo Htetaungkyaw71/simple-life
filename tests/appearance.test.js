@@ -47,7 +47,7 @@ test('every outfit/hair combination maps to a complete source-backed animation r
  for(let i=0;i<8;i++)for(const dir of ['down','up','left','right'])for(let f=0;f<=PEOPLE.walkFrames;f++){const r=frames[`town-person-${i}-${dir}-${f}`].frame;assert.equal(r.w,PEOPLE.width);assert.equal(r.h,PEOPLE.height);}
 });
 test('appearance previews and actions fit desktop and phone canvas panels',()=>{
- for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[390,844],[640,360],[360,640]]){
+ for(const [w,h]of [[1440,900],[1280,720],[1024,768],[844,390],[844,300],[667,280],[568,256],[390,844],[640,360],[360,640]]){
   const u=recorder(w,h),s=newState();s.money=200;visit(s,'clothes');const app={ui:u,state:s,input:{},paused:false,sound(){},transact(fn){fn(s);},scene:{build(){}}};u.app=app;const page=new AppearancePanel(app);
   for(const category of ['clothes','hair','accessories'])for(let i=0;i<(category==='clothes'?OUTFIT_IDS.length:category==='hair'?HAIRCUT_IDS.length:ACCESSORY_IDS.length);i++){page.open(category,i);const b=u.menuBounds;for(const c of u.controls){assert.ok(c.x*2>=b.x&&c.y*2>=b.y);assert.ok((c.x+c.w)*2<=b.x+b.w&&(c.y+c.h)*2<=b.y+b.h);for(const d of u.controls.filter(d=>d!==c)){const overlap=Math.min(c.x+c.w,d.x+d.w)-Math.max(c.x,d.x)>0&&Math.min(c.y+c.h,d.y+d.h)-Math.max(c.y,d.y)>0;assert.equal(overlap,false,`${w} ${h}: ${c.id}/${d.id}`);}}}
  }

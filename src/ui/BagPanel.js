@@ -13,7 +13,7 @@ import {bagLayout} from './layouts.js';
 export function bagItems(s,tab){
  if(tab==='seeds')return CROP_IDS.map(id=>({id,name:CROPS[id].name,icon:CROPS[id].seedIcon,count:s.inventory[CROPS[id].seedKey]}));
  if(tab==='food')return FOOD_IDS.map(id=>({id,name:FOODS[id].name,icon:FOODS[id].icon,count:s.inventory[id]}));
- if(tab==='gear')return [...(s.story?.keepsake!=='hidden'&&s.story?.keepsake?[{id:'keepsake',name:"Grandfather's Keepsake",icon:null,count:1}]:[]),{id:'water',name:s.ownsCopperCan?'Copper Watering Can':'Watering Can',icon:'watering-can-item',count:1},{id:'shovel',name:'Shovel',icon:'shovel-item',count:1},{id:'axe',name:'Axe',icon:'axe-item',count:1},{id:'meat',name:'Meat',icon:MEAT.icon,count:s.inventory.meat},{id:'grass',name:'Grass',icon:'grass-item',count:s.inventory.grass},{id:'wood',name:'Wood',icon:'wood-item',count:s.inventory.wood},{id:'stone',name:'Stone',icon:'stone-item',count:s.inventory.stone},...Object.entries(DECORATIONS).map(([id,d])=>({id,name:d.name,icon:d.icon,count:s.inventory[d.item]}))];
+ if(tab==='gear')return [...(s.story?.keepsake==='carried'?[{id:'keepsake',name:"Grandfather's Keepsake",icon:null,count:1}]:[]),{id:'water',name:s.ownsCopperCan?'Copper Watering Can':'Watering Can',icon:'watering-can-item',count:1},{id:'shovel',name:'Shovel',icon:'shovel-item',count:1},{id:'axe',name:'Axe',icon:'axe-item',count:1},{id:'meat',name:'Meat',icon:MEAT.icon,count:s.inventory.meat},{id:'grass',name:'Grass',icon:'grass-item',count:s.inventory.grass},{id:'wood',name:'Wood',icon:'wood-item',count:s.inventory.wood},{id:'stone',name:'Stone',icon:'stone-item',count:s.inventory.stone}];
  return [...CROP_IDS.map(id=>({id,name:CROPS[id].name,icon:CROPS[id].icon,count:s.inventory[id]})),{id:'wildHide',name:'Wild Hide',icon:'wild-hide-item',count:s.inventory.wildHide},{id:'meat',name:'Meat',icon:MEAT.icon,count:s.inventory.meat}];
 }
 export class BagPanel {
@@ -36,7 +36,7 @@ export class BagPanel {
   const veil=u.add.rectangle(0,0,u.w,u.h,0x26342b,.62).setOrigin(0).setInteractive();u.root.add(veil);veil.on('pointerdown',(p,a,b,e)=>e.stopPropagation());panel(u,u.root,x,y,w,h);
   text(u,u.root,x+12,y+10,'BAG',mm?8:12,UI_COLORS.light,undefined,true);button(u,u.root,'X',x+w-31,y+7,22,22,()=>u.close(),{id:'bag-close'});
   const tabs=[['seeds',CROPS.tomato.seedIcon],['produce',CROPS.tomato.icon],['food',FOODS.wildBerry.icon],['gear','axe-item']];
-  tabs.forEach(([tab,key],i)=>{const c=button(u,u.root,tab,x+12+i*29,y+29,26,h<190?22:24,()=>this.open(tab),{id:'bag-tab-'+tab,iconName:key});if(tab===this.tab)c.box.setFillStyle(UI_COLORS.selected);});
+  tabs.forEach(([tab,key],i)=>{const c=button(u,u.root,tab,x+12+i*29,y+29,26,h<190?22:24,()=>this.open(tab),{id:'bag-tab-'+tab,iconName:key,iconContext:tab==='produce'||tab==='food'?'tab':'slot'});if(tab===this.tab)c.box.setFillStyle(UI_COLORS.selected);});
   const gw=cols*cell+(cols-1)*gap,gx=Math.floor(x+(w-gw)/2),gy=y+(h<190?55:59),pageSize=cols*rows;
   const page=Math.floor(this.index/pageSize);if(items.length>pageSize)button(u,u.root,(page+1)+' >',x+w-69,y+7,32,22,()=>{this.index=(page*pageSize+pageSize)%items.length;this.show();},{id:'bag-page'});
   for(let slot=0;slot<pageSize;slot++){const i=page*pageSize+slot;

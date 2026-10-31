@@ -1,5 +1,7 @@
 # Grape palette-and-anchor update — 2026-10-25
 
+Cleanup revision, 2026-10-26: background references are `(254,3,253)` and `(255,0,255)`; fringe references are `(111,24,111)`, `(151,25,171)` and `(212,31,210)`. Distance is 4 per RGB channel, and only background-connected 8-neighbour components are removable. Identical interior grape colours that do not connect to background are preserved.
+
 This section supersedes the old source-exact color/sign metadata below. The 42×75 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,499 pixels with geometry and binary alpha unchanged. Its ripe greens retain a 37.65-point lightness span. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. Runtime metadata: scale 1, `anchorX: 20.5`, `baseOffsetY: 0`, `signOffsetY: -111`. Exact evidence is in `manifest.json`.
 
 # Historical Grape runtime plant-sheet import

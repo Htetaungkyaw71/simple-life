@@ -187,12 +187,12 @@ animal tracks|တိရစ္ဆာန်ခြေရာ
 The shade garden|အရိပ်ဥယျာဉ်
 The active field|ယခုစိုက်ခင်း
 Lantern Market|မီးအိမ်ဈေး
-Timber for a garden bench|ဥယျာဉ်ထိုင်ခုံအတွက်သစ်သား
-Stones for a flower border|ပန်းဘောင်အတွက်ကျောက်
-Materials for new planters|ပန်းပုံးသစ်အတွက်ပစ္စည်း
-Repair the garden paving|ဥယျာဉ်လမ်းပြင်မည်
-Wood for flowerbed fencing|ပန်းခင်းခြံစည်းရိုးအတွက်သစ်သား
-Restore a quiet garden corner|ဥယျာဉ်ထောင့်ပြန်ပြင်မည်
+Bring Rowan freshly chopped Wood.|Rowan အတွက် ခုတ်ထားသည့် သစ်သားယူလာပါ။
+Bring June smooth Stone from the forest.|June အတွက် တောထဲမှ ကျောက်ချောယူလာပါ။
+Bring Bea a basket of Wild Berries.|Bea အတွက် တောဘက်များ တောင်းတစ်လုံးယူလာပါ။
+Bring Tomas ripe Guavas.|Tomas အတွက် မှည့်သည့် မာလကာသီးများယူလာပါ။
+Bring Ira sweet Mangoes.|Ira အတွက် ချိုသည့် သရက်သီးများယူလာပါ။
+Bring Sol fresh Bananas.|Sol အတွက် လတ်လတ်ဆတ်ဆတ် ငှက်ပျောသီးများယူလာပါ။
 Build a leafy bench corner in the garden commons.|ဥယျာဉ်တွင် အရွက်ထိုင်ခုံထောင့် ဆောက်ပါ။
 Plant a welcoming flower court east of the square.|ရင်ပြင်အရှေ့ဘက်တွင် ပန်းဥယျာဉ်စိုက်ပါ။
 Add seating and flowers beside the picnic camp.|ပျော်ပွဲစားနေရာဘေး ထိုင်ခုံနှင့်ပန်းချပါ။
@@ -290,4 +290,33 @@ Forest & licences|တောပုံနှင့်လိုင်စင်
 Water any time, once a day. A missed day pauses growth; day three needs recovery water, and day four kills the crop. Three watered nights bring your first Tomato harvest.|နေ့စဉ်တစ်ကြိမ် အချိန်မရွေးရေလောင်းပါ။ တစ်ရက်မလောင်းလျှင် ကြီးထွားမှုရပ်သည်။ သုံးရက်မြောက်၌ ပြန်ကယ်ရန်ရေလောင်းပါ။ လေးရက်မလောင်းလျှင် အပင်သေသည်။ သုံးညရေလောင်းပြီးနောက် ပထမခရမ်းချဉ်သီးရိတ်နိုင်သည်။
 CLOSED|ဆိုင်ပိတ်ထားသည်
 Fruit and quiet wildlife|သစ်သီးနှင့် ငြိမ်သက်သောတိရစ္ဆာန်
+A letter home|အိမ်သို့ရောက်သောစာ
+I left the City's noise to keep Grandfather's farm. His last letter asked me to finish one promise.|မြို့ဆူညံမှုကိုထားခဲ့ပြီး အဘိုး၏လယ်ယာကို စောင့်ရှောက်ရန်လာခဲ့သည်။ နောက်ဆုံးစာတွင် ကတိတစ်ခုပြီးစီးပေးရန် တောင်းထားသည်။
+An old promise|ကတိဟောင်းတစ်ခု
+I'm Silas, the lamplighter. Your grandfather promised to relight Lantern Square for the town.|ကျွန်တော်က မီးထွန်းသမား Silas ပါ။ သင့်အဘိုးက မြို့အတွက် မီးအိမ်ရင်ပြင်ကို ပြန်ထွန်းမည်ဟု ကတိပေးခဲ့သည်။
+The broken lantern|ပျက်နေသောမီးအိမ်
+The lantern was found broken before he could. No one knows why, and his promise remains unfinished.|သူမပြီးစီးမီ မီးအိမ်ပျက်နေသည်ကို တွေ့ခဲ့ရသည်။ ဘာကြောင့်လဲ မသိသေး၍ သူ့ကတိ မပြီးသေးပါ။
+Your first step|သင့်ပထမခြေလှမ်း
+Claim the Tomato seeds, plant one, and water it. Then visit City while it grows; we'll inspect the lantern.|ခရမ်းချဉ်သီးမျိုးစေ့ယူ၍ တစ်ပင်စိုက်ပြီး ရေလောင်းပါ။ အပင်ကြီးချိန် မြို့သို့လာပါ။ မီးအိမ်ကို အတူစစ်ဆေးမည်။
+A good beginning|ကောင်းသောအစ
+That Tomato can grow while you're away. Follow the east road to City; I'll meet you by the broken lantern.|သင်သွားနေချိန် ခရမ်းချဉ်သီးကြီးထွားနိုင်သည်။ အရှေ့လမ်းမှမြို့သို့လာပါ။ ပျက်နေသောမီးအိမ်အနားတွင် တွေ့မည်။
+You|သင်
+Silas|Silas
+Move / drag the circle|ရွှေ့ / စက်ဝိုင်းကိုဆွဲပါ
+Move / WASD or arrows|ရွှေ့ / WASD သို့မဟုတ် မြား
+Star Use / claim 3 Tomato seeds|ကြယ် သုံး / ခရမ်းချဉ်သီးမျိုးစေ့ 3 စေ့ယူပါ
+E or click / claim 3 Tomato seeds|E သို့မဟုတ် နှိပ် / ခရမ်းချဉ်သီးမျိုးစေ့ 3 စေ့ယူပါ
+Move / follow FARM south|ရွှေ့ / တောင်ဘက်လယ်ယာသို့သွားပါ
+WASD / follow FARM south|WASD / တောင်ဘက်လယ်ယာသို့သွားပါ
+Tap Tomato seeds|ခရမ်းချဉ်သီးမျိုးစေ့ကိုနှိပ်ပါ
+1 or click / Tomato seeds|1 သို့မဟုတ် နှိပ် / ခရမ်းချဉ်သီးမျိုးစေ့
+Star Use / plant one Tomato|ကြယ် သုံး / ခရမ်းချဉ်သီးတစ်ပင်စိုက်ပါ
+E or click / plant one Tomato|E သို့မဟုတ် နှိပ် / ခရမ်းချဉ်သီးတစ်ပင်စိုက်ပါ
+Tap Water|ရေလောင်းဘူးကိုနှိပ်ပါ
+2 or click / Water|2 သို့မဟုတ် နှိပ် / ရေလောင်းဘူး
+Star Use / water the Tomato|ကြယ် သုံး / ခရမ်းချဉ်သီးကိုရေလောင်းပါ
+E or click / water the Tomato|E သို့မဟုတ် နှိပ် / ခရမ်းချဉ်သီးကိုရေလောင်းပါ
+Explore freely|လွတ်လပ်စွာစူးစမ်းမည်
+Skip tutorial|သင်ခန်းစာကျော်မည်
+Silas / City east|Silas / အရှေ့ဘက်မြို့
 ` .trim().split('\n').map(line=>{const i=line.indexOf('|');return [line.slice(0,i).replaceAll('\\n','\n'),line.slice(i+1).replaceAll('\\n','\n')];}));

@@ -88,21 +88,47 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        131,
+        32,
+        108
+      ],
+      [
+        201,
+        33,
+        185
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         131,
         32,
         108,
         255,
-        55
+        52
       ],
       [
         201,
         33,
         185,
         255,
-        94
+        90
       ],
       [
         252,
@@ -112,6 +138,7 @@
         31715
       ]
     ],
+    "remainingExposedReferencePixels": 0,
     "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
@@ -160,36 +187,36 @@
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1076,
+          "opaqueBefore": 1077,
           "removedPixels": 0,
-          "opaqueAfter": 1076,
+          "opaqueAfter": 1077,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1549,
+          "opaqueBefore": 1553,
           "removedPixels": 0,
-          "opaqueAfter": 1549,
+          "opaqueAfter": 1553,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 1107,
+          "opaqueBefore": 1108,
           "removedPixels": 0,
-          "opaqueAfter": 1107,
+          "opaqueAfter": 1108,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 815,
+          "opaqueBefore": 816,
           "removedPixels": 0,
-          "opaqueAfter": 815,
+          "opaqueAfter": 816,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -377,9 +404,9 @@
       73
     ],
     "path": "docs/assets/licenses/cucumber-import-v1/candidate-b.png",
-    "sha256": "3afbd607299ef89ac1b05277c49971c173f1672d5751be9296f37d48443160c3",
-    "uniqueColors": 19,
-    "uniqueOpaqueColors": 18,
+    "sha256": "d6ace866907157dbe48cd745368d1bbc38b8ce226e73d0b10d7bb46ef147cc0a",
+    "uniqueColors": 21,
+    "uniqueOpaqueColors": 20,
     "placements": [
       {
         "trimmedWidth": 27,
@@ -414,7 +441,7 @@
       {
         "trimmedWidth": 35,
         "trimmedHeight": 63,
-        "uniqueOpaqueColors": 13,
+        "uniqueOpaqueColors": 14,
         "frameX": 108,
         "pasteX": 0,
         "pasteY": 10,
@@ -424,7 +451,7 @@
       {
         "trimmedWidth": 35,
         "trimmedHeight": 73,
-        "uniqueOpaqueColors": 13,
+        "uniqueOpaqueColors": 15,
         "frameX": 144,
         "pasteX": 0,
         "pasteY": 0,
@@ -434,7 +461,7 @@
       {
         "trimmedWidth": 32,
         "trimmedHeight": 63,
-        "uniqueOpaqueColors": 12,
+        "uniqueOpaqueColors": 13,
         "frameX": 180,
         "pasteX": 2,
         "pasteY": 10,
@@ -444,7 +471,7 @@
       {
         "trimmedWidth": 36,
         "trimmedHeight": 51,
-        "uniqueOpaqueColors": 8,
+        "uniqueOpaqueColors": 9,
         "frameX": 216,
         "pasteX": 0,
         "pasteY": 22,
@@ -482,11 +509,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/cucumber-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "8a219c0489393289589a8a89a7f550f82c71cb4877c210376e1982fb0bb7fc43"
+    "prePaletteSha256": "e01352938ba84b053f38a57a030a5fccc39d2c9bd177d992d7d1a279240c4a32"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/cucumber-import-v1/cleaned-source.png",
-    "sha256": "4e52eb4443a71f45578b4705307079849dd0c3096059e02e1fb06c472e898c63"
+    "sha256": "46dac2faf082e383a40d7a0988e2ff04b44430d8109e02857bb9164ad5b6cb31"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/cucumber-import-v1/source.png",
@@ -505,7 +532,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5452,
     "frameSize": [
       36,
       73

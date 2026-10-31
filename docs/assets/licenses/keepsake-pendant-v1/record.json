@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-30",
+  "source": "docs/assets/licenses/keepsake-pendant-v1/Terracotta Gemstone Pendant Sprite-pixel-snapper.png",
+  "sourceSha256": "aa407e00b2f8da586e0fbc0868c0ace864ac56b2ffcf16b072cbb0c4014c30a3",
+  "sourceSize": [
+    91,
+    92
+  ],
+  "sourceVisibleBounds": [
+    30,
+    23,
+    66,
+    69
+  ],
+  "runtime": "public/assets/pixel/processed/keepsake-pendant.png",
+  "runtimeSha256": "920a1b18d1754b9805fa4fe735136b87e3ee387bc3366d934ed3a0f05d5ec728",
+  "runtimeSize": [
+    36,
+    46
+  ],
+  "processing": "transparent-bound crop only; visible RGBA pixels are unchanged"
+}

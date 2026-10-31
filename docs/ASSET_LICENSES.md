@@ -1,3 +1,37 @@
+# 2026-10-31 — submission cover and browser icon
+
+The user supplied `submission/simple-life-cover.png` and `public/favicon.svg` for the final competition release. Both are preserved byte-for-byte. The favicon is explicitly emitted into the static build; the cover is not a runtime asset. Source role, SHA-256 hashes, unchanged-copy method and rights limitations are recorded in [the branding source record](assets/licenses/submission-branding-v1/SOURCE_RECORD.md). Final legal-use acceptance remains the entrant's responsibility.
+
+---
+
+# 2026-10-30 — user-supplied Terracotta gemstone Keepsake
+
+The local runtime file `public/assets/pixel/processed/keepsake-pendant.png` is a transparent-bound crop of the user-supplied 91×92 Pixel Snapper export. Its 36×46 visible RGBA pixels are unchanged; no redraw, recolour, resize, interpolation, image generation, new package or remote request was used. The original source, hashes, geometry, reproduction command and legal-use limitation are retained in the [source record](assets/licenses/keepsake-pendant-v1/SOURCE_RECORD.md). Final competition rights confirmation remains the user's responsibility.
+
+---
+
+# 2026-10-28 — user-supplied Clara seed-seller sprite sheet
+
+The new local runtime file `public/assets/pixel/processed/seed-seller.png` is a deterministic 384×192 binary-alpha derivative of the user-supplied 1200×720 `seed_seller_3x6_sprite_sheet_fixed.png`. Eighteen 200×240 source cells are keyed from their magenta matte, sampled at the authored 4× cadence to 50×60, and centred unchanged in 64×64 runtime frames. Clara reuses the established seed-merchant identity, stall, hours, home and commerce; only presentation changes. A failed built-in image-generation extraction is retained outside production as evidence and is not a pixel source. [Source, prompt, hashes and limitations](assets/licenses/seed-seller-v1/SOURCE_RECORD.md). The source's original creation tool/model and exclusive-rights status were not independently verified; final competition legal-use confirmation remains the user's responsibility. No new package, remote request, backend, vendor archive, publication or submission.
+
+---
+
+# 2026-10-27 — generated Forest Spider sprites
+
+One new project-generated Forest Spider uses 24 original 32×32 transparent cells in the existing town atlas. OpenAI image generation supplied the reference sheet; Codex deterministically redrew the selected silhouette/palette on the game's native grid and exposed 76 runtime animation names through cell aliases. The user screenshots are style/scale references only, not copied pixels or rights evidence. No third-party asset, new runtime path or dependency. Prompts, hashes, source roles and limitations: [source record](assets/licenses/spider-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-26 — item-icon cleanup repair and Cucumber/Grapes/Wild Berries replacement
+
+The production atlas now contains a deterministic native-pixel repair sheet for `cucumber-seed-item`, `cucumber-item`, `grape-item` and `wild-berry-item`. One 1254×1254 2×2 source was generated with the OpenAI built-in image-generation tool using the three existing item sheets as style references, then converted locally by quadrant object detection, recorded-color/background-connected cleanup, logical-grid auditing, source-area majority voting, a fixed palette and the established green-only remap into binary-alpha 24×24 frames. The true opaque bounds are 19×24, 18×14, 17×19 and 18×18 respectively. No filtered resize, antialiasing, runtime remote asset or fractional runtime scaling is used.
+
+The shared plant/item cleanup now deletes only pixels within RGB distance 4 of recorded background/fringe references and only when the fringe component is connected or adjacent to the background. This replaces the former broad magenta-hue predicate that incorrectly removed 109/268 pixels from the Produce grapes, 124/282 from the Food grapes and 60/360 from Wild Berries. The corrected source-sheet imports retain 100% of the Grapes, Wild Berries, Eggplant, Blueberries and Dragon Fruit icon pixels while leaving binary alpha and no exposed keyed background/fringe pixels.
+
+The generated/user-directed artwork remains disclosed as AI-generated/adapted; this is not a claim of hand authorship, CC0 status, exclusivity or independent competition eligibility. Exact source, prompt, hashes, mappings and transformations: [repair source record](assets/licenses/item-icon-repair-v1/SOURCE_RECORD.md). Build-tool evidence: [dependency record](licenses/item-icon-repair-v1/DEPENDENCIES.md).
+
+---
+
 # 2026-10-25 — item-icon sheets integrated
 
 The reviewed seed-packet, crop-produce and Food-tab sheets are installed under 32 existing item keys as native 24×24 binary-alpha frames. The runtime uses only local atlas pixels. Green Pepper remains uninstalled because the game has no matching item ID, and no separate Cucumber packet/produce sheet was supplied. Existing shared keys mean Food-tab Watermelon/Grape also appear in Produce, while the cooked drumstick also appears for raw Meat; no item IDs, save data or gameplay logic were changed.
@@ -253,6 +287,12 @@ Original code-native curb/paver/border refinements reuse approved art at unchang
 Review-only original code-native paving/curb/island composition reuses existing approved outdoor, house, nature and farmer atlas pixels without recolouring/replacing sources. No new image generation, third-party download or runtime asset. Inherited source terms and AI disclosures remain; supplied screenshots inform general construction/circulation, without copying pixels or exact map geometry.
 
 [Source record and input/output hashes](assets/licenses/city-road-layout-proposal-v1/SOURCE_RECORD.md). Files stay under `output/previews/city-road-layout-v1`;48-file production allowlist excludes them.249 runtime files remain exact. Await user approval before integration.
+
+---
+
+# 2026-10-29 — user-approved generated planter bench
+
+The user supplied and selected the 177×132 transparent Pixel Snapper planter-bench export and authorized its game integration. It is disclosed AI-generated/adapted project art from the OpenAI/Pixel Snapper review workflow, not CC0, exclusive, or claimed human-authored work. The selected runtime/evidence bytes are exact; Phaser alone applies nearest-filtered 0.9× display scaling and positioning metadata. The preceding high-resolution source and unused height-review candidate remain evidence-only. [Source bytes, SHA-256 hashes, prompts/input roles, alpha audit, runtime treatment and output-use evidence](assets/licenses/planter-bench-user-v3/SOURCE_RECORD.md) are retained. No new dependency, remote runtime asset, backend, publication, deployment, push or submission.
 
 ---
 

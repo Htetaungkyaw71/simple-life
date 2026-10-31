@@ -1,6 +1,7 @@
 import {recordStory} from './story.js';
 import {CROPS,SALE_ITEMS} from '../data/crops.js';
 import {marketPrice} from './market.js';
+import {recordLifePath} from './lifePaths.js';
 export const INVENTORY_LIMIT=9999,COIN_LIMIT=9999999;
 export const affordableSeeds=(s,id)=>CROPS[id]?Math.max(0,Math.min(INVENTORY_LIMIT-(s.inventory[CROPS[id].seedKey]||0),Math.floor(s.money/CROPS[id].seedPrice))):0;
 export function quote(s,type,id,quantity){
@@ -21,7 +22,7 @@ export function buySeeds(s,id='tomato',quantity=1){
 }
 export function sellCrop(s,id='tomato',quantity='all'){
  const q=quote(s,'sell',id,quantity);if(!q.ok)return q.reason;
- s.inventory[id]-=q.quantity;s.money+=q.total;s.sold+=q.quantity;s.hasSoldProduce=true;if(Object.hasOwn(CROPS,id)){recordStory(s,'sell');if(s.story)s.story.stats.sales+=q.quantity;}
+ s.inventory[id]-=q.quantity;s.money+=q.total;s.sold+=q.quantity;s.hasSoldProduce=true;if(Object.hasOwn(CROPS,id)){recordStory(s,'sell');recordLifePath(s,'grower','sell',id);if(s.story)s.story.stats.sales+=q.quantity;}
  return `Sold ${q.quantity} ${SALE_ITEMS[id].name} for ${q.total} coins.`;
 }
 // Existing Farm board entry points continue to share the same safe transactions/prices.

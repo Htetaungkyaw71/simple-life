@@ -1,7 +1,8 @@
 import {MM_APPEARANCE} from './myanmarAppearance.js';
 import {MM as BASE} from './myanmar.js';
 import {MM_EXTRA} from './myanmarExtra.js';
-export const MM={...BASE,...MM_EXTRA,...MM_APPEARANCE};
+import {MM_DIALOGUE} from './myanmarDialogue.js';
+export const MM={...BASE,...MM_EXTRA,...MM_APPEARANCE,...MM_DIALOGUE};
 export const LANGUAGE_KEY='simple-life.language.v1';
 export const LANGUAGES=['en','mm'];
 const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');

@@ -1,0 +1,847 @@
+{
+  "date": "2026-10-26",
+  "generator": "OpenAI built-in image generation; model version not exposed",
+  "source": "output/art/item-icon-repair-v1/generated-2x2.png",
+  "sourceSha256": "92374394c67429ecfd19ec0d917bf46d9a57e0b04643aa237e9a509223568f8d",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "backgroundCleanup": {
+    "references": [
+      [
+        252,
+        3,
+        250
+      ],
+      [
+        247,
+        5,
+        250
+      ],
+      [
+        247,
+        6,
+        250
+      ],
+      [
+        248,
+        4,
+        249
+      ],
+      [
+        249,
+        12,
+        245
+      ],
+      [
+        250,
+        8,
+        250
+      ],
+      [
+        250,
+        11,
+        245
+      ],
+      [
+        250,
+        12,
+        246
+      ],
+      [
+        250,
+        14,
+        246
+      ],
+      [
+        251,
+        3,
+        249
+      ],
+      [
+        251,
+        4,
+        248
+      ],
+      [
+        251,
+        4,
+        249
+      ],
+      [
+        251,
+        4,
+        251
+      ],
+      [
+        251,
+        5,
+        249
+      ],
+      [
+        251,
+        5,
+        251
+      ],
+      [
+        251,
+        6,
+        251
+      ],
+      [
+        252,
+        4,
+        249
+      ],
+      [
+        241,
+        32,
+        238
+      ],
+      [
+        248,
+        16,
+        243
+      ],
+      [
+        243,
+        27,
+        241
+      ],
+      [
+        247,
+        16,
+        241
+      ]
+    ],
+    "distance": 4,
+    "connectivity": 8,
+    "method": "recorded-color components connected to the outer background; no hue/saturation/lightness deletion"
+  },
+  "processing": "quadrant object detection; generated logical-grid cadence audit; source-area majority vote into native cells; fixed palette; shared green-only HSL remap with Cucumber fruit-body protection; no filtered resize, antialiasing, blur or runtime fractional scale",
+  "frameSize": [
+    24,
+    24
+  ],
+  "displayScale": 1,
+  "candidate": {
+    "path": "docs/assets/licenses/item-icon-repair-v1/candidate.png",
+    "sha256": "7280b6c6bc2b076f7d2fe5c48b640ce1bc9eba953d4bca634cc59dd06c79fce7"
+  },
+  "snappedSheet": {
+    "path": "docs/assets/licenses/item-icon-repair-v1/snapped-2x2.png",
+    "sha256": "e2a0de37f4b99d7d45dfcbee687d511787d5f46ab262d404659365272548fe07",
+    "size": [
+      96,
+      96
+    ],
+    "background": "#FF00FF"
+  },
+  "icons": [
+    {
+      "position": 1,
+      "label": "cucumber seed packet",
+      "itemKey": "cucumber-seed-item",
+      "requestedNativeSize": [
+        19,
+        24
+      ],
+      "truePixelSize": [
+        19,
+        24
+      ],
+      "uniqueOpaqueColors": 17,
+      "opaquePixels": 452,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "magentaColors": [],
+      "placement": {
+        "pasteX": 2,
+        "pasteY": 0,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "logicalGrid": {
+        "detectedCellPx": 7,
+        "score": 0.331113,
+        "runSupport": 0.345102,
+        "edgePeriodicity": 0.301387,
+        "topCandidates": [
+          {
+            "cell": 7,
+            "score": 0.331113,
+            "support": 0.345102,
+            "edgePeriodicity": 0.301387
+          },
+          {
+            "cell": 32,
+            "score": 0.288208,
+            "support": 0.385814,
+            "edgePeriodicity": 0.080795
+          },
+          {
+            "cell": 8,
+            "score": 0.249842,
+            "support": 0.244063,
+            "edgePeriodicity": 0.262124
+          },
+          {
+            "cell": 6,
+            "score": 0.22992,
+            "support": 0.170377,
+            "edgePeriodicity": 0.356448
+          },
+          {
+            "cell": 13,
+            "score": 0.219862,
+            "support": 0.218405,
+            "edgePeriodicity": 0.222956
+          }
+        ],
+        "sourceObjectBoundsPx": [
+          220,
+          200,
+          476,
+          492
+        ],
+        "sourceObjectSizePx": [
+          256,
+          292
+        ]
+      },
+      "principalAxisRatio": 1.263,
+      "sourcePalette": [
+        "#293306",
+        "#3c4a08",
+        "#5f7114",
+        "#879439",
+        "#b4b86a",
+        "#6d7e18",
+        "#3f6810",
+        "#2c5110",
+        "#75a624",
+        "#a8ca48",
+        "#8f672e",
+        "#b98843",
+        "#d7aa58",
+        "#ead084",
+        "#f6e2a5",
+        "#fff0bd",
+        "#fff7d2",
+        "#d5bd6b"
+      ],
+      "finalPalette": [
+        "#2b2e0b",
+        "#344a17",
+        "#3f430f",
+        "#475e1a",
+        "#62671e",
+        "#707323",
+        "#7f9832",
+        "#898a43",
+        "#8f672e",
+        "#a9a467",
+        "#a9b74b",
+        "#b98843",
+        "#d5bd6b",
+        "#d7aa58",
+        "#ead084",
+        "#f6e2a5",
+        "#fff0bd"
+      ],
+      "paletteRemap": {
+        "greenCandidatePixels": 221,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 221,
+        "lookup": [
+          {
+            "from": [
+              41,
+              51,
+              6,
+              255
+            ],
+            "to": [
+              43,
+              46,
+              11,
+              255
+            ]
+          },
+          {
+            "from": [
+              44,
+              81,
+              16,
+              255
+            ],
+            "to": [
+              52,
+              74,
+              23,
+              255
+            ]
+          },
+          {
+            "from": [
+              60,
+              74,
+              8,
+              255
+            ],
+            "to": [
+              63,
+              67,
+              15,
+              255
+            ]
+          },
+          {
+            "from": [
+              63,
+              104,
+              16,
+              255
+            ],
+            "to": [
+              71,
+              94,
+              26,
+              255
+            ]
+          },
+          {
+            "from": [
+              95,
+              113,
+              20,
+              255
+            ],
+            "to": [
+              98,
+              103,
+              30,
+              255
+            ]
+          },
+          {
+            "from": [
+              109,
+              126,
+              24,
+              255
+            ],
+            "to": [
+              112,
+              115,
+              35,
+              255
+            ]
+          },
+          {
+            "from": [
+              117,
+              166,
+              36,
+              255
+            ],
+            "to": [
+              127,
+              152,
+              50,
+              255
+            ]
+          },
+          {
+            "from": [
+              135,
+              148,
+              57,
+              255
+            ],
+            "to": [
+              137,
+              138,
+              67,
+              255
+            ]
+          },
+          {
+            "from": [
+              168,
+              202,
+              72,
+              255
+            ],
+            "to": [
+              169,
+              183,
+              75,
+              255
+            ]
+          },
+          {
+            "from": [
+              180,
+              184,
+              106,
+              255
+            ],
+            "to": [
+              169,
+              164,
+              103,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 2,
+      "label": "cucumber produce",
+      "itemKey": "cucumber-item",
+      "requestedNativeSize": [
+        18,
+        14
+      ],
+      "truePixelSize": [
+        18,
+        14
+      ],
+      "uniqueOpaqueColors": 10,
+      "opaquePixels": 112,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "magentaColors": [],
+      "placement": {
+        "pasteX": 3,
+        "pasteY": 10,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "logicalGrid": {
+        "detectedCellPx": 7,
+        "score": 0.326019,
+        "runSupport": 0.342324,
+        "edgePeriodicity": 0.29137,
+        "topCandidates": [
+          {
+            "cell": 7,
+            "score": 0.326019,
+            "support": 0.342324,
+            "edgePeriodicity": 0.29137
+          },
+          {
+            "cell": 8,
+            "score": 0.262604,
+            "support": 0.263577,
+            "edgePeriodicity": 0.260537
+          },
+          {
+            "cell": 32,
+            "score": 0.258758,
+            "support": 0.34504,
+            "edgePeriodicity": 0.075411
+          },
+          {
+            "cell": 9,
+            "score": 0.245996,
+            "support": 0.253259,
+            "edgePeriodicity": 0.230562
+          },
+          {
+            "cell": 10,
+            "score": 0.235901,
+            "support": 0.246741,
+            "edgePeriodicity": 0.212866
+          }
+        ],
+        "sourceObjectBoundsPx": [
+          152,
+          209,
+          427,
+          497
+        ],
+        "sourceObjectSizePx": [
+          275,
+          288
+        ]
+      },
+      "principalAxisRatio": 3.039,
+      "sourcePalette": [
+        "#24360e",
+        "#315212",
+        "#417017",
+        "#568c20",
+        "#70a92b",
+        "#8fc63b",
+        "#b5db55",
+        "#d5e77d",
+        "#8b6227",
+        "#cf9632",
+        "#f0c85a"
+      ],
+      "finalPalette": [
+        "#24360e",
+        "#315212",
+        "#417017",
+        "#568c20",
+        "#70a92b",
+        "#8b6227",
+        "#8fc63b",
+        "#b5db55",
+        "#cf9632",
+        "#f0c85a"
+      ],
+      "paletteRemap": {
+        "greenCandidatePixels": 105,
+        "protectedGreenFruitBodyPixels": 105,
+        "changedPixels": 0,
+        "lookup": []
+      }
+    },
+    {
+      "position": 3,
+      "label": "grapes produce",
+      "itemKey": "grape-item",
+      "requestedNativeSize": [
+        17,
+        19
+      ],
+      "truePixelSize": [
+        17,
+        19
+      ],
+      "uniqueOpaqueColors": 12,
+      "opaquePixels": 216,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "magentaColors": [],
+      "placement": {
+        "pasteX": 3,
+        "pasteY": 5,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "logicalGrid": {
+        "detectedCellPx": 7,
+        "score": 0.34012,
+        "runSupport": 0.360776,
+        "edgePeriodicity": 0.296228,
+        "topCandidates": [
+          {
+            "cell": 7,
+            "score": 0.34012,
+            "support": 0.360776,
+            "edgePeriodicity": 0.296228
+          },
+          {
+            "cell": 13,
+            "score": 0.282891,
+            "support": 0.320893,
+            "edgePeriodicity": 0.202137
+          },
+          {
+            "cell": 8,
+            "score": 0.282424,
+            "support": 0.293328,
+            "edgePeriodicity": 0.259252
+          },
+          {
+            "cell": 6,
+            "score": 0.250455,
+            "support": 0.203439,
+            "edgePeriodicity": 0.350363
+          },
+          {
+            "cell": 12,
+            "score": 0.249151,
+            "support": 0.275156,
+            "edgePeriodicity": 0.193893
+          }
+        ],
+        "sourceObjectBoundsPx": [
+          220,
+          112,
+          496,
+          452
+        ],
+        "sourceObjectSizePx": [
+          276,
+          340
+        ]
+      },
+      "principalAxisRatio": 1.268,
+      "sourcePalette": [
+        "#241a4e",
+        "#3b2d78",
+        "#5a4aa8",
+        "#6e5bc0",
+        "#8c7cd6",
+        "#d5cff6",
+        "#4a321c",
+        "#76502a",
+        "#314916",
+        "#52731e",
+        "#7d9b32",
+        "#aec65b"
+      ],
+      "finalPalette": [
+        "#241a4e",
+        "#36431c",
+        "#3b2d78",
+        "#4a321c",
+        "#596a27",
+        "#5a4aa8",
+        "#6e5bc0",
+        "#76502a",
+        "#838f3e",
+        "#8c7cd6",
+        "#adb55b",
+        "#d5cff6"
+      ],
+      "paletteRemap": {
+        "greenCandidatePixels": 40,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 40,
+        "lookup": [
+          {
+            "from": [
+              49,
+              73,
+              22,
+              255
+            ],
+            "to": [
+              54,
+              67,
+              28,
+              255
+            ]
+          },
+          {
+            "from": [
+              82,
+              115,
+              30,
+              255
+            ],
+            "to": [
+              89,
+              106,
+              39,
+              255
+            ]
+          },
+          {
+            "from": [
+              125,
+              155,
+              50,
+              255
+            ],
+            "to": [
+              131,
+              143,
+              62,
+              255
+            ]
+          },
+          {
+            "from": [
+              174,
+              198,
+              91,
+              255
+            ],
+            "to": [
+              173,
+              181,
+              91,
+              255
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "position": 4,
+      "label": "wild berries produce",
+      "itemKey": "wild-berry-item",
+      "requestedNativeSize": [
+        18,
+        18
+      ],
+      "truePixelSize": [
+        18,
+        18
+      ],
+      "uniqueOpaqueColors": 10,
+      "opaquePixels": 221,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "magentaColors": [],
+      "placement": {
+        "pasteX": 3,
+        "pasteY": 6,
+        "anchorX": 12.0,
+        "anchorY": 24
+      },
+      "logicalGrid": {
+        "detectedCellPx": 7,
+        "score": 0.330921,
+        "runSupport": 0.347686,
+        "edgePeriodicity": 0.295298,
+        "topCandidates": [
+          {
+            "cell": 7,
+            "score": 0.330921,
+            "support": 0.347686,
+            "edgePeriodicity": 0.295298
+          },
+          {
+            "cell": 8,
+            "score": 0.281871,
+            "support": 0.290406,
+            "edgePeriodicity": 0.263733
+          },
+          {
+            "cell": 32,
+            "score": 0.250115,
+            "support": 0.331135,
+            "edgePeriodicity": 0.077946
+          },
+          {
+            "cell": 9,
+            "score": 0.243761,
+            "support": 0.250065,
+            "edgePeriodicity": 0.230367
+          },
+          {
+            "cell": 6,
+            "score": 0.243213,
+            "support": 0.193561,
+            "edgePeriodicity": 0.348723
+          }
+        ],
+        "sourceObjectBoundsPx": [
+          166,
+          151,
+          428,
+          444
+        ],
+        "sourceObjectSizePx": [
+          262,
+          293
+        ]
+      },
+      "principalAxisRatio": 1.19,
+      "sourcePalette": [
+        "#17121d",
+        "#2e2238",
+        "#4d3a5e",
+        "#67517a",
+        "#8390a7",
+        "#bec6d2",
+        "#2c4317",
+        "#4c6d20",
+        "#729431",
+        "#a5bf58"
+      ],
+      "finalPalette": [
+        "#17121d",
+        "#2e2238",
+        "#313e1c",
+        "#4d3a5e",
+        "#536528",
+        "#67517a",
+        "#79893c",
+        "#8390a7",
+        "#a4ae58",
+        "#bec6d2"
+      ],
+      "paletteRemap": {
+        "greenCandidatePixels": 75,
+        "protectedGreenFruitBodyPixels": 0,
+        "changedPixels": 75,
+        "lookup": [
+          {
+            "from": [
+              44,
+              67,
+              23,
+              255
+            ],
+            "to": [
+              49,
+              62,
+              28,
+              255
+            ]
+          },
+          {
+            "from": [
+              76,
+              109,
+              32,
+              255
+            ],
+            "to": [
+              83,
+              101,
+              40,
+              255
+            ]
+          },
+          {
+            "from": [
+              114,
+              148,
+              49,
+              255
+            ],
+            "to": [
+              121,
+              137,
+              60,
+              255
+            ]
+          },
+          {
+            "from": [
+              165,
+              191,
+              88,
+              255
+            ],
+            "to": [
+              164,
+              174,
+              88,
+              255
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "runtimeAtlas": {
+    "image": "public/assets/pixel/processed/town.png",
+    "metadata": "public/assets/pixel/processed/town.json",
+    "rowY": 5557,
+    "frameSize": [
+      24,
+      24
+    ]
+  }
+}

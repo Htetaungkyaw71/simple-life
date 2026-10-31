@@ -50,8 +50,9 @@ function tabs(expected){const actual=snapshot().controls.filter(c=>c.id.startsWi
 document.querySelector('#run').onclick=async()=>{try{
  records=[];await shop('nell');tabs(['clothes','accessories']);
  assert(npcs().every(n=>n.nativeWidth===64&&n.nativeHeight===64&&n.scale===1.5&&n.originY===.875),'matching native resident rigs');
- assert(snapshot().residents.filter(n=>['city-clara','city-eli'].includes(n.id)).every(n=>n.nativeWidth===24&&n.nativeHeight===40),'legacy shared variants retained');
- const frozen=npcs().map(n=>n.frame).join();await sleep(250);assert(frozen===npcs().map(n=>n.frame).join(),'menu pauses NPC animations');record('two matching NPC rigs, legacy neighbours and pause');
+ const clara=snapshot().residents.find(n=>n.id==='clara');assert(clara&&clara.nativeWidth===64&&clara.nativeHeight===64&&clara.scale===1.5&&clara.frame===0,'Clara uses transparent 3x6 seed-seller rig');
+ const legacy=snapshot().residents.find(n=>n.id==='city-june');assert(legacy&&legacy.nativeWidth===24&&legacy.nativeHeight===40,'legacy shared variants retained');
+ const frozen=npcs().map(n=>n.frame).join();await sleep(250);assert(frozen===npcs().map(n=>n.frame).join(),'menu pauses NPC animations');record('matching NPC rigs, Clara seed seller and pause');
  await click('style-next');await click('style-next');await click('style-apply');tabs(['clothes','accessories']);assert(snapshot().state.money===910,'outfit purchase cost');
  await click('style-tab-accessories');tabs(['clothes','accessories']);await click('style-next');await click('style-apply');assert(snapshot().state.money===870,'glasses cost');record('Nell: outfits/extras only, buy and navigate');await click('style-close');
  const sol=structuredClone(snapshot().state);sol.position={x:472,y:1040};await start(sol);await tap('KeyE');await until(()=>snapshot()?.menu==='appearance','Sol shop');tabs(['hair']);

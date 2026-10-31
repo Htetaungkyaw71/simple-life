@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Last Lantern browser fixture</title>
+<p>Preparing an isolated Lantern Night save…</p>
+<script type="module">
+ import {newState} from '../../src/systems/state.js';
+ import {SILAS_STORY} from '../../src/data/connections.js';
+ import {FESTIVAL_SITE} from '../../src/data/lastLantern.js';
+ import {syncLastLantern} from '../../src/systems/lastLantern.js';
+ import {SAVE_KEY} from '../../src/config.js';
+ const state=newState();
+ state.story.intro='seen';state.story.tutorial.complete=true;state.story.conversations=['clue:teo-lantern','clue:silas-lamp'];
+ for(const record of Object.values(state.connections)){record.met=true;record.points=20;record.level=4;}
+ state.connections['city-silas'].completedConversationIds.push(SILAS_STORY.events.clue);
+ Object.assign(state.narrative.personal.clara,{events:['clara-seed-1','clara-seed-2'],days:{'clara-seed-1':2,'clara-seed-2':3},choices:{seedMeaning:'grow'},support:'flowers'});
+ Object.assign(state.narrative.personal.niko,{events:['niko-table-1','niko-table-2'],days:{'niko-table-1':3,'niko-table-2':4},choices:{reconciliation:'meal'},support:'food'});
+ Object.assign(state.narrative.personal.nell,{events:['nell-cloth-1','nell-cloth-2'],days:{'nell-cloth-1':4,'nell-cloth-2':5},choices:{creativeCourage:'surprise',bannerMeaning:'together'},support:'banner'});
+ Object.assign(state.narrative.personal.walter,{events:['walter-truth-1','walter-truth-2'],days:{'walter-truth-1':5,'walter-truth-2':6},choices:{truthResponse:'change'},support:'truth'});
+ state.narrative.main.landmarkVisited=true;state.narrative.preparations.lantern=true;state.area='city';state.position={x:FESTIVAL_SITE.x,y:FESTIVAL_SITE.y};state.day=8;state.minute=1140;syncLastLantern(state);
+ localStorage.setItem(SAVE_KEY,JSON.stringify(state));location.replace('../../');
+</script>

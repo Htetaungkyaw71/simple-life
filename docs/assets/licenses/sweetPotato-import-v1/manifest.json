@@ -88,38 +88,70 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        113,
+        21,
+        83
+      ],
+      [
+        169,
+        25,
+        158
+      ],
+      [
+        222,
+        39,
+        211
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         113,
         21,
         83,
         255,
-        68
+        111
       ],
       [
         169,
         25,
         158,
         255,
-        17
+        27
       ],
       [
         222,
         39,
         211,
         255,
-        90
+        131
       ],
       [
         254,
         4,
         253,
         255,
-        44049
+        44287
       ]
     ],
-    "remainingInteriorMagentaPixels": 386,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
@@ -135,7 +167,7 @@
         37,
         3
       ],
-      "maskPixelCount": 140,
+      "maskPixelCount": 135,
       "removedPixels": 0,
       "stages": [
         {
@@ -167,45 +199,45 @@
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1238,
+          "opaqueBefore": 1141,
           "removedPixels": 0,
-          "opaqueAfter": 1238,
+          "opaqueAfter": 1141,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1682,
+          "opaqueBefore": 1580,
           "removedPixels": 0,
-          "opaqueAfter": 1682,
+          "opaqueAfter": 1580,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 1397,
+          "opaqueBefore": 1339,
           "removedPixels": 0,
-          "opaqueAfter": 1397,
+          "opaqueAfter": 1339,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 958,
+          "opaqueBefore": 897,
           "removedPixels": 0,
-          "opaqueAfter": 958,
+          "opaqueAfter": 897,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dead",
-          "opaqueBefore": 328,
+          "opaqueBefore": 314,
           "removedPixels": 0,
-          "opaqueAfter": 328,
+          "opaqueAfter": 314,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -370,9 +402,9 @@
       45
     ],
     "path": "docs/assets/licenses/sweetPotato-import-v1/candidate-b.png",
-    "sha256": "cbef3bddfc1931486846e2b6121789ed182a8d880a4fc8f5a485f20b442c8979",
-    "uniqueColors": 21,
-    "uniqueOpaqueColors": 20,
+    "sha256": "06a839dba53e45971f028464cd74368e3821595fba630cb993a4beaca3afc92c",
+    "uniqueColors": 20,
+    "uniqueOpaqueColors": 19,
     "placements": [
       {
         "trimmedWidth": 29,
@@ -407,7 +439,7 @@
       {
         "trimmedWidth": 57,
         "trimmedHeight": 39,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 14,
         "frameX": 174,
         "pasteX": 0,
         "pasteY": 6,
@@ -417,7 +449,7 @@
       {
         "trimmedWidth": 58,
         "trimmedHeight": 45,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 15,
         "frameX": 232,
         "pasteX": 0,
         "pasteY": 0,
@@ -427,7 +459,7 @@
       {
         "trimmedWidth": 50,
         "trimmedHeight": 43,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 13,
         "frameX": 290,
         "pasteX": 4,
         "pasteY": 2,
@@ -437,7 +469,7 @@
       {
         "trimmedWidth": 52,
         "trimmedHeight": 31,
-        "uniqueOpaqueColors": 13,
+        "uniqueOpaqueColors": 12,
         "frameX": 348,
         "pasteX": 3,
         "pasteY": 14,
@@ -447,7 +479,7 @@
       {
         "trimmedWidth": 39,
         "trimmedHeight": 15,
-        "uniqueOpaqueColors": 12,
+        "uniqueOpaqueColors": 10,
         "frameX": 406,
         "pasteX": 9,
         "pasteY": 30,
@@ -475,11 +507,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/sweetPotato-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "f6ef06d289d363dd64beae34b8332f51fd882a4a88cf8a8e0bf80be8117efb13"
+    "prePaletteSha256": "d68adb55081a8ff348d2299019921b928a123515f2e42e2bc33a4e2ed078da2f"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/sweetPotato-import-v1/cleaned-source.png",
-    "sha256": "8ffb8000a2fdfc6f8bc16f387171a92ba590a50393c8c9633dbe67a4efa60bda"
+    "sha256": "840b7ed82f73822cab7f73a1e774e0d8c830973748607c19353367cae1cba005"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/sweetPotato-import-v1/source.png",
@@ -498,7 +530,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5403,
     "frameSize": [
       58,
       45

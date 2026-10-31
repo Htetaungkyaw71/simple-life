@@ -28,73 +28,27 @@
   },
   "detection": {
     "method": "8-connected opaque components with nearest-fragment joining; no fixed cell slicing",
-    "rawConnectedComponents": 14,
-    "joinedFragments": [
-      {
-        "fragmentPixels": 1,
-        "gap": 0,
-        "distanceSquared": 126.25
-      },
-      {
-        "fragmentPixels": 13,
-        "gap": 0,
-        "distanceSquared": 133.25
-      }
-    ],
+    "rawConnectedComponents": 12,
+    "joinedFragments": [],
     "detectedIcons": 12
   },
   "cleanup": {
-    "method": "shared boundary-connected magenta/matte removal from scripts/import_sheet.py",
+    "method": "recorded-background distance plus background-connected removal from scripts/import_sheet.py; no broad hue predicate",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [],
     "removedColors": [
-      [
-        104,
-        19,
-        124,
-        255,
-        26
-      ],
-      [
-        114,
-        29,
-        150,
-        255,
-        22
-      ],
-      [
-        120,
-        22,
-        144,
-        255,
-        31
-      ],
-      [
-        155,
-        34,
-        177,
-        255,
-        21
-      ],
-      [
-        156,
-        22,
-        175,
-        255,
-        8
-      ],
-      [
-        165,
-        48,
-        181,
-        255,
-        23
-      ],
-      [
-        183,
-        26,
-        117,
-        255,
-        19
-      ],
       [
         255,
         0,
@@ -103,6 +57,7 @@
         23984
       ]
     ],
+    "remainingExposedReferencePixels": 0,
     "remainingMagentaPixels": 0,
     "alphaValues": [
       0,
@@ -125,15 +80,15 @@
   "displayScale": 1,
   "candidate": {
     "path": "docs/assets/licenses/item-icons-crop-produce-v1/candidate.png",
-    "sha256": "591aa628083361a670cd913fe677a9f58f87ef5dcc1fe4cda3c408644407e595"
+    "sha256": "be996ebf9f46a4e673a8d67e5a603d95e91a9bd19866eb16115df0a73e99094f"
   },
   "prePaletteCandidate": {
     "path": "docs/assets/licenses/item-icons-crop-produce-v1/candidate-pre-palette.png",
-    "sha256": "a3d22afc038f1abc2b7918715ea734c41214f94809cb265e7b725a4146c3efaa"
+    "sha256": "af0d5c07e0598b2a79da6b163af358d7d37f72fa67d793ae0bd02a3c231e59a1"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/item-icons-crop-produce-v1/cleaned-source.png",
-    "sha256": "4198cb9a761074cda3526783bd70cb547a4c853201d60292719b0e6ab3045d3b"
+    "sha256": "6bcd5f7069cd7096b7d56adc9d993b74455d4f32a8b766050e4f468e35c88dc2"
   },
   "icons": [
     {
@@ -152,6 +107,9 @@
         24,
         23
       ],
+      "sourceOpaquePixels": 387,
+      "retainedOpaquePixels": 387,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -212,6 +170,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 299,
+      "retainedOpaquePixels": 299,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -300,8 +261,11 @@
         23,
         24
       ],
-      "sourceUniqueOpaqueColors": 12,
-      "finalUniqueOpaqueColors": 12,
+      "sourceOpaquePixels": 254,
+      "retainedOpaquePixels": 254,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 13,
+      "finalUniqueOpaqueColors": 13,
       "placement": {
         "pasteX": 0,
         "pasteY": 0,
@@ -388,6 +352,9 @@
         21,
         24
       ],
+      "sourceOpaquePixels": 300,
+      "retainedOpaquePixels": 300,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 13,
       "finalUniqueOpaqueColors": 13,
       "placement": {
@@ -518,6 +485,9 @@
         17,
         18
       ],
+      "sourceOpaquePixels": 121,
+      "retainedOpaquePixels": 121,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 13,
       "finalUniqueOpaqueColors": 13,
       "placement": {
@@ -592,8 +562,11 @@
         20,
         24
       ],
-      "sourceUniqueOpaqueColors": 12,
-      "finalUniqueOpaqueColors": 12,
+      "sourceOpaquePixels": 266,
+      "retainedOpaquePixels": 266,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 13,
+      "finalUniqueOpaqueColors": 13,
       "placement": {
         "pasteX": 2,
         "pasteY": 0,
@@ -666,6 +639,9 @@
         21,
         24
       ],
+      "sourceOpaquePixels": 355,
+      "retainedOpaquePixels": 355,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 23,
       "placement": {
@@ -824,6 +800,9 @@
         21,
         24
       ],
+      "sourceOpaquePixels": 351,
+      "retainedOpaquePixels": 351,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 20,
       "placement": {
@@ -940,6 +919,9 @@
         23,
         24
       ],
+      "sourceOpaquePixels": 387,
+      "retainedOpaquePixels": 387,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -971,8 +953,11 @@
         19,
         24
       ],
-      "sourceUniqueOpaqueColors": 9,
-      "finalUniqueOpaqueColors": 9,
+      "sourceOpaquePixels": 268,
+      "retainedOpaquePixels": 268,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
       "placement": {
         "pasteX": 2,
         "pasteY": 0,
@@ -1045,6 +1030,9 @@
         24,
         22
       ],
+      "sourceOpaquePixels": 353,
+      "retainedOpaquePixels": 353,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 12,
       "finalUniqueOpaqueColors": 12,
       "placement": {
@@ -1091,6 +1079,9 @@
         24,
         24
       ],
+      "sourceOpaquePixels": 323,
+      "retainedOpaquePixels": 323,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -1113,7 +1104,7 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5529,
+    "rowY": 5557,
     "frameSize": [
       24,
       24

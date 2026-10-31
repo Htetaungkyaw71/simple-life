@@ -1,3 +1,25 @@
+# 2026-10-31 — Last Lantern narrative composition
+
+`data/personalStories.js`, `data/lifePaths.js` and `data/lastLantern.js` own authored events, choices, conditions, progress weights, chapters, festival colours and positions. `systems/personalStories.js`, `systems/lifePaths.js`, `systems/lastLantern.js` and the small `systems/narrative.js` dispatcher own durable rules, migration, outcomes and finale resolution. Story-driven schedule overlays stay with personal-story data and are generically projected by `residentSchedules`; NPC-specific persistence checks are not scattered through rendering or economy code.
+
+Existing farming, selling, cooking, Forest discovery/forage/treasure/challenge and Connection operations only report successful actions to Life Paths. `StoryPanel` and `ConversationPanel` present resolved state in the separate Phaser UI scene. `LanternNightView`, `CityLights` and the existing resident renderer present the festival through local sprites and Phaser Graphics; no view owns story progress. Schema 21 adds one bounded `narrative` record, and legacy evidence is credited once during migration before normalized saves become idempotent.
+
+---
+
+# 2026-10-30 — deterministic resident schedule projection
+
+`data/residentSchedules.js` owns weekly patterns, named City activity points and per-resident time blocks; `data/residentRelationships.js` owns social ties and meeting definitions; and `data/residentScheduleDialogue.js` owns short activity dialogue pools. `systems/residentSchedules.js` projects ordinary resident state from day, minute and story/Connection facts, while `systems/residentDialogue.js` selects contextual copy. No per-frame route or ordinary schedule state is persisted.
+
+`systems/residents.js` adapts the projection to established City navigation, shop interiors, collision separation and explicit Silas story overrides. `art/ResidentView.js` renders the resolved pose and Phaser-Graphics meeting bubble. The separate Phaser UI scene continues to own conversations and Journal presentation; purchasing, selling, appearance services and Connection progression remain in their existing systems.
+
+---
+
+# 2026-10-29 — standalone planter-bench texture
+
+`PLANTER_BENCH` points the three retained City terrace placements at one dedicated local `planterBench` atlas. The selected user-supplied 177×132 RGBA Pixel Snapper canvas remains byte-identical and renders at Phaser scale 0.9 with nearest filtering. Data-driven `artOffset` and `artDepthOffset` align its visible centre/base to the existing logical anchors while its measured footprint follows the smaller presentation. The shared renderer defaults are unchanged for every prop without those optional fields. Vite explicitly allowlists the PNG/JSON pair; the preceding high-resolution source and shared-atlas frame remain preserved outside selection.
+
+---
+
 # 2026-10-23 — front-facing welcome backdrop
 
 `WorldScene.preload` now loads the local allowlisted `welcomeMysticalRiver` PNG before launching the existing Phaser UI scene. `WelcomeView` cover-scales that 1672×941 source around the viewport center, so landscape sees the full cinematic frame and narrow portrait crops retain its luminous center. Wordmark, subtitle, menu, languages, focus leaf and pointer targets remain independent UI-scene nodes. Water highlights, birds and drifting leaves remain small Graphics overlays; reduced-motion freezes them. Re-layout destroys only scene nodes and never recreates or removes the shared raster texture. Gameplay world, simulation, saves and world camera are unchanged.

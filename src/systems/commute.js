@@ -1,7 +1,9 @@
 import {walkable} from '../data/locations.js';
 import {MAPS} from '../data/mapLayouts.js';
 import {waterAt} from '../data/water.js';
+import {DAY_SECONDS} from '../config.js';
 const paths=new Map(),grids=new Map(),STEP=16;
+export const NPC_WALK_SPEED=26;
 // A shared dry walking grid uses the same house/head clearance as the farmer.
 export function commutePath(area,start,end){
  const key=[area,start.x,start.y,end.x,end.y].join(':');if(paths.has(key))return paths.get(key);
@@ -23,9 +25,10 @@ export function pathPose(route,distance){
 }
 // Travel is clock-derived, including reload/scene reentry. Menus pause the clock.
 export const NPC_HOME_MINUTE=1140;
+export const NPC_HOME_RESOLVE_MINUTE=1170;
 // Reach the home door by 19:00; emerge at 06:00.
 export function commutePose(n,minute){
- const route=n.commute,distance=pathLength(route),duration=Math.max(8,Math.min(60,distance/110*6)),leave=NPC_HOME_MINUTE-duration;
+ const route=n.commute,distance=pathLength(route),gameMinutesPerSecond=1080/DAY_SECONDS,duration=Math.max(1,distance/NPC_WALK_SPEED*gameMinutesPerSecond),leave=NPC_HOME_MINUTE-duration;
  if(minute<360||minute>=NPC_HOME_MINUTE)return {position:{...route[0]},direction:'up',visible:false,moving:false,mode:'home',leave};
  if(minute<360+duration)return {...pathPose(route,(minute-360)/duration*distance),visible:true,moving:true,mode:'toWork',leave};
  if(minute>=leave)return {...pathPose([...route].reverse(),(minute-leave)/duration*distance),visible:true,moving:true,mode:'toHome',leave};

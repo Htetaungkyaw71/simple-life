@@ -20,6 +20,8 @@ from PIL import Image
 
 from import_sheet import (
     BRIGHT_GREEN_LIGHTNESS,
+    BACKGROUND_COLOR_DISTANCE,
+    BACKGROUND_REFERENCES,
     GREEN_HUE_MAX,
     GREEN_HUE_MIN,
     HUE_SHIFT,
@@ -27,7 +29,7 @@ from import_sheet import (
     SATURATION_SCALE,
     clean_magenta,
     component_sets,
-    is_magenta,
+    is_background_color,
 )
 
 
@@ -205,7 +207,7 @@ def process_sheet(spec: dict) -> dict:
     colors = Counter(original.get_flattened_data())
     background, background_count = colors.most_common(1)[0]
     alpha = sorted(set(original.getchannel("A").get_flattened_data()))
-    clean_grid = alpha in ([255], [0, 255]) and len(colors) <= 256 and is_magenta(background)
+    clean_grid = alpha in ([255], [0, 255]) and len(colors) <= 256 and is_background_color(background)
     if not clean_grid:
         raise ValueError(f"{source_path} is not a clean native hard-pixel sheet: colors={len(colors)}, alpha={alpha}, background={background}")
 
@@ -228,14 +230,24 @@ def process_sheet(spec: dict) -> dict:
             raise ValueError(f"palette remap changed geometry for {label}")
         pre_sheet.alpha_composite(pre_frame, (index * FRAME_SIZE, 0))
         final_sheet.alpha_composite(final_frame, (index * FRAME_SIZE, 0))
+        source_box = component_bbox(components[index])
+        source_opaque = sum(
+            not is_background_color(original.getpixel((x, y)))
+            for y in range(source_box[1], source_box[3])
+            for x in range(source_box[0], source_box[2])
+        )
+        retained_opaque = sum(pixel[3] == 255 for pixel in raw.get_flattened_data())
         reports.append({
             "position": index + 1,
             "row": index // 4 + 1,
             "column": index % 4 + 1,
             "label": label,
             "itemKey": key,
-            "sourceBounds": list(component_bbox(components[index])),
+            "sourceBounds": list(source_box),
             "truePixelSize": list(raw.size),
+            "sourceOpaquePixels": source_opaque,
+            "retainedOpaquePixels": retained_opaque,
+            "retainedPercent": round(retained_opaque * 100 / source_opaque, 3),
             "sourceUniqueOpaqueColors": len({pixel for pixel in raw.get_flattened_data() if pixel[3]}),
             "finalUniqueOpaqueColors": len({pixel for pixel in remapped.get_flattened_data() if pixel[3]}),
             "placement": final_placement,
@@ -253,7 +265,7 @@ def process_sheet(spec: dict) -> dict:
     pre_sheet.save(pre_path)
     final_sheet.save(candidate_path)
     output_alpha = sorted(set(final_sheet.getchannel("A").get_flattened_data()))
-    output_magenta = sum(is_magenta(pixel) for pixel in final_sheet.get_flattened_data())
+    output_magenta = sum(is_background_color(pixel) for pixel in final_sheet.get_flattened_data())
     if output_alpha != [0, 255] or output_magenta:
         raise ValueError(f"invalid output alpha/magenta: alpha={output_alpha}, magenta={output_magenta}")
 
@@ -271,7 +283,17 @@ def process_sheet(spec: dict) -> dict:
         "dominantBackgroundPixels": background_count,
         "grid": {"cleanPixelGrid": clean_grid, "nativePixelGrid": True, "pixelsResampled": 0, "interpretation": "native 1px hard-edged art"},
         "detection": {"method": "8-connected opaque components with nearest-fragment joining; no fixed cell slicing", **detection},
-        "cleanup": {"method": "shared boundary-connected magenta/matte removal from scripts/import_sheet.py", "removedColors": removed, "remainingMagentaPixels": remaining, "alphaValues": output_alpha, "pixelsResampled": 0},
+        "cleanup": {
+            "method": "recorded-background distance plus background-connected removal from scripts/import_sheet.py; no broad hue predicate",
+            "backgroundReferences": [list(color) for color in BACKGROUND_REFERENCES],
+            "backgroundColorDistance": BACKGROUND_COLOR_DISTANCE,
+            "fringeReferences": [],
+            "removedColors": removed,
+            "remainingExposedReferencePixels": remaining,
+            "remainingMagentaPixels": remaining,
+            "alphaValues": output_alpha,
+            "pixelsResampled": 0,
+        },
         "paletteRemap": {"method": "shared dominant-green HSL transform with spatial fruit-body protection", "constants": {"SATURATION_SCALE": SATURATION_SCALE, "HUE_SHIFT": HUE_SHIFT, "LIGHTNESS_SCALE": LIGHTNESS_SCALE}},
         "frameSize": [FRAME_SIZE, FRAME_SIZE],
         "displayScale": 1,

@@ -14,6 +14,7 @@ import {LOCATIONS,walkable} from '../data/locations.js';
 import {FIELDS,FARM_PLOTS,PLOTS_PER_FARM} from '../data/farms.js';
 import {visiblePlots,ownedField} from './expansion.js';
 import {wateredToday,missed} from './watering.js';
+import {lanternNightContext} from './lastLantern.js';
 export function plotPrompt(state,plot){
  if(missed(plot)>=4)return state.selected==='water'?'Dead / select Harvest':'Clear dead crop';
  if(plot.crop&&plot.growth>=CROPS[plot.crop].growthDays)return state.selected==='harvest'?'Harvest':'Ripe - select Harvest';
@@ -29,6 +30,7 @@ export function contextFor(state,targetPlot=null,direction='down',targetGround=n
  // Give the house doorway priority over equipped-tool contexts.
  const door=state.area==='home'&&LOCATIONS.home.interactions.find(p=>p.type==='travel'&&p.to==='interior');
  if(door?.approach){const [x,y,w,h]=door.approach,p=state.position;if(p.x>=x&&p.x<=x+w&&p.y>=y&&p.y<=y+h)return door;}
+ const festival=lanternNightContext(state);if(festival)return festival;
  const decoration=decorationContext(state,targetGround,direction);if(decoration)return decoration;
  const hunt=huntContext(state,direction,targetGround);if(hunt)return hunt;
  if(state.area==='forest'&&(state.selected==='hand'||targetGround)){const stone=stoneContext(state,targetGround);if(stone)return stone;}

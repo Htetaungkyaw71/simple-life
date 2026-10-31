@@ -13,7 +13,7 @@ export function inferFarmVisit(raw,state){
  return raw.hasVisitedFarm===true||['farm','city'].includes(raw.area)||allPlots(state).some(p=>p.crop)||state.inventory.tomato>0||state.sold>0;
 }
 
-export const cityObjective=s=>!!s?.hasHarvestedFirstCrop&&!s.hasVisitedCity;
+export const cityObjective=s=>!!s&&!s.hasVisitedCity&&(s.hasHarvestedFirstCrop||s.story?.tutorial?.complete&&s.story.flags.includes('water'));
 export function cityWaypoint(s,view){
  if(!cityObjective(s)||!['home','farm'].includes(s.area))return null;
  const [x,y,w,h]=(s.area==='home'?EDGE_TRAVEL.homeCity:EDGE_TRAVEL.farm).zone,target={x:x+w/2,y:y+h/2};

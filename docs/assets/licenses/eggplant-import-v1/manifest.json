@@ -88,21 +88,47 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        134,
+        40,
+        123
+      ],
+      [
+        196,
+        49,
+        195
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         134,
         40,
         123,
         255,
-        431
+        456
       ],
       [
         196,
         49,
         195,
         255,
-        127
+        137
       ],
       [
         253,
@@ -116,10 +142,11 @@
         4,
         252,
         255,
-        36967
+        37137
       ]
     ],
-    "remainingInteriorMagentaPixels": 274,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "no broad repeated bottom-connected ground region detected; plant pixels preserved",
@@ -167,36 +194,36 @@
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1321,
+          "opaqueBefore": 1317,
           "removedPixels": 0,
-          "opaqueAfter": 1321,
+          "opaqueAfter": 1317,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1612,
+          "opaqueBefore": 1586,
           "removedPixels": 0,
-          "opaqueAfter": 1612,
+          "opaqueAfter": 1586,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 1401,
+          "opaqueBefore": 1333,
           "removedPixels": 0,
-          "opaqueAfter": 1401,
+          "opaqueAfter": 1333,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 1093,
+          "opaqueBefore": 986,
           "removedPixels": 0,
-          "opaqueAfter": 1093,
+          "opaqueAfter": 986,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -372,9 +399,9 @@
       71
     ],
     "path": "docs/assets/licenses/eggplant-import-v1/candidate-b.png",
-    "sha256": "976dea642c7e651cecae866ccd99741f0ff11b114f7a36ede2f3fefe20198555",
-    "uniqueColors": 22,
-    "uniqueOpaqueColors": 21,
+    "sha256": "85443505ab4659d172fb6e873f807802268e5d60aefe0ad1ad86b743576c675a",
+    "uniqueColors": 21,
+    "uniqueOpaqueColors": 20,
     "placements": [
       {
         "trimmedWidth": 30,
@@ -409,7 +436,7 @@
       {
         "trimmedWidth": 45,
         "trimmedHeight": 63,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 13,
         "frameX": 141,
         "pasteX": 1,
         "pasteY": 8,
@@ -419,7 +446,7 @@
       {
         "trimmedWidth": 44,
         "trimmedHeight": 71,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 15,
         "frameX": 188,
         "pasteX": 1,
         "pasteY": 0,
@@ -429,7 +456,7 @@
       {
         "trimmedWidth": 42,
         "trimmedHeight": 64,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 15,
         "frameX": 235,
         "pasteX": 2,
         "pasteY": 7,
@@ -439,7 +466,7 @@
       {
         "trimmedWidth": 39,
         "trimmedHeight": 54,
-        "uniqueOpaqueColors": 13,
+        "uniqueOpaqueColors": 12,
         "frameX": 282,
         "pasteX": 4,
         "pasteY": 17,
@@ -477,11 +504,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/eggplant-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "38b75f41e97df4228aff88266b70a838cb7d841c66b07dc60fedc9658ac9ea02"
+    "prePaletteSha256": "924faf84e4ff30b2aaf9bb3c75b49ac3678f3b5825e3a1208d998ea7397e57d3"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/eggplant-import-v1/cleaned-source.png",
-    "sha256": "d609812cf68f73b4c6137c8130b5d954fe5fc36be889eff156aa33daef68c09c"
+    "sha256": "350e0c949700de68e7e4a3da6f526f81362874038d8c5f69392babf9e094830b"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/eggplant-import-v1/source.png",
@@ -500,7 +527,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5090,
     "frameSize": [
       47,
       71

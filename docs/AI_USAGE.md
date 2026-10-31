@@ -1,3 +1,93 @@
+# 2026-10-31 — competition release branding and publication
+
+At the user's request, OpenAI Codex integrated the supplied cover and SVG logo without modifying their image content, connected the SVG to the browser favicon and web manifest, prepared the normal 60-coin production configuration, release archives, public GitHub source and Vercel production deployment. The original creation tool/model for the two supplied files was not provided. No image generation, redraw, crop, resampling, remote runtime dependency, backend, analytics or gameplay-economy change was introduced.
+
+The user explicitly instructed Codex to stop further test execution and proceed with publishing. Earlier repository-wide failures remain documented in `PROJECT_STATUS.md`; this release record does not claim a clean full test suite.
+
+---
+
+# 2026-10-31 — mobile People and objective UI repair
+
+At the user's request, OpenAI Codex inspected the three supplied mobile screenshots, traced the People overflow, objective-card coverage and Nell portrait corruption to separate canvas-UI paths, and implemented the responsive short-landscape People layout, small unframed mobile objective text, the corrected 64×64 Nell crop and focused regression coverage. Assistance also covered the required competition-reference review, production build, repository-wide test run and live local browser verification at three mobile viewports.
+
+The screenshots were used only to identify and visually verify the reported defects. After local verification, Codex performed the user's explicitly authorized Vercel preview deployment and authenticated HTTP check; the existing production target was not replaced. No subagent, image generation, asset edit/import/download, new dependency, gameplay/save change, backend, remote runtime asset, source push or competition submission was used. Existing asset and licence records are unchanged. Unrelated dirty-worktree test failures, Deployment Protection and physical-device/non-Chromium limitations are recorded in `PROJECT_STATUS.md`.
+
+---
+
+# 2026-10-31 — Milestones 4–7 narrative expansion
+
+At the user's request, OpenAI Codex implemented the four remaining personal-story arcs, three Life Paths, five-chapter Last Lantern progression, Lantern Night finale, schema-21 migration, contextual supporting dialogue, responsive Journal presentation, browser fixture and regression coverage. Assistance included concise story writing, data/system/UI separation, existing-action progress hooks, existing-sprite/Phaser-Graphics festival presentation, save validation, production build and isolated local browser verification.
+
+No subagent, image generation, asset creation/edit/import/download, new dependency, backend, cloud save, remote runtime asset, publication, deployment, push or competition submission was used. Existing asset and licence records are unchanged. New narrative English uses the established fallback for untranslated Myanmar strings; the limitation and unrelated dirty-worktree test failures are recorded in `PROJECT_STATUS.md`.
+
+---
+
+# 2026-10-30 — Milestone 3 Living Town schedules
+
+At the user's request, OpenAI Codex implemented the deterministic ten-resident schedule data, social graph, schedule resolver, contextual dialogue selection, safe City movement projection, service-preserving shop integration, meeting indicators and broad Journal location hints. Assistance also covered focused syntax and invariant checks, one map-collision coordinate correction and the user-authorized Vercel production release.
+
+No subagent, image generation, asset creation or replacement, external asset download, new dependency, Milestone 4 story episode, backend, remote runtime asset, save-schema change or source push was used. The user explicitly asked to skip browser inspection and the full local test/build suite, so those were not performed.
+
+For the screenshot follow-up, Codex traced the crowding and abnormal gait to overlapping authored garden/café targets and per-frame clock projection, separated ordinary/social activity points, moved café stops onto clear paving, and restored continuous navigation-speed movement with local resident avoidance. No asset or animation frame was changed.
+
+---
+
+# 2026-10-30 — Keepsake pendant replacement
+
+At the user's request, OpenAI Codex replaced the code-drawn Keepsake with the supplied Pixel Snapper pendant, added a deterministic transparent-padding crop, wired the local texture through the Home, Bag, story-completion and map presentations, and corrected the Bag filter so the item disappears after its saved state becomes `placed`. Codex also added focused regression coverage and competition/source records. No image generation, asset redraw, external download, new dependency, backend, remote runtime asset, deployment, publication or push was used. Exact source/runtime hashes and rights limitations: [Keepsake pendant source record](assets/licenses/keepsake-pendant-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-29 — Milestone 1 opening, tutorial and conversations
+
+At the user's request, OpenAI Codex replaced the automatic explanatory introduction with a saved, action-driven opening and added the data-driven resident conversation layer. Assistance covered story/dialogue writing, exact Teo clue copy, Silas objective handoff, responsive bottom portrait presentation in the existing Phaser UI scene, a replaceable registry that crops existing local sprites, backward-compatible additive story flags, contextual keyboard/mouse/touch prompts, shop/service handoffs, Skip/Replay, English/Myanmar text, regression tests, production build and isolated local Chrome verification.
+
+No subagent, image generation, asset edit, third-party download, new dependency, backend, remote runtime asset, normal user-save mutation, relationship/festival implementation, deployment, publication or push was used. Existing art and licences are unchanged, so no asset-licence record was added. Repository-wide failures outside this milestone are recorded in `PROJECT_STATUS.md` rather than attributed to this change.
+
+---
+
+# 2026-10-29 — planter-bench generation review and integration
+
+The review used an initial transparent bench-planter generation, one rejected palette edit, a corrected palette edit, and a later unused height-only review candidate. The user ultimately supplied and selected the 177×132 Pixel Snapper export, then requested a small in-game size reduction without further image generation. Codex preserved the selected bytes unchanged, updated the standalone local atlas metadata, routed the three retained City terrace instances to the native source at nearest-filtered 0.9×, and used render/collision metadata to keep their centres, bases and routes aligned. [Prompts, input roles, source/runtime hashes, alpha audit, transformation record and output-use evidence](assets/licenses/planter-bench-user-v3/SOURCE_RECORD.md). No subagent, runtime AI, reference-pixel extraction, new package dependency, backend, publication, deployment, push or competition submission.
+
+---
+
+# 2026-10-28 — Clara seed-seller runtime integration
+
+The user supplied a completed 3×6 Clara sprite sheet and requested transparent runtime integration. OpenAI Codex inspected the source, made one built-in image-generation background-extraction attempt, rejected that 1619×971 result because it violated the source's exact 1200×720 canvas, and implemented a deterministic importer from the supplied pixels instead. The importer removes the magenta matte/spill, samples the authored 4× logical grid with nearest-neighbour filtering, packs eighteen 64×64 binary-alpha cells, and adds Clara's directional idle/walk/seated presentation without changing her identity, schedule, shop, trade flow, home or save data. Codex also added data-driven custom-sheet metadata, tests, competition/source documentation and browser verification. Exact prompt, source/runtime hashes, conversion and rights limitation: [seed-seller source record](assets/licenses/seed-seller-v1/SOURCE_RECORD.md). No subagent, new dependency, backend, remote runtime asset, deployment, publication or push.
+
+---
+
+# 2026-10-27 — generated Forest Spider sprites and integration
+
+OpenAI's built-in image-generation tool used the two user screenshots as style/scale references to create a new squat gray-purple spider sheet. A targeted transparency follow-up still returned an opaque backdrop, so Codex used the generated silhouette and palette as a reference for a deterministic 24-cell native redraw with real alpha. AI also assisted species balance, grouped habitat placement, combat/save integration, tests and documentation. Exact prompts, files and hashes: [spider source record](assets/licenses/spider-v1/SOURCE_RECORD.md). Human review remains required; no exclusive-copyright claim, third-party download, remote runtime asset or new dependency.
+
+---
+
+# 2026-10-26 — solid visible-object collision follow-up
+
+At the user's request, OpenAI Codex inspected the supplied overlap screenshot, re-audited the runtime feet probe and source-art alpha bounds, replaced the temporary ground strips with visible occupied bounds for the affected planters, barrels and stones, adjusted June's conflicting ambient route, added regression coverage and verified sustained movement against the planter in an isolated local Chrome fixture.
+
+The screenshot was used only to identify the collision failure. No image generation, asset editing, external download, new dependency, gameplay economy, save schema, backend, remote runtime asset, subagent, deployment, publication or push was used. Existing artwork and licences are unchanged, so no asset-licence entry was added. The browser fixture did not read or mutate the user's normal save.
+
+---
+
+# 2026-10-26 — narrow magenta cleanup and item-icon repair sheet
+
+At the user's request, OpenAI Codex checkpointed the worktree at commit `6e3aa89`, diagnosed the broad hue-based magenta cleanup, replaced it with recorded-color distance and background-connectivity checks, reran the existing item and plant imports, generated one four-icon repair source, converted it deterministically to native pixel art, installed four frames under existing keys, audited integer presentation scales, added regression coverage and captured the real Phaser canvas in local Chrome. The image-generation call used the three existing item sheets strictly as style references; the exact prompt and output hash are preserved in the repair source record.
+
+No item ID, price, count, save field, gameplay rule, slot size, UI layout, backend, remote runtime asset, deployment, publication or push changed. The only presentation-scale changes are the existing TradePanel detail icon and harvest fly-to-player effect from 2× to 1× nearest-neighbor. The source art is native 1× rather than an exact integer enlargement, so icons that still exceed the requested Bag/tab percentages are documented for smaller native regeneration instead of being filtered or fractionally rescaled.
+
+---
+
+# 2026-10-26 — responsive panels and grounded prop collision
+
+At the user's request, OpenAI Codex inspected the five supplied screenshots, traced the Phaser UI sizing and feet-probe collision data, implemented compact short-landscape layouts, replaced artificial body-height collision padding with visible ground-contact footprints, added regression coverage, ran the test/build checks and visually verified the Myanmar canvas UI in local Chrome at 568×256.
+
+The supplied screenshots were used only to identify layout and clearance problems. No image generation, asset editing, external download, new dependency, backend, remote runtime asset, save mutation, gameplay-economy change, subagent, deployment, publication or push was used. Existing artwork and licenses are unchanged, so no asset-license entry was added. Physical iOS Safari was not available; the browser check used an equivalent ultra-short viewport and the limitation is recorded in `PROJECT_STATUS.md`.
+
+---
+
 # 2026-10-25 — item-icon runtime integration
 
 At the user's explicit request, Codex integrated the three previously generated and locally pixel-processed item-icon sheets without an approval pause. Assistance covered exact Bag-order mapping, connected-component detection, shared boundary-magenta cleanup, the existing green-only HSL remap with green-fruit body protection, binary-alpha 24×24 framing, data-driven integer 1× presentation, targeted atlas installation, regression tests, local Chrome screenshots and documentation.

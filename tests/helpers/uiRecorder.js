@@ -17,7 +17,7 @@ class Node {
  get fontChars(){return this.scene.cache.bitmapFont.get(this.font)?.data?.chars;}
  get width(){return this.type==='text'?Math.max(...linesOf(this.text,this.size,this.maxWidth,this.fontChars,this.native).map(l=>advance(l,this.size,this.fontChars,this.native))):this.w||16;}
  get height(){return this.type==='text'?(linesOf(this.text,this.size,this.maxWidth,this.fontChars,this.native).length*10+(linesOf(this.text,this.size,this.maxWidth,this.fontChars,this.native).length-1)*(this.lineSpacing||0))*this.size/this.native:this.h||16;}
- fillStyle(color,alpha=1){this.fill=color;this.fillAlpha=alpha;return this;}fillRect(x,y,w,h){this.commands.push({type:'rect',x,y,w,h,color:this.fill,alpha:this.fillAlpha});return this;}
+ fillStyle(color,alpha=1){this.fill=color;this.fillAlpha=alpha;return this;}fillRect(x,y,w,h){this.commands.push({type:'rect',x,y,w,h,color:this.fill,alpha:this.fillAlpha});return this;}fillCircle(x,y,r){this.commands.push({type:'circle',x,y,r,color:this.fill,alpha:this.fillAlpha});return this;}fillTriangle(x1,y1,x2,y2,x3,y3){this.commands.push({type:'triangle',x1,y1,x2,y2,x3,y3,color:this.fill,alpha:this.fillAlpha});return this;}
  lineStyle(width,color,alpha=1){this.stroke={width,color,alpha};return this;}strokeRect(x,y,w,h){this.commands.push({type:'stroke',x,y,w,h,...this.stroke});return this;}clear(){this.commands=[];if(this.type==='container')this.list=[];return this;}
  setFillStyle(c){this.color=c;return this;}setStrokeStyle(){return this;}setInteractive(config){this.input={enabled:true,config};return this;}
  setCrop(...crop){this.crop=crop;return this;}

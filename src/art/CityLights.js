@@ -1,4 +1,5 @@
 import {MAPS} from '../data/mapLayouts.js';
+import {SILAS_STORY} from '../data/connections.js';
 import {areaDecorations,decorationRect} from '../systems/settlementGeometry.js';
 export const lampNightStrength=light=>Math.max(0,Math.min(1,(light.alpha-.12)/.40));
 export const lampGlassPixel=(r,g,b,a)=>a>0&&r>=160&&g>=145&&b>=100&&r-g<=45&&g-b>=18&&r-b>=35;
@@ -26,5 +27,19 @@ export class CityLights{
    this.g.fillStyle(0xf4cf8c,.07*strength).fillRect(x-12,head-10,24,20);
    this.g.fillStyle(0xeab878,.055*strength).fillRect(x-44,foot-12,88,24).fillRect(x-32,foot-20,64,40);
   }
+ }
+ celebrateEastLamp(){
+  if(!this.lamps.length)return;
+  const target=this.lamps.reduce((best,lamp)=>Math.hypot(lamp.x-SILAS_STORY.eastLamp.x,lamp.y-SILAS_STORY.eastLamp.y)<Math.hypot(best.x-SILAS_STORY.eastLamp.x,best.y-SILAS_STORY.eastLamp.y)?lamp:best);
+  target.emission.setAlpha(1);
+  const x=Math.round(target.x+target.w/2),y=Math.round(target.y+target.h*.2),pulse=this.scene.add.graphics().setDepth(10003);
+  pulse.fillStyle(0xf4cf8c,.8).fillCircle(x,y,9).fillStyle(0xf1bd72,.35).fillCircle(x,y,19);
+  this.scene.tweens.add({targets:pulse,scaleX:1.7,scaleY:1.7,alpha:0,duration:900,ease:'Quad.easeOut',onComplete:()=>pulse.destroy()});
+ }
+ celebrateFestival(){
+  if(!this.lamps.length)return;
+  for(const lamp of this.lamps)lamp.emission.setAlpha(1);
+  const pulse=this.scene.add.graphics().setDepth(10003);for(const lamp of this.lamps){const x=Math.round(lamp.x+lamp.w/2),y=Math.round(lamp.y+lamp.h*.2);pulse.fillStyle(0xf4cf8c,.55).fillCircle(x,y,8).fillStyle(0xf1bd72,.18).fillCircle(x,y,18);}
+  this.scene.tweens.add({targets:pulse,scaleX:1.35,scaleY:1.35,alpha:0,duration:1200,ease:'Quad.easeOut',onComplete:()=>pulse.destroy()});
  }
 }

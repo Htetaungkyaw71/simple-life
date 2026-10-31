@@ -1,5 +1,7 @@
 # Eggplant palette-and-anchor update — 2026-10-25
 
+Cleanup revision, 2026-10-26: background references are `(254,3,253)` and `(255,0,255)`; fringe references are `(134,40,123)` and `(196,49,195)`. Distance is 4 per RGB channel, and only background-connected 8-neighbour components are removable. The white outer matte remains a separate boundary-only region, protecting the white flower and stem interior.
+
 This section supersedes the old source-exact color/sign metadata below. The 47×71 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,644 pixels with geometry and binary alpha unchanged. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. Runtime metadata: scale 1, `anchorX: 23`, `baseOffsetY: 0`, `signOffsetY: -107`. Exact evidence is in `manifest.json`.
 
 # Historical Eggplant runtime plant-sheet import

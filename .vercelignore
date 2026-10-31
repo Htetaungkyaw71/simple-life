@@ -1,0 +1,12 @@
+.git
+.env*
+.vercel
+node_modules
+dist
+output
+references
+tests
+tmp
+assets-src
+docs/verification
+public/assets/vendor

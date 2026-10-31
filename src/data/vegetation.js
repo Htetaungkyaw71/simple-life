@@ -5,6 +5,7 @@ const GROUND_PLANTS={
  'grass-detail':[16,16],'dry-grass':[16,16],'snow-grass':[16,16],
  flowers:[16,16],flowers0:[16,16],flowers1:[16,16],flowers2:[16,16],flowers3:[16,16],flowers4:[16,16],
  fern:[24,20],mushroom:[16,16],'bamboo-clump':[32,40],
+ 'forest-bush-0':[40,40],'forest-bush-1':[40,40],'forest-bush-2':[40,40],'forest-bush-3':[40,40],
  'forest-palmetto-0':[40,40],'forest-palmetto-1':[40,40],
  'cp-plant-1-0':[40,42],'cp-plant-2-0':[40,42],'cp-plant-3-0':[40,42]
 };

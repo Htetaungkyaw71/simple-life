@@ -1,3 +1,11 @@
+# Schema 21 — Last Lantern narrative, personal stories and Life Paths (2026-10-31)
+
+The existing `simple-life.save.v1` key accepts schemas 1–21. Schema 21 adds bounded `narrative`: allowlisted completed personal-event IDs/days, allowlisted remembered choices/support, bounded Life Path action counts and unique evidence keys, one Forest-waystone fact, Silas's lantern preparation, derived main-chapter completion and a validated one-time finale choice/snapshot. Finale completion is accepted only for the three authored meanings; malformed choices, support values, event IDs, action keys and statistics normalize safely.
+
+Schemas 1–20 receive fresh personal/finale state plus practical one-time Life Path credit from existing crops/care/harvests, produce sales, cooking evidence, Forest regions/habitats/fruit/treasures/challenges and Connection meetings/conversations/invitations/levels. Once schema 21 is written, saved Life Path evidence restores directly so repeated validation is idempotent. Derived chapter steps are rebuilt from established opening, Teo/Silas Connection and personal-story facts. Farms/crops, inventory/money, Home/appearance, Forest discoveries/wildlife, Connections/invitations, resident schedules, Stash Bag, daily rollover and all prior migrations are preserved; no save is deleted or restarted.
+
+---
+
 # v0.41.0 — fixed shop areas, schema19 retained (2026-10-17)
 
 `barber`/`clothing` are valid LOCATIONS, so existing validation preserves their fixed-room positions and all appearance purchases/coins. Only Home's `interior` applies responsive room-size transforms; fixed shops do not scale saved coordinates. The existing nearest-safe path repairs newly occupied positions. Resident homes keep original building indices3/1, mapped to the approved northern cottages. All227City ground-node identities and tree identities remain; unlocked town-project IDs/costs/rewards are unchanged. No normal user storage was seeded/edited. Unit tests plus barber browser purchase/reload verify continuity.

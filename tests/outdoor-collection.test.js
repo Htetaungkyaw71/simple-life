@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {MAPS} from '../src/data/mapLayouts.js';
 import {walkable} from '../src/data/locations.js';
 import {outdoorFenceRuns} from '../src/art/OutdoorFenceView.js';
+import {PLANTER_BENCH} from '../src/data/planterBench.js';
 
 test('continuous fence artwork covers each existing cell exactly without bridging route gaps',()=>{
  for(const map of Object.values(MAPS)){
@@ -18,6 +19,6 @@ test('closed gate replaces a closed City boundary while markets and travel appro
  const gate=MAPS.city.props.find(p=>p.name==='outdoor-closed-gate');assert.ok(gate);assert.equal(gate.noShadow,true);
  assert.equal(walkable('city',1328,188),false);
  for(const [x,y]of [[432,320],[896,320],[484,488],[484,732],[80,488]])assert.ok(walkable('city',x,y));
- assert.equal(MAPS.city.props.filter(p=>p.artFrame==='snapper-planter-bench').length,3);
+ assert.equal(MAPS.city.props.filter(p=>p.artFrame===PLANTER_BENCH.frame&&p.artTexture===PLANTER_BENCH.texture).length,3);
  assert.ok(!MAPS.city.props.some(p=>p.fence&&p.y===168&&p.x>=1280&&p.x<1376));
 });

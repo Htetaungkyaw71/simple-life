@@ -1,3 +1,13 @@
+# Simple Life 1.0.0 — competition release (2026-10-31)
+
+Simple Life is a fullscreen browser farming, exploration and narrative adventure created for Digit7 Jam 2026. The release uses Phaser 3.90.0, Vite 6.4.3, local runtime assets, keyboard/mouse/touch controls and schema-21 local saves. The normal production build starts a new game with **60 coins**; the separate historical playtest-only 100,000-coin grant is disabled.
+
+The user-supplied competition cover is stored at `submission/simple-life-cover.png`. The supplied `public/favicon.svg` is the browser tab icon and PWA icon. Their unchanged source hashes and provenance limitations are recorded in `docs/assets/licenses/submission-branding-v1/SOURCE_RECORD.md`.
+
+Build with `npm run build`; serve the resulting `dist/` folder over HTTP(S). The production build has no backend, runtime CDN, analytics, advertising, authentication or cloud save.
+
+---
+
 # 2026-10-23 — Mystical Forest River welcome view
 
 The welcome screen now uses an original front-facing Mystical Forest River composition: a luminous deep-forest clearing, tall layered trunks, dark tropical foliage framing both sides, a calm foreground river, distant waterfall and rustic bridge. The generated background contains no baked title, buttons or characters; Phaser keeps the Simple Life wordmark, save-aware menu, English/မြန်မာ selector, focus feedback and responsive hit targets live above it. The title alone now has a complete dark pixel outline, deeper offset shadow and warm-cream face for clarity against the bright clearing. Short reference-style water wavelets pulse only inside a conservative source-space river channel; the previous lower-screen travelling-line layer is removed so rocks, roots, bridge and shoreline foliage remain dry. Birds and drifting leaves remain subtle, and reduced-motion still freezes scenery motion.

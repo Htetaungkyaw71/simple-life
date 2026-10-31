@@ -32,6 +32,7 @@ import {createGrassCluster} from './grassClumps.js';
 const SCALE=2;
 const TOUCH_GRASS_NAMES=new Set(['grass-detail','dry-grass','snow-grass']);
 const registerTouchGrass=(scene,p,node,sprite)=>{if(TOUCH_GRASS_NAMES.has(p.name))scene.touchGrass.push({id:node?.id??`${p.name}:${p.x}:${p.y}`,x:node?.x??p.x+16,y:node?.y??p.y+32,sprite,bend:0});return sprite;};
+const registerTouchBush=(scene,p,node,sprite,frame)=>{const art=propArtInfo(frame);if(!art)return sprite;const [l,,r,b]=art.visibleBounds,pivotX=(l+r)/2,pivotY=b,scale=sprite.scaleX,left=sprite.x,top=sprite.y;sprite.setOrigin(pivotX/art.width,pivotY/art.height).setPosition(left+pivotX*scale,top+pivotY*scale);scene.touchGrass.push({id:node?.id??`bush:${p.name}:${p.x}:${p.y}`,x:node?.x??p.x+16,y:node?.y??p.y+32,sprite,bend:0,sway:true,baseX:sprite.x,baseY:sprite.y,baseAngle:sprite.angle,radiusX:Math.max(26,(r-l)*scale*.36),radiusY:24});return sprite;};
 const clusteredGrass=(scene,p,node)=>{const cluster=createGrassCluster(scene,{id:node.id,x:node.x,y:node.y,variant:node.variant||0}),sprite=cluster.sprites.at(-1);scene.touchGrass.push({id:node.id,x:node.x,y:node.y,sprite,cluster,bend:0});scene.vegetationVisuals.set(node.id,cluster.all);return sprite;};
 const landscapeImage=(scene,a)=>{const frame=propFrame(a.frame),texture=propTexture(a.frame)||'town',art=propArtInfo(a.frame),scale=art&&frame===a.frame?a.scale:propScale(a.frame,a.scale);if(!art)return scene.add.image(a.x,a.y,texture,frame).setOrigin(0).setScale(scale).setDepth(a.foot[1]);const [l,,r,b]=art.visibleBounds;return scene.add.image(a.foot[0]-(l+r)*scale/2,a.foot[1]-b*scale,texture,frame).setOrigin(0).setScale(scale).setDepth(a.foot[1]);};
 const footImage=(scene,frame,x,y,originX,scale,depth)=>{const resolved=propFrame(frame),texture=propTexture(frame)||'town',art=propArtInfo(frame),actual=art&&resolved===frame?scale:propScale(frame,scale);if(!art)return scene.add.image(x,y,texture,resolved).setOrigin(originX,1).setScale(actual).setDepth(depth);const [l,,r,b]=art.visibleBounds;return scene.add.image(x-(l+r)*actual/2,y-b*actual,texture,resolved).setOrigin(0).setScale(actual).setDepth(depth);};
@@ -49,15 +50,16 @@ function object(scene,p){
  if(node&&TOUCH_GRASS_NAMES.has(p.name))return clusteredGrass(scene,p,node);
  const visuals=[];const record=sprite=>{if(node){visuals.push(sprite);scene.vegetationVisuals.set(node.id,[...(scene.vegetationVisuals.get(node.id)||[]),...visuals]);}return sprite;};
  if(p.landscapeVisual)return record(landscapeImage(scene,p.landscapeVisual));
- const cover=groundPlantVisual(p);if(cover){const x=node?.x??p.x+16,y=node?.y??p.y+32;return record(footImage(scene,cover.frame,x,y,cover.originX,2,y));}
+ const cover=groundPlantVisual(p);if(cover){const x=node?.x??p.x+16,y=node?.y??p.y+32,sprite=footImage(scene,cover.frame,x,y,cover.originX,2,y);registerTouchBush(scene,p,node,sprite,cover.frame);return record(sprite);}
  if(p.artFrame){
   const frame=propFrame(p.artFrame),texture=p.artTexture||propTexture(p.artFrame)||'town',f=scene.textures.getFrame(texture,frame),direct=!!propArtInfo(p.artFrame)&&frame===p.artFrame,scale=p.artTexture||direct?p.artScale||SCALE:propScale(p.artFrame,p.artScale||SCALE),w=f.width*scale,h=f.height*scale;
   if(!p.noShadow)groundShadow(scene,p.x+w/2,p.y+h-3,w*.75,8,.18);
-  return scene.add.image(p.x,p.y,texture,frame).setOrigin(0).setScale(scale).setDepth(p.artDepth??p.y+h);
+  const [offsetX=0,offsetY=0]=p.artOffset||[];
+  return scene.add.image(p.x+offsetX,p.y+offsetY,texture,frame).setOrigin(0).setScale(scale).setDepth(p.artDepth??p.y+(p.artDepthOffset??h));
  }
  if(isTree(p)){
   const habitat=scene.worldArea==='forest'?forestHabitat({x:p.x+32,y:p.y+90}).id:'';
-  const visual=treeVisual(p,habitat),art=propArtInfo(visual.frame),frame=scene.textures.getFrame('town',visual.frame),foot=p.y+90,cx=p.x+32;
+  const visual=treeVisual(p,habitat),art=propArtInfo(visual.frame),frame=art?null:scene.textures.getFrame('town',visual.frame),foot=p.y+90,cx=p.x+32;
   const obj=art?footImage(scene,visual.frame,cx,foot,visual.originX,2,foot):scene.add.image(cx,foot,forestTexture(scene,visual.frame,habitat)).setOrigin(visual.originX,1).setScale(2).setDepth(foot);
   visuals.push(groundShadow(scene,cx,foot-3,48,12));
   const scale=art?propScale(visual.frame,2):2,[l,t,r,b]=art?.visibleBounds??[0,0,frame.width,frame.height];
@@ -98,7 +100,7 @@ export function drawWorld(scene,area){
   const node=VEGETATION[area].byProp.get(p);if(node&&removed(scene.app.state,node.id))continue;
   if(node&&TOUCH_GRASS_NAMES.has(p.name)){clusteredGrass(scene,p,node);continue;}
   if(p.landscapeVisual){const sprite=landscapeImage(scene,p.landscapeVisual);if(node)scene.vegetationVisuals.set(node.id,[sprite]);continue;}
-  const cover=groundPlantVisual(p);if(cover){const x=node?.x??p.x+16,y=node?.y??p.y+32,sprite=footImage(scene,cover.frame,x,y,cover.originX,2,y);if(node)scene.vegetationVisuals.set(node.id,[sprite]);continue;}
+  const cover=groundPlantVisual(p);if(cover){const x=node?.x??p.x+16,y=node?.y??p.y+32,sprite=footImage(scene,cover.frame,x,y,cover.originX,2,y);registerTouchBush(scene,p,node,sprite,cover.frame);if(node)scene.vegetationVisuals.set(node.id,[sprite]);continue;}
   if(area==='forest'&&p.name==='dry-grass'&&Math.floor(p.x+p.y)%5===0){
    const sprite=scene.add.image(p.x+16,p.y+32,'town',Math.floor(p.x)%2?'env-agave':'env-dry-plant').setOrigin(.5,1).setScale(1).setDepth(p.y+32);if(node)scene.vegetationVisuals.set(node.id,[sprite]);
   }else {const upright=node&&!TOUCH_GRASS_NAMES.has(p.name);const sprite=image(scene,p.name,p.x,p.y,upright?node.y:0);registerTouchGrass(scene,p,node,sprite);if(node)scene.vegetationVisuals.set(node.id,[sprite]);}

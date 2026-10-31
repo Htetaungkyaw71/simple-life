@@ -1,12 +1,12 @@
 import {LanguageService} from './i18n/language.js';
 import {loadMyanmarFont} from './i18n/myanmarText.js';
 import {waterWithCan} from './systems/wateringCan.js';
-import {residentReaction} from './systems/residents.js';
 import {CustomizationPanel} from './ui/CustomizationPanel.js';
 import {AudioManager} from './audio/AudioManager.js';
 import {StoryPanel} from './ui/StoryPanel.js';
+import {ConversationPanel} from './ui/ConversationPanel.js';
 import {drawAudioPanel} from './ui/AudioPanel.js';
-import {recordStory,syncStory} from './systems/story.js';
+import {recordStory,syncStory,tutorialStage,recordTutorialMovement,finishTutorial} from './systems/story.js';
 import {testingCreditEnabled,testingCredit} from './systems/testingCredit.js';
 import {useVegetation} from './systems/vegetation.js';
 import {digGround,restoreGround,waterGround} from './systems/farmGround.js';
@@ -23,7 +23,6 @@ import {isNight} from './systems/time.js';
 import {FarmOffice} from './ui/FarmOffice.js';
 import {PlacementController} from './ui/PlacementController.js';
 import {ResourcePanel} from './ui/ResourcePanel.js';
-import {ORDERS} from './data/settlement.js';
 import {areaDecorations} from './systems/settlementGeometry.js';
 import {placeDecoration} from './systems/settlement.js';
 import {ROOM} from './data/interior.js';
@@ -44,12 +43,16 @@ import {CROPS,CROP_IDS} from './data/crops.js';
 import {claimRecoverySeed,recoveryEligible} from './systems/recovery.js';
 import {collectStarterSeeds} from './systems/starter.js';
 import {sleep,wakeTime,tick,clock} from './systems/time.js';
+import {recordLifePath} from './systems/lifePaths.js';
+import {narrativeProgressCount} from './systems/narrative.js';
+import {syncLastLantern} from './systems/lastLantern.js';
+import {forestHabitat} from './data/forestHabitats.js';
 class Application {
   constructor(){
     this.testingCreditEnabled=testingCreditEnabled(location.href);
     syncInterior(innerWidth,innerHeight);this.state=null;this.paused=true;this.input={};this.elapsed=0;this.visited=new Set();let storage;
     try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
-    this.language=new LanguageService(storage);this.audio=new AudioManager({storage});this.ambience=this.audio;this.audio.bind();this.storyPanel=new StoryPanel(this);
+    this.language=new LanguageService(storage);this.audio=new AudioManager({storage});this.ambience=this.audio;this.audio.bind();this.conversationPanel=new ConversationPanel(this);this.storyPanel=new StoryPanel(this);
     this.bagPanel=new BagPanel(this);this.wildernessMap=new WildernessMap(this);this.tradePanel=new TradePanel(this);this.farmOffice=new FarmOffice(this);this.resourcePanel=new ResourcePanel(this);this.customizationPanel=new CustomizationPanel(this);this.appearancePanel=new AppearancePanel(this);this.placement=new PlacementController(this);this.saves=new SaveService(storage);this.scene=new WorldScene(this);this.ui=new Interface(this);
   }
   ready(){if(this.myanmarFontReady===false)this.language.current='en';document.documentElement.lang=this.language.current==='mm'?'my':'en';this.ui.title();finishLoadingScreen();}
@@ -58,18 +61,20 @@ class Application {
     const receipt=this.saves.grantTestingCoins(this.testingCreditEnabled);this.ui.title();
     this.ui.toast(receipt?(receipt.added?'Added '+receipt.added+' testing coins. ':'Testing coins already added. ')+'Saved balance / '+receipt.balance+'c.':this.saves.error);
   }
-  start(state){if(!state)return;if(this.testingCreditEnabled)state=testingCredit(state,this.testingCreditEnabled).state;this.audio.startWorld(state);this.placement.draft=null;this.placement.original=null;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.journalSeen=state.story.flags.length;syncStory(state);this.save();if(state.story.completed&&!state.story.endingSeen)this.storyPanel.completion();else if(state.story.intro==='pending')this.storyPanel.intro();}
+  start(state){if(!state)return;if(this.testingCreditEnabled)state=testingCredit(state,this.testingCreditEnabled).state;this.audio.startWorld(state);this.placement.draft=null;this.placement.original=null;this.festivalActive=false;this.state=state;if(state.health<=0)defeat(state);this.scene.build();this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;this.ui.play();this.journalSeen=narrativeProgressCount(state);syncStory(state);this.save();if(state.narrative?.finale?.status==='complete'&&!state.narrative.finale.summarySeen)this.storyPanel.lanternSummary();else if(state.story.completed&&!state.story.endingSeen)this.storyPanel.completion();else if(state.story.intro==='pending')this.storyPanel.intro();else if(tutorialStage(state)==='invite')this.storyPanel.invite();}
   newGame(character){this.start(newState(character,crypto.getRandomValues(new Uint32Array(1))[0]));}
   sound(key){this.audio.effect(key);this.scene.game.events.emit('sound:request',{key,area:this.state?.area,day:this.state?.day});}
   cycleCrop(){if(this.paused||!this.state)return;if(this.placement.draft)this.placement.cancel();this.sound('ui:move');this.state.selectedCrop=CROP_IDS[(CROP_IDS.indexOf(this.state.selectedCrop)+1)%CROP_IDS.length];this.state.selected='seed';this.save();this.ui.feedback(CROPS[this.state.selectedCrop].name+' seeds selected.');}
   select(tool,{toggle=false}={}){if(!this.state||this.paused)return;this.sound('ui:move');this.pendingAttack=null;if(this.scene.player)this.scene.player.action=null;if(this.placement.draft)this.placement.cancel();this.state.selected=toolSelection(toggle?this.state.selected:'hand',tool);this.promptSuppressUntil=this.scene.time.now+1800;this.save();}
-  save(show=false){if(!this.state)return;syncStory(this.state);this.state.roomSize={width:ROOM.width,height:ROOM.height};const ok=this.saves.write({...this.state,position:groundedPosition(this.state,this.scene.jumping)});if(show||(!ok&&!this.storageWarned))this.ui.toast(ok?'Your farm is saved.':this.saves.error);this.storageWarned=!ok;}
+  save(show=false){if(!this.state)return;syncStory(this.state);syncLastLantern(this.state);this.state.roomSize={width:ROOM.width,height:ROOM.height};const ok=this.saves.write({...this.state,position:groundedPosition(this.state,this.scene.jumping)});if(show||(!ok&&!this.storageWarned))this.ui.toast(ok?'Your farm is saved.':this.saves.error);this.storageWarned=!ok;}
+  tutorialMoved(){if(recordTutorialMovement(this.state))this.save();}
   transact(fn){const money=this.state.money,before=JSON.stringify(this.state);const message=fn(this.state);if(JSON.stringify(this.state)===before)this.sound('ui:disabled');if(this.state.money!==money){this.scene.atmosphere.coins(this.state.money-money,this.state.position);if(this.state.money>money)this.sound('coin:reward');}this.scene.renderCrops();this.save();if(message)this.ui.toast(message);return message;}
   advance(delta){const window=waterPeriod(this.state),day=this.state.day,energy=this.state.energy;tick(this.state,delta);if(this.state.story&&!this.state.story.completed)this.state.story.activeSeconds+=Math.max(0,Math.min(delta,100))/1000;if(window!==waterPeriod(this.state)||day!==this.state.day){this.scene.renderCrops();if(day!==this.state.day&&this.state.plots.some(p=>p.crop&&p.growth>=CROPS[p.crop].growthDays))this.sound('farming:growth');}if(energy>10&&this.state.energy<=10)this.ui.feedback('Low energy / rest at your bed');this.elapsed+=delta;if(this.elapsed>2500||day!==this.state.day){this.save();this.elapsed=0;}}
   use(pointed=null){
     if(this.scene.jumping?.active)return;
     if(this.paused||!this.state||this.transitioning)return;if(this.placement.draft){this.placement.confirm();return;}const c=pointed||this.scene.context();if(!c)return;if(this.state.selected!=='water')this.scene.faceContext(c);else if(!this.state.ownsCopperCan)this.scene.player.face(c.x-this.state.position.x,c.y-this.state.position.y);
     if(c.type==='keepsakePlace'){this.storyPanel.place();return;}
+    if(c.type==='lanternNight'){this.storyPanel.lanternNight();return;}
     if(c.type==='hunt'){this.attack(c.id);return;}
     if(c.type==='stone'){const before=this.state.inventory.stone;this.ui.feedback(collectStone(this.state,c.id));if(this.state.inventory.stone>before){this.scene.forestView.bits(c.x,c.y-12,0xc1bcac);this.sound('stone:collect');}this.save();return;}
     if(['chop','gatherGrass','placeGrass'].includes(c.type)){
@@ -86,7 +91,7 @@ class Application {
     if(c.type==='dig'||c.type==='waterGround'||c.type==='plot'&&this.state.selected==='water'){
       const now=this.scene.time.now;if(now<(this.nextGroundUse||0))return;this.nextGroundUse=now+450;
       const result=c.type==='dig'?digGround(this.state,c):c.type==='plot'&&this.state.ownsCopperCan?waterWithCan(this.state,c,this.scene.player.direction):waterGround(this.state,c,c.type==='plot'?c.index:undefined);
-      this.ui.feedback(result.message);if(!result.ok&&c.type==='dig')this.sound('ui:disabled');if(result.ok){if(c.type==='dig'){if(!this.scene.player.startAction('digging'))this.scene.player.wateringCan.swing();this.scene.refreshVegetation();}if(c.type!=='dig')this.scene.player.startAction('watering');this.scene.renderCrops();for(const tile of result.tiles||[result])this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',tile.x,tile.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();}return;
+      this.ui.feedback(result.message);if(!result.ok&&c.type==='dig')this.sound('ui:disabled');if(result.ok){if(c.type==='dig'){if(!this.scene.player.startAction('digging'))this.scene.player.wateringCan.swing();this.scene.refreshVegetation();}if(c.type!=='dig')this.scene.player.startAction('watering');this.scene.renderCrops();for(const tile of result.tiles||[result])this.scene.atmosphere.farming(c.type==='dig'?'dig':'water',tile.x,tile.y);this.sound('farming:'+(c.type==='dig'?'dig':'water'));this.save();if(tutorialStage(this.state)==='invite')this.storyPanel.invite();}return;
     }
     if(c.type==='forage'){const before=this.state.inventory[c.item];this.ui.feedback(collectForage(this.state,c.id));if(this.state.inventory[c.item]>before){this.scene.forestView.collect(FORAGE_NODES.find(n=>n.id===c.id));this.sound('forest:collect');}this.save();return;}
     if(c.type==='treasure'){const before=this.state.story.keepsake,count=this.state.forest.treasures.length;this.transact(s=>recoverTreasure(s,c.id));if(this.state.story.keepsake!==before)this.sound('keepsake:collect');else if(count!==this.state.forest.treasures.length)this.sound('cache:open');return;}
@@ -106,7 +111,7 @@ class Application {
     if(c.type==='seed'||c.type==='sell'){this.tradePanel.open(c.type);return;}
     if(c.type==='appearanceShop'){this.appearancePanel.openShop(c.category);return;}
     if(c.type==='aid'){this.ui.modal('CITY / SEED AID','A fresh start','No coins for seeds? With fewer than 10 coins and no seeds, produce or living crops, collect one free Tomato seed each day.',[['Collect seed',()=>{this.transact(claimRecoverySeed);this.ui.close();},!recoveryEligible(this.state)],['Close',()=>this.ui.close()]]);return;}
-    if(c.type==='dialog'){if(c.residentId&&this.state.area==='city'){recordStory(this.state,'resident');this.save();}this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.residentId?residentReaction(this.state,c.body):c.body,[...(ORDERS.some(d=>d.resident===c.residentId)?[['Daily request',()=>this.resourcePanel.orders(c.residentId)]]:[]),['See you around',()=>this.ui.close()]]);return;}
+    if(c.type==='dialog'){if(c.residentId){this.conversationPanel.openResident(c.residentId);return;}this.ui.modal(LOCATIONS[this.state.area].name,c.title,c.body,[['Close',()=>this.ui.close()]]);return;}
     if(c.type==='hint'){this.ui.feedback(c.label);return;}
     if(c.type==='plot'){
       const before={...plotAt(this.state,c.index)},fruit=before.crop?this.state.inventory[CROPS[before.crop].produceKey]:0;
@@ -115,7 +120,7 @@ class Application {
       this.scene.renderCrops();this.save();this.ui.feedback(message);
       if(!action)this.sound(before.crop&&!after.crop?'farming:clear':'ui:disabled');
       if(action==='harvest'&&!this.state.hasVisitedCity)this.ui.showCityObjective();
-      if(action){if(action==='harvest')this.scene.player.startAction('harvesting');else if(action==='water')this.scene.player.startAction('watering');this.scene.atmosphere.farming(action,c.x,c.y,before.crop||after.crop);this.scene.events.emit('farming:'+action,{index:c.index,crop:before.crop||after.crop});this.sound('farming:'+action);}return;
+      if(action){if(action==='harvest')this.scene.player.startAction('harvesting');else if(action==='water')this.scene.player.startAction('watering');this.scene.atmosphere.farming(action,c.x,c.y,before.crop||after.crop);this.scene.events.emit('farming:'+action,{index:c.index,crop:before.crop||after.crop});this.sound('farming:'+action);if(tutorialStage(this.state)==='invite')this.storyPanel.invite();}return;
     }
     if(c.type==='travel'){this.travel(c);return;}
     if(c.type==='bed'){this.sound('bed:open');
@@ -142,7 +147,7 @@ class Application {
     if(this.state.selected!==pending.weapon||this.scene.jumping?.active)return;
     const result=attack(this.state,this.scene.combat,pending.direction,pending.targetId);
     if(result.message)this.ui.feedback(result.message);
-    if(result.ok){this.scene.forestView.attack(pending.direction,result);if(result.hit){this.scene.impactStop=55;this.sound(result.defeated?'animal:defeat':'combat:hit');}this.save();}
+    if(result.ok){this.scene.forestView.attack(pending.direction,result);if(result.hit){this.scene.impactStop=55;this.sound(result.defeated?'animal:defeat':'combat:hit');}if(result.defeated)recordLifePath(this.state,'explorer','challenge',result.species||pending.targetId||'forest-challenge');this.save();}
   }
 
   forestGuidance(){
@@ -168,20 +173,21 @@ class Application {
     if(this.transitioning)return;this.transitioning=true;this.paused=true;this.input={};
     const cam=this.scene.cameras.main;cam.fadeOut(140,38,40,45);
     cam.once('camerafadeoutcomplete',()=>{
-      const firstCity=c.to==='city'&&!this.state.hasVisitedCity;this.state.area=c.to;if(c.to==='city')this.state.hasVisitedCity=true;if(c.to==='farm')this.state.hasVisitedFarm=true;this.state.position={...c.spawn};this.scene.targetPlot=null;this.scene.build();
+      const firstCity=c.to==='city'&&!this.state.hasVisitedCity;this.state.area=c.to;if(c.to==='city')this.state.hasVisitedCity=true;if(c.to==='farm')this.state.hasVisitedFarm=true;this.state.position={...c.spawn};if(c.to==='forest')recordLifePath(this.state,'explorer','habitat',forestHabitat(this.state.position).id);this.scene.targetPlot=null;this.scene.build();
       this.scene.player.direction=c.facing||'down';this.scene.player.pose(false);this.scene.travelReady=this.scene.time.now+TRAVEL_COOLDOWN;
       this.save();cam.fadeIn(140,38,40,45);this.transitioning=false;this.paused=false;if(c.portal)this.ui.toast('Return gate / Forest entrance');if(firstCity)this.ui.toast('Welcome to Lantern Square. Clara sells seeds; Niko buys your harvest.');
     });
   }
   pause(){if(this.transitioning||!this.state)return;if(this.paused){this.sound('ui:cancel');if(this.ui.menu?.escape)this.ui.menu.escape();else this.ui.close();return;}this.save();this.ui.modal('SIMPLE LIFE','Paused','',[
-    ['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Audio / '+(this.audio.muted?'MUTED':'ON'),()=>this.audioSettings()],['JOURNAL',()=>this.storyPanel.journal()],['Controls',()=>this.ui.help(()=>this.pauseMenu())],['Language',()=>this.ui.languageMenu(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.audio.stopWorld();this.state=null;this.scene.build();this.ui.title();}],
+    ['Resume',()=>this.ui.close()],['Save',()=>this.save(true)],['Audio / '+(this.audio.muted?'MUTED':'ON'),()=>this.audioSettings()],['HOME & STYLE',()=>this.customizationPanel.open()],[tutorialStage(this.state)?'Skip tutorial':'Controls',()=>{if(tutorialStage(this.state)){finishTutorial(this.state,true);this.save();this.ui.close();}else this.ui.help(()=>this.pauseMenu());}],['Language',()=>this.ui.languageMenu(()=>this.pauseMenu())],['Return to title',()=>{this.save();this.audio.stopWorld();this.state=null;this.scene.build();this.ui.title();}],
   ]);}
   audioSettings(){this.ui.modal('SIMPLE LIFE','Audio','',[],'audio');this.ui.menu.draw=()=>drawAudioPanel(this.ui);this.ui.menu.escape=()=>this.pauseMenu();this.ui.layout();}
   pauseMenu(){this.paused=false;this.pause();}
 }
 function boot(fontReady){
 const app=new Application();app.myanmarFontReady=fontReady;
-const game=new Phaser.Game({type:new URLSearchParams(location.search).get('renderer')==='webgl'?Phaser.WEBGL:Phaser.CANVAS,parent:'game',width:innerWidth,height:innerHeight,backgroundColor:'#263e38',pixelArt:true,antialias:false,antialiasGL:false,roundPixels:true,scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%',autoCenter:Phaser.Scale.NO_CENTER},scene:[app.scene,app.ui],physics:{default:'arcade',arcade:{gravity:{x:0,y:0},debug:false}},audio:{noAudio:true},input:{activePointers:4,keyboard:{capture:[32,37,38,39,40]}}});
+const renderer=new URLSearchParams(location.search).get('renderer'),rendererType=renderer==='webgl'?Phaser.WEBGL:renderer==='canvas'?Phaser.CANVAS:Phaser.AUTO;
+const game=new Phaser.Game({type:rendererType,parent:'game',width:innerWidth,height:innerHeight,backgroundColor:'#263e38',pixelArt:true,antialias:false,antialiasGL:false,roundPixels:true,scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%',autoCenter:Phaser.Scale.NO_CENTER},scene:[app.scene,app.ui],physics:{default:'arcade',arcade:{gravity:{x:0,y:0},debug:false}},audio:{noAudio:true},input:{activePointers:4,keyboard:{capture:[32,37,38,39,40]}}});
 game.events.once('ready',()=>{
   // Phaser 3.90 captures touchcancel without checking cancelable. A rotation's
   // non-cancelable event still needs processing, without preventDefault warnings.

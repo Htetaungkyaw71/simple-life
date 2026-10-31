@@ -38,10 +38,17 @@ test('tool toggles suppress the transient nearby-world prompt',()=>{
  assert.equal(promptSuppressed(1500,1500),false);
 });
 test('tool toggles do not expose the first-farm guide while context text is suppressed',()=>{
- const s=newState(),u=recorder(1280,720);s.area='farm';s.starterSeedsClaimed=true;
+ const s=newState(),u=recorder(1280,720);s.area='farm';s.starterSeedsClaimed=true;s.story.intro='seen';Object.assign(s.story.tutorial,{started:true,moved:true});
  const hud={ui:u,root:u.root,cropInfo:{root:{visible:false}}};u.hud=hud;u.app={state:s,promptSuppressUntil:2800,scene:{cameras:{main:{worldView:{x:0,y:0,width:1280,height:720},zoom:1}}}};
  const guide=new FarmGuide(hud);assert.equal(guide.objective.visible,false);assert.equal(guide.waypoint.visible,false);guide.update(s);assert.equal(guide.box.visible,false);assert.equal(guide.label.visible,false);
  u.time.now=3000;guide.update(s);assert.equal(guide.box.visible,true);assert.equal(guide.label.visible,true);
+});
+test('mobile objectives are small white text without a gameplay-covering panel',()=>{
+ const s=newState(),u=recorder(640,360);s.story.intro='seen';Object.assign(s.story.tutorial,{started:true,moved:true});
+ const hud={ui:u,root:u.root,cropInfo:{root:{visible:false}}};u.hud=hud;u.app={state:s,promptSuppressUntil:0,scene:{cameras:{main:{worldView:{x:0,y:0,width:640,height:360},zoom:1}}}};
+ const guide=new FarmGuide(hud);guide.update(s);
+ assert.equal(guide.objective.visible,true);assert.equal(guide.label.visible,true);assert.equal(guide.label.scaleX,.6);assert.equal(guide.label.fontColor,0xfffbe5);
+ assert.equal(guide.box.visible,false);assert.equal(guide.objectiveArt.visible,false);assert.equal(guide.direction.visible,false);
 });
 test('HUD prompt visibility starts disabled until its first positioned update',()=>{
  const prompt={visible:true,setVisible(value){this.visible=value;return this;}};

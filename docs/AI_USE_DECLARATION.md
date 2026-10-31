@@ -1,3 +1,9 @@
+# 2026-10-28 — Clara seed-seller disclosure
+
+User-supplied character artwork is integrated through a deterministic Codex-assisted transparency/downsampling pipeline. One OpenAI built-in image-generation extraction attempt was rejected for changing the canvas and remains evidence-only. The playable sheet uses sampled pixels from the user's source, not the rejected generated result. Codex assisted code, tests, documentation and verification. [Prompt, hashes, processing and limitations](assets/licenses/seed-seller-v1/SOURCE_RECORD.md). Human legal-use and competition eligibility confirmation remains required.
+
+---
+
 # 2026-10-25 — item-icon review-sheet disclosure
 
 OpenAI built-in image generation produced three separate 4×3 icon-board sources from two user-supplied pixel references. Codex performed deterministic Pillow-only native-pixel cleanup and packing, preserved the generated originals, prompts, hashes and output-use record, and kept all outputs review-only outside production. Human review and final rights/competition acceptance remain required. [Evidence](assets/licenses/item-icon-sheets-v1/SOURCE_RECORD.md).

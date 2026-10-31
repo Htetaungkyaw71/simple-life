@@ -1,3 +1,97 @@
+# 2026-10-31 — mobile People, objective and portrait repair
+
+The Journal People / Connections page now uses a dedicated short-landscape composition on touch devices: it uses the available canvas width, reduces the portrait/content block, keeps relationship copy and routine hints above the footer, and retains the established desktop and portrait presentations. Ultra-short landscape keeps the identity/relationship content and omits the lower routine hint when there is not enough safe height. Nell's portrait registry now uses a centred 32×48 portrait window within the current 64×64 atlas frame instead of cropping the obsolete 32×32 top-left quadrant.
+
+Mobile in-play objectives, including the opening Tomato task and Journal next step, are now small cream-white bitmap text with no cream panel, border or leaf icon. Desktop objective cards remain unchanged. Focused objective/People regressions pass 2/2. The required repository-wide run completed 378/440; both new regressions pass, while 62 existing dirty-worktree failures remain in stale schema-19, Forest expansion, City/resident, atlas/art and older UI assertions. `npm run build` passes with 216 modules. Live local browser inspection passed at 844×390, 640×360 and 390×844, including the unframed task, responsive Silas/Nell pages, full Nell sprite, viewport rotation and an empty warning/error console. Physical iOS Safari and non-Chromium engines remain unverified. The user-authorized Vercel preview deployment `dpl_CXyoY5ntMgj41YPResrQ3iQD1Cf5` reached READY and returned HTTP 200 through authenticated verification; Vercel Deployment Protection redirects unauthenticated visitors to sign-in. Production was not replaced. No gameplay rule, save field, asset, dependency, backend, remote runtime source, source push or competition submission changed.
+
+---
+
+# 2026-10-31 — Milestones 4–7 narrative expansion
+
+The complete opening-to-finale Last Lantern story is playable. Clara, Niko/Bruno, Nell and Walter each have two saved, non-repeating personal events with time/place/Connection/prior-event conditions, remembered choices, later dialogue and Lantern Night support; Silas's existing Connection arc remains authoritative. Supporting residents react to the current chapter, preparations and completed gathering. Niko and Bruno also gain a reconciled social meeting without changing shop availability.
+
+The Journal now presents five Last Lantern chapters, one active objective/hint, People updates and three five-rank Life Paths. Grower, Explorer and Neighbour progress comes from existing actions and retrospectively credits bounded legacy evidence. Lantern Night runs in the existing City with existing sprites/scenery, Phaser-drawn lanterns/banner/food lighting, all ten residents, three saved final meanings, a completion summary and continued farming/City/Forest play. New narrative state is schema 21 and migrates additively from schemas 1–20 without resetting crops, inventory, money, homes, Forest discoveries, Connections, schedules, Stash Bags or daily progress. New English story copy uses the established reliable English fallback when a complete Myanmar translation is unavailable.
+
+Verification: focused narrative/conversation/Journal/schedule and save-idempotency checks pass, including 20/20 established story/conversation checks and 4/4 new narrative checks. The required single repository-wide run completed 373/438; all new narrative tests passed, while 65 existing dirty-worktree failures remain in older schema-19 assertions and unrelated concurrent City, Forest, wildlife, atlas, layout and art checks. The one expansion-caused Life Path normalization issue exposed by that run was fixed and its focused regressions pass. `npm run build` passes with 216 modules. Local Chromium browser checks passed at 490×844 and 1280×720 for Journal/Paths, prepared City, the complete finale choice/summary, continued play and reload-without-replay, with no console warnings or errors. A physical-device, non-Chromium browser and complete manual day-by-day story playthrough remain unverified. No asset, dependency, backend, remote runtime source, publication, push, deployment or submission was added or performed.
+
+---
+
+# 2026-10-30 — Milestone 3 Living Town and NPC schedules
+
+The ten established residents now follow deterministic, data-driven normal, social and quiet-day schedules reconstructed from day, time and story/Connection state. Homes, responsibilities, safe activities, work periods, short social meetings, contextual repeat dialogue and 19:00 home resolution are separated from Phaser rendering and persistent Connection logic. Clara, Niko, Nell and Sol remain continuously available through the established 07:00–19:00 service window; Silas's Lantern event remains an explicit temporary schedule override. Journal → People gives broad routine clues rather than live positions. No Milestone 4 episode chains, new asset, economy change, new map, backend or save-route state was added.
+
+Focused verification checked syntax, all ten deterministic projections, weekly variation, walkable visible positions, paired meetings, service availability across every weekly pattern and a clear 19:00 curfew. One quiet-bench collision overlap found by that check was corrected to adjacent walkable ground. Per the user's completion instruction, no tests, full build or browser inspection were run locally. The user subsequently authorized a production Vercel deployment; remote build status is checked during release. Physical-device and manual playthrough coverage therefore remain limitations.
+
+Screenshot follow-up: normal-day garden work/play and social-day garden meetings now use separate clear activity points instead of stacking four residents in one patch. Café stops moved from decorative grass to the existing paved frontage. Runtime schedule changes now set navigation targets; the navigation layer advances residents continuously at the established walking speed with walkable sidesteps around the player and other residents. Clock-derived route projection remains only for deterministic scene entry/reload reconstruction. Focused simulation confirms 24-pixel minimum stationary spacing (the intentional Silas–Walter pair), 26-world-pixel/second movement, clear café stops, reliable services and curfew resolution. No browser inspection or full suite was performed per the user's standing instruction.
+
+---
+
+# 2026-10-30 — Terracotta Keepsake replacement and one-time placement
+
+The former code-drawn sun Keepsake is replaced throughout runtime presentation by the supplied terracotta gemstone pendant. Its visible 36×46 source pixels are unchanged after cropping transparent outer padding, and the new local texture is explicitly included in the production allowlist with nearest-neighbour filtering. The pendant remains visible in the Home after placement, while the Bag now lists it only during the `carried` state; the saved `placed` state therefore removes the inventory entry immediately and after reload. Collection, placement requirements, completion, saves and other gameplay are unchanged.
+
+Source/runtime evidence: [Keepsake pendant record](assets/licenses/keepsake-pendant-v1/SOURCE_RECORD.md). Verification results are recorded below after the required focused/full checks, production build and browser inspection. No deployment, publication or push.
+
+---
+
+# 2026-10-29 — Milestone 1 opening, tutorial and resident conversations
+
+Fresh games now begin with a playable, bottom-anchored two-person portrait conversation between the chosen farmer and Silas. It establishes the move from City, Grandfather's unfinished Lantern Night promise, the broken-lantern mystery and the immediate one-Tomato goal, with three player questions. The saved tutorial advances only from real movement, crate, planting and watering actions, then invites the player to City and restores full freedom. Desktop and touch prompts are contextual; Skip Opening, active-tutorial Skip and Journal Replay are non-destructive. Existing schema-19 saves and older seen/skipped introductions migrate without resetting inventory, crops, economy or world progress.
+
+The same separate Phaser UI scene now presents all ten current residents in a responsive 65/35 dialogue/portrait panel with the world visible above, keyboard/mouse/touch navigation and English/Myanmar copy. Portraits reuse locally loaded nearest-neighbour sprites through a replaceable crop registry. First meetings, repeats, time/location/story conditions and conversation flags are data-driven. Teo's required dialogue records the east-road-lamp clue, creates a no-reward objective to speak with Silas, and Silas resolves it. Clara, Niko, Nell and Sol retain their existing shops as explicit conversation actions; Sol's daily request remains reachable. No affinity, gifts, romance, festival or later NPC story was added.
+
+Verification: focused milestone/story/control/language checks pass 32/32. The production build passes with 201 modules. Local Chrome completed the full opening → move → crate → Farm → one Tomato → water → City invite → save/reload → Replay path plus touch Skip, then separately completed Teo → Silas clue resolution and Clara → seed-shop handoff at 1280×720 and checked the conversation panel at 844×390 and 390×844. Both browser runs reported no console errors/warnings, failed requests or remote requests. The required repository-wide run was performed once and completed 390/431: all milestone checks present at that run passed; 41 failures remain in unrelated pre-existing dirty-worktree City/wilderness/art assertions, including the expanded Forest and concurrent atlas changes. No runtime asset, licence, dependency, backend, publication or push changed. Physical-device testing remains outside this browser check.
+
+---
+
+# 2026-10-29 — selected Pixel Snapper planter bench and smaller game scale
+
+The three City terrace planters now use the user-selected 177×132 transparent Pixel Snapper export byte-for-byte. It renders at nearest-filtered 0.9× after the requested small in-game reduction, with no generated or repainted replacement. A render-only offset preserves the established visible centres and ground contact; the collision footprint contracts with the displayed body. Terrace spacing, ordinary benches, City routes, saves and gameplay remain unchanged.
+
+Source/runtime evidence: [planter bench record](assets/licenses/planter-bench-user-v3/SOURCE_RECORD.md). Verification results are recorded below after the required full suite, production build and browser check. No deployment, publication or push.
+
+---
+
+# 2026-10-27 — generated Forest Spider species
+
+Added a second hostile Forest species: 24 Forest Spiders arranged as eight three-animal groups in rainforest and dark-forest habitats. Spiders use a smaller body, two health, 10 damage, shorter awareness, slower charge and longer warning than the Wild Boar. They drop no food or hide; defeating one shows direct feedback rather than a misleading zero-Meat reward. Existing boars, quiet wildlife, treasure guards, farming, City, saves and Stash recovery remain.
+
+The final transparent native sheet has four directions × six crawl phases. Idle/run/warning names reuse selected crawl cells inside the existing town atlas, preserving the runtime asset allowlist. Source images, exact prompts, hashes and alpha limitation: [source record](assets/licenses/spider-v1/SOURCE_RECORD.md). Focused verification: [spider checks](verification/spider-v1/VERIFICATION.md).
+
+---
+
+# 2026-10-26 — solid visible-object collision follow-up
+
+The supplied follow-up capture showed that a ground-contact-only strip let the farmer pass through the side of the City flower planter. Barrels, Home/Farm stones, Forest boulders and the three City planter benches now block their measured visible occupied bounds without restoring the retired 48-world-pixel artificial clearance. The farmer's existing 24×12 feet probe supplies the small real approach gap: the character can stand directly beside an object but cannot cross its painted body from the side or through the centre.
+
+The planter uses its scaled non-transparent bounds (`[35,3,72,92]`) rather than the temporary lower-support strip. June's short ambient terrace route moved 40 world pixels north so residents obey the same solid planter geometry. No map destination, service, economy, asset, save field or scene architecture changed.
+
+Verification: the focused collision, planter, City connectivity, shop and resident suites pass 24/24. `npm run build` passes with 196 modules. The complete current dirty-worktree suite is 429/430; the only failure is the already documented unrelated barber/grass clean-pixel assertion. An isolated local Chrome City fixture placed the farmer beside the centre planter; the first sustained Right input stopped flush at its left edge and a second sustained Right input left the farmer in the identical position, visibly confirming close approach without passage. The user's normal browser save was not modified. Physical iOS Safari was not available. No deployment, publication or push was performed.
+
+---
+
+# 2026-10-26 — item-icon cleanup repair and runtime integration
+
+Checkpoint commit `6e3aa89` preserves the state before this pass. The shared plant/item cleaner now removes only pixels within RGB distance 4 of recorded background/fringe references, with fringe deletion restricted to components connected or adjacent to the background. All refreshed candidates use strict 0/255 alpha and expose no keyed background/fringe pixels; Chili young/flowering and the other refreshed plant frames pass the new adjacency regression. Tomato's approved runtime geometry remains unchanged.
+
+A new generated 2×2 source supplies `cucumber-seed-item`, `cucumber-item`, `grape-item` and `wild-berry-item` as 24×24 frames with true opaque bounds 19×24, 18×14, 17×19 and 18×18. The repaired Grapes and Wild Berries restore filled interiors, the Cucumber produce silhouette has a 3.039 principal-axis ratio, and all four outputs have binary alpha and no magenta palette entries. The final atlas installation refreshed 34 item frames and 88 plant frames while preserving every non-target frame coordinate and changing zero non-target atlas pixels.
+
+The Bag, tab buttons, shop tabs, toolbar and world drops retain integer 1× nearest-neighbor presentation. TradePanel's desktop detail icon and the harvest fly effect are reduced from 2× to 1×; Crop Info changes from its legacy 0.75× to integer 1×. Sixteen 24-pixel Produce/Food icons still require smaller native regeneration to meet the 40% Bag target, and the Tomato/Wild Berry tab-button art needs tab-specific smaller regeneration to meet 55–60%.
+
+Verification: focused icon/crop/shop tests pass 11/11. `npm run build` passes with 196 modules in the current shared worktree. The final full suite is 427/430: the known barber/grass clean-pixel assertion remains; the formerly stale Pixel Snapper frame-count assertion now passes after concurrent foliage work; two new failures are outside this icon pass in the concurrently edited world state (`surface-clearance`: Home rock side approach, and `town-polish`: June blocked path). The requested local Phaser canvas screenshots were captured for Bag Seeds, Produce and Food tabs, toolbar, Seeds shop, Market and one harvest effect; no replaced icon is clipped or missing. [Complete evidence and limitations](verification/item-icon-repair-v1/README.md).
+
+---
+
+# 2026-10-26 — mobile landscape UI and object-approach collision repair
+
+The Bag, resource/house-design and appearance panels now use a compact landscape height when the available canvas is short. The appearance panel has an additional ultra-short arrangement that keeps its preview, translated Turn action, previous/next controls, selection details and bottom actions in separate bands down to 568×256. The fix remains entirely inside the separate Phaser UI scene; the fullscreen canvas shell and no-DOM-HUD architecture are unchanged.
+
+Outdoor barrels, Home/Farm stones, Forest boulders and solid rocky landmarks no longer add an artificial 48-world-pixel body-clearance extension. Their collision now follows the visible ground-contact area, so the farmer can overlap the upper painted silhouette as expected in a top-down view while the base remains solid. The three City planter benches shown in the supplied reference now use the measured 129×14 lower support band instead of a 96×94 rectangle extending beneath and inside the artwork. Other established tree, well, bridge, building, furniture and water collision sources remain unchanged.
+
+Verification: the focused responsive/collision/shop/resource/Bag suites pass 52/52, including new 844×300, 667×280 and 568×256 layouts and explicit approach/base assertions for barrels, stones and planter benches. `npm run build` passes with 195 modules. A live local Chrome canvas at 568×256 passed the Myanmar Bag, house-design and appearance flows; the translated Turn control was visually rechecked after widening. The complete current dirty-worktree suite is 420/425: the five failures are unrelated in-progress asset-integration assertions for the barber/grass source, crop source pixels, 24×24 item icons/Green Pepper mapping and the Pixel Snapper frame count, all present outside this repair's source/test scope. Physical iOS Safari was not available, so the supplied Safari captures were matched with an equivalent ultra-short landscape viewport. No asset, dependency, save schema, gameplay economy, backend, publication, deployment or push changed.
+
+---
+
 # 2026-10-25 — item-icon runtime integration
 
 Checkpoint commit `9c9aff7` remains available before the current Cucumber/item-icon working changes. The three reviewed item sheets now replace 32 existing atlas keys with 24×24 native frames. Detection is component-based rather than grid slicing; source geometry is not resampled. Cleanup shares the plant importer’s boundary-magenta rule, output alpha is strictly 0/255, all installed frames pass the no-magenta predicate, and only dominant greens are palette-shifted. Spatial masks keep Green Pepper, Watermelon, pear and striped-melon bodies source-colored while remapping their leaves/stems. Integer 1× is the closest permitted positive scale to the prior 16×16 icons; it preserves every source pixel but renders these finer icons at 24 logical pixels.

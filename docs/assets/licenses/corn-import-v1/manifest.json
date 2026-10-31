@@ -88,7 +88,38 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        134,
+        18,
+        110
+      ],
+      [
+        185,
+        25,
+        160
+      ],
+      [
+        225,
+        21,
+        213
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         134,
@@ -116,10 +147,11 @@
         3,
         252,
         255,
-        36824
+        36866
       ]
     ],
-    "remainingInteriorMagentaPixels": 42,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
@@ -194,19 +226,19 @@
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 1150,
+          "opaqueBefore": 1111,
           "removedPixels": 3,
-          "opaqueAfter": 1147,
-          "removedRatio": 0.0026086956521739132,
+          "opaqueAfter": 1108,
+          "removedRatio": 0.0027002700270027003,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dead",
-          "opaqueBefore": 350,
+          "opaqueBefore": 347,
           "removedPixels": 1,
-          "opaqueAfter": 349,
-          "removedRatio": 0.002857142857142857,
+          "opaqueAfter": 346,
+          "removedRatio": 0.002881844380403458,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         }
@@ -356,9 +388,9 @@
       91
     ],
     "path": "docs/assets/licenses/corn-import-v1/candidate-b.png",
-    "sha256": "383765252e49e03b559971675838b2b98bfbdbf0646f261c5b85c4f5046a0922",
-    "uniqueColors": 14,
-    "uniqueOpaqueColors": 13,
+    "sha256": "74d9874e10977c66213fe46d5f55887f0edbb8f9759b39c68abc04d33f659aef",
+    "uniqueColors": 13,
+    "uniqueOpaqueColors": 12,
     "placements": [
       {
         "trimmedWidth": 30,
@@ -423,7 +455,7 @@
       {
         "trimmedWidth": 39,
         "trimmedHeight": 57,
-        "uniqueOpaqueColors": 9,
+        "uniqueOpaqueColors": 8,
         "frameX": 252,
         "pasteX": 1,
         "pasteY": 34,
@@ -433,7 +465,7 @@
       {
         "trimmedWidth": 37,
         "trimmedHeight": 23,
-        "uniqueOpaqueColors": 9,
+        "uniqueOpaqueColors": 8,
         "frameX": 294,
         "pasteX": 2,
         "pasteY": 68,
@@ -461,11 +493,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/corn-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "7b3e669e7ae6807ee888b8c0a0216c56f1174489390f7c143bc330781f1f33f0"
+    "prePaletteSha256": "36bd3f47b7d48b271a4d7ad7047bf05707ff9f515fdcd7ef6fad1f172b250fe4"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/corn-import-v1/cleaned-source.png",
-    "sha256": "2e31fbbce8c7fc054d70be8fd73576649bf23975bdbf53d5b7811f66d15e161a"
+    "sha256": "0f3e425a038dc44673a56ad3647d05c59fd585481c3faa28e1a2966d5f7a752b"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/corn-import-v1/source.png",
@@ -484,7 +516,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 4919,
     "frameSize": [
       42,
       91

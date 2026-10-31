@@ -1,3 +1,27 @@
+# 2026-10-31 — competition cover and browser logo
+
+The competition cover PNG and Simple Life browser-logo SVG were supplied directly by the user and copied unchanged into the submission/runtime locations by OpenAI Codex. No generation or pixel edit occurred in this task. The original creation tool/model and independent rights status were not supplied; no human-only, CC0, exclusive-rights or competition-eligibility claim is made. [Source record](assets/licenses/submission-branding-v1/SOURCE_RECORD.md).
+
+---
+
+# 2026-10-30 — Terracotta gemstone Keepsake
+
+User-supplied Pixel Snapper pendant, integrated by OpenAI Codex with transparent-padding crop only. [Source record, exact hashes and rights limitation](assets/licenses/keepsake-pendant-v1/SOURCE_RECORD.md). No claim of human-only authorship, CC0 status, exclusivity or independently verified competition rights is made.
+
+---
+
+# 2026-10-29 — City terrace planter bench
+
+The selected 177×132 planter bench is a user-supplied AI-assisted Pixel Snapper export from the disclosed OpenAI review workflow, integrated byte-identically by Codex and scaled only by Phaser. [Source record, prompts, hashes and rights limitation](assets/licenses/planter-bench-user-v3/SOURCE_RECORD.md). No claim of human-only authorship, CC0 status, exclusivity or independently verified competition rights is made.
+
+---
+
+# 2026-10-28 — Clara seed seller
+
+Clara's 3×6 character sheet was supplied by the user and integrated by OpenAI Codex with deterministic magenta removal, nearest-neighbour logical-pixel sampling and transparent 64×64 runtime packing. The original creation tool/model was not provided in this task. [Source record, hashes, processing and rights limitation](assets/licenses/seed-seller-v1/SOURCE_RECORD.md). No claim of human-only authorship, CC0 status, exclusivity or independently verified competition rights is made.
+
+---
+
 # 2026-10-24 — Strawberry snapped-sheet review
 
 User-supplied AI-assisted Pixel Snapper Strawberry growth sheet, staged by Codex with deterministic transparency/base cleanup and source-exact retained colours. Review-only; not in the production atlas. [Source record](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md). This credit does not claim human authorship, exclusivity or independently verified competition rights.

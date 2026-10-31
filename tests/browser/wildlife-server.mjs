@@ -16,9 +16,9 @@ createServer(async(req,res)=>{
   if(path===root+'/index.html'){
    const species=url.searchParams.get('species'),a=ANIMAL_SPAWNS.find(a=>a.species===species);
    if(a){
-    const s=newState('girl');Object.assign(s,{area:'forest',position:nearestSafe('forest',{x:a.home.x-(url.searchParams.has('near')?100:220),y:a.home.y+70}),minute:600,forestTutorialComplete:true,nightWarningSeen:true,ownsClub:true,clubEquipped:true});
+    const s=newState('girl'),active=s.forest.animals[a.id].position;Object.assign(s,{area:'forest',position:nearestSafe('forest',{x:active.x-(url.searchParams.has('near')?100:220),y:active.y+70}),minute:600,forestTutorialComplete:true,nightWarningSeen:true,selected:'axe'});s.story.intro='seen';
     if(url.searchParams.has('combat')){
-     s.position=nearestSafe('forest',{x:a.home.x-40,y:a.home.y});s.forest.animals[a.id].health=1;
+     s.position=nearestSafe('forest',{x:active.x-40,y:active.y});s.forest.animals[a.id].health=1;
      for(const other of ANIMAL_SPAWNS)if(other.id!==a.id){s.forest.animals[other.id].health=0;s.forest.animals[other.id].defeatedDay=s.day;}
     }
     data=Buffer.from(data.toString().replace('<head>','<head><script>localStorage.setItem("simple-life.save.v1",'+JSON.stringify(JSON.stringify(s))+')</script>'));

@@ -5,7 +5,7 @@ import {terrainTiles} from './terrainTiles.js';
 import {MAP_SIZE} from '../data/mapLayouts.js';
 import {waterRows} from '../data/water.js';
 import {groundHash,paintGround,paintGroundDetails,shoreDistance,paintWater} from './groundSurface.js';
-import {applyForestEdgeShade,paintGroundTiles} from './groundTiles.js';
+import {paintGroundTiles} from './groundTiles.js';
 // Bake static ground once per location. Pixel-space masks give paths/ponds
 // irregular, connected shores without thousands of individual display objects.
 export function terrain(scene,area,map){
@@ -30,11 +30,10 @@ export function terrain(scene,area,map){
   }
  }
  let pixels=ctx.createImageData(w,h);const fields=paintGround(pixels.data,w,h,map.biomes,map.habitats);
- // Keep the Forest's authored habitat materials. Home, Farm and the City's
- // unpaved lawns use the approved seeded A/B/C mix beneath paths and water.
- if(area!=='forest'){
-  ctx.putImageData(pixels,0,0);paintGroundTiles(ctx,scene,w,h);pixels=ctx.getImageData(0,0,w,h);
- }else applyForestEdgeShade(pixels.data,scene,w,h);
+ // Use the same approved seeded grass mix for every outdoor lawn, including
+ // the Forest. Habitat scenery, paths and water are layered over it below.
+ ctx.putImageData(pixels,0,0);paintGroundTiles(ctx,scene,w,h);pixels=ctx.getImageData(0,0,w,h);
+ if(area==='forest')fields.soil.fill(0);
  for(let y=1;area!=='city'&&y<h-1;y++)for(let x=1;x<w-1;x++)if(mask[y*w+x]){
   const p=y*w+x,i=p*4,edge=!mask[(y-1)*w+x]||!mask[y*w+x-1]||!mask[(y+1)*w+x]||!mask[y*w+x+1];
   const variation=Math.floor((fields.small[p]-.5)*10)*2,grain=groundHash(Math.floor(x/3),Math.floor(y/2),771)%13===0?-5:0;

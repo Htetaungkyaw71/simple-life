@@ -1,6 +1,7 @@
 import {PIXEL_SNAPPER_ART,PIXEL_SNAPPER_OVERRIDES} from './pixelSnapperArt.js';
+import {FOLIAGE_SNAPPER_ART,FOLIAGE_SNAPPER_OVERRIDES} from './foliageSnapperArt.js';
 import {CROP_ICON_SCALES} from './cropVisuals.js';
-import {ITEM_ICON_DISPLAY_SCALES} from './itemIconArt.js';
+import {ITEM_ICON_DISPLAY_METADATA,ITEM_ICON_DISPLAY_SCALES,itemIconDisplayScale} from './itemIconArt.js';
 // Approved high-angle cedar prop artwork. Legacy names and physical sizes stay stable.
 const rows=[
  ["bench",null,"bench-cedar-review"],
@@ -86,9 +87,10 @@ const rows=[
 ];
 export const PROP_ART=Object.fromEntries(rows.map(([name,source,frame,nativeSize])=>[name,{source,frame:frame||'cedar-'+name,...(nativeSize?{nativeSize}:{})}]));
 const baseFrame=name=>PROP_ART[name]?.frame||name;
-export const pixelSnapperOverride=name=>PIXEL_SNAPPER_OVERRIDES[name]||PIXEL_SNAPPER_OVERRIDES[baseFrame(name)]||(PIXEL_SNAPPER_ART[name]?{...PIXEL_SNAPPER_ART[name],sourceScale:1}:null);
+const suppliedArt={...PIXEL_SNAPPER_ART,...FOLIAGE_SNAPPER_ART};
+export const pixelSnapperOverride=name=>FOLIAGE_SNAPPER_OVERRIDES[name]||FOLIAGE_SNAPPER_OVERRIDES[baseFrame(name)]||PIXEL_SNAPPER_OVERRIDES[name]||PIXEL_SNAPPER_OVERRIDES[baseFrame(name)]||(suppliedArt[name]?{...suppliedArt[name],sourceScale:1}:null);
 export const propFrame=name=>pixelSnapperOverride(name)?.frame||baseFrame(name);
 export const propTexture=name=>pixelSnapperOverride(name)?.texture||(PROP_ART[name]||Object.values(PROP_ART).some(a=>a.frame===name)?'town':null);
-export const propArtInfo=name=>{const override=pixelSnapperOverride(name);return override?PIXEL_SNAPPER_ART[override.frame]:null;};
+export const propArtInfo=name=>{const override=pixelSnapperOverride(name);return override?suppliedArt[override.frame]:null;};
 const frames=new Set(Object.values(PROP_ART).map(a=>a.frame));
-export const propScale=(name,scale=2)=>{const override=pixelSnapperOverride(name),display=ITEM_ICON_DISPLAY_SCALES[name]??CROP_ICON_SCALES[name]??1,base=override?override.scale*scale/override.sourceScale:PROP_ART[name]||frames.has(name)?scale/2:scale;return base*display;};
+export const propScale=(name,scale=2,context='slot')=>{if(ITEM_ICON_DISPLAY_METADATA[name])return itemIconDisplayScale(name,context);const override=pixelSnapperOverride(name),display=ITEM_ICON_DISPLAY_SCALES[name]??CROP_ICON_SCALES[name]??1,base=override?override.scale*scale/override.sourceScale:PROP_ART[name]||frames.has(name)?scale/2:scale;return base*display;};

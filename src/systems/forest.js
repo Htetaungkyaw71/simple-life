@@ -1,18 +1,19 @@
 import {recordStory,keepsakeAvailable,awardKeepsake,canCollectKeepsake} from './story.js';
 import {STORY_CACHE} from '../data/story.js';
 import {VEGETATION} from '../data/vegetation.js';
-import {FORAGE_NODES,BOAR_HOME,BOAR_TERRITORY,TREASURES} from '../data/forest.js';
+import {FORAGE_NODES,BOAR_HOME,BOAR_TERRITORY,TREASURES,FOREST_ENTRANCE,forestRegion} from '../data/forest.js';
 import {ANIMAL_SPAWNS,SPECIES} from '../data/wildlife.js';
 import {WOODLAND_WILDLIFE,WOODLAND_SPECIES} from '../data/woodlandWildlife.js';
 import {FOODS} from '../data/items.js';
 import {walkable,nearestSafe} from '../data/locations.js';
 import {shopOpen} from './market.js';
 import {INVENTORY_LIMIT} from './economy.js';
+import {recordLifePath} from './lifePaths.js';
 
 export const freshBoar=()=>({position:{...BOAR_HOME},health:3,defeatedDay:0});
-export const freshAnimal=a=>({id:a.id,species:a.species,position:{...a.home},health:SPECIES[a.species].health,defeatedDay:0});
+export const freshAnimal=a=>{const safe=nearestSafe('forest',a.home),position=inTerritory(safe,a.territory)?safe:{...a.home};return {id:a.id,species:a.species,position,health:SPECIES[a.species].health,defeatedDay:0};};
 export const freshWoodland=a=>({id:a.id,species:a.species,position:nearestSafe('forest',a),health:WOODLAND_SPECIES[a.species].health,defeatedDay:0});
-export const freshForest=()=>{const animals=Object.fromEntries(ANIMAL_SPAWNS.map(a=>[a.id,freshAnimal(a)]));return {forageDay:1,collected:[],stones:[],woodland:Object.fromEntries(WOODLAND_WILDLIFE.map(a=>[a.id,freshWoodland(a)])),animals,boar:animals['boar-original'],explored:['entrance'],treasures:[]};};
+export const freshForest=()=>{const animals=Object.fromEntries(ANIMAL_SPAWNS.map(a=>[a.id,freshAnimal(a)]));return {forageDay:1,collected:[],stones:[],woodland:Object.fromEntries(WOODLAND_WILDLIFE.map(a=>[a.id,freshWoodland(a)])),animals,boar:animals['boar-original'],explored:['entrance',forestRegion(FOREST_ENTRANCE).id],treasures:[]};};
 export function refreshForest(s){
  if(s.forest.forageDay<s.day){s.forest.forageDay=s.day;s.forest.collected=[];s.forest.stones=[];}
  for(const a of ANIMAL_SPAWNS){const old=s.forest.animals[a.id];if(old.health===0&&old.defeatedDay<s.day)s.forest.animals[a.id]=freshAnimal(a);}
@@ -32,7 +33,7 @@ export function collectForage(s,id){
  if(!node||s.area!=='forest'||Math.hypot(s.position.x-node.x,s.position.y-node.y)>64||!lineClear('forest',s.position,node,0,s))return 'Walk closer to the fruit.';
  if(!forageAvailable(s,node))return 'More fruit tomorrow.';
  if(s.inventory[node.item]>=INVENTORY_LIMIT)return 'Bag is full.';
- s.inventory[node.item]++;recordStory(s,'fruit');s.forest.collected.push(id);
+ s.inventory[node.item]++;recordStory(s,'fruit');recordLifePath(s,'explorer','forage');s.forest.collected.push(id);
  return 'Collected '+FOODS[node.item].name+'.';
 }
 export function foodRestore(s,id){const f=FOODS[id];return f?{health:Math.min(f.healthRestored,100-s.health),energy:Math.min(f.energyRestored,100-s.energy)}:{health:0,energy:0};}
@@ -63,5 +64,5 @@ export function recoverTreasure(s,id){
  const keepsake=awardKeepsake(s,id);
  if(s.forest.treasures.includes(id))return keepsake?"Grandfather's Keepsake / safe in BAG / Gear":'This treasure has been recovered.';
  if(s.money+t.coins>9999999)return keepsake?"Keepsake recovered / coin purse full / chest coins remain":'Coin purse full.';
- s.money+=t.coins;s.forest.treasures.push(id);return (keepsake?'Keepsake recovered / ':'Treasure recovered / ')+t.coins+' coins!';
+ s.money+=t.coins;s.forest.treasures.push(id);recordLifePath(s,'explorer','treasure',id);return (keepsake?'Keepsake recovered / ':'Treasure recovered / ')+t.coins+' coins!';
 }

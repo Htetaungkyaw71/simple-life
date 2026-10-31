@@ -88,38 +88,70 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        111,
+        24,
+        111
+      ],
+      [
+        151,
+        25,
+        171
+      ],
+      [
+        212,
+        31,
+        210
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         111,
         24,
         111,
         255,
-        199
+        209
       ],
       [
         151,
         25,
         171,
         255,
-        194
+        195
       ],
       [
         212,
         31,
         210,
         255,
-        127
+        131
       ],
       [
         252,
         4,
         252,
         255,
-        37958
+        38024
       ]
     ],
-    "remainingInteriorMagentaPixels": 114,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
@@ -135,7 +167,7 @@
         27,
         9
       ],
-      "maskPixelCount": 112,
+      "maskPixelCount": 105,
       "removedPixels": 2,
       "stages": [
         {
@@ -158,55 +190,55 @@
         },
         {
           "stage": "young",
-          "opaqueBefore": 706,
+          "opaqueBefore": 704,
           "removedPixels": 0,
-          "opaqueAfter": 706,
+          "opaqueAfter": 704,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": true
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1360,
+          "opaqueBefore": 1350,
           "removedPixels": 0,
-          "opaqueAfter": 1360,
+          "opaqueAfter": 1350,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1543,
+          "opaqueBefore": 1516,
           "removedPixels": 0,
-          "opaqueAfter": 1543,
+          "opaqueAfter": 1516,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 1377,
+          "opaqueBefore": 1354,
           "removedPixels": 0,
-          "opaqueAfter": 1377,
+          "opaqueAfter": 1354,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": true
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 1143,
+          "opaqueBefore": 1127,
           "removedPixels": 0,
-          "opaqueAfter": 1143,
+          "opaqueAfter": 1127,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dead",
-          "opaqueBefore": 474,
+          "opaqueBefore": 471,
           "removedPixels": 2,
-          "opaqueAfter": 472,
-          "removedRatio": 0.004219409282700422,
+          "opaqueAfter": 469,
+          "removedRatio": 0.004246284501061571,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         }
@@ -370,9 +402,9 @@
       75
     ],
     "path": "docs/assets/licenses/grape-import-v1/candidate-b.png",
-    "sha256": "484c6d3101e2eda4c57a3f244ca6a5b924571512a656b9bad4cb6b1a70c589ad",
-    "uniqueColors": 18,
-    "uniqueOpaqueColors": 17,
+    "sha256": "7a27abb0d500ededbb2735117eb6508a134084ed274d033fd179b6fbb15f641b",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
     "placements": [
       {
         "trimmedWidth": 29,
@@ -397,7 +429,7 @@
       {
         "trimmedWidth": 32,
         "trimmedHeight": 50,
-        "uniqueOpaqueColors": 14,
+        "uniqueOpaqueColors": 13,
         "frameX": 84,
         "pasteX": 5,
         "pasteY": 25,
@@ -407,7 +439,7 @@
       {
         "trimmedWidth": 39,
         "trimmedHeight": 68,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 14,
         "frameX": 126,
         "pasteX": 1,
         "pasteY": 7,
@@ -417,7 +449,7 @@
       {
         "trimmedWidth": 40,
         "trimmedHeight": 75,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 13,
         "frameX": 168,
         "pasteX": 1,
         "pasteY": 0,
@@ -427,7 +459,7 @@
       {
         "trimmedWidth": 38,
         "trimmedHeight": 68,
-        "uniqueOpaqueColors": 11,
+        "uniqueOpaqueColors": 10,
         "frameX": 210,
         "pasteX": 2,
         "pasteY": 7,
@@ -437,7 +469,7 @@
       {
         "trimmedWidth": 42,
         "trimmedHeight": 57,
-        "uniqueOpaqueColors": 11,
+        "uniqueOpaqueColors": 9,
         "frameX": 252,
         "pasteX": 0,
         "pasteY": 18,
@@ -447,7 +479,7 @@
       {
         "trimmedWidth": 20,
         "trimmedHeight": 57,
-        "uniqueOpaqueColors": 8,
+        "uniqueOpaqueColors": 7,
         "frameX": 294,
         "pasteX": 11,
         "pasteY": 18,
@@ -475,11 +507,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/grape-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "ac0e8af0177b912b013d696ceaed76acba8e6f1286734469f2bbcd2d247671a8"
+    "prePaletteSha256": "039bb582db24a8ce469170da248062680804162531b70e8885e7fc8bf45456e5"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/grape-import-v1/cleaned-source.png",
-    "sha256": "c08d0510b7cb0acb8c146ff09a65291daf6e98eb4d4c58268c6f2fdf3da7b96d"
+    "sha256": "3c311c5682f7ef9cf40b8a6d0a9efce65c2f3d7bd9e7b8cb4072123ffcbf673b"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/grape-import-v1/source.png",
@@ -498,7 +530,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5251,
     "frameSize": [
       42,
       75

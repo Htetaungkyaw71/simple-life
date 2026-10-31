@@ -1,5 +1,7 @@
 # Strawberry palette-and-anchor update — 2026-10-25
 
+Cleanup revision, 2026-10-26: the recorded background references are RGB `(254,3,253)` and `(255,0,255)` with maximum channel distance 4; the only source-specific fringe reference is `(180,19,169)`, also distance 4. Only its 8-connected component touching background is removable. The broad hue predicate is retired.
+
 This section supersedes the source-exact color and old sign-offset statements below. The clean 46×47 strip was regenerated from `candidate-b-pre-palette.png` with the deterministic exact-RGBA green lookup in `scripts/import_sheet.py`: `SATURATION_SCALE=0.78`, 8° toward olive and `LIGHTNESS_SCALE=0.94` for bright greens. It changes 2,185 living-stage pixels while seed/dry/wilted/dead, all alpha, and all geometry remain exact. Shared bottom-row metadata is `anchorX: 23`, scale 1, `baseOffsetY: 2`, `signOffsetY: -81`. Full lookup, anchor samples and runtime hashes are in `manifest.json`.
 
 # Historical Strawberry runtime plant-sheet import

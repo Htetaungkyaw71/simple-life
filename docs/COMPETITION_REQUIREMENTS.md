@@ -1,3 +1,15 @@
+# 2026-10-28 — user-authorized seed-seller presentation
+
+The user explicitly requests transparent integration of the supplied 3×6 seed-seller character. This authorizes Clara's dedicated local sprite sheet and supersedes her legacy shared resident appearance only. Preserve her existing seed shop, hours, home, interaction, economy and save behavior; add no new merchant, item, remote asset or backend. Maintain source/AI disclosure, runtime allowlisting, browser verification and the no-publish/no-push boundary. The user-supplied source's competition rights remain subject to human confirmation.
+
+---
+
+# 2026-10-27 — user-authorized Forest Spider scope
+
+The user explicitly adds Forest Spiders to the currently boar-only hostile roster and requests generated sprite art using supplied screenshots as references. This supersedes the historical only-Craftpix-hostiles restriction for this species only. Preserve the established wilderness/farming/City/save architecture, Stash recovery, local runtime allowlist, AI/source disclosure and no-publish/no-push boundary. Reference screenshots guide silhouette, scale and palette; they are not copied runtime pixels or competition-rights evidence.
+
+---
+
 # v0.21.0 — explicit cosmetic-service scope
 
 The latest user authorizes taller player/NPC designs, hair/clothing customization and coin-paid town services. This supersedes the historic unrelated-system restriction only for these cosmetics; preserve farming/City/Forest/story/depth/curfew and the postponed cave. Master prompt and four competition PDFs remain reference requirements and do not override this explicit scope. Preserve fullscreen separate canvas UI, local saves and the runtime allowlist; document third-party CC0 source and generated-guide/code/translation assistance. No competition submission, source push or human eligibility/rights certification.

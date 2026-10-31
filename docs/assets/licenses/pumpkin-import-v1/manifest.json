@@ -88,38 +88,70 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        118,
+        25,
+        97
+      ],
+      [
+        190,
+        26,
+        174
+      ],
+      [
+        244,
+        9,
+        241
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         118,
         25,
         97,
         255,
-        29
+        33
       ],
       [
         190,
         26,
         174,
         255,
-        28
+        34
       ],
       [
         244,
         9,
         241,
         255,
-        975
+        997
       ],
       [
         255,
         3,
         253,
         255,
-        48676
+        48690
       ]
     ],
-    "remainingInteriorMagentaPixels": 82,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "no broad repeated bottom-connected ground region detected; plant pixels preserved",
@@ -158,36 +190,36 @@
         },
         {
           "stage": "young",
-          "opaqueBefore": 603,
+          "opaqueBefore": 600,
           "removedPixels": 0,
-          "opaqueAfter": 603,
+          "opaqueAfter": 600,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1105,
+          "opaqueBefore": 1099,
           "removedPixels": 0,
-          "opaqueAfter": 1105,
+          "opaqueAfter": 1099,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1479,
+          "opaqueBefore": 1466,
           "removedPixels": 0,
-          "opaqueAfter": 1479,
+          "opaqueAfter": 1466,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 1215,
+          "opaqueBefore": 1191,
           "removedPixels": 0,
-          "opaqueAfter": 1215,
+          "opaqueAfter": 1191,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -372,9 +404,9 @@
       38
     ],
     "path": "docs/assets/licenses/pumpkin-import-v1/candidate-b.png",
-    "sha256": "6a4c1d621025bfc6aedbeb42b243bb0265115774f788be825eeb28bc009aadc1",
-    "uniqueColors": 17,
-    "uniqueOpaqueColors": 16,
+    "sha256": "a8e548d15317ed5bd1282eb0d8ad735657f21c476b4c446e91f91120da0d8868",
+    "uniqueColors": 16,
+    "uniqueOpaqueColors": 15,
     "placements": [
       {
         "trimmedWidth": 30,
@@ -399,7 +431,7 @@
       {
         "trimmedWidth": 48,
         "trimmedHeight": 23,
-        "uniqueOpaqueColors": 12,
+        "uniqueOpaqueColors": 9,
         "frameX": 122,
         "pasteX": 6,
         "pasteY": 15,
@@ -409,7 +441,7 @@
       {
         "trimmedWidth": 55,
         "trimmedHeight": 37,
-        "uniqueOpaqueColors": 14,
+        "uniqueOpaqueColors": 13,
         "frameX": 183,
         "pasteX": 3,
         "pasteY": 1,
@@ -419,7 +451,7 @@
       {
         "trimmedWidth": 61,
         "trimmedHeight": 38,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 14,
         "frameX": 244,
         "pasteX": 0,
         "pasteY": 0,
@@ -429,7 +461,7 @@
       {
         "trimmedWidth": 50,
         "trimmedHeight": 36,
-        "uniqueOpaqueColors": 10,
+        "uniqueOpaqueColors": 9,
         "frameX": 305,
         "pasteX": 5,
         "pasteY": 2,
@@ -477,11 +509,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/pumpkin-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "d7bb4db125e08e0e00c82387ee16a6bce760fd488e636cedeefcf583d667eb9d"
+    "prePaletteSha256": "77217402cf223b27694a6888bc6c0625d7328a3e250876aa222e2cb39addfb91"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/pumpkin-import-v1/cleaned-source.png",
-    "sha256": "ac302018648e331f01a8047038e695b5a0f67a61c5d03a27727e9cfb2d129a34"
+    "sha256": "4549d736a7720ee907aebf644fb1e26a49a68b21a6808cb30f7b46822615ce2c"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/pumpkin-import-v1/source.png",
@@ -500,7 +532,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5211,
     "frameSize": [
       61,
       38

@@ -33,7 +33,21 @@
     "detectedIcons": 12
   },
   "cleanup": {
-    "method": "shared boundary-connected magenta/matte removal from scripts/import_sheet.py",
+    "method": "recorded-background distance plus background-connected removal from scripts/import_sheet.py; no broad hue predicate",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [],
     "removedColors": [
       [
         255,
@@ -43,6 +57,7 @@
         22224
       ]
     ],
+    "remainingExposedReferencePixels": 0,
     "remainingMagentaPixels": 0,
     "alphaValues": [
       0,
@@ -92,6 +107,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -194,6 +212,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -296,6 +317,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -426,6 +450,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -542,6 +569,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -630,6 +660,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -718,6 +751,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 25,
       "placement": {
@@ -848,6 +884,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 26,
       "placement": {
@@ -1006,6 +1045,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -1108,6 +1150,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -1196,6 +1241,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 17,
       "finalUniqueOpaqueColors": 17,
       "placement": {
@@ -1312,6 +1360,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 452,
+      "retainedOpaquePixels": 452,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 18,
       "finalUniqueOpaqueColors": 18,
       "placement": {
@@ -1377,7 +1428,7 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5529,
+    "rowY": 5557,
     "frameSize": [
       24,
       24

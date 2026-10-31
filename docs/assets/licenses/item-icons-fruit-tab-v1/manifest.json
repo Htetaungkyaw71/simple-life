@@ -28,89 +28,27 @@
   },
   "detection": {
     "method": "8-connected opaque components with nearest-fragment joining; no fixed cell slicing",
-    "rawConnectedComponents": 13,
-    "joinedFragments": [
-      {
-        "fragmentPixels": 5,
-        "gap": 2,
-        "distanceSquared": 175.25
-      }
-    ],
+    "rawConnectedComponents": 12,
+    "joinedFragments": [],
     "detectedIcons": 12
   },
   "cleanup": {
-    "method": "shared boundary-connected magenta/matte removal from scripts/import_sheet.py",
+    "method": "recorded-background distance plus background-connected removal from scripts/import_sheet.py; no broad hue predicate",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [],
     "removedColors": [
-      [
-        104,
-        8,
-        121,
-        255,
-        13
-      ],
-      [
-        117,
-        4,
-        90,
-        255,
-        26
-      ],
-      [
-        132,
-        12,
-        149,
-        255,
-        17
-      ],
-      [
-        144,
-        15,
-        162,
-        255,
-        21
-      ],
-      [
-        151,
-        22,
-        106,
-        255,
-        6
-      ],
-      [
-        156,
-        15,
-        171,
-        255,
-        25
-      ],
-      [
-        156,
-        29,
-        92,
-        255,
-        8
-      ],
-      [
-        165,
-        7,
-        105,
-        255,
-        34
-      ],
-      [
-        165,
-        23,
-        187,
-        255,
-        23
-      ],
-      [
-        177,
-        36,
-        195,
-        255,
-        25
-      ],
       [
         255,
         0,
@@ -119,6 +57,7 @@
         23964
       ]
     ],
+    "remainingExposedReferencePixels": 0,
     "remainingMagentaPixels": 0,
     "alphaValues": [
       0,
@@ -141,15 +80,15 @@
   "displayScale": 1,
   "candidate": {
     "path": "docs/assets/licenses/item-icons-fruit-tab-v1/candidate.png",
-    "sha256": "9ed9afb373bc1ed6f2c555079186046b68c3a6bcce66f120fd73825ea7bae8ab"
+    "sha256": "e57a5d7db9e8a024feef179958c39c0157edcc140a516725d481512fee1852e2"
   },
   "prePaletteCandidate": {
     "path": "docs/assets/licenses/item-icons-fruit-tab-v1/candidate-pre-palette.png",
-    "sha256": "9b2b255b5bbbaa8efb7b77724e0e9b5115aa2c4b44ccc40705c022e79f11c709"
+    "sha256": "ed3bb924d45db032265bf79d7eb0c5e00d0957bb78fe0ab435239235296958cc"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/item-icons-fruit-tab-v1/cleaned-source.png",
-    "sha256": "f9770e73d73e76b5014dee132e9e3e1cb534b37dd05daf47fd5317944a4be285"
+    "sha256": "49ff9bde36bf45347315c36fd5cf07611ebaf1cc8f98ab1105cb6aef2461931a"
   },
   "icons": [
     {
@@ -168,6 +107,9 @@
         24,
         21
       ],
+      "sourceOpaquePixels": 257,
+      "retainedOpaquePixels": 257,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -199,8 +141,11 @@
         22,
         24
       ],
-      "sourceUniqueOpaqueColors": 11,
-      "finalUniqueOpaqueColors": 11,
+      "sourceOpaquePixels": 360,
+      "retainedOpaquePixels": 360,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 13,
+      "finalUniqueOpaqueColors": 13,
       "placement": {
         "pasteX": 1,
         "pasteY": 0,
@@ -287,6 +232,9 @@
         20,
         24
       ],
+      "sourceOpaquePixels": 295,
+      "retainedOpaquePixels": 295,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 23,
       "placement": {
@@ -445,6 +393,9 @@
         24,
         24
       ],
+      "sourceOpaquePixels": 343,
+      "retainedOpaquePixels": 343,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -519,8 +470,11 @@
         17,
         16
       ],
-      "sourceUniqueOpaqueColors": 13,
-      "finalUniqueOpaqueColors": 13,
+      "sourceOpaquePixels": 133,
+      "retainedOpaquePixels": 133,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
       "placement": {
         "pasteX": 3,
         "pasteY": 8,
@@ -550,6 +504,9 @@
         23,
         24
       ],
+      "sourceOpaquePixels": 412,
+      "retainedOpaquePixels": 412,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -610,6 +567,9 @@
         24,
         22
       ],
+      "sourceOpaquePixels": 390,
+      "retainedOpaquePixels": 390,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 13,
       "finalUniqueOpaqueColors": 13,
       "placement": {
@@ -656,8 +616,11 @@
         17,
         17
       ],
-      "sourceUniqueOpaqueColors": 13,
-      "finalUniqueOpaqueColors": 13,
+      "sourceOpaquePixels": 226,
+      "retainedOpaquePixels": 226,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
       "placement": {
         "pasteX": 3,
         "pasteY": 7,
@@ -687,6 +650,9 @@
         19,
         24
       ],
+      "sourceOpaquePixels": 306,
+      "retainedOpaquePixels": 306,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -789,6 +755,9 @@
         20,
         24
       ],
+      "sourceOpaquePixels": 329,
+      "retainedOpaquePixels": 329,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 14,
       "placement": {
@@ -820,6 +789,9 @@
         21,
         24
       ],
+      "sourceOpaquePixels": 351,
+      "retainedOpaquePixels": 351,
+      "retainedPercent": 100.0,
       "sourceUniqueOpaqueColors": 14,
       "finalUniqueOpaqueColors": 24,
       "placement": {
@@ -992,8 +964,11 @@
         20,
         24
       ],
-      "sourceUniqueOpaqueColors": 8,
-      "finalUniqueOpaqueColors": 8,
+      "sourceOpaquePixels": 282,
+      "retainedOpaquePixels": 282,
+      "retainedPercent": 100.0,
+      "sourceUniqueOpaqueColors": 14,
+      "finalUniqueOpaqueColors": 14,
       "placement": {
         "pasteX": 2,
         "pasteY": 0,
@@ -1058,7 +1033,7 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5529,
+    "rowY": 5557,
     "frameSize": [
       24,
       24

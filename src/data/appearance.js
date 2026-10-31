@@ -6,12 +6,18 @@ export const OUTFITS={
  copper:{name:'Copper outfit',price:90},
  plum:{name:'Plum outfit',price:120},
  forest:{name:'Forest outfit',price:150},
+ sky:{name:'Sky shirt',price:95},
+ rose:{name:'Rose shirt',price:110},
+ cream:{name:'Cream shirt',price:135},
 };
 export const HAIRCUTS={
  midnight:{name:'Midnight hair',price:30},
  copper:{name:'Copper hair',price:45},
  chestnut:{name:'Chestnut hair',price:50},
  golden:{name:'Golden hair',price:60},
+ auburn:{name:'Auburn hair',price:65},
+ ash:{name:'Ash hair',price:70},
+ silver:{name:'Silver hair',price:85},
 };
 // Independent slots: these never select another body or NPC preset.
 export const ACCESSORIES={

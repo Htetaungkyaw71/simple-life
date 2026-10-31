@@ -18,10 +18,15 @@ export const MAP_SIZE = { width: 2240, height: 1152 };
 const prop=(name,x,y,extra={})=>({name,x,y,...extra});
 const trees=(x,y,cols,rows,step=112)=>Array.from({length:cols*rows},(_,i)=>prop('tree',x+i%cols*step,y+Math.floor(i/cols)*step));
 const border=[...Array.from({length:21},(_,i)=>prop('tree',i*112-16,-30)),...Array.from({length:21},(_,i)=>prop('tree',i*112-16,1056)),...Array.from({length:8},(_,i)=>prop('tree',-48,96+i*120)),...Array.from({length:8},(_,i)=>prop('tree',2184,96+i*120))];
+const homeBackyardTrees=[[96,80],[512,80]].map(([x,y])=>prop('tree',x,y));
+const homeOpenSpaceTrees=[[2176,992],[1072,992],[2176,32],[16,992],[592,704],[1744,368],[1600,992],[160,560],[1936,704],[880,32],[2128,368],[304,848],[736,992],[1888,992],[16,320],[1984,176],[2176,704],[16,752]].map(([x,y])=>prop('tree',x,y));
+const homeBackyardBushes=[[224,192],[320,120],[416,184],[600,208]].map(([x,y])=>prop('bush',x,y));
+const homeBackyardGrass=[[96,96],[192,224],[304,184],[368,88],[480,208],[592,192],[624,80]].map(([x,y])=>({name:'grass-detail',x,y}));
+const homeGardenGrass=[[292,480],[340,512],[392,552],[304,584],[368,616],[552,552],[608,496],[664,520],[616,600],[704,576]].map(([x,y])=>({name:'grass-detail',x,y}));
 const home={
  paths:[[448,448,64,704],[448,608,1792,64],[864,256,96,672],[1088,320,576,64],[1600,320,64,352],[896,896,832,64]],
  buildings:[prop('house-village-0',HOUSE.door.x-180,HOUSE.y-150),prop('shed',1088,224),prop('house-village-1',1624,96),prop('shed',1888,800)],
- props:[prop('crate',528,496),prop('mailbox',816,572),prop('notice',936,576),prop('wheelbarrow',1056,326),prop('barrel',1432,416),prop('crate',1560,448),prop('well',1356,420),prop('lamp',1632,338),...trees(1040,112,4,1),...trees(1800,400,3,2),...trees(96,640,3,3),...trees(480,880,3,1)],
+ props:[prop('crate',528,496),prop('mailbox',816,572),prop('notice',936,576),prop('wheelbarrow',1056,326),prop('barrel',1432,416),prop('crate',1560,448),prop('well',1356,420),prop('lamp',1632,338),...homeBackyardTrees,...homeOpenSpaceTrees,...homeBackyardBushes],
  water:[[1376,736,288,128]],
  fences:[[256,1104,160,'h'],[544,1104,160,'h'],[832,176,416,'h'],[832,176,320,'v'],[832,704,480,'h'],[832,768,256,'v'],[832,1024,928,'h']],
  signs:[{x:2048,y:604,type:'hint',label:'CITY / follow the east road'},{x:1088,y:604,type:'hint',label:'CITY / follow the east road'},{x:408,y:616,type:'hint',label:'Farm - follow the south road'},{x:944,y:606,label:'Read the board',title:'A little room to grow',body:'Welcome home. The south path leads to your farm. The well and picnic corner are yours to enjoy.'}],
@@ -60,21 +65,25 @@ existingHouse(home.buildings[1],'house-05-plum-townhouse',1200,344,{x:1200,y:352
 existingHouse(home.buildings[2],'house-08-grey-hipped',1744,296,{x:1744,y:304},{x:1744,y:328});
 home.buildings.splice(3,1);
 existingHouse(farm.buildings[0],'house-02-blue-slate',160,238,{x:160,y:246},{x:160,y:264},4);
-const VISIBLE_BODY_CLEARANCE=48;
 const barrelArt=propArtInfo('barrel'),barrelScale=propScale('barrel');
 const [barrelLeft,barrelTop,barrelRight,barrelBottom]=barrelArt.visibleBounds;
-const barrelX=Math.floor(barrelLeft*barrelScale),barrelY=Math.floor(barrelTop*barrelScale);
-const BARREL_FOOTPRINT=[barrelX,barrelY,Math.ceil(barrelRight*barrelScale)-barrelX,Math.ceil(barrelBottom*barrelScale)-barrelY+VISIBLE_BODY_CLEARANCE];
-const footprints={tree:[22,76,20,16],cypress:[10,20,12,12],bush:[6,12,20,14],rock:[0,0,64,64+VISIBLE_BODY_CLEARANCE],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:BARREL_FOOTPRINT,crate:[0,0,32,32],fountain0:[4,40,88,48],'city-fountain0':[6,72,148,92],'city-lamp':[14,76,12,18],'city-bench-garden':[0,36,128,62],'city-flowerpot':[4,42,32,20],'city-tent':[2,68,122,24],scarecrow:[26,40,12,38],notice:[4,8,56,38],mailbox:[10,16,12,20],lamp:[12,48,8,14],sign:[10,44,12,16],'farm-sign':[20,48,8,16],'road-sign':[28,48,8,16],planter:[4,8,24,20],'seed-stall':[8,88,144,40],'produce-stall':[8,88,144,40],'outfitter-stall':[8,88,144,40]};
+const barrelX=Math.floor(barrelLeft*barrelScale),barrelY=Math.floor(barrelTop*barrelScale),barrelRightX=Math.ceil(barrelRight*barrelScale),barrelBottomY=Math.ceil(barrelBottom*barrelScale);
+const visibleFootprint=name=>{const art=propArtInfo(name),scale=propScale(name),[left,top,right,bottom]=art.visibleBounds,x=Math.floor(left*scale),y=Math.floor(top*scale);return [x,y,Math.ceil(right*scale)-x,Math.ceil(bottom*scale)-y];};
+// Upright props block their visible occupied area. The movement body is already
+// feet-sized, so no extra clearance is needed to let the farmer stand nearby.
+const BARREL_FOOTPRINT=[barrelX,barrelY,barrelRightX-barrelX,barrelBottomY-barrelY];
+const footprints={tree:[22,76,20,16],cypress:[10,20,12,12],bush:[6,12,20,14],rock:[2,22,60,40],house:[0,48,160,80],'house-blue':[0,48,160,80],shed:[0,32,96,64],bench:[0,18,64,18],table:[0,8,64,40],well:[2,6,28,26],barrel:BARREL_FOOTPRINT,crate:[0,0,32,32],fountain0:[4,40,88,48],'city-fountain0':[6,72,148,92],'city-lamp':[14,76,12,18],'city-bench-garden':[0,36,128,62],'city-flowerpot':[4,42,32,20],'city-tent':[2,68,122,24],scarecrow:[26,40,12,38],notice:visibleFootprint('notice'),mailbox:visibleFootprint('mailbox'),lamp:[12,48,8,14],sign:[10,44,12,16],'farm-sign':[20,48,8,16],'road-sign':[28,48,8,16],planter:[4,8,24,20],'seed-stall':[8,88,144,40],'produce-stall':[8,88,144,40],'outfitter-stall':[8,88,144,40]};
 for(const [area,map]of Object.entries(MAPS)){
  if(area!=='city')map.props.push(...[[720,736],[1344,1000],[2064,96],[2080,960],[1984,384],[592,96]].map(([x,y])=>prop('rock',x,y)));
- map.props.push(...(area==='city'?[...Array.from({length:23},(_,i)=>prop('tree',i*112-16,1736)),...Array.from({length:12},(_,i)=>prop('tree',-48,240+i*120)),...Array.from({length:12},(_,i)=>prop('tree',2504,240+i*120))]:border).map(p=>({...p})));
- const companions=map.props.filter(p=>p.name==='tree').map((p,i)=>prop('tree',p.x+44,p.y+20+(i%3)*8)).filter(p=>!map.paths.some(([x,y,w,h])=>p.x+32>x-44&&p.x+32<x+w+44&&p.y+90>y-44&&p.y+90<y+h+44)&&!(area==='home'&&p.x<640&&p.y<520));map.props.push(...companions);
+ const boundaryTrees=area==='city'?[...Array.from({length:23},(_,i)=>prop('tree',i*112-16,1736)),...Array.from({length:12},(_,i)=>prop('tree',-48,240+i*120)),...Array.from({length:12},(_,i)=>prop('tree',2504,240+i*120))]:area==='home'?[]:border;
+ map.props.push(...boundaryTrees.map(p=>({...p})));
+ const companions=area==='home'?[]:map.props.filter(p=>p.name==='tree').map((p,i)=>prop('tree',p.x+44,p.y+20+(i%3)*8)).filter(p=>!map.paths.some(([x,y,w,h])=>p.x+32>x-44&&p.x+32<x+w+44&&p.y+90>y-44&&p.y+90<y+h+44));map.props.push(...companions);
  // Deterministic decoration avoids the roads, fields and room; decoration has no hitbox.
  map.details=Array.from({length:220},(_,i)=>({x:64+(i*173)%(area==='city'?2432:2112),y:64+(i*257)%(area==='city'?1632:992),name:i%9===0?'flowers':i%7===0?'mushroom':'grass-detail'})).filter(p=>!map.paths.some(([x,y,w,h])=>p.x>x-32&&p.x<x+w&&p.y>y-32&&p.y<y+h)&&!(area==='home'&&p.x<832&&p.y<544)&&!(area==='farm'&&map.fields.some(f=>p.x>f.x-32&&p.x<f.x+f.w&&p.y>f.y-32&&p.y<f.y+f.h)));
+ if(area==='home')map.details.push(...homeBackyardGrass,...homeGardenGrass);
  for(const [x,y,w,dir]of map.fences)for(let n=0;n<w;n+=32)map.props.push(prop(dir==='h'?'fence':'fence-v',x+(dir==='h'?n:0),y+(dir==='v'?n:0),{fence:true}));
 
- for(const tree of map.props.filter(p=>p.name==='tree')){for(let n=0;n<3;n++)map.details.push({name:n===0?'fern':n===1?'flowers'+(Math.floor(tree.x/112)%5+5)%5:'grass-detail',x:tree.x+((n*23+17)%74)-10,y:tree.y+82+n*6});}
+ for(const tree of map.props.filter(p=>p.name==='tree')){for(let n=0;n<3;n++)map.details.push({name:n===0?(area==='home'?'grass-detail':'fern'):n===1?'flowers'+(Math.floor(tree.x/112)%5+5)%5:'grass-detail',x:tree.x+((n*23+17)%74)-10,y:tree.y+82+n*6});}
  // The farm keeps natural ground flecks/grass, without bright ornamental bouquets.
  if(area==='farm'){
   map.details=map.details.filter(p=>!p.name.startsWith('flowers'));
@@ -90,7 +99,7 @@ for(const [area,map]of Object.entries(MAPS)){
  if(area==='city'){map.props=map.props.filter(p=>!(p.fence&&p.y===168&&p.x>=1280&&p.x<1376));map.props.push(prop('outdoor-closed-gate',1280,168,{artFrame:'outdoor-closed-gate',artScale:1,noShadow:true,footprint:[8,12,80,16]}));}
  for(const p of map.props.filter(p=>p.name==='well')){p.x-=12;p.y-=32;Object.assign(p,{artFrame:'outdoor-well-large',artScale:1,footprint:[15,68,42,24]});}
  if(area==='city'){
-  for(const p of map.props.filter(p=>p.name==='city-bench-garden'&&!p.artFrame)){p.x+=13;p.y+=4;Object.assign(p,{artFrame:PLANTER_BENCH.frame,artScale:PLANTER_BENCH.scale,footprint:PLANTER_BENCH.footprint,noShadow:true});}
+  for(const p of map.props.filter(p=>p.name==='city-bench-garden'&&!p.artFrame)){p.x+=13;p.y+=4;Object.assign(p,{artTexture:PLANTER_BENCH.texture,artFrame:PLANTER_BENCH.frame,artScale:PLANTER_BENCH.scale,artOffset:PLANTER_BENCH.artOffset,artDepthOffset:PLANTER_BENCH.depthOffset,footprint:PLANTER_BENCH.footprint,noShadow:true});}
   placeCityRoadside(map,footprints);
   applyCityLayout(map);
   applyCityShops(map);
@@ -98,7 +107,7 @@ for(const [area,map]of Object.entries(MAPS)){
  // City has its own identity-preserving roadside relocator because collected
  // plants are addressed by their original coordinates in existing saves.
  if(area!=='city')clearMapSurfaces(map,footprints);
- map.obstacles=[...map.buildings,...map.props].flatMap(p=>{if(p.solidRows)return p.solidRows.map(([x,y,w,h])=>[p.x+x,p.y+y,w,h]);if(p.name.startsWith('house'))return houseSolids(p.x,p.y,p.name);if(p.name==='shed')return shedSolids(p.x,p.y);const f=p.footprint||footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x+8,p.y+12,16,16]]:[]});
+ map.obstacles=[...map.buildings,...map.props].flatMap(p=>{if(p.solidRows)return p.solidRows.map(([x,y,w,h])=>[p.x+x,p.y+y,w,h]);if(p.name.startsWith('house'))return houseSolids(p.x,p.y,p.name);if(p.name==='shed')return shedSolids(p.x,p.y);const f=p.footprint||footprints[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:p.fence?[[p.x,p.y,32,32]]:[]});
  // Water is walkable; only scenery contributes physical footprints.
 }
 interior.obstacles=ROOM_SOLIDS;
@@ -107,10 +116,10 @@ interior.obstacles=ROOM_SOLIDS;
 for(const p of city.props.filter(p=>p.name.endsWith('-stall')))city.obstacles.push([p.x+6,p.y+40,8,88],[p.x+146,p.y+40,8,88],[p.x+8,p.y+40,144,14]);
 
 clearMapSurfaces(FOREST_MAP,footprints);
-FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{if(p.rocky)return p.solid?[[p.x,p.y,p.w,p.h+VISIBLE_BODY_CLEARANCE]]:[];if(p.name==='rock')return [[p.x-20,p.y-8,104,72+VISIBLE_BODY_CLEARANCE]];if(p.name.startsWith('cp-plant-'))return [];if(p.name.startsWith('cp-ruins-')){const n=Number(p.name.at(-1));return n===3?[[p.x+8,p.y+40,28,32],[p.x+84,p.y+40,28,32]]:n===4?[[p.x+10,p.y+42,70,38]]:[];}if(p.name==='cave-mouth')return [[p.x+4,p.y+28,26,56],[p.x+96,p.y+28,28,56]];if(p.name==='bamboo-gate')return [[p.x,p.y,16,84],[p.x+80,p.y,16,84]];const f=footprints[p.name]||({'palm-tree':[22,76,20,16],'willow-tree':[22,76,20,16],'broadleaf-tree':[22,76,20,16],'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26],'bamboo-clump':[20,48,20,16],'snow-pine':[22,76,20,16],'acacia-tree':[22,76,20,16],'cave-mouth':[8,56,112,24],'ice-crystal':[6,34,40,22],'bamboo-gate':[0,0,8,84],'ruin-pillar':[8,40,24,24],'camp-tent':[8,48,72,24],'waterfall-stone':[8,32,40,24]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
+FOREST_MAP.obstacles=FOREST_MAP.props.flatMap(p=>{if(p.rocky)return p.solid?[[p.x,p.y,p.w,p.h]]:[];if(p.name==='rock')return [[p.x-20,p.y-8,104,72]];if(p.name.startsWith('cp-plant-'))return [];if(p.name.startsWith('cp-ruins-')){const n=Number(p.name.at(-1));return n===3?[[p.x+8,p.y+40,28,32],[p.x+84,p.y+40,28,32]]:n===4?[[p.x+10,p.y+42,70,38]]:[];}if(p.name==='cave-mouth')return [[p.x+4,p.y+28,26,56],[p.x+96,p.y+28,28,56]];if(p.name==='bamboo-gate')return [[p.x,p.y,16,84],[p.x+80,p.y,16,84]];const f=footprints[p.name]||({'palm-tree':[22,76,20,16],'willow-tree':[22,76,20,16],'broadleaf-tree':[22,76,20,16],'guava-tree':[22,76,20,16],'mango-tree':[22,76,20,16],'tree-wide':[26,76,42,16],'forest-log':[0,14,64,18],'shrine-stone':[8,22,32,26],'bamboo-clump':[20,48,20,16],'snow-pine':[22,76,20,16],'acacia-tree':[22,76,20,16],'cave-mouth':[8,56,112,24],'ice-crystal':[6,34,40,22],'bamboo-gate':[0,0,8,84],'ruin-pillar':[8,40,24,24],'camp-tent':[8,48,72,24],'waterfall-stone':[8,32,40,24]})[p.name];return f?[[p.x+f[0],p.y+f[1],f[2],f[3]]]:[];});
 // Solid rock side banks leave the waterfall's flowing centre open.
 FOREST_MAP.obstacles.push(...WATERFALLS.flatMap(f=>[[f.x-24,f.y+10,24,f.h-4],[f.x+f.w,f.y+10,24,f.h-4]]));
 MAPS.forest=FOREST_MAP;
 MAPS.interior=interior;
 for(const [area,room]of Object.entries(SHOP_ROOMS))MAPS[area]=shopMap(room);
-home.details=home.details.filter(p=>!(p.x>380&&p.x<610&&p.y>290&&p.y<555));
+home.details=home.details.filter(p=>!(p.x>312&&p.x<648&&p.y>278&&p.y<468));

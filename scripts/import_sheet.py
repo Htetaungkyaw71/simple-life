@@ -30,6 +30,29 @@ GREEN_HUE_MIN = 60.0
 GREEN_HUE_MAX = 170.0
 BRIGHT_GREEN_LIGHTNESS = 0.50
 PALETTE_STAGES = frozenset(("sprout", "young", "flowering", "ripe"))
+BACKGROUND_REFERENCES = ((254, 3, 253), (255, 0, 255))
+BACKGROUND_COLOR_DISTANCE = 4
+FRINGE_COLOR_DISTANCE = 4
+
+# Source-specific edge colours recorded by the first import pass.  They are
+# deliberately not treated as a global magenta family: a pixel may be removed
+# only when its recorded-colour component is 8-connected to the original
+# transparent/background region. This keeps unrelated purple fruit and flowers
+# intact while still clearing Pixel Snapper fringe on stems and leaf edges.
+CROP_FRINGE_COLORS = {
+    "tomato": ((123, 27, 101), (185, 10, 172), (231, 16, 223)),
+    "strawberry": ((180, 19, 169),),
+    "carrot": ((115, 31, 81), (171, 35, 139), (220, 29, 205)),
+    "corn": ((134, 18, 110), (185, 25, 160), (225, 21, 213)),
+    "chili": ((157, 33, 139), (213, 23, 204)),
+    "eggplant": ((134, 40, 123), (196, 49, 195)),
+    "cucumber": ((131, 32, 108), (201, 33, 185)),
+    "watermelon": ((100, 30, 87), (152, 32, 138), (202, 28, 190), (242, 12, 239)),
+    "pumpkin": ((118, 25, 97), (190, 26, 174), (244, 9, 241)),
+    "grape": ((111, 24, 111), (151, 25, 171), (212, 31, 210)),
+    "blueberry": ((161, 23, 153), (223, 24, 219)),
+    "sweetPotato": ((113, 21, 83), (169, 25, 158), (222, 39, 211)),
+}
 
 
 def parse_size(value: str) -> tuple[int, int]:
@@ -47,8 +70,19 @@ def sha256(path: Path) -> str:
 
 
 def is_magenta(pixel: tuple[int, int, int, int]) -> bool:
+    """Legacy broad diagnostic predicate; never use it to delete artwork."""
     r, g, b, a = pixel
     return bool(a and r >= 100 and b >= 80 and r > g * 2 and b > g * 2 and abs(r - b) <= 70)
+
+
+def color_near(pixel: tuple[int, int, int, int], references, distance: int) -> bool:
+    if not pixel[3]:
+        return False
+    return any(max(abs(pixel[channel] - reference[channel]) for channel in range(3)) <= distance for reference in references)
+
+
+def is_background_color(pixel: tuple[int, int, int, int]) -> bool:
+    return color_near(pixel, BACKGROUND_REFERENCES, BACKGROUND_COLOR_DISTANCE)
 
 
 def occupied_columns(image: Image.Image, background: tuple[int, int, int, int]) -> list[tuple[int, int]]:
@@ -124,12 +158,17 @@ def source_bounds(image: Image.Image, runs: list[tuple[int, int]], background: t
     return result
 
 
-def clean_magenta(image: Image.Image) -> tuple[Image.Image, list[list[int]], int]:
-    """Remove only background-family pixels reachable from the canvas boundary.
+def clean_magenta(
+    image: Image.Image,
+    fringe_colors: tuple[tuple[int, int, int], ...] = (),
+) -> tuple[Image.Image, list[list[int]], int]:
+    """Remove recorded background/fringe colours only at the background edge.
 
     Pixel Snapper occasionally wraps a magenta sheet in a near-white matte. The
     matte is accepted only when connected to the outer edge, so white flowers
-    and highlights inside a plant remain untouched.
+    and highlights inside a plant remain untouched.  The old broad hue rule is
+    intentionally absent: only source-specific fringe-colour components that
+    touch the background may be removed.
     """
     cleaned = image.copy()
     pixels = cleaned.load()
@@ -152,46 +191,78 @@ def clean_magenta(image: Image.Image) -> tuple[Image.Image, list[list[int]], int
             for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
                 if (nx, ny) not in matte:
                     queue.append((nx, ny))
-    magenta: set[tuple[int, int]] = set()
+    transparent = {
+        (x, y)
+        for y in range(cleaned.height)
+        for x in range(cleaned.width)
+        if not pixels[x, y][3]
+    }
+    background: set[tuple[int, int]] = set()
     queue.clear()
     for x in range(cleaned.width):
         queue.extend(((x, 0), (x, cleaned.height - 1)))
     for y in range(cleaned.height):
         queue.extend(((0, y), (cleaned.width - 1, y)))
-    for x, y in matte:
+    for x, y in matte | transparent:
         for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
             for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
                 queue.append((nx, ny))
     while queue:
         point = queue.popleft()
-        if point in magenta or point in matte:
+        if point in background or point in matte or point in transparent:
             continue
         x, y = point
-        if not is_magenta(pixels[x, y]):
+        if not is_background_color(pixels[x, y]):
             continue
-        magenta.add(point)
+        background.add(point)
         for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
             for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
-                if (nx, ny) not in magenta:
+                if (nx, ny) not in background:
                     queue.append((nx, ny))
-    # Pixel Snapper's background can be enclosed by dark antialias/fringe
-    # outlines inside foliage. Once a magenta-family colour is proven to be
-    # part of the boundary-connected background, remove that exact source
-    # colour everywhere. This is source-specific background cleanup; the
-    # region-only rule below remains responsible for soil/ground removal.
-    background_colors = {pixels[x, y] for x, y in magenta}
-    enclosed_background = {
+
+    # Exact recorded background-family colours remain background even in small
+    # enclosed holes (for example between individual berries).  This is still
+    # the narrow four-channel-distance test above, never the retired hue rule.
+    background.update({
         (x, y)
         for y in range(cleaned.height)
         for x in range(cleaned.width)
-        if (x, y) not in matte and pixels[x, y] in background_colors
-    }
-    seen = matte | magenta | enclosed_background
+        if (x, y) not in matte and (x, y) not in transparent and is_background_color(pixels[x, y])
+    })
+
+    edge = matte | transparent | background
+    fringe: set[tuple[int, int]] = set()
+    queue.clear()
+    for x, y in edge:
+        for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
+            for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
+                queue.append((nx, ny))
+    while queue:
+        point = queue.popleft()
+        if point in edge or point in fringe:
+            continue
+        x, y = point
+        if not color_near(pixels[x, y], fringe_colors, FRINGE_COLOR_DISTANCE):
+            continue
+        fringe.add(point)
+        for ny in range(max(0, y - 1), min(cleaned.height, y + 2)):
+            for nx in range(max(0, x - 1), min(cleaned.width, x + 2)):
+                if (nx, ny) not in fringe:
+                    queue.append((nx, ny))
+    seen = matte | background | fringe
     removed = Counter(pixels[x, y] for x, y in seen)
     for point in seen:
         pixels[point] = (0, 0, 0, 0)
+
+    # Report only cleanup-reference pixels that were exposed to the original
+    # background edge. Interior violet/plum pixels are intentionally ignored.
     remaining_magenta = sum(
-        is_magenta(pixels[x, y])
+        color_near(pixels[x, y], BACKGROUND_REFERENCES + tuple(fringe_colors), max(BACKGROUND_COLOR_DISTANCE, FRINGE_COLOR_DISTANCE))
+        and any(
+            (nx, ny) in edge | fringe
+            for ny in range(max(0, y - 1), min(cleaned.height, y + 2))
+            for nx in range(max(0, x - 1), min(cleaned.width, x + 2))
+        )
         for y in range(cleaned.height)
         for x in range(cleaned.width)
     )
@@ -545,7 +616,8 @@ def import_sheet(args: argparse.Namespace) -> dict:
     source = original.convert("RGBA")
     colors = Counter(source.get_flattened_data())
     background = colors.most_common(1)[0][0]
-    transparent, removed_magenta, remaining_magenta = clean_magenta(source)
+    fringe_colors = CROP_FRINGE_COLORS.get(args.crop, ())
+    transparent, removed_magenta, remaining_magenta = clean_magenta(source, fringe_colors)
     runs = occupied_alpha_columns(transparent)
     if len(runs) != args.frame_count:
         raise ValueError(f"expected {args.frame_count} separated stages, found {len(runs)}")
@@ -608,8 +680,13 @@ def import_sheet(args: argparse.Namespace) -> dict:
             "interpretation": "native 1px hard-edged art; no reduction or resampling performed",
         },
         "cleanup": {
-            "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+            "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+            "backgroundReferences": [list(color) for color in BACKGROUND_REFERENCES],
+            "backgroundColorDistance": BACKGROUND_COLOR_DISTANCE,
+            "fringeReferences": [list(color) for color in fringe_colors],
+            "fringeColorDistance": FRINGE_COLOR_DISTANCE,
             "removedMagentaColors": removed_magenta,
+            "remainingExposedReferencePixels": remaining_magenta,
             "remainingInteriorMagentaPixels": remaining_magenta,
             "soil": soil,
             "alphaValues": alpha_values,

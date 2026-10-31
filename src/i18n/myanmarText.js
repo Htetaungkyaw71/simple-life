@@ -2,7 +2,7 @@ import {translate} from './language.js';
 export const MYANMAR_FONT='SimpleLifeMyanmar';
 export async function loadMyanmarFont(){
  let timer;
- try{const face=new FontFace(MYANMAR_FONT,'url('+import.meta.env.BASE_URL+'assets/pixel/fonts/noto-myanmar.ttf)');await Promise.race([face.load(),new Promise((resolve,reject)=>{timer=setTimeout(()=>reject(new Error('Myanmar font timeout')),8000);})]);document.fonts.add(face);return true;}catch{return false;}finally{clearTimeout(timer);}
+ try{const face=new FontFace(MYANMAR_FONT,'url('+import.meta.env.BASE_URL+'assets/pixel/fonts/noto-myanmar.ttf)');await Promise.race([face.load(),new Promise((resolve,reject)=>{timer=setTimeout(()=>reject(new Error('Myanmar font timeout')),2000);})]);document.fonts.add(face);return true;}catch{return false;}finally{clearTimeout(timer);}
 }
 // Shape complete Unicode runs with the browser's OpenType engine. Bitmap glyph-by-
 // glyph drawing loses Myanmar ligatures and mark placement. All texture scales stay integer.

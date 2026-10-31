@@ -25,7 +25,13 @@ SHEETS = (
     ),
 )
 
-ITEM_KEYS = tuple(dict.fromkeys(key for _, keys in SHEETS for key in keys if key))
+REPAIR_DIRECTORY = "item-icon-repair-v1"
+REPAIR_KEYS = ("cucumber-seed-item", "cucumber-item", "grape-item", "wild-berry-item")
+
+ITEM_KEYS = tuple(dict.fromkeys([
+    *(key for _, keys in SHEETS for key in keys if key),
+    *REPAIR_KEYS,
+]))
 
 
 def add_item_icon_art(assets):
@@ -36,3 +42,8 @@ def add_item_icon_art(assets):
         for index, key in enumerate(keys):
             if key:
                 assets[key] = sheet.crop((index * FRAME, 0, (index + 1) * FRAME, FRAME))
+    repair = Image.open(ROOT / "docs/assets/licenses" / REPAIR_DIRECTORY / "candidate.png").convert("RGBA")
+    if repair.size != (FRAME * len(REPAIR_KEYS), FRAME):
+        raise ValueError(f"unexpected item icon repair size: {repair.size}")
+    for index, key in enumerate(REPAIR_KEYS):
+        assets[key] = repair.crop((index * FRAME, 0, (index + 1) * FRAME, FRAME))

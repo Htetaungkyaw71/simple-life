@@ -18,9 +18,9 @@ export class GrassView {
    updateGrassCluster(g.cluster,g.bend);
   }
   for(const g of this.scene.touchGrass||[]){if(!g.sprite?.active)continue;
-   const touching=!airborne&&Math.abs(p.x-g.x)<26&&Math.abs(p.y-g.y)<20;
+   const touching=!airborne&&Math.abs(p.x-g.x)<(g.radiusX??26)&&Math.abs(p.y-g.y)<(g.radiusY??20);
    const target=touching?(p.x<g.x?1:-1):0;g.bend+=(target-g.bend)*Math.min(1,delta/130);
-   if(g.cluster)updateGrassCluster(g.cluster,g.bend);else {const frame=Math.abs(g.bend)>.18?(g.bend>0?'snapper-grass-bend-right':'snapper-grass-bend-left'):'snapper-grass';if(g.sprite.frame.name!==frame)g.sprite.setFrame(frame);}
+   if(g.cluster)updateGrassCluster(g.cluster,g.bend);else if(g.sway)g.sprite.setPosition(g.baseX+Math.round(g.bend*4),g.baseY).setAngle(g.baseAngle+g.bend*4);else {const frame=Math.abs(g.bend)>.18?(g.bend>0?'snapper-grass-bend-right':'snapper-grass-bend-left'):'snapper-grass';if(g.sprite.frame.name!==frame)g.sprite.setFrame(frame);}
   }
  }
  snapshot(){return {total:this.total,visible:this.active.size,bending:[...this.active.values()].filter(g=>Math.abs(g.bend)>.18).map(g=>({x:g.x,y:g.y,frame:grassClusterFrame(g.cluster)})),touchBending:(this.scene.touchGrass||[]).filter(g=>g.sprite?.active&&Math.abs(g.bend)>.18).map(g=>({x:g.x,y:g.y,frame:g.cluster?grassClusterFrame(g.cluster):g.sprite.frame.name}))};}

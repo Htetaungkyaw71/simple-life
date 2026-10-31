@@ -1,5 +1,7 @@
 # Cucumber runtime plant-sheet import — 2026-10-25
 
+Cleanup revision, 2026-10-26: background references are `(254,3,253)` and `(255,0,255)`; fringe references are `(131,32,108)` and `(201,33,185)`. Distance is 4 per RGB channel, and only background-connected 8-neighbour components are removable. The broad hue predicate is retired.
+
 ## Source and rights
 
 - User-supplied AI-assisted Pixel Snapper sheet: `ChatGPT Image 25 Oct 2026, 18_55_43-pixel-snapper.png`

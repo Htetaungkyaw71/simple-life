@@ -9,3 +9,5 @@ __pycache__/
 docs/verification/**/*.png
 docs/verification/**/*.json
 docs/verification/**/*.txt
+.vercel/
+.env.local

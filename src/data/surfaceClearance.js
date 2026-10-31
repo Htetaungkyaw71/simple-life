@@ -2,7 +2,7 @@ import {dryFootprint} from './water.js';
 
 const NATURAL_NAMES=new Set(['tree','cypress','bush','rock','ice-crystal','bamboo-clump','snow-pine','acacia-tree','palm-tree','willow-tree','broadleaf-tree','tree-wide','guava-tree','mango-tree','grass-detail','dry-grass','snow-grass','fern','mushroom','flowers','flowers0','flowers1','flowers2','flowers3','flowers4']);
 
-export const isNaturalScenery=p=>NATURAL_NAMES.has(p.name)||p.name?.endsWith('-tree')||p.name?.startsWith('forest-palmetto-')||p.name?.startsWith('cp-plant-');
+export const isNaturalScenery=p=>NATURAL_NAMES.has(p.name)||p.name?.endsWith('-tree')||p.name?.startsWith('forest-palmetto-')||p.name?.startsWith('forest-bush-')||p.name?.startsWith('cp-plant-');
 
 export function surfaceFootprint(p,footprints={}){
  if(p.landscapeVisual?.foot){const [x,y]=p.landscapeVisual.foot;return {x:x-24,y:y-48,w:48,h:48};}

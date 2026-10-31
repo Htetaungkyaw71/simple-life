@@ -88,45 +88,82 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        100,
+        30,
+        87
+      ],
+      [
+        152,
+        32,
+        138
+      ],
+      [
+        202,
+        28,
+        190
+      ],
+      [
+        242,
+        12,
+        239
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         100,
         30,
         87,
         255,
-        32
+        34
       ],
       [
         152,
         32,
         138,
         255,
-        28
+        33
       ],
       [
         202,
         28,
         190,
         255,
-        86
+        93
       ],
       [
         242,
         12,
         239,
         255,
-        720
+        810
       ],
       [
         253,
         4,
         253,
         255,
-        38372
+        38424
       ]
     ],
-    "remainingInteriorMagentaPixels": 215,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
@@ -142,7 +179,7 @@
         41,
         21
       ],
-      "maskPixelCount": 181,
+      "maskPixelCount": 175,
       "removedPixels": 0,
       "stages": [
         {
@@ -165,45 +202,45 @@
         },
         {
           "stage": "young",
-          "opaqueBefore": 514,
+          "opaqueBefore": 507,
           "removedPixels": 0,
-          "opaqueAfter": 514,
+          "opaqueAfter": 507,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1063,
+          "opaqueBefore": 1031,
           "removedPixels": 0,
-          "opaqueAfter": 1063,
+          "opaqueAfter": 1031,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1625,
+          "opaqueBefore": 1571,
           "removedPixels": 0,
-          "opaqueAfter": 1625,
+          "opaqueAfter": 1571,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 935,
+          "opaqueBefore": 874,
           "removedPixels": 0,
-          "opaqueAfter": 935,
+          "opaqueAfter": 874,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 724,
+          "opaqueBefore": 722,
           "removedPixels": 0,
-          "opaqueAfter": 724,
+          "opaqueAfter": 722,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -377,9 +414,9 @@
       46
     ],
     "path": "docs/assets/licenses/watermelon-import-v1/candidate-b.png",
-    "sha256": "5c9555e2a4a2092442a3d50274da7742a41afb6ce17811c4a82152fe76fe74ee",
-    "uniqueColors": 18,
-    "uniqueOpaqueColors": 17,
+    "sha256": "25ab3353ff6088b67b1abb93218ba4901b92a01d96c7ad5ed696e291f09bd890",
+    "uniqueColors": 17,
+    "uniqueOpaqueColors": 16,
     "placements": [
       {
         "trimmedWidth": 25,
@@ -404,7 +441,7 @@
       {
         "trimmedWidth": 41,
         "trimmedHeight": 25,
-        "uniqueOpaqueColors": 11,
+        "uniqueOpaqueColors": 10,
         "frameX": 112,
         "pasteX": 7,
         "pasteY": 21,
@@ -414,7 +451,7 @@
       {
         "trimmedWidth": 46,
         "trimmedHeight": 39,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 14,
         "frameX": 168,
         "pasteX": 5,
         "pasteY": 7,
@@ -424,7 +461,7 @@
       {
         "trimmedWidth": 56,
         "trimmedHeight": 46,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 15,
         "frameX": 224,
         "pasteX": 0,
         "pasteY": 0,
@@ -434,7 +471,7 @@
       {
         "trimmedWidth": 39,
         "trimmedHeight": 39,
-        "uniqueOpaqueColors": 12,
+        "uniqueOpaqueColors": 11,
         "frameX": 280,
         "pasteX": 8,
         "pasteY": 7,
@@ -444,7 +481,7 @@
       {
         "trimmedWidth": 44,
         "trimmedHeight": 26,
-        "uniqueOpaqueColors": 10,
+        "uniqueOpaqueColors": 9,
         "frameX": 336,
         "pasteX": 6,
         "pasteY": 20,
@@ -482,11 +519,11 @@
       }
     },
     "prePalettePath": "docs/assets/licenses/watermelon-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "75715dd70802b7282dfc0d78b5d8b948260151869e98189f1dfcfdfe5c1141b8"
+    "prePaletteSha256": "e3f7ba6fdb53544cd2c57faf06d9786340d335a0980c53352763362605faabc7"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/watermelon-import-v1/cleaned-source.png",
-    "sha256": "ce21ba09a3193dc20bf0959aa688dc971873d316aa4a3bf6f06f7a0829ffdc61"
+    "sha256": "c755d75666e96874d908ea41e449c1c7434f60a4773ba2c12cc42cc56f8826be"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/watermelon-import-v1/source.png",
@@ -505,7 +542,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 5163,
     "frameSize": [
       56,
       46

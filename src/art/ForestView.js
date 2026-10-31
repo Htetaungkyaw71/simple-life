@@ -19,10 +19,10 @@ export class ForestView {
   if(s?.area==='forest'){
    for(const node of FORAGE_NODES){
     if(node.item==='wildBerry')scene.add.image(node.x,node.y-10,'town','bush').setScale(2).setDepth(node.y-4);
-    const sprite=scene.add.image(node.x,node.y-22,'town',FOODS[node.item].icon).setScale(2).setDepth(node.y+1);
+    const sprite=scene.add.image(node.x,node.y+2,'town',FOODS[node.item].icon).setOrigin(.5,1).setScale(propScale(FOODS[node.item].icon,1,'world')).setDepth(node.y+1);
     this.nodes.push({node,sprite});
    }
-   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0);return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(2),shadow:groundShadow(scene,0,0,Math.min(64,SPECIES[a.species].body*2.5),10,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080)};});
+   this.animals=ANIMAL_SPAWNS.map(a=>{const pose=combatAnimalVisual(a.species,'idle','down',0),d=SPECIES[a.species];return {definition:a,direction:'down',lastSide:'right',previous:{...a.home},sprite:scene.add.sprite(0,0,'town',pose.frame).setOrigin(.5,pose.originY).setScale(d.visualScale),shadow:groundShadow(scene,0,0,Math.min(64,d.body*d.visualScale*1.25),10,.2),health:scene.add.graphics(),warning:scene.add.bitmapText(0,0,'pixel','!',12).setScale(2).setOrigin(.5).setTint(0xffd080)};});
    this.woodland=new WoodlandView(scene);
    this.stones=forestStones().map(node=>({node,sprite:scene.add.image(node.x,node.y,'town',propFrame('loose-stones')).setOrigin(.5,1).setScale(propScale('loose-stones')).setDepth(node.y)}));
    this.chests=TREASURES.map(t=>({treasure:t,sprite:scene.add.image(t.x,t.y,'town',propFrame('ancient-chest')).setOrigin(.5,1).setScale(propScale('ancient-chest')).setDepth(t.y)}));
@@ -44,7 +44,7 @@ export class ForestView {
     const moving=Math.hypot(p.x-entry.previous.x,p.y-entry.previous.y)>.05;
     entry.direction=animalDirection(runtime.heading,entry.direction);entry.previous={...p};
     if(['left','right'].includes(entry.direction))entry.lastSide=entry.direction;
-    const action=runtime.mode==='charge'?'run':runtime.mode==='warning'?'attack':moving?'walk':'idle';
+    const action=runtime.mode==='recover'&&runtime.timer>d.recovery-220?'attack':moving?'walk':'idle';
     const pose=combatAnimalVisual(b.species,action,entry.direction,r.now,entry.lastSide);
     entry.sprite.setVisible(visible).setPosition(Math.round(p.x/2)*2,Math.round(p.y/2)*2).setDepth(p.y).setFlipX(pose.flipX).setFrame(pose.frame).setOrigin(.5,pose.originY);
     entry.shadow.setVisible(visible).setPosition(entry.sprite.x,entry.sprite.y-2).setDepth(SHADOW_DEPTH);
@@ -77,11 +77,11 @@ export class ForestView {
  attack(direction,result){
   const s=this.scene.app.state,animal=s.forest.animals[result.animalId]||s.forest.woodland[result.animalId],entry=this.animals?.find(a=>a.definition.id===result.animalId)||this.woodland?.animals.find(a=>a.id===result.animalId);
   if(result.hit){const p=animal.position;this.bits(p.x,p.y-20,0xffe6b3);entry.sprite.setTintFill(0xffedcc);this.scene.time.delayedCall(100,()=>entry.sprite.active&&entry.sprite.clearTint());}
-  if(result.defeated){const b=animal.position;const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(2).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,alpha:0,duration:450,onComplete:()=>ghost.destroy()});this.scene.app.ui.toast('+'+result.meat+' Meat'+(result.species==='boar'?' / +1 Wild Hide':'')+' / Bag Gear / cook at Home hearth');}
+  if(result.defeated){const b=animal.position;const ghost=this.scene.add.image(b.x,b.y,'town',entry.sprite.frame.name).setFlipX(entry.sprite.flipX).setOrigin(.5,entry.sprite.originY).setScale(entry.sprite.scaleX).setDepth(b.y+1);this.scene.tweens.add({targets:ghost,alpha:0,duration:450,onComplete:()=>ghost.destroy()});const drops=[result.meat?'+'+result.meat+' Meat':'',result.hide?'+'+result.hide+' Wild Hide':''].filter(Boolean);this.scene.app.ui.toast(drops.length?drops.join(' / ')+' / Bag Gear / cook Meat at Home hearth':'Forest Spider driven off.');}
  }
  hurt(){const p=this.scene.app.state.position;this.bits(p.x,p.y-24,0xe99566);this.scene.cameras.main.shake(100,.0015);}
  bits(x,y,color){for(let i=0;i<8;i++){const bit=this.scene.add.rectangle(x-14+i*4,y,4,4,color).setDepth(y+60);this.scene.tweens.add({targets:bit,x:bit.x+(i-3)*4,y:y-20-(i%3)*6,alpha:0,duration:400+i*20,onComplete:()=>bit.destroy()});}}
- collect(node){this.bits(node.x,node.y-12,0xc7dc9a);const fruit=this.scene.add.image(node.x,node.y-30,'town',FOODS[node.item].icon).setScale(2).setDepth(node.y+80);this.scene.tweens.add({targets:fruit,y:node.y-68,alpha:0,duration:500,onComplete:()=>fruit.destroy()});}
+ collect(node){this.bits(node.x,node.y-12,0xc7dc9a);const fruit=this.scene.add.image(node.x,node.y-6,'town',FOODS[node.item].icon).setOrigin(.5,1).setScale(propScale(FOODS[node.item].icon,1,'world')).setDepth(node.y+80);this.scene.tweens.add({targets:fruit,y:node.y-68,alpha:0,duration:500,onComplete:()=>fruit.destroy()});}
  energy(amount){const p=this.scene.app.state.position;this.bits(p.x,p.y-35,0xb4d798);const t=worldText(this.scene,p.x,p.y-76,'+'+amount+' ENERGY',7).setScale(2).setOrigin(.5).setTint(0xc7dc9a).setDepth(10002);this.scene.tweens.add({targets:t,y:t.y-28,alpha:0,duration:650,onComplete:()=>t.destroy()});}
  health(amount){const p=this.scene.app.state.position;this.bits(p.x,p.y-35,0xe99566);const t=worldText(this.scene,p.x,p.y-96,'+'+amount+' HEALTH',7).setScale(2).setOrigin(.5).setTint(0xffd0b5).setDepth(10002);this.scene.tweens.add({targets:t,y:t.y-28,alpha:0,duration:650,onComplete:()=>t.destroy()});}
 }

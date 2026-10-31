@@ -1,6 +1,7 @@
 import {translate} from '../i18n/language.js';
 import {drawLanguageMenu,drawGettingStarted} from './GettingStarted.js';
-import {storyObjective} from '../systems/story.js';
+import {mainStoryObjective} from '../systems/lastLantern.js';
+import {narrativeProgressCount} from '../systems/narrative.js';
 import Phaser from 'phaser';
 import {TESTING_COIN_GRANT} from '../systems/testingCredit.js';
 import {drawModal} from './MenuView.js';
@@ -12,7 +13,7 @@ export class Interface extends Phaser.Scene {
   create(){
     this.app.ui=this;this.input.addPointer(3);this.scale.on('resize',()=>this.layout());
     const release=pointer=>{for(const c of this.controls)c.release?.(pointer);};this.input.on('pointerup',release);this.input.on('pointerupoutside',release);this.input.on('pointermove',pointer=>{for(const c of this.controls)c.move?.(pointer);});this.input.on('gameout',()=>this.resetMovement());
-    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat)return;if(this.menu.kind==='audio'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();const c=this.controls.filter(c=>!c.disabled)[this.focus%this.controls.filter(c=>!c.disabled).length],id=c?.id?.match(/^audio-(master|music|ambience|effects)/)?.[1];if(id){this.app.audio.setVolume(id,Math.round((this.app.audio.preferences[id]+(e.code==='ArrowLeft'?-.25:.25))*4)/4);this.app.sound('ui:confirm');const f=this.focus;this.layout();this.focus=f;this.highlight();}return;}if(this.menu.kind==='bag'&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code)){e.preventDefault();this.app.bagPanel.move({ArrowLeft:-1,ArrowRight:1,ArrowUp:-(this.app.bagPanel.columns||4),ArrowDown:this.app.bagPanel.columns||4}[e.code]);return;}if(this.menu.kind==='trade'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.tradePanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='wilderness'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.wildernessMap.move(e.code==='ArrowLeft'?-1:1);return;}const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter')choices[this.focus%choices.length]?.action();this.app.sound('ui:move');this.highlight();});
+    this.input.keyboard.on('keydown',e=>{if(!this.menu||e.repeat||this.menu.kind==='conversation'&&this.time.now-(this.menu.openedAt||0)<120)return;if(this.menu.kind==='audio'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();const c=this.controls.filter(c=>!c.disabled)[this.focus%this.controls.filter(c=>!c.disabled).length],id=c?.id?.match(/^audio-(master|music|ambience|effects)/)?.[1];if(id){this.app.audio.setVolume(id,Math.round((this.app.audio.preferences[id]+(e.code==='ArrowLeft'?-.25:.25))*4)/4);this.app.sound('ui:confirm');const f=this.focus;this.layout();this.focus=f;this.highlight();}return;}if(this.menu.kind==='bag'&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code)){e.preventDefault();this.app.bagPanel.move({ArrowLeft:-1,ArrowRight:1,ArrowUp:-(this.app.bagPanel.columns||4),ArrowDown:this.app.bagPanel.columns||4}[e.code]);return;}if(this.menu.kind==='trade'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.tradePanel.move(e.code==='ArrowLeft'?-1:1);return;}if(this.menu.kind==='wilderness'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();this.app.wildernessMap.move(e.code==='ArrowLeft'?-1:1);return;}const choices=this.controls.filter(c=>!c.disabled);if(!choices.length)return;if(e.code==='ArrowDown'||e.code==='Tab'){e.preventDefault();this.focus=(this.focus+1)%choices.length;}else if(e.code==='ArrowUp')this.focus=(this.focus+choices.length-1)%choices.length;else if(e.code==='Enter'||this.menu.kind==='conversation'&&['Space','KeyE'].includes(e.code)){e.preventDefault();choices[this.focus%choices.length]?.action();}this.app.sound('ui:move');this.highlight();});
     this.app.ready();
   }
   resetMovement(){for(const c of this.controls)c.reset?.();this.app.input={};}
@@ -23,7 +24,7 @@ export class Interface extends Phaser.Scene {
     const previousWelcome=this.titleView;this.titleView=null;
     this.root?.destroy(true);previousWelcome?.destroy();this.controls=[];this.root=this.add.container().setScale(2);this.w=Math.floor(this.scale.width/2);this.h=Math.floor(this.scale.height/2);
     const css=getComputedStyle(document.querySelector('#app'));const inset=side=>Math.ceil((parseFloat(css.getPropertyValue('--safe-'+side))||0)/2);
-    this.safe={top:inset('top'),bottom:inset('bottom'),left:inset('left'),right:inset('right')};this.mobileInput=matchMedia('(pointer:coarse)').matches;this.touch=this.scale.width<1000||this.mobileInput;
+    this.safe={top:inset('top'),bottom:inset('bottom'),left:inset('left'),right:inset('right')};this.mobileInput=matchMedia('(pointer:coarse)').matches;this.touch=this.scale.width<1000||this.mobileInput;this.standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
     if(this.menu){this.hud=null;this.drawMenu();}else if(this.app.state)this.hud=new Hud(this);
     this.noticeLayer=this.add.container().setDepth(50);this.root.add(this.noticeLayer);this.drawNotice();
   }
@@ -33,7 +34,7 @@ export class Interface extends Phaser.Scene {
   }
   close(){if(this.menu)this.app.sound('ui:close');this.menu=null;this.app.paused=false;this.app.input={};Object.values(this.app.scene.keys).forEach(k=>k.reset());this.layout();}
   highlight(){highlightControls(this.controls,this.focus);}
-  drawMenu(){if(['language','getting-started','trade','wilderness','bag','resources','appearance','audio','intro','journal','completion'].includes(this.menu.kind)){this.menu.draw?.();return;}drawModal(this);}
+  drawMenu(){if(['language','getting-started','trade','wilderness','bag','resources','appearance','audio','intro','conversation','journal','completion'].includes(this.menu.kind)){this.menu.draw?.();return;}drawModal(this);}
   languageMenu(back){this.modal('','Language','',[],'language');if(this.app.myanmarFontReady===false)this.app.language.current='en';this.menu.draw=()=>drawLanguageMenu(this,language=>{this.app.language.select(language);document.documentElement.lang=language==='mm'?'my':'en';if(this.app.state)this.app.scene.build();back();});this.menu.escape=()=>{};this.layout();}
   gettingStarted(page=0,back=()=>this.close()){this.modal('','How to play','',[],'getting-started');this.menu.draw=()=>drawGettingStarted(this,page,p=>this.gettingStarted(p,back),back);this.menu.escape=back;this.layout();}
   title(){
@@ -67,15 +68,15 @@ export class Interface extends Phaser.Scene {
   showFarmObjective(){this.objectiveStarted=true;this.objectiveUntil=this.time.now+7000;}
   play(){this.objectiveStarted=false;this.cityStarted=false;this.close();}
   feedback(value){this.feedbackState={text:value,until:this.time.now+1800};}
-  toast(value){this.notice={text:value.replace(/[·→]/g,'/'),until:this.time.now+6000};this.drawNotice();}
+  toast(value){this.notice={text:value.replace(/[·→]/g,'/'),until:this.time.now+(this.touch?2000:6000)};this.drawNotice();}
   drawNotice(){
     if(!this.noticeLayer)return;this.noticeLayer.removeAll(true);if(!this.notice)return;
-    const w=Math.min(240,this.w-16);const t=text(this,this.noticeLayer,8,6,this.notice.text,7,UI_COLORS.light,w-30);const height=t.height+12;
+    const mobile=this.touch&&!this.menu,w=Math.min(mobile?(this.w<this.h?166:184):240,this.w-this.safe.left-this.safe.right-(mobile?12:16));const t=text(this,this.noticeLayer,8,mobile?4:6,this.notice.text,mobile?6:7,UI_COLORS.light,w-(mobile?16:30),false,mobile?'compact':'body');const height=t.height+(mobile?8:12);
     const bg=panel(this,this.noticeLayer,0,0,w,height);this.noticeLayer.sendToBack(bg);
-    const close=text(this,this.noticeLayer,w-15,5,'X',8,UI_COLORS.gold).setInteractive({useHandCursor:true});close.on('pointerdown',(p,x,y,e)=>{e.stopPropagation();this.notice=null;this.drawNotice();});
-    this.noticeLayer.setPosition(Math.floor((this.w-w)/2),this.menu?this.safe.top+5:Math.max(68,this.h-(this.touch&&this.w<this.h?155:90)-height));
+    if(!mobile){const close=text(this,this.noticeLayer,w-15,5,'X',8,UI_COLORS.gold).setInteractive({useHandCursor:true});close.on('pointerdown',(p,x,y,e)=>{e.stopPropagation();this.notice=null;this.drawNotice();});}
+    this.noticeLayer.setPosition(mobile?this.safe.left+6:Math.floor((this.w-w)/2),mobile?this.safe.top+(this.w<this.h?80:55):this.menu?this.safe.top+5:Math.max(68,this.h-(this.touch&&this.w<this.h?155:90)-height));
   }
-  update(time,delta){this.titleView?.update(time,delta);if(this.app.state&&!this.menu&&this.app.state.story.flags.length>(this.app.journalSeen??0)){this.app.journalSeen=this.app.state.story.flags.length;this.app.sound('journal:update');this.toast('Journal updated / '+storyObjective(this.app.state).step);}if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu){const context=promptSuppressed(this.time.now,this.app.promptSuppressUntil)?null:this.app.scene.context();this.hud?.update(this.app.state,context);}if(this.noticeLayer)this.noticeLayer.setVisible(!this.hud?.cropInfo?.root.visible||!!this.menu);}
+  update(time,delta){this.titleView?.update(time,delta);if(this.app.state&&!this.menu&&narrativeProgressCount(this.app.state)>(this.app.journalSeen??0)){this.app.journalSeen=narrativeProgressCount(this.app.state);this.app.sound('journal:update');this.toast('Journal updated / '+mainStoryObjective(this.app.state).step);}if(this.notice&&this.time.now>this.notice.until){this.notice=null;this.drawNotice();}if(this.app.state&&!this.menu){const context=promptSuppressed(this.time.now,this.app.promptSuppressUntil)?null:this.app.scene.context();this.hud?.update(this.app.state,context);}if(this.noticeLayer)this.noticeLayer.setVisible(!this.hud?.cropInfo?.root.visible||!!this.menu);}
   textSnapshot(){const result=[];const walk=(n,sx=1,sy=1)=>{if(!n.visible)return;sx*=n.scaleX;sy*=n.scaleY;if(n.type==='BitmapText'||n.uiText){const b=n.getBounds();result.push({text:n.text,font:n.font,size:n.fontSize,native:n.fontData.size,scaleX:sx,scaleY:sy,lineSpacing:n.lineSpacing,source:n.sourceText||n.text,x:b.x,y:b.y,w:b.width,h:b.height});}for(const c of n.list||[])walk(c,sx,sy);};if(this.root)walk(this.root);return result;}
   controlSnapshot(){return this.controls.map(({id,label,x,y,w,h,disabled})=>({id,label,x:x*2,y:y*2,w:w*2,h:h*2,disabled}));}
 }

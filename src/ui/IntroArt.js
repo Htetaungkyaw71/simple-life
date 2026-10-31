@@ -1,4 +1,4 @@
-import {keepsakePixels} from './KeepsakeArt.js';
+import {keepsakeSprite} from './KeepsakeArt.js';
 // Original illustrations: integer pixels, deterministic texture and the world palette.
 export function introArt(u,l,art,y,height){
  const g=u.add.graphics();u.root.add(g);const x=l.x+12,w=l.w-24,cx=Math.floor(x+w/2),floor=y+height-7;
@@ -22,7 +22,7 @@ export function introArt(u,l,art,y,height){
   r(x,y,w,height,0x93694c);for(let i=0;i<height;i+=8){r(x,y+i,w,1,0x805c43);for(let j=0;j<w;j+=19)r(x+j+(i%3)*3,y+i+4,10,1,0x9f7853);}
   const px=cx-24,py=y+4,ph=height-9;r(px+2,py+2,49,ph,0x674e3a);r(px,py,48,ph,0xfff4d5);r(px+1,py+1,2,ph-2,0xddcba4);r(px+42,py+2,5,2,0xe1d4b0);
   for(let i=0;i<Math.min(6,Math.floor((ph-8)/5));i++){r(px+8,py+7+i*5,23+(i%2)*7,1,0xa37035);r(px+9+(i*7)%20,py+7+i*5,2,1,0xfff4d5);}
-  r(cx-50,floor-5,19,7,0xdbcba3);r(cx-49,floor-5,17,1,0xfff4d5);r(cx-45,floor-3,7,1,0xab9573);r(cx+34,y+height/2,2,height/3,0x423a32);r(cx+34,y+height/2-3,2,4,0xd8ac61);keepsakePixels(g,cx+47,y+height/2-7);
+  r(cx-50,floor-5,19,7,0xdbcba3);r(cx-49,floor-5,17,1,0xfff4d5);r(cx-45,floor-3,7,1,0xab9573);r(cx+34,y+height/2,2,height/3,0x423a32);r(cx+34,y+height/2-3,2,4,0xd8ac61);keepsakeSprite(u,u.root,cx+55,y+height/2,16);
  }else if(art==='farm'){
   grass(floor-9);for(const dx of [-w*.38,w*.37])tree(cx+dx,y+3,height*.65,true);
   const roof=y+5,base=floor-1;r(cx-26,roof+9,52,Math.max(8,base-roof-9),0xdbc399);r(cx+21,roof+9,5,base-roof-9,0xbca675);r(cx-26,base-3,52,4,0x8b805e);

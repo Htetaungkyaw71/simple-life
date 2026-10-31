@@ -45,6 +45,10 @@ import { drawWorld,drawPlots } from '../art/worldArt.js';
 import { PlayerView } from '../entities/PlayerView.js';
 import {controlAtPoint} from '../ui/focus.js';
 import {updateLoadingScreen} from '../ui/loadingScreen.js';
+import {LanternNightView} from '../art/LanternNightView.js';
+import {recordLifePath} from '../systems/lifePaths.js';
+import {recordForestLandmarkVisit} from '../systems/lastLantern.js';
+import {forestHabitat} from '../data/forestHabitats.js';
 export class WorldScene extends Phaser.Scene {
   constructor(app){super('World');this.app=app;this.plotPositions=[];}
   preload(){
@@ -53,13 +57,25 @@ export class WorldScene extends Phaser.Scene {
     this.load.atlas('town',base+'processed/town.png',base+'processed/town.json');
     this.load.atlas('cityBuildings',base+'processed/city-buildings.png',base+'processed/city-buildings.json');
     this.load.atlas('homeInterior',base+'processed/home-interior.png',base+'processed/home-interior.json');
-    this.load.atlas('pixelSnapper',base+'processed/pixel-snapper-assets.png',base+'processed/pixel-snapper-assets.json');
+    this.load.atlas('pixelSnapper',base+'processed/pixel-snapper-assets.png?v=barber-chair-v2',base+'processed/pixel-snapper-assets.json?v=barber-chair-v2');
+    this.load.atlas('planterBench',base+'processed/planter-bench-2026-10-29.png?v=user-v4-s90',base+'processed/planter-bench-2026-10-29.json?v=user-v4-s90');
+    this.load.atlas('foliageSnapper',base+'processed/foliage-snapper.png',base+'processed/foliage-snapper.json');
+    this.load.image('keepsakePendant',base+'processed/keepsake-pendant.png');
     this.load.image('grassGroundA',base+'processed/grass-ground-a.png');
     this.load.image('grassGroundB',base+'processed/grass-ground-b.png');
     this.load.image('grassGroundC',base+'processed/grass-ground-c.png');
     this.load.image('welcomeMysticalRiver',base+'processed/welcome-mystical-river.png');
     this.load.spritesheet('grassClumps',base+'processed/grass-clumps.png',{frameWidth:48,frameHeight:48,endFrame:2});
     this.load.spritesheet('fountainIsland',base+'processed/fountain-island.png',{frameWidth:207,frameHeight:214,endFrame:7});
+    this.load.spritesheet('girl-child',base+'processed/girl_child_sheet.png',{frameWidth:64,frameHeight:64,endFrame:29});
+    this.load.spritesheet('boy-child',base+'processed/boy_child_sheet.png?v=teo-v1',{frameWidth:64,frameHeight:64,endFrame:29});
+    this.load.spritesheet('purple-woman',base+'processed/purple_woman_sheet.png?v=elena-v2',{frameWidth:64,frameHeight:64,endFrame:29});
+    this.load.spritesheet('elder-man',base+'processed/elder_man_sheet.png?v=elder-v5',{frameWidth:64,frameHeight:64,endFrame:17});
+    this.load.spritesheet('seed-seller',base+'processed/seed-seller.png?v=seed-seller-v8',{frameWidth:64,frameHeight:64,endFrame:17});
+    this.load.spritesheet('produce-seller',base+'processed/produce-seller.png?v=fruit-buyer-v1',{frameWidth:64,frameHeight:64,endFrame:17});
+    this.load.spritesheet('produce-seller-new',base+'processed/produce-seller-new.png?v=bruno-v1',{frameWidth:64,frameHeight:64,endFrame:17});
+    this.load.spritesheet('lamplighter',base+'processed/lamplighter.png?v=silas-v1',{frameWidth:64,frameHeight:64,endFrame:17});
+    this.load.spritesheet('barber-npc',base+'processed/barber-npc.png?v=barber-v1',{frameWidth:64,frameHeight:64,endFrame:17});
     for(const char of ['boy','girl','appearance']){const rig=char==='appearance'?PEOPLE:char==='boy'?BOY_FARMER:GIRL_FARMER;this.load.spritesheet(char,base+'processed/'+char+'.png',{frameWidth:rig.width,frameHeight:rig.height});}
     this.load.bitmapFont('pixel',base+'font.png',base+'font.xml');
     for(const name of ['thaleah','m5x7'])this.load.bitmapFont(name,base+'fonts/'+name+'.png',base+'fonts/'+name+'.xml');
@@ -67,7 +83,12 @@ export class WorldScene extends Phaser.Scene {
     this.load.once('complete',()=>updateLoadingScreen(.98,'Opening the front door…'));
   }
   create(){
-    for(const name of ['world','town','cityBuildings','homeInterior','pixelSnapper','fountainIsland','grassGroundA','grassGroundB','grassGroundC','welcomeMysticalRiver','grassClumps','boy','girl','appearance','pixel','thaleah','m5x7'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    for(const name of ['world','town','cityBuildings','homeInterior','pixelSnapper','planterBench','foliageSnapper','keepsakePendant','fountainIsland','grassGroundA','grassGroundB','grassGroundC','welcomeMysticalRiver','girl-child','boy-child','purple-woman','elder-man','seed-seller','produce-seller','produce-seller-new','lamplighter','barber-npc','grassClumps','boy','girl','appearance','pixel','thaleah','m5x7'])this.textures.get(name).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    for(const texture of ['girl-child','boy-child','purple-woman','elder-man','seed-seller','produce-seller','produce-seller-new','lamplighter','barber-npc'])for(const [dir,row]of [['down',0],['up',1],['right',2],['left',2]]){
+      const columns=['elder-man','seed-seller','produce-seller','produce-seller-new','lamplighter','barber-npc'].includes(texture)?6:10,baseFrame=row*columns,side=row===2,allEight=texture==='boy-child',walkFrames=columns===6?4:allEight||side?8:4;
+      if(!this.anims.exists(`${texture}-idle_${dir}`))this.anims.create({key:`${texture}-idle_${dir}`,frames:[{key:texture,frame:baseFrame}],repeat:-1});
+      if(!this.anims.exists(`${texture}-walk_${dir}`))this.anims.create({key:`${texture}-walk_${dir}`,frames:Array.from({length:walkFrames},(_,i)=>({key:texture,frame:baseFrame+1+i})),frameRate:6,repeat:-1});
+    }
     this.keys=this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ESC,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,Q,K,M,J,SHIFT,B,R');
     for(const key of Object.keys(KEY_ACTIONS))this.keys[key].on('down',(_,event)=>{const action=keyboardAction(key,this.app.state?.area,{paused:this.app.paused,repeat:event?.repeat,transitioning:this.app.transitioning});if(action==='jump')this.jump();else if(action==='attack')this.app.attack();else if(action==='map')this.app.wildernessMap.open();else if(action==='bag')this.app.bagPanel.open('seeds');});
     this.keys.Q.on('down',()=>this.app.cycleCrop());
@@ -138,6 +159,7 @@ export class WorldScene extends Phaser.Scene {
     this.atmosphere=new Atmosphere(this,s?.area||'farm');
     drawHomeKeepsake(this,s);const light=worldLight(s||{area:'home',minute:720});this.night=s?.area==='forest'?this.add.graphics().setDepth(10000):this.add.rectangle(-MAP_SIZE.width,-MAP_SIZE.height,MAP_SIZE.width*3,MAP_SIZE.height*3,light.color,1).setOrigin(0).setAlpha(light.alpha).setDepth(10000);
     this.cityLights=new CityLights(this,s?.area||'farm');this.cityLights.update(light);
+    this.lanternNight=new LanternNightView(this);
     if(s)this.atmosphere.update(0,false,s.position);
     this.resize();
   }
@@ -156,14 +178,12 @@ export class WorldScene extends Phaser.Scene {
     }
     for(const n of this.residents.people){if(!n.visible||!n.sprite.getBounds().contains(world.x,world.y))continue;
       if(Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)>=72)return {...n.position,type:'hint',label:'Walk closer'};
-      if(n.service)return Math.hypot(n.position.x-s.position.x,n.position.y-s.position.y)<58&&n.mode==='work'&&s.minute>=420&&s.minute<1140?{...n.position,type:'appearanceShop',category:n.service,label:n.service==='clothes'?'Clothes / Nell':'Stylist / Sol'}:{...n.position,type:'hint',label:'Walk closer'};
-      if(n.kind){const c=LOCATIONS[s.area].interactions.find(c=>c.type===n.kind);if(c.approach){const [x,y,w,h]=c.approach;if(s.position.x<x||s.position.x>x+w||s.position.y<y||s.position.y>y+h)return {...n.position,type:'hint',label:'Walk closer'};}return n.mode==='work'&&shopOpen(s,n.kind)?c:{...n.position,type:'hint',label:'Shop closed'};}
       return {...n.position,type:'dialog',residentId:n.id,label:'Talk to '+n.name,title:n.name,body:n.body};
     }
     const c=this.context();if(c&&!['plot','dig','restoreGround','waterGround','chop','gatherGrass','placeGrass','placeDecoration','reclaimDecoration','hunt'].includes(c.type)&&Math.hypot(world.x-c.x,world.y-c.y)<(c.type==='travel'?96:64))return c;
     return null;
   }
-  context(){if(!this.app.state)return null;const resident=this.residents?.context(this.app.state.position);if(resident?.type==='appearanceShop')return resident;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c||resident;}
+  context(){if(!this.app.state)return null;const resident=this.residents?.context(this.app.state.position);if(resident)return resident;const c=contextFor(this.app.state,this.targetPlot,this.player?.direction,this.targetGround);if(['seed','sell'].includes(c?.type)&&!this.residents?.available(c.type))return {...c,type:'hint',label:'Shop closed'};return c;}
   faceContext(c){this.player?.face(c.x-this.app.state.position.x,c.y-this.app.state.position.y);this.atmosphere.feedback(c.x,c.y);}
   jump(){
     const a=this.app;if(!a.state||a.paused||a.transitioning||a.placement.draft||document.hidden)return;
@@ -178,9 +198,9 @@ export class WorldScene extends Phaser.Scene {
       const step=WORLD.speed*(isIndoorArea(s.area)?.5:1)*Math.min(delta,50)/1000;const nx=s.position.x+x*step,ny=s.position.y+y*step;
       const wasJumping=!!this.jumping.active,old={...s.position};stepJump(s,this.jumping,delta);
       if(wasJumping){dx=s.position.x-old.x;dy=s.position.y-old.y;}
-      else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;}a.advance(delta);const edge=forestPortalTravel(s,this.time.now,this.travelReady||0)||readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
+      else {if(this.collisionWorld.canMove(nx,s.position.y)&&this.residents.canMove(s.position,{x:nx,y:s.position.y})){dx=nx-s.position.x;s.position.x=nx;}if(this.collisionWorld.canMove(s.position.x,ny)&&this.residents.canMove(s.position,{x:s.position.x,y:ny})){dy=ny-s.position.y;s.position.y=ny;}}if(dx||dy){this.targetPlot=null;this.targetGround=null;a.tutorialMoved();}a.advance(delta);const edge=forestPortalTravel(s,this.time.now,this.travelReady||0)||readyEdgeTravel(s,this.time.now,this.travelReady||0);if(edge&&!this.jumping.active){a.travel(edge);return;}
     }
-    if(!a.paused&&!document.hidden){a.resolveAttack(delta);const result=stepCombat(s,this.combat,delta);if(result.warning)a.sound('animal:warning');if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);a.save();a.ui.toast(region.name+' / danger '+region.danger+'/5. Open MAP for trails.');}}}
+    if(!a.paused&&!document.hidden){a.resolveAttack(delta);const result=stepCombat(s,this.combat,delta);if(result.warning)a.sound('animal:warning');if(result.hurt){cancelJump(s,this.jumping);this.forestView.hurt();a.ui.feedback('Ouch / -'+result.damage+' health');a.sound('combat:hurt');a.save();}if(result.dead){a.defeat();return;}a.forestGuidance();if(s.area==='forest'){let changed=false;const region=forestRegion(s.position);if(!s.forest.explored.includes(region.id)){s.forest.explored.push(region.id);recordLifePath(s,'explorer','landmark',region.id);changed=true;}if(recordLifePath(s,'explorer','habitat',forestHabitat(s.position).id))changed=true;if(recordForestLandmarkVisit(s)){changed=true;a.ui.toast('Old waystone remembered / return to Walter in City.');}if(changed)a.save();}}
     this.portal?.update(this.time.now);
     this.player?.update(s.position,dx,dy,jumpPose(this.jumping),intent);
     if(!a.paused){this.grass.update(Math.min(delta,50),s.position,!!this.jumping.active);}
@@ -189,6 +209,7 @@ export class WorldScene extends Phaser.Scene {
     if(!a.paused)this.atmosphere.update(this.time.now,!!(dx||dy),s.position,Math.min(delta,50));
     const light=worldLight(s);if(s.area==='forest')forestNight(this.night,s,light);else this.night.setFillStyle(light.color).setAlpha(light.alpha);
     this.cityLights.update(light);
+    this.lanternNight?.update(this.time.now);
     this.renderWetGround();const c=this.context();this.treeProgress.update(c);this.placementView.update();this.plotOutline.clear();if(['plot','dig','restoreGround','waterGround','placeDecoration'].includes(c?.type)&&!a.paused&&!a.placement.draft){const preview=s.selected==='water'&&s.ownsCopperCan?wateringPreview(s,c,this.player.direction):[c];for(const tile of preview){this.plotOutline.lineStyle(2,tile.eligible===false?0x88916c:0xffe9a7,.85);for(const [sx,sy]of [[-1,-1],[1,-1],[-1,1],[1,1]]){const x=tile.x+sx*23,y=tile.y+sy*23;this.plotOutline.lineBetween(x,y,x-sx*12,y);this.plotOutline.lineBetween(x,y,x,y-sy*12);}}}this.marker.setVisible(!a.placement.draft&&!!c&&!['plot','dig','restoreGround','waterGround','placeDecoration'].includes(c.type)&&!a.paused);if(c)this.marker.setPosition(c.x,c.y-52-Math.floor(Math.sin(this.time.now/240)*2)*2);
   }
 }

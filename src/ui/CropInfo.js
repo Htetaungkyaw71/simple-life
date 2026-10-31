@@ -7,14 +7,14 @@ export class CropInfo {
  constructor(hud){
   this.hud=hud;this.ui=hud.ui;const u=this.ui;this.mm=u.app.language?.current==='mm';this.compact=u.touch&&u.w>u.h&&u.h<200;this.w=Math.min(this.compact&&u.w<=340?128:u.touch&&u.w>u.h&&u.h<240?(this.mm?160:176):184,u.w-u.safe.left-u.safe.right-12);this.tinyMyanmar=this.mm&&u.h<150;this.h=this.mm?(this.tinyMyanmar?74:90):this.compact?65:70;
   this.root=u.add.container().setVisible(false);hud.root.add(this.root);panel(u,this.root,0,0,this.w,this.h,UI_COLORS.panel);
-  this.art=u.add.graphics();this.root.add(this.art);this.crop=icon(u,this.root,'tomato',6,4,.75);
+  this.art=u.add.graphics();this.root.add(this.art);this.crop=icon(u,this.root,'tomato',6,4,1);
   this.name=text(u,this.root,23,5,'',8,UI_COLORS.gold);this.stage=text(u,this.root,6,18,'',this.w<=140?6:7);
   this.timer=text(u,this.root,19,this.compact?35:38,'',7);
   this.condition=text(u,this.root,19,this.compact?47:50,'',7);this.am=text(u,this.root,18,this.compact?47:50,'',this.w<=130?5:6);this.pm=text(u,this.root,this.w<=130?76:104,this.compact?47:50,'',this.w<=130?5:6);
  }
  update(s,c){
   const info=c?.type==='plot'?cropStatus(s,c.index):null;this.info=info;this.root.setVisible(false);if(!info)return;
-  this.crop.setTexture('town',info.icon).setScale(propScale(info.icon,.75));this.name.setText(info.name);if(this.mm){this.name.setY(3);this.stage.setY(22).setVisible(!this.tinyMyanmar);this.timer.setY(this.tinyMyanmar?33:49);this.condition.setY(this.tinyMyanmar?53:69).setMaxWidth(this.w-25);}
+  this.crop.setTexture('town',info.icon).setScale(propScale(info.icon,1));this.name.setText(info.name);if(this.mm){this.name.setY(3);this.stage.setY(22).setVisible(!this.tinyMyanmar);this.timer.setY(this.tinyMyanmar?33:49);this.condition.setY(this.tinyMyanmar?53:69).setMaxWidth(this.w-25);}
   this.stage.setText(`${info.stageName} / ${info.stage}/${info.stages}`);
   const narrow=this.w<=130,timer=info.dead?'Dead / clear':info.ready?'Ready to harvest':info.paused?'Paused / water':`Harvest / ${info.remaining} watered days`;
   this.timer.setMaxWidth(this.w-25).setText(narrow&&!info.dead&&!info.ready&&!info.paused?`Harvest / ${info.remaining} days`:timer);

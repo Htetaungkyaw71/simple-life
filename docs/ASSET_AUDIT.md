@@ -1,3 +1,15 @@
+# 2026-10-29 — standalone Pixel Snapper planter-bench replacement
+
+The allowlisted `processed/planter-bench-2026-10-29.png` is byte-identical to the selected 177×132 user-supplied source (SHA-256 `84d91b9b5e4634745e66ed6bbaa36f39dd5bc56ba946c42db4d4842ea44e0003`). The full canvas is exposed as one local atlas frame; no crop, resample, recolour, alpha threshold or shared-atlas rewrite occurs. Phaser applies nearest-filtered 0.9× display scaling. The preceding high-resolution source, unused height-review candidate and old shared-atlas frame remain outside selection; only the PNG/JSON pair enters the existing runtime allowlist.
+
+---
+
+# 2026-10-28 — Clara seed-seller runtime asset
+
+One new allowlisted local file, `processed/seed-seller.png`, is 384×192 RGBA with eighteen 64×64 cells and binary transparency. It derives only from the supplied 1200×720 source through deterministic matte removal, 4× nearest sampling and transparent padding. The rejected 1619×971 image-generation extraction, source image, prompt and records remain outside `public/` and `dist`. No vendor archive, unused pack, remote asset or new dependency enters production. [Evidence and hashes](assets/licenses/seed-seller-v1/SOURCE_RECORD.md).
+
+---
+
 # 2026-10-24 — Strawberry snapped-sheet review audit
 
 The user-supplied 361×121 source, cleaned-source image, 48×38-frame review candidate, manifest and debug-page references remain outside `public/`, `dist` and the production allowlist. Runtime atlas PNG/JSON and Strawberry metadata are untouched pending approval. The candidate has binary alpha, 14 source-exact opaque colours and no unexpected retained colour. [Measurements and hashes](assets/licenses/strawberry-import-v1/SOURCE_RECORD.md).

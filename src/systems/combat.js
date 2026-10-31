@@ -39,9 +39,9 @@ export function attack(s,r,direction,targetId=null){
  const weapon=AXE;
  if(s.selected!=='axe')return {ok:false,message:'Select Axe in Bag / Gear.'};
  if(r.now<r.nextAttack)return {ok:false};
- const target=attackTarget(s,direction,targetId),meat=target?.species==='boar'?2:WOODLAND_SPECIES[target?.species]?.meat||0;
+ const target=attackTarget(s,direction,targetId),hostile=SPECIES[target?.species],meat=hostile?.meat??WOODLAND_SPECIES[target?.species]?.meat??0,hide=hostile?.hide??0;
  if(target&&s.energy<weapon.energy)return {ok:false,message:'Too tired / eat food or sleep.'};
- if(target?.health===1&&(s.inventory.meat+meat>9999||target.species==='boar'&&s.inventory.wildHide>=9999))return {ok:false,message:'Bag full / make room for the drop.'};
+ if(target?.health===1&&(s.inventory.meat+meat>9999||s.inventory.wildHide+hide>9999))return {ok:false,message:'Bag full / make room for the drop.'};
  s.energy-=target?weapon.energy:0;r.nextAttack=r.now+weapon.cooldown;
  const box=attackBox(s.position,direction),result={ok:true,weapon:'axe',box,hit:false,defeated:false};
  if(s.area==='forest'){
@@ -50,7 +50,7 @@ export function attack(s,r,direction,targetId=null){
    result.hit=true;result.animalId=target.id;result.species=target.species;target.health--;
    displace('forest',p,(p.x-s.position.x)/len*18,(p.y-s.position.y)/len*18,definition?.territory||false,SPECIES[target.species]?.body||8,s);
    if(definition){const runtime=animalRuntime(r,target.id);if(runtime.mode==='wander'){runtime.mode='recover';runtime.timer=150;}}
-   if(!target.health){result.defeated=true;target.defeatedDay=s.day;if(target.species==='boar'){recordStory(s,'boar');if(s.story)s.story.stats.boars++;}s.inventory.meat+=meat;result.meat=meat;if(target.species==='boar')s.inventory.wildHide++;}
+   if(!target.health){result.defeated=true;target.defeatedDay=s.day;if(target.species==='boar'){recordStory(s,'boar');if(s.story)s.story.stats.boars++;}s.inventory.meat+=meat;s.inventory.wildHide+=hide;result.meat=meat;result.hide=hide;}
   }
  }
  return result;
@@ -60,25 +60,32 @@ export function damagePlayer(s,r,damage=15){
  s.health=Math.max(0,s.health-damage);r.invulnerableUntil=r.now+750;return true;
 }
 function stepAnimal(s,global,r,a,definition,ms){
- if(a.health<=0||Math.hypot(a.position.x-s.position.x,a.position.y-s.position.y)>960)return {};
+ if(a.health<=0)return {};
  r.grace=Math.max(0,r.grace-ms);const d=SPECIES[a.species],p=a.position,player=s.position,night=isNight(s),distance=Math.hypot(player.x-p.x,player.y-p.y),awareness=d.awareness*(night?1.2:1),speed=night?1.15:1;
- const sees=inTerritory(player,definition.territory)&&distance<awareness&&lineClear('forest',p,player,12,s);r.timer-=ms;
- if(r.mode==='warning'){
-  if(r.timer<=0){r.mode='charge';r.timer=650;return {charge:true};}
- }else if(r.mode==='charge'){
+ if(distance>960&&r.mode==='wander')return {};
+ const sees=distance<awareness&&lineClear('forest',p,player,12,s);r.timer-=ms;
+ if(['pursue','recover'].includes(r.mode)&&distance>d.disengage){r.mode='return';r.timer=0;}
+ if(r.mode==='pursue'){
+  const len=distance||1;r.heading={x:(player.x-p.x)/len,y:(player.y-p.y)/len};
   if(distance<34&&lineClear('forest',p,player,0,s)&&damagePlayer(s,global,d.damage)){
-   const len=distance||1;displace('forest',player,(player.x-p.x)/len*18,(player.y-p.y)/len*18,false,12,s);r.mode='recover';r.timer=d.recovery;return {hurt:true,damage:d.damage,dead:s.health===0,species:a.species};
+   displace('forest',player,r.heading.x*18,r.heading.y*18,false,12,s);r.mode='recover';r.timer=d.recovery;return {hurt:true,damage:d.damage,dead:s.health===0,species:a.species};
   }
-  const moved=displace('forest',p,r.heading.x*d.speed*speed*ms/1000,r.heading.y*d.speed*speed*ms/1000,definition.territory,d.body,s);
-  if(!moved||r.timer<=0){r.mode='recover';r.timer=d.recovery;}
+  displace('forest',p,r.heading.x*d.speed*speed*ms/1000,r.heading.y*d.speed*speed*ms/1000,false,d.body,s);
  }else if(r.mode==='recover'){
-  if(r.timer<=0){r.mode='wander';r.timer=0;}
+  if(r.timer<=0)r.mode=distance>d.disengage?'return':'pursue';
+ }else if(r.mode==='return'){
+  if(sees&&!r.grace){r.mode='pursue';r.timer=0;}
+  else{
+   const home=definition.home,homeDistance=Math.hypot(p.x-home.x,p.y-home.y);
+   if(homeDistance<18){r.mode='wander';r.timer=0;r.heading={x:0,y:0};}
+   else{r.heading={x:(home.x-p.x)/homeDistance,y:(home.y-p.y)/homeDistance};displace('forest',p,r.heading.x*d.speed*.8*speed*ms/1000,r.heading.y*d.speed*.8*speed*ms/1000,false,d.body,s);}
+  }
  }else if(sees&&!r.grace){
-  const len=distance||1;r.heading={x:(player.x-p.x)/len,y:(player.y-p.y)/len};r.mode='warning';r.timer=d.warning;return {warning:true};
+  const len=distance||1;r.heading={x:(player.x-p.x)/len,y:(player.y-p.y)/len};r.mode='pursue';r.timer=0;
  }else{
   if(r.timer<=0){r.wander++;r.timer=1400;const angle=r.wander*2.4+ANIMAL_SPAWNS.indexOf(definition);r.heading={x:Math.cos(angle),y:Math.sin(angle)};}
   const home=definition.home,homeDistance=Math.hypot(p.x-home.x,p.y-home.y);
-  if(!sees&&homeDistance>110)r.heading={x:(home.x-p.x)/homeDistance,y:(home.y-p.y)/homeDistance};
+  if(homeDistance>110)r.heading={x:(home.x-p.x)/homeDistance,y:(home.y-p.y)/homeDistance};
   if(!displace('forest',p,r.heading.x*32*speed*ms/1000,r.heading.y*32*speed*ms/1000,definition.territory,d.body,s))r.timer=0;
  }
  return {};

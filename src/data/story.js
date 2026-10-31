@@ -2,11 +2,12 @@ export const STORY_CACHE='snake-cache';
 export const STORY_GUARD='boar-snake';
 export const STORY_PROJECT='commons';
 export const INTRO=[
- {title:'Too much noise',art:'city',text:'City noise and pressure filled every day. You longed for a quieter life.'},
- {title:'Grandfather\'s letter',art:'letter',text:'You inherit his old house and farm. His final letter asks you to restore the land and help the nearby town.'},
- {title:'A place to begin',art:'farm',text:'Three Tomato seeds wait in the crate. Plant, water each day and harvest. The JOURNAL holds his last request.'},
- {title:'Beyond the trees',art:'forest',text:'A family keepsake lies in a guarded Wild Forest cache. Bring it home, when you are ready.'},
+ {title:'A letter home',speaker:'You',text:"I left the City's noise to keep Grandfather's farm. His last letter asked me to finish one promise."},
+ {title:'An old promise',speaker:'Silas',text:"I'm Silas, the lamplighter. Your grandfather promised to relight Lantern Square for the town."},
+ {title:'The broken lantern',speaker:'Silas',text:'The lantern was found broken before he could. No one knows why, and his promise remains unfinished.'},
+ {title:'Your first step',speaker:'Silas',text:"Claim the Tomato seeds, plant one, and water it. Then visit City while it grows; we'll inspect the lantern."},
 ];
+export const CITY_INVITE={title:'A good beginning',speaker:'Silas',text:"That Tomato can grow while you're away. Follow the east road to City; I'll meet you by the broken lantern."};
 export const CHAPTERS=[
  {title:'NEW ROOTS',steps:[['starter','Claim starter seeds','Home crate / beside the front steps to the southeast.'],['plant','Plant a crop','Follow the south road. Bag / Seeds / Tomato; use a bed.'],['water','Water a crop','Select Water. Once daily; three watered midnights for Tomato.'],['city','Visit City while crops grow','Follow the east road from Home. Shops open at 7 am.'],['resident','Speak to a resident','Put tools away. Talk to a neighbour near the City square.']]},
  {title:'WHILE SEEDS GROW',steps:[['wood','Collect Wood','Axe / three hits per tree. Gather 12 Wood along Farm edges.'],['stone','Collect Stone','Home north gate / Forest entrance. Hand / gather 6 Stone.'],['board','Read the town board','City / board beside the market square. Save materials for Commons seating.'],['fruit','Forage one Forest fruit','Home north gate / fruit trees near the Forest entrance. Hand / Use.'],['eatFruit','Try your gathered fruit','Bag / Food shows exact recovery. Eat after work, then tend crops tomorrow.']]},

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-29",
+  "tool": "OpenAI built-in image generation",
+  "selectedAsset": "original-pixel-snapper.png",
+  "calls": [
+    {
+      "role": "initial transparent asset generation",
+      "prompt": "Use case: style-transfer. Asset type: standalone 2D pixel-art game prop sprite. Image 1 is the visual reference for the desired bench design, proportions, placement, size, pixel density, and camera angle. Image 2 shows the current game scale and palette context only; do not include the character, wall, ground, plants outside the prop, or any scene background. Create one beautiful wooden park bench integrated with a tall central flower planter, closely matching Image 1's silhouette: warm reddish-brown wooden bench wings on both sides, sturdy narrow legs, a rectangular planter box centered at the front, and dense tall purple lavender-like flowers with green foliage rising behind it. Improve the craftsmanship and visual clarity while preserving the reference composition. Crisp hand-pixeled 2D game art, controlled clusters, clean 1-pixel dark outlines, subtle selective highlights, no antialiasing, consistent with the supplied reference. Isolated single prop, centered, entire sprite visible with comfortable transparent padding; straight-on front-facing game camera with the same slight top-down view as Image 1; symmetrical overall footprint; match the reference object's relative width-to-height and scale. Genuinely transparent background with clean alpha; only the bench-planter prop; no ground shadow outside the sprite; no wall, pavement, scenery, people, text, UI, watermark, border, or checkerboard."
+    },
+    {
+      "role": "rejected palette attempt",
+      "prompt": "Recolor the approved transparent bench asset with the darker, muted brown palette from the in-game bench while keeping its design, proportions, camera angle, and transparency unchanged. The result drifted into the reference bench shape and was not selected."
+    },
+    {
+      "role": "selected corrected palette edit",
+      "prompt": "Use case: precise-object-edit. Asset type: standalone transparent 2D pixel-art game prop sprite. Image 1 is the ONLY edit target: the approved symmetrical bench with two side seats and a tall central lavender planter. Image 2 is ONLY a color-palette reference from the game; do not copy its bench shape, plants, composition, or scenery. Recolor Image 1 so its wooden parts use the exact visual character of the benches in Image 2: muted dusty walnut and reddish-brown boards, deep dark-brown outlines, restrained tan highlights, low saturation, and subdued earthy contrast. Recolor the central foliage and lavender to fit Image 2's olive greens, muted purples, and small warm cream accents. Preserve Image 1's exact design and silhouette—two narrow side bench seats, central front planter box, dense tall lavender flowers, symmetrical proportions, current size, placement, front-facing slight top-down camera angle, pixel scale, and framing. Do not turn it into the simple wide bench from Image 2. Change palette only; do not add, remove, rearrange, enlarge, or redesign any part. Genuine transparency with clean alpha. Avoid grass, wall, ground, scenery, character, UI, text, shadows outside the prop, watermark, border, checkerboard, bright orange/copper wood, and high saturation."
+    },
+    {
+      "role": "unused taller review edit",
+      "output": "unused-height-review.png",
+      "prompt": "Edit Image 1 only. Image 2 is scale context only; do not include its character, wall, ground, darkness, or any other content. Make exactly one change to the approved pixel-art bench-and-planter asset from Image 1: increase the entire object's vertical height by about 15% so it reads taller beside the game character. Keep the width exactly unchanged. This must look like the same asset with a modest vertical geometric elongation—not a redesign or a new rendering. LOCK ALL OTHER ATTRIBUTES: identical front-facing camera angle and position, identical left/right symmetry, exact wooden structure and proportions except for added vertical height, same side seats and central planter, same flower count and arrangement, same leaves, same wood grain, same brown/green/purple/cream color palette, same highlights and shadows, same dark pixel outlines, same pixel-art resolution and pixel density, same edge style, and same transparent background. Do not widen it, do not add or remove any details, do not clean up or reinterpret the art, and do not change the style. Center the taller object on a transparent canvas with comfortable transparent margins."
+    }
+  ]
+}

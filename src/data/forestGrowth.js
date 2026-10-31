@@ -1,7 +1,7 @@
 import {WOODLAND_WILDLIFE} from './woodlandWildlife.js';
 import {EAST_BOARS} from './forestExpansion.js';
 import {waterAt,dryFootprint} from './water.js';
-export const forestTree=p=>p.name==='tree'||p.name==='snow-pine'||p.name.endsWith('-tree');
+export const forestTree=p=>p.name==='tree'||p.name==='tree-wide'||p.name==='snow-pine'||p.name.endsWith('-tree');
 // Reserve connected clearings while growing the forest; no raised assemblies.
 function hash(n,salt=0){let v=Math.imul(n^salt,1597334677);v=Math.imul(v^(v>>>16),2246822519);return (v^(v>>>13))>>>0;}
 export function growForest(map,regions,nodes,treasures){
@@ -50,5 +50,32 @@ export function finishForest(map,regions){
  map.grass=map.grass.filter(g=>dryFootprint(map,{x:g.x-24,y:g.y-48,w:48,h:48}));
  // Road masks were only used to reserve passable gaps during placement.
  map.paths=[];
+}
+
+// Keep Forest trunks visibly separated. Fruit and boundary trees are considered
+// first so groves and the world edge retain their established shape.
+export function thinForestTrees(map,protectedPoints=[],spacing=144){
+ const trees=map.props.filter(forestTree),cell=spacing,buckets=new Map(),anchor=p=>({x:p.x+32,y:p.y+90});
+ const add=p=>{const a=anchor(p),key=Math.floor(a.x/cell)+':'+Math.floor(a.y/cell);if(!buckets.has(key))buckets.set(key,[]);buckets.get(key).push(p);};
+ const nearby=p=>{const a=anchor(p),out=[];for(let gy=Math.floor(a.y/cell)-1;gy<=Math.floor(a.y/cell)+1;gy++)for(let gx=Math.floor(a.x/cell)-1;gx<=Math.floor(a.x/cell)+1;gx++)out.push(...buckets.get(gx+':'+gy)||[]);return out;};
+ const priority=p=>p.name==='guava-tree'||p.name==='mango-tree'?0:p.x<0||p.y<0||p.x>map.size.width-80||p.y>map.size.height-140?1:protectedPoints.some(n=>Math.hypot(n.x-p.x-32,n.y-p.y-90)<72)?2:3;
+ const ranked=trees.map(p=>({p,priority:priority(p),tie:hash(Math.round(p.x),Math.round(p.y))})).sort((a,b)=>a.priority-b.priority||a.tie-b.tie).map(entry=>entry.p),removed=new Set();
+ for(const p of ranked){const a=anchor(p),tooClose=nearby(p).some(q=>{const b=anchor(q);return Math.hypot(a.x-b.x,a.y-b.y)<spacing;});if(tooClose)removed.add(p);else add(p);}
+ map.props=map.props.filter(p=>!removed.has(p));
+ return {before:trees.length,after:trees.length-removed.size,removed:removed.size};
+}
+
+export function addForestBushes(map,regions,protectedPoints=[],perRegion=28){
+ const cell=80,props=new Map(),bushes=new Map(),add=(index,p,x,y)=>{const key=Math.floor(x/cell)+':'+Math.floor(y/cell);if(!index.has(key))index.set(key,[]);index.get(key).push(p);},near=(index,x,y,r)=>{for(let gy=Math.floor((y-r)/cell);gy<=Math.floor((y+r)/cell);gy++)for(let gx=Math.floor((x-r)/cell);gx<=Math.floor((x+r)/cell);gx++)for(const p of index.get(gx+':'+gy)||[])if(Math.hypot(x-p.x,y-p.y)<r)return true;return false;};
+ for(const p of map.props)add(props,{x:p.x+32,y:p.y+90},p.x+32,p.y+90);
+ let placed=0;
+ for(const [i,r]of regions.entries()){
+  let count=0;for(let n=0;n<224&&count<perRegion;n++){
+   const x=r.x+72+hash(n,i+1223)%1136,y=r.y+104+hash(n,i+1699)%800;
+   if(protectedPoints.some(p=>Math.hypot(p.x-x,p.y-y)<68)||!dryFootprint(map,{x:x-40,y:y-80,w:80,h:80})||near(props,x,y,48)||near(bushes,x,y,52))continue;
+   const p={name:'forest-bush-'+count%4,x:x-40,y:y-80};map.details.push(p);add(bushes,{x,y},x,y);count++;placed++;
+  }
+ }
+ return placed;
 }
 export function ledgeBlocked(ledges,x,y,r=12){return ledges.some(l=>x+r>l.x&&x-r<l.x+l.w&&y>l.y&&y-r<l.y+l.h);}

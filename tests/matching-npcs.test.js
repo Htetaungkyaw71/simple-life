@@ -17,7 +17,10 @@ test('only approved Nell/Sol resident IDs use new 64px art, preserving shared le
    assert.ok(residentFrame({...n,direction,moving,elapsed}).endsWith('-0'));
   }
  }
- for(const n of [{id:'clara',art:2},{id:'home-eli',art:5},{id:'city-june',art:0}]){
+ const clara=residentVisual({id:'clara',art:2,spriteSheet:'seed-seller'});
+ assert.equal(clara.customSheet,true);assert.equal(clara.texture,'seed-seller');assert.equal(clara.columns,6);
+ assert.deepEqual(clara.walkFrames,[4,4,4]);assert.deepEqual(clara.sitFrames,[5,5,5]);assert.equal(clara.scale,1.5);
+ for(const n of [{id:'home-eli',art:5},{id:'city-june',art:0}]){
   assert.equal(residentVisual(n).custom,false);assert.equal(residentVisual(n).scale,2);
   assert.equal(residentFrame({...n,direction:'left',elapsed:120,moving:true}),`town-person-${n.art}-left-2`);
  }

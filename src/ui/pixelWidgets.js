@@ -16,19 +16,19 @@ export function frame(g,x,y,w,h,color=UI_COLORS.panel,style='leaf',edge=UI_COLOR
 }
 export function panel(scene,parent,x,y,w,h,color=UI_COLORS.panel,style='leaf'){const g=scene.add.graphics();parent.add(g);return frame(g,x,y,w,h,color,style);}
 export function text(scene,parent,x,y,value,size=8,tint=UI_COLORS.light,width,bold=false,role=size>=10?'heading':'body'){
- if((scene.app?.language?.current==='mm'&&role!=='numeric'&&!/^[0-9\s<>?X%+.:-]+$/.test(String(value))&&!['SIMPLE LIFE','SIMPLE\nLIFE','Simple Life'].includes(value))||/[\u1000-\u109f]/u.test(String(value))){const t=myanmarText(scene,x,y,value,role==='heading'?(size>=24?24:12):8,tint,width);parent.add(t);return t;}
+ if((scene.app?.language?.current==='mm'&&role!=='numeric'&&!/^[0-9\s<>?X%+.:-]+$/.test(String(value))&&!['SIMPLE LIFE','SIMPLE\nLIFE','Simple Life'].includes(value))||/[\u1000-\u109f]/u.test(String(value))){const t=myanmarText(scene,x,y,value,role==='heading'?(size>=24?24:12):role==='compact'?Math.max(7,size):8,tint,width);parent.add(t);return t;}
  const family=role==='heading'?'thaleah':'m5x7',data=scene.cache.bitmapFont.get(family).data,native=data.size;
  let multiple=role==='heading'?(size>=24?3:size>=12?2:1):1;
  const measure=v=>Math.max(...String(v).split('\n').map(line=>[...line].reduce((n,c)=>n+(data.chars[c.charCodeAt(0)]?.xAdvance||0),0)));
  if(width)while(multiple>1&&measure(value)*multiple>width)multiple--;
  const t=scene.add.bitmapText(Math.round(x),Math.round(y),coloredFont(scene,tint,family),value,native*multiple);const original=t.setText.bind(t);t.setText=v=>original(translate(v,scene.app?.language?.current));t.sourceText=value;t.uiText=true;t.setLineSpacing(2);if(width)t.setMaxWidth(Math.floor(width));parent.add(t);return t;
 }
-export function icon(scene,parent,name,x,y,scale=1){const i=propImage(scene,name,x,y,scale);parent.add(i);return i;}
-export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null,glyph=null,preview=null,bold=false,fontSize=8,textTint=null,sound=true}={}){
+export function icon(scene,parent,name,x,y,scale=1,context='slot'){const i=propImage(scene,name,x,y,scale,0,context);parent.add(i);return i;}
+export function button(scene,parent,label,x,y,w,h,action,{disabled=false,id=label,iconName=null,iconContext='slot',glyph=null,preview=null,bold=false,fontSize=8,textTint=null,sound=true}={}){
  const box=scene.add.graphics();parent.add(box);let fill=disabled?0xd7d2b4:UI_COLORS.cream,stroke=1,base=fill;
  const paint=()=>{box.clear();frame(box,x,y,w,h,fill,'leaf',UI_COLORS.border,stroke);if(glyph)glyph(box,Math.round(x+w/2-4),Math.round(y+h/2-4),disabled?UI_COLORS.muted:UI_COLORS.light);};
  box.setFillStyle=c=>{base=fill=c;paint();return box;};box.setStrokeStyle=size=>{stroke=size;paint();return box;};paint();
- if(iconName){const size=itemIconDisplaySize(iconName);icon(scene,parent,iconName,Math.round(x+(w-size)/2),Math.round(y+(h-size)/2));}
+ if(iconName){const size=itemIconDisplaySize(iconName,iconContext);icon(scene,parent,iconName,Math.round(x+(w-size)/2),Math.round(y+(h-size)/2),1,iconContext);}
  if(preview)preview(scene,parent,x+w/2,y+h/2,w-8,h-8);
  const t=iconName||glyph||preview?null:text(scene,parent,x+w/2,0,translateButton(label,scene.app?.language?.current),fontSize,textTint??(disabled?UI_COLORS.muted:UI_COLORS.light),w-6,bold,'body');
  if(t){if(t.height>h-6){let short=label;while(short.length&&(t.width>w-6||t.height>h-6)){short=scene.app?.language?.current==='mm'?'':short.slice(0,-1);t.setText(short+'...');}}t.setOrigin(.5,0).setPosition(Math.round(x+w/2),Math.round(y+(h-t.height)/2));}

@@ -1,5 +1,7 @@
 # Watermelon palette-and-anchor update — 2026-10-25
 
+Cleanup revision, 2026-10-26: background references are `(254,3,253)` and `(255,0,255)`; fringe references are `(100,30,87)`, `(152,32,138)`, `(202,28,190)` and `(242,12,239)`. Distance is 4 per RGB channel, and only background-connected 8-neighbour components are removable. The broad hue predicate is retired.
+
 This section supersedes the old source-exact color/sign metadata below. The 56×46 strip uses the deterministic exact-RGBA living-green lookup (`0.78` saturation, 8° toward olive, `0.94` bright-green lightness), changing 2,889 pixels with geometry and binary alpha unchanged. Its ripe green range still spans 37.65 HSL-lightness points. Seed/dry/wilted/dead are byte-identical to `candidate-b-pre-palette.png`. The vine base audit gives scale 1, `anchorX: 28.5`, `baseOffsetY: 3`, `signOffsetY: -79`. Exact evidence is in `manifest.json`.
 
 # Historical Watermelon runtime plant-sheet import

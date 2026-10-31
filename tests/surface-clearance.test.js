@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {MAPS} from '../src/data/mapLayouts.js';
+import {PLANTER_BENCH} from '../src/data/planterBench.js';
 import {walkable} from '../src/data/locations.js';
 import {dryFootprint} from '../src/data/water.js';
 import {groundDetailFootprint,hitsRows,isNaturalScenery,surfaceFootprint} from '../src/data/surfaceClearance.js';
@@ -29,12 +30,13 @@ test('home storage props have visible breathing room and no ground growth',()=>{
  assert.ok(!MAPS.home.details.some(p=>hitsRows(groundDetailFootprint(p),[barrelVisual],2)));
 });
 
-test('large authored barrels block their visible body instead of the retired small footprint',()=>{
+test('large authored barrels block their visible body without extra clearance',()=>{
  for(const area of ['home','city'])for(const p of MAPS[area].props.filter(p=>p.name==='barrel')){
-  const expected=[p.x+25,p.y+19,47,117];
-  assert.ok(MAPS[area].obstacles.some(box=>box.every((value,index)=>value===expected[index])),`${area} barrel uses its rendered bounds plus farmer clearance`);
-  assert.equal(walkable(area,p.x+49,p.y+54,0),false,`${area} barrel centre is blocked`);
-  assert.equal(walkable(area,p.x+49,p.y+120,0),false,`${area} barrel keeps the farmer's visible body clear below it`);
+  const expected=[p.x+25,p.y+19,47,69];
+  assert.ok(MAPS[area].obstacles.some(box=>box.every((value,index)=>value===expected[index])),`${area} barrel uses its visible bounds`);
+  assert.equal(walkable(area,p.x+49,p.y+54,0),false,`${area} barrel centre is solid`);
+  assert.equal(walkable(area,p.x+84,p.y+54),true,`${area} barrel allows a close side approach`);
+  assert.equal(walkable(area,p.x+49,p.y+100),true,`${area} barrel has no invisible clearance below it`);
  }
 });
 
@@ -45,17 +47,32 @@ test('bootstrap markup presents a styled loading state before Phaser starts',()=
  assert.match(css,/\.loading-screen\{/);assert.match(css,/\.loading-screen__fill\{/);
 });
 
-test('visible stones are solid across Home, Farm and the Forest',()=>{
- for(const area of ['home','farm'])for(const p of MAPS[area].props.filter(p=>p.name==='rock')){
-  assert.ok(MAPS[area].obstacles.some(b=>b[0]===p.x&&b[1]===p.y&&b[2]===64&&b[3]===112),`${area} rock keeps the farmer's visible body clear`);
-  assert.equal(walkable(area,p.x+32,p.y+32,0),false,`${area} rock centre is blocked`);
+test('visible stones block their painted body without invisible padding',()=>{
+ for(const area of ['home','farm']){
+  const rocks=MAPS[area].props.filter(p=>p.name==='rock');let approachable=0;
+  for(const p of rocks){
+   assert.ok(MAPS[area].obstacles.some(b=>b[0]===p.x+2&&b[1]===p.y+22&&b[2]===60&&b[3]===40),`${area} rock uses its visible bounds`);
+   assert.equal(walkable(area,p.x+32,p.y+42,0),false,`${area} rock centre is solid`);
+   if([[p.x-16,p.y+42],[p.x+74,p.y+42],[p.x+32,p.y+74]].some(([x,y])=>walkable(area,x,y)))approachable++;
+  }
+  assert.ok(approachable>=rocks.length-1,`${area} isolated rocks allow close approaches`);
  }
- for(const p of MAPS.forest.props.filter(p=>p.name==='rock')){
-  assert.ok(MAPS.forest.obstacles.some(b=>b[0]===p.x-20&&b[1]===p.y-8&&b[2]===104&&b[3]===120),"Forest boulder keeps the farmer's visible body clear");
-  assert.equal(walkable('forest',p.x+32,p.y+28,0),false,'Forest boulder centre is blocked');
+ const forestRocks=MAPS.forest.props.filter(p=>p.name==='rock');for(const p of forestRocks){
+  assert.ok(MAPS.forest.obstacles.some(b=>b[0]===p.x-20&&b[1]===p.y-8&&b[2]===104&&b[3]===72),'Forest boulder uses its visible bounds');
+  assert.equal(walkable('forest',p.x+32,p.y+28,0),false,'Forest boulder centre is solid');
  }
  for(const p of MAPS.forest.props.filter(p=>p.rocky&&p.solid)){
-  assert.ok(MAPS.forest.obstacles.some(b=>b[0]===p.x&&b[1]===p.y&&b[2]===p.w&&b[3]===p.h+48),`${p.name} keeps the farmer's visible body clear`);
+  assert.ok(MAPS.forest.obstacles.some(b=>b[0]===p.x&&b[1]===p.y&&b[2]===p.w&&b[3]===p.h),`${p.name} has no invisible extension`);
   assert.equal(walkable('forest',p.x+p.w/2,p.y+p.h/2,0),false,`${p.name} centre is blocked`);
+ }
+});
+
+test('City planter benches block their full visible body and allow close approach',()=>{
+ for(const p of MAPS.city.props.filter(p=>p.name==='city-bench-garden')){
+  const [ox,oy,w,h]=PLANTER_BENCH.footprint,expected=[p.x+ox,p.y+oy,w,h];
+  assert.ok(MAPS.city.obstacles.some(box=>box.every((value,index)=>value===expected[index])),'planter bench uses its scaled visible bounds');
+  assert.equal(walkable('city',p.x+71,p.y+49,0),false,'planter body is solid');
+  assert.equal(walkable('city',p.x+119,p.y+49),true,'farmer can approach beside the planter');
+  assert.equal(walkable('city',p.x+71,p.y+107),true,'no invisible wall remains below the planter');
  }
 });

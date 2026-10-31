@@ -88,24 +88,46 @@
     "interpretation": "native 1px hard-edged art; no reduction or resampling performed"
   },
   "cleanup": {
-    "method": "boundary-connected magenta plus repeated bottom-connected ground region",
+    "method": "recorded background colours plus background-connected 8-neighbour fringe components; repeated bottom-connected ground region",
+    "backgroundReferences": [
+      [
+        254,
+        3,
+        253
+      ],
+      [
+        255,
+        0,
+        255
+      ]
+    ],
+    "backgroundColorDistance": 4,
+    "fringeReferences": [
+      [
+        180,
+        19,
+        169
+      ]
+    ],
+    "fringeColorDistance": 4,
     "removedMagentaColors": [
       [
         180,
         19,
         169,
         255,
-        147
+        159
       ],
       [
         254,
         3,
         253,
         255,
-        37372
+        37632
       ]
     ],
-    "remainingInteriorMagentaPixels": 276,
+    "remainingExposedReferencePixels": 0,
+    "remainingInteriorMagentaPixels": 0,
     "soil": {
       "valid": true,
       "method": "repeated opaque pixels within a broad bottom-connected spatial component, with plant-ingress protection",
@@ -121,7 +143,7 @@
         36,
         18
       ],
-      "maskPixelCount": 144,
+      "maskPixelCount": 142,
       "removedPixels": 0,
       "stages": [
         {
@@ -153,45 +175,45 @@
         },
         {
           "stage": "flowering",
-          "opaqueBefore": 1090,
+          "opaqueBefore": 1048,
           "removedPixels": 0,
-          "opaqueAfter": 1090,
+          "opaqueAfter": 1048,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "ripe",
-          "opaqueBefore": 1535,
+          "opaqueBefore": 1477,
           "removedPixels": 0,
-          "opaqueAfter": 1535,
+          "opaqueAfter": 1477,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dry",
-          "opaqueBefore": 1200,
+          "opaqueBefore": 1085,
           "removedPixels": 0,
-          "opaqueAfter": 1200,
+          "opaqueAfter": 1085,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "wilted",
-          "opaqueBefore": 900,
+          "opaqueBefore": 848,
           "removedPixels": 0,
-          "opaqueAfter": 900,
+          "opaqueAfter": 848,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
         },
         {
           "stage": "dead",
-          "opaqueBefore": 415,
+          "opaqueBefore": 410,
           "removedPixels": 0,
-          "opaqueAfter": 415,
+          "opaqueAfter": 410,
           "removedRatio": 0.0,
           "over25Percent": false,
           "cleanupRolledBackToProtectPlant": false
@@ -342,9 +364,9 @@
       47
     ],
     "path": "docs/assets/licenses/strawberry-import-v1/candidate-b.png",
-    "sha256": "e0b0804a9d121a4ef1ca1f9df014bd6d8dbc102445721a21131661ebbdde8b9b",
-    "uniqueColors": 21,
-    "uniqueOpaqueColors": 20,
+    "sha256": "00379496c4b6cbf3b216f49e3be13b79eb5d7c1e304b295afc4a250cfafde357",
+    "uniqueColors": 20,
+    "uniqueOpaqueColors": 19,
     "placements": [
       {
         "trimmedWidth": 30,
@@ -379,7 +401,7 @@
       {
         "trimmedWidth": 41,
         "trimmedHeight": 44,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 14,
         "frameX": 138,
         "pasteX": 2,
         "pasteY": 3,
@@ -389,7 +411,7 @@
       {
         "trimmedWidth": 46,
         "trimmedHeight": 47,
-        "uniqueOpaqueColors": 16,
+        "uniqueOpaqueColors": 15,
         "frameX": 184,
         "pasteX": 0,
         "pasteY": 0,
@@ -399,7 +421,7 @@
       {
         "trimmedWidth": 40,
         "trimmedHeight": 44,
-        "uniqueOpaqueColors": 15,
+        "uniqueOpaqueColors": 13,
         "frameX": 230,
         "pasteX": 3,
         "pasteY": 3,
@@ -409,7 +431,7 @@
       {
         "trimmedWidth": 41,
         "trimmedHeight": 35,
-        "uniqueOpaqueColors": 10,
+        "uniqueOpaqueColors": 8,
         "frameX": 276,
         "pasteX": 2,
         "pasteY": 12,
@@ -419,7 +441,7 @@
       {
         "trimmedWidth": 40,
         "trimmedHeight": 18,
-        "uniqueOpaqueColors": 8,
+        "uniqueOpaqueColors": 7,
         "frameX": 322,
         "pasteX": 3,
         "pasteY": 29,
@@ -441,17 +463,17 @@
         "young": 24.057,
         "flowering": 22.036,
         "ripe": 23.203,
-        "dry": 23.492,
+        "dry": 23.476,
         "wilted": 28.059,
         "dead": 22.235
       }
     },
     "prePalettePath": "docs/assets/licenses/strawberry-import-v1/candidate-b-pre-palette.png",
-    "prePaletteSha256": "cb21af699dc3de84365b56b323ee3a7d9fa2b81762716af5eaec9b82d6976fdc"
+    "prePaletteSha256": "c6de9744a96e4932c61c59f9732187e4d5864c5a26265ad305c168302f23b5e5"
   },
   "cleanedSource": {
     "path": "docs/assets/licenses/strawberry-import-v1/cleaned-source.png",
-    "sha256": "8386b6daae4013c7e6478babfdd99593d941feecc0996a1aebe4d485b3cfc855"
+    "sha256": "5fd011af379a93e35d3dae2a736f983fc164801fe40d3c17c7c1ec5329e4d3ad"
   },
   "evidenceSource": {
     "path": "docs/assets/licenses/strawberry-import-v1/source.png",
@@ -470,7 +492,6 @@
   "runtimeAtlas": {
     "image": "public/assets/pixel/processed/town.png",
     "metadata": "public/assets/pixel/processed/town.json",
-    "rowY": 4810,
     "frameSize": [
       46,
       47
