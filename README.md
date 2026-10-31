@@ -1,10 +1,46 @@
-# Simple Life 1.0.0 — competition release (2026-10-31)
+# Simple Life
 
-Simple Life is a fullscreen browser farming, exploration and narrative adventure created for Digit7 Jam 2026. The release uses Phaser 3.90.0, Vite 6.4.3, local runtime assets, keyboard/mouse/touch controls and schema-21 local saves. The normal production build starts a new game with **60 coins**; the separate historical playtest-only 100,000-coin grant is disabled.
+**Simple Life** is a fullscreen browser farming, exploration, economy and narrative adventure created for Digit7 Jam 2026. Choose a farmer, grow and sell crops, explore the Forest, meet residents in the City, uncover the Last Lantern story and build a calmer life across the Homestead, Forest and City.
 
-The user-supplied competition cover is stored at `submission/simple-life-cover.png`. The supplied `public/favicon.svg` is the browser tab icon and PWA icon. Their unchanged source hashes and provenance limitations are recorded in `docs/assets/licenses/submission-branding-v1/SOURCE_RECORD.md`.
+## Technology
 
-Build with `npm run build`; serve the resulting `dist/` folder over HTTP(S). The production build has no backend, runtime CDN, analytics, advertising, authentication or cloud save.
+- JavaScript ES modules
+- Phaser 3.90.0
+- Vite 6.4.3
+- Local bundled assets and audio
+- LocalStorage saves with schema-21 migration support
+- Keyboard, mouse and touch controls
+
+The production game has no backend, runtime CDN, analytics, advertising, authentication or cloud save.
+
+## Clone and install
+
+Install Node.js 20 or newer, then clone the repository and install its pinned dependencies:
+
+```bash
+git clone https://github.com/Htetaungkyaw71/simple-life.git
+cd simple-life
+npm ci
+```
+
+## Run the game
+
+```bash
+npm run dev
+```
+
+Open the local URL shown by Vite, normally <http://127.0.0.1:5173/>.
+
+To create and preview the production build:
+
+```bash
+npm run build
+npm run preview
+```
+
+The production build is written to `dist/` and must be served over HTTP(S). Run the tests with `npm test`.
+
+The normal production build starts a new game with **60 coins**; the separate historical playtest-only 100,000-coin grant is disabled. The user-supplied competition cover is stored at `submission/simple-life-cover.png`, and the supplied `public/favicon.svg` is used as the browser tab and PWA icon. Their source hashes and provenance limitations are recorded in `docs/assets/licenses/submission-branding-v1/SOURCE_RECORD.md`.
 
 ---
 
